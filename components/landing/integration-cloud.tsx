@@ -1,7 +1,8 @@
 "use client";
 
 import React from "react";
-import { Database, Mail, FileSpreadsheet, MessagesSquare, CheckSquare } from "lucide-react";
+import Image from "next/image";
+import { Mail, MessagesSquare, CheckSquare, Calendar, FileText, Mic } from "lucide-react";
 
 const SlackIcon = () => (
   <svg viewBox="0 0 24 24" className="size-4 text-zinc-500" fill="currentColor">
@@ -21,27 +22,19 @@ const FigmaIcon = () => (
   </svg>
 );
 
-const ChromeIcon = () => (
-  <svg viewBox="0 0 24 24" className="size-4 text-zinc-500" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <circle cx="12" cy="12" r="10" />
-    <circle cx="12" cy="12" r="4" />
-    <line x1="21.17" y1="8" x2="12" y2="8" />
-    <line x1="3.95" y1="6.06" x2="8.54" y2="14" />
-    <line x1="10.88" y1="21.94" x2="15.46" y2="14" />
-  </svg>
-);
+
 
 export function IntegrationCloud() {
   const integrations = [
-    { icon: <SlackIcon />,                                          label: "Slack",     top: "15%", left: "12%", delay: "0s"   },
-    { icon: <Database className="size-4 text-zinc-500" />,         label: "Salesforce",top: "25%", left: "78%", delay: "1.5s" },
-    { icon: <GithubIcon />,                                         label: "GitHub",    top: "68%", left: "20%", delay: "0.7s" },
-    { icon: <FigmaIcon />,                                          label: "Figma",     top: "52%", left: "80%", delay: "2.1s" },
-    { icon: <Mail className="size-4 text-zinc-500" />,             label: "Gmail",     top: "72%", left: "70%", delay: "1.2s" },
-    { icon: <FileSpreadsheet className="size-4 text-zinc-500" />,  label: "Excel",     top: "18%", left: "42%", delay: "2.8s" },
-    { icon: <ChromeIcon />,                                         label: "Chrome",    top: "75%", left: "48%", delay: "0.3s" },
-    { icon: <MessagesSquare className="size-4 text-zinc-500" />,   label: "Intercom",  top: "45%", left: "8%",  delay: "1.9s" },
-    { icon: <CheckSquare className="size-4 text-zinc-500" />,      label: "Jira",      top: "42%", left: "90%", delay: "3.2s" },
+    { icon: <SlackIcon />,                                        label: "Slack",           top: "15%", left: "12%", delay: "0s"   },
+    { icon: <GithubIcon />,                                       label: "GitHub",          top: "25%", left: "78%", delay: "1.5s" },
+    { icon: <Calendar className="size-4 text-zinc-500" />,        label: "Google Calendar", top: "68%", left: "20%", delay: "0.7s" },
+    { icon: <FigmaIcon />,                                        label: "Figma",           top: "52%", left: "80%", delay: "2.1s" },
+    { icon: <Mail className="size-4 text-zinc-500" />,            label: "Gmail",           top: "72%", left: "70%", delay: "1.2s" },
+    { icon: <FileText className="size-4 text-zinc-500" />,        label: "Notion",          top: "18%", left: "42%", delay: "2.8s" },
+    { icon: <Mic className="size-4 text-zinc-500" />,             label: "Sarvam AI",       top: "75%", left: "48%", delay: "0.3s" },
+    { icon: <MessagesSquare className="size-4 text-zinc-500" />,  label: "Linear",          top: "45%", left: "8%",  delay: "1.9s" },
+    { icon: <CheckSquare className="size-4 text-zinc-500" />,     label: "Jira",            top: "42%", left: "90%", delay: "3.2s" },
   ];
 
   return (
@@ -63,19 +56,15 @@ export function IntegrationCloud() {
 
       {/* Center content */}
       <div className="max-w-9xl mx-auto px-6 relative z-10 text-center flex flex-col items-center gap-6">
-        <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.04] pointer-events-none">
-          <svg viewBox="0 0 100 100" className="w-[280px] h-[280px] text-zinc-950" fill="currentColor">
-            {[...Array(12)].map((_, i) => (
-              <rect key={i} x="45" y="8" width="10" height="28" rx="5" transform={`rotate(${i * 30} 50 50)`} />
-            ))}
-          </svg>
+        <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.06] pointer-events-none">
+          <Image src="/keilhq.svg" alt="" width={200} height={200} />
         </div>
 
         <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-950 max-w-xl leading-tight">
-          o11 lives in every app you already use.
+          KielHQ connects with 50+ tools your team already uses.
         </h2>
         <p className="text-base text-zinc-500 max-w-md">
-          Connect your existing workspaces in a single click. No custom APIs, schema mappings, or developer hours required.
+          Slack, GitHub, Linear, Notion, Google Calendar, and more — connect in one click. No custom APIs or developer hours required.
         </p>
 
         {/* Mobile grid */}

@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 export function Vision() {
   return (
@@ -19,11 +20,13 @@ export function Vision() {
 
         {/* Brand icon — top right */}
         <div className="absolute top-6 right-6 text-white opacity-90 z-10">
-          <svg viewBox="0 0 100 100" className="w-10 h-10 animate-[spin_20s_linear_infinite]" fill="currentColor">
-            {[...Array(12)].map((_, i) => (
-              <rect key={i} x="45" y="8" width="10" height="28" rx="5" transform={`rotate(${i * 30} 50 50)`} />
-            ))}
-          </svg>
+          <Image
+            src="/keilhq-white.svg"
+            alt="KielHQ"
+            width={40}
+            height={40}
+            className="animate-[spin_20s_linear_infinite]"
+          />
         </div>
 
         {/* "Play with sound" pill — centered */}
@@ -39,7 +42,7 @@ export function Vision() {
         {/* Large heading — bottom left */}
         <div className="absolute bottom-16 left-10 z-10">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-white leading-tight tracking-tight">
-            People across<br />the world use o11
+            7,000+ teams<br />ship with KielHQ
           </h2>
         </div>
 
