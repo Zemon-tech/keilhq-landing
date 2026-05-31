@@ -7,6 +7,7 @@ import { IntegrationCloud } from "@/components/landing/integration-cloud";
 import { Features, StickyScrollSection } from "@/components/landing/features";
 import { LovedBy } from "@/components/landing/loved-by";
 import { Footer } from "@/components/landing/footer";
+import { Blogs } from "@/components/landing/blogs";
 
 // ─── Mockup image wrapper — consistent shadow + rounding ─────────────────────
 const MockupImage = ({ src, alt }: { src: string; alt: string }) => (
@@ -98,6 +99,7 @@ export default function Home() {
         <Vision />
         <IntegrationCloud />
         <Features data={featuresData} />
+        <Blogs />
         <LovedBy />
       </main>
       <Footer />
