@@ -33,11 +33,11 @@ export function Hero() {
 
   return (
     <section className="relative w-full min-h-screen bg-background flex items-center">
-      <div className="max-w-8xl w-full mx-auto px-8 lg:px-12 flex flex-col lg:flex-row items-center gap-12 pt-28 pb-16">
+      <div className="max-w-8xl w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center gap-12 pt-28 pb-16">
 
         {/* ── Left: Copy ── */}
         <div className="w-full lg:w-[340px] shrink-0 flex flex-col gap-6 text-left">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary border border-border w-fit">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-secondary border border-border w-fit">
             <span className="size-1.5 rounded-full bg-emerald-500 inline-block" />
             <span className="text-xs font-medium text-muted-foreground">Trusted by 7,000+ teams globally</span>
           </div>
@@ -61,7 +61,7 @@ export function Hero() {
             ].map((item) => (
               <span
                 key={item.label}
-                className={`${item.bg} text-[10px] font-semibold px-2.5 py-1 rounded-full`}
+                className={`${item.bg} text-[10px] font-semibold px-2.5 py-1 rounded-sm`}
               >
                 {item.label}
               </span>
@@ -72,7 +72,7 @@ export function Hero() {
           <div className="flex items-center gap-4">
             <a
               href="#"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition-colors group"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-sm bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition-colors group"
             >
               Start Free
               <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
@@ -89,9 +89,9 @@ export function Hero() {
         <div className="flex-1 w-full min-w-0 relative">
 
           {/* Dashboard screenshot */}
-          <div className="w-full rounded-2xl overflow-hidden shadow-2xl border border-border/60">
+          <div className="w-full rounded-sm overflow-hidden shadow-2xl border border-border/60">
             <Image
-              src="/mockups/dashboard.png"
+              src="/mockups/Dashboard.png"
               alt="KielHQ Smart Dashboard"
               width={1200}
               height={800}
@@ -101,7 +101,7 @@ export function Hero() {
           </div>
 
           {/* Floating AI chat card — bottom-right overlay using premium glass-card utility */}
-          <div className="absolute bottom-4 right-4 w-64 glass-card rounded-xl flex flex-col overflow-hidden text-[10px]">
+          <div className="absolute bottom-4 right-4 w-64 glass-card rounded-sm flex flex-col overflow-hidden text-[10px]">
             <div className="px-3 py-2 border-b border-border bg-card/60 flex items-center justify-between">
               <span className="font-semibold text-foreground text-xs">KielHQ AI</span>
               <span className="size-2 rounded-full bg-emerald-500 animate-pulse" />
@@ -109,8 +109,8 @@ export function Hero() {
             <div className="p-3 flex flex-col gap-2.5">
               {/* User prompt */}
               <div className="flex gap-2">
-                <div className="size-5 rounded-full bg-primary flex items-center justify-center text-[7px] text-primary-foreground font-bold shrink-0">SK</div>
-                <div className="flex-1 bg-card/40 border border-border rounded-lg p-2 text-foreground leading-relaxed">
+                <div className="size-5 rounded-sm bg-primary flex items-center justify-center text-[7px] text-primary-foreground font-bold shrink-0">SK</div>
+                <div className="flex-1 bg-card/40 border border-border rounded-sm p-2 text-foreground leading-relaxed">
                   {typedPrompt || <span className="text-muted-foreground/50">Ask anything...</span>}
                   {typedPrompt.length > 0 && typedPrompt.length < 65 && (
                     <span className="inline-block w-0.5 h-3 bg-foreground ml-0.5 animate-pulse" />
@@ -147,9 +147,9 @@ export function Hero() {
               )}
             </div>
             <div className="px-3 pb-3">
-              <div className="flex items-center gap-2 px-2.5 py-2 rounded-lg bg-card/40 border border-border text-muted-foreground">
+              <div className="flex items-center gap-2 px-2.5 py-2 rounded-sm bg-card/40 border border-border text-muted-foreground">
                 <span className="flex-1 text-muted-foreground/60">Ask KielHQ AI...</span>
-                <span className="px-1.5 py-0.5 bg-secondary text-secondary-foreground rounded text-[9px] font-medium">Gemini</span>
+                <span className="px-1.5 py-0.5 bg-secondary text-secondary-foreground rounded-sm text-[9px] font-medium">Gemini</span>
               </div>
             </div>
           </div>

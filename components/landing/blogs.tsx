@@ -35,7 +35,7 @@ const blogPosts = [
 export function Blogs() {
   return (
     <section className="w-full bg-background py-16 sm:py-24 border-t border-border">
-      <div className="max-w-9xl mx-auto px-6 lg:px-12">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         <Carousel
           opts={{
             align: "start",
@@ -53,12 +53,12 @@ export function Blogs() {
             <div className="w-full lg:w-3/4 flex justify-end items-center gap-2 mt-6 lg:mt-0">
               <Button 
                 variant="secondary" 
-                className="rounded-md bg-secondary hover:bg-accent text-secondary-foreground font-medium px-4 h-9 border-none shadow-none text-sm cursor-pointer"
+                className="rounded-sm bg-secondary hover:bg-accent text-secondary-foreground font-medium px-4 h-9 border-none shadow-none text-sm cursor-pointer"
               >
                 View all
               </Button>
-              <CarouselPrevious className="static translate-y-0 h-9 w-9 bg-secondary hover:bg-accent rounded-md border-none text-secondary-foreground shadow-none [&>svg]:size-4 cursor-pointer" />
-              <CarouselNext className="static translate-y-0 h-9 w-9 bg-secondary hover:bg-accent rounded-md border-none text-secondary-foreground shadow-none [&>svg]:size-4 cursor-pointer" />
+              <CarouselPrevious className="static translate-y-0 h-9 w-9 bg-secondary hover:bg-accent rounded-sm border-none text-secondary-foreground shadow-none [&>svg]:size-4 cursor-pointer" />
+              <CarouselNext className="static translate-y-0 h-9 w-9 bg-secondary hover:bg-accent rounded-sm border-none text-secondary-foreground shadow-none [&>svg]:size-4 cursor-pointer" />
             </div>
           </div>
 
@@ -70,7 +70,7 @@ export function Blogs() {
                 {blogPosts.map((post) => (
                   <CarouselItem key={post.id} className="pl-4 sm:pl-6 md:basis-1/2 lg:basis-1/3">
                     <div className="group cursor-pointer flex flex-col gap-4">
-                      <div className="overflow-hidden rounded-xl bg-muted aspect-[2/1] relative border border-border/50">
+                      <div className="overflow-hidden rounded-sm bg-muted aspect-[2/1] relative border border-border/50">
                         <Image
                           src={post.image}
                           alt={post.title}

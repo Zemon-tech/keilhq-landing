@@ -13,16 +13,16 @@ const faqs = [
 
 export default function SupportPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-white text-zinc-950">
+    <div className="flex flex-col min-h-screen bg-background text-foreground">
       <Navbar />
       <main className="flex-1 pt-32 pb-24 px-6 lg:px-12">
         <div className="max-w-3xl mx-auto flex flex-col gap-16">
           <div className="flex flex-col gap-4">
-            <span className="text-xs font-semibold tracking-widest text-zinc-400 uppercase">Support</span>
-            <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight text-zinc-950 leading-tight">
+            <span className="text-xs font-semibold tracking-widest text-muted-foreground/80 uppercase">Support</span>
+            <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight text-foreground leading-tight">
               How can we help?
             </h1>
-            <p className="text-base text-zinc-500">We&apos;re here to make sure KielHQ works perfectly for your team.</p>
+            <p className="text-base text-muted-foreground">We&apos;re here to make sure KielHQ works perfectly for your team.</p>
           </div>
 
           {/* Contact options */}
@@ -31,10 +31,10 @@ export default function SupportPage() {
               { title: "Email support", desc: "Get a response within one business day.", action: "support@kielhq.com", href: "mailto:support@kielhq.com" },
               { title: "Book a demo", desc: "See KielHQ live with a member of our team.", action: "Book a walkthrough", href: "/demo" },
             ].map((item) => (
-              <div key={item.title} className="p-6 rounded-2xl border border-zinc-100 bg-zinc-50 flex flex-col gap-3">
-                <span className="text-sm font-semibold text-zinc-950">{item.title}</span>
-                <p className="text-sm text-zinc-500">{item.desc}</p>
-                <Link href={item.href} className="text-sm font-semibold text-zinc-950 underline underline-offset-2 hover:text-zinc-600 transition-colors">
+              <div key={item.title} className="p-6 rounded-sm border border-border bg-card flex flex-col gap-3 shadow-sm">
+                <span className="text-sm font-semibold text-foreground">{item.title}</span>
+                <p className="text-sm text-muted-foreground">{item.desc}</p>
+                <Link href={item.href} className="text-sm font-semibold text-foreground underline underline-offset-2 hover:text-muted-foreground transition-colors">
                   {item.action}
                 </Link>
               </div>
@@ -43,12 +43,12 @@ export default function SupportPage() {
 
           {/* FAQ */}
           <div className="flex flex-col gap-6">
-            <h2 className="text-xl font-semibold text-zinc-950">Frequently asked questions</h2>
-            <div className="flex flex-col divide-y divide-zinc-100">
+            <h2 className="text-xl font-semibold text-foreground">Frequently asked questions</h2>
+            <div className="flex flex-col divide-y divide-border">
               {faqs.map((faq) => (
                 <div key={faq.q} className="py-5 flex flex-col gap-2">
-                  <p className="text-sm font-semibold text-zinc-950">{faq.q}</p>
-                  <p className="text-sm text-zinc-500 leading-relaxed">{faq.a}</p>
+                  <p className="text-sm font-semibold text-foreground">{faq.q}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{faq.a}</p>
                 </div>
               ))}
             </div>

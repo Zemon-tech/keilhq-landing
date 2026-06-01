@@ -58,18 +58,18 @@ const plans = [
 
 export default function PricingPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-white text-zinc-950">
+    <div className="flex flex-col min-h-screen bg-background text-foreground">
       <Navbar />
       <main className="flex-1 pt-32 pb-24 px-6 lg:px-12">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-8xl mx-auto">
 
           {/* Header */}
           <div className="text-center mb-16">
-            <span className="text-xs font-semibold tracking-widest text-zinc-400 uppercase">Pricing</span>
-            <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight text-zinc-950 mt-3">
+            <span className="text-xs font-semibold tracking-widest text-muted-foreground/80 uppercase">Pricing</span>
+            <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight text-foreground mt-3">
               One plan. Everything included.
             </h1>
-            <p className="mt-4 text-base text-zinc-500 max-w-xl mx-auto">
+            <p className="mt-4 text-base text-muted-foreground max-w-xl mx-auto">
               Teams switching to KielHQ save $40–$70 per seat every month versus running a full tool stack.
             </p>
           </div>
@@ -79,21 +79,21 @@ export default function PricingPage() {
             {plans.map((plan) => (
               <div
                 key={plan.name}
-                className={`flex flex-col rounded-2xl border p-8 gap-6 ${
+                className={`flex flex-col rounded-sm border p-8 gap-6 shadow-sm ${
                   plan.highlight
-                    ? "border-zinc-950 bg-zinc-950 text-white"
-                    : "border-zinc-200 bg-white text-zinc-950"
+                    ? "border-primary bg-primary text-primary-foreground"
+                    : "border-border bg-card text-foreground"
                 }`}
               >
                 <div className="flex flex-col gap-1">
-                  <span className={`text-xs font-semibold uppercase tracking-widest ${plan.highlight ? "text-zinc-400" : "text-zinc-400"}`}>
+                  <span className={`text-xs font-semibold uppercase tracking-widest ${plan.highlight ? "text-primary-foreground/70" : "text-muted-foreground"}`}>
                     {plan.name}
                   </span>
                   <div className="flex items-end gap-1.5 mt-2">
                     <span className="text-4xl font-bold tracking-tight">{plan.price}</span>
-                    <span className={`text-sm pb-1 ${plan.highlight ? "text-zinc-400" : "text-zinc-500"}`}>{plan.period}</span>
+                    <span className={`text-sm pb-1 ${plan.highlight ? "text-primary-foreground/70" : "text-muted-foreground"}`}>{plan.period}</span>
                   </div>
-                  <p className={`text-sm mt-2 leading-relaxed ${plan.highlight ? "text-zinc-400" : "text-zinc-500"}`}>
+                  <p className={`text-sm mt-2 leading-relaxed ${plan.highlight ? "text-primary-foreground/75" : "text-muted-foreground"}`}>
                     {plan.description}
                   </p>
                 </div>
@@ -102,17 +102,17 @@ export default function PricingPage() {
                   {plan.features.map((f) => (
                     <li key={f} className="flex items-start gap-2.5 text-sm">
                       <Check className={`size-4 mt-0.5 shrink-0 ${plan.highlight ? "text-emerald-400" : "text-emerald-500"}`} />
-                      <span className={plan.highlight ? "text-zinc-300" : "text-zinc-600"}>{f}</span>
+                      <span className={plan.highlight ? "text-primary-foreground/90" : "text-muted-foreground"}>{f}</span>
                     </li>
                   ))}
                 </ul>
 
                 <Link
                   href="#"
-                  className={`w-full text-center py-2.5 rounded-full text-sm font-semibold transition-colors ${
+                  className={`w-full text-center py-2.5 rounded-sm text-sm font-semibold transition-colors ${
                     plan.highlight
-                      ? "bg-white text-zinc-950 hover:bg-zinc-100"
-                      : "bg-zinc-950 text-white hover:bg-zinc-800"
+                      ? "bg-primary-foreground text-primary hover:opacity-90"
+                      : "bg-primary text-primary-foreground hover:opacity-90"
                   }`}
                 >
                   {plan.cta}
@@ -122,9 +122,9 @@ export default function PricingPage() {
           </div>
 
           {/* Comparison note */}
-          <p className="text-center text-sm text-zinc-400 mt-12">
+          <p className="text-center text-sm text-muted-foreground mt-12">
             All plans include a free trial. No credit card required to start.{" "}
-            <Link href="/enterprise" className="text-zinc-700 underline underline-offset-2 hover:text-zinc-950">
+            <Link href="/enterprise" className="text-foreground underline underline-offset-2 hover:opacity-80 transition-colors">
               Need enterprise pricing?
             </Link>
           </p>

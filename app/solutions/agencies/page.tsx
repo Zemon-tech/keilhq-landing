@@ -5,19 +5,19 @@ import { Check } from "lucide-react";
 
 export default function AgenciesPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-white text-zinc-950">
+    <div className="flex flex-col min-h-screen bg-background text-foreground">
       <Navbar />
       <main className="flex-1 pt-32 pb-24 px-6 lg:px-12">
-        <div className="max-w-4xl mx-auto flex flex-col gap-16">
+        <div className="max-w-8xl mx-auto flex flex-col gap-16">
           <div className="flex flex-col gap-5">
-            <span className="text-xs font-semibold tracking-widest text-zinc-400 uppercase">Solutions · Agencies</span>
-            <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight text-zinc-950 leading-tight">
+            <span className="text-xs font-semibold tracking-widest text-muted-foreground/80 uppercase">Solutions · Agencies</span>
+            <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight text-foreground leading-tight">
               KielHQ is built for how agencies actually work
             </h1>
-            <p className="text-base text-zinc-500 leading-relaxed max-w-2xl">
+            <p className="text-base text-muted-foreground leading-relaxed max-w-2xl">
               You manage multiple clients, multiple projects, and multiple deadlines — simultaneously. KielHQ&apos;s org/space model maps directly to how agencies work: one workspace, separate spaces per client, full visibility across all of them.
             </p>
-            <Link href="#" className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-950 text-white text-sm font-semibold hover:bg-zinc-800 transition-colors w-fit">
+            <Link href="#" className="inline-flex items-center gap-2 px-4 py-2 rounded-sm bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition-colors w-fit">
               Start Free for Your Agency
             </Link>
           </div>
@@ -30,12 +30,12 @@ export default function AgenciesPage() {
               { title: "Role-based access", desc: "Clients see only what they need to. Your team sees everything." },
               { title: "AI with real context", desc: "Ask KielHQ AI what&apos;s blocking any client project — and get a real answer." },
             ].map((item) => (
-              <div key={item.title} className="p-5 rounded-2xl border border-zinc-100 bg-zinc-50 flex flex-col gap-2">
+              <div key={item.title} className="p-5 rounded-sm border border-border bg-card flex flex-col gap-2 shadow-sm">
                 <div className="flex items-center gap-2">
                   <Check className="size-4 text-emerald-500 shrink-0" />
-                  <span className="text-sm font-semibold text-zinc-950">{item.title}</span>
+                  <span className="text-sm font-semibold text-foreground">{item.title}</span>
                 </div>
-                <p className="text-sm text-zinc-500 leading-relaxed pl-6">{item.desc}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed pl-6">{item.desc}</p>
               </div>
             ))}
           </div>

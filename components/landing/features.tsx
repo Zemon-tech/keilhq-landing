@@ -56,7 +56,7 @@ export function Features({ data }: StickyScrollProps) {
     <section className="w-full bg-background py-24 sm:py-32">
 
       {/* ── Section header — centered, full width ── */}
-      <div className="max-w-9xl mx-auto px-6 lg:px-12 mb-20 sm:mb-28 text-center">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 sm:mb-28 text-center">
         <span className="text-xs font-semibold tracking-widest text-muted-foreground uppercase">
           Everything in one place
         </span>
@@ -66,17 +66,13 @@ export function Features({ data }: StickyScrollProps) {
       </div>
 
       {/* ── Desktop: Sticky Scroll ── */}
-      <div className="hidden lg:block">
-        {/*
-          Outer wrapper: full width, no right padding.
-          Left text is constrained; right demo bleeds to the page edge.
-        */}
-        <div className="flex flex-row items-start">
+      <div className="hidden lg:block max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-row items-start gap-12">
 
           {/* Left — sticky text panel, fixed pixel width with left padding */}
           <div
-            className="shrink-0 sticky self-start pl-6 lg:pl-12 pr-10"
-            style={{ width: "360px", top: "calc(50vh - 140px)" }}
+            className="shrink-0 sticky self-start pr-4"
+            style={{ width: "340px", top: "calc(50vh - 140px)" }}
           >
             <div ref={leftContentRef} className="flex flex-col gap-5 text-left">
               {activeFeature?.badgeText && (
@@ -111,9 +107,8 @@ export function Features({ data }: StickyScrollProps) {
             </div>
           </div>
 
-          {/* Right — scrolling cards, bleeds to the right edge of the viewport.
-              pr-6/pr-12 gives a small right gutter so the card doesn't touch the browser edge. */}
-          <div className="flex-1 min-w-0 flex flex-col gap-[20vh] py-[1vh] pr-6 lg:pr-12">
+          {/* Right — scrolling cards, contained inside the grid area */}
+          <div className="flex-1 min-w-0 flex flex-col gap-[20vh] py-[1vh]">
             {data.map((item, idx) => (
               <div
                 key={item.id}
@@ -132,7 +127,7 @@ export function Features({ data }: StickyScrollProps) {
       </div>
 
       {/* ── Mobile: Linear Stack ── */}
-      <div className="flex lg:hidden flex-col gap-20 px-6">
+      <div className="flex lg:hidden flex-col gap-20 px-4 sm:px-6">
         {data.map((item) => (
           <div key={item.id} className="flex flex-col gap-6 text-left">
             <div className="flex flex-col gap-3">

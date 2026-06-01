@@ -34,7 +34,7 @@ export function Footer() {
   return (
     <footer className="w-full min-h-screen bg-background relative z-[60] border-t border-border flex flex-col overflow-hidden">
       {/* Top Links Section */}
-      <div className="max-w-9xl w-full mx-auto px-6 lg:px-12 pt-16 lg:pt-24 flex flex-col md:flex-row justify-between gap-16 md:gap-8">
+      <div className="max-w-8xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-16 lg:pt-24 flex flex-col md:flex-row justify-between gap-16 md:gap-8">
         {/* Brand */}
         <div className="md:w-1/4 shrink-0 flex flex-col gap-3">
           <Link href="/" className="flex items-center gap-2">
@@ -45,8 +45,8 @@ export function Footer() {
             </span>
           </Link>
           <div className="flex items-center gap-1.5 mt-2">
-             <div className="w-6 h-6 bg-secondary rounded flex items-center justify-center text-secondary-foreground text-xs font-medium">Y</div>
-             <div className="w-6 h-6 bg-primary rounded flex items-center justify-center text-primary-foreground text-xs font-medium">LY</div>
+            <div className="w-6 h-6 bg-secondary rounded flex items-center justify-center text-secondary-foreground text-xs font-medium">Y</div>
+            <div className="w-6 h-6 bg-primary rounded flex items-center justify-center text-primary-foreground text-xs font-medium">LY</div>
           </div>
         </div>
 
@@ -77,11 +77,11 @@ export function Footer() {
       <div className="flex-1 min-h-[120px]" />
 
       {/* Copyright Row */}
-      <div className="max-w-9xl w-full mx-auto px-6 lg:px-12 pb-16 lg:pb-32 flex flex-col md:flex-row items-center justify-between gap-6 z-10 relative">
+      <div className="max-w-8xl w-full mx-auto px-4 sm:px-6 lg:px-8 pb-16 lg:pb-32 flex flex-col md:flex-row items-center justify-between gap-6 z-10 relative">
         <span className="text-[13px] text-muted-foreground font-medium w-full md:w-1/3">
           © KielHQ {new Date().getFullYear()}
         </span>
-        
+
         <div className="flex items-center gap-6 flex-wrap justify-center w-full md:w-1/3">
           {["Support", "Privacy", "Cookies", "Terms", "SOC 2"].map((item) => (
             <Link
@@ -103,11 +103,11 @@ export function Footer() {
       </div>
 
       {/* Bottom Grid Graphics */}
-      <div className="absolute bottom-0 left-0 w-full h-[40vh] md:h-[50vh] pointer-events-none flex justify-between items-end px-[5%] opacity-40 dark:opacity-20">
-        
+      <div className="absolute bottom-0 left-0 w-full h-[40vh] md:h-[50vh] pointer-events-none flex justify-between items-end px-[5%] opacity-100 dark:opacity-100">
+
         {/* Left Graphic (Semi-circle) */}
-        <div 
-          className="w-[30%] h-[80%] bg-accent/60"
+        <div
+          className="w-[30%] h-[80%] bg-accent"
           style={{
             clipPath: 'circle(50% at 50% 100%)',
             maskImage: 'url("data:image/svg+xml,%3Csvg width=\'12\' height=\'12\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Crect width=\'10\' height=\'10\' fill=\'black\'/%3E%3C/svg%3E")',
@@ -116,8 +116,8 @@ export function Footer() {
         />
 
         {/* Middle Graphic (Diagonal Cut) */}
-        <div 
-          className="w-[28%] h-[100%] bg-accent/60"
+        <div
+          className="w-[28%] h-[100%] bg-accent"
           style={{
             clipPath: 'polygon(0 30%, 100% 0, 100% 100%, 0 100%, 0 70%, 50% 40%)', // Rough approximation of the shape
             maskImage: 'url("data:image/svg+xml,%3Csvg width=\'12\' height=\'12\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Crect width=\'10\' height=\'10\' fill=\'black\'/%3E%3C/svg%3E")',
@@ -126,15 +126,15 @@ export function Footer() {
         />
 
         {/* Right Graphic (Diagonal Cut) */}
-        <div 
-          className="w-[28%] h-[100%] bg-accent/60"
+        <div
+          className="w-[28%] h-[100%] bg-accent"
           style={{
             clipPath: 'polygon(0 20%, 100% 0, 100% 100%, 0 100%, 0 60%, 40% 30%)', // Rough approximation
             maskImage: 'url("data:image/svg+xml,%3Csvg width=\'12\' height=\'12\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Crect width=\'10\' height=\'10\' fill=\'black\'/%3E%3C/svg%3E")',
             WebkitMaskImage: 'url("data:image/svg+xml,%3Csvg width=\'12\' height=\'12\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Crect width=\'10\' height=\'10\' fill=\'black\'/%3E%3C/svg%3E")'
           }}
         />
-        
+
       </div>
     </footer>
   );

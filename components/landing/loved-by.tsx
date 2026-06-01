@@ -50,7 +50,7 @@ export function LovedBy() {
 
   return (
     <section className="w-full bg-background border-t border-border py-16 sm:py-24">
-      <div className="max-w-9xl mx-auto px-6 lg:px-12">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row">
 
           {/* ── Left: heading + stat ── */}
