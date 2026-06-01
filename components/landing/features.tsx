@@ -53,14 +53,14 @@ export function Features({ data }: StickyScrollProps) {
   const activeFeature = data[activeIdx];
 
   return (
-    <section className="w-full bg-white py-24 sm:py-32">
+    <section className="w-full bg-background py-24 sm:py-32">
 
       {/* ── Section header — centered, full width ── */}
       <div className="max-w-9xl mx-auto px-6 lg:px-12 mb-20 sm:mb-28 text-center">
-        <span className="text-xs font-semibold tracking-widest text-zinc-400 uppercase">
+        <span className="text-xs font-semibold tracking-widest text-muted-foreground uppercase">
           Everything in one place
         </span>
-        <h2 className="text-3xl sm:text-5xl font-semibold tracking-tight text-zinc-950 mt-3">
+        <h2 className="text-3xl sm:text-5xl font-semibold tracking-tight text-foreground mt-3">
           What you can do with KielHQ
         </h2>
       </div>
@@ -80,19 +80,19 @@ export function Features({ data }: StickyScrollProps) {
           >
             <div ref={leftContentRef} className="flex flex-col gap-5 text-left">
               {activeFeature?.badgeText && (
-                <span className="text-xs font-semibold text-zinc-400 uppercase tracking-widest">
+                <span className="text-xs font-semibold text-muted-foreground uppercase tracking-widest">
                   {activeFeature.badgeText}
                 </span>
               )}
-              <h3 className="text-2xl font-semibold tracking-tight text-zinc-950 leading-snug">
+              <h3 className="text-2xl font-semibold tracking-tight text-foreground leading-snug">
                 {activeFeature?.title}
               </h3>
-              <p className="text-sm leading-relaxed text-zinc-500">
+              <p className="text-sm leading-relaxed text-muted-foreground">
                 {activeFeature?.description}
               </p>
               <a
                 href="#"
-                className="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-950 hover:underline group w-fit"
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground hover:underline group w-fit"
               >
                 <span>Explore solution</span>
                 <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
@@ -103,7 +103,7 @@ export function Features({ data }: StickyScrollProps) {
                   <div
                     key={idx}
                     className={`h-[3px] rounded-full transition-all duration-300 ${
-                      idx === activeIdx ? "w-7 bg-zinc-950" : "w-2.5 bg-zinc-200"
+                      idx === activeIdx ? "w-7 bg-primary" : "w-2.5 bg-border"
                     }`}
                   />
                 ))}
@@ -137,15 +137,15 @@ export function Features({ data }: StickyScrollProps) {
           <div key={item.id} className="flex flex-col gap-6 text-left">
             <div className="flex flex-col gap-3">
               {item.badgeText && (
-                <span className="text-xs font-semibold text-zinc-400 uppercase tracking-widest">
+                <span className="text-xs font-semibold text-muted-foreground uppercase tracking-widest">
                   {item.badgeText}
                 </span>
               )}
-              <h3 className="text-2xl font-semibold text-zinc-950">{item.title}</h3>
-              <p className="text-sm text-zinc-500 leading-relaxed">{item.description}</p>
+              <h3 className="text-2xl font-semibold text-foreground">{item.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
               <a
                 href="#"
-                className="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-950 hover:underline group w-fit"
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground hover:underline group w-fit"
               >
                 <span>Explore solution</span>
                 <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />

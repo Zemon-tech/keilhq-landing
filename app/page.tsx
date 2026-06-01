@@ -11,7 +11,7 @@ import { Blogs } from "@/components/landing/blogs";
 
 // ─── Mockup image wrapper — consistent shadow + rounding ─────────────────────
 const MockupImage = ({ src, alt }: { src: string; alt: string }) => (
-  <div className="w-full rounded-2xl overflow-hidden shadow-2xl border border-zinc-200/60">
+  <div className="w-full rounded-2xl overflow-hidden shadow-2xl border border-border/60">
     <Image
       src={src}
       alt={alt}
@@ -91,7 +91,7 @@ const featuresData: StickyScrollSection[] = [
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-white font-sans text-zinc-950 selection:bg-zinc-900/10">
+    <div className="flex flex-col min-h-screen bg-background font-sans text-foreground selection:bg-primary/10">
       <Navbar />
       <main className="flex-1 flex flex-col">
         <Hero />

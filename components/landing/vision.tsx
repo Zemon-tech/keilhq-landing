@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export function Vision() {
   return (
-    <section className="w-full bg-white py-6 px-4 sm:px-6 lg:px-8">
+    <section className="w-full bg-background py-6 px-4 sm:px-6 lg:px-8">
       {/*
         Contained card — almost full-screen width, rounded corners, with video player chrome.
         Matches the reference: large rounded rectangle, not edge-to-edge.
