@@ -91,7 +91,7 @@ export function Hero() {
           {/* Dashboard screenshot */}
           <div className="w-full rounded-sm overflow-hidden shadow-2xl border border-border/60">
             <Image
-              src="/mockups/Dashboard.png"
+              src="/mockups/dashboard.png"
               alt="KielHQ Smart Dashboard"
               width={1200}
               height={800}

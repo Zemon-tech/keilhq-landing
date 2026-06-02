@@ -31,7 +31,7 @@ const featuresData: StickyScrollSection[] = [
     description:
       "Stop wasting the first 20 minutes of every morning figuring out what to do. KielHQ's Smart Dashboard ranks your work automatically — Immediate, Today, Blocked, Backlog — using real context from your tasks and calendar. Inline AI chat answers \"what should I tackle first?\" with your actual data.",
     visualComponent: (
-      <MockupImage src="/mockups/Dashboard.png" alt="KielHQ Smart Dashboard" />
+      <MockupImage src="/mockups/dashboard.png" alt="KielHQ Smart Dashboard" />
     ),
   },
   {
@@ -41,7 +41,7 @@ const featuresData: StickyScrollSection[] = [
     description:
       "Every task in KielHQ ships with built-in Objectives and Success Criteria fields. Kanban, Gantt, and Calendar views. Real dependency blocking logic — a task literally cannot be marked done if its blockers are incomplete. No more vague asks floating around.",
     visualComponent: (
-      <MockupImage src="/mockups/Tasks.png" alt="KielHQ Task Management" />
+      <MockupImage src="/mockups/tasks.png" alt="KielHQ Task Management" />
     ),
   },
   {
@@ -51,7 +51,7 @@ const featuresData: StickyScrollSection[] = [
     description:
       "Block-based rich-text editing, real-time collaborative editing, subpage hierarchies, comment threads on any block, and public shareable links. Stop paying for Notion — everything you need is already here, connected to the work it belongs to.",
     visualComponent: (
-      <MockupImage src="/mockups/Motion.png" alt="KielHQ Motion Docs" />
+      <MockupImage src="/mockups/motion.png" alt="KielHQ Motion Docs" />
     ),
   },
   {
