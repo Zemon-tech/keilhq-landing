@@ -10,14 +10,22 @@ import { Footer } from "@/components/landing/footer";
 import { Blogs } from "@/components/landing/blogs";
 
 // ─── Mockup image wrapper — consistent shadow + rounding ─────────────────────
-const MockupImage = ({ src, alt }: { src: string; alt: string }) => (
+const MockupImage = ({ lightSrc, darkSrc, alt }: { lightSrc: string; darkSrc: string; alt: string }) => (
   <div className="w-full rounded-sm overflow-hidden shadow-2xl border border-border/60">
     <Image
-      src={src}
+      src={lightSrc}
       alt={alt}
       width={1200}
       height={800}
-      className="w-full h-auto object-cover object-top"
+      className="w-full h-auto object-cover object-top dark:hidden"
+      priority
+    />
+    <Image
+      src={darkSrc}
+      alt={alt}
+      width={1200}
+      height={800}
+      className="w-full h-auto object-cover object-top hidden dark:block"
       priority
     />
   </div>
@@ -31,7 +39,11 @@ const featuresData: StickyScrollSection[] = [
     description:
       "Stop wasting the first 20 minutes of every morning figuring out what to do. KielHQ's Smart Dashboard ranks your work automatically — Immediate, Today, Blocked, Backlog — using real context from your tasks and calendar. Inline AI chat answers \"what should I tackle first?\" with your actual data.",
     visualComponent: (
-      <MockupImage src="/mockups/dashboard.png" alt="KielHQ Smart Dashboard" />
+      <MockupImage
+        lightSrc="/mockups/light/Dashboard.png"
+        darkSrc="/mockups/dark/Dashboard.png"
+        alt="KielHQ Smart Dashboard"
+      />
     ),
   },
   {
@@ -41,7 +53,11 @@ const featuresData: StickyScrollSection[] = [
     description:
       "Every task in KielHQ ships with built-in Objectives and Success Criteria fields. Kanban, Gantt, and Calendar views. Real dependency blocking logic — a task literally cannot be marked done if its blockers are incomplete. No more vague asks floating around.",
     visualComponent: (
-      <MockupImage src="/mockups/tasks.png" alt="KielHQ Task Management" />
+      <MockupImage
+        lightSrc="/mockups/light/Tasks.png"
+        darkSrc="/mockups/dark/Tasks.png"
+        alt="KielHQ Task Management"
+      />
     ),
   },
   {
@@ -51,7 +67,11 @@ const featuresData: StickyScrollSection[] = [
     description:
       "Block-based rich-text editing, real-time collaborative editing, subpage hierarchies, comment threads on any block, and public shareable links. Stop paying for Notion — everything you need is already here, connected to the work it belongs to.",
     visualComponent: (
-      <MockupImage src="/mockups/motion.png" alt="KielHQ Motion Docs" />
+      <MockupImage
+        lightSrc="/mockups/light/Motion.png"
+        darkSrc="/mockups/dark/Motion.png"
+        alt="KielHQ Motion Docs"
+      />
     ),
   },
   {
@@ -61,7 +81,11 @@ const featuresData: StickyScrollSection[] = [
     description:
       "Group channels, direct messages, unread badges, and real-time delivery via Socket.io. Everything stays tied to the project it belongs to — no more \"wait, what was that Slack message about?\" moments.",
     visualComponent: (
-      <MockupImage src="/mockups/Chat.png" alt="KielHQ Team Chat" />
+      <MockupImage
+        lightSrc="/mockups/light/Chat.png"
+        darkSrc="/mockups/dark/Chat.png"
+        alt="KielHQ Team Chat"
+      />
     ),
   },
   {
@@ -72,7 +96,8 @@ const featuresData: StickyScrollSection[] = [
       "Record meetings directly inside KielHQ. Audio is transcribed automatically with speaker diarization — the transcript tells you who said what. Turn meeting decisions into tasks in one click. No Otter.ai, no Fireflies, no third-party app.",
     visualComponent: (
       <MockupImage
-        src="/mockups/meeting.png"
+        lightSrc="/mockups/light/Meeting.png"
+        darkSrc="/mockups/dark/Meeting.png"
         alt="KielHQ Meeting Recorder"
       />
     ),
@@ -84,7 +109,11 @@ const featuresData: StickyScrollSection[] = [
     description:
       "Get notified when tasks are assigned, messages arrive, notes are shared, statuses change, or you're mentioned in a comment. Unread count badge, mark-all-read, and per-user preferences so you only hear about what matters to you.",
     visualComponent: (
-      <MockupImage src="/mockups/notifications.png" alt="KielHQ Notifications" />
+      <MockupImage
+        lightSrc="/mockups/light/Notifications.png"
+        darkSrc="/mockups/dark/Notifications.png"
+        alt="KielHQ Notifications"
+      />
     ),
   },
 ];

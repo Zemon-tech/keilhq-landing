@@ -91,11 +91,19 @@ export function Hero() {
           {/* Dashboard screenshot */}
           <div className="w-full rounded-sm overflow-hidden shadow-2xl border border-border/60">
             <Image
-              src="/mockups/dashboard.png"
+              src="/mockups/light/Dashboard.png"
               alt="KielHQ Smart Dashboard"
               width={1200}
               height={800}
-              className="w-full h-auto object-cover object-top"
+              className="w-full h-auto object-cover object-top dark:hidden"
+              priority
+            />
+            <Image
+              src="/mockups/dark/Dashboard.png"
+              alt="KielHQ Smart Dashboard"
+              width={1200}
+              height={800}
+              className="w-full h-auto object-cover object-top hidden dark:block"
               priority
             />
           </div>
