@@ -5,7 +5,7 @@ export default function AboutPage() {
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground">
       <Navbar />
-      <main className="flex-1 pt-32 pb-24 px-6 lg:px-12">
+      <main className="flex-1 pt-24 pb-24 px-6 lg:px-12">
         <div className="max-w-3xl mx-auto flex flex-col gap-16">
 
           {/* Hero */}

@@ -7,7 +7,7 @@ export default function FreelancersPage() {
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground">
       <Navbar />
-      <main className="flex-1 pt-32 pb-24 px-6 lg:px-12">
+      <main className="flex-1 pt-24 pb-24 px-6 lg:px-12">
         <div className="max-w-8xl mx-auto flex flex-col gap-16">
           <div className="flex flex-col gap-5">
             <span className="text-xs font-semibold tracking-widest text-muted-foreground/80 uppercase">Solutions · Freelancers</span>

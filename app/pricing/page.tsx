@@ -51,7 +51,7 @@ export default function PricingPage() {
     <div className="flex flex-col min-h-screen bg-background text-foreground select-text selection:bg-primary/10">
       <Navbar />
       
-      <main className="flex-1 pt-36 pb-24 px-4 sm:px-6 lg:px-8 max-w-8xl mx-auto w-full">
+      <main className="flex-1 pt-24 pb-24 px-4 sm:px-6 lg:px-8 max-w-8xl mx-auto w-full">
         
         {/* ─── SECTION 1: Pricing Tier Grid ─── */}
         <section className="mb-24">
