@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export function Vision() {
   return (
-    <section className="w-full bg-background py-6 px-4 sm:px-6 lg:px-8">
+    <section className="w-full bg-background pt-20 px-4 sm:px-6 lg:px-8">
       {/*
         Contained card — almost full-screen width, rounded corners, with video player chrome.
         Matches the reference: large rounded rectangle, not edge-to-edge.
@@ -12,7 +12,7 @@ export function Vision() {
 
         {/* Background image */}
         <div
-          className="absolute pt-24 inset-0 bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1600&auto=format&fit=crop')` }}
         />
         {/* Subtle overlay */}

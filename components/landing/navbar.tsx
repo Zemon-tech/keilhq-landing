@@ -61,7 +61,7 @@ export function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-5">
       <nav
-        className={`flex items-center gap-6 px-5 py-2 rounded-sm border backdrop-blur-md transition-all duration-300 ${isScrolled
+        className={`flex items-center justify-between md:justify-start gap-6 px-5 py-2 rounded-sm border backdrop-blur-md transition-all duration-300 w-[calc(100%-2rem)] md:w-auto ${isScrolled
             ? "bg-background/80 border-border/80 shadow-md"
             : "bg-background/40 border-border/40"
           }`}
