@@ -106,8 +106,6 @@ export function IntegrationCloud() {
             {/* Right: Still KeilHQ Logo adapted to theme */}
             <div className="shrink-0 ml-6 flex items-center justify-center mr-2">
               <div className="relative size-16 sm:size-20 flex items-center justify-center">
-                {/* Pulsing glow effect background */}
-                <div className="absolute inset-0 rounded-full bg-zinc-900/5 dark:bg-white/[0.03] blur-xl" />
 
                 {/* Light theme logo */}
                 <img
