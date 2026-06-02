@@ -99,61 +99,6 @@ export function Hero() {
               priority
             />
           </div>
-
-          {/* Floating AI chat card — bottom-right overlay using premium glass-card utility */}
-          <div className="absolute bottom-4 right-4 w-64 glass-card rounded-sm flex flex-col overflow-hidden text-[10px]">
-            <div className="px-3 py-2 border-b border-border bg-card/60 flex items-center justify-between">
-              <span className="font-semibold text-foreground text-xs">KielHQ AI</span>
-              <span className="size-2 rounded-full bg-emerald-500 animate-pulse" />
-            </div>
-            <div className="p-3 flex flex-col gap-2.5">
-              {/* User prompt */}
-              <div className="flex gap-2">
-                <div className="size-5 rounded-sm bg-primary flex items-center justify-center text-[7px] text-primary-foreground font-bold shrink-0">SK</div>
-                <div className="flex-1 bg-card/40 border border-border rounded-sm p-2 text-foreground leading-relaxed">
-                  {typedPrompt || <span className="text-muted-foreground/50">Ask anything...</span>}
-                  {typedPrompt.length > 0 && typedPrompt.length < 65 && (
-                    <span className="inline-block w-0.5 h-3 bg-foreground ml-0.5 animate-pulse" />
-                  )}
-                </div>
-              </div>
-
-              {currentReasoningStep >= 1 && (
-                <div className="flex flex-col gap-1 animate-in fade-in duration-300 pl-7">
-                  <div className="flex items-center gap-1.5 text-foreground font-medium">
-                    <Check className="size-3 text-emerald-500 shrink-0" />
-                    2 urgent tasks due today
-                  </div>
-                  <p className="text-muted-foreground leading-relaxed pl-4">Auth bug is blocking the deploy — tackle that first.</p>
-                </div>
-              )}
-              {currentReasoningStep >= 2 && (
-                <div className="flex flex-col gap-1 animate-in fade-in duration-300 pl-7">
-                  <div className="flex items-center gap-1.5 text-foreground font-medium">
-                    <Check className="size-3 text-emerald-500 shrink-0" />
-                    1 task blocked on dependency
-                  </div>
-                  <p className="text-muted-foreground leading-relaxed pl-4">Email campaign waiting on copy — pinged design in chat.</p>
-                </div>
-              )}
-              {currentReasoningStep >= 3 && (
-                <div className="flex flex-col gap-1 animate-in fade-in duration-300 pl-7">
-                  <div className="flex items-center gap-1.5 text-foreground font-medium">
-                    <Check className="size-3 text-emerald-500 shrink-0" />
-                    Your day is planned
-                  </div>
-                  <p className="text-muted-foreground leading-relaxed pl-4">Auth bug → proposal → design review after lunch.</p>
-                </div>
-              )}
-            </div>
-            <div className="px-3 pb-3">
-              <div className="flex items-center gap-2 px-2.5 py-2 rounded-sm bg-card/40 border border-border text-muted-foreground">
-                <span className="flex-1 text-muted-foreground/60">Ask KielHQ AI...</span>
-                <span className="px-1.5 py-0.5 bg-secondary text-secondary-foreground rounded-sm text-[9px] font-medium">Gemini</span>
-              </div>
-            </div>
-          </div>
-
         </div>
 
       </div>
