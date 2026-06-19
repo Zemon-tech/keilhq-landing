@@ -37,26 +37,26 @@ export function Hero() {
 
         {/* ── Left: Copy ── */}
         <div className="w-full lg:w-[340px] shrink-0 flex flex-col gap-6 text-left">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-secondary border border-border w-fit">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-secondary border border-border/40 w-fit">
             <span className="size-1.5 rounded-full bg-emerald-500 inline-block" />
-            <span className="text-xs font-medium text-muted-foreground">Trusted by 7,000+ teams globally</span>
+            <span className="text-[10px] font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider">Trusted by 7,000+ teams globally</span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight text-foreground leading-tight">
+          <h1 className="text-3xl sm:text-4xl font-normal tracking-tight text-zinc-900 dark:text-white leading-tight">
             The Operating System for Teams That Ship
           </h1>
 
-          <p className="text-sm text-muted-foreground leading-relaxed">
+          <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
             Replace Slack, Asana, Notion, and your calendar chaos. KielHQ is the one workspace where your team actually gets work done — with AI that reads your actual data.
           </p>
 
           {/* Feature pills */}
           <div className="flex items-center gap-2 flex-wrap">
             {[
-              { label: "Tasks", bg: "bg-blue-500" },
-              { label: "Docs", bg: "bg-violet-500" },
-              { label: "Chat", bg: "bg-emerald-500" },
-              { label: "Calendar", bg: "bg-amber-500" },
+              { label: "Tasks", bg: "bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 text-zinc-900 dark:text-zinc-100" },
+              { label: "Docs", bg: "bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 text-zinc-900 dark:text-zinc-100" },
+              { label: "Chat", bg: "bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 text-zinc-900 dark:text-zinc-100" },
+              { label: "Calendar", bg: "bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 text-zinc-900 dark:text-zinc-100" },
               { label: "AI", bg: "bg-primary text-primary-foreground" },
             ].map((item) => (
               <span
@@ -72,17 +72,17 @@ export function Hero() {
           <div className="flex items-center gap-4">
             <a
               href="#"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-sm bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition-colors group"
+              className="inline-flex items-center gap-2 px-4.5 py-2.5 rounded-sm bg-primary text-primary-foreground text-xs font-semibold hover:opacity-90 transition-colors group"
             >
               Start Free
               <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
             </a>
-            <a href="#" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+            <a href="#" className="text-xs font-semibold text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">
               Watch 45-sec demo
             </a>
           </div>
 
-          <p className="text-xs text-muted-foreground/60">No credit card required · Free plan available</p>
+          <p className="text-[10px] font-medium text-zinc-400 dark:text-zinc-500">No credit card required · Free plan available</p>
         </div>
 
         {/* ── Right: Dashboard mockup image with AI sidebar overlay ── */}

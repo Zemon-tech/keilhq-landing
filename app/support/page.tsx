@@ -13,16 +13,16 @@ const faqs = [
 
 export default function SupportPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-background text-foreground">
+    <div className="flex flex-col min-h-screen bg-background text-foreground select-text selection:bg-primary/10">
       <Navbar />
-      <main className="flex-1 pt-24 pb-24 px-6 lg:px-12">
+      <main className="flex-1 pt-24 pb-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto flex flex-col gap-16">
           <div className="flex flex-col gap-4">
-            <span className="text-xs font-semibold tracking-widest text-muted-foreground/80 uppercase">Support</span>
-            <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight text-foreground leading-tight">
+            <span className="text-xs font-semibold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest block">Support</span>
+            <h1 className="text-4xl sm:text-5xl font-normal tracking-tight text-zinc-900 dark:text-white leading-tight">
               How can we help?
             </h1>
-            <p className="text-base text-muted-foreground">We&apos;re here to make sure KielHQ works perfectly for your team.</p>
+            <p className="text-base text-zinc-500 dark:text-zinc-400">We&apos;re here to make sure KielHQ works perfectly for your team.</p>
           </div>
 
           {/* Contact options */}
@@ -31,10 +31,10 @@ export default function SupportPage() {
               { title: "Email support", desc: "Get a response within one business day.", action: "support@kielhq.com", href: "mailto:support@kielhq.com" },
               { title: "Book a demo", desc: "See KielHQ live with a member of our team.", action: "Book a walkthrough", href: "/demo" },
             ].map((item) => (
-              <div key={item.title} className="p-6 rounded-sm border border-border bg-card flex flex-col gap-3 shadow-sm">
-                <span className="text-sm font-semibold text-foreground">{item.title}</span>
-                <p className="text-sm text-muted-foreground">{item.desc}</p>
-                <Link href={item.href} className="text-sm font-semibold text-foreground underline underline-offset-2 hover:text-muted-foreground transition-colors">
+              <div key={item.title} className="p-6 rounded-sm border border-zinc-200/80 dark:border-white/5 bg-zinc-50/20 dark:bg-[#0e0e0e]/20 flex flex-col gap-3 shadow-sm transition-colors duration-300">
+                <span className="text-sm font-semibold text-zinc-900 dark:text-white">{item.title}</span>
+                <p className="text-sm text-zinc-500 dark:text-zinc-400">{item.desc}</p>
+                <Link href={item.href} className="text-sm font-semibold text-zinc-900 dark:text-white underline underline-offset-2 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors">
                   {item.action}
                 </Link>
               </div>
@@ -43,12 +43,12 @@ export default function SupportPage() {
 
           {/* FAQ */}
           <div className="flex flex-col gap-6">
-            <h2 className="text-xl font-semibold text-foreground">Frequently asked questions</h2>
-            <div className="flex flex-col divide-y divide-border">
+            <h2 className="text-xl font-normal tracking-tight text-zinc-900 dark:text-white">Frequently asked questions</h2>
+            <div className="flex flex-col divide-y divide-zinc-200/60 dark:divide-white/5">
               {faqs.map((faq) => (
                 <div key={faq.q} className="py-5 flex flex-col gap-2">
-                  <p className="text-sm font-semibold text-foreground">{faq.q}</p>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{faq.a}</p>
+                  <p className="text-sm font-semibold text-zinc-900 dark:text-white">{faq.q}</p>
+                  <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">{faq.a}</p>
                 </div>
               ))}
             </div>

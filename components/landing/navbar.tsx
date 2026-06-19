@@ -61,10 +61,11 @@ export function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-5">
       <nav
-        className={`flex items-center justify-between md:justify-start gap-6 px-5 py-2 rounded-sm border backdrop-blur-md transition-all duration-300 w-[calc(100%-2rem)] md:w-auto ${isScrolled
-            ? "bg-background/80 border-border/80 shadow-md"
-            : "bg-background/40 border-border/40"
-          }`}
+        className={`flex items-center justify-between md:justify-start gap-6 px-5 py-2 rounded-sm border transition-all duration-300 w-[calc(100%-2rem)] md:w-auto ${
+          isScrolled
+            ? "bg-white/80 dark:bg-black/50 backdrop-blur-md border-zinc-200/50 dark:border-white/10 shadow-[0_4px_20px_-2px_rgba(0,0,0,0.05)]"
+            : "bg-white/40 dark:bg-black/20 backdrop-blur-sm border-zinc-200/20 dark:border-white/5"
+        }`}
       >
         {/* Brand */}
         <Link href="/" className="flex items-center gap-2 group mr-2">
@@ -98,7 +99,7 @@ export function Navbar() {
             </button>
 
             {/* Dropdown Card */}
-            <div className="absolute top-full left-1/2 -translate-x-1/2 mt-1 w-[480px] bg-background/95 dark:bg-background/95 border border-border/80 rounded-sm p-4 shadow-xl backdrop-blur-md opacity-0 pointer-events-none scale-95 origin-top transition-all duration-200 group-hover:opacity-100 group-hover:pointer-events-auto group-hover:scale-100 z-50 grid grid-cols-2 gap-2">
+            <div className="absolute top-full left-1/2 -translate-x-1/2 mt-1 w-[480px] bg-white/90 dark:bg-black/60 border border-zinc-200/50 dark:border-white/10 rounded-sm p-4 shadow-xl backdrop-blur-lg opacity-0 pointer-events-none scale-95 origin-top transition-all duration-200 group-hover:opacity-100 group-hover:pointer-events-auto group-hover:scale-100 z-50 grid grid-cols-2 gap-2">
               {solutions.map((item) => (
                 <Link
                   key={item.title}
@@ -150,7 +151,7 @@ export function Navbar() {
 
       {/* Mobile drawer */}
       {isMobileMenuOpen && (
-        <div className="absolute top-[calc(100%+4px)] left-4 right-4 border border-border bg-background/95 rounded-sm p-5 shadow-lg flex flex-col gap-3 animate-in fade-in slide-in-from-top-2 duration-200 md:hidden max-h-[85vh] overflow-y-auto backdrop-blur-md">
+        <div className="absolute top-[calc(100%+4px)] left-4 right-4 border border-zinc-200/50 dark:border-white/10 bg-white/90 dark:bg-black/60 rounded-sm p-5 shadow-lg flex flex-col gap-3 animate-in fade-in slide-in-from-top-2 duration-200 md:hidden max-h-[85vh] overflow-y-auto backdrop-blur-lg">
           {/* Solutions header in Mobile */}
           <div className="flex flex-col gap-1.5 border-b border-border pb-3">
             <span className="text-xs font-semibold text-muted-foreground px-2 uppercase tracking-wider">

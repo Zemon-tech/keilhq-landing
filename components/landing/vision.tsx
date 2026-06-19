@@ -162,7 +162,7 @@ export function Vision() {
 
         {/* Large heading — bottom left */}
         <div className="absolute bottom-24 left-8 sm:left-10 z-10 max-w-2xl pointer-events-none">
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-white leading-tight tracking-tight drop-shadow-lg">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-normal text-white leading-tight tracking-tight drop-shadow-lg">
             7,000+ teams<br />ship with KielHQ
           </h2>
         </div>

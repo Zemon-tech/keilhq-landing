@@ -3,14 +3,14 @@ import { Footer } from "@/components/landing/footer";
 
 export default function TermsPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-background text-foreground">
+    <div className="flex flex-col min-h-screen bg-background text-foreground select-text selection:bg-primary/10">
       <Navbar />
-      <main className="flex-1 pt-24 pb-24 px-6 lg:px-12">
+      <main className="flex-1 pt-24 pb-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto flex flex-col gap-10">
           <div className="flex flex-col gap-3">
-            <span className="text-xs font-semibold tracking-widest text-muted-foreground/80 uppercase">Legal</span>
-            <h1 className="text-4xl font-semibold tracking-tight text-foreground">Terms of Service</h1>
-            <p className="text-sm text-muted-foreground">Last updated: May 2026</p>
+            <span className="text-xs font-semibold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest block">Legal</span>
+            <h1 className="text-4xl font-normal tracking-tight text-zinc-900 dark:text-white">Terms of Service</h1>
+            <p className="text-xs text-zinc-400 dark:text-zinc-500">Last updated: May 2026</p>
           </div>
           {[
             { title: "Acceptance", body: "By using KielHQ, you agree to these terms. If you are using KielHQ on behalf of an organization, you represent that you have authority to bind that organization." },
@@ -23,8 +23,8 @@ export default function TermsPage() {
             { title: "Contact", body: "Questions about these terms? Email legal@kielhq.com." },
           ].map((section) => (
             <div key={section.title} className="flex flex-col gap-2">
-              <h2 className="text-base font-semibold text-foreground">{section.title}</h2>
-              <p className="text-sm text-muted-foreground leading-relaxed">{section.body}</p>
+              <h2 className="text-base font-semibold text-zinc-900 dark:text-white">{section.title}</h2>
+              <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">{section.body}</p>
             </div>
           ))}
         </div>

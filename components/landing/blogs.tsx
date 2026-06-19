@@ -45,7 +45,7 @@ export function Blogs() {
           {/* Header with Title and Controls */}
           <div className="flex flex-col lg:flex-row lg:items-start justify-between mb-10 sm:mb-12">
             <div className="w-full lg:w-1/4 shrink-0">
-              <h2 className="text-4xl sm:text-5xl font-normal tracking-tight text-muted-foreground">
+              <h2 className="text-4xl sm:text-5xl font-normal tracking-tight text-zinc-900 dark:text-white">
                 Blog
               </h2>
             </div>
@@ -79,10 +79,10 @@ export function Blogs() {
                         />
                       </div>
                       <div className="flex flex-col gap-1.5 pr-4">
-                        <h3 className="text-[1.1rem] font-medium text-foreground/90 leading-snug group-hover:text-foreground transition-colors line-clamp-2">
+                        <h3 className="text-[1.1rem] font-semibold text-zinc-900 dark:text-white leading-snug group-hover:text-zinc-700 dark:group-hover:text-zinc-300 transition-colors line-clamp-2">
                           {post.title}
                         </h3>
-                        <p className="text-sm text-muted-foreground font-medium mt-1">
+                        <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium mt-1">
                           {post.date}
                         </p>
                       </div>

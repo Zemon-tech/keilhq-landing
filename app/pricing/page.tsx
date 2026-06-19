@@ -1,531 +1,595 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import { Navbar } from "@/components/landing/navbar";
 import { Footer } from "@/components/landing/footer";
-import { ArrowRight } from "lucide-react";
+import {
+  ArrowRight,
+  Check,
+  Minus,
+  Shield,
+  Database,
+  Sparkles,
+  Building2,
+  Lock,
+  ChevronDown,
+} from "lucide-react";
 
-// Reusable Research grounded-in panel component
-const ResearchPanel = () => (
-  <div className="w-full bg-zinc-50/50 border border-zinc-200/85 dark:bg-[#0e0e0e]/50 dark:border-white/5 rounded-sm p-8 sm:p-10 mt-12 shadow-sm transition-colors duration-300">
-    <span className="text-xs font-semibold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest block mb-6">
-      Research this is grounded in
-    </span>
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
-      <div>
-        <h4 className="text-sm font-semibold text-zinc-900 dark:text-zinc-200">
-          Stanford HAI: AI Index 2025
-        </h4>
-        <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed mt-1.5">
-          Business AI adoption accelerated in 2024 while inference costs fell sharply, making agentic workflows practical for more teams.
-        </p>
-      </div>
-      <div>
-        <h4 className="text-sm font-semibold text-zinc-900 dark:text-zinc-200">
-          McKinsey: The State of AI 2025
-        </h4>
-        <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed mt-1.5">
-          Most organizations use AI somewhere, but the value gap comes from redesigning workflows instead of only adding chat tools.
-        </p>
-      </div>
-      <div>
-        <h4 className="text-sm font-semibold text-zinc-900 dark:text-zinc-200">
-          Microsoft + LinkedIn: Work Trend Index 2024
-        </h4>
-        <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed mt-1.5">
-          Knowledge workers are adopting AI quickly, often before companies have a clear plan, training model, or governance layer.
-        </p>
-      </div>
-      <div>
-        <h4 className="text-sm font-semibold text-zinc-900 dark:text-zinc-200">
-          NIST: AI Risk Management Framework
-        </h4>
-        <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed mt-1.5">
-          Trustworthy AI depends on validity, reliability, security, transparency, privacy, and accountability across the full lifecycle.
+const faqs = [
+  {
+    q: "Does the free trial require a credit card?",
+    a: "No. The 1-month Pro trial is completely free — no card needed. You only enter payment details if you decide to continue after 30 days.",
+  },
+  {
+    q: "Can I switch plans at any time?",
+    a: "Yes. Upgrade from Trial to Pro, or from Pro to Teams, at any point. Downgrades take effect at the end of your current billing cycle.",
+  },
+  {
+    q: "What happens to my data if I don't upgrade?",
+    a: "Your workspace is preserved for 30 days after a trial ends. After that, data is archived. Export everything before your trial expires.",
+  },
+  {
+    q: "Is my data used to train AI models on the free trial?",
+    a: "Yes — trial data may be used to improve KeilHQ's AI. On any paid plan (Pro, Teams, Enterprise), your data is fully secure and excluded from model training.",
+  },
+  {
+    q: "What's included in the Teams plan vs Pro?",
+    a: "Teams adds centralized seat billing, SSO/SAML, workspace admin controls, and detailed audit logs on top of everything in Pro.",
+  },
+];
+
+function FAQItem({ q, a }: { q: string; a: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="border-b border-zinc-200/60 dark:border-white/5 last:border-0">
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-center justify-between gap-4 py-5 text-left cursor-pointer group"
+      >
+        <span className="text-sm font-medium text-zinc-900 dark:text-white group-hover:text-zinc-700 dark:group-hover:text-zinc-200 transition-colors">
+          {q}
+        </span>
+        <ChevronDown
+          className={`size-4 text-zinc-400 shrink-0 transition-transform duration-200 ${
+            open ? "rotate-180" : ""
+          }`}
+        />
+      </button>
+      <div
+        className={`overflow-hidden transition-all duration-200 ${
+          open ? "max-h-40 pb-5" : "max-h-0"
+        }`}
+      >
+        <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
+          {a}
         </p>
       </div>
     </div>
-  </div>
-);
+  );
+}
 
 export default function PricingPage() {
+  const [proMode, setProMode] = useState<"trial" | "paid">("trial");
+
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground select-text selection:bg-primary/10">
       <Navbar />
-      
+
       <main className="flex-1 pt-24 pb-24 px-4 sm:px-6 lg:px-8 max-w-8xl mx-auto w-full">
-        
-        {/* ─── SECTION 1: Pricing Tier Grid ─── */}
+
+        {/* ─── SECTION 1: Header ─── */}
+        <div className="text-left mb-16">
+          <h1 className="text-4xl sm:text-5xl font-normal tracking-tight text-zinc-900 dark:text-white">
+            Pricing
+          </h1>
+          <p className="mt-4 text-base text-zinc-500 dark:text-zinc-400 max-w-xl leading-relaxed">
+            KeilHQ supports users of every scale — from first prompt to enterprise rollout.
+          </p>
+        </div>
+
+        {/* ─── SECTION 2: Pricing Tier Grid ─── */}
         <section className="mb-24">
-          {/* Header */}
-          <div className="text-left mb-16">
-            <h1 className="text-4xl sm:text-5xl font-normal tracking-tight text-zinc-900 dark:text-white">
-              Pricing
-            </h1>
-            <p className="mt-4 text-base text-zinc-500 dark:text-zinc-400 max-w-2xl leading-relaxed">
-              KeilHQ supports users of every scale — from first prompt to enterprise rollout.
-            </p>
-          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
 
-          {/* Cards Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Free Plan */}
-            <div className="flex flex-col bg-zinc-50/20 border border-zinc-200/80 dark:bg-[#0e0e0e]/20 dark:border-white/5 rounded-sm p-7 sm:p-8 gap-6 transition-all duration-300">
-              <div className="flex flex-col gap-1.5">
-                <h3 className="text-lg font-semibold text-zinc-900 dark:text-white">Free</h3>
+            {/* 1. Pro Card */}
+            <div className="flex flex-col bg-zinc-50/40 border border-zinc-200/90 dark:bg-[#0e0e0e]/40 dark:border-white/10 rounded-sm p-7 sm:p-8 gap-6 shadow-[0_2px_8px_rgba(0,0,0,0.02)] transition-all duration-300 relative overflow-hidden">
+              <div className="absolute top-0 right-0 bg-zinc-900 dark:bg-white text-white dark:text-zinc-950 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider rounded-bl-sm">
+                1-Month Free Trial
+              </div>
+
+              <div className="flex flex-col gap-1.5 mt-2">
+                <div className="flex items-center gap-2">
+                  <h3 className="text-xl font-bold text-zinc-900 dark:text-white">Pro</h3>
+                  <span className="text-[10px] bg-zinc-200/60 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 px-2 py-0.5 rounded-sm font-medium">
+                    Individual
+                  </span>
+                </div>
                 <p className="text-sm text-zinc-500 dark:text-zinc-400 min-h-[40px] leading-relaxed">
-                  For individuals getting started.
+                  For power users and professionals who want premium AI intelligence and tools.
                 </p>
               </div>
 
-              <Link
-                href="#"
-                className="w-full bg-[#ededed] hover:bg-[#e2e2e2] dark:bg-white/5 dark:hover:bg-white/10 dark:border dark:border-white/10 text-zinc-900 dark:text-zinc-100 font-medium px-4.5 py-3 rounded-sm text-sm flex items-center justify-between transition-colors cursor-pointer"
-              >
-                <span>Try for free</span>
-                <ArrowRight className="size-4" />
-              </Link>
+              {/* Price row with inline switcher */}
+              <div className="flex items-center justify-between gap-4 min-h-[56px]">
+                <div className="flex flex-col gap-0.5">
+                  {proMode === "trial" ? (
+                    <>
+                      <div className="flex items-baseline gap-1">
+                        <span className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white">$0</span>
+                        <span className="text-xs text-zinc-500 dark:text-zinc-400">/ trial</span>
+                      </div>
+                      <span className="text-[10px] text-zinc-400 dark:text-zinc-500 font-medium">30 days free</span>
+                    </>
+                  ) : (
+                    <>
+                      <div className="flex items-baseline gap-1.5">
+                        <span className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white">$25</span>
+                        <span className="text-xs line-through text-zinc-400 font-medium">$50</span>
+                        <span className="text-xs text-zinc-500 dark:text-zinc-400">/ mo</span>
+                      </div>
+                      <span className="text-[10px] text-emerald-600 dark:text-emerald-500 font-medium">50% intro discount</span>
+                    </>
+                  )}
+                </div>
 
-              <div className="flex flex-col gap-0.5">
-                <span className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-white">$0 <span className="text-sm font-normal text-zinc-400">/mo</span></span>
-                <span className="text-xs text-zinc-400 dark:text-zinc-500">No credit card required</span>
+                {/* Toggle */}
+                <div className="flex bg-zinc-100 dark:bg-zinc-900 p-0.5 rounded-sm border border-zinc-200/80 dark:border-white/5 text-[11px] font-medium max-w-[130px] shrink-0">
+                  <button
+                    onClick={() => setProMode("trial")}
+                    className={`px-2.5 py-1 rounded-xs transition-all cursor-pointer ${
+                      proMode === "trial"
+                        ? "bg-white dark:bg-zinc-800 text-zinc-950 dark:text-white shadow-xs"
+                        : "text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200"
+                    }`}
+                  >
+                    Trial
+                  </button>
+                  <button
+                    onClick={() => setProMode("paid")}
+                    className={`px-2.5 py-1 rounded-xs transition-all cursor-pointer ${
+                      proMode === "paid"
+                        ? "bg-white dark:bg-zinc-800 text-zinc-950 dark:text-white shadow-xs"
+                        : "text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200"
+                    }`}
+                  >
+                    Paid
+                  </button>
+                </div>
               </div>
+
+              {proMode === "trial" ? (
+                <Link
+                  href="#"
+                  className="w-full bg-zinc-950 hover:bg-zinc-900 dark:bg-white dark:hover:bg-zinc-100 text-white dark:text-zinc-950 font-medium px-4.5 py-3 rounded-sm text-sm flex items-center justify-between transition-colors cursor-pointer shadow-sm active:scale-[0.98]"
+                >
+                  <span>Start 1-Month Free Trial</span>
+                  <ArrowRight className="size-4" />
+                </Link>
+              ) : (
+                <Link
+                  href="#"
+                  className="w-full bg-zinc-950 hover:bg-zinc-900 dark:bg-white dark:hover:bg-zinc-100 text-white dark:text-zinc-950 font-medium px-4.5 py-3 rounded-sm text-sm flex items-center justify-between transition-colors cursor-pointer shadow-sm active:scale-[0.98]"
+                >
+                  <span>Get Paid Pro</span>
+                  <ArrowRight className="size-4" />
+                </Link>
+              )}
 
               <hr className="border-t border-zinc-200/60 dark:border-white/5" />
 
-              <div className="flex flex-col gap-3.5 flex-grow">
-                <span className="text-xs text-zinc-700 dark:text-zinc-300 font-semibold tracking-wide uppercase">Features:</span>
-                <ul className="flex flex-col gap-3">
-                  <li className="flex items-start gap-2.5 text-sm text-zinc-500 dark:text-zinc-400">
-                    <span className="text-zinc-400 dark:text-zinc-500 shrink-0 font-sans">✓</span>
-                    <span>Access to add-in suite</span>
-                  </li>
-                  <li className="flex items-start gap-2.5 text-sm text-zinc-500 dark:text-zinc-400">
-                    <span className="text-zinc-400 dark:text-zinc-500 shrink-0 font-sans">✓</span>
-                    <span>Limited add-in usage</span>
-                  </li>
-                  <li className="flex items-start gap-2.5 text-sm text-zinc-500 dark:text-zinc-400">
-                    <span className="text-zinc-400 dark:text-zinc-500 shrink-0 font-sans">✓</span>
-                    <span>Limited file generation</span>
-                  </li>
-                </ul>
+              <div className="flex flex-col gap-4 flex-grow justify-between">
+                <div>
+                  <span className="text-xs text-zinc-700 dark:text-zinc-300 font-semibold tracking-wide uppercase block mb-3.5">
+                    {proMode === "trial" ? "Trial limits (Month 1):" : "Included in paid Pro (Month 2+):"}
+                  </span>
+
+                  {proMode === "trial" ? (
+                    <ul className="flex flex-col gap-3.5">
+                      <li className="flex items-start gap-2.5 text-sm text-zinc-600 dark:text-zinc-400">
+                        <Sparkles className="size-4 text-zinc-400 shrink-0 mt-0.5" />
+                        <span><strong>25 AI chats</strong> per day</span>
+                      </li>
+                      <li className="flex items-start gap-2.5 text-sm text-zinc-600 dark:text-zinc-400">
+                        <Check className="size-4 text-emerald-500 shrink-0 mt-0.5" />
+                        <span>Unlimited tasks, motion pages, and chat</span>
+                      </li>
+                      <li className="flex items-start gap-2.5 text-sm text-amber-600 dark:text-amber-500">
+                        <Lock className="size-4 text-amber-500 shrink-0 mt-0.5" />
+                        <span>Trial data will be used to train future models</span>
+                      </li>
+                    </ul>
+                  ) : (
+                    <ul className="flex flex-col gap-3.5">
+                      <li className="flex items-start gap-2.5 text-sm text-zinc-600 dark:text-zinc-400">
+                        <Check className="size-4 text-emerald-500 shrink-0 mt-0.5" />
+                        <span>Everything in Free Trial</span>
+                      </li>
+                      <li className="flex items-start gap-2.5 text-sm text-zinc-600 dark:text-zinc-400">
+                        <Sparkles className="size-4 text-zinc-400 shrink-0 mt-0.5" />
+                        <span><strong>20 AI chats / hr</strong> &amp; <strong>100 chats / day</strong></span>
+                      </li>
+                      <li className="flex items-start gap-2.5 text-sm text-zinc-600 dark:text-zinc-400">
+                        <Check className="size-4 text-emerald-500 shrink-0 mt-0.5" />
+                        <span>24x7 specialized support</span>
+                      </li>
+                      <li className="flex items-start gap-2.5 text-sm text-zinc-600 dark:text-zinc-400">
+                        <Check className="size-4 text-emerald-500 shrink-0 mt-0.5" />
+                        <span>First access to new beta releases &amp; features</span>
+                      </li>
+                      <li className="flex items-start gap-2.5 text-sm text-emerald-600 dark:text-emerald-500 font-medium">
+                        <Shield className="size-4 text-emerald-500 shrink-0 mt-0.5" />
+                        <span>Fully secure data (no model training)</span>
+                      </li>
+                    </ul>
+                  )}
+                </div>
               </div>
             </div>
 
-            {/* Pro Plan */}
-            <div className="flex flex-col bg-zinc-50/20 border border-zinc-200/80 dark:bg-[#0e0e0e]/20 dark:border-white/5 rounded-sm p-7 sm:p-8 gap-6 transition-all duration-300">
-              <div className="flex flex-col gap-1.5">
-                <h3 className="text-lg font-semibold text-zinc-900 dark:text-white">Pro</h3>
+            {/* 2. Teams Card */}
+            <div className="flex flex-col bg-zinc-50/20 border border-zinc-200/80 dark:bg-[#0e0e0e]/20 dark:border-white/5 rounded-sm p-7 sm:p-8 gap-6 transition-all duration-300 relative">
+              <div className="flex flex-col gap-1.5 mt-2">
+                <div className="flex items-center gap-2">
+                  <h3 className="text-xl font-bold text-zinc-900 dark:text-white">Teams</h3>
+                  <span className="text-[10px] bg-zinc-200/60 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 px-2 py-0.5 rounded-sm font-medium">
+                    Collaboration
+                  </span>
+                </div>
                 <p className="text-sm text-zinc-500 dark:text-zinc-400 min-h-[40px] leading-relaxed">
-                  For power users.
+                  For growing squads that need aligned controls, SSO, and shared billing structures.
                 </p>
+              </div>
+
+              <div className="flex items-center justify-between gap-4 min-h-[56px]">
+                <div className="flex flex-col gap-0.5">
+                  <div className="flex items-baseline gap-1.5">
+                    <span className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white">$50</span>
+                    <span className="text-xs line-through text-zinc-400 font-medium">$75</span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">/ user / mo</span>
+                  </div>
+                  <span className="text-[10px] text-emerald-600 dark:text-emerald-500 font-medium">33% team discount</span>
+                </div>
+                <div className="w-[130px] shrink-0" />
               </div>
 
               <Link
                 href="#"
-                className="w-full bg-zinc-950 hover:bg-zinc-900 dark:bg-white dark:hover:bg-zinc-100 text-white dark:text-zinc-950 font-medium px-4.5 py-3 rounded-sm text-sm flex items-center justify-between transition-colors cursor-pointer"
+                className="w-full bg-[#ededed] hover:bg-[#e2e2e2] dark:bg-white/5 dark:hover:bg-white/10 dark:border dark:border-white/10 text-zinc-900 dark:text-zinc-100 font-medium px-4.5 py-3 rounded-sm text-sm flex items-center justify-between transition-colors cursor-pointer active:scale-[0.98]"
               >
-                <span>Get Pro</span>
+                <span>Get Teams</span>
                 <ArrowRight className="size-4" />
               </Link>
-
-              <div className="flex flex-col gap-0.5">
-                <span className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-white">$20 <span className="text-sm font-normal text-zinc-400">/mo</span></span>
-                <span className="text-xs text-zinc-400 dark:text-zinc-500">Billed monthly</span>
-              </div>
-
-              <hr className="border-t border-zinc-200/60 dark:border-white/5" />
-
-              <div className="flex flex-col gap-3.5 flex-grow">
-                <span className="text-xs text-zinc-700 dark:text-zinc-300 font-semibold tracking-wide uppercase">Everything in Free, plus:</span>
-                <ul className="flex flex-col gap-3">
-                  <li className="flex items-start gap-2.5 text-sm text-zinc-500 dark:text-zinc-400">
-                    <span className="text-zinc-400 dark:text-zinc-500 shrink-0 font-sans">✓</span>
-                    <span>Higher usage limits</span>
-                  </li>
-                  <li className="flex items-start gap-2.5 text-sm text-zinc-500 dark:text-zinc-400">
-                    <span className="text-zinc-400 dark:text-zinc-500 shrink-0 font-sans">✓</span>
-                    <span>Access to all Office add-ins</span>
-                  </li>
-                  <li className="flex items-start gap-2.5 text-sm text-zinc-500 dark:text-zinc-400">
-                    <span className="text-zinc-400 dark:text-zinc-500 shrink-0 font-sans">✓</span>
-                    <span>Document processing and uploads</span>
-                  </li>
-                  <li className="flex items-start gap-2.5 text-sm text-zinc-500 dark:text-zinc-400">
-                    <span className="text-zinc-400 dark:text-zinc-500 shrink-0 font-sans">✓</span>
-                    <span>Large document ingestion</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            {/* MAX Plan */}
-            <div className="flex flex-col bg-zinc-50/20 border border-zinc-200/80 dark:bg-[#0e0e0e]/20 dark:border-white/5 rounded-sm p-7 sm:p-8 gap-6 transition-all duration-300">
-              <div className="flex flex-col gap-1.5">
-                <h3 className="text-lg font-semibold text-zinc-900 dark:text-white">MAX</h3>
-                <p className="text-sm text-zinc-500 dark:text-zinc-400 min-h-[40px] leading-relaxed">
-                  For professionals.
-                </p>
-              </div>
-
-              <Link
-                href="#"
-                className="w-full bg-[#ededed] hover:bg-[#e2e2e2] dark:bg-white/5 dark:hover:bg-white/10 dark:border dark:border-white/10 text-zinc-900 dark:text-zinc-100 font-medium px-4.5 py-3 rounded-sm text-sm flex items-center justify-between transition-colors cursor-pointer"
-              >
-                <span>Get MAX</span>
-                <ArrowRight className="size-4" />
-              </Link>
-
-              <div className="flex flex-col gap-0.5">
-                <span className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-white">$200 <span className="text-sm font-normal text-zinc-400">/mo</span></span>
-                <span className="text-xs text-zinc-400 dark:text-zinc-500">Billed monthly</span>
-              </div>
 
               <hr className="border-t border-zinc-200/60 dark:border-white/5" />
 
               <div className="flex flex-col gap-3.5 flex-grow">
                 <span className="text-xs text-zinc-700 dark:text-zinc-300 font-semibold tracking-wide uppercase">Everything in Pro, plus:</span>
-                <ul className="flex flex-col gap-3">
+                <ul className="flex flex-col gap-3.5">
                   <li className="flex items-start gap-2.5 text-sm text-zinc-500 dark:text-zinc-400">
-                    <span className="text-zinc-400 dark:text-zinc-500 shrink-0 font-sans">✓</span>
-                    <span>Maximum usage limits</span>
+                    <Building2 className="size-4 text-zinc-400 shrink-0 mt-0.5" />
+                    <span>Centralized billing &amp; seat management</span>
                   </li>
                   <li className="flex items-start gap-2.5 text-sm text-zinc-500 dark:text-zinc-400">
-                    <span className="text-zinc-400 dark:text-zinc-500 shrink-0 font-sans">✓</span>
-                    <span>Priority model access</span>
+                    <Check className="size-4 text-emerald-500 shrink-0 mt-0.5" />
+                    <span>Single Sign-On (SSO) support</span>
                   </li>
                   <li className="flex items-start gap-2.5 text-sm text-zinc-500 dark:text-zinc-400">
-                    <span className="text-zinc-400 dark:text-zinc-500 shrink-0 font-sans">✓</span>
-                    <span>Early access to beta features</span>
+                    <Check className="size-4 text-emerald-500 shrink-0 mt-0.5" />
+                    <span>Detailed audit &amp; activity logs</span>
                   </li>
                   <li className="flex items-start gap-2.5 text-sm text-zinc-500 dark:text-zinc-400">
-                    <span className="text-zinc-400 dark:text-zinc-500 shrink-0 font-sans">✓</span>
-                    <span>Dedicated support</span>
+                    <Check className="size-4 text-emerald-500 shrink-0 mt-0.5" />
+                    <span>Advanced workspace admin controls</span>
                   </li>
                 </ul>
               </div>
             </div>
 
-            {/* Enterprise Plan */}
-            <div className="flex flex-col bg-zinc-50/20 border border-zinc-200/80 dark:bg-[#0e0e0e]/20 dark:border-white/5 rounded-sm p-7 sm:p-8 gap-6 transition-all duration-300">
-              <div className="flex flex-col gap-1.5">
-                <h3 className="text-lg font-semibold text-zinc-900 dark:text-white">Enterprise</h3>
+            {/* 3. Enterprise Card */}
+            <div className="flex flex-col bg-zinc-50/20 border border-zinc-200/80 dark:bg-[#0e0e0e]/20 dark:border-white/5 rounded-sm p-7 sm:p-8 gap-6 transition-all duration-300 relative">
+              <div className="flex flex-col gap-1.5 mt-2">
+                <div className="flex items-center gap-2">
+                  <h3 className="text-xl font-bold text-zinc-900 dark:text-white">Enterprise</h3>
+                  <span className="text-[10px] bg-zinc-200/60 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 px-2 py-0.5 rounded-sm font-medium">
+                    Custom Scale
+                  </span>
+                </div>
                 <p className="text-sm text-zinc-500 dark:text-zinc-400 min-h-[40px] leading-relaxed">
-                  For teams and organizations.
+                  For large-scale operations requiring custom hosting, data rules, and agreements.
                 </p>
               </div>
 
+              <div className="flex items-center justify-between gap-4 min-h-[56px]">
+                <div className="flex flex-col gap-0.5">
+                  <span className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white">Contact Sales</span>
+                  <span className="text-[10px] text-zinc-400 dark:text-zinc-500 font-medium">Custom contracts</span>
+                </div>
+                <div className="w-[130px] shrink-0" />
+              </div>
+
               <Link
-                href="#"
-                className="w-full bg-[#ededed] hover:bg-[#e2e2e2] dark:bg-white/5 dark:hover:bg-white/10 dark:border dark:border-white/10 text-zinc-900 dark:text-zinc-100 font-medium px-4.5 py-3 rounded-sm text-sm flex items-center justify-between transition-colors cursor-pointer"
+                href="/enterprise"
+                className="w-full bg-[#ededed] hover:bg-[#e2e2e2] dark:bg-white/5 dark:hover:bg-white/10 dark:border dark:border-white/10 text-zinc-900 dark:text-zinc-100 font-medium px-4.5 py-3 rounded-sm text-sm flex items-center justify-between transition-colors cursor-pointer active:scale-[0.98]"
               >
-                <span>Book a demo</span>
+                <span>Talk to Sales</span>
                 <ArrowRight className="size-4" />
               </Link>
-
-              <div className="flex flex-col gap-0.5">
-                <span className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-white">Contact</span>
-                <span className="text-xs text-zinc-400 dark:text-zinc-500">Custom terms</span>
-              </div>
 
               <hr className="border-t border-zinc-200/60 dark:border-white/5" />
 
               <div className="flex flex-col gap-3.5 flex-grow">
-                <span className="text-xs text-zinc-700 dark:text-zinc-300 font-semibold tracking-wide uppercase">Everything in MAX, plus:</span>
-                <ul className="flex flex-col gap-3">
+                <span className="text-xs text-zinc-700 dark:text-zinc-300 font-semibold tracking-wide uppercase">Everything in Teams, plus:</span>
+                <ul className="flex flex-col gap-3.5">
                   <li className="flex items-start gap-2.5 text-sm text-zinc-500 dark:text-zinc-400">
-                    <span className="text-zinc-400 dark:text-zinc-500 shrink-0 font-sans">✓</span>
-                    <span>Custom security / compliance</span>
+                    <Database className="size-4 text-zinc-400 shrink-0 mt-0.5" />
+                    <span>Option to host database on-premise</span>
                   </li>
                   <li className="flex items-start gap-2.5 text-sm text-zinc-500 dark:text-zinc-400">
-                    <span className="text-zinc-400 dark:text-zinc-500 shrink-0 font-sans">✓</span>
-                    <span>SSO & bulk onboarding</span>
+                    <Check className="size-4 text-emerald-500 shrink-0 mt-0.5" />
+                    <span>Priority support with dedicated agents</span>
                   </li>
                   <li className="flex items-start gap-2.5 text-sm text-zinc-500 dark:text-zinc-400">
-                    <span className="text-zinc-400 dark:text-zinc-500 shrink-0 font-sans">✓</span>
-                    <span>Bespoke feature sets</span>
+                    <Check className="size-4 text-emerald-500 shrink-0 mt-0.5" />
+                    <span>Unlimited AI chats &amp; usage throughout</span>
                   </li>
                   <li className="flex items-start gap-2.5 text-sm text-zinc-500 dark:text-zinc-400">
-                    <span className="text-zinc-400 dark:text-zinc-500 shrink-0 font-sans">✓</span>
-                    <span>Team management</span>
-                  </li>
-                  <li className="flex items-start gap-2.5 text-sm text-zinc-500 dark:text-zinc-400">
-                    <span className="text-zinc-400 dark:text-zinc-500 shrink-0 font-sans">✓</span>
-                    <span>Dedicated account manager</span>
+                    <Check className="size-4 text-emerald-500 shrink-0 mt-0.5" />
+                    <span>Custom SLAs, compliance, &amp; legal contracts</span>
                   </li>
                 </ul>
               </div>
             </div>
+
           </div>
         </section>
 
-        <div className="h-px bg-zinc-200/60 dark:bg-white/5 my-24" />
+        <div className="h-px bg-zinc-200/60 dark:bg-white/5 my-20" />
 
-        {/* ─── SECTION 2: How to choose a plan ─── */}
-        <section className="mb-24">
-          <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
-            
-            {/* Left Copy */}
-            <div className="w-full lg:w-1/3 shrink-0 flex flex-col gap-6 text-left">
-              <span className="text-xs font-semibold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest">
-                How to choose a plan
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-normal tracking-tight text-zinc-900 dark:text-white leading-[1.15]">
-                Price the workflow you are trying to change.
-              </h2>
-              <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
-                The right KeilHQ plan depends less on how many prompts someone sends and more on how much recurring work the team wants to move into agent-assisted execution.
-              </p>
-              <Link
-                href="#"
-                className="inline-flex items-center gap-2 border border-zinc-200 hover:bg-zinc-50 dark:border-white/5 dark:hover:bg-white/5 text-zinc-800 dark:text-zinc-200 font-medium px-4.5 py-2.5 rounded-sm text-xs w-fit transition-colors cursor-pointer bg-transparent"
-              >
-                <span>Read the Academy</span>
-                <ArrowRight className="size-3.5" />
-              </Link>
-            </div>
-
-            {/* Right Cards Stack */}
-            <div className="flex-1 grid grid-cols-1 md:grid-cols-3 gap-6">
-              
-              {/* Card 1 */}
-              <div className="flex flex-col bg-white border border-zinc-200/80 dark:bg-[#0e0e0e] dark:border-white/5 rounded-sm p-7 gap-5 shadow-sm transition-colors duration-300">
-                <h3 className="text-sm font-semibold text-zinc-900 dark:text-white">
-                  Free: learn the surface
-                </h3>
-                <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed flex-grow">
-                  Use the free plan to understand how KeilHQ behaves inside the apps you already use. It is the right place to test whether agent-assisted work fits your day-to-day artifacts.
-                </p>
-                <ul className="list-disc pl-4 text-xs text-zinc-400 dark:text-zinc-500 space-y-3 mt-2">
-                  <li>Install the add-ins you care about.</li>
-                  <li>Try limited file generation and basic workflows.</li>
-                  <li>Identify the repeated work worth upgrading for.</li>
-                </ul>
-              </div>
-
-              {/* Card 2 */}
-              <div className="flex flex-col bg-white border border-zinc-200/80 dark:bg-[#0e0e0e] dark:border-white/5 rounded-sm p-7 gap-5 shadow-sm transition-colors duration-300">
-                <h3 className="text-sm font-semibold text-zinc-900 dark:text-white">
-                  Pro and MAX: run real workflows
-                </h3>
-                <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed flex-grow">
-                  Paid individual plans are for people whose work already depends on spreadsheets, decks, documents, and source files. The value is faster drafting, analysis, and review loops.
-                </p>
-                <ul className="list-disc pl-4 text-xs text-zinc-400 dark:text-zinc-500 space-y-3 mt-2">
-                  <li>Use higher limits for recurring work.</li>
-                  <li>Process and upload larger documents.</li>
-                  <li>Use priority model access when speed matters.</li>
-                </ul>
-              </div>
-
-              {/* Card 3 */}
-              <div className="flex flex-col bg-white border border-zinc-200/80 dark:bg-[#0e0e0e] dark:border-white/5 rounded-sm p-7 gap-5 shadow-sm transition-colors duration-300">
-                <h3 className="text-sm font-semibold text-zinc-900 dark:text-white">
-                  Enterprise: standardize rollout
-                </h3>
-                <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed flex-grow">
-                  Enterprise is for organizations that need onboarding, security review, team management, compliance conversations, and repeatable AI workflows across departments.
-                </p>
-                <ul className="list-disc pl-4 text-xs text-zinc-400 dark:text-zinc-500 space-y-3 mt-2">
-                  <li>Align controls with IT and security requirements.</li>
-                  <li>Package best practices into team workflows.</li>
-                  <li>Train users through Academy and guided rollout.</li>
-                </ul>
-              </div>
-
-            </div>
-          </div>
-
-          {/* Research Panel */}
-          <ResearchPanel />
-        </section>
-
-        <div className="h-px bg-zinc-200/60 dark:bg-white/5 my-24" />
-
-        {/* ─── SECTION 3: Feature Comparison Table ─── */}
-        <section className="mb-24 overflow-x-auto">
-          <div className="min-w-[800px] w-full">
+        {/* ─── SECTION 3: Detailed Feature Comparison Table ─── */}
+        <section className="mb-20 overflow-x-auto select-text">
+          <div className="min-w-[950px] w-full">
+            <h2 className="text-2xl font-normal tracking-tight text-zinc-900 dark:text-white mb-8">
+              Compare plans &amp; features
+            </h2>
             <table className="w-full border-collapse">
               <thead>
                 <tr className="border-b border-zinc-200 dark:border-white/10 text-left">
-                  <th className="py-4 text-sm font-semibold text-zinc-900 dark:text-white w-1/4">Features</th>
-                  <th className="py-4 text-sm font-semibold text-zinc-900 dark:text-white w-1/6">Free</th>
-                  <th className="py-4 text-sm font-semibold text-zinc-900 dark:text-white w-1/6">Pro</th>
-                  <th className="py-4 text-sm font-semibold text-zinc-900 dark:text-white w-1/6">MAX</th>
-                  <th className="py-4 text-sm font-semibold text-zinc-900 dark:text-white w-1/6">Enterprise</th>
+                  <th className="py-4.5 text-sm font-semibold text-zinc-900 dark:text-white w-1/4">Features</th>
+                  <th className="py-4.5 text-sm font-semibold text-zinc-900 dark:text-white w-1/5">Pro (Free Trial)</th>
+                  <th className="py-4.5 text-sm font-semibold text-zinc-900 dark:text-white w-1/5">Pro (Paid)</th>
+                  <th className="py-4.5 text-sm font-semibold text-zinc-900 dark:text-white w-1/5">Teams</th>
+                  <th className="py-4.5 text-sm font-semibold text-zinc-900 dark:text-white w-1/5">Enterprise</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-zinc-200/60 dark:divide-white/5">
-                <tr className="hover:bg-zinc-50/40 dark:hover:bg-white/[0.01] transition-colors">
-                  <td className="py-4.5 text-sm text-zinc-800 dark:text-zinc-200 font-medium">Add-in usage</td>
-                  <td className="py-4.5 text-sm text-zinc-500 dark:text-zinc-400">Limited</td>
-                  <td className="py-4.5 text-sm text-zinc-500 dark:text-zinc-400">Higher</td>
-                  <td className="py-4.5 text-sm text-zinc-500 dark:text-zinc-400">Maximum</td>
-                  <td className="py-4.5 text-sm text-zinc-500 dark:text-zinc-400">Unlimited</td>
+              <tbody className="divide-y divide-zinc-100/60 dark:divide-white/5">
+
+                {/* CATEGORY: AI Capabilities */}
+                <tr className="bg-zinc-100/50 dark:bg-zinc-950/40">
+                  <td colSpan={5} className="py-3 px-4 text-[10px] font-semibold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest">
+                    AI Capabilities &amp; Data Security
+                  </td>
                 </tr>
                 <tr className="hover:bg-zinc-50/40 dark:hover:bg-white/[0.01] transition-colors">
-                  <td className="py-4.5 text-sm text-zinc-800 dark:text-zinc-200 font-medium">File generation</td>
-                  <td className="py-4.5 text-sm text-zinc-500 dark:text-zinc-400">Limited</td>
-                  <td className="py-4.5 text-sm text-zinc-500 dark:text-zinc-400">Higher</td>
-                  <td className="py-4.5 text-sm text-zinc-500 dark:text-zinc-400">Maximum</td>
-                  <td className="py-4.5 text-sm text-zinc-500 dark:text-zinc-400">Unlimited</td>
+                  <td className="py-4 px-4 text-sm text-zinc-800 dark:text-zinc-200 font-medium">Daily AI Chat Limit</td>
+                  <td className="py-4 px-4 text-sm text-zinc-500 dark:text-zinc-400">25 / day</td>
+                  <td className="py-4 px-4 text-sm text-zinc-500 dark:text-zinc-400">100 / day</td>
+                  <td className="py-4 px-4 text-sm text-zinc-500 dark:text-zinc-400">100 / day</td>
+                  <td className="py-4 px-4 text-sm text-zinc-900 dark:text-white font-semibold">Unlimited</td>
                 </tr>
                 <tr className="hover:bg-zinc-50/40 dark:hover:bg-white/[0.01] transition-colors">
-                  <td className="py-4.5 text-sm text-zinc-800 dark:text-zinc-200 font-medium">Access to all Office add-ins</td>
-                  <td className="py-4.5 text-sm text-zinc-500 dark:text-zinc-400">✓</td>
-                  <td className="py-4.5 text-sm text-zinc-500 dark:text-zinc-400">✓</td>
-                  <td className="py-4.5 text-sm text-zinc-500 dark:text-zinc-400">✓</td>
-                  <td className="py-4.5 text-sm text-zinc-500 dark:text-zinc-400">✓</td>
+                  <td className="py-4 px-4 text-sm text-zinc-800 dark:text-zinc-200 font-medium">Hourly AI Chat Limit</td>
+                  <td className="py-4 px-4 text-sm text-zinc-300 dark:text-zinc-700"><Minus className="size-4" /></td>
+                  <td className="py-4 px-4 text-sm text-zinc-500 dark:text-zinc-400">20 / hour</td>
+                  <td className="py-4 px-4 text-sm text-zinc-500 dark:text-zinc-400">20 / hour</td>
+                  <td className="py-4 px-4 text-sm text-zinc-900 dark:text-white font-semibold">Unlimited</td>
                 </tr>
                 <tr className="hover:bg-zinc-50/40 dark:hover:bg-white/[0.01] transition-colors">
-                  <td className="py-4.5 text-sm text-zinc-800 dark:text-zinc-200 font-medium">Document processing and uploads</td>
-                  <td className="py-4.5 text-sm text-zinc-300 dark:text-zinc-700">—</td>
-                  <td className="py-4.5 text-sm text-zinc-500 dark:text-zinc-400">✓</td>
-                  <td className="py-4.5 text-sm text-zinc-500 dark:text-zinc-400">✓</td>
-                  <td className="py-4.5 text-sm text-zinc-500 dark:text-zinc-400">✓</td>
+                  <td className="py-4 px-4 text-sm text-zinc-800 dark:text-zinc-200 font-medium">AI Context Ingestion</td>
+                  <td className="py-4 px-4 text-sm text-zinc-500 dark:text-zinc-400">Standard</td>
+                  <td className="py-4 px-4 text-sm text-zinc-500 dark:text-zinc-400">Advanced</td>
+                  <td className="py-4 px-4 text-sm text-zinc-500 dark:text-zinc-400">Advanced</td>
+                  <td className="py-4 px-4 text-sm text-zinc-500 dark:text-zinc-400">Custom context limits</td>
                 </tr>
                 <tr className="hover:bg-zinc-50/40 dark:hover:bg-white/[0.01] transition-colors">
-                  <td className="py-4.5 text-sm text-zinc-800 dark:text-zinc-200 font-medium">Large document ingestion</td>
-                  <td className="py-4.5 text-sm text-zinc-300 dark:text-zinc-700">—</td>
-                  <td className="py-4.5 text-sm text-zinc-500 dark:text-zinc-400">✓</td>
-                  <td className="py-4.5 text-sm text-zinc-500 dark:text-zinc-400">✓</td>
-                  <td className="py-4.5 text-sm text-zinc-500 dark:text-zinc-400">✓</td>
+                  <td className="py-4 px-4 text-sm text-zinc-800 dark:text-zinc-200 font-medium">Data Privacy &amp; Model Training</td>
+                  <td className="py-4 px-4 text-sm text-amber-600 dark:text-amber-500">Used for model training</td>
+                  <td className="py-4 px-4 text-sm text-emerald-600 dark:text-emerald-500 font-medium">Secure data (No training)</td>
+                  <td className="py-4 px-4 text-sm text-emerald-600 dark:text-emerald-500 font-medium">Secure data (No training)</td>
+                  <td className="py-4 px-4 text-sm text-emerald-600 dark:text-emerald-500 font-medium">On-premise isolated databases</td>
+                </tr>
+
+                {/* CATEGORY: Core Workspace */}
+                <tr className="bg-zinc-100/50 dark:bg-zinc-950/40">
+                  <td colSpan={5} className="py-3 px-4 text-[10px] font-semibold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest">
+                    Core Workspace Features
+                  </td>
                 </tr>
                 <tr className="hover:bg-zinc-50/40 dark:hover:bg-white/[0.01] transition-colors">
-                  <td className="py-4.5 text-sm text-zinc-800 dark:text-zinc-200 font-medium">Priority model access</td>
-                  <td className="py-4.5 text-sm text-zinc-300 dark:text-zinc-700">—</td>
-                  <td className="py-4.5 text-sm text-zinc-300 dark:text-zinc-700">—</td>
-                  <td className="py-4.5 text-sm text-zinc-500 dark:text-zinc-400">✓</td>
-                  <td className="py-4.5 text-sm text-zinc-500 dark:text-zinc-400">✓</td>
+                  <td className="py-4 px-4 text-sm text-zinc-800 dark:text-zinc-200 font-medium">Smart Dashboard Task Ranking</td>
+                  <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
+                  <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
+                  <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
+                  <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                 </tr>
                 <tr className="hover:bg-zinc-50/40 dark:hover:bg-white/[0.01] transition-colors">
-                  <td className="py-4.5 text-sm text-zinc-800 dark:text-zinc-200 font-medium">Early access to beta features</td>
-                  <td className="py-4.5 text-sm text-zinc-300 dark:text-zinc-700">—</td>
-                  <td className="py-4.5 text-sm text-zinc-300 dark:text-zinc-700">—</td>
-                  <td className="py-4.5 text-sm text-zinc-500 dark:text-zinc-400">✓</td>
-                  <td className="py-4.5 text-sm text-zinc-500 dark:text-zinc-400">✓</td>
+                  <td className="py-4 px-4 text-sm text-zinc-800 dark:text-zinc-200 font-medium">Task Management (Kanban &amp; Gantt)</td>
+                  <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
+                  <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
+                  <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
+                  <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                 </tr>
                 <tr className="hover:bg-zinc-50/40 dark:hover:bg-white/[0.01] transition-colors">
-                  <td className="py-4.5 text-sm text-zinc-800 dark:text-zinc-200 font-medium">Support</td>
-                  <td className="py-4.5 text-sm text-zinc-500 dark:text-zinc-400">Community</td>
-                  <td className="py-4.5 text-sm text-zinc-500 dark:text-zinc-400">Email</td>
-                  <td className="py-4.5 text-sm text-zinc-500 dark:text-zinc-400">Priority</td>
-                  <td className="py-4.5 text-sm text-zinc-500 dark:text-zinc-400">Dedicated</td>
+                  <td className="py-4 px-4 text-sm text-zinc-800 dark:text-zinc-200 font-medium">Dependency Blocking Logic</td>
+                  <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
+                  <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
+                  <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
+                  <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                 </tr>
                 <tr className="hover:bg-zinc-50/40 dark:hover:bg-white/[0.01] transition-colors">
-                  <td className="py-4.5 text-sm text-zinc-800 dark:text-zinc-200 font-medium">SSO</td>
-                  <td className="py-4.5 text-sm text-zinc-300 dark:text-zinc-700">—</td>
-                  <td className="py-4.5 text-sm text-zinc-300 dark:text-zinc-700">—</td>
-                  <td className="py-4.5 text-sm text-zinc-300 dark:text-zinc-700">—</td>
-                  <td className="py-4.5 text-sm text-zinc-500 dark:text-zinc-400">✓</td>
+                  <td className="py-4 px-4 text-sm text-zinc-800 dark:text-zinc-200 font-medium">Motion Docs &amp; Block Editor</td>
+                  <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
+                  <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
+                  <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
+                  <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                 </tr>
                 <tr className="hover:bg-zinc-50/40 dark:hover:bg-white/[0.01] transition-colors">
-                  <td className="py-4.5 text-sm text-zinc-800 dark:text-zinc-200 font-medium">Bulk onboarding</td>
-                  <td className="py-4.5 text-sm text-zinc-300 dark:text-zinc-700">—</td>
-                  <td className="py-4.5 text-sm text-zinc-300 dark:text-zinc-700">—</td>
-                  <td className="py-4.5 text-sm text-zinc-300 dark:text-zinc-700">—</td>
-                  <td className="py-4.5 text-sm text-zinc-500 dark:text-zinc-400">✓</td>
+                  <td className="py-4 px-4 text-sm text-zinc-800 dark:text-zinc-200 font-medium">Real-time Collaborative Editing</td>
+                  <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
+                  <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
+                  <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
+                  <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                 </tr>
                 <tr className="hover:bg-zinc-50/40 dark:hover:bg-white/[0.01] transition-colors">
-                  <td className="py-4.5 text-sm text-zinc-800 dark:text-zinc-200 font-medium">Team management</td>
-                  <td className="py-4.5 text-sm text-zinc-300 dark:text-zinc-700">—</td>
-                  <td className="py-4.5 text-sm text-zinc-300 dark:text-zinc-700">—</td>
-                  <td className="py-4.5 text-sm text-zinc-300 dark:text-zinc-700">—</td>
-                  <td className="py-4.5 text-sm text-zinc-500 dark:text-zinc-400">✓</td>
+                  <td className="py-4 px-4 text-sm text-zinc-800 dark:text-zinc-200 font-medium">Team Chat &amp; Socket Channels</td>
+                  <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
+                  <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
+                  <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
+                  <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                 </tr>
                 <tr className="hover:bg-zinc-50/40 dark:hover:bg-white/[0.01] transition-colors">
-                  <td className="py-4.5 text-sm text-zinc-800 dark:text-zinc-200 font-medium">Custom security / compliance</td>
-                  <td className="py-4.5 text-sm text-zinc-300 dark:text-zinc-700">—</td>
-                  <td className="py-4.5 text-sm text-zinc-300 dark:text-zinc-700">—</td>
-                  <td className="py-4.5 text-sm text-zinc-300 dark:text-zinc-700">—</td>
-                  <td className="py-4.5 text-sm text-zinc-500 dark:text-zinc-400">✓</td>
+                  <td className="py-4 px-4 text-sm text-zinc-800 dark:text-zinc-200 font-medium">Smart Notifications &amp; Preferences</td>
+                  <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
+                  <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
+                  <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
+                  <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                 </tr>
+                <tr className="hover:bg-zinc-50/40 dark:hover:bg-white/[0.01] transition-colors">
+                  <td className="py-4 px-4 text-sm text-zinc-800 dark:text-zinc-200 font-medium">Audio Meeting Recorder</td>
+                  <td className="py-4 px-4 text-sm text-zinc-400">Limited (3 / month)</td>
+                  <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
+                  <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
+                  <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
+                </tr>
+                <tr className="hover:bg-zinc-50/40 dark:hover:bg-white/[0.01] transition-colors">
+                  <td className="py-4 px-4 text-sm text-zinc-800 dark:text-zinc-200 font-medium">Transcription Speaker Diarization</td>
+                  <td className="py-4 px-4 text-zinc-300 dark:text-zinc-700"><Minus className="size-4" /></td>
+                  <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
+                  <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
+                  <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
+                </tr>
+
+                {/* CATEGORY: Collaboration & Admin */}
+                <tr className="bg-zinc-100/50 dark:bg-zinc-950/40">
+                  <td colSpan={5} className="py-3 px-4 text-[10px] font-semibold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest">
+                    Collaboration &amp; Administration
+                  </td>
+                </tr>
+                <tr className="hover:bg-zinc-50/40 dark:hover:bg-white/[0.01] transition-colors">
+                  <td className="py-4 px-4 text-sm text-zinc-800 dark:text-zinc-200 font-medium">Centralized Seat Billing</td>
+                  <td className="py-4 px-4 text-zinc-300 dark:text-zinc-700"><Minus className="size-4" /></td>
+                  <td className="py-4 px-4 text-zinc-300 dark:text-zinc-700"><Minus className="size-4" /></td>
+                  <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
+                  <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
+                </tr>
+                <tr className="hover:bg-zinc-50/40 dark:hover:bg-white/[0.01] transition-colors">
+                  <td className="py-4 px-4 text-sm text-zinc-800 dark:text-zinc-200 font-medium">Workspace Administrator Control Panel</td>
+                  <td className="py-4 px-4 text-zinc-300 dark:text-zinc-700"><Minus className="size-4" /></td>
+                  <td className="py-4 px-4 text-zinc-300 dark:text-zinc-700"><Minus className="size-4" /></td>
+                  <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
+                  <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
+                </tr>
+                <tr className="hover:bg-zinc-50/40 dark:hover:bg-white/[0.01] transition-colors">
+                  <td className="py-4 px-4 text-sm text-zinc-800 dark:text-zinc-200 font-medium">SSO / SAML Security integration</td>
+                  <td className="py-4 px-4 text-zinc-300 dark:text-zinc-700"><Minus className="size-4" /></td>
+                  <td className="py-4 px-4 text-zinc-300 dark:text-zinc-700"><Minus className="size-4" /></td>
+                  <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
+                  <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
+                </tr>
+                <tr className="hover:bg-zinc-50/40 dark:hover:bg-white/[0.01] transition-colors">
+                  <td className="py-4 px-4 text-sm text-zinc-800 dark:text-zinc-200 font-medium">Detailed Activity Logs &amp; Audit Exports</td>
+                  <td className="py-4 px-4 text-zinc-300 dark:text-zinc-700"><Minus className="size-4" /></td>
+                  <td className="py-4 px-4 text-zinc-300 dark:text-zinc-700"><Minus className="size-4" /></td>
+                  <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
+                  <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
+                </tr>
+
+                {/* CATEGORY: Deployment & Hosting */}
+                <tr className="bg-zinc-100/50 dark:bg-zinc-950/40">
+                  <td colSpan={5} className="py-3 px-4 text-[10px] font-semibold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest">
+                    Deployment &amp; Hosting
+                  </td>
+                </tr>
+                <tr className="hover:bg-zinc-50/40 dark:hover:bg-white/[0.01] transition-colors">
+                  <td className="py-4 px-4 text-sm text-zinc-800 dark:text-zinc-200 font-medium">Cloud Serverless Deployment</td>
+                  <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
+                  <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
+                  <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
+                  <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
+                </tr>
+                <tr className="hover:bg-zinc-50/40 dark:hover:bg-white/[0.01] transition-colors">
+                  <td className="py-4 px-4 text-sm text-zinc-800 dark:text-zinc-200 font-medium">On-Premise Isolated Database Option</td>
+                  <td className="py-4 px-4 text-zinc-300 dark:text-zinc-700"><Minus className="size-4" /></td>
+                  <td className="py-4 px-4 text-zinc-300 dark:text-zinc-700"><Minus className="size-4" /></td>
+                  <td className="py-4 px-4 text-zinc-300 dark:text-zinc-700"><Minus className="size-4" /></td>
+                  <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
+                </tr>
+                <tr className="hover:bg-zinc-50/40 dark:hover:bg-white/[0.01] transition-colors">
+                  <td className="py-4 px-4 text-sm text-zinc-800 dark:text-zinc-200 font-medium">Service Level Uptime SLA</td>
+                  <td className="py-4 px-4 text-zinc-300 dark:text-zinc-700"><Minus className="size-4" /></td>
+                  <td className="py-4 px-4 text-zinc-300 dark:text-zinc-700"><Minus className="size-4" /></td>
+                  <td className="py-4 px-4 text-sm text-zinc-500 dark:text-zinc-400">99.9% Guarantee</td>
+                  <td className="py-4 px-4 text-sm text-emerald-600 dark:text-emerald-500 font-semibold">Custom SLA contracts</td>
+                </tr>
+
+                {/* CATEGORY: Support & Contracts */}
+                <tr className="bg-zinc-100/50 dark:bg-zinc-950/40">
+                  <td colSpan={5} className="py-3 px-4 text-[10px] font-semibold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest">
+                    Support &amp; Custom Contracts
+                  </td>
+                </tr>
+                <tr className="hover:bg-zinc-50/40 dark:hover:bg-white/[0.01] transition-colors">
+                  <td className="py-4 px-4 text-sm text-zinc-800 dark:text-zinc-200 font-medium">Support Channels</td>
+                  <td className="py-4 px-4 text-sm text-zinc-500 dark:text-zinc-400">Community only</td>
+                  <td className="py-4 px-4 text-sm text-zinc-500 dark:text-zinc-400">24x7 Specialized support</td>
+                  <td className="py-4 px-4 text-sm text-zinc-500 dark:text-zinc-400">24x7 Specialized support</td>
+                  <td className="py-4 px-4 text-sm text-emerald-600 dark:text-emerald-500 font-semibold">Priority 24/7 Response SLA</td>
+                </tr>
+                <tr className="hover:bg-zinc-50/40 dark:hover:bg-white/[0.01] transition-colors">
+                  <td className="py-4 px-4 text-sm text-zinc-800 dark:text-zinc-200 font-medium">Dedicated Customer Success Manager</td>
+                  <td className="py-4 px-4 text-zinc-300 dark:text-zinc-700"><Minus className="size-4" /></td>
+                  <td className="py-4 px-4 text-zinc-300 dark:text-zinc-700"><Minus className="size-4" /></td>
+                  <td className="py-4 px-4 text-zinc-300 dark:text-zinc-700"><Minus className="size-4" /></td>
+                  <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
+                </tr>
+                <tr className="hover:bg-zinc-50/40 dark:hover:bg-white/[0.01] transition-colors">
+                  <td className="py-4 px-4 text-sm text-zinc-800 dark:text-zinc-200 font-medium">Custom legal terms &amp; agreements</td>
+                  <td className="py-4 px-4 text-zinc-300 dark:text-zinc-700"><Minus className="size-4" /></td>
+                  <td className="py-4 px-4 text-zinc-300 dark:text-zinc-700"><Minus className="size-4" /></td>
+                  <td className="py-4 px-4 text-zinc-300 dark:text-zinc-700"><Minus className="size-4" /></td>
+                  <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
+                </tr>
+
               </tbody>
             </table>
           </div>
         </section>
 
-        <div className="h-px bg-zinc-200/60 dark:bg-white/5 my-24" />
+        <div className="h-px bg-zinc-200/60 dark:bg-white/5 my-20" />
 
-        {/* ─── SECTION 4: Why pricing follows usage maturity ─── */}
-        <section className="mb-20">
-          <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
-            
-            {/* Left Copy */}
-            <div className="w-full lg:w-1/3 shrink-0 flex flex-col gap-6 text-left">
-              <span className="text-xs font-semibold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest">
-                Why pricing follows usage maturity
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-normal tracking-tight text-zinc-900 dark:text-white leading-[1.15]">
-                AI value compounds when teams move from experiments to workflows.
-              </h2>
-              <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
-                Research from Microsoft, McKinsey, Stanford, and NIST points to the same operational lesson: AI adoption is widespread, but value comes from training, governance, workflow redesign, and reviewable output.
-              </p>
-              <Link
-                href="#"
-                className="inline-flex items-center gap-2 border border-zinc-200 hover:bg-zinc-50 dark:border-white/5 dark:hover:bg-white/5 text-zinc-800 dark:text-zinc-200 font-medium px-4.5 py-2.5 rounded-sm text-xs w-fit transition-colors cursor-pointer bg-transparent"
-              >
-                <span>Book a demo</span>
-                <ArrowRight className="size-3.5" />
-              </Link>
-            </div>
-
-            {/* Right Cards Stack */}
-            <div className="flex-1 grid grid-cols-1 md:grid-cols-3 gap-6">
-              
-              {/* Card 1 */}
-              <div className="flex flex-col bg-white border border-zinc-200/80 dark:bg-[#0e0e0e] dark:border-white/5 rounded-sm p-7 gap-5 shadow-sm transition-colors duration-300">
-                <h3 className="text-sm font-semibold text-zinc-900 dark:text-white">
-                  Agents need workflow context, not just prompts.
-                </h3>
-                <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed flex-grow">
-                  The practical leap from chatbot to agent is the ability to act against files, tools, and state. For knowledge work, that means the model needs the workbook, deck, document, project space, template, and review criteria close to the task.
-                </p>
-                <ul className="list-disc pl-4 text-xs text-zinc-400 dark:text-zinc-500 space-y-3 mt-2">
-                  <li>Give the agent the artifact it should change, not a pasted approximation.</li>
-                  <li>Keep source files and generated outputs connected for review.</li>
-                  <li>Make reusable workflows explicit so the team does not reinvent prompts.</li>
-                </ul>
-              </div>
-
-              {/* Card 2 */}
-              <div className="flex flex-col bg-white border border-zinc-200/80 dark:bg-[#0e0e0e] dark:border-white/5 rounded-sm p-7 gap-5 shadow-sm transition-colors duration-300">
-                <h3 className="text-sm font-semibold text-zinc-900 dark:text-white">
-                  The value is in redesigned work, not one-off answers.
-                </h3>
-                <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed flex-grow">
-                  Research on enterprise AI adoption keeps pointing to the same pattern: organizations get more value when they redesign recurring workflows. A good agent workflow has inputs, actions, checkpoints, and a clear output.
-                </p>
-                <ul className="list-disc pl-4 text-xs text-zinc-400 dark:text-zinc-500 space-y-3 mt-2">
-                  <li>Start with frequent, tedious, reviewable work.</li>
-                  <li>Add human checkpoints where mistakes would be expensive.</li>
-                  <li>Measure saved handoffs, cleaner artifacts, and faster review cycles.</li>
-                </ul>
-              </div>
-
-              {/* Card 3 */}
-              <div className="flex flex-col bg-white border border-zinc-200/80 dark:bg-[#0e0e0e] dark:border-white/5 rounded-sm p-7 gap-5 shadow-sm transition-colors duration-300">
-                <h3 className="text-sm font-semibold text-zinc-900 dark:text-white">
-                  AI quality has to be inspectable.
-                </h3>
-                <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed flex-grow">
-                  For professional work, speed without traceability is a liability. Good AI systems help users see what changed, what sources were used, what assumptions were made, and which claims need human verification.
-                </p>
-                <ul className="list-disc pl-4 text-xs text-zinc-400 dark:text-zinc-500 space-y-3 mt-2">
-                  <li>Separate source facts from recommendations.</li>
-                  <li>Ask for change logs, assumptions, and open questions.</li>
-                  <li>Review math, claims, formatting, and final judgment separately.</li>
-                </ul>
-              </div>
-
-            </div>
+        {/* ─── SECTION 4: FAQ ─── */}
+        <section className="mb-8 max-w-2xl">
+          <h2 className="text-2xl font-normal tracking-tight text-zinc-900 dark:text-white mb-8">
+            Common questions
+          </h2>
+          <div className="divide-y divide-zinc-200/60 dark:divide-white/5 border-t border-zinc-200/60 dark:border-white/5">
+            {faqs.map((faq) => (
+              <FAQItem key={faq.q} q={faq.q} a={faq.a} />
+            ))}
           </div>
-
-          {/* Research Panel */}
-          <ResearchPanel />
+          <p className="mt-8 text-sm text-zinc-500 dark:text-zinc-400">
+            More questions?{" "}
+            <Link href="/support" className="text-zinc-900 dark:text-white underline underline-offset-2 hover:opacity-70 transition-opacity">
+              Visit our support center
+            </Link>{" "}
+            or{" "}
+            <Link href="/enterprise" className="text-zinc-900 dark:text-white underline underline-offset-2 hover:opacity-70 transition-opacity">
+              talk to sales
+            </Link>.
+          </p>
         </section>
 
       </main>
-
       <Footer />
     </div>
   );

@@ -12,38 +12,38 @@ const members = [
 
 export default function TeamPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-background text-foreground">
+    <div className="flex flex-col min-h-screen bg-background text-foreground select-text selection:bg-primary/10">
       <Navbar />
-      <main className="flex-1 pt-24 pb-24 px-6 lg:px-12">
+      <main className="flex-1 pt-24 pb-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-8xl mx-auto flex flex-col gap-16">
           <div className="flex flex-col gap-4">
-            <span className="text-xs font-semibold tracking-widest text-muted-foreground/80 uppercase">Team</span>
-            <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight text-foreground leading-tight">
+            <span className="text-xs font-semibold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest block">Team</span>
+            <h1 className="text-4xl sm:text-5xl font-normal tracking-tight text-zinc-900 dark:text-white leading-tight">
               The people building KielHQ
             </h1>
-            <p className="text-base text-muted-foreground max-w-xl leading-relaxed">
+            <p className="text-base text-zinc-500 dark:text-zinc-400 max-w-xl leading-relaxed">
               We&apos;re a small, focused team obsessed with clarity, execution, and building the best work OS on the planet.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
             {members.map((m) => (
-              <div key={m.name} className="flex items-center gap-4 p-5 rounded-sm border border-border bg-card shadow-sm">
+              <div key={m.name} className="flex items-center gap-4 p-5 rounded-sm border border-zinc-200/80 dark:border-white/5 bg-zinc-50/20 dark:bg-[#0e0e0e]/20 shadow-sm transition-colors duration-300">
                 <div className={`size-12 rounded-sm flex items-center justify-center text-sm font-bold shrink-0 ${m.bg}`}>
                   {m.initials}
                 </div>
                 <div className="flex flex-col gap-0.5">
-                  <span className="text-sm font-semibold text-foreground">{m.name}</span>
-                  <span className="text-xs text-muted-foreground">{m.role}</span>
+                  <span className="text-sm font-semibold text-zinc-900 dark:text-white">{m.name}</span>
+                  <span className="text-xs text-zinc-500 dark:text-zinc-400">{m.role}</span>
                 </div>
               </div>
             ))}
           </div>
-          <div className="p-8 rounded-sm bg-primary text-primary-foreground flex flex-col gap-4 border border-border shadow-md">
-            <h2 className="text-xl font-semibold">We&apos;re hiring</h2>
-            <p className="text-sm text-primary-foreground/85 leading-relaxed max-w-lg">
+          <div className="p-8 rounded-sm bg-zinc-950 text-white dark:bg-white dark:text-zinc-950 flex flex-col gap-4 border border-zinc-200/85 dark:border-white/10 shadow-md">
+            <h2 className="text-xl font-normal tracking-tight">We&apos;re hiring</h2>
+            <p className="text-sm text-zinc-400 dark:text-zinc-800 leading-relaxed max-w-lg">
               We&apos;re looking for engineers, designers, and growth people who care deeply about craft and clarity. Remote-first, async-friendly.
             </p>
-            <a href="mailto:jobs@kielhq.com" className="text-sm font-semibold text-primary-foreground underline underline-offset-2 hover:opacity-80 transition-colors w-fit">
+            <a href="mailto:jobs@kielhq.com" className="text-sm font-semibold text-zinc-100 dark:text-zinc-900 underline underline-offset-2 hover:opacity-80 transition-colors w-fit">
               jobs@kielhq.com →
             </a>
           </div>

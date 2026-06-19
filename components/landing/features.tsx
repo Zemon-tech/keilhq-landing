@@ -57,10 +57,10 @@ export function Features({ data }: StickyScrollProps) {
 
       {/* ── Section header — centered, full width ── */}
       <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 sm:mb-28 text-center">
-        <span className="text-xs font-semibold tracking-widest text-muted-foreground uppercase">
+        <span className="text-xs font-semibold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest block mb-4">
           Everything in one place
         </span>
-        <h2 className="text-3xl sm:text-5xl font-semibold tracking-tight text-foreground mt-3">
+        <h2 className="text-3xl sm:text-5xl font-normal tracking-tight text-zinc-900 dark:text-white">
           What you can do with KielHQ
         </h2>
       </div>
@@ -76,14 +76,14 @@ export function Features({ data }: StickyScrollProps) {
           >
             <div ref={leftContentRef} className="flex flex-col gap-5 text-left">
               {activeFeature?.badgeText && (
-                <span className="text-xs font-semibold text-muted-foreground uppercase tracking-widest">
+                <span className="text-xs font-semibold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest block">
                   {activeFeature.badgeText}
                 </span>
               )}
-              <h3 className="text-2xl font-semibold tracking-tight text-foreground leading-snug">
+              <h3 className="text-2xl font-normal tracking-tight text-zinc-900 dark:text-white leading-snug">
                 {activeFeature?.title}
               </h3>
-              <p className="text-sm leading-relaxed text-muted-foreground">
+              <p className="text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
                 {activeFeature?.description}
               </p>
               <a
@@ -132,12 +132,12 @@ export function Features({ data }: StickyScrollProps) {
           <div key={item.id} className="flex flex-col gap-6 text-left">
             <div className="flex flex-col gap-3">
               {item.badgeText && (
-                <span className="text-xs font-semibold text-muted-foreground uppercase tracking-widest">
+                <span className="text-xs font-semibold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest block">
                   {item.badgeText}
                 </span>
               )}
-              <h3 className="text-2xl font-semibold text-foreground">{item.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+              <h3 className="text-2xl font-normal tracking-tight text-zinc-900 dark:text-white">{item.title}</h3>
+              <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">{item.description}</p>
               <a
                 href="#"
                 className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground hover:underline group w-fit"

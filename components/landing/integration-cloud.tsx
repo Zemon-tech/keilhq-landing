@@ -4,25 +4,18 @@ import React from "react";
 
 // Robust, high-fidelity Brand logo URLs
 const combinedLogos = [
-  "https://cdn.brandfetch.io/idZAyF9rlg/theme/dark/symbol.svg?c=1bxid64Mup7aczewSAYMX&t=1779162684348", // Github
-  "https://cdn.brandfetch.io/idJ_HhtG0Z/theme/dark/symbol.svg?c=1bxid64Mup7aczewSAYMX&t=1745381296843", // Slack
-  "https://cdn.brandfetch.io/idPYUoikV7/theme/dark/symbol.svg?c=1bxid64Mup7aczewSAYMX&t=1714126994748", // Notion
-  "https://cdn.brandfetch.io/id6O2oGzv-/theme/dark/idMX2_OMSc.svg?c=1bxid64Mup7aczewSAYMX&t=1779346439033", // Google Calendar
-  "https://cdn.brandfetch.io/atlassian.com/w/400/h/400/theme/dark/symbol.svg", // Atlassian
-  "https://cdn.brandfetch.io/salesforce.com/w/400/h/400/theme/dark/symbol.svg", // Salesforce
-  "https://cdn.brandfetch.io/ibm.com/w/400/h/400/theme/dark/symbol.svg", // IBM
-  "https://cdn.brandfetch.io/okta.com/w/400/h/400/theme/dark/symbol.svg", // Okta
-  "https://cdn.brandfetch.io/cisco.com/w/400/h/400/theme/dark/symbol.svg", // Cisco
-  "https://cdn.brandfetch.io/linear.app/w/400/h/400/theme/dark/symbol.svg", // Linear
-  "https://cdn.brandfetch.io/figma.com/w/400/h/400/theme/dark/symbol.svg", // Figma
-  "https://cdn.brandfetch.io/retool.com/w/400/h/400/theme/dark/symbol.svg", // Retool
-  "https://cdn.brandfetch.io/sentry.io/w/400/h/400/theme/dark/symbol.svg", // Sentry
-  "https://cdn.brandfetch.io/asana.com/w/400/h/400/theme/dark/symbol.svg", // Asana
-  "https://cdn.brandfetch.io/hubspot.com/w/400/h/400/theme/dark/symbol.svg", // HubSpot
-  "https://cdn.brandfetch.io/gitlab.com/w/400/h/400/theme/dark/symbol.svg", // GitLab
-  "https://cdn.brandfetch.io/microsoft.com/w/400/h/400/theme/dark/symbol.svg", // Microsoft
-  "https://cdn.brandfetch.io/zoom.us/w/400/h/400/theme/dark/symbol.svg", // Zoom
-  "https://cdn.brandfetch.io/shopify.com/w/400/h/400/theme/dark/symbol.svg", // Shopify
+  "/integrations/slack.png",
+  "/integrations/notion.png",
+  "/integrations/gcalendar.png",
+  "/integrations/atlassianjira.png",
+  "/integrations/linear.jpeg",
+  "/integrations/gdocs.png",
+  "/integrations/gdrive.png",
+  "/integrations/gmail.png",
+  "/integrations/gmeet.png",
+  "/integrations/gsheets.png",
+  "/integrations/gslides.png",
+  "/integrations/chroniclehq.jpeg",
 ];
 
 interface LogoIconProps {
@@ -98,7 +91,7 @@ export function IntegrationCloud() {
           <div className="flex items-center justify-between w-full mb-10 relative z-20">
             {/* Left: Copy Text */}
             <div className="max-w-xl text-left select-text pl-2">
-              <h2 className="text-3xl sm:text-[2.5rem] font-medium tracking-tight text-zinc-900 dark:text-white leading-[1.15]">
+              <h2 className="text-3xl sm:text-[2.5rem] font-normal tracking-tight text-zinc-900 dark:text-white leading-[1.15]">
                 KeilHQ lives in every app you already use.
               </h2>
             </div>
