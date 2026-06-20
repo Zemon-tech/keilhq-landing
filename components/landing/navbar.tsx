@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
 
 export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -55,16 +55,19 @@ export function Navbar() {
 
           {/* Features Dropdown */}
           <div className="relative group">
-            <button className="flex items-center gap-1 text-[13px] text-muted-foreground hover:text-foreground transition-colors duration-150 py-2 cursor-pointer bg-transparent border-none">
+            <button className="flex items-center gap-1 text-[13px] font-semibold tracking-[0.01em] text-muted-foreground hover:text-foreground transition-colors duration-150 py-2 cursor-pointer bg-transparent border-none">
               Features
+              <ChevronDown className="size-3 transition-transform duration-200 group-hover:rotate-180" />
             </button>
+            {/* Invisible bridge fills the gap so mouse doesn't leave the group */}
+            <div className="absolute top-full left-0 right-0 h-2 z-50" />
             <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[760px] bg-white dark:bg-[#0c0c0c] border border-zinc-200/80 dark:border-white/5 rounded-2xl shadow-2xl opacity-0 pointer-events-none scale-[0.97] origin-top transition-all duration-200 group-hover:opacity-100 group-hover:pointer-events-auto group-hover:scale-100 z-50 flex overflow-hidden">
               {/* Left Panel */}
               <div className="w-[260px] shrink-0 bg-[#fbfaf7] dark:bg-[#121211] p-8 border-r border-zinc-150/40 dark:border-white/5 flex flex-col justify-start text-left">
                 <h4 className="font-display text-2xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50 leading-[1.25]">
                   Everything in one place.
                 </h4>
-                <p className="text-[12px] text-zinc-500 dark:text-zinc-400 leading-relaxed mt-3">
+                <p className="text-[12px] font-medium tracking-[0.015em] text-zinc-500 dark:text-zinc-400 leading-relaxed mt-3">
                   One quiet assistant that remembers your work, sits in on your meetings, and acts when it matters.
                 </p>
               </div>
@@ -83,8 +86,8 @@ export function Navbar() {
                     href={item.href}
                     className="group/item flex flex-col gap-1 hover:bg-zinc-50/50 dark:hover:bg-zinc-900/40 p-2.5 -m-2.5 rounded-xl transition-all duration-200"
                   >
-                    <span className="text-[13px] font-semibold text-zinc-900 dark:text-zinc-100 group-hover/item:text-foreground">{item.title}</span>
-                    <span className="text-[11.5px] text-zinc-500 dark:text-zinc-400 leading-normal font-normal">{item.desc}</span>
+                    <span className="text-[13px] font-semibold tracking-[0.01em] text-zinc-900 dark:text-zinc-100 group-hover/item:text-foreground">{item.title}</span>
+                    <span className="text-[11.5px] font-medium tracking-[0.015em] text-zinc-500 dark:text-zinc-400 leading-normal">{item.desc}</span>
                   </Link>
                 ))}
               </div>
@@ -93,16 +96,19 @@ export function Navbar() {
 
           {/* Use Cases Dropdown */}
           <div className="relative group">
-            <button className="flex items-center gap-1 text-[13px] text-muted-foreground hover:text-foreground transition-colors duration-150 py-2 cursor-pointer bg-transparent border-none">
+            <button className="flex items-center gap-1 text-[13px] font-semibold tracking-[0.01em] text-muted-foreground hover:text-foreground transition-colors duration-150 py-2 cursor-pointer bg-transparent border-none">
               Solutions
+              <ChevronDown className="size-3 transition-transform duration-200 group-hover:rotate-180" />
             </button>
+            {/* Invisible bridge fills the gap so mouse doesn't leave the group */}
+            <div className="absolute top-full left-0 right-0 h-2 z-50" />
             <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[760px] bg-white dark:bg-[#0c0c0c] border border-zinc-200/80 dark:border-white/5 rounded-2xl shadow-2xl opacity-0 pointer-events-none scale-[0.97] origin-top transition-all duration-200 group-hover:opacity-100 group-hover:pointer-events-auto group-hover:scale-100 z-50 flex overflow-hidden">
               {/* Left Panel */}
               <div className="w-[260px] shrink-0 bg-[#fbfaf7] dark:bg-[#121211] p-8 border-r border-zinc-150/40 dark:border-white/5 flex flex-col justify-start text-left">
                 <h4 className="font-display text-2xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50 leading-[1.25]">
                   Built for how you work
                 </h4>
-                <p className="text-[12px] text-zinc-500 dark:text-zinc-400 leading-relaxed mt-3">
+                <p className="text-[12px] font-medium tracking-[0.015em] text-zinc-500 dark:text-zinc-400 leading-relaxed mt-3">
                   KielHQ adapts to your role — from leadership and client-facing teams to technical and creative projects.
                 </p>
               </div>
@@ -119,8 +125,8 @@ export function Navbar() {
                     href={item.href}
                     className="group/item flex flex-col gap-1 hover:bg-zinc-50/50 dark:hover:bg-zinc-900/40 p-2.5 -m-2.5 rounded-xl transition-all duration-200"
                   >
-                    <span className="text-[13px] font-semibold text-zinc-900 dark:text-zinc-100 group-hover/item:text-foreground">{item.title}</span>
-                    <span className="text-[11.5px] text-zinc-500 dark:text-zinc-400 leading-normal font-normal">{item.desc}</span>
+                    <span className="text-[13px] font-semibold tracking-[0.01em] text-zinc-900 dark:text-zinc-100 group-hover/item:text-foreground">{item.title}</span>
+                    <span className="text-[11.5px] font-medium tracking-[0.015em] text-zinc-500 dark:text-zinc-400 leading-normal">{item.desc}</span>
                   </Link>
                 ))}
               </div>
@@ -129,16 +135,19 @@ export function Navbar() {
 
           {/* Pricing Dropdown */}
           <div className="relative group">
-            <button className="flex items-center gap-1 text-[13px] text-muted-foreground hover:text-foreground transition-colors duration-150 py-2 cursor-pointer bg-transparent border-none">
+            <button className="flex items-center gap-1 text-[13px] font-semibold tracking-[0.01em] text-muted-foreground hover:text-foreground transition-colors duration-150 py-2 cursor-pointer bg-transparent border-none">
               Pricing
+              <ChevronDown className="size-3 transition-transform duration-200 group-hover:rotate-180" />
             </button>
+            {/* Invisible bridge fills the gap so mouse doesn't leave the group */}
+            <div className="absolute top-full left-0 right-0 h-2 z-50" />
             <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[580px] bg-white dark:bg-[#0c0c0c] border border-zinc-200/80 dark:border-white/5 rounded-2xl shadow-2xl opacity-0 pointer-events-none scale-[0.97] origin-top transition-all duration-200 group-hover:opacity-100 group-hover:pointer-events-auto group-hover:scale-100 z-50 flex overflow-hidden">
               {/* Left Panel */}
               <div className="w-[240px] shrink-0 bg-[#fbfaf7] dark:bg-[#121211] p-8 border-r border-zinc-150/40 dark:border-white/5 flex flex-col justify-start text-left">
                 <h4 className="font-display text-2xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50 leading-[1.25]">
                   Simple, honest pricing.
                 </h4>
-                <p className="text-[12px] text-zinc-500 dark:text-zinc-400 leading-relaxed mt-3">
+                <p className="text-[12px] font-medium tracking-[0.015em] text-zinc-500 dark:text-zinc-400 leading-relaxed mt-3">
                   Start free and stay free. Upgrade only when you want more memory and more power.
                 </p>
               </div>
@@ -155,14 +164,14 @@ export function Navbar() {
                     className="group/item flex flex-col gap-1 hover:bg-zinc-50/50 dark:hover:bg-zinc-900/40 p-2.5 -m-2.5 rounded-xl transition-all duration-200"
                   >
                     <div className="flex items-baseline justify-between">
-                      <span className="text-[13px] font-semibold text-zinc-900 dark:text-zinc-100 group-hover/item:text-foreground">{item.title}</span>
-                      <span className="text-[11.5px] font-medium text-zinc-500 dark:text-zinc-400">{item.price}</span>
+                      <span className="text-[13px] font-semibold tracking-[0.01em] text-zinc-900 dark:text-zinc-100 group-hover/item:text-foreground">{item.title}</span>
+                      <span className="text-[11.5px] font-semibold tracking-[0.015em] text-zinc-500 dark:text-zinc-400">{item.price}</span>
                     </div>
-                    <span className="text-[11.5px] text-zinc-500 dark:text-zinc-400 leading-normal font-normal">{item.desc}</span>
+                    <span className="text-[11.5px] font-medium tracking-[0.015em] text-zinc-500 dark:text-zinc-400 leading-normal">{item.desc}</span>
                   </Link>
                 ))}
                 <div className="border-t border-zinc-100 dark:border-white/5 pt-4 mt-1">
-                  <Link href="/pricing" className="text-[12px] font-semibold text-zinc-900 dark:text-zinc-100 hover:text-zinc-500 dark:hover:text-zinc-300 flex items-center gap-1 group/btn w-fit">
+                  <Link href="/pricing" className="text-[12px] font-semibold tracking-[0.01em] text-zinc-900 dark:text-zinc-100 hover:text-zinc-500 dark:hover:text-zinc-300 flex items-center gap-1 group/btn w-fit">
                     Compare plans
                     <ArrowRight className="size-3.5 transition-transform group-hover/btn:translate-x-0.5" />
                   </Link>
@@ -173,16 +182,19 @@ export function Navbar() {
 
           {/* Company Dropdown */}
           <div className="relative group">
-            <button className="flex items-center gap-1 text-[13px] text-muted-foreground hover:text-foreground transition-colors duration-150 py-2 cursor-pointer bg-transparent border-none">
+            <button className="flex items-center gap-1 text-[13px] font-semibold tracking-[0.01em] text-muted-foreground hover:text-foreground transition-colors duration-150 py-2 cursor-pointer bg-transparent border-none">
               Company
+              <ChevronDown className="size-3 transition-transform duration-200 group-hover:rotate-180" />
             </button>
+            {/* Invisible bridge fills the gap so mouse doesn't leave the group */}
+            <div className="absolute top-full left-0 right-0 h-2 z-50" />
             <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[520px] bg-white dark:bg-[#0c0c0c] border border-zinc-200/80 dark:border-white/5 rounded-2xl shadow-2xl opacity-0 pointer-events-none scale-[0.97] origin-top transition-all duration-200 group-hover:opacity-100 group-hover:pointer-events-auto group-hover:scale-100 z-50 flex overflow-hidden">
               {/* Left Panel */}
               <div className="w-[220px] shrink-0 bg-[#fbfaf7] dark:bg-[#121211] p-8 border-r border-zinc-150/40 dark:border-white/5 flex flex-col justify-start text-left">
                 <h4 className="font-display text-2xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50 leading-[1.25]">
                   Built by creators.
                 </h4>
-                <p className="text-[12px] text-zinc-500 dark:text-zinc-400 leading-relaxed mt-3">
+                <p className="text-[12px] font-medium tracking-[0.015em] text-zinc-500 dark:text-zinc-400 leading-relaxed mt-3">
                   We are building the future of work assistants. Quiet, contextual, and always helpful.
                 </p>
               </div>
@@ -199,8 +211,8 @@ export function Navbar() {
                     href={item.href}
                     className="group/item flex flex-col gap-1 hover:bg-zinc-50/50 dark:hover:bg-zinc-900/40 p-2.5 -m-2.5 rounded-xl transition-all duration-200"
                   >
-                    <span className="text-[13px] font-semibold text-zinc-900 dark:text-zinc-100 group-hover/item:text-foreground">{item.title}</span>
-                    <span className="text-[11.5px] text-zinc-500 dark:text-zinc-400 leading-normal font-normal">{item.desc}</span>
+                    <span className="text-[13px] font-semibold tracking-[0.01em] text-zinc-900 dark:text-zinc-100 group-hover/item:text-foreground">{item.title}</span>
+                    <span className="text-[11.5px] font-medium tracking-[0.015em] text-zinc-500 dark:text-zinc-400 leading-normal">{item.desc}</span>
                   </Link>
                 ))}
               </div>
@@ -210,7 +222,7 @@ export function Navbar() {
           {/* Direct Blog Link */}
           <Link
             href="/blog"
-            className="text-[13px] text-muted-foreground hover:text-foreground transition-colors duration-150"
+            className="text-[13px] font-semibold tracking-[0.01em] text-muted-foreground hover:text-foreground transition-colors duration-150"
           >
             Blog
           </Link>
@@ -222,7 +234,7 @@ export function Navbar() {
             href="https://app.keilhq.in/login"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden md:inline-flex btn-accent items-center gap-1.5 text-[13px] font-semibold px-4 py-1.5 rounded-sm active:scale-[0.97] transition-transform duration-150"
+            className="hidden md:inline-flex btn-accent items-center gap-1.5 text-[13px] font-semibold tracking-[0.01em] px-4 py-1.5 rounded-sm active:scale-[0.97] transition-transform duration-150"
           >
             Start Free
             <ArrowRight className="size-3" aria-hidden="true" />

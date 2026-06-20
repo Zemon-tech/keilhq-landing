@@ -144,7 +144,7 @@ export function Vision() {
           {isMuted ? (
             <button
               onClick={handlePlayWithSound}
-              className="pointer-events-auto flex items-center gap-2.5 px-6 py-3 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-white text-sm font-semibold hover:bg-white/25 hover:scale-105 active:scale-95 transition-all shadow-xl cursor-pointer"
+              className="pointer-events-auto flex items-center gap-2.5 px-6 py-3 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-white text-sm font-semibold tracking-[0.01em] hover:bg-white/25 hover:scale-105 active:scale-95 transition-all shadow-xl cursor-pointer"
             >
               <Volume2 className="size-4 animate-pulse" />
               Play with sound
@@ -163,7 +163,7 @@ export function Vision() {
 
         {/* Large heading — bottom left */}
         <div className="absolute bottom-24 left-8 sm:left-10 z-10 max-w-2xl pointer-events-none">
-          <h2 className="font-display text-[clamp(2.5rem,6vw,4rem)] text-white leading-tight drop-shadow-lg" style={{ letterSpacing: "-0.02em" }}>
+          <h2 className="font-display text-[clamp(2.5rem,6vw,4rem)] font-semibold text-white leading-tight drop-shadow-lg" style={{ letterSpacing: "-0.025em" }}>
             7,000+ teams<br />ship with KielHQ
           </h2>
         </div>

@@ -68,23 +68,23 @@ export function Hero() {
               }`}
           >
             <span className="size-1.5 rounded-full bg-emerald-500 inline-block shrink-0" aria-hidden="true" />
-            <span className="text-[11px] font-medium text-muted-foreground tracking-wide">
+            <span className="text-[10px] font-semibold text-muted-foreground tracking-wider uppercase">
               Trusted by 7,000+ teams globally
             </span>
           </div>
 
           {/* Display heading — Instrument Serif */}
           <h1
-            className={`font-display text-[clamp(2.5rem,5vw,3.75rem)] leading-[1.08] text-foreground transition-all duration-700 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+            className={`font-display text-[clamp(2.5rem,5vw,3.75rem)] font-semibold leading-[1.08] text-foreground transition-all duration-700 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
               }`}
-            style={{ letterSpacing: "-0.02em", textWrap: "balance" } as React.CSSProperties}
+            style={{ letterSpacing: "-0.025em", textWrap: "balance" } as React.CSSProperties}
           >
             The one workspace your team will actually use.
           </h1>
 
           {/* Sub-headline */}
           <p
-            className={`text-[15px] text-muted-foreground leading-relaxed max-w-[34ch] transition-all duration-700 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            className={`text-[15px] font-medium tracking-[0.015em] text-muted-foreground leading-relaxed max-w-[34ch] transition-all duration-700 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
           >
             Replace Slack, Asana, Notion, and calendar chaos. KielHQ unifies tasks, docs, chat, and your calendar — with AI that reads your actual data.
@@ -98,7 +98,7 @@ export function Hero() {
             {["Tasks", "Docs", "Chat", "Calendar", "AI"].map((label) => (
               <span
                 key={label}
-                className={`text-[11px] font-medium px-2.5 py-1 rounded-sm border ${label === "AI"
+                className={`text-[11px] font-semibold tracking-[0.01em] px-2.5 py-1 rounded-sm border ${label === "AI"
                   ? "bg-[oklch(0.55_0.18_250)] text-white border-transparent"
                   : "bg-secondary/60 border-border/50 text-foreground/70"
                   }`}
@@ -115,7 +115,7 @@ export function Hero() {
           >
             <a
               href="#"
-              className="btn-accent inline-flex items-center gap-2 px-5 py-2.5 rounded-sm text-[13px] font-semibold group active:scale-[0.97] transition-transform duration-150"
+              className="btn-accent inline-flex items-center gap-2 px-5 py-2.5 rounded-sm text-[13px] font-semibold tracking-[0.01em] group active:scale-[0.97] transition-transform duration-150"
             >
               Start free
               <ArrowRight
@@ -125,7 +125,7 @@ export function Hero() {
             </a>
             <a
               href="#"
-              className="text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors duration-150 group inline-flex items-center gap-1.5"
+              className="text-[13px] font-semibold tracking-[0.01em] text-muted-foreground hover:text-foreground transition-colors duration-150 group inline-flex items-center gap-1.5"
             >
               Watch demo
               <ArrowRight className="size-3 opacity-60 group-hover:translate-x-0.5 transition-transform duration-150" aria-hidden="true" />
@@ -134,7 +134,7 @@ export function Hero() {
 
           {/* Trust line */}
           <p
-            className={`text-[11px] text-muted-foreground/70 transition-all duration-700 delay-[350ms] ${isVisible ? "opacity-100" : "opacity-0"
+            className={`text-[11px] font-semibold tracking-wide text-muted-foreground/70 transition-all duration-700 delay-[350ms] ${isVisible ? "opacity-100" : "opacity-0"
               }`}
           >
             No credit card required · Free plan available

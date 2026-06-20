@@ -69,10 +69,10 @@ export function Features({ data }: StickyScrollProps) {
 
       {/* ── Section header — centered, full width ── */}
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 mb-20 sm:mb-28 text-center">
-        <h2 className="font-display text-[clamp(2rem,4vw,3rem)] leading-[1.1] text-zinc-900 dark:text-white" style={{ letterSpacing: "-0.02em", textWrap: "balance" } as React.CSSProperties}>
+        <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-semibold leading-[1.1] text-zinc-900 dark:text-white" style={{ letterSpacing: "-0.02em", textWrap: "balance" } as React.CSSProperties}>
           What you can do with KielHQ
         </h2>
-        <p className="mt-4 text-[15px] text-muted-foreground max-w-[50ch] mx-auto leading-relaxed">
+        <p className="mt-4 text-[15px] font-medium tracking-[0.015em] text-muted-foreground max-w-[50ch] mx-auto leading-relaxed">
           Everything your team needs, unified in a single workspace.
         </p>
       </div>
@@ -88,19 +88,19 @@ export function Features({ data }: StickyScrollProps) {
           >
             <div ref={leftContentRef} className="flex flex-col gap-5 text-left">
               {activeFeature?.badgeText && (
-                <span className="text-[11px] font-medium text-muted-foreground block">
+                <span className="text-[11px] font-semibold tracking-[0.01em] text-muted-foreground block">
                   {activeFeature.badgeText}
                 </span>
               )}
-              <h3 className="font-display text-2xl font-normal tracking-tight text-zinc-900 dark:text-white leading-snug" style={{ letterSpacing: "-0.015em" }}>
+              <h3 className="font-display text-2xl font-semibold tracking-tight text-zinc-900 dark:text-white leading-snug" style={{ letterSpacing: "-0.015em" }}>
                 {activeFeature?.title}
               </h3>
-              <p className="text-[14px] leading-relaxed text-muted-foreground">
+              <p className="text-[14px] font-medium tracking-[0.015em] leading-relaxed text-muted-foreground">
                 {activeFeature?.description}
               </p>
               <a
                 href="#"
-                className="inline-flex items-center gap-1.5 text-[13px] font-medium text-foreground hover:text-muted-foreground transition-colors duration-150 group w-fit"
+                className="inline-flex items-center gap-1.5 text-[13px] font-semibold tracking-[0.01em] text-foreground hover:text-muted-foreground transition-colors duration-150 group w-fit"
               >
                 <span>Explore solution</span>
                 <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
@@ -155,15 +155,15 @@ export function Features({ data }: StickyScrollProps) {
           <div key={item.id} className="flex flex-col gap-6 text-left">
             <div className="flex flex-col gap-3">
               {item.badgeText && (
-                <span className="text-[11px] font-medium text-muted-foreground block">
+                <span className="text-[11px] font-semibold tracking-[0.01em] text-muted-foreground block">
                   {item.badgeText}
                 </span>
               )}
-              <h3 className="font-display text-2xl font-normal tracking-tight text-zinc-900 dark:text-white" style={{ letterSpacing: "-0.015em" }}>{item.title}</h3>
-              <p className="text-[14px] text-muted-foreground leading-relaxed">{item.description}</p>
+              <h3 className="font-display text-2xl font-semibold tracking-tight text-zinc-900 dark:text-white" style={{ letterSpacing: "-0.015em" }}>{item.title}</h3>
+              <p className="text-[14px] font-medium tracking-[0.015em] text-muted-foreground leading-relaxed">{item.description}</p>
               <a
                 href="#"
-                className="inline-flex items-center gap-1.5 text-[13px] font-medium text-foreground hover:text-muted-foreground transition-colors duration-150 group w-fit"
+                className="inline-flex items-center gap-1.5 text-[13px] font-semibold tracking-[0.01em] text-foreground hover:text-muted-foreground transition-colors duration-150 group w-fit"
               >
                 <span>Explore solution</span>
                 <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />

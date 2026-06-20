@@ -34,12 +34,12 @@ export default function DocsNotesPage() {
 
             {/* Title */}
             <h1 className="font-display text-[clamp(2.5rem,6vw,4.5rem)] font-semibold leading-[1.05] text-zinc-900 dark:text-white max-w-4xl" style={{ letterSpacing: "-0.025em" }}>
-              Collaborative documents tied to action
+              Notion-quality docs. Built right in.
             </h1>
 
             {/* Subtext */}
             <p className="text-[16px] text-muted-foreground max-w-[55ch] mx-auto leading-relaxed">
-              Ditch static pages. KeilHQ Docs connects your team&apos;s knowledge directly to active sprints, deliverables, and transcripts.
+              Meet Motion. KeilHQ&apos;s native keyboard-first document editor connects your team&apos;s knowledge base directly to active sprints, tasks, and discussions.
             </p>
 
             {/* CTA button */}
@@ -61,7 +61,7 @@ export default function DocsNotesPage() {
               <div className="flex items-center justify-between pb-3 border-b border-border/30">
                 <div className="flex items-center gap-2">
                   <FileText className="size-4 text-muted-foreground" />
-                  <span className="text-xs font-semibold text-zinc-500">docs/sprint-4-specs.md</span>
+                  <span className="text-xs font-semibold text-zinc-500">motion/sprint-4-specs.md</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <span className="size-2 rounded-full bg-emerald-500 inline-block" />
@@ -119,7 +119,7 @@ export default function DocsNotesPage() {
                 Connected knowledge.<br />Actionable details.
               </h2>
               <p className="text-[14px] text-muted-foreground leading-relaxed max-w-[42ch]">
-                Ditch disconnected wiki pages. KeilHQ integrates document contents directly to active task statuses.
+                Forget isolated documentation silos. Motion integrates rich-text block editing directly to active tasks and space permissions.
               </p>
             </div>
 
@@ -131,37 +131,37 @@ export default function DocsNotesPage() {
                   <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Block Editor</h3>
                 </div>
                 <p className="text-[13px] text-muted-foreground leading-relaxed">
-                  A keyboard-first writing interface with full markdown support, code highlight blocks, and media embeds.
+                  Keyboard-first editor supporting text, headings, code blocks, toggles, callouts, and cover images (built on TipTap).
                 </p>
               </div>
 
               <div className="pt-6 border-t border-border/60 flex flex-col gap-3">
                 <div className="flex items-center gap-2">
                   <Sparkles className="size-4 text-muted-foreground" />
-                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Live Sync</h3>
+                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Socket Collaboration</h3>
                 </div>
                 <p className="text-[13px] text-muted-foreground leading-relaxed">
-                  Write together simultaneously with team members, with active cursor tracking and instant draft changes.
+                  Edit documents simultaneously with team members in real-time, backed by Socket.io and active cursor tracking.
                 </p>
               </div>
 
               <div className="pt-6 border-t border-border/60 flex flex-col gap-3">
                 <div className="flex items-center gap-2">
                   <Link2 className="size-4 text-muted-foreground" />
-                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Embedded Tasks</h3>
+                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Notion Sync</h3>
                 </div>
                 <p className="text-[13px] text-muted-foreground leading-relaxed">
-                  Reference and embed active database tasks inside text paragraphs; updates sync dynamically.
+                  OAuth or token connections let you import Notion pages, export Motion files, and sync content bidirectionally.
                 </p>
               </div>
 
               <div className="pt-6 border-t border-border/60 flex flex-col gap-3">
                 <div className="flex items-center gap-2">
                   <FolderKanban className="size-4 text-muted-foreground" />
-                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Knowledge Base</h3>
+                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Nested Hierarchies</h3>
                 </div>
                 <p className="text-[13px] text-muted-foreground leading-relaxed">
-                  Organize team documentation, developer specifications, and user guides into beautiful nested directories.
+                  Build complete, organized team directories using cover images, emojis, and deep subpage directory trees.
                 </p>
               </div>
             </div>
@@ -179,17 +179,17 @@ export default function DocsNotesPage() {
                 Keep your workspace<br />fully aligned
               </h2>
               <p className="text-[14px] text-muted-foreground leading-relaxed max-w-[42ch]">
-                Unify specifications, meeting transcripts, and dashboard tracking cards in a single source of truth.
+                Unify product specifications, team guides, and meeting transcripts inside one integrated knowledge canvas.
               </p>
             </div>
 
             {/* Right side checklist */}
             <div className="flex flex-col gap-5 w-full text-left">
               {[
-                "Complete version history logs keep all revisions fully reviewable.",
-                "Direct markdown, Notion, and Confluence file imports.",
-                "Hide sensitive internal document sections from client client guest views.",
-                "Export document trees to clean markdown, PDF, or JSON packages.",
+                "Write comfortably with customized full-width or compact small-text layouts.",
+                "Discuss specifications directly via comment threads attached to individual document blocks.",
+                "Lock pages to read-only state when final specs and project blueprints are signed off.",
+                "Configure cross-space sharing boundaries to grant view or edit permissions to other spaces.",
               ].map((item, idx) => (
                 <div key={idx} className="flex items-start gap-4">
                   <div className="size-5 rounded-full bg-emerald-500/10 dark:bg-emerald-500/5 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5 shadow-xs">

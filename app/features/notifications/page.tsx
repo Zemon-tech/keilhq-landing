@@ -33,12 +33,12 @@ export default function NotificationsPage() {
 
             {/* Title */}
             <h1 className="font-display text-[clamp(2.5rem,6vw,4.5rem)] font-semibold leading-[1.05] text-zinc-900 dark:text-white max-w-4xl" style={{ letterSpacing: "-0.025em" }}>
-              Stay in the loop without the noise
+              Real-Time Notifications
             </h1>
 
             {/* Subtext */}
             <p className="text-[16px] text-muted-foreground max-w-[55ch] mx-auto leading-relaxed">
-              Smart notification filtering that highlights what needs your attention and silences the rest.
+              Stay in the loop without being overwhelmed. KielHQ filters alerts intelligently so you only hear about critical updates that impact your work.
             </p>
 
             {/* CTA button */}
@@ -107,41 +107,41 @@ export default function NotificationsPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-12 w-full text-left">
               <div className="pt-6 border-t border-border/60 flex flex-col gap-3">
                 <div className="flex items-center gap-2">
-                  <Filter className="size-4 text-muted-foreground" />
-                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Subscriptions</h3>
+                  <Bell className="size-4 text-muted-foreground" />
+                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Triggers</h3>
                 </div>
                 <p className="text-[13px] text-muted-foreground leading-relaxed">
-                  Subscribe to specific project files, tasks, or discussion channels to keep track of modifications.
+                  Get notified when a task is assigned to you, a message is received, a note is shared, status changes, or you are mentioned.
                 </p>
               </div>
 
               <div className="pt-6 border-t border-border/60 flex flex-col gap-3">
                 <div className="flex items-center gap-2">
                   <Mail className="size-4 text-muted-foreground" />
-                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Digest Mode</h3>
+                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Unread Badges</h3>
                 </div>
                 <p className="text-[13px] text-muted-foreground leading-relaxed">
-                  Bundle non-urgent status modifications into a daily email summary to avoid constant message pings.
+                  Stay updated on pending notifications at a glance with clean unread count badges in the workspace sidebar.
                 </p>
               </div>
 
               <div className="pt-6 border-t border-border/60 flex flex-col gap-3">
                 <div className="flex items-center gap-2">
-                  <Bell className="size-4 text-muted-foreground" />
-                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Smart Mentions</h3>
+                  <Filter className="size-4 text-muted-foreground" />
+                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Clear Controls</h3>
                 </div>
                 <p className="text-[13px] text-muted-foreground leading-relaxed">
-                  Highlight direct queries and blocker states in active work items, keeping normal updates quiet.
+                  Declutter your notification tray instantly with dedicated mark-all-read and clear-all action items.
                 </p>
               </div>
 
               <div className="pt-6 border-t border-border/60 flex flex-col gap-3">
                 <div className="flex items-center gap-2">
                   <ShieldAlert className="size-4 text-muted-foreground" />
-                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">DND Windows</h3>
+                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Preferences</h3>
                 </div>
                 <p className="text-[13px] text-muted-foreground leading-relaxed">
-                  Configure custom scheduling parameters to suspend push notifications outside work hours.
+                  Configure custom user-specific notification filters to control exactly what updates trigger a workspace notification.
                 </p>
               </div>
             </div>
@@ -159,17 +159,17 @@ export default function NotificationsPage() {
                 Keep your team focused<br />on execution
               </h2>
               <p className="text-[14px] text-muted-foreground leading-relaxed max-w-[42ch]">
-                Eliminate general notification fatigue. Direct alerts ensure blockers are handled immediately.
+                Eliminate general notification fatigue. Fast WebSocket pipelines deliver direct in-app updates instantly.
               </p>
             </div>
 
             {/* Right side checklist */}
             <div className="flex flex-col gap-5 w-full text-left">
               {[
-                "Configure granular alert rules per workspace and conversation channel.",
-                "WebSocket infrastructure delivers in-app alerts in real-time.",
-                "Enforces complete isolation, protecting client client details from leaks.",
-                "Enable desktop push notifications to get alerts when you are off the tab.",
+                "WebSocket infrastructure syncs in-app alerts across tabs in under 50ms.",
+                "Subscribe to specific client files, tasks, or spaces to track updates.",
+                "Enterprise-grade role limits prevent workspace notification leaks.",
+                "Custom notification silence intervals for uninterrupted focus sessions.",
               ].map((item, idx) => (
                 <div key={idx} className="flex items-start gap-4">
                   <div className="size-5 rounded-full bg-emerald-500/10 dark:bg-emerald-500/5 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5 shadow-xs">

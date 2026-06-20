@@ -33,12 +33,12 @@ export default function MeetingRecorderPage() {
 
             {/* Title */}
             <h1 className="font-display text-[clamp(2.5rem,6vw,4.5rem)] font-semibold leading-[1.05] text-zinc-900 dark:text-white max-w-4xl" style={{ letterSpacing: "-0.025em" }}>
-              Auto-transcribe. Auto-action.
+              Meeting Recordings & Transcription
             </h1>
 
             {/* Subtext */}
             <p className="text-[16px] text-muted-foreground max-w-[55ch] mx-auto leading-relaxed">
-              Capture meeting audio, transcribe discussions, and automatically extract tasks, summaries, and action items.
+              Record conversations directly inside KeilHQ, transcribe discussions automatically with speaker diarization, and turn decisions into tasks in one click.
             </p>
 
             {/* CTA button */}
@@ -104,7 +104,7 @@ export default function MeetingRecorderPage() {
                 Hands-off capture.<br />Immediate specs.
               </h2>
               <p className="text-[14px] text-muted-foreground leading-relaxed max-w-[42ch]">
-                KielHQ transcribes audio clips using advanced speech pipelines, mapping discussions to your sprint trackers.
+                KielHQ uploads and transcribes meeting audio using high-fidelity pipelines, linking discussions directly to tasks.
               </p>
             </div>
 
@@ -113,40 +113,40 @@ export default function MeetingRecorderPage() {
               <div className="pt-6 border-t border-border/60 flex flex-col gap-3">
                 <div className="flex items-center gap-2">
                   <Mic className="size-4 text-muted-foreground" />
-                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Local Transcript</h3>
+                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Sarvam AI Transcription</h3>
                 </div>
                 <p className="text-[13px] text-muted-foreground leading-relaxed">
-                  High-fidelity local audio processing model that isolates and attributes speech to different speakers.
+                  Primary batch transcription powered by Sarvam AI (Saaras v3), optimized for 23 Indian languages + English.
                 </p>
               </div>
 
               <div className="pt-6 border-t border-border/60 flex flex-col gap-3">
                 <div className="flex items-center gap-2">
                   <Sparkles className="size-4 text-muted-foreground" />
-                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">AI Extraction</h3>
+                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">AI Action Extraction</h3>
                 </div>
                 <p className="text-[13px] text-muted-foreground leading-relaxed">
-                  Automatically translates conversation notes into task cards, specifications, and client summaries.
+                  Automatically translates conversation notes into task cards, specifications, and action summaries with one click.
                 </p>
               </div>
 
               <div className="pt-6 border-t border-border/60 flex flex-col gap-3">
                 <div className="flex items-center gap-2">
                   <Database className="size-4 text-muted-foreground" />
-                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Secure Storage</h3>
+                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">AWS S3 Storage</h3>
                 </div>
                 <p className="text-[13px] text-muted-foreground leading-relaxed">
-                  Encrypts meeting recordings and indexes transcripts in isolated database buckets.
+                  Upload audio clips securely to AWS S3 storage buckets with high-grade data encryption boundaries.
                 </p>
               </div>
 
               <div className="pt-6 border-t border-border/60 flex flex-col gap-3">
                 <div className="flex items-center gap-2">
                   <Search className="size-4 text-muted-foreground" />
-                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Deep Search</h3>
+                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Speaker Diarization</h3>
                 </div>
                 <p className="text-[13px] text-muted-foreground leading-relaxed">
-                  Index and query text fragments across historical meetings to trace exact product decisions.
+                  Diarization models automatically identify and assign spoken blocks to individual speakers.
                 </p>
               </div>
             </div>
@@ -164,17 +164,17 @@ export default function MeetingRecorderPage() {
                 Make meetings<br />actionable again
               </h2>
               <p className="text-[14px] text-muted-foreground leading-relaxed max-w-[42ch]">
-                Eliminate manual documentation. Audio transcript insights sync straight to your task tracker.
+                Eliminate manual documentation. Turn voice recordings directly into team deliverables.
               </p>
             </div>
 
             {/* Right side checklist */}
             <div className="flex flex-col gap-5 w-full text-left">
               {[
-                "Integrates directly with Zoom, Google Meet, and Microsoft Teams calendar feeds.",
-                "High-performance TLS 1.3 in-transit and AES-256 at-rest database encryption.",
-                "Export extracted action points straight into active scrum/kanban sprint cycles.",
-                "Supports multi-language transcription and translation workflows.",
+                "Record audio directly inside the app using the built-in frontend voice recorder.",
+                "Multi-lingual auto-detection and transcription with ElevenLabs as fallback provider.",
+                "Transcripts are stored, fully searchable, and tied to their respective project spaces.",
+                "Ask KeilHQ AI to scan and summarize historical meeting records for quick references.",
               ].map((item, idx) => (
                 <div key={idx} className="flex items-start gap-4">
                   <div className="size-5 rounded-full bg-emerald-500/10 dark:bg-emerald-500/5 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5 shadow-xs">

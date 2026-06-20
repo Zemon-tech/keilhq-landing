@@ -39,7 +39,7 @@ export function FinalCta() {
             Your team deserves a workspace that works.
           </h2>
           <p
-            className={`text-[16px] text-muted-foreground leading-relaxed max-w-[42ch] transition-all duration-700 delay-100 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            className={`text-[16px] font-medium tracking-[0.015em] text-muted-foreground leading-relaxed max-w-[42ch] transition-all duration-700 delay-100 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
           >
             Join 7,000+ teams who replaced their scattered stack with KielHQ.
@@ -56,7 +56,7 @@ export function FinalCta() {
             href="https://app.keilhq.in/login"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-accent inline-flex items-center gap-2 px-6 py-3 rounded-sm text-[14px] font-semibold group w-full sm:w-auto justify-center active:scale-[0.97] transition-transform duration-150"
+            className="btn-accent inline-flex items-center gap-2 px-6 py-3 rounded-sm text-[14px] font-semibold tracking-[0.01em] group w-full sm:w-auto justify-center active:scale-[0.97] transition-transform duration-150"
           >
             Start free today
             <ArrowRight
@@ -66,7 +66,7 @@ export function FinalCta() {
           </a>
           <a
             href="/demo"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-sm text-[14px] font-medium border border-border text-foreground hover:bg-secondary/60 transition-all duration-150 group w-full sm:w-auto justify-center active:scale-[0.97]"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-sm text-[14px] font-semibold tracking-[0.01em] border border-border text-foreground hover:bg-secondary/60 transition-all duration-150 group w-full sm:w-auto justify-center active:scale-[0.97]"
           >
             Book a demo
             <ArrowRight
@@ -78,7 +78,7 @@ export function FinalCta() {
 
         {/* Trust micro-copy */}
         <p
-          className={`text-[12px] text-muted-foreground/70 transition-all duration-700 delay-300 ${visible ? "opacity-100" : "opacity-0"
+          className={`text-[12px] font-semibold tracking-wide text-muted-foreground/70 transition-all duration-700 delay-300 ${visible ? "opacity-100" : "opacity-0"
             }`}
         >
           No credit card required · Cancel any time · Free plan included

@@ -62,6 +62,12 @@ export default function AboutPage() {
               Every hour your team spends context-switching between tools is an hour not spent on work that actually moves the needle. KeilHQ eliminates the gap between where work is discussed, where it&apos;s planned, where it&apos;s documented, and where it gets done.
             </p>
 
+            {/* Parent company note */}
+            <p className="text-[13px] text-muted-foreground/70 max-w-[50ch] mx-auto leading-relaxed border border-border/50 rounded-full px-5 py-2">
+              KeilHQ is a product developed under{" "}
+              <span className="font-semibold text-muted-foreground">Zemon</span>, our parent company.
+            </p>
+
           </div>
         </section>
 

@@ -180,14 +180,14 @@ export default function DevTeamsPage() {
               </p>
             </div>
 
-            {/* Right side checkmark items */}
+             {/* Right side checkmark items */}
             <div className="flex flex-col gap-5 w-full text-left">
               {[
-                "Connect commits and pull requests directly to task cards for automated updates.",
-                "Enforce hard task dependencies so engineers focus exclusively on unblocked targets.",
-                "Switch seamlessly between code-connected Kanban, Gantt charts, and sprint schedules.",
-                "Translate standup notes to deliverables instantly from recorded team transcribing.",
-                "Consult the inline AI assistant to quickly trace active blockers and pending issues.",
+                "Connect repository commits and pull requests directly to task cards for automatic updates.",
+                "Create workspace tasks from GitHub issues and generate GitHub issues from tasks automatically.",
+                "Enforce strict dependency blocker logic to ensure developers focus exclusively on unblocked tasks.",
+                "Auto-transcribe developer syncs and standups with Sarvam AI batch speaker diarization.",
+                "Query the inline AI task specialist to search code issues, check sprint states, and trace blockers.",
               ].map((item, idx) => (
                 <div key={idx} className="flex items-start gap-4">
                   <div className="size-5 rounded-full bg-emerald-500/10 dark:bg-emerald-500/5 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5 shadow-sm">

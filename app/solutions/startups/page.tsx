@@ -183,11 +183,11 @@ export default function StartupsPage() {
             {/* Right side checkmark items */}
             <div className="flex flex-col gap-5 w-full text-left">
               {[
-                "Diarize and auto-transcribe standups, turning calls to tasks immediately.",
-                "Enforce strict task dependency blocking so developers focus on clear blockers first.",
-                "Switch seamlessly between Kanban boards, Gantt timelines, and calendar schedules.",
-                "Keep documents, specs, and roadmaps collaborative with rich-text block editing.",
-                "Consult the inline AI assistant to instantly check sprint states and active bottlenecks.",
+                "Auto-transcribe developer standups with speaker diarization using Sarvam AI integration.",
+                "Enforce strict blocker logic at the database level to focus engineers on active blockers first.",
+                "Leverage the Mastra Agentic Framework, coordinating 5 specialized sub-agents to manage tasks, chats, and docs.",
+                "Flexible Model Architecture supports Google Gemini, OpenRouter, or Local AI models (Ollama).",
+                "Construct docs, specs, and roadmaps in real-time with our collaborative block-based Motion editor.",
               ].map((item, idx) => (
                 <div key={idx} className="flex items-start gap-4">
                   <div className="size-5 rounded-full bg-emerald-500/10 dark:bg-emerald-500/5 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5 shadow-sm">

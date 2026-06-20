@@ -29,7 +29,7 @@ export default function AgenciesPage() {
 
             {/* Subtext */}
             <p className="text-[16px] text-muted-foreground max-w-[50ch] mx-auto leading-relaxed">
-              Stop losing billable hours searching for information. KielHQ unifies multiple clients, timelines, and deliverables into a single source of truth.
+              KielHQ&apos;s Org/Space model maps directly to agency operations. Manage multiple clients in dedicated, isolated spaces with built-in client approvals and zero context-switching.
             </p>
 
             {/* CTA Button */}

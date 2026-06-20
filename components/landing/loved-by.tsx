@@ -55,16 +55,16 @@ export function LovedBy() {
 
           {/* ── Left: heading + stat ── */}
           <div className="lg:w-[480px] shrink-0 pt-1 pb-10 lg:pb-0 flex flex-col gap-8">
-            <h2 className="font-display text-[clamp(2.5rem,5vw,3.75rem)] leading-[1.05] text-zinc-900 dark:text-white" style={{ letterSpacing: "-0.02em" }}>
+            <h2 className="font-display text-[clamp(2.5rem,5vw,3.75rem)] font-semibold leading-[1.05] text-zinc-900 dark:text-white" style={{ letterSpacing: "-0.025em" }}>
               Loved by<br />the best.
             </h2>
             <div className="flex flex-col gap-5">
               <div className="flex flex-col gap-0.5">
-                <span className="text-[13px] text-muted-foreground">Average savings per seat per month</span>
+                <span className="text-[13px] font-semibold tracking-wide text-muted-foreground">Average savings per seat per month</span>
                 <span className="text-2xl font-semibold text-foreground tracking-tight">$40–$70</span>
               </div>
               <div className="flex flex-col gap-0.5">
-                <span className="text-[13px] text-muted-foreground">Teams worldwide</span>
+                <span className="text-[13px] font-semibold tracking-wide text-muted-foreground">Teams worldwide</span>
                 <span className="text-2xl font-semibold text-foreground tracking-tight">7,000+</span>
               </div>
             </div>
@@ -81,8 +81,8 @@ export function LovedBy() {
                     className="w-full flex items-center justify-between px-6 py-3 text-left hover:bg-accent/40 transition-colors duration-150"
                   >
                     <span
-                      className={`text-[13px] transition-colors duration-150 ${
-                        isActive ? "text-zinc-900 dark:text-white font-medium" : "text-muted-foreground"
+                      className={`text-[13px] transition-colors duration-150 tracking-wide ${
+                        isActive ? "text-zinc-900 dark:text-white font-semibold" : "text-muted-foreground/80 font-medium"
                       }`}
                     >
                       {t.name}, {t.role}
@@ -104,7 +104,7 @@ export function LovedBy() {
 
                   {isActive && (
                     <div className="px-6 pb-8 animate-in fade-in slide-in-from-top-1 duration-200">
-                      <p className="text-[15px] sm:text-[16px] text-zinc-500 dark:text-zinc-400 leading-[1.6] max-w-xl" style={{ textWrap: "pretty" } as React.CSSProperties}>
+                      <p className="text-[15px] sm:text-[16px] font-medium tracking-[0.015em] text-zinc-500 dark:text-zinc-400 leading-[1.6] max-w-xl" style={{ textWrap: "pretty" } as React.CSSProperties}>
                         &ldquo;{t.quote}&rdquo;
                       </p>
                     </div>

@@ -52,7 +52,7 @@ export function Blogs() {
           {/* Header with Title and Controls */}
           <div className="flex flex-col lg:flex-row lg:items-start justify-between mb-10 sm:mb-12">
             <div className="w-full lg:w-1/4 shrink-0">
-              <h2 className="font-display text-[clamp(2rem,4vw,3rem)] leading-[1.05] font-semibold text-zinc-900 dark:text-white" style={{ letterSpacing: "-0.02em" }}>
+              <h2 className="font-display text-[clamp(2rem,4vw,3rem)] leading-[1.05] font-semibold text-zinc-900 dark:text-white" style={{ letterSpacing: "-0.025em" }}>
                 Blog
               </h2>
             </div>
@@ -61,7 +61,7 @@ export function Blogs() {
               <Link href="/blog">
                 <Button 
                   variant="secondary" 
-                  className="rounded-sm bg-secondary hover:bg-accent text-secondary-foreground font-medium px-4 h-9 border-none shadow-none text-[13px] cursor-pointer active:scale-[0.97] transition-transform duration-150"
+                  className="rounded-sm bg-secondary hover:bg-accent text-secondary-foreground font-semibold tracking-[0.01em] px-4 h-9 border-none shadow-none text-[13px] cursor-pointer active:scale-[0.97] transition-transform duration-150"
                 >
                   View all
                 </Button>
@@ -89,13 +89,13 @@ export function Blogs() {
                         />
                       </div>
                       <div className="flex flex-col gap-1.5 pr-4 text-left">
-                        <span className="text-[11px] font-semibold text-muted-foreground tracking-wide uppercase">
+                        <span className="text-[11px] font-semibold text-muted-foreground tracking-wider uppercase">
                           {post.tag}
                         </span>
                         <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white leading-tight group-hover:text-zinc-700 dark:group-hover:text-zinc-300 transition-colors duration-150 line-clamp-2">
                           {post.title}
                         </h3>
-                        <p className="text-[11px] text-zinc-400 dark:text-zinc-500 font-medium mt-1">
+                        <p className="text-[11px] font-semibold tracking-wide text-zinc-400 dark:text-zinc-500 mt-1">
                           {post.date}
                         </p>
                       </div>

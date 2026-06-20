@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Link2, X, GitFork } from "lucide-react";
 import { ToggleTheme } from "@/components/ui/toggle-theme";
 
 const footerLinks = {
@@ -44,10 +43,15 @@ export function Footer() {
           <Link href="/" className="flex items-center gap-2">
             <Image src="/keilhq.svg" alt="KielHQ" width={22} height={22} className="dark:hidden" />
             <Image src="/keilhq-white.svg" alt="KielHQ" width={22} height={22} className="hidden dark:block" />
-            <span className="font-display text-base font-semibold tracking-tight text-foreground">
+            <span className="font-display text-xl font-semibold tracking-tight text-foreground">
               KielHQ
             </span>
           </Link>
+
+          {/* Theme Toggle */}
+          <div>
+            <ToggleTheme />
+          </div>
 
           {/* Social Icons */}
           <div className="flex items-center gap-3">
@@ -80,7 +84,7 @@ export function Footer() {
         <div className="w-full md:w-2/3 grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-8">
           {Object.entries(footerLinks).map(([section, links]) => (
             <div key={section} className="flex flex-col gap-4">
-              <span className="text-[13px] font-medium text-muted-foreground">
+              <span className="text-[11px] font-semibold tracking-wider text-muted-foreground uppercase">
                 {section}
               </span>
               <nav className="flex flex-col gap-3">
@@ -88,7 +92,7 @@ export function Footer() {
                   <Link
                     key={link.label}
                     href={link.href}
-                    className="text-[13px] text-muted-foreground/80 hover:text-foreground transition-colors font-medium"
+                    className="text-[13px] text-muted-foreground/80 hover:text-foreground transition-colors font-semibold tracking-wide"
                   >
                     {link.label}
                   </Link>
@@ -126,11 +130,11 @@ export function Footer() {
 
       {/* Copyright and Privacy Links Row */}
       <div className="max-w-7xl w-full mx-auto px-5 sm:px-8 lg:px-12 pt-12 pb-8 flex flex-col md:flex-row items-center justify-between gap-6 z-10 relative">
-        <span className="text-[13px] text-muted-foreground font-medium w-full md:w-1/3 text-center md:text-left">
+        <span className="text-[13px] text-muted-foreground font-semibold tracking-wide w-full md:w-1/3 text-center md:text-left">
           KielHQ. All rights reserved. © {new Date().getFullYear()}
         </span>
 
-        <div className="flex items-center gap-6 flex-wrap justify-center w-full md:w-1/3 text-[13px] font-medium">
+        <div className="flex items-center gap-6 flex-wrap justify-center w-full md:w-1/3 text-[13px] font-semibold tracking-wide">
           {["Your Privacy Choices", "Privacy policy"].map((item) => (
             <Link
               key={item}
@@ -143,10 +147,9 @@ export function Footer() {
         </div>
 
         <div className="flex items-center justify-center md:justify-end w-full md:w-1/3 gap-3">
-          <span className="text-[13px] text-muted-foreground font-medium">
+          <span className="text-[13px] text-muted-foreground font-semibold tracking-wide">
             Made in India.
           </span>
-          <ToggleTheme />
         </div>
       </div>
     </footer>

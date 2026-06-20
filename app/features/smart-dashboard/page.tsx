@@ -115,10 +115,10 @@ export default function SmartDashboardPage() {
             {/* Left Column: Heading */}
             <div className="flex flex-col gap-6 text-left">
               <h2 className="font-display text-[clamp(2rem,4.5vw,3.5rem)] font-semibold leading-[1.05] text-zinc-900 dark:text-white" style={{ letterSpacing: "-0.025em" }}>
-                Unifying context.<br />Enforcing execution.
+                Priority buckets.<br />Contextual decisions.
               </h2>
               <p className="text-[14px] text-muted-foreground leading-relaxed max-w-[42ch]">
-                We designed the Smart Dashboard to bring visual organization to complex work streams, eliminating visual clutter.
+                The smart dashboard ranks your work automatically using active context, so you know exactly where to begin.
               </p>
             </div>
 
@@ -126,21 +126,21 @@ export default function SmartDashboardPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-12 w-full text-left">
               <div className="pt-6 border-t border-border/60 flex flex-col gap-3">
                 <div className="flex items-center gap-2">
-                  <Sparkles className="size-4 text-muted-foreground" />
-                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Dynamic Ranking</h3>
+                  <Layers className="size-4 text-muted-foreground" />
+                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Priority Buckets</h3>
                 </div>
                 <p className="text-[13px] text-muted-foreground leading-relaxed">
-                  AI automatically prioritizes your day based on deadlines, tags, and active blockers.
+                  Ranks work into Immediate (24-48h), Today, Blocked, and Backlog buckets to organize daily focus.
                 </p>
               </div>
 
               <div className="pt-6 border-t border-border/60 flex flex-col gap-3">
                 <div className="flex items-center gap-2">
-                  <Calendar className="size-4 text-muted-foreground" />
-                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Unified Timeline</h3>
+                  <Sparkles className="size-4 text-muted-foreground" />
+                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Inline AI Chat</h3>
                 </div>
                 <p className="text-[13px] text-muted-foreground leading-relaxed">
-                  View your calendar events alongside tasks, ensuring no context-switching between tools.
+                  Query the assistant from the dashboard for answers grounded in your active tasks, docs, and calendar.
                 </p>
               </div>
 
@@ -150,17 +150,17 @@ export default function SmartDashboardPage() {
                   <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Blocker Highlights</h3>
                 </div>
                 <p className="text-[13px] text-muted-foreground leading-relaxed">
-                  Instantly alerts you when a dependency is holding up your progress.
+                  Automatically surfaces tasks that are stuck waiting on prerequisites to resolve.
                 </p>
               </div>
 
               <div className="pt-6 border-t border-border/60 flex flex-col gap-3">
                 <div className="flex items-center gap-2">
-                  <EyeOff className="size-4 text-muted-foreground" />
-                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Focus Mode</h3>
+                  <Calendar className="size-4 text-muted-foreground" />
+                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Mastra Orchestration</h3>
                 </div>
                 <p className="text-[13px] text-muted-foreground leading-relaxed">
-                  Hide everything except your highest-priority item, keeping distraction to a minimum.
+                  Coordinated by Mastra Core agents to interact with tasks, channels, motion documents, and calendar slots.
                 </p>
               </div>
             </div>
@@ -185,10 +185,10 @@ export default function SmartDashboardPage() {
             {/* Right side checklist */}
             <div className="flex flex-col gap-5 w-full text-left">
               {[
-                "Automatically syncs with Google Calendar and Microsoft Outlook accounts.",
-                "Tracks execution focus blocks vs meeting metrics to balance your day.",
-                "Utilizes a deep relationship database graph to map dependent project blockers.",
-                "Saves daily workspace status updates so you never forget where you left off.",
+                "Urgent deliverables due within 24-48 hours roll into Immediate status instantly.",
+                "Google Calendar integration maps task schedules and detects slot conflicts.",
+                "Orchestrates specialized sub-agents to search, lists, schedules, and link documents.",
+                "Postgres memory storage supports multi-turn assistant discussions directly on the board.",
               ].map((item, idx) => (
                 <div key={idx} className="flex items-start gap-4">
                   <div className="size-5 rounded-full bg-emerald-500/10 dark:bg-emerald-500/5 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5 shadow-xs">

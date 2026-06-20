@@ -33,12 +33,12 @@ export default function TeamChatPage() {
 
             {/* Title */}
             <h1 className="font-display text-[clamp(2.5rem,6vw,4.5rem)] font-semibold leading-[1.05] text-zinc-900 dark:text-white max-w-4xl" style={{ letterSpacing: "-0.025em" }}>
-              Contextual chat where decisions are made
+              Real-Time Team Chat
             </h1>
 
             {/* Subtext */}
             <p className="text-[16px] text-muted-foreground max-w-[55ch] mx-auto leading-relaxed">
-              Keep discussions next to your tasks and documents. Stop losing critical product decisions in separate slack channels.
+              Replace Slack. KeilHQ brings real-time group channels and direct messaging right next to your team&apos;s active tasks and documents.
             </p>
 
             {/* CTA button */}
@@ -103,7 +103,7 @@ export default function TeamChatPage() {
                 Contextual channels.<br />Instant alignments.
               </h2>
               <p className="text-[14px] text-muted-foreground leading-relaxed max-w-[42ch]">
-                We integrated chat directly into the documents and tasks themselves, keeping communication contextual.
+                KielHQ brings communication directly into your projects, making discussions and files contextual.
               </p>
             </div>
 
@@ -111,41 +111,41 @@ export default function TeamChatPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-12 w-full text-left">
               <div className="pt-6 border-t border-border/60 flex flex-col gap-3">
                 <div className="flex items-center gap-2">
-                  <MessageSquare className="size-4 text-muted-foreground" />
-                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Threaded Tasks</h3>
+                  <Users className="size-4 text-muted-foreground" />
+                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Group Channels</h3>
                 </div>
                 <p className="text-[13px] text-muted-foreground leading-relaxed">
-                  Every task, document, and calendar meeting features a native real-time discussion thread inside its sidebar.
+                  Establish group channels dedicated to specific client projects, team areas, or custom topics.
+                </p>
+              </div>
+
+              <div className="pt-6 border-t border-border/60 flex flex-col gap-3">
+                <div className="flex items-center gap-2">
+                  <MessageSquare className="size-4 text-muted-foreground" />
+                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Direct Messaging</h3>
+                </div>
+                <p className="text-[13px] text-muted-foreground leading-relaxed">
+                  Connect instantly via private 1:1 direct messages or establish custom group DMs with unread indicators.
                 </p>
               </div>
 
               <div className="pt-6 border-t border-border/60 flex flex-col gap-3">
                 <div className="flex items-center gap-2">
                   <Zap className="size-4 text-muted-foreground" />
-                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Socket Channels</h3>
+                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Socket.io Engine</h3>
                 </div>
                 <p className="text-[13px] text-muted-foreground leading-relaxed">
-                  Fast socket-powered channels for real-time messaging, file uploads, notifications, and code block sharing.
+                  High-speed Socket.io connection delivers chat notifications and message events in real-time.
                 </p>
               </div>
 
               <div className="pt-6 border-t border-border/60 flex flex-col gap-3">
                 <div className="flex items-center gap-2">
                   <Sparkles className="size-4 text-muted-foreground" />
-                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">AI Synthesizer</h3>
+                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Connected Feed</h3>
                 </div>
                 <p className="text-[13px] text-muted-foreground leading-relaxed">
-                  Synthesize long channel histories into clean sprint action items and task cards with one click.
-                </p>
-              </div>
-
-              <div className="pt-6 border-t border-border/60 flex flex-col gap-3">
-                <div className="flex items-center gap-2">
-                  <Users className="size-4 text-muted-foreground" />
-                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Guest Access</h3>
-                </div>
-                <p className="text-[13px] text-muted-foreground leading-relaxed">
-                  Add clients and contractors to specific channel threads without exposing the rest of your organization.
+                  Chat threads link directly inside the tasks, documents, and calendar events they describe.
                 </p>
               </div>
             </div>
@@ -163,17 +163,17 @@ export default function TeamChatPage() {
                 Keep your team in sync<br />without the noise
               </h2>
               <p className="text-[14px] text-muted-foreground leading-relaxed max-w-[42ch]">
-                Eliminate status update meetings. Direct thread communication makes tracking progress frictionless.
+                Eliminate status meetings. Integrated chat streams keep everyone aligned in real-time.
               </p>
             </div>
 
             {/* Right side checklist */}
             <div className="flex flex-col gap-5 w-full text-left">
               {[
-                "Websocket connections synchronize chat messages in under 50ms.",
-                "Data isolation permissions prevent message leaks across client workspaces.",
-                "Filter notifications to direct mentions and subscribed thread logs.",
-                "Export complete message histories into structured JSON compliance archives.",
+                "Never miss a chat ping with unread badges and contextual workspace mentions.",
+                "Database-level client spaces isolate channels and protect private details.",
+                "WebSocket delivery registers message receipts across the team in milliseconds.",
+                "Tied directly to the Clarity Engine to track task discussions and decisions.",
               ].map((item, idx) => (
                 <div key={idx} className="flex items-start gap-4">
                   <div className="size-5 rounded-full bg-emerald-500/10 dark:bg-emerald-500/5 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5 shadow-xs">

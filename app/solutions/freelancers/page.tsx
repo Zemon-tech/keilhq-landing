@@ -29,7 +29,7 @@ export default function FreelancersPage() {
 
             {/* Subtext */}
             <p className="text-[16px] text-muted-foreground max-w-[50ch] mx-auto leading-relaxed">
-              Client onboarding, tasks, transcripts, and document approvals unified in one clean dashboard. Scale your solo business with zero clutter.
+              Start in personal mode with no team required. Manage your tasks, notes, calendar, and client communications in one place, and upgrade to org mode with zero friction as you scale.
             </p>
 
             {/* CTA Button */}
@@ -183,11 +183,11 @@ export default function FreelancersPage() {
             {/* Right side checkmark items */}
             <div className="flex flex-col gap-5 w-full text-left">
               {[
-                "Provide clients with clean progress cards to review tasks and calendars.",
-                "Auto-transcribe call audios, converting interview notes to checklist tasks.",
-                "Enforce clear Objectives and Success Criteria milestones on active client projects.",
-                "Collaborate in real-time on proposals, specs, and editorial briefs.",
-                "Ask the inline AI assistant to quickly summarize active blockers and deadlines.",
+                "Start solo in personal mode and upgrade to org mode without migration or friction.",
+                "Record and auto-transcribe client calls using the built-in frontend audio recorder.",
+                "Define clear milestones using Objectives and Success Criteria fields on every task.",
+                "Sync task event dates bidirectionally with Google Calendar via OAuth.",
+                "Consult the inline AI assistant to quickly summarize active blocker states and project schedules.",
               ].map((item, idx) => (
                 <div key={idx} className="flex items-start gap-4">
                   <div className="size-5 rounded-full bg-emerald-500/10 dark:bg-emerald-500/5 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5 shadow-sm">

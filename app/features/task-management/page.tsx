@@ -11,6 +11,7 @@ import {
   Users,
   Grid,
   TrendingUp,
+  Sparkles,
 } from "lucide-react";
 
 export default function TaskManagementPage() {
@@ -105,10 +106,10 @@ export default function TaskManagementPage() {
             {/* Left Column: Heading */}
             <div className="flex flex-col gap-6 text-left">
               <h2 className="font-display text-[clamp(2rem,4.5vw,3.5rem)] font-semibold leading-[1.05] text-zinc-900 dark:text-white" style={{ letterSpacing: "-0.025em" }}>
-                Built to enforce<br />project progress.
+                The Clarity Engine.<br />Built to enforce progress.
               </h2>
               <p className="text-[14px] text-muted-foreground leading-relaxed max-w-[42ch]">
-                KielHQ implements hard limits at the database schema level so you can rest assured dependencies are respected.
+                KeilHQ eliminates vague task lists at the database schema level so you can rest assured execution matches design specs.
               </p>
             </div>
 
@@ -116,41 +117,41 @@ export default function TaskManagementPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-12 w-full text-left">
               <div className="pt-6 border-t border-border/60 flex flex-col gap-3">
                 <div className="flex items-center gap-2">
-                  <Lock className="size-4 text-muted-foreground" />
-                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Hard Validation</h3>
+                  <Sparkles className="size-4 text-muted-foreground" />
+                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Clarity Engine</h3>
                 </div>
                 <p className="text-[13px] text-muted-foreground leading-relaxed">
-                  Prevent tasks from being completed until their pre-selected prerequisites are marked done.
+                  Every task has built-in Objectives and Success Criteria fields to define "done" before work begins.
                 </p>
               </div>
 
               <div className="pt-6 border-t border-border/60 flex flex-col gap-3">
                 <div className="flex items-center gap-2">
-                  <Grid className="size-4 text-muted-foreground" />
-                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Visual Boards</h3>
+                  <Lock className="size-4 text-muted-foreground" />
+                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Blocker Logic</h3>
                 </div>
                 <p className="text-[13px] text-muted-foreground leading-relaxed">
-                  Manage work via Kanban lists, Gantt charts, and timeline roadmaps synchronized instantly via web sockets.
+                  Prevent tasks from being completed until their pre-selected dependency prerequisites are marked done.
                 </p>
               </div>
 
               <div className="pt-6 border-t border-border/60 flex flex-col gap-3">
                 <div className="flex items-center gap-2">
                   <Layers className="size-4 text-muted-foreground" />
-                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Sprint Cycles</h3>
+                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Task Hierarchies</h3>
                 </div>
                 <p className="text-[13px] text-muted-foreground leading-relaxed">
-                  Plan execution timelines and configure automatic rollover for incomplete items at sprint boundaries.
+                  Organize work with parent-child task relationships to break complex epics into infinitely nested subtasks.
                 </p>
               </div>
 
               <div className="pt-6 border-t border-border/60 flex flex-col gap-3">
                 <div className="flex items-center gap-2">
-                  <Users className="size-4 text-muted-foreground" />
-                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Workspace Admin</h3>
+                  <Grid className="size-4 text-muted-foreground" />
+                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Derived Statuses</h3>
                 </div>
                 <p className="text-[13px] text-muted-foreground leading-relaxed">
-                  Grant direct guest access to clients or external teams with complete data-boundary protection.
+                  Task states automatically compute to "Blocked" based on active relationships, with zero manual tagging.
                 </p>
               </div>
             </div>
@@ -168,17 +169,17 @@ export default function TaskManagementPage() {
                 Designed for high-speed<br />engineering teams
               </h2>
               <p className="text-[14px] text-muted-foreground leading-relaxed max-w-[42ch]">
-                Combine chat threads, documents, and blocker timelines into one single database element.
+                Unify workflows, switch context-free between layouts, and track exact changes with comprehensive audit logs.
               </p>
             </div>
 
             {/* Right side checklist */}
             <div className="flex flex-col gap-5 w-full text-left">
               {[
-                "Create tasks instantly from discussion channel logs or audio transcripts.",
-                "Specify custom priority categories (Urgent, High, Medium, Low) with visual status indicators.",
-                "Enforces strict data isolation rules preventing multi-client boundary leaks.",
-                "Export complete task histories and audit trails for security compliance.",
+                "Switch seamlessly between Kanban Boards, Gantt Timelines, and shared team Calendars.",
+                "Organize tasks through 4 workflow states (Backlog, To Do, In Progress, Done) and 4 priority levels (Low, Medium, High, Urgent).",
+                "Assign work to multiple team members and collaborate using threaded comments with nested replies.",
+                "Export complete task history audit trails and share progress externally using public links with no login required.",
               ].map((item, idx) => (
                 <div key={idx} className="flex items-start gap-4">
                   <div className="size-5 rounded-full bg-emerald-500/10 dark:bg-emerald-500/5 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5 shadow-xs">

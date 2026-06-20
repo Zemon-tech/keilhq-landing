@@ -2,12 +2,14 @@ import { Navbar } from "@/components/landing/navbar";
 import { Footer } from "@/components/landing/footer";
 
 const members = [
-  { name: "Alex Rivera", role: "Co-founder & CEO", initials: "AR", bg: "bg-blue-100/80 text-blue-800 dark:bg-blue-950/40 dark:text-blue-300" },
-  { name: "Priya Nair", role: "Co-founder & CTO", initials: "PN", bg: "bg-violet-100/80 text-violet-800 dark:bg-violet-950/40 dark:text-violet-300" },
-  { name: "Jordan Lee", role: "Head of Design", initials: "JL", bg: "bg-emerald-100/80 text-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-300" },
-  { name: "Sam Okafor", role: "Head of Engineering", initials: "SO", bg: "bg-amber-100/80 text-amber-800 dark:bg-amber-950/40 dark:text-amber-300" },
-  { name: "Maya Chen", role: "Head of Growth", initials: "MC", bg: "bg-rose-100/80 text-rose-800 dark:bg-rose-950/40 dark:text-rose-300" },
-  { name: "Luca Bianchi", role: "Head of Customer Success", initials: "LB", bg: "bg-sky-100/80 text-sky-800 dark:bg-sky-950/40 dark:text-sky-300" },
+  { name: "Shivang Kandoi", role: "Co-founder & CEO", initials: "SK", bg: "bg-blue-100/80 text-blue-800 dark:bg-blue-950/40 dark:text-blue-300" },
+  { name: "Satyajit Jena", role: "Co-founder & CTO", initials: "SJ", bg: "bg-violet-100/80 text-violet-800 dark:bg-violet-950/40 dark:text-violet-300" },
+  { name: "Harshit Kundra", role: "COO", initials: "HK", bg: "bg-emerald-100/80 text-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-300" },
+  { name: "Disha Jain", role: "Software Engineer", initials: "DJ", bg: "bg-amber-100/80 text-amber-800 dark:bg-amber-950/40 dark:text-amber-300" },
+  { name: "Akshat Chowdhary", role: "AI Engineer", initials: "AC", bg: "bg-rose-100/80 text-rose-800 dark:bg-rose-950/40 dark:text-rose-300" },
+  { name: "Naveen", role: "Software Engineer", initials: "NV", bg: "bg-sky-100/80 text-sky-800 dark:bg-sky-950/40 dark:text-sky-300" },
+  { name: "Krishna Jaiswal", role: "Software Engineer", initials: "KJ", bg: "bg-teal-100/80 text-teal-800 dark:bg-teal-950/40 dark:text-teal-300" },
+  { name: "Rohan Vashisth", role: "Software Engineer", initials: "RV", bg: "bg-indigo-100/80 text-indigo-800 dark:bg-indigo-950/40 dark:text-indigo-300" },
 ];
 
 export default function TeamPage() {
