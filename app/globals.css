@@ -10,7 +10,15 @@
   --font-sans: var(--font-sans);
   --font-mono: var(--font-geist-mono);
   --font-heading: var(--font-sans);
+  --font-display: var(--font-display);
   --width-9xl: 96rem;
+  /* Landing accent — single indigo, used only on primary CTAs */
+  --color-accent-landing: oklch(0.55 0.18 250);
+  --color-accent-landing-fg: oklch(0.99 0 0);
+  --color-accent-landing-hover: oklch(0.48 0.20 250);
+  /* Custom easing curves per Emil design system */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -283,11 +291,61 @@
   }
   body {
     @apply bg-background text-foreground;
-    overscroll-behavior: none; /* Prevents scroll bounce at top/bottom */
+    overscroll-behavior: none;
   }
   html {
     @apply font-sans;
-    overscroll-behavior: none; /* Prevents scroll bounce at top/bottom */
-    scroll-behavior: auto !important; /* Prevents native browser scroll animations from fighting Lenis */
+    overscroll-behavior: none;
+    scroll-behavior: auto !important;
   }
+}
+
+/* ─── Scroll-entry animation — fade + rise ──────────────────────── */
+@keyframes fade-rise {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-rise {
+  animation: fade-rise 0.6s var(--ease-out-expo, cubic-bezier(0.16, 1, 0.3, 1)) both;
+}
+
+/* Stagger delay utilities for sequential reveals */
+.animate-delay-100 { animation-delay: 100ms; }
+.animate-delay-150 { animation-delay: 150ms; }
+.animate-delay-200 { animation-delay: 200ms; }
+.animate-delay-300 { animation-delay: 300ms; }
+.animate-delay-400 { animation-delay: 400ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-rise {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ─── Font utilities ─────────────────────────────────────────────── */
+.font-display {
+  font-family: var(--font-display), 'Georgia', serif;
+}
+
+/* ─── Landing accent button ─────────────────────────────────────── */
+.btn-accent {
+  background-color: var(--color-accent-landing);
+  color: var(--color-accent-landing-fg);
+  transition: background-color 150ms cubic-bezier(0.25, 1, 0.5, 1),
+              transform 150ms cubic-bezier(0.25, 1, 0.5, 1);
+}
+.btn-accent:hover {
+  background-color: var(--color-accent-landing-hover);
+}
+.btn-accent:active {
+  transform: scale(0.97);
 }

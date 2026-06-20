@@ -37,92 +37,153 @@ export default function AboutPage() {
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground select-text selection:bg-primary/10">
       <Navbar />
-      <main className="flex-1 pt-32 pb-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto flex flex-col gap-20">
+      
+      <main className="flex-1 flex flex-col pt-28">
 
-          {/* ─── Hero ─── */}
-          <div className="flex flex-col gap-6">
-            <h1
-              className="text-4xl sm:text-5xl font-normal tracking-tight text-zinc-900 dark:text-white leading-tight"
-              style={{ textWrap: "balance" } as React.CSSProperties}
-            >
+        {/* ── SECTION 1: HERO ── */}
+        <section className="w-full py-16 sm:py-24 lg:py-32 px-5 sm:px-8 lg:px-12 animate-fade-rise">
+          <div className="max-w-7xl mx-auto w-full flex flex-col items-center text-center gap-10">
+            
+            {/* Eyebrow badge */}
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary/80 border border-border/50 transition-all duration-300">
+              <span className="size-1.5 rounded-full bg-emerald-500 inline-block animate-pulse" />
+              <span className="text-[11px] font-medium text-muted-foreground tracking-wide uppercase">
+                About · Vision
+              </span>
+            </div>
+
+            {/* Title */}
+            <h1 className="font-display text-[clamp(2.5rem,6vw,4.5rem)] font-semibold leading-[1.05] text-zinc-900 dark:text-white max-w-4xl" style={{ letterSpacing: "-0.025em" }}>
               We built KeilHQ because we were tired of paying for six tools that don&apos;t talk to each other.
             </h1>
-            <p className="text-base text-zinc-500 dark:text-zinc-400 leading-relaxed">
+
+            {/* Subtext */}
+            <p className="text-[16px] text-muted-foreground max-w-[60ch] mx-auto leading-relaxed">
               Every hour your team spends context-switching between tools is an hour not spent on work that actually moves the needle. KeilHQ eliminates the gap between where work is discussed, where it&apos;s planned, where it&apos;s documented, and where it gets done.
             </p>
-          </div>
 
-          {/* ─── Mission ─── */}
-          <div className="flex flex-col gap-5 p-8 rounded-sm border border-zinc-200/80 dark:border-white/5 bg-zinc-50/30 dark:bg-white/[0.015]">
-            <p className="text-2xl font-normal tracking-tight text-zinc-900 dark:text-white leading-snug">
-              &ldquo;Clarity first. Execution follows.&rdquo;
-            </p>
-            <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
-              We believe your team doesn&apos;t have a productivity problem — they have a clarity problem. They&apos;re switching between tools, losing decisions in Slack, creating vague tasks that mean different things to different people, and spending hours in sync meetings just to find out what&apos;s actually blocked.
-            </p>
-            <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
-              KeilHQ fixes all of it — not by adding another tool to your stack, but by becoming your entire stack.
-            </p>
           </div>
+        </section>
 
-          {/* ─── Stats ─── */}
-          <div className="flex flex-col gap-6">
-            <h2 className="text-sm font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-widest">
-              By the numbers
-            </h2>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+        {/* ── SECTION 2: MISSION (2-column layout) ── */}
+        <section className="w-full py-16 sm:py-24 lg:py-32 px-5 sm:px-8 lg:px-12 bg-zinc-50/30 dark:bg-zinc-950/10">
+          <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-start text-left">
+            
+            {/* Left quote block */}
+            <div className="flex flex-col gap-6">
+              <span className="text-[11px] font-medium text-muted-foreground tracking-wide uppercase">
+                Our Philosophy
+              </span>
+              <h2 className="font-display text-[clamp(2.2rem,4vw,3.2rem)] font-semibold leading-[1.1] text-zinc-900 dark:text-white" style={{ letterSpacing: "-0.02em" }}>
+                &ldquo;Clarity first.<br />Execution follows.&rdquo;
+              </h2>
+            </div>
+
+            {/* Right details */}
+            <div className="flex flex-col gap-6 text-[14px] text-muted-foreground leading-relaxed">
+              <p>
+                We believe your team doesn&apos;t have a productivity problem — they have a clarity problem. They&apos;re switching between tools, losing decisions in Slack, creating vague tasks that mean different things to different people, and spending hours in sync meetings just to find out what&apos;s actually blocked.
+              </p>
+              <p>
+                KeilHQ fixes all of it — not by adding another tool to your stack, but by becoming your entire stack.
+              </p>
+            </div>
+
+          </div>
+        </section>
+
+        {/* ── SECTION 3: STATS BY THE NUMBERS (Top-bordered cards grid) ── */}
+        <section className="w-full py-16 sm:py-24 lg:py-32 px-5 sm:px-8 lg:px-12">
+          <div className="max-w-7xl mx-auto w-full flex flex-col gap-12 text-left">
+            
+            <div className="flex flex-col gap-3">
+              <span className="text-[11px] font-medium text-muted-foreground tracking-wide uppercase">
+                Metrics
+              </span>
+              <h2 className="font-display text-3xl font-semibold tracking-tight text-zinc-900 dark:text-white">
+                By the numbers
+              </h2>
+            </div>
+
+            {/* Stats top-border grid */}
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-12 mt-4">
               {stats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="flex flex-col gap-3 p-5 rounded-sm border border-zinc-200/80 dark:border-white/5 bg-zinc-50/20 dark:bg-white/[0.01]"
+                  className="pt-6 border-t border-border/60 flex flex-col gap-4"
                 >
-                  <stat.icon className="size-4 text-zinc-400 dark:text-zinc-500" />
-                  <div className="flex flex-col gap-0.5">
-                    <span className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-white">{stat.value}</span>
-                    <span className="text-xs text-zinc-500 dark:text-zinc-400 leading-snug">{stat.label}</span>
+                  <div className="flex items-center gap-2">
+                    <stat.icon className="size-4 text-muted-foreground" />
+                    <span className="text-[12px] font-semibold text-muted-foreground leading-snug uppercase tracking-wide">{stat.label}</span>
                   </div>
+                  <span className="text-4xl font-bold tracking-tight text-zinc-900 dark:text-white">{stat.value}</span>
                 </div>
               ))}
             </div>
-          </div>
 
-          {/* ─── Infrastructure ─── */}
-          <div className="flex flex-col gap-6">
-            <h2 className="text-sm font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-widest">
-              Built on infrastructure you can trust
-            </h2>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+          </div>
+        </section>
+
+        {/* ── SECTION 4: INFRASTRUCTURE (Top-bordered cards grid) ── */}
+        <section className="w-full py-16 sm:py-24 lg:py-32 px-5 sm:px-8 lg:px-12 bg-zinc-50/30 dark:bg-zinc-950/10">
+          <div className="max-w-7xl mx-auto w-full flex flex-col gap-12 text-left">
+            
+            <div className="flex flex-col gap-3">
+              <span className="text-[11px] font-medium text-muted-foreground tracking-wide uppercase">
+                Trust
+              </span>
+              <h2 className="font-display text-3xl font-semibold tracking-tight text-zinc-900 dark:text-white">
+                Built on infrastructure you can trust
+              </h2>
+            </div>
+
+            {/* Infrastructure top-border grid */}
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-12 mt-4">
               {infra.map((item) => (
                 <div
                   key={item.name}
-                  className="flex flex-col gap-2.5 p-5 rounded-sm border border-zinc-200/80 dark:border-white/5 bg-zinc-50/20 dark:bg-white/[0.01] transition-colors hover:bg-zinc-100/40 dark:hover:bg-white/[0.025]"
+                  className="pt-6 border-t border-border/60 flex flex-col gap-3"
                 >
-                  <item.icon className="size-4 text-zinc-400 dark:text-zinc-500" />
-                  <div className="flex flex-col gap-0.5">
-                    <span className="text-sm font-semibold text-zinc-900 dark:text-white">{item.name}</span>
-                    <span className="text-xs text-zinc-500 dark:text-zinc-400">{item.desc}</span>
+                  <div className="flex items-center gap-2">
+                    <item.icon className="size-4 text-muted-foreground" />
+                    <span className="text-[14px] font-semibold text-zinc-900 dark:text-white">{item.name}</span>
                   </div>
+                  <p className="text-[12px] text-muted-foreground leading-relaxed">{item.desc}</p>
                 </div>
               ))}
             </div>
-          </div>
 
-          {/* ─── Team ─── */}
-          <div className="flex flex-col gap-4 pb-4">
-            <h2 className="text-sm font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-widest">
-              The team
+          </div>
+        </section>
+
+        {/* ── SECTION 5: TEAM PHILOSOPHY ── */}
+        <section className="w-full py-16 sm:py-24 lg:py-32 px-5 sm:px-8 lg:px-12">
+          <div className="max-w-3xl mx-auto w-full flex flex-col gap-8 text-center items-center">
+            
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary/80 border border-border/50 transition-all duration-300">
+              <span className="text-[11px] font-medium text-muted-foreground tracking-wide uppercase">
+                The Team
+              </span>
+            </div>
+
+            <h2 className="font-display text-[clamp(2.2rem,4vw,3.2rem)] font-semibold leading-[1.1] text-zinc-900 dark:text-white">
+              Built for speed, craft, and craftspeople
             </h2>
-            <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
-              KeilHQ was founded by a small team who spent years building and shipping software inside large engineering organizations. We got frustrated watching talented people waste hours every week on tool sprawl, context-switching, and meetings about meetings. So we built the workspace we always wanted.
-            </p>
-            <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
-              We&apos;re a remote-first team focused on craft, speed, and opinionated design. We believe software should have strong opinions and earn the right to become someone&apos;s daily driver.
-            </p>
-          </div>
 
-        </div>
+            <div className="flex flex-col gap-6 text-[14px] text-muted-foreground leading-relaxed max-w-[65ch]">
+              <p>
+                KeilHQ was founded by a small team who spent years building and shipping software inside large engineering organizations. We got frustrated watching talented people waste hours every week on tool sprawl, context-switching, and meetings about meetings. So we built the workspace we always wanted.
+              </p>
+              <p>
+                We&apos;re a remote-first team focused on craft, speed, and opinionated design. We believe software should have strong opinions and earn the right to become someone&apos;s daily driver.
+              </p>
+            </div>
+
+          </div>
+        </section>
+
       </main>
+
       <Footer />
     </div>
   );

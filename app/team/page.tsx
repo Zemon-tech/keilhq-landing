@@ -14,41 +14,81 @@ export default function TeamPage() {
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground select-text selection:bg-primary/10">
       <Navbar />
-      <main className="flex-1 pt-24 pb-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-8xl mx-auto flex flex-col gap-16">
-          <div className="flex flex-col gap-4">
-            <span className="text-xs font-semibold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest block">Team</span>
-            <h1 className="text-4xl sm:text-5xl font-normal tracking-tight text-zinc-900 dark:text-white leading-tight">
-              The people building KielHQ
+      
+      <main className="flex-1 flex flex-col pt-28">
+
+        {/* ── SECTION 1: HERO & INTRO ── */}
+        <section className="w-full py-16 sm:py-24 lg:py-32 px-5 sm:px-8 lg:px-12 animate-fade-rise">
+          <div className="max-w-7xl mx-auto w-full flex flex-col items-center text-center gap-10">
+            
+            {/* Eyebrow badge */}
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary/80 border border-border/50 transition-all duration-300">
+              <span className="size-1.5 rounded-full bg-emerald-500 inline-block animate-pulse" />
+              <span className="text-[11px] font-medium text-muted-foreground tracking-wide uppercase">
+                Company · Team
+              </span>
+            </div>
+
+            {/* Title */}
+            <h1 className="font-display text-[clamp(2.5rem,6vw,4.5rem)] font-semibold leading-[1.05] text-zinc-900 dark:text-white max-w-4xl" style={{ letterSpacing: "-0.025em" }}>
+              The people building KeilHQ
             </h1>
-            <p className="text-base text-zinc-500 dark:text-zinc-400 max-w-xl leading-relaxed">
+
+            {/* Subtext */}
+            <p className="text-[16px] text-muted-foreground max-w-[50ch] mx-auto leading-relaxed">
               We&apos;re a small, focused team obsessed with clarity, execution, and building the best work OS on the planet.
             </p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
-            {members.map((m) => (
-              <div key={m.name} className="flex items-center gap-4 p-5 rounded-sm border border-zinc-200/80 dark:border-white/5 bg-zinc-50/20 dark:bg-[#0e0e0e]/20 shadow-sm transition-colors duration-300">
-                <div className={`size-12 rounded-sm flex items-center justify-center text-sm font-bold shrink-0 ${m.bg}`}>
-                  {m.initials}
+
+            {/* Team Grid (Top-bordered cards) */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-12 mt-16 w-full text-left">
+              {members.map((m) => (
+                <div key={m.name} className="pt-6 border-t border-border/60 flex items-center gap-4">
+                  <div className={`size-12 rounded-sm flex items-center justify-center text-sm font-bold shrink-0 ${m.bg}`}>
+                    {m.initials}
+                  </div>
+                  <div className="flex flex-col gap-0.5">
+                    <span className="text-[14px] font-semibold text-zinc-900 dark:text-white">{m.name}</span>
+                    <span className="text-[12px] text-muted-foreground">{m.role}</span>
+                  </div>
                 </div>
-                <div className="flex flex-col gap-0.5">
-                  <span className="text-sm font-semibold text-zinc-900 dark:text-white">{m.name}</span>
-                  <span className="text-xs text-zinc-500 dark:text-zinc-400">{m.role}</span>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
+
           </div>
-          <div className="p-8 rounded-sm bg-zinc-950 text-white dark:bg-white dark:text-zinc-950 flex flex-col gap-4 border border-zinc-200/85 dark:border-white/10 shadow-md">
-            <h2 className="text-xl font-normal tracking-tight">We&apos;re hiring</h2>
-            <p className="text-sm text-zinc-400 dark:text-zinc-800 leading-relaxed max-w-lg">
-              We&apos;re looking for engineers, designers, and growth people who care deeply about craft and clarity. Remote-first, async-friendly.
-            </p>
-            <a href="mailto:jobs@kielhq.com" className="text-sm font-semibold text-zinc-100 dark:text-zinc-900 underline underline-offset-2 hover:opacity-80 transition-colors w-fit">
-              jobs@kielhq.com →
-            </a>
+        </section>
+
+        {/* ── SECTION 2: HIRING (2-column layout) ── */}
+        <section className="w-full py-16 sm:py-24 lg:py-32 px-5 sm:px-8 lg:px-12 bg-zinc-50/30 dark:bg-zinc-950/10">
+          <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-start text-left">
+            
+            {/* Left side */}
+            <div className="flex flex-col gap-6">
+              <span className="text-[11px] font-medium text-muted-foreground tracking-wide uppercase">
+                Careers
+              </span>
+              <h2 className="font-display text-[clamp(2.2rem,4vw,3.2rem)] font-semibold leading-[1.1] text-zinc-900 dark:text-white" style={{ letterSpacing: "-0.02em" }}>
+                We&apos;re hiring.<br />Build the future of work.
+              </h2>
+            </div>
+
+            {/* Right side */}
+            <div className="flex flex-col gap-6 text-[14px] text-muted-foreground leading-relaxed">
+              <p>
+                We&apos;re looking for engineers, designers, and growth people who care deeply about craft and clarity. We work in highly autonomous cycles, prioritize async alignment, and reward deep focus.
+              </p>
+              <a 
+                href="mailto:jobs@kielhq.com" 
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-zinc-900 dark:text-white hover:opacity-75 transition-opacity underline underline-offset-4"
+              >
+                jobs@kielhq.com →
+              </a>
+            </div>
+
           </div>
-        </div>
+        </section>
+
       </main>
+
       <Footer />
     </div>
   );

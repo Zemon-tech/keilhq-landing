@@ -42,16 +42,16 @@ const faqs = [
 function FAQItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="border-b border-zinc-200/60 dark:border-white/5 last:border-0">
+    <div className="border-b border-border/50 last:border-0">
       <button
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between gap-4 py-5 text-left cursor-pointer group"
       >
-        <span className="text-sm font-medium text-zinc-900 dark:text-white group-hover:text-zinc-700 dark:group-hover:text-zinc-200 transition-colors">
+        <span className="text-sm font-medium text-foreground hover:text-muted-foreground transition-colors">
           {q}
         </span>
         <ChevronDown
-          className={`size-4 text-zinc-400 shrink-0 transition-transform duration-200 ${
+          className={`size-4 text-muted-foreground shrink-0 transition-transform duration-200 ${
             open ? "rotate-180" : ""
           }`}
         />
@@ -61,7 +61,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
           open ? "max-h-40 pb-5" : "max-h-0"
         }`}
       >
-        <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
+        <p className="text-[13px] text-muted-foreground leading-relaxed">
           {a}
         </p>
       </div>
@@ -76,322 +76,466 @@ export default function PricingPage() {
     <div className="flex flex-col min-h-screen bg-background text-foreground select-text selection:bg-primary/10">
       <Navbar />
 
-      <main className="flex-1 pt-24 pb-24 px-4 sm:px-6 lg:px-8 max-w-8xl mx-auto w-full">
+      <main className="flex-1 flex flex-col pt-28">
 
-        {/* ─── SECTION 1: Header ─── */}
-        <div className="text-left mb-16">
-          <h1 className="text-4xl sm:text-5xl font-normal tracking-tight text-zinc-900 dark:text-white">
-            Pricing
-          </h1>
-          <p className="mt-4 text-base text-zinc-500 dark:text-zinc-400 max-w-xl leading-relaxed">
-            KeilHQ supports users of every scale — from first prompt to enterprise rollout.
-          </p>
-        </div>
+        {/* ── SECTION 1: HERO & PRICING TIERS ── */}
+        <section className="w-full py-16 sm:py-24 lg:py-32 px-5 sm:px-8 lg:px-12 animate-fade-rise">
+          <div className="max-w-7xl mx-auto w-full flex flex-col items-center text-center gap-10">
+            
+            {/* Eyebrow badge */}
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary/80 border border-border/50 transition-all duration-300">
+              <span className="size-1.5 rounded-full bg-emerald-500 inline-block animate-pulse" />
+              <span className="text-[11px] font-medium text-muted-foreground tracking-wide uppercase">
+                Plans · Pricing
+              </span>
+            </div>
 
-        {/* ─── SECTION 2: Pricing Tier Grid ─── */}
-        <section className="mb-24">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+            {/* Title */}
+            <h1 className="font-display text-[clamp(2.5rem,6vw,4.5rem)] font-semibold leading-[1.05] text-zinc-900 dark:text-white max-w-4xl" style={{ letterSpacing: "-0.025em" }}>
+              Pricing plans for teams of all sizes
+            </h1>
 
-            {/* 1. Pro Card */}
-            <div className="flex flex-col bg-zinc-50/40 border border-zinc-200/90 dark:bg-[#0e0e0e]/40 dark:border-white/10 rounded-sm p-7 sm:p-8 gap-6 shadow-[0_2px_8px_rgba(0,0,0,0.02)] transition-all duration-300 relative overflow-hidden">
-              <div className="absolute top-0 right-0 bg-zinc-900 dark:bg-white text-white dark:text-zinc-950 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider rounded-bl-sm">
-                1-Month Free Trial
-              </div>
+            {/* Subtext */}
+            <p className="text-[16px] text-muted-foreground max-w-[50ch] mx-auto leading-relaxed">
+              KeilHQ supports users of every scale — from first prompt to enterprise rollout.
+            </p>
 
-              <div className="flex flex-col gap-1.5 mt-2">
-                <div className="flex items-center gap-2">
-                  <h3 className="text-xl font-bold text-zinc-900 dark:text-white">Pro</h3>
-                  <span className="text-[10px] bg-zinc-200/60 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 px-2 py-0.5 rounded-sm font-medium">
-                    Individual
-                  </span>
+            {/* CTA Button */}
+            <div className="mt-2">
+              <Link 
+                href="https://app.keilhq.in/login" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="btn-accent inline-flex items-center gap-2 px-6 py-3 rounded-sm text-[13px] font-semibold active:scale-[0.97] transition-transform duration-150 shadow-md"
+              >
+                Get Started Free
+                <ArrowRight className="size-3.5" />
+              </Link>
+            </div>
+
+            {/* Pricing Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mt-16 w-full text-left">
+              
+              {/* Pro Card */}
+              <div className="pt-8 border-t border-border/60 flex flex-col gap-6 relative">
+                {proMode === "trial" && (
+                  <div className="absolute -top-3 right-0 bg-primary text-primary-foreground px-3 py-1 text-[10px] font-semibold uppercase tracking-wider rounded-sm shadow-sm z-10">
+                    1-Month Free Trial
+                  </div>
+                )}
+                {proMode === "paid" && (
+                  <div className="absolute -top-3 right-0 bg-emerald-600 text-white px-3 py-1 text-[10px] font-semibold uppercase tracking-wider rounded-sm shadow-sm z-10">
+                    50% Discount
+                  </div>
+                )}
+
+                <div className="flex flex-col gap-1.5 mt-2">
+                  <div className="flex items-center gap-2">
+                    <h3 className="font-display text-2xl font-semibold text-zinc-900 dark:text-white">Pro</h3>
+                    <span className="text-[10px] bg-secondary text-muted-foreground px-2 py-0.5 rounded-sm font-medium">
+                      Individual
+                    </span>
+                  </div>
+                  <p className="text-[13px] text-muted-foreground leading-relaxed min-h-[40px]">
+                    For power users and professionals who want premium AI intelligence and tools.
+                  </p>
                 </div>
-                <p className="text-sm text-zinc-500 dark:text-zinc-400 min-h-[40px] leading-relaxed">
-                  For power users and professionals who want premium AI intelligence and tools.
-                </p>
-              </div>
 
-              {/* Price row with inline switcher */}
-              <div className="flex items-center justify-between gap-4 min-h-[56px]">
-                <div className="flex flex-col gap-0.5">
-                  {proMode === "trial" ? (
-                    <>
-                      <div className="flex items-baseline gap-1">
-                        <span className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white">$0</span>
-                        <span className="text-xs text-zinc-500 dark:text-zinc-400">/ trial</span>
-                      </div>
-                      <span className="text-[10px] text-zinc-400 dark:text-zinc-500 font-medium">30 days free</span>
-                    </>
-                  ) : (
-                    <>
-                      <div className="flex items-baseline gap-1.5">
-                        <span className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white">$25</span>
-                        <span className="text-xs line-through text-zinc-400 font-medium">$50</span>
-                        <span className="text-xs text-zinc-500 dark:text-zinc-400">/ mo</span>
-                      </div>
-                      <span className="text-[10px] text-emerald-600 dark:text-emerald-500 font-medium">50% intro discount</span>
-                    </>
-                  )}
+                {/* Price Row with Toggle Switcher */}
+                <div className="flex items-center justify-between gap-4 min-h-[56px] py-1">
+                  <div className="flex flex-col gap-0.5">
+                    {proMode === "trial" ? (
+                      <>
+                        <div className="flex items-baseline gap-1">
+                          <span className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white">$0</span>
+                          <span className="text-xs text-muted-foreground">/ trial</span>
+                        </div>
+                        <span className="text-[10px] text-muted-foreground font-medium">30 days free</span>
+                      </>
+                    ) : (
+                      <>
+                        <div className="flex items-baseline gap-1.5">
+                          <span className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white">$25</span>
+                          <span className="text-xs line-through text-muted-foreground/60 font-medium">$50</span>
+                          <span className="text-xs text-muted-foreground">/ mo</span>
+                        </div>
+                        <span className="text-[10px] text-emerald-600 dark:text-emerald-500 font-medium font-mono">50% intro discount</span>
+                      </>
+                    )}
+                  </div>
+
+                  {/* Toggle Switcher */}
+                  <div className="flex bg-secondary p-0.5 rounded-sm border border-border/50 text-[11px] font-medium max-w-[130px] shrink-0">
+                    <button
+                      onClick={() => setProMode("trial")}
+                      className={`px-2.5 py-1 rounded-xs transition-all cursor-pointer ${
+                        proMode === "trial"
+                          ? "bg-background text-foreground shadow-xs font-semibold"
+                          : "text-muted-foreground hover:text-foreground"
+                      }`}
+                    >
+                      Trial
+                    </button>
+                    <button
+                      onClick={() => setProMode("paid")}
+                      className={`px-2.5 py-1 rounded-xs transition-all cursor-pointer ${
+                        proMode === "paid"
+                          ? "bg-background text-foreground shadow-xs font-semibold"
+                          : "text-muted-foreground hover:text-foreground"
+                      }`}
+                    >
+                      Paid
+                    </button>
+                  </div>
                 </div>
 
-                {/* Toggle */}
-                <div className="flex bg-zinc-100 dark:bg-zinc-900 p-0.5 rounded-sm border border-zinc-200/80 dark:border-white/5 text-[11px] font-medium max-w-[130px] shrink-0">
-                  <button
-                    onClick={() => setProMode("trial")}
-                    className={`px-2.5 py-1 rounded-xs transition-all cursor-pointer ${
-                      proMode === "trial"
-                        ? "bg-white dark:bg-zinc-800 text-zinc-950 dark:text-white shadow-xs"
-                        : "text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200"
-                    }`}
-                  >
-                    Trial
-                  </button>
-                  <button
-                    onClick={() => setProMode("paid")}
-                    className={`px-2.5 py-1 rounded-xs transition-all cursor-pointer ${
-                      proMode === "paid"
-                        ? "bg-white dark:bg-zinc-800 text-zinc-950 dark:text-white shadow-xs"
-                        : "text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200"
-                    }`}
-                  >
-                    Paid
-                  </button>
-                </div>
-              </div>
-
-              {proMode === "trial" ? (
+                {/* Card CTA Button */}
                 <Link
                   href="#"
-                  className="w-full bg-zinc-950 hover:bg-zinc-900 dark:bg-white dark:hover:bg-zinc-100 text-white dark:text-zinc-950 font-medium px-4.5 py-3 rounded-sm text-sm flex items-center justify-between transition-colors cursor-pointer shadow-sm active:scale-[0.98]"
+                  className="h-10 px-4 bg-primary text-primary-foreground font-medium rounded-sm hover:bg-primary/90 transition-all active:scale-95 text-[13px] flex items-center justify-between shadow-xs"
                 >
-                  <span>Start 1-Month Free Trial</span>
+                  <span>{proMode === "trial" ? "Start 1-Month Free Trial" : "Get Paid Pro"}</span>
                   <ArrowRight className="size-4" />
                 </Link>
-              ) : (
-                <Link
-                  href="#"
-                  className="w-full bg-zinc-950 hover:bg-zinc-900 dark:bg-white dark:hover:bg-zinc-100 text-white dark:text-zinc-950 font-medium px-4.5 py-3 rounded-sm text-sm flex items-center justify-between transition-colors cursor-pointer shadow-sm active:scale-[0.98]"
-                >
-                  <span>Get Paid Pro</span>
-                  <ArrowRight className="size-4" />
-                </Link>
-              )}
 
-              <hr className="border-t border-zinc-200/60 dark:border-white/5" />
-
-              <div className="flex flex-col gap-4 flex-grow justify-between">
-                <div>
-                  <span className="text-xs text-zinc-700 dark:text-zinc-300 font-semibold tracking-wide uppercase block mb-3.5">
+                <div className="flex flex-col gap-4 mt-2">
+                  <span className="text-[11px] text-muted-foreground font-semibold tracking-wider uppercase">
                     {proMode === "trial" ? "Trial limits (Month 1):" : "Included in paid Pro (Month 2+):"}
                   </span>
 
                   {proMode === "trial" ? (
-                    <ul className="flex flex-col gap-3.5">
-                      <li className="flex items-start gap-2.5 text-sm text-zinc-600 dark:text-zinc-400">
-                        <Sparkles className="size-4 text-zinc-400 shrink-0 mt-0.5" />
-                        <span><strong>25 AI chats</strong> per day</span>
-                      </li>
-                      <li className="flex items-start gap-2.5 text-sm text-zinc-600 dark:text-zinc-400">
-                        <Check className="size-4 text-emerald-500 shrink-0 mt-0.5" />
-                        <span>Unlimited tasks, motion pages, and chat</span>
-                      </li>
-                      <li className="flex items-start gap-2.5 text-sm text-amber-600 dark:text-amber-500">
-                        <Lock className="size-4 text-amber-500 shrink-0 mt-0.5" />
-                        <span>Trial data will be used to train future models</span>
-                      </li>
-                    </ul>
+                    <div className="flex flex-col gap-3.5">
+                      <div className="flex items-start gap-3">
+                        <div className="size-5 rounded-full bg-indigo-500/10 dark:bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 flex items-center justify-center shrink-0 mt-0.5">
+                          <Sparkles className="size-3" />
+                        </div>
+                        <p className="text-[13px] text-muted-foreground leading-relaxed">
+                          <strong>25 AI chats</strong> per day
+                        </p>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="size-5 rounded-full bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                          <svg viewBox="0 0 24 24" className="size-3.5" fill="none" stroke="currentColor" strokeWidth="3">
+                            <polyline points="20 6 9 17 4 12" />
+                          </svg>
+                        </div>
+                        <p className="text-[13px] text-muted-foreground leading-relaxed">
+                          Unlimited tasks, motion pages, and chat
+                        </p>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="size-5 rounded-full bg-amber-500/10 dark:bg-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0 mt-0.5">
+                          <Lock className="size-3" />
+                        </div>
+                        <p className="text-[13px] text-amber-600 dark:text-amber-500 leading-relaxed font-medium">
+                          Trial data will be used to train future models
+                        </p>
+                      </div>
+                    </div>
                   ) : (
-                    <ul className="flex flex-col gap-3.5">
-                      <li className="flex items-start gap-2.5 text-sm text-zinc-600 dark:text-zinc-400">
-                        <Check className="size-4 text-emerald-500 shrink-0 mt-0.5" />
-                        <span>Everything in Free Trial</span>
-                      </li>
-                      <li className="flex items-start gap-2.5 text-sm text-zinc-600 dark:text-zinc-400">
-                        <Sparkles className="size-4 text-zinc-400 shrink-0 mt-0.5" />
-                        <span><strong>20 AI chats / hr</strong> &amp; <strong>100 chats / day</strong></span>
-                      </li>
-                      <li className="flex items-start gap-2.5 text-sm text-zinc-600 dark:text-zinc-400">
-                        <Check className="size-4 text-emerald-500 shrink-0 mt-0.5" />
-                        <span>24x7 specialized support</span>
-                      </li>
-                      <li className="flex items-start gap-2.5 text-sm text-zinc-600 dark:text-zinc-400">
-                        <Check className="size-4 text-emerald-500 shrink-0 mt-0.5" />
-                        <span>First access to new beta releases &amp; features</span>
-                      </li>
-                      <li className="flex items-start gap-2.5 text-sm text-emerald-600 dark:text-emerald-500 font-medium">
-                        <Shield className="size-4 text-emerald-500 shrink-0 mt-0.5" />
-                        <span>Fully secure data (no model training)</span>
-                      </li>
-                    </ul>
+                    <div className="flex flex-col gap-3.5">
+                      <div className="flex items-start gap-3">
+                        <div className="size-5 rounded-full bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                          <svg viewBox="0 0 24 24" className="size-3.5" fill="none" stroke="currentColor" strokeWidth="3">
+                            <polyline points="20 6 9 17 4 12" />
+                          </svg>
+                        </div>
+                        <p className="text-[13px] text-muted-foreground leading-relaxed">
+                          Everything in Free Trial
+                        </p>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="size-5 rounded-full bg-indigo-500/10 dark:bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 flex items-center justify-center shrink-0 mt-0.5">
+                          <Sparkles className="size-3" />
+                        </div>
+                        <p className="text-[13px] text-muted-foreground leading-relaxed">
+                          <strong>20 AI chats / hr</strong> &amp; <strong>100 chats / day</strong>
+                        </p>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="size-5 rounded-full bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                          <svg viewBox="0 0 24 24" className="size-3.5" fill="none" stroke="currentColor" strokeWidth="3">
+                            <polyline points="20 6 9 17 4 12" />
+                          </svg>
+                        </div>
+                        <p className="text-[13px] text-muted-foreground leading-relaxed">
+                          24x7 specialized support
+                        </p>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="size-5 rounded-full bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                          <svg viewBox="0 0 24 24" className="size-3.5" fill="none" stroke="currentColor" strokeWidth="3">
+                            <polyline points="20 6 9 17 4 12" />
+                          </svg>
+                        </div>
+                        <p className="text-[13px] text-muted-foreground leading-relaxed">
+                          First access to new beta releases &amp; features
+                        </p>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="size-5 rounded-full bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                          <Shield className="size-3.5" />
+                        </div>
+                        <p className="text-[13px] text-emerald-600 dark:text-emerald-500 font-medium leading-relaxed">
+                          Fully secure data (no model training)
+                        </p>
+                      </div>
+                    </div>
                   )}
                 </div>
               </div>
-            </div>
 
-            {/* 2. Teams Card */}
-            <div className="flex flex-col bg-zinc-50/20 border border-zinc-200/80 dark:bg-[#0e0e0e]/20 dark:border-white/5 rounded-sm p-7 sm:p-8 gap-6 transition-all duration-300 relative">
-              <div className="flex flex-col gap-1.5 mt-2">
-                <div className="flex items-center gap-2">
-                  <h3 className="text-xl font-bold text-zinc-900 dark:text-white">Teams</h3>
-                  <span className="text-[10px] bg-zinc-200/60 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 px-2 py-0.5 rounded-sm font-medium">
-                    Collaboration
-                  </span>
-                </div>
-                <p className="text-sm text-zinc-500 dark:text-zinc-400 min-h-[40px] leading-relaxed">
-                  For growing squads that need aligned controls, SSO, and shared billing structures.
-                </p>
-              </div>
-
-              <div className="flex items-center justify-between gap-4 min-h-[56px]">
-                <div className="flex flex-col gap-0.5">
-                  <div className="flex items-baseline gap-1.5">
-                    <span className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white">$50</span>
-                    <span className="text-xs line-through text-zinc-400 font-medium">$75</span>
-                    <span className="text-xs text-zinc-500 dark:text-zinc-400">/ user / mo</span>
+              {/* Teams Card */}
+              <div className="pt-8 border-t border-border/60 flex flex-col gap-6 relative">
+                <div className="flex flex-col gap-1.5 mt-2">
+                  <div className="flex items-center gap-2">
+                    <h3 className="font-display text-2xl font-semibold text-zinc-900 dark:text-white">Teams</h3>
+                    <span className="text-[10px] bg-secondary text-muted-foreground px-2 py-0.5 rounded-sm font-medium">
+                      Collaboration
+                    </span>
                   </div>
-                  <span className="text-[10px] text-emerald-600 dark:text-emerald-500 font-medium">33% team discount</span>
+                  <p className="text-[13px] text-muted-foreground leading-relaxed min-h-[40px]">
+                    For growing squads that need aligned controls, SSO, and shared billing structures.
+                  </p>
                 </div>
-                <div className="w-[130px] shrink-0" />
+
+                <div className="flex items-center justify-between gap-4 min-h-[56px] py-1">
+                  <div className="flex flex-col gap-0.5">
+                    <div className="flex items-baseline gap-1.5">
+                      <span className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white">$50</span>
+                      <span className="text-xs line-through text-muted-foreground/60 font-medium">$75</span>
+                      <span className="text-xs text-muted-foreground">/ user / mo</span>
+                    </div>
+                    <span className="text-[10px] text-emerald-600 dark:text-emerald-500 font-medium">33% team discount</span>
+                  </div>
+                </div>
+
+                <Link
+                  href="#"
+                  className="h-10 px-4 bg-secondary text-secondary-foreground border border-border/50 hover:bg-secondary/80 font-medium rounded-sm transition-all active:scale-95 text-[13px] flex items-center justify-between shadow-xs"
+                >
+                  <span>Get Teams</span>
+                  <ArrowRight className="size-4" />
+                </Link>
+
+                <div className="flex flex-col gap-4 mt-2">
+                  <span className="text-[11px] text-muted-foreground font-semibold tracking-wider uppercase">Everything in Pro, plus:</span>
+                  <div className="flex flex-col gap-3.5">
+                    <div className="flex items-start gap-3">
+                      <div className="size-5 rounded-full bg-indigo-500/10 dark:bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 flex items-center justify-center shrink-0 mt-0.5">
+                        <Building2 className="size-3.5" />
+                      </div>
+                      <p className="text-[13px] text-muted-foreground leading-relaxed">
+                        Centralized billing &amp; seat management
+                      </p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="size-5 rounded-full bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                        <svg viewBox="0 0 24 24" className="size-3.5" fill="none" stroke="currentColor" strokeWidth="3">
+                          <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                      </div>
+                      <p className="text-[13px] text-muted-foreground leading-relaxed">
+                        Single Sign-On (SSO) support
+                      </p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="size-5 rounded-full bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                        <svg viewBox="0 0 24 24" className="size-3.5" fill="none" stroke="currentColor" strokeWidth="3">
+                          <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                      </div>
+                      <p className="text-[13px] text-muted-foreground leading-relaxed">
+                        Detailed audit &amp; activity logs
+                      </p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="size-5 rounded-full bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                        <svg viewBox="0 0 24 24" className="size-3.5" fill="none" stroke="currentColor" strokeWidth="3">
+                          <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                      </div>
+                      <p className="text-[13px] text-muted-foreground leading-relaxed">
+                        Advanced workspace admin controls
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
 
-              <Link
-                href="#"
-                className="w-full bg-[#ededed] hover:bg-[#e2e2e2] dark:bg-white/5 dark:hover:bg-white/10 dark:border dark:border-white/10 text-zinc-900 dark:text-zinc-100 font-medium px-4.5 py-3 rounded-sm text-sm flex items-center justify-between transition-colors cursor-pointer active:scale-[0.98]"
-              >
-                <span>Get Teams</span>
-                <ArrowRight className="size-4" />
-              </Link>
+              {/* Enterprise Card */}
+              <div className="pt-8 border-t border-border/60 flex flex-col gap-6 relative">
+                <div className="flex flex-col gap-1.5 mt-2">
+                  <div className="flex items-center gap-2">
+                    <h3 className="font-display text-2xl font-semibold text-zinc-900 dark:text-white">Enterprise</h3>
+                    <span className="text-[10px] bg-secondary text-muted-foreground px-2 py-0.5 rounded-sm font-medium">
+                      Custom Scale
+                    </span>
+                  </div>
+                  <p className="text-[13px] text-muted-foreground leading-relaxed min-h-[40px]">
+                    For large-scale operations requiring custom hosting, data rules, and agreements.
+                  </p>
+                </div>
 
-              <hr className="border-t border-zinc-200/60 dark:border-white/5" />
+                <div className="flex items-center justify-between gap-4 min-h-[56px] py-1">
+                  <div className="flex flex-col gap-0.5">
+                    <span className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white">Contact Sales</span>
+                    <span className="text-[10px] text-muted-foreground font-medium">Custom contracts</span>
+                  </div>
+                </div>
 
-              <div className="flex flex-col gap-3.5 flex-grow">
-                <span className="text-xs text-zinc-700 dark:text-zinc-300 font-semibold tracking-wide uppercase">Everything in Pro, plus:</span>
-                <ul className="flex flex-col gap-3.5">
-                  <li className="flex items-start gap-2.5 text-sm text-zinc-500 dark:text-zinc-400">
-                    <Building2 className="size-4 text-zinc-400 shrink-0 mt-0.5" />
-                    <span>Centralized billing &amp; seat management</span>
-                  </li>
-                  <li className="flex items-start gap-2.5 text-sm text-zinc-500 dark:text-zinc-400">
-                    <Check className="size-4 text-emerald-500 shrink-0 mt-0.5" />
-                    <span>Single Sign-On (SSO) support</span>
-                  </li>
-                  <li className="flex items-start gap-2.5 text-sm text-zinc-500 dark:text-zinc-400">
-                    <Check className="size-4 text-emerald-500 shrink-0 mt-0.5" />
-                    <span>Detailed audit &amp; activity logs</span>
-                  </li>
-                  <li className="flex items-start gap-2.5 text-sm text-zinc-500 dark:text-zinc-400">
-                    <Check className="size-4 text-emerald-500 shrink-0 mt-0.5" />
-                    <span>Advanced workspace admin controls</span>
-                  </li>
-                </ul>
+                <Link
+                  href="/enterprise"
+                  className="h-10 px-4 bg-secondary text-secondary-foreground border border-border/50 hover:bg-secondary/80 font-medium rounded-sm transition-all active:scale-95 text-[13px] flex items-center justify-between shadow-xs"
+                >
+                  <span>Talk to Sales</span>
+                  <ArrowRight className="size-4" />
+                </Link>
+
+                <div className="flex flex-col gap-4 mt-2">
+                  <span className="text-[11px] text-muted-foreground font-semibold tracking-wider uppercase">Everything in Teams, plus:</span>
+                  <div className="flex flex-col gap-3.5">
+                    <div className="flex items-start gap-3">
+                      <div className="size-5 rounded-full bg-indigo-500/10 dark:bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 flex items-center justify-center shrink-0 mt-0.5">
+                        <Database className="size-3.5" />
+                      </div>
+                      <p className="text-[13px] text-muted-foreground leading-relaxed">
+                        Option to host database on-premise
+                      </p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="size-5 rounded-full bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                        <svg viewBox="0 0 24 24" className="size-3.5" fill="none" stroke="currentColor" strokeWidth="3">
+                          <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                      </div>
+                      <p className="text-[13px] text-muted-foreground leading-relaxed">
+                        Priority support with dedicated agents
+                      </p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="size-5 rounded-full bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                        <svg viewBox="0 0 24 24" className="size-3.5" fill="none" stroke="currentColor" strokeWidth="3">
+                          <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                      </div>
+                      <p className="text-[13px] text-muted-foreground leading-relaxed">
+                        Unlimited AI chats &amp; usage throughout
+                      </p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="size-5 rounded-full bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                        <svg viewBox="0 0 24 24" className="size-3.5" fill="none" stroke="currentColor" strokeWidth="3">
+                          <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                      </div>
+                      <p className="text-[13px] text-muted-foreground leading-relaxed">
+                        Custom SLAs, compliance, &amp; legal contracts
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
+
             </div>
 
-            {/* 3. Enterprise Card */}
-            <div className="flex flex-col bg-zinc-50/20 border border-zinc-200/80 dark:bg-[#0e0e0e]/20 dark:border-white/5 rounded-sm p-7 sm:p-8 gap-6 transition-all duration-300 relative">
-              <div className="flex flex-col gap-1.5 mt-2">
-                <div className="flex items-center gap-2">
-                  <h3 className="text-xl font-bold text-zinc-900 dark:text-white">Enterprise</h3>
-                  <span className="text-[10px] bg-zinc-200/60 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 px-2 py-0.5 rounded-sm font-medium">
-                    Custom Scale
-                  </span>
-                </div>
-                <p className="text-sm text-zinc-500 dark:text-zinc-400 min-h-[40px] leading-relaxed">
-                  For large-scale operations requiring custom hosting, data rules, and agreements.
+          </div>
+        </section>
+
+        {/* ── SECTION 2: PRIVACY & SECURITY GRID ── */}
+        <section className="w-full py-16 sm:py-24 lg:py-32 px-5 sm:px-8 lg:px-12 bg-zinc-50/30 dark:bg-zinc-950/10">
+          <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            
+            {/* Left Column: Heading & Description */}
+            <div className="flex flex-col gap-6 text-left">
+              <h2 className="font-display text-[clamp(2rem,4.5vw,3.5rem)] font-semibold leading-[1.05] text-zinc-900 dark:text-white" style={{ letterSpacing: "-0.025em" }}>
+                Secure architecture.<br />Absolute data privacy.
+              </h2>
+              <p className="text-[14px] text-muted-foreground leading-relaxed max-w-[42ch]">
+                Your security is our default. Paid tiers completely exclude workspace data from model training, while enterprise environments offer full network isolation.
+              </p>
+            </div>
+
+            {/* Right Column: 4 Cards with Top Borders */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-12 w-full text-left">
+              <div className="pt-6 border-t border-border/60 flex flex-col gap-3">
+                <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Zero Model Training</h3>
+                <p className="text-[13px] text-muted-foreground leading-relaxed">
+                  We guarantee that your code, docs, meeting recordings, and prompts are never used to train foundational AI models on any paid tier.
                 </p>
               </div>
 
-              <div className="flex items-center justify-between gap-4 min-h-[56px]">
-                <div className="flex flex-col gap-0.5">
-                  <span className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white">Contact Sales</span>
-                  <span className="text-[10px] text-zinc-400 dark:text-zinc-500 font-medium">Custom contracts</span>
-                </div>
-                <div className="w-[130px] shrink-0" />
+              <div className="pt-6 border-t border-border/60 flex flex-col gap-3">
+                <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Database Isolation</h3>
+                <p className="text-[13px] text-muted-foreground leading-relaxed">
+                  Workspace access controls enforce strict logical data segregation. Enterprise tier customers can deploy on dedicated cloud databases.
+                </p>
               </div>
 
-              <Link
-                href="/enterprise"
-                className="w-full bg-[#ededed] hover:bg-[#e2e2e2] dark:bg-white/5 dark:hover:bg-white/10 dark:border dark:border-white/10 text-zinc-900 dark:text-zinc-100 font-medium px-4.5 py-3 rounded-sm text-sm flex items-center justify-between transition-colors cursor-pointer active:scale-[0.98]"
-              >
-                <span>Talk to Sales</span>
-                <ArrowRight className="size-4" />
-              </Link>
+              <div className="pt-6 border-t border-border/60 flex flex-col gap-3">
+                <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">SSO & Access Rules</h3>
+                <p className="text-[13px] text-muted-foreground leading-relaxed">
+                  Lock down access through Okta, Azure AD, or custom SAML providers, and define granular workspace role assignments.
+                </p>
+              </div>
 
-              <hr className="border-t border-zinc-200/60 dark:border-white/5" />
-
-              <div className="flex flex-col gap-3.5 flex-grow">
-                <span className="text-xs text-zinc-700 dark:text-zinc-300 font-semibold tracking-wide uppercase">Everything in Teams, plus:</span>
-                <ul className="flex flex-col gap-3.5">
-                  <li className="flex items-start gap-2.5 text-sm text-zinc-500 dark:text-zinc-400">
-                    <Database className="size-4 text-zinc-400 shrink-0 mt-0.5" />
-                    <span>Option to host database on-premise</span>
-                  </li>
-                  <li className="flex items-start gap-2.5 text-sm text-zinc-500 dark:text-zinc-400">
-                    <Check className="size-4 text-emerald-500 shrink-0 mt-0.5" />
-                    <span>Priority support with dedicated agents</span>
-                  </li>
-                  <li className="flex items-start gap-2.5 text-sm text-zinc-500 dark:text-zinc-400">
-                    <Check className="size-4 text-emerald-500 shrink-0 mt-0.5" />
-                    <span>Unlimited AI chats &amp; usage throughout</span>
-                  </li>
-                  <li className="flex items-start gap-2.5 text-sm text-zinc-500 dark:text-zinc-400">
-                    <Check className="size-4 text-emerald-500 shrink-0 mt-0.5" />
-                    <span>Custom SLAs, compliance, &amp; legal contracts</span>
-                  </li>
-                </ul>
+              <div className="pt-6 border-t border-border/60 flex flex-col gap-3">
+                <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Compliance Standard</h3>
+                <p className="text-[13px] text-muted-foreground leading-relaxed">
+                  KielHQ is developed under strict security controls, built to align with SOC 2 compliance standards and secure data transit laws.
+                </p>
               </div>
             </div>
 
           </div>
         </section>
 
-        <div className="h-px bg-zinc-200/60 dark:bg-white/5 my-20" />
-
-        {/* ─── SECTION 3: Detailed Feature Comparison Table ─── */}
-        <section className="mb-20 overflow-x-auto select-text">
-          <div className="min-w-[950px] w-full">
-            <h2 className="text-2xl font-normal tracking-tight text-zinc-900 dark:text-white mb-8">
+        {/* ── SECTION 3: DETAILED FEATURE COMPARISON ── */}
+        <section className="w-full py-16 sm:py-24 lg:py-32 px-5 sm:px-8 lg:px-12 overflow-x-auto select-text">
+          <div className="max-w-7xl mx-auto w-full min-w-[950px]">
+            <h2 className="font-display text-3xl font-semibold text-zinc-900 dark:text-white mb-10 tracking-tight">
               Compare plans &amp; features
             </h2>
             <table className="w-full border-collapse">
               <thead>
-                <tr className="border-b border-zinc-200 dark:border-white/10 text-left">
-                  <th className="py-4.5 text-sm font-semibold text-zinc-900 dark:text-white w-1/4">Features</th>
-                  <th className="py-4.5 text-sm font-semibold text-zinc-900 dark:text-white w-1/5">Pro (Free Trial)</th>
-                  <th className="py-4.5 text-sm font-semibold text-zinc-900 dark:text-white w-1/5">Pro (Paid)</th>
-                  <th className="py-4.5 text-sm font-semibold text-zinc-900 dark:text-white w-1/5">Teams</th>
-                  <th className="py-4.5 text-sm font-semibold text-zinc-900 dark:text-white w-1/5">Enterprise</th>
+                <tr className="border-b border-border/60 text-left">
+                  <th className="py-4.5 font-display text-sm font-semibold text-zinc-900 dark:text-white w-1/4">Features</th>
+                  <th className="py-4.5 font-display text-sm font-semibold text-zinc-900 dark:text-white w-1/5">Pro (Free Trial)</th>
+                  <th className="py-4.5 font-display text-sm font-semibold text-zinc-900 dark:text-white w-1/5">Pro (Paid)</th>
+                  <th className="py-4.5 font-display text-sm font-semibold text-zinc-900 dark:text-white w-1/5">Teams</th>
+                  <th className="py-4.5 font-display text-sm font-semibold text-zinc-900 dark:text-white w-1/5">Enterprise</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-zinc-100/60 dark:divide-white/5">
+              <tbody className="divide-y divide-border/40">
 
                 {/* CATEGORY: AI Capabilities */}
-                <tr className="bg-zinc-100/50 dark:bg-zinc-950/40">
-                  <td colSpan={5} className="py-3 px-4 text-[10px] font-semibold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest">
+                <tr className="bg-secondary/50">
+                  <td colSpan={5} className="py-3 px-4 text-[10px] font-semibold text-muted-foreground uppercase tracking-widest">
                     AI Capabilities &amp; Data Security
                   </td>
                 </tr>
-                <tr className="hover:bg-zinc-50/40 dark:hover:bg-white/[0.01] transition-colors">
+                <tr className="hover:bg-secondary/30 transition-colors">
                   <td className="py-4 px-4 text-sm text-zinc-800 dark:text-zinc-200 font-medium">Daily AI Chat Limit</td>
-                  <td className="py-4 px-4 text-sm text-zinc-500 dark:text-zinc-400">25 / day</td>
-                  <td className="py-4 px-4 text-sm text-zinc-500 dark:text-zinc-400">100 / day</td>
-                  <td className="py-4 px-4 text-sm text-zinc-500 dark:text-zinc-400">100 / day</td>
-                  <td className="py-4 px-4 text-sm text-zinc-900 dark:text-white font-semibold">Unlimited</td>
+                  <td className="py-4 px-4 text-sm text-muted-foreground">25 / day</td>
+                  <td className="py-4 px-4 text-sm text-muted-foreground">100 / day</td>
+                  <td className="py-4 px-4 text-sm text-muted-foreground">100 / day</td>
+                  <td className="py-4 px-4 text-sm text-foreground font-semibold">Unlimited</td>
                 </tr>
-                <tr className="hover:bg-zinc-50/40 dark:hover:bg-white/[0.01] transition-colors">
+                <tr className="hover:bg-secondary/30 transition-colors">
                   <td className="py-4 px-4 text-sm text-zinc-800 dark:text-zinc-200 font-medium">Hourly AI Chat Limit</td>
-                  <td className="py-4 px-4 text-sm text-zinc-300 dark:text-zinc-700"><Minus className="size-4" /></td>
-                  <td className="py-4 px-4 text-sm text-zinc-500 dark:text-zinc-400">20 / hour</td>
-                  <td className="py-4 px-4 text-sm text-zinc-500 dark:text-zinc-400">20 / hour</td>
-                  <td className="py-4 px-4 text-sm text-zinc-900 dark:text-white font-semibold">Unlimited</td>
+                  <td className="py-4 px-4 text-muted-foreground"><Minus className="size-4" /></td>
+                  <td className="py-4 px-4 text-sm text-muted-foreground">20 / hour</td>
+                  <td className="py-4 px-4 text-sm text-muted-foreground">20 / hour</td>
+                  <td className="py-4 px-4 text-sm text-foreground font-semibold">Unlimited</td>
                 </tr>
-                <tr className="hover:bg-zinc-50/40 dark:hover:bg-white/[0.01] transition-colors">
+                <tr className="hover:bg-secondary/30 transition-colors">
                   <td className="py-4 px-4 text-sm text-zinc-800 dark:text-zinc-200 font-medium">AI Context Ingestion</td>
-                  <td className="py-4 px-4 text-sm text-zinc-500 dark:text-zinc-400">Standard</td>
-                  <td className="py-4 px-4 text-sm text-zinc-500 dark:text-zinc-400">Advanced</td>
-                  <td className="py-4 px-4 text-sm text-zinc-500 dark:text-zinc-400">Advanced</td>
-                  <td className="py-4 px-4 text-sm text-zinc-500 dark:text-zinc-400">Custom context limits</td>
+                  <td className="py-4 px-4 text-sm text-muted-foreground">Standard</td>
+                  <td className="py-4 px-4 text-sm text-muted-foreground">Advanced</td>
+                  <td className="py-4 px-4 text-sm text-muted-foreground">Advanced</td>
+                  <td className="py-4 px-4 text-sm text-muted-foreground">Custom context limits</td>
                 </tr>
-                <tr className="hover:bg-zinc-50/40 dark:hover:bg-white/[0.01] transition-colors">
+                <tr className="hover:bg-secondary/30 transition-colors">
                   <td className="py-4 px-4 text-sm text-zinc-800 dark:text-zinc-200 font-medium">Data Privacy &amp; Model Training</td>
                   <td className="py-4 px-4 text-sm text-amber-600 dark:text-amber-500">Used for model training</td>
                   <td className="py-4 px-4 text-sm text-emerald-600 dark:text-emerald-500 font-medium">Secure data (No training)</td>
@@ -400,163 +544,163 @@ export default function PricingPage() {
                 </tr>
 
                 {/* CATEGORY: Core Workspace */}
-                <tr className="bg-zinc-100/50 dark:bg-zinc-950/40">
-                  <td colSpan={5} className="py-3 px-4 text-[10px] font-semibold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest">
+                <tr className="bg-secondary/50">
+                  <td colSpan={5} className="py-3 px-4 text-[10px] font-semibold text-muted-foreground uppercase tracking-widest">
                     Core Workspace Features
                   </td>
                 </tr>
-                <tr className="hover:bg-zinc-50/40 dark:hover:bg-white/[0.01] transition-colors">
+                <tr className="hover:bg-secondary/30 transition-colors">
                   <td className="py-4 px-4 text-sm text-zinc-800 dark:text-zinc-200 font-medium">Smart Dashboard Task Ranking</td>
                   <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                   <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                   <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                   <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                 </tr>
-                <tr className="hover:bg-zinc-50/40 dark:hover:bg-white/[0.01] transition-colors">
+                <tr className="hover:bg-secondary/30 transition-colors">
                   <td className="py-4 px-4 text-sm text-zinc-800 dark:text-zinc-200 font-medium">Task Management (Kanban &amp; Gantt)</td>
                   <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                   <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                   <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                   <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                 </tr>
-                <tr className="hover:bg-zinc-50/40 dark:hover:bg-white/[0.01] transition-colors">
+                <tr className="hover:bg-secondary/30 transition-colors">
                   <td className="py-4 px-4 text-sm text-zinc-800 dark:text-zinc-200 font-medium">Dependency Blocking Logic</td>
                   <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                   <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                   <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                   <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                 </tr>
-                <tr className="hover:bg-zinc-50/40 dark:hover:bg-white/[0.01] transition-colors">
+                <tr className="hover:bg-secondary/30 transition-colors">
                   <td className="py-4 px-4 text-sm text-zinc-800 dark:text-zinc-200 font-medium">Motion Docs &amp; Block Editor</td>
                   <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                   <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                   <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                   <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                 </tr>
-                <tr className="hover:bg-zinc-50/40 dark:hover:bg-white/[0.01] transition-colors">
+                <tr className="hover:bg-secondary/30 transition-colors">
                   <td className="py-4 px-4 text-sm text-zinc-800 dark:text-zinc-200 font-medium">Real-time Collaborative Editing</td>
                   <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                   <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                   <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                   <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                 </tr>
-                <tr className="hover:bg-zinc-50/40 dark:hover:bg-white/[0.01] transition-colors">
+                <tr className="hover:bg-secondary/30 transition-colors">
                   <td className="py-4 px-4 text-sm text-zinc-800 dark:text-zinc-200 font-medium">Team Chat &amp; Socket Channels</td>
                   <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                   <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                   <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                   <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                 </tr>
-                <tr className="hover:bg-zinc-50/40 dark:hover:bg-white/[0.01] transition-colors">
+                <tr className="hover:bg-secondary/30 transition-colors">
                   <td className="py-4 px-4 text-sm text-zinc-800 dark:text-zinc-200 font-medium">Smart Notifications &amp; Preferences</td>
                   <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                   <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                   <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                   <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                 </tr>
-                <tr className="hover:bg-zinc-50/40 dark:hover:bg-white/[0.01] transition-colors">
+                <tr className="hover:bg-secondary/30 transition-colors">
                   <td className="py-4 px-4 text-sm text-zinc-800 dark:text-zinc-200 font-medium">Audio Meeting Recorder</td>
-                  <td className="py-4 px-4 text-sm text-zinc-400">Limited (3 / month)</td>
+                  <td className="py-4 px-4 text-sm text-muted-foreground">Limited (3 / month)</td>
                   <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                   <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                   <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                 </tr>
-                <tr className="hover:bg-zinc-50/40 dark:hover:bg-white/[0.01] transition-colors">
+                <tr className="hover:bg-secondary/30 transition-colors">
                   <td className="py-4 px-4 text-sm text-zinc-800 dark:text-zinc-200 font-medium">Transcription Speaker Diarization</td>
-                  <td className="py-4 px-4 text-zinc-300 dark:text-zinc-700"><Minus className="size-4" /></td>
+                  <td className="py-4 px-4 text-muted-foreground"><Minus className="size-4" /></td>
                   <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                   <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                   <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                 </tr>
 
                 {/* CATEGORY: Collaboration & Admin */}
-                <tr className="bg-zinc-100/50 dark:bg-zinc-950/40">
-                  <td colSpan={5} className="py-3 px-4 text-[10px] font-semibold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest">
+                <tr className="bg-secondary/50">
+                  <td colSpan={5} className="py-3 px-4 text-[10px] font-semibold text-muted-foreground uppercase tracking-widest">
                     Collaboration &amp; Administration
                   </td>
                 </tr>
-                <tr className="hover:bg-zinc-50/40 dark:hover:bg-white/[0.01] transition-colors">
+                <tr className="hover:bg-secondary/30 transition-colors">
                   <td className="py-4 px-4 text-sm text-zinc-800 dark:text-zinc-200 font-medium">Centralized Seat Billing</td>
-                  <td className="py-4 px-4 text-zinc-300 dark:text-zinc-700"><Minus className="size-4" /></td>
-                  <td className="py-4 px-4 text-zinc-300 dark:text-zinc-700"><Minus className="size-4" /></td>
+                  <td className="py-4 px-4 text-muted-foreground"><Minus className="size-4" /></td>
+                  <td className="py-4 px-4 text-muted-foreground"><Minus className="size-4" /></td>
                   <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                   <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                 </tr>
-                <tr className="hover:bg-zinc-50/40 dark:hover:bg-white/[0.01] transition-colors">
+                <tr className="hover:bg-secondary/30 transition-colors">
                   <td className="py-4 px-4 text-sm text-zinc-800 dark:text-zinc-200 font-medium">Workspace Administrator Control Panel</td>
-                  <td className="py-4 px-4 text-zinc-300 dark:text-zinc-700"><Minus className="size-4" /></td>
-                  <td className="py-4 px-4 text-zinc-300 dark:text-zinc-700"><Minus className="size-4" /></td>
+                  <td className="py-4 px-4 text-muted-foreground"><Minus className="size-4" /></td>
+                  <td className="py-4 px-4 text-muted-foreground"><Minus className="size-4" /></td>
                   <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                   <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                 </tr>
-                <tr className="hover:bg-zinc-50/40 dark:hover:bg-white/[0.01] transition-colors">
+                <tr className="hover:bg-secondary/30 transition-colors">
                   <td className="py-4 px-4 text-sm text-zinc-800 dark:text-zinc-200 font-medium">SSO / SAML Security integration</td>
-                  <td className="py-4 px-4 text-zinc-300 dark:text-zinc-700"><Minus className="size-4" /></td>
-                  <td className="py-4 px-4 text-zinc-300 dark:text-zinc-700"><Minus className="size-4" /></td>
+                  <td className="py-4 px-4 text-muted-foreground"><Minus className="size-4" /></td>
+                  <td className="py-4 px-4 text-muted-foreground"><Minus className="size-4" /></td>
                   <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                   <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                 </tr>
-                <tr className="hover:bg-zinc-50/40 dark:hover:bg-white/[0.01] transition-colors">
+                <tr className="hover:bg-secondary/30 transition-colors">
                   <td className="py-4 px-4 text-sm text-zinc-800 dark:text-zinc-200 font-medium">Detailed Activity Logs &amp; Audit Exports</td>
-                  <td className="py-4 px-4 text-zinc-300 dark:text-zinc-700"><Minus className="size-4" /></td>
-                  <td className="py-4 px-4 text-zinc-300 dark:text-zinc-700"><Minus className="size-4" /></td>
+                  <td className="py-4 px-4 text-muted-foreground"><Minus className="size-4" /></td>
+                  <td className="py-4 px-4 text-muted-foreground"><Minus className="size-4" /></td>
                   <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                   <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                 </tr>
 
                 {/* CATEGORY: Deployment & Hosting */}
-                <tr className="bg-zinc-100/50 dark:bg-zinc-950/40">
-                  <td colSpan={5} className="py-3 px-4 text-[10px] font-semibold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest">
+                <tr className="bg-secondary/50">
+                  <td colSpan={5} className="py-3 px-4 text-[10px] font-semibold text-muted-foreground uppercase tracking-widest">
                     Deployment &amp; Hosting
                   </td>
                 </tr>
-                <tr className="hover:bg-zinc-50/40 dark:hover:bg-white/[0.01] transition-colors">
+                <tr className="hover:bg-secondary/30 transition-colors">
                   <td className="py-4 px-4 text-sm text-zinc-800 dark:text-zinc-200 font-medium">Cloud Serverless Deployment</td>
                   <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                   <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                   <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                   <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                 </tr>
-                <tr className="hover:bg-zinc-50/40 dark:hover:bg-white/[0.01] transition-colors">
+                <tr className="hover:bg-secondary/30 transition-colors">
                   <td className="py-4 px-4 text-sm text-zinc-800 dark:text-zinc-200 font-medium">On-Premise Isolated Database Option</td>
-                  <td className="py-4 px-4 text-zinc-300 dark:text-zinc-700"><Minus className="size-4" /></td>
-                  <td className="py-4 px-4 text-zinc-300 dark:text-zinc-700"><Minus className="size-4" /></td>
-                  <td className="py-4 px-4 text-zinc-300 dark:text-zinc-700"><Minus className="size-4" /></td>
+                  <td className="py-4 px-4 text-muted-foreground"><Minus className="size-4" /></td>
+                  <td className="py-4 px-4 text-muted-foreground"><Minus className="size-4" /></td>
+                  <td className="py-4 px-4 text-muted-foreground"><Minus className="size-4" /></td>
                   <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                 </tr>
-                <tr className="hover:bg-zinc-50/40 dark:hover:bg-white/[0.01] transition-colors">
+                <tr className="hover:bg-secondary/30 transition-colors">
                   <td className="py-4 px-4 text-sm text-zinc-800 dark:text-zinc-200 font-medium">Service Level Uptime SLA</td>
-                  <td className="py-4 px-4 text-zinc-300 dark:text-zinc-700"><Minus className="size-4" /></td>
-                  <td className="py-4 px-4 text-zinc-300 dark:text-zinc-700"><Minus className="size-4" /></td>
-                  <td className="py-4 px-4 text-sm text-zinc-500 dark:text-zinc-400">99.9% Guarantee</td>
+                  <td className="py-4 px-4 text-muted-foreground"><Minus className="size-4" /></td>
+                  <td className="py-4 px-4 text-muted-foreground"><Minus className="size-4" /></td>
+                  <td className="py-4 px-4 text-sm text-muted-foreground">99.9% Guarantee</td>
                   <td className="py-4 px-4 text-sm text-emerald-600 dark:text-emerald-500 font-semibold">Custom SLA contracts</td>
                 </tr>
 
                 {/* CATEGORY: Support & Contracts */}
-                <tr className="bg-zinc-100/50 dark:bg-zinc-950/40">
-                  <td colSpan={5} className="py-3 px-4 text-[10px] font-semibold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest">
+                <tr className="bg-secondary/50">
+                  <td colSpan={5} className="py-3 px-4 text-[10px] font-semibold text-muted-foreground uppercase tracking-widest">
                     Support &amp; Custom Contracts
                   </td>
                 </tr>
-                <tr className="hover:bg-zinc-50/40 dark:hover:bg-white/[0.01] transition-colors">
+                <tr className="hover:bg-secondary/30 transition-colors">
                   <td className="py-4 px-4 text-sm text-zinc-800 dark:text-zinc-200 font-medium">Support Channels</td>
-                  <td className="py-4 px-4 text-sm text-zinc-500 dark:text-zinc-400">Community only</td>
-                  <td className="py-4 px-4 text-sm text-zinc-500 dark:text-zinc-400">24x7 Specialized support</td>
-                  <td className="py-4 px-4 text-sm text-zinc-500 dark:text-zinc-400">24x7 Specialized support</td>
+                  <td className="py-4 px-4 text-sm text-muted-foreground">Community only</td>
+                  <td className="py-4 px-4 text-sm text-muted-foreground">24x7 Specialized support</td>
+                  <td className="py-4 px-4 text-sm text-muted-foreground">24x7 Specialized support</td>
                   <td className="py-4 px-4 text-sm text-emerald-600 dark:text-emerald-500 font-semibold">Priority 24/7 Response SLA</td>
                 </tr>
-                <tr className="hover:bg-zinc-50/40 dark:hover:bg-white/[0.01] transition-colors">
+                <tr className="hover:bg-secondary/30 transition-colors">
                   <td className="py-4 px-4 text-sm text-zinc-800 dark:text-zinc-200 font-medium">Dedicated Customer Success Manager</td>
-                  <td className="py-4 px-4 text-zinc-300 dark:text-zinc-700"><Minus className="size-4" /></td>
-                  <td className="py-4 px-4 text-zinc-300 dark:text-zinc-700"><Minus className="size-4" /></td>
-                  <td className="py-4 px-4 text-zinc-300 dark:text-zinc-700"><Minus className="size-4" /></td>
+                  <td className="py-4 px-4 text-muted-foreground"><Minus className="size-4" /></td>
+                  <td className="py-4 px-4 text-muted-foreground"><Minus className="size-4" /></td>
+                  <td className="py-4 px-4 text-muted-foreground"><Minus className="size-4" /></td>
                   <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                 </tr>
-                <tr className="hover:bg-zinc-50/40 dark:hover:bg-white/[0.01] transition-colors">
+                <tr className="hover:bg-secondary/30 transition-colors">
                   <td className="py-4 px-4 text-sm text-zinc-800 dark:text-zinc-200 font-medium">Custom legal terms &amp; agreements</td>
-                  <td className="py-4 px-4 text-zinc-300 dark:text-zinc-700"><Minus className="size-4" /></td>
-                  <td className="py-4 px-4 text-zinc-300 dark:text-zinc-700"><Minus className="size-4" /></td>
-                  <td className="py-4 px-4 text-zinc-300 dark:text-zinc-700"><Minus className="size-4" /></td>
+                  <td className="py-4 px-4 text-muted-foreground"><Minus className="size-4" /></td>
+                  <td className="py-4 px-4 text-muted-foreground"><Minus className="size-4" /></td>
+                  <td className="py-4 px-4 text-muted-foreground"><Minus className="size-4" /></td>
                   <td className="py-4 px-4"><Check className="size-4 text-emerald-500" /></td>
                 </tr>
 
@@ -565,28 +709,35 @@ export default function PricingPage() {
           </div>
         </section>
 
-        <div className="h-px bg-zinc-200/60 dark:bg-white/5 my-20" />
+        {/* ── SECTION 4: FAQ ── */}
+        <section className="w-full py-16 sm:py-24 lg:py-32 px-5 sm:px-8 lg:px-12 bg-zinc-50/30 dark:bg-zinc-950/10">
+          <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            
+            {/* Left side info */}
+            <div className="flex flex-col gap-6 text-left">
+              <h2 className="font-display text-[clamp(2rem,4.5vw,3.5rem)] font-semibold leading-[1.05] text-zinc-900 dark:text-white" style={{ letterSpacing: "-0.025em" }}>
+                Common<br />questions
+              </h2>
+              <p className="text-[14px] text-muted-foreground leading-relaxed max-w-[42ch]">
+                Everything you need to know about our billing, trials, and data security guidelines. Can&apos;t find what you are looking for?{" "}
+                <Link href="/support" className="text-foreground underline underline-offset-4 hover:text-muted-foreground transition-colors font-medium">
+                  Visit support center
+                </Link>{" "}
+                or{" "}
+                <Link href="/enterprise" className="text-foreground underline underline-offset-4 hover:text-muted-foreground transition-colors font-medium">
+                  talk to sales
+                </Link>.
+              </p>
+            </div>
 
-        {/* ─── SECTION 4: FAQ ─── */}
-        <section className="mb-8 max-w-2xl">
-          <h2 className="text-2xl font-normal tracking-tight text-zinc-900 dark:text-white mb-8">
-            Common questions
-          </h2>
-          <div className="divide-y divide-zinc-200/60 dark:divide-white/5 border-t border-zinc-200/60 dark:border-white/5">
-            {faqs.map((faq) => (
-              <FAQItem key={faq.q} q={faq.q} a={faq.a} />
-            ))}
+            {/* Right side accordions */}
+            <div className="flex flex-col w-full text-left border-t border-border/50">
+              {faqs.map((faq) => (
+                <FAQItem key={faq.q} q={faq.q} a={faq.a} />
+              ))}
+            </div>
+
           </div>
-          <p className="mt-8 text-sm text-zinc-500 dark:text-zinc-400">
-            More questions?{" "}
-            <Link href="/support" className="text-zinc-900 dark:text-white underline underline-offset-2 hover:opacity-70 transition-opacity">
-              Visit our support center
-            </Link>{" "}
-            or{" "}
-            <Link href="/enterprise" className="text-zinc-900 dark:text-white underline underline-offset-2 hover:opacity-70 transition-opacity">
-              talk to sales
-            </Link>.
-          </p>
         </section>
 
       </main>

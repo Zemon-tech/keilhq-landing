@@ -100,16 +100,17 @@ export function Vision() {
   };
 
   return (
-    <section className="w-full bg-background pt-20 px-4 sm:px-6 lg:px-8">
-      {/*
-        Contained card — almost full-screen width, rounded corners, with video player chrome.
-        Matches the reference: large rounded rectangle, not edge-to-edge.
-      */}
-      <div
-        ref={containerRef}
-        className="relative w-full rounded-sm overflow-hidden shadow-2xl border border-white/10 group"
-        style={{ height: "calc(100vh - 48px)" }}
-      >
+    <section className="w-full min-h-screen bg-background flex items-center justify-center py-24">
+      <div className="max-w-7xl w-full mx-auto px-5 sm:px-8 lg:px-12">
+        {/*
+          Contained card — almost full-screen width, rounded corners, with video player chrome.
+          Matches the reference: large rounded rectangle, not edge-to-edge.
+        */}
+        <div
+          ref={containerRef}
+          className="relative w-full rounded-sm overflow-hidden shadow-2xl border border-white/10 group"
+          style={{ height: "calc(100vh - 48px)" }}
+        >
         {/* Video Element */}
         <video
           ref={videoRef}
@@ -162,7 +163,7 @@ export function Vision() {
 
         {/* Large heading — bottom left */}
         <div className="absolute bottom-24 left-8 sm:left-10 z-10 max-w-2xl pointer-events-none">
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-normal text-white leading-tight tracking-tight drop-shadow-lg">
+          <h2 className="font-display text-[clamp(2.5rem,6vw,4rem)] text-white leading-tight drop-shadow-lg" style={{ letterSpacing: "-0.02em" }}>
             7,000+ teams<br />ship with KielHQ
           </h2>
         </div>
@@ -228,6 +229,7 @@ export function Vision() {
           </div>
         </div>
 
+        </div>
       </div>
     </section>
   );

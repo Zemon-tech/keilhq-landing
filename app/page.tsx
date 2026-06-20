@@ -8,10 +8,11 @@ import { Features, StickyScrollSection } from "@/components/landing/features";
 import { LovedBy } from "@/components/landing/loved-by";
 import { Footer } from "@/components/landing/footer";
 import { Blogs } from "@/components/landing/blogs";
+import { FinalCta } from "@/components/landing/final-cta";
 
 // ─── Mockup image wrapper — consistent shadow + rounding ─────────────────────
 const MockupImage = ({ lightSrc, darkSrc, alt }: { lightSrc: string; darkSrc: string; alt: string }) => (
-  <div className="w-full rounded-sm overflow-hidden shadow-2xl border border-border/60">
+  <>
     <Image
       src={lightSrc}
       alt={alt}
@@ -28,7 +29,7 @@ const MockupImage = ({ lightSrc, darkSrc, alt }: { lightSrc: string; darkSrc: st
       className="w-full h-auto object-cover object-top hidden dark:block"
       priority
     />
-  </div>
+  </>
 );
 
 const featuresData: StickyScrollSection[] = [
@@ -130,6 +131,7 @@ export default function Home() {
         <Features data={featuresData} />
         <Blogs />
         <LovedBy />
+        <FinalCta />
       </main>
       <Footer />
     </div>

@@ -16,6 +16,18 @@ interface StickyScrollProps {
   data: StickyScrollSection[];
 }
 
+const getGradientClass = (idx: number) => {
+  const gradients = [
+    "from-sky-500/10 via-indigo-500/5 to-purple-500/10 dark:from-sky-950/20 dark:via-indigo-950/10 dark:to-purple-950/20",
+    "from-emerald-500/10 via-teal-500/5 to-cyan-500/10 dark:from-emerald-950/20 dark:via-teal-950/10 dark:to-cyan-950/20",
+    "from-amber-500/10 via-orange-500/5 to-rose-500/10 dark:from-amber-950/20 dark:via-orange-950/10 dark:to-rose-950/20",
+    "from-violet-500/10 via-purple-500/5 to-fuchsia-500/10 dark:from-violet-950/20 dark:via-purple-950/10 dark:to-fuchsia-950/20",
+    "from-blue-500/10 via-sky-500/5 to-teal-500/10 dark:from-blue-950/20 dark:via-sky-950/10 dark:to-teal-950/20",
+    "from-rose-500/10 via-pink-500/5 to-violet-500/10 dark:from-rose-950/20 dark:via-pink-950/10 dark:to-violet-950/20",
+  ];
+  return gradients[idx % gradients.length];
+};
+
 export function Features({ data }: StickyScrollProps) {
   const [activeIdx, setActiveIdx] = useState(0);
   const leftContentRef = useRef<HTMLDivElement>(null);
@@ -53,42 +65,42 @@ export function Features({ data }: StickyScrollProps) {
   const activeFeature = data[activeIdx];
 
   return (
-    <section className="w-full bg-background py-24 sm:py-32">
+    <section className="w-full min-h-screen bg-background flex flex-col justify-center py-24 sm:py-32">
 
       {/* ── Section header — centered, full width ── */}
-      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 sm:mb-28 text-center">
-        <span className="text-xs font-semibold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest block mb-4">
-          Everything in one place
-        </span>
-        <h2 className="text-3xl sm:text-5xl font-normal tracking-tight text-zinc-900 dark:text-white">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 mb-20 sm:mb-28 text-center">
+        <h2 className="font-display text-[clamp(2rem,4vw,3rem)] leading-[1.1] text-zinc-900 dark:text-white" style={{ letterSpacing: "-0.02em", textWrap: "balance" } as React.CSSProperties}>
           What you can do with KielHQ
         </h2>
+        <p className="mt-4 text-[15px] text-muted-foreground max-w-[50ch] mx-auto leading-relaxed">
+          Everything your team needs, unified in a single workspace.
+        </p>
       </div>
 
       {/* ── Desktop: Sticky Scroll ── */}
-      <div className="hidden lg:block max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="hidden lg:block max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
         <div className="flex flex-row items-start gap-12">
 
           {/* Left — sticky text panel, fixed pixel width with left padding */}
           <div
             className="shrink-0 sticky self-start pr-4"
-            style={{ width: "340px", top: "calc(50vh - 140px)" }}
+            style={{ width: "360px", top: "calc(50vh - 140px)" }}
           >
             <div ref={leftContentRef} className="flex flex-col gap-5 text-left">
               {activeFeature?.badgeText && (
-                <span className="text-xs font-semibold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest block">
+                <span className="text-[11px] font-medium text-muted-foreground block">
                   {activeFeature.badgeText}
                 </span>
               )}
-              <h3 className="text-2xl font-normal tracking-tight text-zinc-900 dark:text-white leading-snug">
+              <h3 className="font-display text-2xl font-normal tracking-tight text-zinc-900 dark:text-white leading-snug" style={{ letterSpacing: "-0.015em" }}>
                 {activeFeature?.title}
               </h3>
-              <p className="text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
+              <p className="text-[14px] leading-relaxed text-muted-foreground">
                 {activeFeature?.description}
               </p>
               <a
                 href="#"
-                className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground hover:underline group w-fit"
+                className="inline-flex items-center gap-1.5 text-[13px] font-medium text-foreground hover:text-muted-foreground transition-colors duration-150 group w-fit"
               >
                 <span>Explore solution</span>
                 <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
@@ -98,8 +110,8 @@ export function Features({ data }: StickyScrollProps) {
                 {data.map((_, idx) => (
                   <div
                     key={idx}
-                    className={`h-[3px] rounded-full transition-all duration-300 ${
-                      idx === activeIdx ? "w-7 bg-primary" : "w-2.5 bg-border"
+                    className={`h-[2px] rounded-full transition-all duration-300 ${
+                      idx === activeIdx ? "w-6 bg-[oklch(0.55_0.18_250)]" : "w-2 bg-border"
                     }`}
                   />
                 ))}
@@ -115,9 +127,20 @@ export function Features({ data }: StickyScrollProps) {
                 ref={(el) => { cardRefs.current[idx] = el; }}
                 className="w-full min-h-[80vh] flex items-center"
               >
-                {/* The visual component fills the full available width */}
-                <div className="w-full">
-                  {item.visualComponent}
+                {/* The visual component inside premium macOS wrapper and gradient background */}
+                <div className={`w-full bg-gradient-to-br ${getGradientClass(idx)} border border-zinc-200/50 dark:border-white/5 rounded-sm p-6 sm:p-10 lg:p-12 shadow-inner`}>
+                  <div className="w-full rounded-sm overflow-hidden border border-zinc-200/85 dark:border-white/10 bg-background/50 backdrop-blur-md shadow-2xl flex flex-col">
+                    {/* Window top bar chrome */}
+                    <div className="h-8 bg-zinc-100/90 dark:bg-zinc-900/90 border-b border-zinc-200/80 dark:border-white/5 flex items-center px-4 gap-1.5 shrink-0 select-none">
+                      <span className="size-2 rounded-full bg-zinc-300 dark:bg-zinc-700" />
+                      <span className="size-2 rounded-full bg-zinc-300 dark:bg-zinc-700" />
+                      <span className="size-2 rounded-full bg-zinc-300 dark:bg-zinc-700" />
+                    </div>
+                    {/* Inner image container */}
+                    <div className="w-full h-full relative">
+                      {item.visualComponent}
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
@@ -127,26 +150,39 @@ export function Features({ data }: StickyScrollProps) {
       </div>
 
       {/* ── Mobile: Linear Stack ── */}
-      <div className="flex lg:hidden flex-col gap-20 px-4 sm:px-6">
-        {data.map((item) => (
+      <div className="flex lg:hidden flex-col gap-20 px-5 sm:px-8">
+        {data.map((item, idx) => (
           <div key={item.id} className="flex flex-col gap-6 text-left">
             <div className="flex flex-col gap-3">
               {item.badgeText && (
-                <span className="text-xs font-semibold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest block">
+                <span className="text-[11px] font-medium text-muted-foreground block">
                   {item.badgeText}
                 </span>
               )}
-              <h3 className="text-2xl font-normal tracking-tight text-zinc-900 dark:text-white">{item.title}</h3>
-              <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">{item.description}</p>
+              <h3 className="font-display text-2xl font-normal tracking-tight text-zinc-900 dark:text-white" style={{ letterSpacing: "-0.015em" }}>{item.title}</h3>
+              <p className="text-[14px] text-muted-foreground leading-relaxed">{item.description}</p>
               <a
                 href="#"
-                className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground hover:underline group w-fit"
+                className="inline-flex items-center gap-1.5 text-[13px] font-medium text-foreground hover:text-muted-foreground transition-colors duration-150 group w-fit"
               >
                 <span>Explore solution</span>
                 <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
               </a>
             </div>
-            <div className="w-full">{item.visualComponent}</div>
+            <div className={`w-full bg-gradient-to-br ${getGradientClass(idx)} border border-zinc-200/50 dark:border-white/5 rounded-sm p-6 sm:p-10 shadow-inner`}>
+              <div className="w-full rounded-sm overflow-hidden border border-zinc-200/85 dark:border-white/10 bg-background/50 backdrop-blur-md shadow-2xl flex flex-col">
+                {/* Window top bar chrome */}
+                <div className="h-8 bg-zinc-100/90 dark:bg-zinc-900/90 border-b border-zinc-200/80 dark:border-white/5 flex items-center px-4 gap-1.5 shrink-0 select-none">
+                  <span className="size-2 rounded-full bg-zinc-300 dark:bg-zinc-700" />
+                  <span className="size-2 rounded-full bg-zinc-300 dark:bg-zinc-700" />
+                  <span className="size-2 rounded-full bg-zinc-300 dark:bg-zinc-700" />
+                </div>
+                {/* Inner image container */}
+                <div className="w-full h-full relative">
+                  {item.visualComponent}
+                </div>
+              </div>
+            </div>
           </div>
         ))}
       </div>

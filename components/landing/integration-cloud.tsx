@@ -81,8 +81,8 @@ function MarqueeRow({ logos, direction = "left", speed = "85s" }: MarqueeRowProp
 
 export function IntegrationCloud() {
   return (
-    <section className="relative w-full py-16 bg-background overflow-hidden border-y border-border">
-      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative w-full min-h-screen bg-background overflow-hidden flex items-center justify-center py-24">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
 
         {/* Contained integration marquee card */}
         <div className="w-full bg-zinc-50 border border-zinc-200/80 dark:bg-[#0e0e0e] dark:border-white/5 rounded-sm relative overflow-hidden flex flex-col p-8 sm:p-12 shadow-2xl transition-colors duration-300">
@@ -91,8 +91,8 @@ export function IntegrationCloud() {
           <div className="flex items-center justify-between w-full mb-10 relative z-20">
             {/* Left: Copy Text */}
             <div className="max-w-xl text-left select-text pl-2">
-              <h2 className="text-3xl sm:text-[2.5rem] font-normal tracking-tight text-zinc-900 dark:text-white leading-[1.15]">
-                KeilHQ lives in every app you already use.
+              <h2 className="font-display text-[clamp(1.75rem,3.5vw,2.75rem)] leading-[1.1] text-zinc-900 dark:text-white" style={{ letterSpacing: "-0.02em", textWrap: "balance" } as React.CSSProperties}>
+                KielHQ lives in every app you already use.
               </h2>
             </div>
 

@@ -1,14 +1,21 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Inter } from "next/font/google";
+import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import SmoothScrolling from "@/components/smooth-scrolling";
 
-const inter = Inter({subsets:['latin'],variable:'--font-sans'});
+// Display font — Instrument Serif for editorial hero headings only
+const instrumentSerif = Instrument_Serif({
+  weight: ["400"],
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+  variable: "--font-display",
+});
 
+// Primary sans — Geist for all UI, body, nav, buttons
 const geistSans = Geist({
-  variable: "--font-geist-sans",
+  variable: "--font-sans",
   subsets: ["latin"],
 });
 
@@ -36,10 +43,10 @@ export default function RootLayout({
       className={cn(
         "h-full",
         "antialiased",
+        instrumentSerif.variable,
         geistSans.variable,
         geistMono.variable,
         "font-sans",
-        inter.variable,
         "bg-background text-foreground transition-colors duration-300"
       )}
       suppressHydrationWarning

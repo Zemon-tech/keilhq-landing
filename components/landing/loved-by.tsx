@@ -49,22 +49,24 @@ export function LovedBy() {
   const [activeId, setActiveId] = useState(0);
 
   return (
-    <section className="w-full bg-background border-t border-border py-16 sm:py-24">
-      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="w-full min-h-screen bg-background flex items-center justify-center py-24 sm:py-32">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
         <div className="flex flex-col lg:flex-row">
 
           {/* ── Left: heading + stat ── */}
-          <div className="lg:w-[480px] shrink-0 pt-1 pb-10 lg:pb-0 flex flex-col gap-6">
-            <h2 className="text-4xl sm:text-5xl font-normal tracking-tight text-zinc-900 dark:text-white leading-tight">
+          <div className="lg:w-[480px] shrink-0 pt-1 pb-10 lg:pb-0 flex flex-col gap-8">
+            <h2 className="font-display text-[clamp(2.5rem,5vw,3.75rem)] leading-[1.05] text-zinc-900 dark:text-white" style={{ letterSpacing: "-0.02em" }}>
               Loved by<br />the best.
             </h2>
-            <div className="flex flex-col gap-1">
-              <span className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white">$40–$70</span>
-              <span className="text-sm text-zinc-500 dark:text-zinc-400">saved per seat per month vs. running a full tool stack</span>
-            </div>
-            <div className="flex flex-col gap-1">
-              <span className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white">7,000+</span>
-              <span className="text-sm text-zinc-500 dark:text-zinc-400">startups, agencies, and studios worldwide</span>
+            <div className="flex flex-col gap-5">
+              <div className="flex flex-col gap-0.5">
+                <span className="text-[13px] text-muted-foreground">Average savings per seat per month</span>
+                <span className="text-2xl font-semibold text-foreground tracking-tight">$40–$70</span>
+              </div>
+              <div className="flex flex-col gap-0.5">
+                <span className="text-[13px] text-muted-foreground">Teams worldwide</span>
+                <span className="text-2xl font-semibold text-foreground tracking-tight">7,000+</span>
+              </div>
             </div>
           </div>
 
@@ -76,11 +78,11 @@ export function LovedBy() {
                 <div key={t.id} className="border-b border-border last:border-b-0">
                   <button
                     onClick={() => setActiveId(t.id)}
-                    className="w-full flex items-center justify-between px-6 py-2 text-left hover:bg-accent/40 transition-colors"
+                    className="w-full flex items-center justify-between px-6 py-3 text-left hover:bg-accent/40 transition-colors duration-150"
                   >
                     <span
-                      className={`text-sm transition-colors ${
-                        isActive ? "text-zinc-900 dark:text-white font-medium" : "text-zinc-400 dark:text-zinc-500"
+                      className={`text-[13px] transition-colors duration-150 ${
+                        isActive ? "text-zinc-900 dark:text-white font-medium" : "text-muted-foreground"
                       }`}
                     >
                       {t.name}, {t.role}
@@ -102,7 +104,7 @@ export function LovedBy() {
 
                   {isActive && (
                     <div className="px-6 pb-8 animate-in fade-in slide-in-from-top-1 duration-200">
-                      <p className="text-base sm:text-lg text-zinc-500 dark:text-zinc-400 leading-relaxed max-w-xl">
+                      <p className="text-[15px] sm:text-[16px] text-zinc-500 dark:text-zinc-400 leading-[1.6] max-w-xl" style={{ textWrap: "pretty" } as React.CSSProperties}>
                         &ldquo;{t.quote}&rdquo;
                       </p>
                     </div>
