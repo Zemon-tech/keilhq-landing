@@ -2,56 +2,59 @@ import Link from "next/link";
 import { Navbar } from "@/components/landing/navbar";
 import { Footer } from "@/components/landing/footer";
 
-const faqs = [
-  { q: "How do I import my existing tasks from Asana or Linear?", a: "Go to Settings → Import and select your tool. KielHQ supports CSV import and direct integrations with Asana, Linear, Jira, and ClickUp." },
-  { q: "Can I use KielHQ without a team?", a: "Yes. Personal mode gives you full access to tasks, docs, calendar sync, and AI — no team required. You can invite people at any time." },
-  { q: "How does the Google Calendar sync work?", a: "Connect via one-click OAuth in Settings → Integrations. Tasks sync as calendar events automatically. Changes in Google Calendar reflect back in KielHQ with smart conflict detection." },
-  { q: "Is my data secure?", a: "KielHQ is SOC 2 compliant and GDPR-ready. Data is encrypted at rest and in transit. Meeting recordings are stored securely on AWS S3." },
-  { q: "What AI model does KielHQ use?", a: "KielHQ AI is powered by Google Gemini via OpenRouter. It reads your actual tasks, workload, and sprint state before answering — not generic training data." },
-  { q: "Can I cancel anytime?", a: "Yes. No contracts, no lock-in. Cancel from your account settings at any time. Your data is exportable in full." },
-];
-
 export default function SupportPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-background text-foreground select-text selection:bg-primary/10">
+    <div className="flex flex-col min-h-screen bg-background font-sans text-foreground selection:bg-primary/10">
       <Navbar />
-      <main className="flex-1 pt-24 pb-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto flex flex-col gap-16">
-          <div className="flex flex-col gap-4">
-            <span className="text-xs font-semibold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest block">Support</span>
-            <h1 className="text-4xl sm:text-5xl font-normal tracking-tight text-zinc-900 dark:text-white leading-tight">
+      <main className="flex-1 flex flex-col pt-32 pb-24 px-5 sm:px-8 lg:px-12 items-center">
+        <div className="w-full max-w-3xl">
+          <div className="mb-10 text-center md:text-left flex flex-col items-center md:items-start gap-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary/80 border border-border/50 w-fit">
+              <span className="text-[10px] font-semibold text-muted-foreground tracking-wider uppercase">
+                Support
+              </span>
+            </div>
+            <h1 className="font-display text-[clamp(2.5rem,5vw,3.75rem)] font-semibold leading-[1.08] text-foreground tracking-tight">
               How can we help?
             </h1>
-            <p className="text-base text-zinc-500 dark:text-zinc-400">We&apos;re here to make sure KielHQ works perfectly for your team.</p>
+            <p className="text-[15px] font-medium text-muted-foreground leading-relaxed max-w-[600px]">
+              We're here to make sure KielHQ works perfectly for your team.
+            </p>
           </div>
 
           {/* Contact options */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
             {[
-              { title: "Email support", desc: "Get a response within one business day.", action: "support@kielhq.com", href: "mailto:support@kielhq.com" },
-              { title: "Book a demo", desc: "See KielHQ live with a member of our team.", action: "Book a walkthrough", href: "/demo" },
+              { 
+                title: "Email support", 
+                desc: "Get a response within one business day.", 
+                action: "support@kielhq.com", 
+                href: "mailto:support@kielhq.com" 
+              },
+              { 
+                title: "Book a demo", 
+                desc: "See KielHQ live with a member of our team.", 
+                action: "Book a walkthrough", 
+                href: "/demo",
+                action2: "Contact: 1234567899",
+                href2: "tel:1234567899"
+              },
             ].map((item) => (
-              <div key={item.title} className="p-6 rounded-sm border border-zinc-200/80 dark:border-white/5 bg-zinc-50/20 dark:bg-[#0e0e0e]/20 flex flex-col gap-3 shadow-sm transition-colors duration-300">
-                <span className="text-sm font-semibold text-zinc-900 dark:text-white">{item.title}</span>
-                <p className="text-sm text-zinc-500 dark:text-zinc-400">{item.desc}</p>
-                <Link href={item.href} className="text-sm font-semibold text-zinc-900 dark:text-white underline underline-offset-2 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors">
-                  {item.action}
-                </Link>
+              <div key={item.title} className="p-6 sm:p-8 rounded-lg border border-border/50 bg-secondary/20 flex flex-col gap-3 shadow-sm transition-colors duration-300">
+                <span className="text-[15px] font-semibold text-foreground">{item.title}</span>
+                <p className="text-[14px] text-muted-foreground leading-relaxed">{item.desc}</p>
+                <div className="flex flex-col items-start gap-2 mt-2">
+                  <Link href={item.href} className="text-[14px] font-semibold text-foreground hover:text-muted-foreground transition-colors">
+                    {item.action}
+                  </Link>
+                  {item.action2 && (
+                    <a href={item.href2!} className="text-[14px] font-semibold text-foreground hover:text-muted-foreground transition-colors">
+                      {item.action2}
+                    </a>
+                  )}
+                </div>
               </div>
             ))}
-          </div>
-
-          {/* FAQ */}
-          <div className="flex flex-col gap-6">
-            <h2 className="text-xl font-normal tracking-tight text-zinc-900 dark:text-white">Frequently asked questions</h2>
-            <div className="flex flex-col divide-y divide-zinc-200/60 dark:divide-white/5">
-              {faqs.map((faq) => (
-                <div key={faq.q} className="py-5 flex flex-col gap-2">
-                  <p className="text-sm font-semibold text-zinc-900 dark:text-white">{faq.q}</p>
-                  <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">{faq.a}</p>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </main>

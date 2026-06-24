@@ -84,8 +84,8 @@ export function IntegrationCloud() {
     <section className="relative w-full min-h-screen bg-background overflow-hidden flex items-center justify-center py-24">
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
 
-        {/* Contained integration marquee card */}
-        <div className="w-full bg-zinc-50 border border-zinc-200/80 dark:bg-[#0e0e0e] dark:border-white/5 rounded-sm relative overflow-hidden flex flex-col p-8 sm:p-12 shadow-2xl transition-colors duration-300">
+        {/* Integrated marquee container */}
+        <div className="w-full relative overflow-hidden flex flex-col transition-colors duration-300">
 
           {/* Top Row: Copy Text on Left, Still Logo on Right */}
           <div className="flex items-center justify-between w-full mb-10 relative z-20">
@@ -120,8 +120,8 @@ export function IntegrationCloud() {
           {/* Bottom Row: Single Flowing Marquee */}
           <div className="relative w-full overflow-hidden py-2 z-20 mt-2">
             {/* Left / Right gradient masks to blend the marquee edges perfectly */}
-            <div className="absolute inset-y-0 left-0 w-14 bg-gradient-to-r from-zinc-50 via-zinc-50/90 to-transparent dark:from-[#0e0e0e] dark:via-[#0e0e0e]/90 z-10 pointer-events-none" />
-            <div className="absolute inset-y-0 right-0 w-14 bg-gradient-to-l from-zinc-50 via-zinc-50/90 to-transparent dark:from-[#0e0e0e] dark:via-[#0e0e0e]/90 z-10 pointer-events-none" />
+            <div className="absolute inset-y-0 left-0 w-14 bg-gradient-to-r from-background via-background/90 to-transparent z-10 pointer-events-none" />
+            <div className="absolute inset-y-0 right-0 w-14 bg-gradient-to-l from-background via-background/90 to-transparent z-10 pointer-events-none" />
 
             <MarqueeRow logos={combinedLogos} direction="left" speed="85s" />
           </div>

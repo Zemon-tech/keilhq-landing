@@ -15,17 +15,10 @@ const footerLinks = {
     { label: "Dashboard", href: "/features/smart-dashboard" },
     { label: "Task Board", href: "/features/task-management" },
   ],
-  Resources: [
-    { label: "Support", href: "/support" },
-    { label: "Discord", href: "https://discord.com" },
-    { label: "Blog", href: "/blog" },
-    { label: "Downloads", href: "/downloads" },
-  ],
   Company: [
     { label: "About us", href: "/about" },
-    { label: "Careers", href: "/careers" },
-    { label: "Trust Center", href: "/trust" },
-    { label: "Become an affiliate", href: "/affiliate" },
+    { label: "Support", href: "/support" },
+    { label: "Blog", href: "/blog" },
     { label: "Report a bug", href: "/report" },
   ],
 };

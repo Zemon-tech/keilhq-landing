@@ -100,7 +100,7 @@ export function Vision() {
   };
 
   return (
-    <section className="w-full min-h-screen bg-background flex items-center justify-center py-24">
+    <section className="w-full bg-background flex items-center justify-center py-16 md:py-24">
       <div className="max-w-7xl w-full mx-auto px-5 sm:px-8 lg:px-12">
         {/*
           Contained card — almost full-screen width, rounded corners, with video player chrome.
