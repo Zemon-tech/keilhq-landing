@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ToggleTheme } from "@/components/ui/toggle-theme";
+import { featureNavItems } from "@/lib/feature-nav";
 
 const footerLinks = {
   Product: [
@@ -9,12 +10,10 @@ const footerLinks = {
     { label: "Privacy & Security", href: "/privacy-security" },
     { label: "Changelog", href: "/changelog" },
   ],
-  Features: [
-    { label: "Team Chat", href: "/features/team-chat" },
-    { label: "Meeting Notes", href: "/features/meeting-recorder" },
-    { label: "Dashboard", href: "/features/smart-dashboard" },
-    { label: "Task Board", href: "/features/task-management" },
-  ],
+  Features: featureNavItems.map((item) => ({
+    label: item.title,
+    href: item.href,
+  })),
   Resources: [
     { label: "Support", href: "/support" },
     { label: "Discord", href: "https://discord.com" },

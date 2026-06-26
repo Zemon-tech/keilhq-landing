@@ -16,6 +16,8 @@ import {
   ChevronDown,
 } from "lucide-react";
 
+import { pricingComparison } from "@/lib/solutions-content";
+
 const faqs = [
   {
     q: "Does the free trial require a credit card?",
@@ -76,10 +78,10 @@ export default function PricingPage() {
     <div className="flex flex-col min-h-screen bg-background text-foreground select-text selection:bg-primary/10">
       <Navbar />
 
-      <main className="flex-1 flex flex-col pt-28">
+      <main className="flex-1 flex flex-col pt-24">
 
         {/* ── SECTION 1: HERO & PRICING TIERS ── */}
-        <section className="w-full py-16 sm:py-24 lg:py-32 px-5 sm:px-8 lg:px-12 animate-fade-rise">
+        <section className="w-full pt-6 pb-16 sm:pt-8 sm:pb-20 lg:pt-10 lg:pb-28 px-5 sm:px-8 lg:px-12 animate-fade-rise">
           <div className="max-w-7xl mx-auto w-full flex flex-col items-center text-center gap-10">
             
             {/* Eyebrow badge */}
@@ -442,7 +444,57 @@ export default function PricingPage() {
           </div>
         </section>
 
-        {/* ── SECTION 2: PRIVACY & SECURITY GRID ── */}
+        {/* ── SECTION 2: WHY IT'S PRICED DIFFERENTLY ── */}
+        <section className="w-full py-16 sm:py-24 lg:py-32 px-5 sm:px-8 lg:px-12 bg-zinc-50/30 dark:bg-zinc-950/10">
+          <div className="max-w-7xl mx-auto w-full flex flex-col gap-12">
+            <div className="flex flex-col gap-4 text-left max-w-3xl">
+              <span className="text-[11px] font-semibold tracking-wider text-muted-foreground uppercase">
+                {pricingComparison.eyebrow}
+              </span>
+              <h2
+                className="font-display text-[clamp(2rem,4.5vw,3.5rem)] font-semibold leading-[1.05] text-zinc-900 dark:text-white"
+                style={{ letterSpacing: "-0.025em" }}
+              >
+                {pricingComparison.title}
+              </h2>
+              <p className="text-[14px] text-muted-foreground leading-relaxed">
+                {pricingComparison.intro}
+              </p>
+            </div>
+
+            <div className="w-full overflow-x-auto">
+              <table className="w-full min-w-[720px] border-collapse text-left">
+                <thead>
+                  <tr className="border-b border-border/60">
+                    <th className="py-4 pr-6 text-[11px] font-semibold text-muted-foreground uppercase tracking-wider w-[18%]">Platform</th>
+                    <th className="py-4 pr-6 text-[11px] font-semibold text-muted-foreground uppercase tracking-wider w-[22%]">List price</th>
+                    <th className="py-4 text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">What it actually costs a small team</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-border/40">
+                  {pricingComparison.rows.map((row) => (
+                    <tr
+                      key={row.platform}
+                      className={row.highlight ? "bg-background border border-border/60" : "hover:bg-secondary/20 transition-colors"}
+                    >
+                      <td className={`py-5 pr-6 text-sm font-semibold ${row.highlight ? "text-zinc-900 dark:text-white" : "text-zinc-800 dark:text-zinc-200"}`}>
+                        {row.platform}
+                      </td>
+                      <td className="py-5 pr-6 text-[13px] text-muted-foreground leading-relaxed">
+                        {row.listPrice}
+                      </td>
+                      <td className="py-5 text-[13px] text-muted-foreground leading-relaxed">
+                        {row.smallTeamCost}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        {/* ── SECTION 3: PRIVACY & SECURITY GRID ── */}
         <section className="w-full py-16 sm:py-24 lg:py-32 px-5 sm:px-8 lg:px-12 bg-zinc-50/30 dark:bg-zinc-950/10">
           <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             

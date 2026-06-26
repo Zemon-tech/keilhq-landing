@@ -17,10 +17,10 @@ export default function NotificationsPage() {
     <div className="flex flex-col min-h-screen bg-background text-foreground select-text selection:bg-primary/10">
       <Navbar />
 
-      <main className="flex-1 flex flex-col pt-28">
+      <main className="flex-1 flex flex-col pt-24">
 
         {/* ── SECTION 1: HERO & INTERACTIVE MOCKUP ── */}
-        <section className="w-full py-16 sm:py-24 lg:py-32 px-5 sm:px-8 lg:px-12 animate-fade-rise">
+        <section className="w-full pt-6 pb-16 sm:pt-8 sm:pb-20 lg:pt-10 lg:pb-28 px-5 sm:px-8 lg:px-12 animate-fade-rise">
           <div className="max-w-7xl mx-auto w-full flex flex-col items-center text-center gap-10">
             
             {/* Eyebrow badge */}

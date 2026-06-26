@@ -6,15 +6,16 @@ import { Footer } from "@/components/landing/footer";
 import {
   ArrowRight,
   Check,
-  Lock,
-  Layers,
-  Users,
-  Grid,
-  TrendingUp,
-  Sparkles,
+  Brain,
+  Search,
+  Calendar,
+  MessageSquare,
+  FileText,
+  Code2,
+  Zap,
 } from "lucide-react";
 
-export default function TaskManagementPage() {
+export default function AICommandCenterPage() {
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground select-text selection:bg-primary/10">
       <Navbar />
@@ -29,18 +30,18 @@ export default function TaskManagementPage() {
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary/80 border border-border/50 transition-all duration-300">
               <span className="size-1.5 rounded-full bg-emerald-500 inline-block animate-pulse" />
               <span className="text-[11px] font-medium text-muted-foreground tracking-wide uppercase">
-                Features · Tasks
+                Features · AI Assistant
               </span>
             </div>
 
             {/* Title */}
             <h1 className="font-display text-[clamp(2.5rem,6vw,4.5rem)] font-semibold leading-[1.05] text-zinc-900 dark:text-white max-w-4xl" style={{ letterSpacing: "-0.025em" }}>
-              Hard dependencies. Real-time delivery.
+              Your AI assistant that knows your workspace
             </h1>
 
             {/* Subtext */}
             <p className="text-[16px] text-muted-foreground max-w-[55ch] mx-auto leading-relaxed">
-              Plan, track, and complete tasks with strict blocker validation and native sprint structures that prevent unfinished items from sliding by.
+              Built-in AI agents for task management, scheduling, GitHub integration, and web search. Chain-of-thought execution shows you exactly how decisions are made using your real data.
             </p>
 
             {/* CTA button */}
@@ -56,41 +57,52 @@ export default function TaskManagementPage() {
               </Link>
             </div>
 
-            {/* Interactive Mockup: CSS Blocked Task Board representation */}
+            {/* Interactive Mockup: AI Chain of Thought */}
             <div className="w-full max-w-4xl mt-12 border border-border/60 dark:border-white/5 bg-secondary/10 dark:bg-white/[0.005] rounded-md p-6 sm:p-8 flex flex-col gap-6 shadow-sm select-none text-left">
               <div className="flex items-center justify-between pb-4 border-b border-border/40">
-                <span className="text-sm font-semibold text-zinc-900 dark:text-white">Active Blocker Pipeline</span>
-                <span className="text-[10px] bg-rose-500/10 text-rose-600 dark:text-rose-400 px-2 py-0.5 rounded-sm font-mono uppercase font-bold tracking-wide">Validation Active</span>
+                <span className="text-sm font-semibold text-zinc-900 dark:text-white">AI Command Center</span>
+                <span className="text-[10px] bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 px-2 py-0.5 rounded-sm font-mono uppercase font-bold tracking-wide">Chain of Thought</span>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* Blocked Card */}
-                <div className="p-5 rounded-sm border border-rose-500/20 bg-background flex flex-col gap-4 relative">
-                  <div className="absolute top-4 right-4 bg-rose-500/10 text-rose-600 px-2 py-0.5 rounded-xs text-[9px] font-bold uppercase tracking-wider">
-                    Blocked
+              {/* User Query */}
+              <div className="flex items-start gap-3 p-3 bg-background rounded-sm border border-border/40">
+                <div className="size-6 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-[10px] font-bold shrink-0">
+                  U
+                </div>
+                <div className="flex-1">
+                  <p className="text-sm text-zinc-900 dark:text-white">"Create a task for fixing the login bug, make it urgent and due tomorrow, then schedule my unscheduled tasks for next week"</p>
+                </div>
+              </div>
+
+              {/* AI Chain of Thought Steps */}
+              <div className="flex flex-col gap-3">
+                <div className="flex items-start gap-3 p-3 bg-emerald-50 dark:bg-emerald-950/20 rounded-sm border border-emerald-200 dark:border-emerald-800/30">
+                  <div className="size-6 rounded-full bg-emerald-100 dark:bg-emerald-900 text-emerald-700 dark:text-emerald-300 flex items-center justify-center shrink-0">
+                    <Zap className="size-3" />
                   </div>
-                  <div className="flex flex-col gap-1 pr-12">
-                    <span className="text-[11px] font-bold uppercase text-muted-foreground">Sprint 4 Deliverable</span>
-                    <span className="text-sm font-semibold text-zinc-900 dark:text-white">Deploy staging container cluster & verify SSL endpoints</span>
-                  </div>
-                  <div className="border-t border-border/40 pt-4 mt-1 flex items-center gap-2 text-[11px] text-rose-600 font-medium">
-                    <Lock className="size-3.5" />
-                    <span>Locked until &ldquo;Verify database migration script&rdquo; completes</span>
+                  <div className="flex flex-col gap-1">
+                    <p className="text-xs font-semibold text-emerald-800 dark:text-emerald-200">Task Agent: Creating urgent task</p>
+                    <p className="text-[11px] text-emerald-700 dark:text-emerald-300">✓ Created task "Fix login bug" with priority: Urgent, due: tomorrow</p>
                   </div>
                 </div>
 
-                {/* Blocker Card (Prerequisite) */}
-                <div className="p-5 rounded-sm border border-emerald-500/20 bg-background flex flex-col gap-4 relative">
-                  <div className="absolute top-4 right-4 bg-emerald-500/10 text-emerald-600 px-2 py-0.5 rounded-xs text-[9px] font-bold uppercase tracking-wider animate-pulse">
-                    Active Blocker
+                <div className="flex items-start gap-3 p-3 bg-blue-50 dark:bg-blue-950/20 rounded-sm border border-blue-200 dark:border-blue-800/30">
+                  <div className="size-6 rounded-full bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 flex items-center justify-center shrink-0">
+                    <Calendar className="size-3" />
                   </div>
-                  <div className="flex flex-col gap-1 pr-12">
-                    <span className="text-[11px] font-bold uppercase text-muted-foreground">Sprint 4 Requirement</span>
-                    <span className="text-sm font-semibold text-zinc-900 dark:text-white">Verify database migration script & export schema diffs</span>
+                  <div className="flex flex-col gap-1">
+                    <p className="text-xs font-semibold text-blue-800 dark:text-blue-200">Scheduler Agent: Finding unscheduled tasks</p>
+                    <p className="text-[11px] text-blue-700 dark:text-blue-300">✓ Found 5 unscheduled tasks, analyzing calendar for next week</p>
                   </div>
-                  <div className="border-t border-border/40 pt-4 mt-1 flex items-center justify-between gap-4">
-                    <span className="text-[11px] text-muted-foreground">Assignee: Sam Okafor</span>
-                    <span className="text-[10px] bg-secondary text-foreground px-2 py-0.5 rounded-xs font-semibold">Priority: Urgent</span>
+                </div>
+
+                <div className="flex items-start gap-3 p-3 bg-violet-50 dark:bg-violet-950/20 rounded-sm border border-violet-200 dark:border-violet-800/30">
+                  <div className="size-6 rounded-full bg-violet-100 dark:bg-violet-900 text-violet-700 dark:text-violet-300 flex items-center justify-center shrink-0">
+                    <Check className="size-3" />
+                  </div>
+                  <div className="flex flex-col gap-1">
+                    <p className="text-xs font-semibold text-violet-800 dark:text-violet-200">Scheduler Agent: Auto-scheduling complete</p>
+                    <p className="text-[11px] text-violet-700 dark:text-violet-300">✓ Scheduled 5 tasks across 4 available time slots next week</p>
                   </div>
                 </div>
               </div>
@@ -106,10 +118,10 @@ export default function TaskManagementPage() {
             {/* Left Column: Heading */}
             <div className="flex flex-col gap-6 text-left">
               <h2 className="font-display text-[clamp(2rem,4.5vw,3.5rem)] font-semibold leading-[1.05] text-zinc-900 dark:text-white" style={{ letterSpacing: "-0.025em" }}>
-                The Clarity Engine.<br />Built to enforce progress.
+                Specialized agents.<br />Real workspace context.
               </h2>
               <p className="text-[14px] text-muted-foreground leading-relaxed max-w-[42ch]">
-                KeilHQ eliminates vague task lists at the database schema level so you can rest assured execution matches design specs.
+                KeilHQ's AI system uses specialized agents that understand your tasks, calendar, documents, and integrations to provide contextual assistance.
               </p>
             </div>
 
@@ -117,41 +129,41 @@ export default function TaskManagementPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-12 w-full text-left">
               <div className="pt-6 border-t border-border/60 flex flex-col gap-3">
                 <div className="flex items-center gap-2">
-                  <Sparkles className="size-4 text-muted-foreground" />
-                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Clarity Engine</h3>
+                  <Brain className="size-4 text-muted-foreground" />
+                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Supervisor AI</h3>
                 </div>
                 <p className="text-[13px] text-muted-foreground leading-relaxed">
-                  Every task has built-in Objectives and Success Criteria fields to define "done" before work begins.
+                  Master agent that routes requests to specialized sub-agents and coordinates multi-step workflows across your workspace.
                 </p>
               </div>
 
               <div className="pt-6 border-t border-border/60 flex flex-col gap-3">
                 <div className="flex items-center gap-2">
-                  <Lock className="size-4 text-muted-foreground" />
-                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Blocker Logic</h3>
+                  <Zap className="size-4 text-muted-foreground" />
+                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Task Manager Agent</h3>
                 </div>
                 <p className="text-[13px] text-muted-foreground leading-relaxed">
-                  Prevent tasks from being completed until their pre-selected dependency prerequisites are marked done.
+                  Create, update, search, and organize tasks with natural language. Understands priorities, due dates, and assignments automatically.
                 </p>
               </div>
 
               <div className="pt-6 border-t border-border/60 flex flex-col gap-3">
                 <div className="flex items-center gap-2">
-                  <Layers className="size-4 text-muted-foreground" />
-                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Task Hierarchies</h3>
+                  <Calendar className="size-4 text-muted-foreground" />
+                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Scheduler Agent</h3>
                 </div>
                 <p className="text-[13px] text-muted-foreground leading-relaxed">
-                  Organize work with parent-child task relationships to break complex epics into infinitely nested subtasks.
+                  Analyzes your calendar, finds free slots, and auto-schedules unscheduled tasks based on priority and time estimates.
                 </p>
               </div>
 
               <div className="pt-6 border-t border-border/60 flex flex-col gap-3">
                 <div className="flex items-center gap-2">
-                  <Grid className="size-4 text-muted-foreground" />
-                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Derived Statuses</h3>
+                  <Code2 className="size-4 text-muted-foreground" />
+                  <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">GitHub Agent</h3>
                 </div>
                 <p className="text-[13px] text-muted-foreground leading-relaxed">
-                  Task states automatically compute to "Blocked" based on active relationships, with zero manual tagging.
+                  List issues and PRs, get issue details, create GitHub issues from KeilHQ tasks, and manage repository workflows.
                 </p>
               </div>
             </div>
@@ -166,20 +178,20 @@ export default function TaskManagementPage() {
             {/* Left side copy */}
             <div className="flex flex-col gap-6 text-left">
               <h2 className="font-display text-[clamp(2rem,4.5vw,3.5rem)] font-semibold leading-[1.05] text-zinc-900 dark:text-white" style={{ letterSpacing: "-0.025em" }}>
-                Designed for high-speed<br />engineering teams
+                See exactly how<br />decisions are made
               </h2>
               <p className="text-[14px] text-muted-foreground leading-relaxed max-w-[42ch]">
-                Unify workflows, switch context-free between layouts, and track exact changes with comprehensive audit logs.
+                Chain-of-thought execution shows each step in real-time, so you understand exactly what the AI is doing with your data.
               </p>
             </div>
 
             {/* Right side checklist */}
             <div className="flex flex-col gap-5 w-full text-left">
               {[
-                "Switch seamlessly between Kanban Boards, Gantt Timelines, and shared team Calendars.",
-                "Organize tasks through 4 workflow states (Backlog, To Do, In Progress, Done) and 4 priority levels (Low, Medium, High, Urgent).",
-                "Assign work to multiple team members and collaborate using threaded comments with nested replies.",
-                "Export complete task history audit trails and share progress externally using public links with no login required.",
+                "Chat Agent reads channels and sends messages on your behalf with natural language commands.",
+                "Motion Agent creates, reads, and searches your documentation pages with full content understanding.", 
+                "Web Search Agent performs live searches using Exa API to find current information and resources.",
+                "All agents work together through PostgreSQL memory storage for multi-turn conversations and context retention.",
               ].map((item, idx) => (
                 <div key={idx} className="flex items-start gap-4">
                   <div className="size-5 rounded-full bg-emerald-500/10 dark:bg-emerald-500/5 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
