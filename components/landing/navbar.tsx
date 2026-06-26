@@ -4,6 +4,8 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
+import { featureNavItems } from "@/lib/feature-nav";
+import { caseStudyIntro } from "@/lib/solutions-content";
 
 export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -61,7 +63,7 @@ export function Navbar() {
             </button>
             {/* Invisible bridge fills the gap so mouse doesn't leave the group */}
             <div className="absolute top-full left-0 right-0 h-2 z-50" />
-            <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[760px] bg-white dark:bg-[#0c0c0c] border border-zinc-200/80 dark:border-white/5 rounded-2xl shadow-2xl opacity-0 pointer-events-none scale-[0.97] origin-top transition-all duration-200 group-hover:opacity-100 group-hover:pointer-events-auto group-hover:scale-100 z-50 flex overflow-hidden">
+            <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[900px] bg-white dark:bg-[#0c0c0c] border border-zinc-200/80 dark:border-white/5 rounded-2xl shadow-2xl opacity-0 pointer-events-none scale-[0.97] origin-top transition-all duration-200 group-hover:opacity-100 group-hover:pointer-events-auto group-hover:scale-100 z-50 flex overflow-hidden">
               {/* Left Panel */}
               <div className="w-[260px] shrink-0 bg-[#fbfaf7] dark:bg-[#121211] p-8 border-r border-zinc-150/40 dark:border-white/5 flex flex-col justify-start text-left">
                 <h4 className="font-display text-2xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50 leading-[1.25]">
@@ -72,17 +74,10 @@ export function Navbar() {
                 </p>
               </div>
               {/* Right Panel - 2 Column Grid */}
-              <div className="flex-1 p-8 grid grid-cols-2 gap-x-8 gap-y-6 text-left bg-white dark:bg-[#0c0c0c]">
-                {[
-                  { title: "Smart Dashboard", desc: "Know exactly what to work on right now", href: "/features/smart-dashboard" },
-                  { title: "Task Management", desc: "Dependencies & sprints built in", href: "/features/task-management" },
-                  { title: "Docs & Notes", desc: "Collaborative Notion-quality docs", href: "/features/docs-notes" },
-                  { title: "Team Chat", desc: "Real-time chat tied to tasks", href: "/features/team-chat" },
-                  { title: "Meeting Recorder", desc: "Auto-transcribe & action items", href: "/features/meeting-recorder" },
-                  { title: "Notifications", desc: "Stay in the loop without noise", href: "/features/notifications" },
-                ].map((item) => (
+              <div className="flex-1 p-8 grid grid-cols-2 gap-x-8 gap-y-5 text-left bg-white dark:bg-[#0c0c0c]">
+                {featureNavItems.map((item) => (
                   <Link
-                    key={item.title}
+                    key={item.id}
                     href={item.href}
                     className="group/item flex flex-col gap-1 hover:bg-zinc-50/50 dark:hover:bg-zinc-900/40 p-2.5 -m-2.5 rounded-xl transition-all duration-200"
                   >
@@ -106,11 +101,18 @@ export function Navbar() {
               {/* Left Panel */}
               <div className="w-[260px] shrink-0 bg-[#fbfaf7] dark:bg-[#121211] p-8 border-r border-zinc-150/40 dark:border-white/5 flex flex-col justify-start text-left">
                 <h4 className="font-display text-2xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50 leading-[1.25]">
-                  Built for how you work
+                  {caseStudyIntro.title}
                 </h4>
                 <p className="text-[12px] font-medium tracking-[0.015em] text-zinc-500 dark:text-zinc-400 leading-relaxed mt-3">
-                  KielHQ adapts to your role — from leadership and client-facing teams to technical and creative projects.
+                  {caseStudyIntro.description}
                 </p>
+                <Link
+                  href="/solutions"
+                  className="text-[12px] font-semibold tracking-[0.01em] text-zinc-900 dark:text-zinc-100 hover:text-zinc-500 dark:hover:text-zinc-300 flex items-center gap-1 group/btn w-fit mt-4"
+                >
+                  View all case studies
+                  <ArrowRight className="size-3.5 transition-transform group-hover/btn:translate-x-0.5" />
+                </Link>
               </div>
               {/* Right Panel - 2 Column Grid */}
               <div className="flex-1 p-8 grid grid-cols-2 gap-x-8 gap-y-6 text-left bg-white dark:bg-[#0c0c0c]">
@@ -265,16 +267,9 @@ export function Navbar() {
             </button>
             {mobileExpandedSection === "features" && (
               <div className="flex flex-col gap-1.5 pl-4 mt-1">
-                {[
-                  { title: "Smart Dashboard", desc: "Know exactly what to work on right now", href: "/features/smart-dashboard" },
-                  { title: "Task Management", desc: "Dependencies & sprints built in", href: "/features/task-management" },
-                  { title: "Docs & Notes", desc: "Collaborative Notion-quality docs", href: "/features/docs-notes" },
-                  { title: "Team Chat", desc: "Real-time chat tied to tasks", href: "/features/team-chat" },
-                  { title: "Meeting Recorder", desc: "Auto-transcribe & action items", href: "/features/meeting-recorder" },
-                  { title: "Notifications", desc: "Stay in the loop without noise", href: "/features/notifications" },
-                ].map((item) => (
+                {featureNavItems.map((item) => (
                   <Link
-                    key={item.title}
+                    key={item.id}
                     href={item.href}
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="flex flex-col gap-0.5 hover:bg-muted/40 p-2 rounded-sm"

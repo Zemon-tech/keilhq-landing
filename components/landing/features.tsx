@@ -1,8 +1,10 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 import gsap from "gsap";
 import { ArrowRight } from "lucide-react";
+import { featureHrefById } from "@/lib/feature-nav";
 
 export interface StickyScrollSection {
   id: string;
@@ -98,13 +100,13 @@ export function Features({ data }: StickyScrollProps) {
               <p className="text-[14px] font-medium tracking-[0.015em] leading-relaxed text-muted-foreground">
                 {activeFeature?.description}
               </p>
-              <a
-                href="#"
+              <Link
+                href={featureHrefById[activeFeature?.id] ?? "#"}
                 className="inline-flex items-center gap-1.5 text-[13px] font-semibold tracking-[0.01em] text-foreground hover:text-muted-foreground transition-colors duration-150 group w-fit"
               >
                 <span>Explore solution</span>
                 <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
-              </a>
+              </Link>
               {/* Progress dots */}
               <div className="flex items-center gap-2 pt-1">
                 {data.map((_, idx) => (
@@ -161,13 +163,13 @@ export function Features({ data }: StickyScrollProps) {
               )}
               <h3 className="font-display text-2xl font-semibold tracking-tight text-zinc-900 dark:text-white" style={{ letterSpacing: "-0.015em" }}>{item.title}</h3>
               <p className="text-[14px] font-medium tracking-[0.015em] text-muted-foreground leading-relaxed">{item.description}</p>
-              <a
-                href="#"
+              <Link
+                href={featureHrefById[item.id] ?? "#"}
                 className="inline-flex items-center gap-1.5 text-[13px] font-semibold tracking-[0.01em] text-foreground hover:text-muted-foreground transition-colors duration-150 group w-fit"
               >
                 <span>Explore solution</span>
                 <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
-              </a>
+              </Link>
             </div>
             <div className={`w-full bg-gradient-to-br ${getGradientClass(idx)} border border-zinc-200/50 dark:border-white/5 rounded-sm p-6 sm:p-10 shadow-inner`}>
               <div className="w-full rounded-sm overflow-hidden border border-zinc-200/85 dark:border-white/10 bg-background/50 backdrop-blur-md shadow-2xl flex flex-col">

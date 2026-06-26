@@ -2,19 +2,25 @@
 
 import React from "react";
 
-// Robust, high-fidelity Brand logo URLs
+// Robust, high-fidelity Brand logo URLs - Active & Planned Integrations
 const combinedLogos = [
-  "/integrations/slack.png",
-  "/integrations/notion.png",
+  // Active Google Workspace integrations
   "/integrations/gcalendar.png",
-  "/integrations/atlassianjira.png",
-  "/integrations/linear.jpeg",
-  "/integrations/gdocs.png",
-  "/integrations/gdrive.png",
   "/integrations/gmail.png",
-  "/integrations/gmeet.png",
+  "/integrations/gdrive.png",
+  "/integrations/gdocs.png",
   "/integrations/gsheets.png",
   "/integrations/gslides.png",
+  "/integrations/gmeet.png",
+  
+  // Active development & collaboration integrations
+  "/integrations/github.png",
+  "/integrations/notion.png",
+  
+  // Planned integrations (coming soon)
+  "/integrations/slack.png",
+  "/integrations/linear.jpeg",
+  "/integrations/atlassianjira.png",
   "/integrations/chroniclehq.jpeg",
 ];
 

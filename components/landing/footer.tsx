@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ToggleTheme } from "@/components/ui/toggle-theme";
+import { featureNavItems } from "@/lib/feature-nav";
 
 const footerLinks = {
   Product: [
