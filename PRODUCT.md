@@ -8,7 +8,7 @@ brand
 Productive teams, startups, agencies, dev teams, and freelancers who want a unified workspace replacing the chaos of Slack, Notion, Asana, and scattered calendars.
 
 ## Product Purpose
-The marketing and landing site for KielHQ, designed to communicate the value of the platform, show the product's polished interface, build trust, and drive user sign-ups/conversions.
+The marketing and landing site for KeilHQ, designed to communicate the value of the platform, show the product's polished interface, build trust, and drive user sign-ups/conversions.
 
 ## Brand Personality
 - Clean

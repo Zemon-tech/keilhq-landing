@@ -40,7 +40,7 @@ const demoFeatures = [
   },
   {
     icon: Sparkles,
-    title: "KielHQ AI with your actual data",
+    title: "KeilHQ AI with your actual data",
     desc: "AI that reads your tasks, workload, and sprint — not generic advice.",
   },
   {
@@ -72,33 +72,33 @@ export default function DemoPage() {
     <div className="flex flex-col min-h-screen bg-background font-sans text-foreground selection:bg-primary/10">
       <Navbar />
 
-      <main className="flex-1">
+      <main className="flex-1 flex flex-col">
 
         {/* ─── HERO & CONTENT ─── */}
-        <section className="pt-32 pb-24 px-5 sm:px-8 lg:px-12">
+        <section className="pt-28 lg:pt-32 pb-16 lg:pb-20 xl:pb-24 px-5 sm:px-8 lg:px-12">
           <div className="max-w-7xl w-full mx-auto">
-            
+
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary/80 border border-border/50 w-fit mb-6">
               <span className="size-1.5 rounded-full bg-emerald-500 inline-block" />
               <span className="text-[10px] font-semibold text-muted-foreground tracking-wider uppercase">
                 7,000+ teams — no credit card required
               </span>
             </div>
-            
+
             <h1
               className="font-display text-[clamp(2.5rem,5vw,3.75rem)] font-semibold leading-[1.08] text-foreground tracking-tight mb-4"
               style={{ textWrap: "balance" } as React.CSSProperties}
             >
               See KeilHQ in action — live, with your team
             </h1>
-            <p className="text-[15px] font-medium text-muted-foreground leading-relaxed max-w-xl mb-16">
+            <p className="text-[15px] font-medium text-muted-foreground leading-relaxed max-w-xl mb-10">
               Book a 30-minute live walkthrough. We'll show you how KeilHQ replaces your entire tool stack and answer every question you have.
             </p>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
               {/* Left column */}
-              <div className="flex flex-col gap-16">
+              <div className="flex flex-col gap-10">
 
                 {/* What we cover */}
                 <div className="flex flex-col gap-6">

@@ -1,6 +1,6 @@
-# KielHQ Landing Page & UI Design System Guide
+# KeilHQ Landing Page & UI Design System Guide
 
-This guide establishes the layout, typography, and styling patterns used across KielHQ's landing page, solutions routes, and navigation components. Follow these specifications exactly when implementing new pages or editing existing components.
+This guide establishes the layout, typography, and styling patterns used across KeilHQ's landing page, solutions routes, and navigation components. Follow these specifications exactly when implementing new pages or editing existing components.
 
 ---
 
@@ -21,7 +21,7 @@ To prevent the page from looking cramped and to maximize impact, follow these sp
 
 ## 2. Typography Rules
 
-KielHQ combines a clean sans-serif body font with a premium display serif font for headings.
+KeilHQ combines a clean sans-serif body font with a premium display serif font for headings.
 
 ### Display Serif Headings
 - **Font Family**: `font-display` (uses `Instrument_Serif`).
@@ -102,7 +102,7 @@ When building new routes, align them with the unified 3-section layout establish
   ```tsx
   <div className="w-full flex justify-center items-center overflow-hidden mt-12 sm:mt-16 mb-4 sm:mb-6 select-none z-0 relative">
     <span className="font-display text-[clamp(5rem,15vw,14rem)] font-semibold tracking-tight leading-none text-zinc-200 dark:text-zinc-800/80 select-none pointer-events-none">
-      KielHQ
+      KeilHQ
     </span>
   </div>
   ```

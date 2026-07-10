@@ -57,10 +57,10 @@ export function Hero() {
         }}
       />
 
-      <div className="relative z-10 max-w-7xl w-full mx-auto px-5 sm:px-8 lg:px-12 flex flex-col lg:flex-row items-center gap-16 pt-28 pb-24">
+      <div className="relative z-10 max-w-7xl w-full mx-auto px-5 sm:px-8 lg:px-12 flex flex-col lg:flex-row items-center gap-16 pt-28 lg:pt-32 pb-16 lg:pb-20 xl:pb-24">
 
         {/* ── Left: Copy ───────────────────────────────────────────── */}
-        <div className="w-full lg:w-[380px] shrink-0 flex flex-col gap-6 text-left">
+        <div className="w-full lg:w-[480px] shrink-0 flex flex-col gap-6 text-left">
 
           {/* Social proof badge */}
           <div
@@ -87,7 +87,7 @@ export function Hero() {
             className={`text-[15px] font-medium tracking-[0.015em] text-muted-foreground leading-relaxed max-w-[34ch] transition-all duration-700 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
           >
-            Replace Slack, Asana, Notion, and calendar chaos. KielHQ unifies tasks, docs, chat, and your calendar — with AI that reads your actual data.
+            Replace Slack, Asana, Notion, and calendar chaos. KeilHQ unifies tasks, docs, chat, and your calendar — with AI that reads your actual data.
           </p>
 
           {/* Feature chips */}
@@ -150,7 +150,7 @@ export function Hero() {
           <div className="w-full rounded-sm overflow-hidden shadow-2xl border border-border/50">
             <Image
               src="/mockups/light/Dashboard.png"
-              alt="KielHQ Smart Dashboard — AI-powered workspace"
+              alt="KeilHQ Smart Dashboard — AI-powered workspace"
               width={1200}
               height={800}
               className="w-full h-auto object-cover object-top dark:hidden"
@@ -158,7 +158,7 @@ export function Hero() {
             />
             <Image
               src="/mockups/dark/Dashboard.png"
-              alt="KielHQ Smart Dashboard — AI-powered workspace"
+              alt="KeilHQ Smart Dashboard — AI-powered workspace"
               width={1200}
               height={800}
               className="w-full h-auto object-cover object-top hidden dark:block"

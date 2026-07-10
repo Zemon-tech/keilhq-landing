@@ -28,17 +28,17 @@ const badges = ["SOC 2", "GDPR", "CCPA", "HIPAA", "SOC 3"];
 
 export function Footer() {
   return (
-    <footer className="w-full min-h-screen bg-background relative z-[60] flex flex-col justify-between pt-16 sm:pt-24 overflow-hidden">
+    <footer className="w-full bg-background relative z-[60] flex flex-col justify-between pt-16 sm:pt-20 overflow-hidden">
 
       {/* Top Links Section */}
       <div className="max-w-7xl w-full mx-auto px-5 sm:px-8 lg:px-12 flex flex-col md:flex-row justify-between gap-16 md:gap-8 z-10 relative">
         {/* Brand and Social Links */}
         <div className="md:w-1/4 shrink-0 flex flex-col gap-6">
           <Link href="/" className="flex items-center gap-2">
-            <Image src="/keilhq.svg" alt="KielHQ" width={22} height={22} className="dark:hidden" />
-            <Image src="/keilhq-white.svg" alt="KielHQ" width={22} height={22} className="hidden dark:block" />
+            <Image src="/Keilhq.svg" alt="KeilHQ" width={22} height={22} className="dark:hidden" />
+            <Image src="/Keilhq-white.svg" alt="KeilHQ" width={22} height={22} className="hidden dark:block" />
             <span className="font-display text-xl font-semibold tracking-tight text-foreground">
-              KielHQ
+              KeilHQ
             </span>
           </Link>
 
@@ -98,7 +98,7 @@ export function Footer() {
       </div>
 
       {/* Badges Section with center divider */}
-      <div className="max-w-7xl w-full mx-auto px-5 sm:px-8 lg:px-12 mt-16 sm:mt-24 z-10 relative">
+      <div className="max-w-7xl w-full mx-auto px-5 sm:px-8 lg:px-12 mt-12 sm:mt-16 z-10 relative">
         <div className="w-full h-px bg-border/60 dark:bg-white/5 relative flex items-center justify-center">
           <div className="absolute bg-background px-6 flex items-center gap-4">
             {badges.map((badge) => (
@@ -114,18 +114,18 @@ export function Footer() {
       </div>
 
       {/* Giant Watermark Text (Moved above Copyright row, below Badges) */}
-      <div className="w-full flex justify-center items-center overflow-hidden mt-12 sm:mt-16 mb-4 sm:mb-6 select-none z-0 relative">
+      <div className="w-full flex justify-center items-center overflow-hidden mt-8 sm:mt-10 mb-0 select-none z-0 relative">
         <span
           className="font-display text-[clamp(5rem,15vw,14rem)] font-semibold tracking-tight leading-none text-zinc-200 dark:text-zinc-800/80 select-none pointer-events-none"
         >
-          KielHQ
+          KeilHQ
         </span>
       </div>
 
       {/* Copyright and Privacy Links Row */}
-      <div className="max-w-7xl w-full mx-auto px-5 sm:px-8 lg:px-12 pt-12 pb-8 flex flex-col md:flex-row items-center justify-between gap-6 z-10 relative">
+      <div className="max-w-7xl w-full mx-auto px-5 sm:px-8 lg:px-12 pt-6 pb-8 flex flex-col md:flex-row items-center justify-between gap-6 z-10 relative">
         <span className="text-[13px] text-muted-foreground font-semibold tracking-wide w-full md:w-1/3 text-center md:text-left">
-          KielHQ. All rights reserved. © {new Date().getFullYear()}
+          KeilHQ. All rights reserved. © {new Date().getFullYear()}
         </span>
 
         <div className="flex items-center gap-6 flex-wrap justify-center w-full md:w-1/3 text-[13px] font-semibold tracking-wide">

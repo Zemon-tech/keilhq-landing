@@ -112,10 +112,10 @@ export default function EnterprisePage() {
     <div className="flex flex-col min-h-screen bg-background font-sans text-foreground selection:bg-primary/10">
       <Navbar />
 
-      <main className="flex-1">
+      <main className="flex-1 flex flex-col">
 
         {/* ─── HERO ─── */}
-        <section className="pt-32 pb-24 px-5 sm:px-8 lg:px-12">
+        <section className="pt-28 lg:pt-32 pb-16 lg:pb-20 xl:pb-24 px-5 sm:px-8 lg:px-12">
           <div className="max-w-7xl w-full mx-auto">
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
@@ -126,14 +126,14 @@ export default function EnterprisePage() {
                     Enterprise
                   </span>
                 </div>
-                
+
                 <h1
                   className="font-display text-[clamp(2.5rem,5vw,3.75rem)] font-semibold leading-[1.08] text-foreground tracking-tight"
                   style={{ textWrap: "balance" } as React.CSSProperties}
                 >
                   KeilHQ for large teams and organizations
                 </h1>
-                
+
                 <p className="text-[15px] font-medium text-muted-foreground leading-relaxed max-w-lg mt-2 mb-4">
                   Enterprise-grade security, compliance, and support — without the complexity. Everything in Pro, plus the controls your IT and security teams require.
                 </p>
@@ -192,7 +192,7 @@ export default function EnterprisePage() {
         </section>
 
         {/* ─── FEATURES GRID ─── */}
-        <section className="py-24 px-5 sm:px-8 lg:px-12 border-t border-border/50">
+        <section className="py-12 lg:py-16 px-5 sm:px-8 lg:px-12 border-t border-border/50">
           <div className="max-w-7xl w-full mx-auto">
             <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-semibold leading-[1.1] text-foreground tracking-tight mb-12">
               Built for security, scale, and compliance
@@ -213,7 +213,7 @@ export default function EnterprisePage() {
         </section>
 
         {/* ─── TESTIMONIALS ─── */}
-        <section className="py-24 px-5 sm:px-8 lg:px-12 border-t border-border/50">
+        <section className="py-12 lg:py-16 px-5 sm:px-8 lg:px-12 border-t border-border/50">
           <div className="max-w-7xl w-full mx-auto">
             <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-semibold leading-[1.1] text-foreground tracking-tight mb-12">
               What enterprise teams say
@@ -238,7 +238,7 @@ export default function EnterprisePage() {
         </section>
 
         {/* ─── CONTACT FORM ─── */}
-        <section id="contact" className="py-24 px-5 sm:px-8 lg:px-12 border-t border-border/50">
+        <section id="contact" className="py-12 lg:py-16 px-5 sm:px-8 lg:px-12 border-t border-border/50">
           <div className="max-w-7xl w-full mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
@@ -299,7 +299,7 @@ export default function EnterprisePage() {
                           />
                         </div>
                       ))}
-                      
+
                       <div className="flex flex-col gap-2">
                         <Label htmlFor="enterprise-message" className="text-sm font-semibold text-foreground">
                           Tell us about your use case <span className="text-muted-foreground font-normal">(optional)</span>

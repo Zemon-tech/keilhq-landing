@@ -8,7 +8,7 @@ const testimonials = [
     name: "Martha Punla",
     role: "VP Marketing, Meta",
     quote:
-      "KielHQ is by far the best agency tool I have ever used. Everything is connected — tasks, docs, chat, calendar — and the AI actually knows what I'm working on.",
+      "KeilHQ is by far the best agency tool I have ever used. Everything is connected — tasks, docs, chat, calendar — and the AI actually knows what I'm working on.",
     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=400&auto=format&fit=crop&crop=face",
   },
   {
@@ -49,7 +49,7 @@ export function LovedBy() {
   const [activeId, setActiveId] = useState(0);
 
   return (
-    <section className="w-full min-h-screen bg-background flex items-center justify-center py-24 sm:py-32">
+    <section className="w-full bg-background flex items-center justify-center py-16 lg:py-20 xl:py-24">
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
         <div className="flex flex-col lg:flex-row">
 
@@ -81,23 +81,20 @@ export function LovedBy() {
                     className="w-full flex items-center justify-between px-6 py-3 text-left hover:bg-accent/40 transition-colors duration-150"
                   >
                     <span
-                      className={`text-[13px] transition-colors duration-150 tracking-wide ${
-                        isActive ? "text-zinc-900 dark:text-white font-semibold" : "text-muted-foreground/80 font-medium"
-                      }`}
+                      className={`text-[13px] transition-colors duration-150 tracking-wide ${isActive ? "text-zinc-900 dark:text-white font-semibold" : "text-muted-foreground/80 font-medium"
+                        }`}
                     >
                       {t.name}, {t.role}
                     </span>
 
                     <div
-                      className={`shrink-0 ml-6 overflow-hidden transition-all duration-300 ${
-                        isActive ? "w-28 h-28 rounded-sm" : "w-28 h-9 rounded-sm"
-                      }`}
+                      className="shrink-0 ml-6 overflow-hidden rounded-lg w-[72px] h-[72px] sm:w-[80px] sm:h-[80px] transition-all duration-300"
                     >
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src={t.image}
                         alt={t.name}
-                        className="w-full h-full object-cover object-top"
+                        className="w-full h-full object-cover object-center"
                       />
                     </div>
                   </button>

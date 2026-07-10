@@ -5,8 +5,9 @@ export default function PrivacySecurityPage() {
   return (
     <div className="flex flex-col min-h-screen bg-background font-sans text-foreground selection:bg-primary/10">
       <Navbar />
-      <main className="flex-1 flex flex-col pt-32 pb-24 px-5 sm:px-8 lg:px-12 items-center">
-        <div className="w-full max-w-3xl">
+      <main className="flex-1 flex flex-col">
+        <section className="w-full pt-28 lg:pt-32 pb-16 lg:pb-20 xl:pb-24 px-5 sm:px-8 lg:px-12 flex justify-center">
+          <div className="w-full max-w-3xl">
           <div className="mb-12 text-center md:text-left flex flex-col items-center md:items-start gap-4">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary/80 border border-border/50 w-fit">
               <span className="text-[10px] font-semibold text-muted-foreground tracking-wider uppercase">
@@ -21,18 +22,18 @@ export default function PrivacySecurityPage() {
             </p>
           </div>
 
-          <div className="flex flex-col gap-10">
+          <div className="flex flex-col gap-8">
             <section className="flex flex-col gap-3">
               <h2 className="text-[20px] font-semibold text-foreground tracking-tight">1. Enterprise-Grade Security</h2>
               <p className="text-[15px] text-muted-foreground leading-relaxed">
-                Security is foundational to KielHQ. We use AES-256 encryption to secure your data at rest and TLS 1.3 for all data in transit. Our infrastructure is hosted on industry-leading cloud providers with SOC 2 Type II compliance. We employ strict role-based access control (RBAC) and conduct regular independent security audits to ensure your workspace remains impenetrable.
+                Security is foundational to KeilHQ. We use AES-256 encryption to secure your data at rest and TLS 1.3 for all data in transit. Our infrastructure is hosted on industry-leading cloud providers with SOC 2 Type II compliance. We employ strict role-based access control (RBAC) and conduct regular independent security audits to ensure your workspace remains impenetrable.
               </p>
             </section>
 
             <section className="flex flex-col gap-3">
               <h2 className="text-[20px] font-semibold text-foreground tracking-tight">2. AI Privacy & Data Usage</h2>
               <p className="text-[15px] text-muted-foreground leading-relaxed">
-                KielHQ uses AI to boost your team's productivity, but your data belongs to you. <strong className="text-foreground">We do not use your private workspace data to train public AI models.</strong> Any data processed by our AI is done securely, ephemerally where possible, and exclusively to provide the service to you. You maintain full ownership and control over everything you create and store in KielHQ.
+                KeilHQ uses AI to boost your team's productivity, but your data belongs to you. <strong className="text-foreground">We do not use your private workspace data to train public AI models.</strong> Any data processed by our AI is done securely, ephemerally where possible, and exclusively to provide the service to you. You maintain full ownership and control over everything you create and store in KeilHQ.
               </p>
             </section>
 
@@ -46,18 +47,19 @@ export default function PrivacySecurityPage() {
             <section className="flex flex-col gap-3">
               <h2 className="text-[20px] font-semibold text-foreground tracking-tight">4. Third-Party Integrations</h2>
               <p className="text-[15px] text-muted-foreground leading-relaxed">
-                When you connect third-party services (like Google Calendar, GitHub, or Jira) to KielHQ, we access only the data required to facilitate the integration. We respect the privacy policies of our integration partners and do not share your KielHQ data with these third parties unless explicitly initiated by your actions within the app.
+                When you connect third-party services (like Google Calendar, GitHub, or Jira) to KeilHQ, we access only the data required to facilitate the integration. We respect the privacy policies of our integration partners and do not share your KeilHQ data with these third parties unless explicitly initiated by your actions within the app.
               </p>
             </section>
 
             <section className="flex flex-col gap-3">
               <h2 className="text-[20px] font-semibold text-foreground tracking-tight">5. Your Rights and Choices</h2>
               <p className="text-[15px] text-muted-foreground leading-relaxed">
-                Depending on your location, you may have rights under the GDPR, CCPA, or other data protection laws. These include the right to access, correct, delete, or export your personal data. You can exercise these rights directly within the KielHQ dashboard or by contacting our Data Protection Officer at privacy@kielhq.com.
+                Depending on your location, you may have rights under the GDPR, CCPA, or other data protection laws. These include the right to access, correct, delete, or export your personal data. You can exercise these rights directly within the KeilHQ dashboard or by contacting our Data Protection Officer at privacy@Keilhq.com.
               </p>
             </section>
           </div>
-        </div>
+          </div>
+        </section>
       </main>
       <Footer />
     </div>

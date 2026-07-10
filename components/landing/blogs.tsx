@@ -41,7 +41,7 @@ const blogPosts = [
 
 export function Blogs() {
   return (
-    <section className="w-full py-16 sm:py-24 lg:py-32 px-5 sm:px-8 lg:px-12 bg-background select-text">
+    <section className="w-full py-16 lg:py-20 xl:py-24 px-5 sm:px-8 lg:px-12 bg-background select-text">
       <div className="max-w-7xl mx-auto w-full">
         <Carousel
           opts={{

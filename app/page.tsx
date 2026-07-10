@@ -9,7 +9,6 @@ import { LovedBy } from "@/components/landing/loved-by";
 import { Footer } from "@/components/landing/footer";
 import { Blogs } from "@/components/landing/blogs";
 import { FinalCta } from "@/components/landing/final-cta";
-import { EnterpriseCapabilities } from "@/components/landing/enterprise-capabilities";
 
 // ─── Mockup image wrapper — consistent shadow + rounding ─────────────────────
 const MockupImage = ({ lightSrc, darkSrc, alt }: { lightSrc: string; darkSrc: string; alt: string }) => (
@@ -86,7 +85,7 @@ const featuresData: StickyScrollSection[] = [
       <MockupImage
         lightSrc="/mockups/light/Motion.png"
         darkSrc="/mockups/dark/Motion.png"
-        alt="KielHQ Motion Docs"
+        alt="KeilHQ Motion Docs"
       />
     ),
   },
@@ -186,7 +185,6 @@ export default function Home() {
         <Vision />
         <IntegrationCloud />
         <Features data={featuresData} />
-        <EnterpriseCapabilities />
         <Blogs />
         <LovedBy />
         <FinalCta />

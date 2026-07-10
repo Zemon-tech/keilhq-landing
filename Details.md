@@ -183,11 +183,11 @@ Stop losing what was decided in your last meeting:
 Not another generic chatbot. KeilHQ AI is orchestrated by the **Mastra Agentic Framework** and **reads your actual workspace data**:
 
 - **Supervisor Agent & 5 Specialist Sub-Agents**: Coordinates workflows across dedicated agents:
-  - `keilhq-task-agent`: Searches, lists, views, creates, updates, and deletes tasks/events
-  - `keilhq-chat-agent`: Lists channels, retrieves recent messages, and checks unread counts
-  - `keilhq-motion-agent`: Searches titles, creates/updates, and reads/summarizes doc content chunk-by-chunk
-  - `keilhq-scheduler-agent`: Lists unscheduled tasks and auto-schedules them into free calendar slots
-  - `keilhq-github-agent`: Connects GitHub issues/PRs/contributors to workspace tasks
+  - `Keilhq-task-agent`: Searches, lists, views, creates, updates, and deletes tasks/events
+  - `Keilhq-chat-agent`: Lists channels, retrieves recent messages, and checks unread counts
+  - `Keilhq-motion-agent`: Searches titles, creates/updates, and reads/summarizes doc content chunk-by-chunk
+  - `Keilhq-scheduler-agent`: Lists unscheduled tasks and auto-schedules them into free calendar slots
+  - `Keilhq-github-agent`: Connects GitHub issues/PRs/contributors to workspace tasks
 - **Flexible Model Architecture**: Supports Google Gemini (default), OpenRouter models, OpenAI, Anthropic, Grok, or even **Local AI Models** (configured with a custom base URL and model name like Ollama)
 - Answers "what's blocking my team right now?" with real context
 - Creates tasks directly from a conversation

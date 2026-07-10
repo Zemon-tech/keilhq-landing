@@ -27,6 +27,7 @@ const articlesData: Record<
     readTime: string;
     author: { name: string; role: string; avatar: string };
     excerpt: string;
+    image: string;
   }
 > = {
   "the-plan-behind-the-315": {
@@ -37,9 +38,10 @@ const articlesData: Record<
     author: {
       name: "Michael Sand",
       role: "Head of Marketing",
-      avatar: "/mockups/blog1.png",
+      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=150&auto=format&fit=crop&crop=face",
     },
     excerpt: "Maddie had a number to hit. Littlebird made the plan.",
+    image: "/mockups/blog1.png",
   },
   "what-meeting-notes-could-be": {
     tag: "Productivity",
@@ -49,9 +51,10 @@ const articlesData: Record<
     author: {
       name: "Jordan Lee",
       role: "Head of Design",
-      avatar: "/mockups/blog2.png",
+      avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=150&auto=format&fit=crop&crop=face",
     },
     excerpt: "Why every meeting notes app feels like it's missing something.",
+    image: "/mockups/blog2.png",
   },
   "clarity-before-action": {
     tag: "Product",
@@ -61,33 +64,36 @@ const articlesData: Record<
     author: {
       name: "Alex Rivera",
       role: "Co-founder & CEO",
-      avatar: "/mockups/blog3.png",
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop&crop=face",
     },
-    excerpt: "Most task managers let you create a task called 'Fix the thing.' KielHQ doesn't. Here's why the Clarity Engine changes everything about how teams execute.",
+    excerpt: "Most task managers let you create a task called 'Fix the thing.' KeilHQ doesn't. Here's why the Clarity Engine changes everything about how teams execute.",
+    image: "/mockups/blog3.png",
   },
   "ai-that-knows-your-work": {
     tag: "AI",
-    title: "KielHQ AI isn't built on top of your work — it's built into it",
+    title: "KeilHQ AI isn't built on top of your work — it's built into it",
     date: "May 5, 2026",
     readTime: "6 min read",
     author: {
       name: "Priya Nair",
       role: "Co-founder & CTO",
-      avatar: "/mockups/light/Tasks.png",
+      avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150&auto=format&fit=crop&crop=face",
     },
-    excerpt: "Generic AI chatbots give generic advice. KielHQ AI reads your actual tasks, workload, and sprint state before answering. Here's how it works.",
+    excerpt: "Generic AI chatbots give generic advice. KeilHQ AI reads your actual tasks, workload, and sprint state before answering. Here's how it works.",
+    image: "/mockups/light/Tasks.png",
   },
   "meeting-transcription": {
     tag: "Feature",
-    title: "Stop losing decisions after meetings — KielHQ's recorder does the work",
+    title: "Stop losing decisions after meetings — KeilHQ's recorder does the work",
     date: "April 28, 2026",
     readTime: "4 min read",
     author: {
       name: "Sam Okafor",
       role: "Head of Engineering",
-      avatar: "/mockups/light/Meeting.png",
+      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=150&auto=format&fit=crop&crop=face",
     },
-    excerpt: "The average team wastes 31 hours a month in unproductive meetings. KielHQ ensures the decisions that come out of those meetings never disappear.",
+    excerpt: "The average team wastes 31 hours a month in unproductive meetings. KeilHQ ensures the decisions that come out of those meetings never disappear.",
+    image: "/mockups/light/Meeting.png",
   },
   "dependency-blocking": {
     tag: "Product",
@@ -97,9 +103,10 @@ const articlesData: Record<
     author: {
       name: "Alex Rivera",
       role: "Co-founder & CEO",
-      avatar: "/mockups/light/Motion.png",
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop&crop=face",
     },
     excerpt: "We tried warning banners. We tried color coding. None of it worked. So we built hard blocking — tasks that literally cannot be completed until their blockers are resolved.",
+    image: "/mockups/light/Motion.png",
   },
   "smart-dashboard-design": {
     tag: "Design",
@@ -109,9 +116,10 @@ const articlesData: Record<
     author: {
       name: "Jordan Lee",
       role: "Head of Design",
-      avatar: "/mockups/light/Dashboard.png",
+      avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=150&auto=format&fit=crop&crop=face",
     },
     excerpt: "The hardest part of building the Smart Dashboard wasn't the AI ranking — it was designing something that felt instant, obvious, and never overwhelming.",
+    image: "/mockups/light/Dashboard.png",
   },
 };
 
@@ -128,7 +136,7 @@ const VideoPlayer = ({ src, poster }: { src: string; poster: string }) => {
       if (isPlaying) {
         videoRef.current.pause();
       } else {
-        videoRef.current.play().catch(() => {});
+        videoRef.current.play().catch(() => { });
       }
       setIsPlaying(!isPlaying);
     }
@@ -179,10 +187,10 @@ const VideoPlayer = ({ src, poster }: { src: string; poster: string }) => {
         onLoadedMetadata={handleLoadedMetadata}
         className="w-full h-full object-cover cursor-pointer"
       />
-      
+
       {/* Control Overlay */}
       <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col gap-2 transition-opacity duration-300 opacity-0 group-hover/player:opacity-100">
-        
+
         {/* Progress Slider */}
         <input
           type="range"
@@ -239,7 +247,7 @@ const ChatMockup1 = () => {
         <div className="self-end max-w-[85%] bg-primary text-primary-foreground rounded-lg px-3 py-2 text-[13px] shadow-xs">
           Hey Littlebird! Help me plan for the marathon I registered for please!
         </div>
-        
+
         <div className="self-start max-w-[85%] bg-secondary text-secondary-foreground rounded-lg px-3 py-2 text-[13px] border border-border/50 flex flex-col gap-1 shadow-xs">
           <span className="font-semibold text-zinc-900 dark:text-white text-[11px] uppercase tracking-wider block">Littlebird</span>
           <span>Got it — I pulled everything up for you.</span>
@@ -269,7 +277,7 @@ const ChatMockup2 = () => {
         <div className="self-end max-w-[85%] bg-primary text-primary-foreground rounded-lg px-3 py-2 text-[13px] shadow-xs">
           My goal is 3:15. Can you map out my mile by mile splits?
         </div>
-        
+
         <div className="self-start max-w-[90%] bg-secondary text-secondary-foreground rounded-lg px-3.5 py-3.5 text-[13px] border border-border/50 flex flex-col gap-3 shadow-xs">
           <div className="flex flex-col gap-1">
             <span className="font-semibold text-zinc-900 dark:text-white text-[11px] uppercase tracking-wider block">Littlebird</span>
@@ -331,7 +339,7 @@ export default function BlogPostPage({
     return (
       <div className="flex flex-col min-h-screen bg-background text-foreground">
         <Navbar />
-        <main className="flex-1 flex flex-col items-center justify-center pt-28 pb-16">
+        <main className="flex-1 flex flex-col items-center justify-center pt-28 lg:pt-32 pb-16 lg:pb-20 xl:pb-24">
           <h1 className="font-display text-3xl font-semibold mb-4">Post Not Found</h1>
           <Link href="/blog" className="text-sm underline">Back to Blog</Link>
         </main>
@@ -344,12 +352,12 @@ export default function BlogPostPage({
     <div className="flex flex-col min-h-screen bg-background text-foreground select-text selection:bg-primary/10">
       <Navbar />
 
-      <main className="flex-1 flex flex-col pt-28">
+      <main className="flex-1 flex flex-col">
 
         {/* ── ARTICLE HEADER ── */}
-        <section className="w-full py-16 px-5 sm:px-8 lg:px-12 animate-fade-rise">
+        <section className="w-full pt-28 lg:pt-32 pb-16 lg:pb-20 xl:pb-24 px-5 sm:px-8 lg:px-12 animate-fade-rise">
           <div className="max-w-4xl mx-auto w-full flex flex-col items-center text-center gap-6">
-            
+
             {/* Meta Eyebrow */}
             <span className="text-[11px] font-semibold text-muted-foreground uppercase tracking-widest">
               Published {post.date} in{" "}
@@ -365,13 +373,12 @@ export default function BlogPostPage({
 
             {/* Author details */}
             <div className="flex items-center gap-3 mt-4 text-left">
-              <div className="size-10 rounded-full overflow-hidden bg-muted relative border border-border/50">
-                <Image
+              <div className="size-10 rounded-full overflow-hidden bg-muted border border-border/50">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
                   src={post.author.avatar}
                   alt={post.author.name}
-                  fill
-                  sizes="40px"
-                  className="object-cover object-center"
+                  className="w-full h-full object-cover object-center"
                 />
               </div>
               <div className="flex flex-col">
@@ -396,7 +403,7 @@ export default function BlogPostPage({
             {/* Render Maddie Running Specific Story (from the mockups) */}
             {slug === "the-plan-behind-the-315" ? (
               <div className="flex flex-col gap-6 w-full">
-                
+
                 {/* Custom Video Player rendering the launch video */}
                 <div className="mb-6">
                   <VideoPlayer src="/launch.mp4" poster="/mockups/blog1.png" />
@@ -449,11 +456,11 @@ export default function BlogPostPage({
             ) : (
               // Default Generic Blog rendering for other articles
               <div className="flex flex-col gap-6 w-full">
-                
+
                 {/* Featured Image */}
                 <div className="relative w-full rounded-md overflow-hidden aspect-[2/1] border border-border/50">
                   <Image
-                    src={post.author.avatar}
+                    src={post.image}
                     alt={post.title}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 700px, 1000px"
@@ -486,7 +493,7 @@ export default function BlogPostPage({
                 Back to Blog
               </Link>
               <Link href="/" className="text-primary hover:opacity-85 transition-opacity">
-                KielHQ Home
+                KeilHQ Home
               </Link>
             </div>
 

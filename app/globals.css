@@ -9,7 +9,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);
   --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-sans);
+  --font-heading: var(--font-display);
   --font-display: var(--font-display);
   --width-9xl: 96rem;
   /* Landing accent — single indigo, used only on primary CTAs */
@@ -298,6 +298,28 @@
     overscroll-behavior: none;
     scroll-behavior: auto !important;
   }
+
+  /* Global typography mapping for Montserrat */
+  h1, h2, h3, h4, h5, h6,
+  .font-display,
+  button,
+  [role="button"],
+  .btn,
+  .button,
+  nav,
+  nav *,
+  .nav-item,
+  .nav-link,
+  [data-slot="badge"],
+  [data-slot="button"],
+  .badge,
+  .label,
+  label,
+  .stat,
+  .stats,
+  .statistic {
+    font-family: var(--font-display), sans-serif;
+  }
 }
 
 /* ─── Scroll-entry animation — fade + rise ──────────────────────── */
@@ -333,7 +355,7 @@
 
 /* ─── Font utilities ─────────────────────────────────────────────── */
 .font-display {
-  font-family: var(--font-display), 'Georgia', serif;
+  font-family: var(--font-display), sans-serif;
 }
 
 /* ─── Landing accent button ─────────────────────────────────────── */

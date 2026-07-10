@@ -1,6 +1,6 @@
 export function BackedBy() {
   return (
-    <section className="w-full bg-background flex items-center justify-center py-12 border-b border-border/40">
+    <section className="w-full bg-background flex items-center justify-center py-12 lg:py-16 border-b border-border/40">
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 md:gap-4">
 

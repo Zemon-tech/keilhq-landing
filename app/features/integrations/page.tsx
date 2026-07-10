@@ -20,12 +20,12 @@ export default function IntegrationsPage() {
     <div className="flex flex-col min-h-screen bg-background text-foreground select-text selection:bg-primary/10">
       <Navbar />
 
-      <main className="flex-1 flex flex-col pt-24">
+      <main className="flex-1 flex flex-col">
 
         {/* ── SECTION 1: HERO & INTERACTIVE MOCKUP ── */}
-        <section className="w-full pt-6 pb-16 sm:pt-8 sm:pb-20 lg:pt-10 lg:pb-28 px-5 sm:px-8 lg:px-12 animate-fade-rise">
+        <section className="w-full pt-28 lg:pt-32 pb-16 lg:pb-20 xl:pb-24 px-5 sm:px-8 lg:px-12 animate-fade-rise">
           <div className="max-w-7xl mx-auto w-full flex flex-col items-center text-center gap-10">
-            
+
             {/* Eyebrow badge */}
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary/80 border border-border/50 transition-all duration-300">
               <span className="size-1.5 rounded-full bg-emerald-500 inline-block animate-pulse" />
@@ -46,9 +46,9 @@ export default function IntegrationsPage() {
 
             {/* CTA button */}
             <div className="mt-2">
-              <Link 
-                href="https://app.keilhq.in/login" 
-                target="_blank" 
+              <Link
+                href="https://app.Keilhq.in/login"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="btn-accent inline-flex items-center gap-2 px-6 py-3 rounded-sm text-[13px] font-semibold active:scale-[0.97] transition-transform duration-150 shadow-md"
               >
@@ -63,10 +63,10 @@ export default function IntegrationsPage() {
                 <span className="text-sm font-semibold text-zinc-900 dark:text-white">Connected Integrations</span>
                 <span className="text-[10px] bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 px-2 py-0.5 rounded-sm font-mono uppercase font-bold tracking-wide">OAuth Secured</span>
               </div>
-              
+
               {/* Active Integrations Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                
+
                 {/* Google Workspace */}
                 <div className="p-4 bg-background border border-border/50 rounded-sm shadow-2xs">
                   <div className="flex items-center justify-between mb-3">
@@ -158,9 +158,9 @@ export default function IntegrationsPage() {
         </section>
 
         {/* ── SECTION 2: CAPABILITIES (Grid matching Phase 2) ── */}
-        <section className="w-full py-16 sm:py-24 lg:py-32 px-5 sm:px-8 lg:px-12 bg-zinc-50/30 dark:bg-zinc-950/10">
+        <section className="w-full py-12 lg:py-16 px-5 sm:px-8 lg:px-12 bg-zinc-50/30 dark:bg-zinc-950/10">
           <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            
+
             {/* Left Column: Heading */}
             <div className="flex flex-col gap-6 text-left">
               <h2 className="font-display text-[clamp(2rem,4.5vw,3.5rem)] font-semibold leading-[1.05] text-zinc-900 dark:text-white" style={{ letterSpacing: "-0.025em" }}>
@@ -218,9 +218,9 @@ export default function IntegrationsPage() {
         </section>
 
         {/* ── SECTION 3: CHECKLIST (2-column layout matching Phase 3) ── */}
-        <section className="w-full py-16 sm:py-24 lg:py-32 px-5 sm:px-8 lg:px-12">
+        <section className="w-full py-12 lg:py-16 px-5 sm:px-8 lg:px-12">
           <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            
+
             {/* Left side copy */}
             <div className="flex flex-col gap-6 text-left">
               <h2 className="font-display text-[clamp(2rem,4.5vw,3.5rem)] font-semibold leading-[1.05] text-zinc-900 dark:text-white" style={{ letterSpacing: "-0.025em" }}>

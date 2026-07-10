@@ -14,11 +14,11 @@ import {
 
 export function EnterpriseCapabilities() {
   return (
-    <section className="w-full py-16 sm:py-24 lg:py-32 px-5 sm:px-8 lg:px-12 bg-zinc-50/30 dark:bg-zinc-950/10">
+    <section className="w-full py-16 lg:py-20 xl:py-24 px-5 sm:px-8 lg:px-12 bg-zinc-50/30 dark:bg-zinc-950/10">
       <div className="max-w-7xl mx-auto w-full">
         
         {/* Section Header */}
-        <div className="text-center mb-20 sm:mb-28">
+        <div className="text-center mb-12 sm:mb-16">
           <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-semibold leading-[1.1] text-zinc-900 dark:text-white mb-4" style={{ letterSpacing: "-0.02em", textWrap: "balance" } as React.CSSProperties}>
             Enterprise-ready from day one
           </h2>

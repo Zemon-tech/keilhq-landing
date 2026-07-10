@@ -24,15 +24,15 @@ export function FinalCta() {
   }, []);
 
   return (
-    <section className="w-full min-h-screen bg-background flex items-center justify-center py-32 sm:py-40">
+    <section className="w-full bg-background flex items-center justify-center py-16 lg:py-20 xl:py-24">
       <div
         ref={ref}
         className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 flex flex-col items-center text-center gap-10"
       >
         {/* Heading */}
-        <div className="flex flex-col items-center gap-5 max-w-[62ch]">
+        <div className="flex flex-col items-center gap-5 w-full">
           <h2
-            className={`font-display text-[clamp(2.5rem,6vw,4.5rem)] leading-[1.05] text-foreground transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+            className={`font-display text-[clamp(1.75rem,3.5vw,2.75rem)] leading-[1.1] text-foreground transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
               }`}
             style={{ letterSpacing: "-0.025em", textWrap: "balance" } as React.CSSProperties}
           >
@@ -42,7 +42,7 @@ export function FinalCta() {
             className={`text-[16px] font-medium tracking-[0.015em] text-muted-foreground leading-relaxed max-w-[42ch] transition-all duration-700 delay-100 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
           >
-            Join 7,000+ teams who replaced their scattered stack with KielHQ.
+            Join 7,000+ teams who replaced their scattered stack with KeilHQ.
             Everything unified. AI that knows your work.
           </p>
         </div>
@@ -53,7 +53,7 @@ export function FinalCta() {
             }`}
         >
           <a
-            href="https://app.keilhq.in/login"
+            href="https://app.Keilhq.in/login"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-accent inline-flex items-center gap-2 px-6 py-3 rounded-sm text-[14px] font-semibold tracking-[0.01em] group w-full sm:w-auto justify-center active:scale-[0.97] transition-transform duration-150"

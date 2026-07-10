@@ -12,11 +12,11 @@ const combinedLogos = [
   "/integrations/gsheets.png",
   "/integrations/gslides.png",
   "/integrations/gmeet.png",
-  
+
   // Active development & collaboration integrations
   "/integrations/github.png",
   "/integrations/notion.png",
-  
+
   // Planned integrations (coming soon)
   "/integrations/slack.png",
   "/integrations/linear.jpeg",
@@ -87,7 +87,7 @@ function MarqueeRow({ logos, direction = "left", speed = "85s" }: MarqueeRowProp
 
 export function IntegrationCloud() {
   return (
-    <section className="relative w-full min-h-screen bg-background overflow-hidden flex items-center justify-center py-24">
+    <section className="relative w-full bg-background overflow-hidden flex items-center justify-center py-16 lg:py-20 xl:py-24">
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
 
         {/* Integrated marquee container */}
@@ -98,7 +98,7 @@ export function IntegrationCloud() {
             {/* Left: Copy Text */}
             <div className="max-w-xl text-left select-text pl-2">
               <h2 className="font-display text-[clamp(1.75rem,3.5vw,2.75rem)] font-semibold leading-[1.1] text-zinc-900 dark:text-white" style={{ letterSpacing: "-0.025em", textWrap: "balance" } as React.CSSProperties}>
-                KielHQ lives in every app you already use.
+                KeilHQ lives in every app you already use.
               </h2>
             </div>
 
@@ -108,14 +108,14 @@ export function IntegrationCloud() {
 
                 {/* Light theme logo */}
                 <img
-                  src="/keilhq.svg"
+                  src="/Keilhq.svg"
                   alt="KeilHQ Logo"
                   className="w-26 h-26 sm:w-26 sm:h-26 object-contain block dark:hidden filter drop-shadow-[0_0_8px_rgba(0,0,0,0.08)]"
                 />
 
                 {/* Dark theme logo */}
                 <img
-                  src="/keilhq-white.svg"
+                  src="/Keilhq-white.svg"
                   alt="KeilHQ Logo"
                   className="w-14 h-14 sm:w-16 sm:h-16 object-contain hidden dark:block filter drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]"
                 />

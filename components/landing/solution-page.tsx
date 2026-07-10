@@ -14,10 +14,10 @@ export function SolutionPage({ content, ctaLabel }: SolutionPageProps) {
     <div className="flex flex-col min-h-screen bg-background text-foreground select-text selection:bg-primary/10">
       <Navbar />
 
-      <main className="flex-1 flex flex-col pt-24">
+      <main className="flex-1 flex flex-col">
 
         {/* ── HERO ── */}
-        <section className="w-full pt-6 pb-10 sm:pt-8 sm:pb-12 lg:pt-10 lg:pb-14 px-5 sm:px-8 lg:px-12 animate-fade-rise">
+        <section className="w-full pt-28 lg:pt-32 pb-16 lg:pb-20 xl:pb-24 px-5 sm:px-8 lg:px-12 animate-fade-rise">
           <div className="max-w-7xl mx-auto w-full flex flex-col items-center text-center gap-8">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary/80 border border-border/50">
               <span className="size-1.5 rounded-full bg-emerald-500 inline-block animate-pulse" />
@@ -38,7 +38,7 @@ export function SolutionPage({ content, ctaLabel }: SolutionPageProps) {
             </p>
 
             <Link
-              href="https://app.keilhq.in/login"
+              href="https://app.Keilhq.in/login"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-accent inline-flex items-center gap-2 px-6 py-3 rounded-sm text-[13px] font-semibold active:scale-[0.97] transition-transform duration-150 shadow-md"
@@ -50,7 +50,7 @@ export function SolutionPage({ content, ctaLabel }: SolutionPageProps) {
         </section>
 
         {/* ── THE SPRAWL ── */}
-        <section className="w-full pt-10 pb-12 sm:pt-12 sm:pb-14 lg:pt-14 lg:pb-16 px-5 sm:px-8 lg:px-12 bg-zinc-50/30 dark:bg-zinc-950/10">
+        <section className="w-full py-12 lg:py-16 px-5 sm:px-8 lg:px-12 bg-zinc-50/30 dark:bg-zinc-950/10">
           <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-start">
             <div className="flex flex-col gap-6 text-left">
               <span className="text-[11px] font-semibold tracking-wider text-muted-foreground uppercase">
@@ -79,7 +79,7 @@ export function SolutionPage({ content, ctaLabel }: SolutionPageProps) {
         </section>
 
         {/* ── WITH KEILHQ ── */}
-        <section className="w-full pt-10 pb-16 sm:pt-12 sm:pb-20 lg:pt-14 lg:pb-24 px-5 sm:px-8 lg:px-12">
+        <section className="w-full py-12 lg:py-16 px-5 sm:px-8 lg:px-12">
           <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-start">
             <div className="flex flex-col gap-6 text-left">
               <span className="text-[11px] font-semibold tracking-wider text-muted-foreground uppercase">

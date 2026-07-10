@@ -3,22 +3,22 @@ import type { NextRequest } from "next/server";
 
 // ── Auth-redirect middleware ──────────────────────────────────────────────────
 // When a visitor already has an active Supabase session (written to a shared
-// .keilhq.in cookie by the Vite app at app.keilhq.in) we redirect them to the
+// .Keilhq.in cookie by the Vite app at app.Keilhq.in) we redirect them to the
 // app before the landing page ever renders — zero content flash.
 //
 // How it works:
 //   1. The Vite app stores the Supabase session in a cookie named
-//      "sb-<project-ref>-auth-token" scoped to ".keilhq.in".
+//      "sb-<project-ref>-auth-token" scoped to ".Keilhq.in".
 //   2. This middleware reads that cookie, parses the JSON payload, and checks
 //      that the access_token is present AND has not expired yet.
-//   3. On a valid, non-expired session → redirect to https://app.keilhq.in.
+//   3. On a valid, non-expired session → redirect to https://app.Keilhq.in.
 //   4. On any failure (no cookie, bad JSON, expired) → let the request proceed
 //      normally so the landing page renders as usual.
 //
 // This file runs at the Edge so it is ultra-fast (<5 ms) and adds zero latency
 // to unauthenticated visitors.
 
-const APP_URL = "https://app.keilhq.in";
+const APP_URL = "https://app.Keilhq.in";
 
 export function middleware(request: NextRequest) {
   // Find the Supabase session cookie dynamically.

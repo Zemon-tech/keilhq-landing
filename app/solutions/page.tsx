@@ -16,8 +16,8 @@ export default function SolutionsPage() {
     <div className="flex flex-col min-h-screen bg-background text-foreground select-text selection:bg-primary/10">
       <Navbar />
 
-      <main className="flex-1 flex flex-col pt-24">
-        <section className="w-full pt-6 pb-10 sm:pt-8 sm:pb-12 lg:pt-10 lg:pb-14 px-5 sm:px-8 lg:px-12">
+      <main className="flex-1 flex flex-col">
+        <section className="w-full pt-28 lg:pt-32 pb-16 lg:pb-20 xl:pb-24 px-5 sm:px-8 lg:px-12">
           <div className="max-w-7xl mx-auto w-full flex flex-col items-center text-center gap-8">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary/80 border border-border/50">
               <span className="size-1.5 rounded-full bg-emerald-500 inline-block animate-pulse" />
@@ -43,7 +43,7 @@ export default function SolutionsPage() {
           </div>
         </section>
 
-        <section className="w-full py-10 sm:py-12 px-5 sm:px-8 lg:px-12 bg-zinc-50/30 dark:bg-zinc-950/10 border-y border-border/40">
+        <section className="w-full py-12 lg:py-16 px-5 sm:px-8 lg:px-12 bg-zinc-50/30 dark:bg-zinc-950/10 border-y border-border/40">
           <div className="max-w-7xl mx-auto w-full grid grid-cols-1 sm:grid-cols-3 gap-10 text-center">
             {caseStudyStats.map((stat) => (
               <div key={stat.value} className="flex flex-col gap-2">
@@ -58,7 +58,7 @@ export default function SolutionsPage() {
           </div>
         </section>
 
-        <section className="w-full pt-10 pb-16 sm:pt-12 sm:pb-20 lg:pt-14 lg:pb-24 px-5 sm:px-8 lg:px-12">
+        <section className="w-full py-12 lg:py-16 px-5 sm:px-8 lg:px-12">
           <div className="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-6">
             {solutionLinks.map((item, idx) => (
               <Link

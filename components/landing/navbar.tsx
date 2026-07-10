@@ -34,22 +34,22 @@ export function Navbar() {
         {/* Brand Logo */}
         <Link href="/" className="flex items-center gap-2 group mr-2">
           <Image
-            src="/keilhq.svg"
-            alt="KielHQ Logo"
+            src="/Keilhq.svg"
+            alt="KeilHQ Logo"
             width={22}
             height={22}
             className="transition-opacity duration-300 dark:hidden"
             priority
           />
           <Image
-            src="/keilhq-white.svg"
-            alt="KielHQ Logo"
+            src="/Keilhq-white.svg"
+            alt="KeilHQ Logo"
             width={22}
             height={22}
             className="transition-opacity duration-300 hidden dark:block"
             priority
           />
-          <span className="text-sm font-semibold tracking-tight text-foreground">KielHQ</span>
+          <span className="text-sm font-semibold tracking-tight text-foreground">KeilHQ</span>
         </Link>
 
         {/* Desktop Nav links with Solid (Non-Glass) Dropdowns */}
@@ -205,7 +205,7 @@ export function Navbar() {
                 {[
                   { title: "About Us", desc: "Our mission and team", href: "/about" },
                   { title: "Team", desc: "Meet the crew", href: "/team" },
-                  { title: "Enterprise", desc: "KielHQ for organization", href: "/enterprise" },
+                  { title: "Enterprise", desc: "KeilHQ for organization", href: "/enterprise" },
                   { title: "Demo", desc: "Book a personal walkthrough", href: "/demo" },
                 ].map((item) => (
                   <Link
@@ -233,7 +233,7 @@ export function Navbar() {
         <div className="flex items-center gap-3 ml-2">
           {/* Start Free CTA */}
           <a
-            href="https://app.keilhq.in/login"
+            href="https://app.Keilhq.in/login"
             target="_blank"
             rel="noopener noreferrer"
             className="hidden md:inline-flex btn-accent items-center gap-1.5 text-[13px] font-semibold tracking-[0.01em] px-4 py-1.5 rounded-sm active:scale-[0.97] transition-transform duration-150"
@@ -496,7 +496,7 @@ export function Navbar() {
             </div>
 
             <a
-              href="https://app.keilhq.in/login"
+              href="https://app.Keilhq.in/login"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full flex items-center justify-between p-3 px-4 rounded-sm bg-zinc-900 hover:bg-zinc-800 dark:bg-white dark:hover:bg-zinc-100 transition-colors shadow-lg mt-2 cursor-pointer"

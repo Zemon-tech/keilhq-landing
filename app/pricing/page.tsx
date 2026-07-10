@@ -53,15 +53,13 @@ function FAQItem({ q, a }: { q: string; a: string }) {
           {q}
         </span>
         <ChevronDown
-          className={`size-4 text-muted-foreground shrink-0 transition-transform duration-200 ${
-            open ? "rotate-180" : ""
-          }`}
+          className={`size-4 text-muted-foreground shrink-0 transition-transform duration-200 ${open ? "rotate-180" : ""
+            }`}
         />
       </button>
       <div
-        className={`overflow-hidden transition-all duration-200 ${
-          open ? "max-h-40 pb-5" : "max-h-0"
-        }`}
+        className={`overflow-hidden transition-all duration-200 ${open ? "max-h-40 pb-5" : "max-h-0"
+          }`}
       >
         <p className="text-[13px] text-muted-foreground leading-relaxed">
           {a}
@@ -78,12 +76,12 @@ export default function PricingPage() {
     <div className="flex flex-col min-h-screen bg-background text-foreground select-text selection:bg-primary/10">
       <Navbar />
 
-      <main className="flex-1 flex flex-col pt-24">
+      <main className="flex-1 flex flex-col">
 
         {/* ── SECTION 1: HERO & PRICING TIERS ── */}
-        <section className="w-full pt-6 pb-16 sm:pt-8 sm:pb-20 lg:pt-10 lg:pb-28 px-5 sm:px-8 lg:px-12 animate-fade-rise">
+        <section className="w-full pt-28 lg:pt-32 pb-16 lg:pb-20 xl:pb-24 px-5 sm:px-8 lg:px-12 animate-fade-rise">
           <div className="max-w-7xl mx-auto w-full flex flex-col items-center text-center gap-10">
-            
+
             {/* Eyebrow badge */}
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary/80 border border-border/50 transition-all duration-300">
               <span className="size-1.5 rounded-full bg-emerald-500 inline-block animate-pulse" />
@@ -104,9 +102,9 @@ export default function PricingPage() {
 
             {/* CTA Button */}
             <div className="mt-2">
-              <Link 
-                href="https://app.keilhq.in/login" 
-                target="_blank" 
+              <Link
+                href="https://app.Keilhq.in/login"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="btn-accent inline-flex items-center gap-2 px-6 py-3 rounded-sm text-[13px] font-semibold active:scale-[0.97] transition-transform duration-150 shadow-md"
               >
@@ -117,7 +115,7 @@ export default function PricingPage() {
 
             {/* Pricing Grid */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mt-16 w-full text-left">
-              
+
               {/* Pro Card */}
               <div className="pt-8 border-t border-border/60 flex flex-col gap-6 relative">
                 {proMode === "trial" && (
@@ -170,21 +168,19 @@ export default function PricingPage() {
                   <div className="flex bg-secondary p-0.5 rounded-sm border border-border/50 text-[11px] font-medium max-w-[130px] shrink-0">
                     <button
                       onClick={() => setProMode("trial")}
-                      className={`px-2.5 py-1 rounded-xs transition-all cursor-pointer ${
-                        proMode === "trial"
+                      className={`px-2.5 py-1 rounded-xs transition-all cursor-pointer ${proMode === "trial"
                           ? "bg-background text-foreground shadow-xs font-semibold"
                           : "text-muted-foreground hover:text-foreground"
-                      }`}
+                        }`}
                     >
                       Trial
                     </button>
                     <button
                       onClick={() => setProMode("paid")}
-                      className={`px-2.5 py-1 rounded-xs transition-all cursor-pointer ${
-                        proMode === "paid"
+                      className={`px-2.5 py-1 rounded-xs transition-all cursor-pointer ${proMode === "paid"
                           ? "bg-background text-foreground shadow-xs font-semibold"
                           : "text-muted-foreground hover:text-foreground"
-                      }`}
+                        }`}
                     >
                       Paid
                     </button>
@@ -445,7 +441,7 @@ export default function PricingPage() {
         </section>
 
         {/* ── SECTION 2: WHY IT'S PRICED DIFFERENTLY ── */}
-        <section className="w-full py-16 sm:py-24 lg:py-32 px-5 sm:px-8 lg:px-12 bg-zinc-50/30 dark:bg-zinc-950/10">
+        <section className="w-full py-12 lg:py-16 px-5 sm:px-8 lg:px-12 bg-zinc-50/30 dark:bg-zinc-950/10">
           <div className="max-w-7xl mx-auto w-full flex flex-col gap-12">
             <div className="flex flex-col gap-4 text-left max-w-3xl">
               <span className="text-[11px] font-semibold tracking-wider text-muted-foreground uppercase">
@@ -495,9 +491,9 @@ export default function PricingPage() {
         </section>
 
         {/* ── SECTION 3: PRIVACY & SECURITY GRID ── */}
-        <section className="w-full py-16 sm:py-24 lg:py-32 px-5 sm:px-8 lg:px-12 bg-zinc-50/30 dark:bg-zinc-950/10">
+        <section className="w-full py-12 lg:py-16 px-5 sm:px-8 lg:px-12 bg-zinc-50/30 dark:bg-zinc-950/10">
           <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            
+
             {/* Left Column: Heading & Description */}
             <div className="flex flex-col gap-6 text-left">
               <h2 className="font-display text-[clamp(2rem,4.5vw,3.5rem)] font-semibold leading-[1.05] text-zinc-900 dark:text-white" style={{ letterSpacing: "-0.025em" }}>
@@ -534,7 +530,7 @@ export default function PricingPage() {
               <div className="pt-6 border-t border-border/60 flex flex-col gap-3">
                 <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Compliance Standard</h3>
                 <p className="text-[13px] text-muted-foreground leading-relaxed">
-                  KielHQ is developed under strict security controls, built to align with SOC 2 compliance standards and secure data transit laws.
+                  KeilHQ is developed under strict security controls, built to align with SOC 2 compliance standards and secure data transit laws.
                 </p>
               </div>
             </div>
@@ -543,7 +539,7 @@ export default function PricingPage() {
         </section>
 
         {/* ── SECTION 3: DETAILED FEATURE COMPARISON ── */}
-        <section className="w-full py-16 sm:py-24 lg:py-32 px-5 sm:px-8 lg:px-12 overflow-x-auto select-text">
+        <section className="w-full py-12 lg:py-16 px-5 sm:px-8 lg:px-12 overflow-x-auto select-text">
           <div className="max-w-7xl mx-auto w-full min-w-[950px]">
             <h2 className="font-display text-3xl font-semibold text-zinc-900 dark:text-white mb-10 tracking-tight">
               Compare plans &amp; features
@@ -762,9 +758,9 @@ export default function PricingPage() {
         </section>
 
         {/* ── SECTION 4: FAQ ── */}
-        <section className="w-full py-16 sm:py-24 lg:py-32 px-5 sm:px-8 lg:px-12 bg-zinc-50/30 dark:bg-zinc-950/10">
+        <section className="w-full py-12 lg:py-16 px-5 sm:px-8 lg:px-12 bg-zinc-50/30 dark:bg-zinc-950/10">
           <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            
+
             {/* Left side info */}
             <div className="flex flex-col gap-6 text-left">
               <h2 className="font-display text-[clamp(2rem,4.5vw,3.5rem)] font-semibold leading-[1.05] text-zinc-900 dark:text-white" style={{ letterSpacing: "-0.025em" }}>
