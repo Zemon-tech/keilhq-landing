@@ -13,7 +13,7 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="relative w-full bg-background flex flex-col items-center overflow-hidden pt-32 lg:pt-40 pb-16 lg:pb-24">
+    <section className="relative w-full min-h-[100dvh] bg-background flex flex-col justify-center items-center overflow-hidden pt-32 lg:pt-40 pb-16 lg:pb-24">
       {/* Subtle ambient gradient — fixed, pointer-events-none */}
       <div
         className="absolute inset-0 pointer-events-none z-0"
@@ -51,6 +51,36 @@ export function Hero() {
             >
               New Coding Sessions
               <ArrowRight className="size-3.5 transition-transform duration-150 group-hover:translate-x-0.5" />
+            </a>
+          </div>
+
+          {/* Main CTA Buttons */}
+          <div
+            className={`flex flex-col sm:flex-row items-center gap-3 mt-2 transition-all duration-1000 delay-300 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            }`}
+          >
+            <a
+              href="https://app.Keilhq.in/login"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-sm bg-zinc-900 text-white dark:bg-[#F7F8F8] dark:text-zinc-950 text-[13px] font-semibold hover:bg-zinc-800 dark:hover:bg-white transition-all cursor-pointer shadow-sm active:scale-[0.97] w-full sm:w-auto justify-center"
+            >
+              Start free today
+              <ArrowRight
+                className="size-3.5"
+                aria-hidden="true"
+              />
+            </a>
+            <a
+              href="/demo"
+              className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-sm border border-zinc-200/60 dark:border-white/10 text-zinc-900 dark:text-[#F7F8F8] hover:bg-zinc-50 dark:hover:bg-white/[0.03] text-[13px] font-semibold transition-all cursor-pointer active:scale-[0.97] w-full sm:w-auto justify-center"
+            >
+              Book a demo
+              <ArrowRight
+                className="size-3.5 opacity-55"
+                aria-hidden="true"
+              />
             </a>
           </div>
         </div>

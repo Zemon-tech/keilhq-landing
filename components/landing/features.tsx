@@ -25,14 +25,18 @@ export function Features({ data }: FeaturesProps) {
           key={item.id}
           className="w-full max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 py-16 sm:py-24 lg:py-28 flex flex-col gap-12"
         >
+          {/* Index Badge */}
+          <div className="w-full text-left mb-1">
+            <span className="text-[11px] font-mono tracking-widest text-zinc-400 dark:text-zinc-600 uppercase">
+              {idx + 1}.0 {item.badgeText}
+            </span>
+          </div>
+
           {/* Two-column Header Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 w-full text-left">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 w-full text-left items-start">
             
-            {/* Left Column: Index Badge & Headline */}
-            <div className="col-span-12 lg:col-span-6 flex flex-col gap-3">
-              <span className="text-[11px] font-mono tracking-widest text-zinc-400 dark:text-zinc-600 block uppercase">
-                {idx + 1}.0 {item.badgeText}
-              </span>
+            {/* Left Column: Headline */}
+            <div className="col-span-12 lg:col-span-6 flex flex-col">
               <h2 
                 className="font-sans text-[clamp(1.75rem,3.2vw,2.75rem)] font-semibold tracking-[-0.025em] leading-[1.08] text-zinc-900 dark:text-[#F7F8F8]"
                 style={{ textWrap: "balance" }}
@@ -42,7 +46,7 @@ export function Features({ data }: FeaturesProps) {
             </div>
 
             {/* Right Column: Description & Call-to-action Link */}
-            <div className="col-span-12 lg:col-span-6 flex flex-col gap-5 lg:justify-end lg:pb-1">
+            <div className="col-span-12 lg:col-span-6 flex flex-col gap-5 lg:pt-[5px]">
               <p className="text-[15px] font-normal text-zinc-500 dark:text-[#8A8F98] leading-relaxed max-w-[52ch]">
                 {item.description}
               </p>

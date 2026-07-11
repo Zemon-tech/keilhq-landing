@@ -27,7 +27,7 @@ const badges = ["SOC 2", "GDPR", "CCPA", "HIPAA", "SOC 3"];
 
 export function Footer() {
   return (
-    <footer className="w-full bg-background relative z-[60] flex flex-col justify-between pt-20 sm:pt-28 overflow-hidden select-text">
+    <footer className="w-full min-h-[100dvh] bg-background relative z-[60] flex flex-col justify-between pt-20 sm:pt-28 overflow-hidden select-text">
 
       {/* Top Links Section */}
       <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-8 lg:px-12 flex flex-col md:flex-row justify-between gap-16 md:gap-8 z-10 relative">

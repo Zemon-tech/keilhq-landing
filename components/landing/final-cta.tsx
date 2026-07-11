@@ -24,7 +24,7 @@ export function FinalCta() {
   }, []);
 
   return (
-    <section className="w-full bg-background flex items-center justify-center py-20 lg:py-28 xl:py-32">
+    <section className="w-full min-h-[100dvh] bg-background flex items-center justify-center py-20 lg:py-28 xl:py-32">
       <div
         ref={ref}
         className="max-w-[1400px] w-full mx-auto px-6 sm:px-8 lg:px-12 flex flex-col items-center text-center gap-8"
