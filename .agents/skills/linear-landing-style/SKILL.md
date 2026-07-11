@@ -1,13 +1,11 @@
-<!-- BEGIN:nextjs-agent-rules -->
-# This is NOT the Next.js you know
+---
+name: linear-landing-style
+description: Guidelines and prompt references for styling user interfaces and landing pages consistent with the Linear landing page aesthetic (dark, minimal, high-contrast, premium, and engineering-grade).
+---
 
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
-<!-- END:nextjs-agent-rules -->
-
-<!-- BEGIN:linear-style-rules -->
 # Linear Landing Page — Design Style Guide
 
-Use this as a system prompt / style reference so an AI coding agent produces UI consistent with Linear's landing page aesthetic.
+Use these guidelines to produce or refactor user interfaces that conform to Linear's landing page aesthetic.
 
 ## 1. Overall Mood
 Dark, quiet, confident, engineering-grade. Feels like a professional dev tool, not a marketing site. Minimal ornamentation — the product screenshots do the selling. Generous negative space. No gradients-as-decoration, no illustrations, no emoji, no drop shadows piled on. One accent color used sparingly for maximum contrast.
@@ -70,4 +68,3 @@ Dark, quiet, confident, engineering-grade. Feels like a professional dev tool, n
 
 ## 9. What to Avoid
 - Purple/blue SaaS gradients, glassmorphism, oversized hero illustrations, emoji, rounded-full avatars everywhere, multi-color logo soup, drop-shadow-heavy cards, loud CTA buttons, Title Case headlines.
-<!-- END:linear-style-rules -->

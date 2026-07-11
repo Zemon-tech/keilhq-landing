@@ -8,7 +8,7 @@ const solutionLinks = [
   { href: "/solutions/agencies", label: "Agencies", desc: "Manage multiple clients without losing the thread" },
   { href: "/solutions/startups", label: "Startups", desc: "Move fast without losing organizational memory" },
   { href: "/solutions/dev-teams", label: "Dev Teams", desc: "Sprint planning with context already linked" },
-  { href: "/solutions/freelancers", label: "Freelancers", desc: "Run a one-person operation like it has a team" },
+  { href: "/enterprise", label: "Enterprise", desc: "Security, compliance, and dedicated support for organizations" },
 ];
 
 export default function SolutionsPage() {

@@ -41,8 +41,8 @@ const blogPosts = [
 
 export function Blogs() {
   return (
-    <section className="w-full py-16 lg:py-20 xl:py-24 px-5 sm:px-8 lg:px-12 bg-background select-text">
-      <div className="max-w-7xl mx-auto w-full">
+    <section className="w-full py-16 lg:py-24 xl:py-28 px-6 sm:px-8 lg:px-12 bg-background select-text">
+      <div className="max-w-[1400px] mx-auto w-full">
         <Carousel
           opts={{
             align: "start",
@@ -52,8 +52,8 @@ export function Blogs() {
           {/* Header with Title and Controls */}
           <div className="flex flex-col lg:flex-row lg:items-start justify-between mb-10 sm:mb-12">
             <div className="w-full lg:w-1/4 shrink-0">
-              <h2 className="font-display text-[clamp(2rem,4vw,3rem)] leading-[1.05] font-semibold text-zinc-900 dark:text-white" style={{ letterSpacing: "-0.025em" }}>
-                Blog
+              <h2 className="font-sans text-[clamp(2rem,4vw,3rem)] leading-[1.08] font-semibold text-zinc-900 dark:text-[#F7F8F8] tracking-[-0.025em]">
+                From the blog
               </h2>
             </div>
             
@@ -79,7 +79,7 @@ export function Blogs() {
                 {blogPosts.map((post) => (
                   <CarouselItem key={post.id} className="pl-4 sm:pl-6 md:basis-1/2 lg:basis-1/2">
                     <Link href={`/blog/${post.slug}`} className="group cursor-pointer flex flex-col gap-4 select-none">
-                      <div className="overflow-hidden rounded-sm bg-muted aspect-[1.6/1] relative border border-border/50">
+                      <div className="overflow-hidden rounded-sm bg-muted aspect-[1.6/1] relative border border-zinc-200/50 dark:border-white/[0.06]">
                         <Image
                           src={post.image}
                           alt={post.title}
@@ -89,13 +89,13 @@ export function Blogs() {
                         />
                       </div>
                       <div className="flex flex-col gap-1.5 pr-4 text-left">
-                        <span className="text-[11px] font-semibold text-muted-foreground tracking-wider uppercase">
+                        <span className="text-[11px] font-mono tracking-widest text-zinc-400 dark:text-zinc-500 uppercase">
                           {post.tag}
                         </span>
-                        <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white leading-tight group-hover:text-zinc-700 dark:group-hover:text-zinc-300 transition-colors duration-150 line-clamp-2">
+                        <h3 className="font-sans text-lg font-semibold text-zinc-900 dark:text-[#F7F8F8] tracking-tight leading-snug group-hover:text-zinc-700 dark:group-hover:text-white transition-colors duration-150 line-clamp-2">
                           {post.title}
                         </h3>
-                        <p className="text-[11px] font-semibold tracking-wide text-zinc-400 dark:text-zinc-500 mt-1">
+                        <p className="text-[11px] font-mono tracking-wider text-zinc-400 dark:text-zinc-500 mt-1">
                           {post.date}
                         </p>
                       </div>

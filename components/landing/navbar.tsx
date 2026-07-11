@@ -59,7 +59,6 @@ export function Navbar() {
           <div className="relative group">
             <button className="flex items-center gap-1 text-[13px] font-semibold tracking-[0.01em] text-muted-foreground hover:text-foreground transition-colors duration-150 py-2 cursor-pointer bg-transparent border-none">
               Features
-              <ChevronDown className="size-3 transition-transform duration-200 group-hover:rotate-180" />
             </button>
             {/* Invisible bridge fills the gap so mouse doesn't leave the group */}
             <div className="absolute top-full left-0 right-0 h-2 z-50" />
@@ -93,7 +92,6 @@ export function Navbar() {
           <div className="relative group">
             <button className="flex items-center gap-1 text-[13px] font-semibold tracking-[0.01em] text-muted-foreground hover:text-foreground transition-colors duration-150 py-2 cursor-pointer bg-transparent border-none">
               Solutions
-              <ChevronDown className="size-3 transition-transform duration-200 group-hover:rotate-180" />
             </button>
             {/* Invisible bridge fills the gap so mouse doesn't leave the group */}
             <div className="absolute top-full left-0 right-0 h-2 z-50" />
@@ -120,7 +118,7 @@ export function Navbar() {
                   { title: "Agencies", desc: "Manage multiple clients and deliverables", href: "/solutions/agencies" },
                   { title: "Startups", desc: "Move fast with embedded AI", href: "/solutions/startups" },
                   { title: "Dev Teams", desc: "Sprint planning and dependencies", href: "/solutions/dev-teams" },
-                  { title: "Freelancers", desc: "Solo dashboard and client docs", href: "/solutions/freelancers" },
+                  { title: "Enterprise", desc: "KeilHQ for large organizations", href: "/enterprise" },
                 ].map((item) => (
                   <Link
                     key={item.title}
@@ -139,7 +137,6 @@ export function Navbar() {
           <div className="relative group">
             <button className="flex items-center gap-1 text-[13px] font-semibold tracking-[0.01em] text-muted-foreground hover:text-foreground transition-colors duration-150 py-2 cursor-pointer bg-transparent border-none">
               Pricing
-              <ChevronDown className="size-3 transition-transform duration-200 group-hover:rotate-180" />
             </button>
             {/* Invisible bridge fills the gap so mouse doesn't leave the group */}
             <div className="absolute top-full left-0 right-0 h-2 z-50" />
@@ -186,7 +183,6 @@ export function Navbar() {
           <div className="relative group">
             <button className="flex items-center gap-1 text-[13px] font-semibold tracking-[0.01em] text-muted-foreground hover:text-foreground transition-colors duration-150 py-2 cursor-pointer bg-transparent border-none">
               Company
-              <ChevronDown className="size-3 transition-transform duration-200 group-hover:rotate-180" />
             </button>
             {/* Invisible bridge fills the gap so mouse doesn't leave the group */}
             <div className="absolute top-full left-0 right-0 h-2 z-50" />
@@ -205,7 +201,6 @@ export function Navbar() {
                 {[
                   { title: "About Us", desc: "Our mission and team", href: "/about" },
                   { title: "Team", desc: "Meet the crew", href: "/team" },
-                  { title: "Enterprise", desc: "KeilHQ for organization", href: "/enterprise" },
                   { title: "Demo", desc: "Book a personal walkthrough", href: "/demo" },
                 ].map((item) => (
                   <Link
@@ -296,7 +291,7 @@ export function Navbar() {
                   { title: "Agencies", desc: "Manage multiple clients and deliverables", href: "/solutions/agencies" },
                   { title: "Startups", desc: "Move fast with embedded AI", href: "/solutions/startups" },
                   { title: "Dev Teams", desc: "Sprint planning and dependencies", href: "/solutions/dev-teams" },
-                  { title: "Freelancers", desc: "Solo dashboard and client docs", href: "/solutions/freelancers" },
+                  { title: "Enterprise", desc: "KeilHQ for large organizations", href: "/enterprise" },
                 ].map((item) => (
                   <Link
                     key={item.title}
@@ -334,7 +329,6 @@ export function Navbar() {
                 {[
                   { title: "About Us", href: "/about" },
                   { title: "Team", href: "/team" },
-                  { title: "Enterprise", href: "/enterprise" },
                   { title: "Demo", href: "/demo" },
                 ].map((item) => (
                   <Link

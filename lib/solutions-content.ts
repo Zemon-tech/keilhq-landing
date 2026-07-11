@@ -134,31 +134,33 @@ export const solutions: SolutionContent[] = [
     },
   },
   {
-    id: "freelancers",
-    eyebrow: "Solutions · Freelancers",
-    title: "Running a one-person operation like it has a team",
-    persona: "Independent contractor, four concurrent client engagements",
+    id: "enterprise",
+    eyebrow: "Solutions · Enterprise",
+    title: "An AI product system for modern enterprises",
+    persona: "VP of Product / Head of Engineering, 100+ seats, enterprise infrastructure",
     sprawl: {
       heading: "The sprawl",
       bullets: [
-        "Client A on Slack, Client B on email, Client C on WhatsApp",
-        "Invoices, scope notes, and deliverables scattered across each client's preferred tool",
-        "No assistant, no ops person — every context switch is manual",
+        "Multiple Slack workspaces and fragmented task tracking across product lines",
+        "Context and decisions buried in siloed docs and private channels",
+        "Legacy trackers failing to align teams and emerging AI coding agents",
+        "Security compliance gaps with no unified audit trails across platforms",
       ],
       research:
-        'Solo operators juggling multiple clients describe the daily reality as being knee-deep in emails, missed deadlines, and "just checking in" messages across every client\'s preferred channel — with no ops layer to absorb it.⁶',
+        "Enterprises report that lack of unified context is the primary blocker to safe and effective AI agent adoption — leaving EPD teams struggling to coordinate human and machine workflows.⁹",
     },
     withKeilhq: {
       heading: "With KeilHQ",
       intro:
-        "KeilHQ gives a solo operator the dashboard a larger team would have an ops person maintain — one place that holds each client's context, so switching between engagements doesn't mean rebuilding memory from scratch.",
+        "KeilHQ provides a shared product development system where teams and agents work from the same context, priorities, and structure. Our enterprise-grade platform links every Slack thread, Jira ticket, and Notion brief to ensure unified operations.",
       benefits: [
-        "One dashboard across every client, regardless of which tool that client prefers",
-        "Client docs and deliverable status in one place, not five",
-        "Context switching takes seconds instead of the first ten minutes of each session",
+        "Centralised organizational memory layer spanning teams and agents",
+        "SSO/SAML, advanced RBAC, and SOC 2 compliance built-in",
+        "99.9% uptime SLA and dedicated customer success from day one",
       ],
-      quote: "I don't have an ops person. I have KeilHQ open in a tab instead.",
-      attribution: "Representative freelancer scenario",
+      quote:
+        "We migrated 300 engineers off Jira in six weeks. KeilHQ gave us a single, clean audit trail across all human and AI agent actions.",
+      attribution: "Representative VP of Product scenario",
     },
   },
 ];

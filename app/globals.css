@@ -12,10 +12,10 @@
   --font-heading: var(--font-display);
   --font-display: var(--font-display);
   --width-9xl: 96rem;
-  /* Landing accent — single indigo, used only on primary CTAs */
-  --color-accent-landing: oklch(0.55 0.18 250);
-  --color-accent-landing-fg: oklch(0.99 0 0);
-  --color-accent-landing-hover: oklch(0.48 0.20 250);
+  /* Landing accent — black/white based on active theme */
+  --color-accent-landing: var(--accent-landing);
+  --color-accent-landing-fg: var(--accent-landing-fg);
+  --color-accent-landing-hover: var(--accent-landing-hover);
   /* Custom easing curves per Emil design system */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
@@ -104,6 +104,9 @@
 }
 
 :root {
+  --accent-landing: #0d0e10;
+  --accent-landing-fg: #f7f8f8;
+  --accent-landing-hover: #27272a;
   --background: #f6f6f4;
   --foreground: #171717;
   --card: #ffffff;
@@ -192,6 +195,9 @@
 }
 
 .dark {
+  --accent-landing: #f7f8f8;
+  --accent-landing-fg: #0d0e10;
+  --accent-landing-hover: #e4e4e7;
   --background: #0d0d0d;
   --foreground: #f5f5f5;
   --card: #151515;

@@ -1,84 +1,208 @@
+"use client";
+
+import React from "react";
+
+// ─── Custom SVG Logos ────────────────────────────────────────────────────────
+const VercelLogo = () => (
+  <svg viewBox="0 0 24 24" className="h-[14px] fill-current text-zinc-400 dark:text-zinc-600 hover:text-zinc-900 dark:hover:text-[#F7F8F8] transition-colors" aria-label="Vercel">
+    <path d="M24 22.525H0L12 1.475L24 22.525Z" />
+  </svg>
+);
+
+const CursorLogo = () => (
+  <div className="flex items-center gap-1.5 text-zinc-400 dark:text-zinc-600 hover:text-zinc-900 dark:hover:text-[#F7F8F8] transition-colors select-none">
+    <svg viewBox="0 0 24 24" className="h-3.5 w-3.5 fill-current">
+      <path d="M5.5 2v15.5l4.5-4.5 4 8 2.5-1-4-8 6.5-.5z" />
+    </svg>
+    <span className="text-[11px] font-bold tracking-widest uppercase">Cursor</span>
+  </div>
+);
+
+const OscarLogo = () => (
+  <div className="flex items-center text-zinc-400 dark:text-zinc-600 hover:text-zinc-900 dark:hover:text-[#F7F8F8] transition-colors select-none">
+    <span className="text-[13px] font-semibold tracking-[0.25em] font-sans">OSCAR</span>
+  </div>
+);
+
+const OpenAILogo = () => (
+  <div className="flex items-center gap-1.5 text-zinc-400 dark:text-zinc-600 hover:text-zinc-900 dark:hover:text-[#F7F8F8] transition-colors select-none">
+    <svg viewBox="0 0 24 24" className="h-4 w-4 fill-none stroke-current" strokeWidth="1.5">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 2v20M17 5L7 19M19 12H5M17 19L7 5" />
+      <circle cx="12" cy="12" r="7" />
+    </svg>
+    <span className="text-[11px] font-semibold tracking-wider font-sans">OpenAI</span>
+  </div>
+);
+
+const CoinbaseLogo = () => (
+  <div className="flex items-center text-zinc-400 dark:text-zinc-600 hover:text-zinc-900 dark:hover:text-[#F7F8F8] transition-colors select-none">
+    <span className="text-[14px] font-bold tracking-tight lowercase">coinbase</span>
+  </div>
+);
+
+const CashAppLogo = () => (
+  <div className="flex items-center gap-1 text-zinc-400 dark:text-zinc-600 hover:text-zinc-900 dark:hover:text-[#F7F8F8] transition-colors select-none">
+    <svg viewBox="0 0 24 24" className="h-4 w-4 fill-none stroke-current" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <line x1="12" y1="1" x2="12" y2="23" />
+      <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+    </svg>
+    <span className="text-[11px] font-semibold tracking-wider font-sans">Cash App</span>
+  </div>
+);
+
+const BoomLogo = () => (
+  <div className="flex items-center text-zinc-400 dark:text-zinc-600 hover:text-zinc-900 dark:hover:text-[#F7F8F8] transition-colors select-none">
+    <span className="text-[13px] font-extrabold tracking-widest font-sans">BOOM</span>
+  </div>
+);
+
+const RampLogo = () => (
+  <div className="flex items-center gap-1 text-zinc-400 dark:text-zinc-600 hover:text-zinc-900 dark:hover:text-[#F7F8F8] transition-colors select-none">
+    <span className="text-[13px] font-semibold tracking-tight lowercase">ramp</span>
+    <span className="text-[14px] font-extrabold leading-none text-zinc-400 dark:text-zinc-600 group-hover:text-zinc-900 dark:group-hover:text-[#F7F8F8]">/</span>
+  </div>
+);
+
+// ─── Custom Minimalist Wireframes ────────────────────────────────────────────
+const FigBuiltForPurpose = () => (
+  <svg viewBox="0 0 160 120" className="w-full h-24 stroke-zinc-200 dark:stroke-zinc-800/80 fill-none" strokeWidth="1">
+    {/* Ellipse 1 - Bottom */}
+    <ellipse cx="80" cy="90" rx="30" ry="12" />
+    <path d="M50 90v-15M110 90v-15" />
+    
+    {/* Ellipse 2 - Middle */}
+    <ellipse cx="80" cy="75" rx="30" ry="12" className="stroke-zinc-300 dark:stroke-zinc-700" />
+    <path d="M50 75v-15M110 75v-15" />
+    
+    {/* Ellipse 3 - Top */}
+    <ellipse cx="80" cy="60" rx="30" ry="12" className="stroke-zinc-400 dark:stroke-zinc-600" />
+    <path d="M50 60v-15M110 60v-15" />
+
+    {/* Highlight circle on top layer */}
+    <circle cx="80" cy="60" r="10" className="stroke-zinc-500 dark:stroke-zinc-500" strokeWidth="1.5" />
+  </svg>
+);
+
+const FigPoweredByAIAgents = () => (
+  <svg viewBox="0 0 160 120" className="w-full h-24 stroke-zinc-200 dark:stroke-zinc-800/80 fill-none" strokeWidth="1">
+    {/* Left box */}
+    <path d="M50 50l15-7v20l-15 7zM65 43l15 7v20l-15-7zM50 50l15 7M65 43M50 70" />
+    
+    {/* Right box */}
+    <path d="M95 70l15-7v20l-15 7zM110 63l15 7v20l-15-7z" className="stroke-zinc-300 dark:stroke-zinc-700" />
+    
+    {/* Top box */}
+    <path d="M75 35l15-7v20l-15 7zM90 28l15 7v20L90 55z" className="stroke-zinc-400 dark:stroke-zinc-600" />
+    
+    {/* Central connection lines */}
+    <path d="M65 53l30 17M82 48l15 22" strokeDasharray="3" className="stroke-zinc-400 dark:stroke-zinc-600" />
+    
+    {/* Central node */}
+    <circle cx="82" cy="58" r="3" className="fill-zinc-500 dark:fill-zinc-500 stroke-none" />
+  </svg>
+);
+
+const FigDesignedForSpeed = () => (
+  <svg viewBox="0 0 160 120" className="w-full h-24 stroke-zinc-200 dark:stroke-zinc-800/80 fill-none" strokeWidth="1">
+    {/* Step 1 */}
+    <path d="M40 85h15M55 85v-10" />
+    {/* Step 2 */}
+    <path d="M55 75h20M75 75v-15" className="stroke-zinc-300 dark:stroke-zinc-700" />
+    {/* Step 3 */}
+    <path d="M75 60h25M100 60v-20" className="stroke-zinc-400 dark:stroke-zinc-600" strokeWidth="1.2" />
+    {/* Step 4 */}
+    <path d="M100 40h20" className="stroke-zinc-500 dark:stroke-zinc-500" strokeWidth="1.5" />
+    
+    {/* Grid baseline */}
+    <path d="M30 95h100" strokeDasharray="2" />
+  </svg>
+);
+
 export function BackedBy() {
   return (
-    <section className="w-full bg-background flex items-center justify-center py-12 lg:py-16 border-b border-border/40">
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 md:gap-4">
-
-          <div className="shrink-0">
-            <span className="text-[13px] font-semibold tracking-wide text-muted-foreground">
-              Integrates with
-            </span>
-          </div>
-
-
-          <div className="flex flex-wrap items-center justify-start md:justify-end gap-x-10 gap-y-5 w-full">
-
-            {/* Slack */}
-            <div className="flex items-center gap-2 group cursor-default">
-              <svg viewBox="0 0 24 24" className="size-4 text-muted-foreground group-hover:text-foreground transition-colors" fill="currentColor">
-                <path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.528 2.528 0 0 1 2.522-2.52h2.52v2.52zm1.261 0a2.528 2.528 0 0 1 2.52-2.52 2.528 2.528 0 0 1 2.522 2.52v6.313A2.528 2.528 0 0 1 8.823 24a2.528 2.528 0 0 1-2.52-2.522v-6.313zm2.52-10.123a2.528 2.528 0 0 1-2.52-2.522A2.528 2.528 0 0 1 8.823 0a2.528 2.528 0 0 1 2.522 2.52v2.52H8.823zm0 1.261a2.528 2.528 0 0 1 2.522 2.52 2.528 2.528 0 0 1-2.522 2.522H2.522A2.528 2.528 0 0 1 0 8.823a2.528 2.528 0 0 1 2.522-2.52h6.301zm10.122 2.52a2.528 2.528 0 0 1 2.522-2.52A2.528 2.528 0 0 1 24 8.823a2.528 2.528 0 0 1-2.522 2.522h-2.52V8.823zm-1.261 0a2.528 2.528 0 0 1-2.52 2.522 2.528 2.528 0 0 1-2.522-2.522V2.522A2.528 2.528 0 0 1 15.165 0a2.528 2.528 0 0 1 2.52 2.522v6.301zm-2.52 10.122a2.528 2.528 0 0 1 2.52 2.522A2.528 2.528 0 0 1 15.165 24a2.528 2.528 0 0 1-2.522-2.522v-2.52h2.522zm0-1.261a2.528 2.528 0 0 1-2.522-2.52 2.528 2.528 0 0 1 2.522-2.522h6.313A2.528 2.528 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.52h-6.313z"/>
-              </svg>
-              <span className="text-[13px] font-semibold tracking-wide text-muted-foreground group-hover:text-foreground transition-colors duration-150">Slack</span>
-            </div>
-
-            {/* GitHub */}
-            <div className="flex items-center gap-2 group cursor-default">
-              <svg viewBox="0 0 24 24" className="size-4 text-muted-foreground group-hover:text-foreground transition-colors" fill="currentColor">
-                <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
-              </svg>
-              <span className="text-[13px] font-semibold tracking-wide text-muted-foreground group-hover:text-foreground transition-colors duration-150">GitHub</span>
-            </div>
-
-            {/* Google Calendar */}
-            <div className="flex items-center gap-2 group cursor-default">
-              <svg viewBox="0 0 24 24" className="size-4 text-muted-foreground group-hover:text-foreground transition-colors" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                <line x1="16" y1="2" x2="16" y2="6"/>
-                <line x1="8" y1="2" x2="8" y2="6"/>
-                <line x1="3" y1="10" x2="21" y2="10"/>
-              </svg>
-              <span className="text-[13px] font-semibold tracking-wide text-muted-foreground group-hover:text-foreground transition-colors duration-150">Google Calendar</span>
-            </div>
-
-            {/* Notion */}
-            <div className="flex items-center gap-2 group cursor-default">
-              <svg viewBox="0 0 24 24" className="size-4 text-muted-foreground group-hover:text-foreground transition-colors" fill="currentColor">
-                <path d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.981-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.046.935-.56.935-1.167V6.354c0-.606-.233-.933-.748-.887l-15.177.887c-.56.047-.747.327-.747.933zm14.337.745c.093.42 0 .84-.42.888l-.7.14v10.264c-.608.327-1.168.514-1.635.514-.748 0-.935-.234-1.495-.933l-4.577-7.186v6.952L12.21 19s0 .84-1.168.84l-3.222.186c-.093-.186 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.456-.233 4.764 7.279v-6.44l-1.215-.139c-.093-.514.28-.887.747-.933zM1.936 1.035l13.31-.98c1.634-.14 2.055-.047 3.082.7l4.249 2.986c.7.513.934.653.934 1.213v16.378c0 1.026-.373 1.634-1.68 1.726l-15.458.934c-.98.047-1.448-.093-1.962-.747l-3.129-4.06c-.56-.747-.793-1.306-.793-1.96V2.667c0-.839.374-1.54 1.447-1.632z"/>
-              </svg>
-              <span className="text-[13px] font-semibold tracking-wide text-muted-foreground group-hover:text-foreground transition-colors duration-150">Notion</span>
-            </div>
-
-            {/* Linear */}
-            <div className="flex items-center gap-2 group cursor-default">
-              <svg viewBox="0 0 24 24" className="size-4 text-muted-foreground group-hover:text-foreground transition-colors" fill="currentColor">
-                <path d="M3.493 11.66a.5.5 0 0 0 .707.707l6.5-6.5a.5.5 0 0 0-.707-.707l-6.5 6.5zm.5 4.5a.5.5 0 0 0 .707.707l9.5-9.5a.5.5 0 0 0-.707-.707l-9.5 9.5zm4 4a.5.5 0 0 0 .707.707l9.5-9.5a.5.5 0 0 0-.707-.707l-9.5 9.5zm4.5 1.5a.5.5 0 0 0 .707.707l5.5-5.5a.5.5 0 0 0-.707-.707l-5.5 5.5zm4.5.5a.5.5 0 0 0 .707.707l1.5-1.5a.5.5 0 0 0-.707-.707l-1.5 1.5z"/>
-              </svg>
-              <span className="text-[13px] font-semibold tracking-wide text-muted-foreground group-hover:text-foreground transition-colors duration-150">Linear</span>
-            </div>
-
-            {/* Jira */}
-            <div className="flex items-center gap-2 group cursor-default">
-              <svg viewBox="0 0 24 24" className="size-4 text-muted-foreground group-hover:text-foreground transition-colors" fill="currentColor">
-                <path d="M11.571 11.513H0a5.218 5.218 0 0 0 5.232 5.215h2.13v2.057A5.215 5.215 0 0 0 12.575 24V12.518a1.005 1.005 0 0 0-1.004-1.005zm5.723-5.756H5.757a5.215 5.215 0 0 0 5.214 5.214h2.129v2.058a5.218 5.218 0 0 0 5.215 5.214V6.762a1.005 1.005 0 0 0-1.021-1.005zM23.013 0H11.455a5.215 5.215 0 0 0 5.215 5.215h2.129v2.057A5.215 5.215 0 0 0 24.019 12.49V1.005A1.005 1.005 0 0 0 23.013 0z"/>
-              </svg>
-              <span className="text-[13px] font-semibold tracking-wide text-muted-foreground group-hover:text-foreground transition-colors duration-150">Jira</span>
-            </div>
-
-            {/* Google Gemini / AI */}
-            <div className="flex items-center gap-2 group cursor-default">
-              <svg viewBox="0 0 24 24" className="size-4 text-muted-foreground group-hover:text-foreground transition-colors" fill="currentColor">
-                <path d="M12 2L9.5 9.5 2 12l7.5 2.5L12 22l2.5-7.5L22 12l-7.5-2.5z"/>
-              </svg>
-              <span className="text-[13px] font-semibold tracking-wide text-muted-foreground group-hover:text-foreground transition-colors duration-150">Google Gemini</span>
-            </div>
-
-            {/* +50 more */}
-            <div className="flex items-center gap-1.5 cursor-default">
-              <span className="text-[13px] font-semibold tracking-wide text-muted-foreground/60">+50 more</span>
-            </div>
-
+    <section className="w-full bg-background flex flex-col items-center justify-center py-20 lg:py-28 xl:py-32">
+      <div className="w-full max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 flex flex-col gap-24">
+        
+        {/* ── Partners Row ── */}
+        <div className="w-full flex flex-col gap-8">
+          <div className="w-full flex flex-wrap items-center justify-between gap-x-12 gap-y-6 opacity-75 dark:opacity-60">
+            <VercelLogo />
+            <CursorLogo />
+            <OscarLogo />
+            <OpenAILogo />
+            <CoinbaseLogo />
+            <CashAppLogo />
+            <BoomLogo />
+            <RampLogo />
           </div>
         </div>
+
+        {/* ── A New Species Header ── */}
+        <div className="max-w-[800px] flex flex-col gap-6 text-left">
+          <h2 
+            className="font-sans text-[clamp(2rem,4vw,3rem)] font-semibold tracking-[-0.02em] leading-[1.1] text-zinc-900 dark:text-[#F7F8F8]"
+            style={{ textWrap: "balance" }}
+          >
+            A new species of product tool
+          </h2>
+          <p className="text-[15px] sm:text-base font-normal tracking-[0.01em] text-zinc-500 dark:text-[#8A8F98] leading-relaxed max-w-[65ch]">
+            Purpose-built for modern teams with AI workflows at its core, KeilHQ sets a new standard for planning and building products.
+          </p>
+        </div>
+
+        {/* ── 3-Column Figures Grid ── */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
+          
+          {/* Card 1 */}
+          <div className="flex flex-col gap-4 p-6 rounded-lg border border-zinc-200/50 dark:border-white/[0.06] bg-zinc-50/50 dark:bg-white/[0.01] hover:border-zinc-300 dark:hover:border-white/[0.1] transition-all duration-300">
+            <div className="text-[10px] font-mono tracking-widest text-zinc-400 dark:text-zinc-600">FIG 0.2</div>
+            <div className="w-full flex items-center justify-center py-4 bg-zinc-100/30 dark:bg-white/[0.01] rounded-sm">
+              <FigBuiltForPurpose />
+            </div>
+            <div className="flex flex-col gap-2 mt-2">
+              <h3 className="text-sm font-semibold tracking-tight text-zinc-900 dark:text-[#F7F8F8]">
+                Built for purpose
+              </h3>
+              <p className="text-[13px] font-normal text-zinc-500 dark:text-[#8A8F98] leading-relaxed">
+                KeilHQ is shaped by the practices and principles of world-class product teams.
+              </p>
+            </div>
+          </div>
+
+          {/* Card 2 */}
+          <div className="flex flex-col gap-4 p-6 rounded-lg border border-zinc-200/50 dark:border-white/[0.06] bg-zinc-50/50 dark:bg-white/[0.01] hover:border-zinc-300 dark:hover:border-white/[0.1] transition-all duration-300">
+            <div className="text-[10px] font-mono tracking-widest text-zinc-400 dark:text-zinc-600">FIG 0.3</div>
+            <div className="w-full flex items-center justify-center py-4 bg-zinc-100/30 dark:bg-white/[0.01] rounded-sm">
+              <FigPoweredByAIAgents />
+            </div>
+            <div className="flex flex-col gap-2 mt-2">
+              <h3 className="text-sm font-semibold tracking-tight text-zinc-900 dark:text-[#F7F8F8]">
+                Powered by AI agents
+              </h3>
+              <p className="text-[13px] font-normal text-zinc-500 dark:text-[#8A8F98] leading-relaxed">
+                Designed for workflows shared by humans and agents. From drafting PRDs to pushing PRs.
+              </p>
+            </div>
+          </div>
+
+          {/* Card 3 */}
+          <div className="flex flex-col gap-4 p-6 rounded-lg border border-zinc-200/50 dark:border-white/[0.06] bg-zinc-50/50 dark:bg-white/[0.01] hover:border-zinc-300 dark:hover:border-white/[0.1] transition-all duration-300">
+            <div className="text-[10px] font-mono tracking-widest text-zinc-400 dark:text-zinc-600">FIG 0.4</div>
+            <div className="w-full flex items-center justify-center py-4 bg-zinc-100/30 dark:bg-white/[0.01] rounded-sm">
+              <FigDesignedForSpeed />
+            </div>
+            <div className="flex flex-col gap-2 mt-2">
+              <h3 className="text-sm font-semibold tracking-tight text-zinc-900 dark:text-[#F7F8F8]">
+                Designed for speed
+              </h3>
+              <p className="text-[13px] font-normal text-zinc-500 dark:text-[#8A8F98] leading-relaxed">
+                Reduces noise and restores momentum to help teams ship with high velocity and focus.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
       </div>
     </section>
   );

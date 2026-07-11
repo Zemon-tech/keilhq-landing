@@ -2,7 +2,6 @@ import Image from "next/image";
 import { Navbar } from "@/components/landing/navbar";
 import { Hero } from "@/components/landing/hero";
 import { BackedBy } from "@/components/landing/backed-by";
-import { Vision } from "@/components/landing/vision";
 import { IntegrationCloud } from "@/components/landing/integration-cloud";
 import { Features, StickyScrollSection } from "@/components/landing/features";
 import { LovedBy } from "@/components/landing/loved-by";
@@ -182,7 +181,6 @@ export default function Home() {
       <main className="flex-1 flex flex-col">
         <Hero />
         <BackedBy />
-        <Vision />
         <IntegrationCloud />
         <Features data={featuresData} />
         <Blogs />

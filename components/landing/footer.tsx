@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ToggleTheme } from "@/components/ui/toggle-theme";
-import { featureNavItems } from "@/lib/feature-nav";
 
 const footerLinks = {
   Product: [
@@ -28,16 +27,16 @@ const badges = ["SOC 2", "GDPR", "CCPA", "HIPAA", "SOC 3"];
 
 export function Footer() {
   return (
-    <footer className="w-full bg-background relative z-[60] flex flex-col justify-between pt-16 sm:pt-20 overflow-hidden">
+    <footer className="w-full bg-background relative z-[60] flex flex-col justify-between pt-20 sm:pt-28 overflow-hidden select-text">
 
       {/* Top Links Section */}
-      <div className="max-w-7xl w-full mx-auto px-5 sm:px-8 lg:px-12 flex flex-col md:flex-row justify-between gap-16 md:gap-8 z-10 relative">
+      <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-8 lg:px-12 flex flex-col md:flex-row justify-between gap-16 md:gap-8 z-10 relative">
         {/* Brand and Social Links */}
         <div className="md:w-1/4 shrink-0 flex flex-col gap-6">
           <Link href="/" className="flex items-center gap-2">
             <Image src="/keilhq.svg" alt="KeilHQ" width={22} height={22} className="dark:hidden" />
             <Image src="/keilhq-white.svg" alt="KeilHQ" width={22} height={22} className="hidden dark:block" />
-            <span className="font-display text-xl font-semibold tracking-tight text-foreground">
+            <span className="font-sans text-lg font-semibold tracking-tight text-zinc-900 dark:text-[#F7F8F8]">
               KeilHQ
             </span>
           </Link>
@@ -48,7 +47,7 @@ export function Footer() {
           </div>
 
           {/* Social Icons */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
             <a href="https://x.com" target="_blank" rel="noopener noreferrer" className="size-8 rounded-sm bg-secondary/80 hover:bg-accent border border-border/50 flex items-center justify-center text-muted-foreground hover:text-foreground transition-all duration-150 active:scale-95">
               <svg viewBox="0 0 24 24" className="size-4" fill="currentColor">
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
@@ -75,18 +74,18 @@ export function Footer() {
         </div>
 
         {/* Links Grid */}
-        <div className="w-full md:w-2/3 grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-8">
+        <div className="w-full md:w-2/3 grid grid-cols-2 md:grid-cols-3 gap-12 md:gap-8">
           {Object.entries(footerLinks).map(([section, links]) => (
-            <div key={section} className="flex flex-col gap-4">
-              <span className="text-[11px] font-semibold tracking-wider text-muted-foreground uppercase">
+            <div key={section} className="flex flex-col gap-4 text-left">
+              <span className="text-[11px] font-mono tracking-widest text-zinc-400 dark:text-zinc-500 uppercase">
                 {section}
               </span>
-              <nav className="flex flex-col gap-3">
+              <nav className="flex flex-col gap-2.5">
                 {links.map((link) => (
                   <Link
                     key={link.label}
                     href={link.href}
-                    className="text-[13px] text-muted-foreground/80 hover:text-foreground transition-colors font-semibold tracking-wide"
+                    className="text-[13px] text-zinc-500 dark:text-[#8A8F98] hover:text-zinc-900 dark:hover:text-white transition-colors font-medium tracking-wide"
                   >
                     {link.label}
                   </Link>
@@ -98,13 +97,13 @@ export function Footer() {
       </div>
 
       {/* Badges Section with center divider */}
-      <div className="max-w-7xl w-full mx-auto px-5 sm:px-8 lg:px-12 mt-12 sm:mt-16 z-10 relative">
-        <div className="w-full h-px bg-border/60 dark:bg-white/5 relative flex items-center justify-center">
+      <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-8 lg:px-12 mt-16 sm:mt-24 z-10 relative">
+        <div className="w-full h-px bg-zinc-200/50 dark:bg-white/[0.05] relative flex items-center justify-center">
           <div className="absolute bg-background px-6 flex items-center gap-4">
             {badges.map((badge) => (
               <div
                 key={badge}
-                className="flex items-center justify-center size-10 rounded-full border border-border dark:border-white/5 bg-background shadow-sm text-[8px] font-bold text-muted-foreground uppercase tracking-wider select-none"
+                className="flex items-center justify-center size-10 rounded-sm border border-zinc-200/50 dark:border-white/[0.05] bg-background shadow-xs text-[8px] font-bold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest select-none"
               >
                 {badge}
               </div>
@@ -113,27 +112,27 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Giant Watermark Text (Moved above Copyright row, below Badges) */}
-      <div className="w-full flex justify-center items-center overflow-hidden mt-8 sm:mt-10 mb-0 select-none z-0 relative">
+      {/* Giant Watermark Text — Updated to font-sans with tight negative tracking */}
+      <div className="w-full flex justify-center items-center overflow-hidden mt-12 sm:mt-16 mb-2 select-none z-0 relative">
         <span
-          className="font-display text-[clamp(5rem,15vw,14rem)] font-semibold tracking-tight leading-none text-zinc-200 dark:text-zinc-800/80 select-none pointer-events-none"
+          className="font-sans text-[clamp(5rem,18vw,15rem)] font-bold tracking-[-0.04em] leading-none text-zinc-100 dark:text-[#161718] select-none pointer-events-none"
         >
           KeilHQ
         </span>
       </div>
 
       {/* Copyright and Privacy Links Row */}
-      <div className="max-w-7xl w-full mx-auto px-5 sm:px-8 lg:px-12 pt-6 pb-8 flex flex-col md:flex-row items-center justify-between gap-6 z-10 relative">
-        <span className="text-[13px] text-muted-foreground font-semibold tracking-wide w-full md:w-1/3 text-center md:text-left">
+      <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-8 lg:px-12 pt-6 pb-12 flex flex-col md:flex-row items-center justify-between gap-6 border-t border-zinc-200/50 dark:border-white/[0.05] z-10 relative">
+        <span className="text-[13px] text-zinc-400 dark:text-[#8A8F98] font-normal tracking-wide w-full md:w-1/3 text-center md:text-left">
           KeilHQ. All rights reserved. © {new Date().getFullYear()}
         </span>
 
-        <div className="flex items-center gap-6 flex-wrap justify-center w-full md:w-1/3 text-[13px] font-semibold tracking-wide">
+        <div className="flex items-center gap-6 flex-wrap justify-center w-full md:w-1/3 text-[13px] font-normal tracking-wide">
           {["Your Privacy Choices", "Privacy policy"].map((item) => (
             <Link
               key={item}
               href={`/${item.toLowerCase().replace(/\s+/g, "-")}`}
-              className="text-muted-foreground hover:text-foreground transition-colors"
+              className="text-zinc-400 dark:text-[#8A8F98] hover:text-zinc-900 dark:hover:text-white transition-colors"
             >
               {item}
             </Link>
@@ -141,7 +140,7 @@ export function Footer() {
         </div>
 
         <div className="flex items-center justify-center md:justify-end w-full md:w-1/3 gap-3">
-          <span className="text-[13px] text-muted-foreground font-semibold tracking-wide">
+          <span className="text-[13px] text-zinc-400 dark:text-[#8A8F98] font-normal tracking-wide">
             Made in India.
           </span>
         </div>

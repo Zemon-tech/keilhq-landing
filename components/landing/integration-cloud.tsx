@@ -88,7 +88,7 @@ function MarqueeRow({ logos, direction = "left", speed = "85s" }: MarqueeRowProp
 export function IntegrationCloud() {
   return (
     <section className="relative w-full bg-background overflow-hidden flex items-center justify-center py-16 lg:py-20 xl:py-24">
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+      <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-8 lg:px-12">
 
         {/* Integrated marquee container */}
         <div className="w-full relative overflow-hidden flex flex-col transition-colors duration-300">
