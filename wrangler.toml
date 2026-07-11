@@ -1,4 +1,4 @@
-name = "Keilhq-landing"
+name = "keilhq-landing"
 main = ".open-next/worker.js"
 compatibility_date = "2026-06-01"
 compatibility_flags = ["nodejs_compat"]

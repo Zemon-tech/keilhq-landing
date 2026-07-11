@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-// ── Auth-redirect middleware ──────────────────────────────────────────────────
+// ── Auth-redirect proxy ──────────────────────────────────────────────────
 // When a visitor already has an active Supabase session (written to a shared
 // .Keilhq.in cookie by the Vite app at app.Keilhq.in) we redirect them to the
 // app before the landing page ever renders — zero content flash.
@@ -9,7 +9,7 @@ import type { NextRequest } from "next/server";
 // How it works:
 //   1. The Vite app stores the Supabase session in a cookie named
 //      "sb-<project-ref>-auth-token" scoped to ".Keilhq.in".
-//   2. This middleware reads that cookie, parses the JSON payload, and checks
+//   2. This proxy reads that cookie, parses the JSON payload, and checks
 //      that the access_token is present AND has not expired yet.
 //   3. On a valid, non-expired session → redirect to https://app.Keilhq.in.
 //   4. On any failure (no cookie, bad JSON, expired) → let the request proceed
@@ -20,7 +20,7 @@ import type { NextRequest } from "next/server";
 
 const APP_URL = "https://app.Keilhq.in";
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   // Find the Supabase session cookie dynamically.
   // The name format is "sb-<project-ref>-auth-token" — we match the prefix/suffix
   // so we don't need to hardcode the project ref.
