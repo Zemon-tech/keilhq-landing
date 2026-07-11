@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   title: "KeilHQ — The Operating System for Teams That Ship",
   description: "Replace Slack, Asana, Notion, and your calendar chaos. KeilHQ is the one workspace where your team actually gets work done.",
   icons: {
-    icon: "/Keilhq-white.svg",
+    icon: "/keilhq-white.svg",
   },
 };
 

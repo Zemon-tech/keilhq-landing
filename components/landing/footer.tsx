@@ -35,8 +35,8 @@ export function Footer() {
         {/* Brand and Social Links */}
         <div className="md:w-1/4 shrink-0 flex flex-col gap-6">
           <Link href="/" className="flex items-center gap-2">
-            <Image src="/Keilhq.svg" alt="KeilHQ" width={22} height={22} className="dark:hidden" />
-            <Image src="/Keilhq-white.svg" alt="KeilHQ" width={22} height={22} className="hidden dark:block" />
+            <Image src="/keilhq.svg" alt="KeilHQ" width={22} height={22} className="dark:hidden" />
+            <Image src="/keilhq-white.svg" alt="KeilHQ" width={22} height={22} className="hidden dark:block" />
             <span className="font-display text-xl font-semibold tracking-tight text-foreground">
               KeilHQ
             </span>

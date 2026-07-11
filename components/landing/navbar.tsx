@@ -34,7 +34,7 @@ export function Navbar() {
         {/* Brand Logo */}
         <Link href="/" className="flex items-center gap-2 group mr-2">
           <Image
-            src="/Keilhq.svg"
+            src="/keilhq.svg"
             alt="KeilHQ Logo"
             width={22}
             height={22}
@@ -42,7 +42,7 @@ export function Navbar() {
             priority
           />
           <Image
-            src="/Keilhq-white.svg"
+            src="/keilhq-white.svg"
             alt="KeilHQ Logo"
             width={22}
             height={22}

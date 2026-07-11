@@ -108,14 +108,14 @@ export function IntegrationCloud() {
 
                 {/* Light theme logo */}
                 <img
-                  src="/Keilhq.svg"
+                  src="/keilhq.svg"
                   alt="KeilHQ Logo"
                   className="w-26 h-26 sm:w-26 sm:h-26 object-contain block dark:hidden filter drop-shadow-[0_0_8px_rgba(0,0,0,0.08)]"
                 />
 
                 {/* Dark theme logo */}
                 <img
-                  src="/Keilhq-white.svg"
+                  src="/keilhq-white.svg"
                   alt="KeilHQ Logo"
                   className="w-14 h-14 sm:w-16 sm:h-16 object-contain hidden dark:block filter drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]"
                 />
