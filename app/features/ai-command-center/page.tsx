@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { FeatureLayout } from "@/components/landing/feature-layout";
 import { Brain, Zap, Calendar, Code2, Check } from "lucide-react";
 
@@ -36,55 +37,24 @@ export default function AICommandCenterPage() {
   ];
 
   const mockup = (
-    <div className="w-full bg-[#08090A] p-6 sm:p-8 flex flex-col gap-6 text-left">
-      <div className="flex items-center justify-between pb-4 border-b border-white/[0.05]">
-        <span className="text-sm font-semibold text-zinc-900 dark:text-white">AI Command Center</span>
-        <span className="text-[10px] bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 px-2 py-0.5 rounded-sm font-mono uppercase font-bold tracking-wide">Chain of Thought</span>
-      </div>
-
-      {/* User Query */}
-      <div className="flex items-start gap-3 p-3 bg-zinc-900/40 rounded-sm border border-white/[0.05]">
-        <div className="size-6 rounded-full bg-zinc-800 flex items-center justify-center text-[10px] font-bold shrink-0">
-          U
-        </div>
-        <div className="flex-1">
-          <p className="text-sm text-[#F7F8F8]">"Create a task for fixing the login bug, make it urgent and due tomorrow, then schedule my unscheduled tasks for next week"</p>
-        </div>
-      </div>
-
-      {/* AI Chain of Thought Steps */}
-      <div className="flex flex-col gap-3">
-        <div className="flex items-start gap-3 p-3 bg-emerald-950/20 rounded-sm border border-emerald-800/30">
-          <div className="size-6 rounded-full bg-emerald-900 text-emerald-300 flex items-center justify-center shrink-0">
-            <Zap className="size-3" />
-          </div>
-          <div className="flex flex-col gap-1">
-            <p className="text-xs font-semibold text-emerald-200">Task Agent: Creating urgent task</p>
-            <p className="text-[11px] text-emerald-300">✓ Created task "Fix login bug" with priority: Urgent, due: tomorrow</p>
-          </div>
-        </div>
-
-        <div className="flex items-start gap-3 p-3 bg-blue-950/20 rounded-sm border border-blue-800/30">
-          <div className="size-6 rounded-full bg-blue-900 text-blue-300 flex items-center justify-center shrink-0">
-            <Calendar className="size-3" />
-          </div>
-          <div className="flex flex-col gap-1">
-            <p className="text-xs font-semibold text-blue-200">Scheduler Agent: Finding unscheduled tasks</p>
-            <p className="text-[11px] text-blue-300">✓ Found 5 unscheduled tasks, analyzing calendar for next week</p>
-          </div>
-        </div>
-
-        <div className="flex items-start gap-3 p-3 bg-violet-950/20 rounded-sm border border-violet-800/30">
-          <div className="size-6 rounded-full bg-violet-900 text-violet-300 flex items-center justify-center shrink-0">
-            <Check className="size-3" />
-          </div>
-          <div className="flex flex-col gap-1">
-            <p className="text-xs font-semibold text-violet-200">Scheduler Agent: Auto-scheduling complete</p>
-            <p className="text-[11px] text-violet-300">✓ Scheduled 5 tasks across 4 available time slots next week</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <>
+      <Image
+        src="/mockups/light/AI Light.png"
+        alt="AI Command Center"
+        width={1600}
+        height={1000}
+        className="w-full h-auto object-cover object-top dark:hidden rounded-lg"
+        priority
+      />
+      <Image
+        src="/mockups/dark/AI Dark.png"
+        alt="AI Command Center"
+        width={1600}
+        height={1000}
+        className="w-full h-auto object-cover object-top hidden dark:block rounded-lg"
+        priority
+      />
+    </>
   );
 
   return (

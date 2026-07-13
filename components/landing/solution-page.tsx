@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Navbar } from "@/components/landing/navbar";
 import { Footer } from "@/components/landing/footer";
 import { ChevronDown } from "lucide-react";
@@ -166,126 +167,75 @@ export function SolutionPage({ content, ctaLabel }: SolutionPageProps) {
             </Link>
           </div>
 
-          {/* Interactive Mockup */}
-          <div className="w-full mt-16 border border-border/40 bg-card/60 rounded-lg overflow-hidden shadow-2xl p-6 sm:p-8 flex flex-col gap-6 text-left font-sans text-xs">
-            {isStartups && (
-              <>
-                <div className="flex items-center justify-between pb-4 border-b border-border/40">
-                  <span className="text-sm font-semibold text-foreground">Kanban Sprint Board</span>
-                  <span className="text-[10px] bg-emerald-500/10 text-emerald-500 px-2 py-0.5 rounded-sm font-mono uppercase font-bold tracking-wide">Active</span>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  {/* Backlog */}
-                  <div className="p-4 bg-secondary/30 border border-border/40 rounded-sm flex flex-col gap-2">
-                    <span className="text-[10px] font-bold text-muted-foreground/60 uppercase">Backlog</span>
-                    <div className="p-2.5 bg-card border border-border/40 rounded-sm">
-                      <span className="font-semibold text-foreground">Spec out GPT Integration</span>
-                      <span className="block text-[10px] text-muted-foreground mt-1">Feature Ideas</span>
-                    </div>
-                    <div className="p-2.5 bg-card border border-border/40 rounded-sm">
-                      <span className="font-semibold text-foreground">Resolve UI inconsistencies</span>
-                      <span className="block text-[10px] text-muted-foreground mt-1">Mobile</span>
-                    </div>
-                  </div>
-                  {/* Todo */}
-                  <div className="p-4 bg-secondary/30 border border-border/40 rounded-sm flex flex-col gap-2">
-                    <span className="text-[10px] font-bold text-muted-foreground/60 uppercase">Todo</span>
-                    <div className="p-2.5 bg-card border border-border/40 rounded-sm">
-                      <span className="font-semibold text-foreground">Optimize load times</span>
-                      <span className="block text-[10px] text-muted-foreground mt-1">Performance</span>
-                    </div>
-                    <div className="p-2.5 bg-card border border-border/40 rounded-sm">
-                      <span className="font-semibold text-foreground">Prepare ProductHunt launch</span>
-                      <span className="block text-[10px] text-muted-foreground mt-1">Marketing</span>
-                    </div>
-                  </div>
-                  {/* In Progress & Progress Card Overlay */}
-                  <div className="p-4 bg-secondary/30 border border-border/40 rounded-sm flex flex-col gap-2 relative">
-                    <span className="text-[10px] font-bold text-muted-foreground/60 uppercase">In Progress</span>
-                    <div className="p-2.5 bg-card border border-border/40 rounded-sm">
-                      <span className="font-semibold text-foreground">Submit iOS app for review</span>
-                      <span className="block text-[10px] text-muted-foreground mt-1">Mobile</span>
-                    </div>
-                    {/* Floating Progress panel */}
-                    <div className="absolute inset-x-2 bottom-2 p-3 bg-zinc-950 border border-white/[0.08] rounded-sm shadow-xl flex flex-col gap-1.5 font-mono text-[9px] text-zinc-500">
-                      <span className="text-[10px] font-bold text-white font-sans">Sprint Progress</span>
-                      <div className="flex justify-between">
-                        <span>Scope: 45</span>
-                        <span>Started: 6 · 13%</span>
-                        <span>Completed: 31 · 69%</span>
-                      </div>
-                      <div className="w-full bg-zinc-900 h-1.5 rounded-full overflow-hidden mt-1">
-                        <div className="bg-emerald-500 h-full w-[69%]" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </>
-            )}
-
-            {isAgencies && (
-              <>
-                <div className="flex items-center justify-between pb-4 border-b border-border/40">
-                  <span className="text-sm font-semibold text-foreground">Client Retainer Hub</span>
-                  <span className="text-[10px] bg-indigo-500/10 text-indigo-500 px-2 py-0.5 rounded-sm font-mono uppercase font-bold tracking-wide">Multi-Tenant</span>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="p-4 bg-secondary/30 border border-border/40 rounded-sm flex flex-col gap-3">
-                    <span className="text-[10px] font-bold text-muted-foreground/60 uppercase">Active Retainers</span>
-                    {["Acme Corp — Design retainer", "Globex Inc — Webflow dev", "Initech — Brand sprint"].map((client) => (
-                      <div key={client} className="p-2.5 bg-card border border-border/40 rounded-sm flex items-center justify-between">
-                        <span className="font-semibold text-foreground">{client}</span>
-                        <span className="text-[9px] bg-emerald-500/10 text-emerald-400 px-1.5 py-0.2 rounded-xs">On Track</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="p-4 bg-secondary/30 border border-border/40 rounded-sm flex flex-col gap-3 relative">
-                    <span className="text-[10px] font-bold text-muted-foreground/60 uppercase">Weekly Status summary</span>
-                    <div className="p-3 bg-zinc-950 border border-white/[0.08] rounded-sm text-[10px] text-zinc-400 flex flex-col gap-2 font-mono">
-                      <span className="text-white font-sans font-bold">AI Status Generator</span>
-                      <p className="leading-relaxed">
-                        &ldquo;Delivered 3 prototypes for Acme Corp, resolved 5 tickets for Globex, and updated Initech specifications.&rdquo;
-                      </p>
-                      <div className="flex items-center justify-between pt-2 border-t border-white/[0.05]">
-                        <span className="text-[9px]">Generate PDF report</span>
-                        <span className="text-[9px] bg-zinc-900 text-zinc-500 px-1.5 py-0.5 rounded-xs">Ready</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </>
-            )}
-
-            {isDevTeams && (
-              <>
-                <div className="flex items-center justify-between pb-4 border-b border-border/40">
-                  <span className="text-sm font-semibold text-foreground">Sprint Planning & Blocker Matrix</span>
-                  <span className="text-[10px] bg-rose-500/10 text-rose-500 px-2 py-0.5 rounded-sm font-mono uppercase font-bold tracking-wide">Validation active</span>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="p-4 bg-secondary/30 border border-border/40 rounded-sm flex flex-col gap-3">
-                    <span className="text-[10px] font-bold text-muted-foreground/60 uppercase">Blocker Verification</span>
-                    <div className="p-3 bg-card border border-border/40 rounded-sm flex flex-col gap-2 relative">
-                      <span className="font-semibold text-foreground">Deploy staging container cluster</span>
-                      <div className="flex items-center gap-1.5 text-[9px] text-rose-500">
-                        <span>Locked until schema migration completes</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="p-4 bg-secondary/30 border border-border/40 rounded-sm flex flex-col gap-3">
-                    <span className="text-[10px] font-bold text-muted-foreground/60 uppercase">Sentry Alert Integration</span>
-                    <div className="p-3 bg-zinc-950 border border-white/[0.08] rounded-sm text-[10px] text-zinc-400 flex flex-col gap-1.5 font-mono">
-                      <span className="text-rose-500 font-sans font-bold">Unresolved Sentry Issue</span>
-                      <span className="text-white font-semibold">TypeError: Cannot read property 'map' of undefined</span>
-                      <p className="text-[9px] text-zinc-500">Triggered in app/solutions/page.tsx:63</p>
-                      <span className="text-[9px] bg-rose-500/10 text-rose-400 px-1.5 py-0.5 rounded-xs w-fit">High Impact</span>
-                    </div>
-                  </div>
-                </div>
-              </>
-            )}
+          {/* Mockup Container — consistent with hero/features shadow + rounding */}
+          <div className="w-full mt-16 relative rounded-lg overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.22)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.52)]">
+            <div className="w-full relative">
+              {isStartups && (
+                <>
+                  <Image
+                    src="/mockups/light/Dashboard light.png"
+                    alt="KeilHQ for Startups"
+                    width={1600}
+                    height={1000}
+                    className="w-full h-auto object-cover object-top dark:hidden rounded-lg"
+                    priority
+                  />
+                  <Image
+                    src="/mockups/dark/Dashboard Dark.png"
+                    alt="KeilHQ for Startups"
+                    width={1600}
+                    height={1000}
+                    className="w-full h-auto object-cover object-top hidden dark:block rounded-lg"
+                    priority
+                  />
+                </>
+              )}
+              {isAgencies && (
+                <>
+                  <Image
+                    src="/mockups/light/Motion Share Light.png"
+                    alt="KeilHQ for Agencies"
+                    width={1600}
+                    height={1000}
+                    className="w-full h-auto object-cover object-top dark:hidden rounded-lg"
+                    priority
+                  />
+                  <Image
+                    src="/mockups/dark/Motion share dark.png"
+                    alt="KeilHQ for Agencies"
+                    width={1600}
+                    height={1000}
+                    className="w-full h-auto object-cover object-top hidden dark:block rounded-lg"
+                    priority
+                  />
+                </>
+              )}
+              {isDevTeams && (
+                <>
+                  <Image
+                    src="/mockups/light/Task Overview Light.png"
+                    alt="KeilHQ for Dev Teams"
+                    width={1600}
+                    height={1000}
+                    className="w-full h-auto object-cover object-top dark:hidden rounded-lg"
+                    priority
+                  />
+                  <Image
+                    src="/mockups/dark/Task Overview Dark.png"
+                    alt="KeilHQ for Dev Teams"
+                    width={1600}
+                    height={1000}
+                    className="w-full h-auto object-cover object-top hidden dark:block rounded-lg"
+                    priority
+                  />
+                </>
+              )}
+              {/* Subtle hairline edge-lit boundary */}
+              <div className="absolute inset-0 rounded-lg border border-zinc-200/5 dark:border-white/[0.03] pointer-events-none" />
+              
+              {/* Bottom shadow blend */}
+              <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background via-background/45 to-transparent pointer-events-none" />
+            </div>
           </div>
         </section>
 
