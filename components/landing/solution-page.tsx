@@ -234,7 +234,7 @@ export function SolutionPage({ content, ctaLabel }: SolutionPageProps) {
               <div className="absolute inset-0 rounded-lg border border-zinc-200/5 dark:border-white/[0.03] pointer-events-none" />
               
               {/* Bottom shadow blend */}
-              <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background via-background/45 to-transparent pointer-events-none" />
+              <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-background/80 via-background/20 to-transparent pointer-events-none" />
             </div>
           </div>
         </section>
@@ -256,13 +256,13 @@ export function SolutionPage({ content, ctaLabel }: SolutionPageProps) {
             <span className="text-[11px] font-bold text-muted-foreground/60 uppercase tracking-wider">
               {isStartups ? "Why startups love KeilHQ" : isAgencies ? "Why agencies love KeilHQ" : "Why dev teams love KeilHQ"}
             </span>
-            <h2 className="font-display text-[clamp(2rem,4.5vw,3.25rem)] font-semibold leading-[1.08] text-foreground">
+            <h2 className="font-sans text-[clamp(2rem,4vw,2.75rem)] font-medium tracking-[-0.03em] leading-[1.1] text-zinc-900 dark:text-[#F7F8F8]">
               {middleHeading}
             </h2>
           </div>
 
           <div className="flex flex-col gap-6 text-left">
-            <p className="text-[15px] text-muted-foreground leading-relaxed max-w-[45ch]">
+            <p className="text-[17px] lg:text-[18px] font-normal text-zinc-500 dark:text-[#8A8F98] leading-[1.55] max-w-[48ch]">
               {middleDesc}
             </p>
           </div>
@@ -294,10 +294,10 @@ export function SolutionPage({ content, ctaLabel }: SolutionPageProps) {
         <section className="max-w-[1200px] w-full mx-auto px-6 py-24 border-t border-border/40 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <div className="flex flex-col gap-6 text-left">
             <span className="text-[10px] font-bold text-muted-foreground/60 uppercase tracking-wider font-mono">Accelerator Program</span>
-            <h2 className="font-display text-[clamp(2.5rem,4vw,3.25rem)] font-semibold leading-[1.08] text-foreground tracking-tight">
+            <h2 className="font-sans text-[clamp(2rem,4vw,2.75rem)] font-medium tracking-[-0.03em] leading-[1.1] text-zinc-900 dark:text-[#F7F8F8]">
               {programTitle}
             </h2>
-            <p className="text-[15px] text-muted-foreground leading-relaxed max-w-md">
+            <p className="text-[17px] lg:text-[18px] font-normal text-zinc-500 dark:text-[#8A8F98] leading-[1.55] max-w-[48ch]">
               {programDesc}
             </p>
 
@@ -327,7 +327,7 @@ export function SolutionPage({ content, ctaLabel }: SolutionPageProps) {
         <section className="max-w-[1200px] w-full mx-auto px-6 py-24 border-t border-border/40 flex flex-col gap-12 text-left">
           <div className="flex flex-col gap-2">
             <span className="text-[10px] font-bold text-muted-foreground/60 uppercase tracking-wider font-mono">FAQs</span>
-            <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-semibold leading-[1.08] text-foreground tracking-tight">
+            <h2 className="font-sans text-[clamp(2rem,4vw,2.75rem)] font-medium tracking-[-0.03em] leading-[1.1] text-zinc-900 dark:text-[#F7F8F8]">
               Questions and answers
             </h2>
           </div>

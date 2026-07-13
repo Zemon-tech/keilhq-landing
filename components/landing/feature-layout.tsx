@@ -143,7 +143,7 @@ export function FeatureLayout({
 
           {/* Heading */}
           <h1
-            className="font-sans text-[clamp(2.5rem,5.5vw,4.25rem)] font-semibold tracking-[-0.03em] leading-[1.05] text-zinc-900 dark:text-[#F7F8F8] max-w-[1100px]"
+            className="font-sans text-[clamp(2.5rem,5.5vw,4.25rem)] font-medium tracking-[-0.03em] leading-[1.05] text-zinc-900 dark:text-[#F7F8F8] max-w-[1100px]"
             style={{ textWrap: "balance" }}
           >
             {title}
@@ -152,12 +152,12 @@ export function FeatureLayout({
           {/* Two column hook copy */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mt-4 pt-8 border-t border-zinc-200/50 dark:border-white/[0.05]">
             <div className="lg:col-span-4">
-              <h2 className="font-sans text-[20px] lg:text-[24px] font-semibold tracking-tight text-zinc-900 dark:text-[#F7F8F8] leading-tight">
+              <h2 className="font-sans text-[20px] lg:text-[24px] font-medium tracking-[-0.03em] text-zinc-900 dark:text-[#F7F8F8] leading-tight">
                 {subHeroTitle}
               </h2>
             </div>
             <div className="lg:col-span-8 flex flex-col gap-4">
-              <p className="text-[15px] font-normal leading-relaxed text-zinc-500 dark:text-[#8A8F98] max-w-[65ch]">
+              <p className="text-[17px] lg:text-[18px] font-normal leading-[1.55] text-zinc-500 dark:text-[#8A8F98] max-w-[65ch]">
                 {subHeroDesc}
               </p>
               {subHeroLink && (
@@ -179,7 +179,7 @@ export function FeatureLayout({
               <div className="absolute inset-0 rounded-lg border border-zinc-200/5 dark:border-white/[0.03] pointer-events-none" />
               
               {/* Bottom shadow blend */}
-              <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background via-background/45 to-transparent pointer-events-none" />
+              <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-background/80 via-background/20 to-transparent pointer-events-none" />
             </div>
           </div>
 
@@ -188,10 +188,10 @@ export function FeatureLayout({
         {/* ── SECTION 2: CAPABILITIES ── */}
         <section className="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 py-20 lg:py-28 xl:py-32 flex flex-col lg:flex-row gap-16 text-left border-t border-zinc-200/50 dark:border-white/[0.05]">
           <div className="w-full lg:w-1/3 shrink-0 flex flex-col gap-4">
-            <h2 className="font-sans text-[clamp(2rem,4vw,2.75rem)] font-semibold tracking-[-0.025em] leading-[1.08] text-zinc-900 dark:text-[#F7F8F8]">
+            <h2 className="font-sans text-[clamp(2rem,4vw,2.75rem)] font-medium tracking-[-0.03em] leading-[1.1] text-zinc-900 dark:text-[#F7F8F8]">
               {capabilitiesTitle}
             </h2>
-            <p className="text-[14px] text-zinc-500 dark:text-[#8A8F98] leading-relaxed max-w-[36ch]">
+            <p className="text-[15px] lg:text-[16px] text-zinc-500 dark:text-[#8A8F98] leading-[1.55] max-w-[36ch]">
               {capabilitiesDesc}
             </p>
           </div>
@@ -215,10 +215,10 @@ export function FeatureLayout({
         {/* ── SECTION 3: CHECKLIST ── */}
         <section className="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 py-20 lg:py-28 xl:py-32 flex flex-col lg:flex-row gap-16 text-left border-t border-zinc-200/50 dark:border-white/[0.05]">
           <div className="w-full lg:w-1/3 shrink-0">
-            <h2 className="font-sans text-[clamp(2rem,4vw,2.75rem)] font-semibold tracking-[-0.025em] leading-[1.08] text-zinc-900 dark:text-[#F7F8F8]">
+            <h2 className="font-sans text-[clamp(2rem,4vw,2.75rem)] font-medium tracking-[-0.03em] leading-[1.1] text-zinc-900 dark:text-[#F7F8F8]">
               {checklistTitle}
             </h2>
-            <p className="text-[14px] text-zinc-500 dark:text-[#8A8F98] leading-relaxed max-w-[36ch] mt-4">
+            <p className="text-[15px] lg:text-[16px] text-zinc-500 dark:text-[#8A8F98] leading-[1.55] max-w-[36ch] mt-4">
               {checklistDesc}
             </p>
           </div>

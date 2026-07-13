@@ -29,7 +29,7 @@ export function Hero() {
         {/* Copy Section */}
         <div className="max-w-[1100px] flex flex-col gap-6">
           <h1
-            className={`font-sans text-[clamp(2.5rem,5.5vw,4.5rem)] font-semibold tracking-[-0.03em] leading-[1.05] text-zinc-900 dark:text-[#F7F8F8] transition-all duration-1000 ${
+            className={`font-sans text-[clamp(2.5rem,5.5vw,4.5rem)] font-medium tracking-[-0.03em] leading-[1.05] text-zinc-900 dark:text-[#F7F8F8] transition-all duration-1000 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
             }`}
             style={{ textWrap: "balance" }}
@@ -113,7 +113,7 @@ export function Hero() {
             />
             
             {/* Bottom gradient fade to blend the mockup into the background */}
-            <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-background via-background/60 to-transparent pointer-events-none" />
+            <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-background/80 via-background/20 to-transparent pointer-events-none" />
           </div>
         </div>
 

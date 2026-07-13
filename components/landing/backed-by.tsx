@@ -140,12 +140,12 @@ export function BackedBy() {
         {/* ── A New Species Header ── */}
         <div className="max-w-[800px] flex flex-col gap-6 text-left">
           <h2 
-            className="font-sans text-[clamp(2rem,4vw,3rem)] font-semibold tracking-[-0.02em] leading-[1.1] text-zinc-900 dark:text-[#F7F8F8]"
+            className="font-sans text-[clamp(2rem,4vw,2.75rem)] font-medium tracking-[-0.03em] leading-[1.1] text-zinc-900 dark:text-[#F7F8F8]"
             style={{ textWrap: "balance" }}
           >
             A new species of product tool
           </h2>
-          <p className="text-[15px] sm:text-base font-normal tracking-[0.01em] text-zinc-500 dark:text-[#8A8F98] leading-relaxed max-w-[65ch]">
+          <p className="text-[17px] lg:text-[18px] font-normal text-zinc-500 dark:text-[#8A8F98] leading-[1.55] max-w-[65ch]">
             Purpose-built for modern teams with AI workflows at its core, KeilHQ sets a new standard for planning and building products.
           </p>
         </div>

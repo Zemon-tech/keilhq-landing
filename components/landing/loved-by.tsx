@@ -10,7 +10,7 @@ export function LovedBy() {
 
           {/* ── Left: heading + stat ── */}
           <div className="xl:w-[400px] shrink-0 flex flex-col gap-10 text-left">
-            <h2 className="font-sans text-[clamp(2.5rem,5vw,3.75rem)] font-semibold leading-[1.05] tracking-[-0.03em] text-zinc-900 dark:text-[#F7F8F8]">
+            <h2 className="font-sans text-[clamp(2.5rem,5vw,3.5rem)] font-medium leading-[1.1] tracking-[-0.03em] text-zinc-900 dark:text-[#F7F8F8]">
               Loved by<br />the best.
             </h2>
             <div className="flex flex-col gap-6">
