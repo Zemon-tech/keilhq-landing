@@ -4,7 +4,29 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
-export function Hero() {
+interface HeroProps {
+  heroTitle?: string;
+  heroSubtitle?: string;
+  heroCtaLabel?: string;
+  heroCtaLink?: string;
+  heroSecondaryCtaLabel?: string;
+  heroSecondaryCtaLink?: string;
+  announcementEnabled?: boolean;
+  announcementText?: string;
+  announcementLink?: string;
+}
+
+export function Hero({
+  heroTitle = "The product development system for teams and agents",
+  heroSubtitle = "Purpose-built for planning and building products. Designed for the AI era.",
+  heroCtaLabel = "Start free today",
+  heroCtaLink = "https://app.Keilhq.in/login",
+  heroSecondaryCtaLabel = "Book a demo",
+  heroSecondaryCtaLink = "/demo",
+  announcementEnabled = false,
+  announcementText = "New Coding Sessions",
+  announcementLink = "#",
+}: HeroProps) {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -34,7 +56,7 @@ export function Hero() {
             }`}
             style={{ textWrap: "balance" }}
           >
-            The product development system for teams and agents
+            {heroTitle}
           </h1>
 
           <div
@@ -43,15 +65,17 @@ export function Hero() {
             }`}
           >
             <p className="max-w-[65ch]">
-              Purpose-built for planning and building products. Designed for the AI era.
+              {heroSubtitle}
             </p>
-            <a
-              href="#"
-              className="inline-flex items-center gap-1 text-[13px] sm:text-sm font-medium text-zinc-900 dark:text-[#F7F8F8] hover:text-zinc-600 dark:hover:text-white transition-colors duration-150 shrink-0 group"
-            >
-              New Coding Sessions
-              <ArrowRight className="size-3.5 transition-transform duration-150 group-hover:translate-x-0.5" />
-            </a>
+            {announcementEnabled && announcementText && (
+              <a
+                href={announcementLink || "#"}
+                className="inline-flex items-center gap-1 text-[13px] sm:text-sm font-medium text-zinc-900 dark:text-[#F7F8F8] hover:text-zinc-600 dark:hover:text-white transition-colors duration-150 shrink-0 group"
+              >
+                {announcementText}
+                <ArrowRight className="size-3.5 transition-transform duration-150 group-hover:translate-x-0.5" />
+              </a>
+            )}
           </div>
 
           {/* Main CTA Buttons */}
@@ -60,28 +84,32 @@ export function Hero() {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
-            <a
-              href="https://app.Keilhq.in/login"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-sm bg-zinc-900 text-white dark:bg-[#F7F8F8] dark:text-zinc-950 text-[13px] font-semibold hover:bg-zinc-800 dark:hover:bg-white transition-all cursor-pointer shadow-sm active:scale-[0.97] w-full sm:w-auto justify-center"
-            >
-              Start free today
-              <ArrowRight
-                className="size-3.5"
-                aria-hidden="true"
-              />
-            </a>
-            <a
-              href="/demo"
-              className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-sm border border-zinc-200/60 dark:border-white/10 text-zinc-900 dark:text-[#F7F8F8] hover:bg-zinc-50 dark:hover:bg-white/[0.03] text-[13px] font-semibold transition-all cursor-pointer active:scale-[0.97] w-full sm:w-auto justify-center"
-            >
-              Book a demo
-              <ArrowRight
-                className="size-3.5 opacity-55"
-                aria-hidden="true"
-              />
-            </a>
+            {heroCtaLabel && heroCtaLink && (
+              <a
+                href={heroCtaLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-sm bg-zinc-900 text-white dark:bg-[#F7F8F8] dark:text-zinc-950 text-[13px] font-semibold hover:bg-zinc-800 dark:hover:bg-white transition-all cursor-pointer shadow-sm active:scale-[0.97] w-full sm:w-auto justify-center"
+              >
+                {heroCtaLabel}
+                <ArrowRight
+                  className="size-3.5"
+                  aria-hidden="true"
+                />
+              </a>
+            )}
+            {heroSecondaryCtaLabel && heroSecondaryCtaLink && (
+              <a
+                href={heroSecondaryCtaLink}
+                className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-sm border border-zinc-200/60 dark:border-white/10 text-zinc-900 dark:text-[#F7F8F8] hover:bg-zinc-50 dark:hover:bg-white/[0.03] text-[13px] font-semibold transition-all cursor-pointer active:scale-[0.97] w-full sm:w-auto justify-center"
+              >
+                {heroSecondaryCtaLabel}
+                <ArrowRight
+                  className="size-3.5 opacity-55"
+                  aria-hidden="true"
+                />
+              </a>
+            )}
           </div>
         </div>
 
@@ -97,7 +125,7 @@ export function Hero() {
           <div className="relative w-full rounded-lg overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.3)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.6)]">
             <Image
               src="/mockups/light/Dashboard.png"
-              alt="KeilHQ Smart Dashboard — AI-powered workspace"
+              alt={`${heroTitle} — AI-powered workspace`}
               width={1600}
               height={1000}
               className="w-full h-auto object-cover object-top dark:hidden rounded-lg"
@@ -105,7 +133,7 @@ export function Hero() {
             />
             <Image
               src="/mockups/dark/Dashboard.png"
-              alt="KeilHQ Smart Dashboard — AI-powered workspace"
+              alt={`${heroTitle} — AI-powered workspace`}
               width={1600}
               height={1000}
               className="w-full h-auto object-cover object-top hidden dark:block rounded-lg"

@@ -1,0 +1,28 @@
+{
+  "links": [
+    {
+      "label": "Features",
+      "href": "/features"
+    },
+    {
+      "label": "Solutions",
+      "href": "/solutions"
+    },
+    {
+      "label": "Pricing",
+      "href": "/pricing"
+    },
+    {
+      "label": "Company",
+      "href": "/company"
+    },
+    {
+      "label": "Blog",
+      "href": "/blog"
+    }
+  ],
+  "cta": {
+    "label": "Start Free",
+    "href": "https://app.Keilhq.in/login"
+  }
+}

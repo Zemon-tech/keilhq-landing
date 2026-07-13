@@ -1,0 +1,11 @@
+{
+  "siteName": "KeilHQ",
+  "tagline": "Clarity first. Execution follows.",
+  "logo": "/images/cms/globals/logo.svg",
+  "defaultSeoTitle": "KeilHQ — The Operating System for Teams That Ship",
+  "defaultSeoDescription": "Replace Slack, Asana, Notion, and your calendar chaos. KeilHQ is the one workspace where your team actually gets work done.",
+  "twitterUrl": "https://x.com",
+  "linkedinUrl": "https://linkedin.com",
+  "githubUrl": "https://github.com",
+  "contactEmail": "support@keilhq.com"
+}

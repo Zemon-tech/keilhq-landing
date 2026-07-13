@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
 // ─── Custom SVG Logos ────────────────────────────────────────────────────────
 const VercelLogo = () => (
@@ -118,7 +119,14 @@ const FigDesignedForSpeed = () => (
   </svg>
 );
 
-export function BackedBy() {
+interface BackedByProps {
+  logoCloud?: readonly {
+    readonly name: string;
+    readonly logo: string | null;
+  }[];
+}
+
+export function BackedBy({ logoCloud }: BackedByProps) {
   return (
     <section className="w-full bg-background flex flex-col items-center justify-center py-20 lg:py-28 xl:py-32">
       <div className="w-full max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 flex flex-col gap-24">
@@ -126,14 +134,34 @@ export function BackedBy() {
         {/* ── Partners Row ── */}
         <div className="w-full flex flex-col gap-8">
           <div className="w-full flex flex-wrap items-center justify-between gap-x-12 gap-y-6 opacity-75 dark:opacity-60">
-            <VercelLogo />
-            <CursorLogo />
-            <OscarLogo />
-            <OpenAILogo />
-            <CoinbaseLogo />
-            <CashAppLogo />
-            <BoomLogo />
-            <RampLogo />
+            {logoCloud && logoCloud.length > 0 ? (
+              logoCloud.map((partner) => (
+                <div key={partner.name} className="flex items-center gap-1.5 select-none h-[14px]">
+                  {partner.logo ? (
+                    <Image
+                      src={partner.logo}
+                      alt={partner.name}
+                      width={100}
+                      height={20}
+                      className="h-[14px] w-auto object-contain brightness-75 dark:brightness-100 dark:invert opacity-70 hover:opacity-100 transition-opacity"
+                    />
+                  ) : (
+                    <span className="text-[11px] font-bold tracking-widest uppercase text-zinc-400 dark:text-zinc-600 hover:text-zinc-900 dark:hover:text-[#F7F8F8] transition-colors">{partner.name}</span>
+                  )}
+                </div>
+              ))
+            ) : (
+              <>
+                <VercelLogo />
+                <CursorLogo />
+                <OscarLogo />
+                <OpenAILogo />
+                <CoinbaseLogo />
+                <CashAppLogo />
+                <BoomLogo />
+                <RampLogo />
+              </>
+            )}
           </div>
         </div>
 

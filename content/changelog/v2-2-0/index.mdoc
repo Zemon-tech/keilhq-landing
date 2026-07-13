@@ -1,0 +1,24 @@
+---
+title: v2.2.0 — Smart Dashboard Sprints
+version: v2.2.0
+releaseDate: 2026-03-10
+type: Improvement
+---
+
+Introducing Smart Dashboard priority buckets to segment work into Immediate, Today, Blocked, and Backlog piles. You can now prompt the AI assistant directly from the dashboard and lock tasks until block dependencies are fully resolved.
+
+### Improvements
+* Smart Dashboard priority buckets: Immediate, Today, Blocked, Backlog
+* Inline AI chat on the dashboard — ask what to tackle first
+* Task dependency blocking logic — tasks cannot be marked done if blockers are open
+* Derived Blocked state — automatically computed, no manual tagging
+
+### Fixes
+* Fixed infinite dependency loops from blocking states
+* Resolved dashboard metrics showing stale blocker percentages
+
+### API
+* Exposed blocker stats in workspace metrics endpoint
+
+### Shortcuts
+* Press Cmd/Ctrl D to refocus the Smart Dashboard dashboard

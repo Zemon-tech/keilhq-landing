@@ -1,230 +1,40 @@
-"use client";
-
-import React, { useState, useRef, use } from "react";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 import { Navbar } from "@/components/landing/navbar";
 import { Footer } from "@/components/landing/footer";
-import {
-  ArrowLeft,
-  Play,
-  Pause,
-  Volume2,
-  VolumeX,
-  Maximize,
-  Settings,
-  Sparkles,
-  Lock,
-} from "lucide-react";
+import { ArrowLeft } from "lucide-react";
+import { getBlogPost, getBlogPosts } from "@/lib/keystatic/blog";
+import { DocumentRenderer } from "@keystatic/core/renderer";
+import { VideoPlayer } from "./video-player";
 
-// Mock Database of Blog Posts content
-const articlesData: Record<
-  string,
-  {
-    tag: string;
-    title: string;
-    date: string;
-    readTime: string;
-    author: { name: string; role: string; avatar: string };
-    excerpt: string;
-    image: string;
+// Authors Mapping
+const authorDetailsMap: Record<string, { role: string; avatar: string }> = {
+  "Michael Sand": {
+    role: "Head of Marketing",
+    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=150&auto=format&fit=crop&crop=face"
+  },
+  "Jordan Lee": {
+    role: "Head of Design",
+    avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=150&auto=format&fit=crop&crop=face"
+  },
+  "Alex Rivera": {
+    role: "Co-founder & CEO",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop&crop=face"
+  },
+  "Priya Nair": {
+    role: "Co-founder & CTO",
+    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150&auto=format&fit=crop&crop=face"
+  },
+  "Sam Okafor": {
+    role: "Head of Engineering",
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=150&auto=format&fit=crop&crop=face"
+  },
+  "Leah Daniel": {
+    role: "Senior Software Engineer",
+    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=150&auto=format&fit=crop&crop=face"
   }
-> = {
-  "the-plan-behind-the-315": {
-    tag: "User Stories",
-    title: "The Plan Behind the 3:15",
-    date: "May 7, 2026",
-    readTime: "4 min read",
-    author: {
-      name: "Michael Sand",
-      role: "Head of Marketing",
-      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=150&auto=format&fit=crop&crop=face",
-    },
-    excerpt: "Maddie had a number to hit. Littlebird made the plan.",
-    image: "/mockups/blog1.png",
-  },
-  "what-meeting-notes-could-be": {
-    tag: "Productivity",
-    title: "What Meeting Notes Could Be",
-    date: "May 1, 2026",
-    readTime: "5 min read",
-    author: {
-      name: "Jordan Lee",
-      role: "Head of Design",
-      avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=150&auto=format&fit=crop&crop=face",
-    },
-    excerpt: "Why every meeting notes app feels like it's missing something.",
-    image: "/mockups/blog2.png",
-  },
-  "clarity-before-action": {
-    tag: "Product",
-    title: "Why clarity before action is the most important feature we ever built",
-    date: "May 20, 2026",
-    readTime: "5 min read",
-    author: {
-      name: "Alex Rivera",
-      role: "Co-founder & CEO",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop&crop=face",
-    },
-    excerpt: "Most task managers let you create a task called 'Fix the thing.' KeilHQ doesn't. Here's why the Clarity Engine changes everything about how teams execute.",
-    image: "/mockups/blog3.png",
-  },
-  "ai-that-knows-your-work": {
-    tag: "AI",
-    title: "KeilHQ AI isn't built on top of your work — it's built into it",
-    date: "May 5, 2026",
-    readTime: "6 min read",
-    author: {
-      name: "Priya Nair",
-      role: "Co-founder & CTO",
-      avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150&auto=format&fit=crop&crop=face",
-    },
-    excerpt: "Generic AI chatbots give generic advice. KeilHQ AI reads your actual tasks, workload, and sprint state before answering. Here's how it works.",
-    image: "/mockups/light/Tasks.png",
-  },
-  "meeting-transcription": {
-    tag: "Feature",
-    title: "Stop losing decisions after meetings — KeilHQ's recorder does the work",
-    date: "April 28, 2026",
-    readTime: "4 min read",
-    author: {
-      name: "Sam Okafor",
-      role: "Head of Engineering",
-      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=150&auto=format&fit=crop&crop=face",
-    },
-    excerpt: "The average team wastes 31 hours a month in unproductive meetings. KeilHQ ensures the decisions that come out of those meetings never disappear.",
-    image: "/mockups/light/Meeting.png",
-  },
-  "dependency-blocking": {
-    tag: "Product",
-    title: "Hard dependency blocking: why soft reminders weren't enough",
-    date: "April 14, 2026",
-    readTime: "5 min read",
-    author: {
-      name: "Alex Rivera",
-      role: "Co-founder & CEO",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop&crop=face",
-    },
-    excerpt: "We tried warning banners. We tried color coding. None of it worked. So we built hard blocking — tasks that literally cannot be completed until their blockers are resolved.",
-    image: "/mockups/light/Motion.png",
-  },
-  "smart-dashboard-design": {
-    tag: "Design",
-    title: "Designing a dashboard that tells you what to do next",
-    date: "March 30, 2026",
-    readTime: "7 min read",
-    author: {
-      name: "Jordan Lee",
-      role: "Head of Design",
-      avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=150&auto=format&fit=crop&crop=face",
-    },
-    excerpt: "The hardest part of building the Smart Dashboard wasn't the AI ranking — it was designing something that felt instant, obvious, and never overwhelming.",
-    image: "/mockups/light/Dashboard.png",
-  },
-};
-
-// Custom Video Player Component
-const VideoPlayer = ({ src, poster }: { src: string; poster: string }) => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(0);
-  const [isMuted, setIsMuted] = useState(false);
-
-  const togglePlay = () => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-      } else {
-        videoRef.current.play().catch(() => { });
-      }
-      setIsPlaying(!isPlaying);
-    }
-  };
-
-  const handleTimeUpdate = () => {
-    if (videoRef.current) {
-      setCurrentTime(videoRef.current.currentTime);
-    }
-  };
-
-  const handleLoadedMetadata = () => {
-    if (videoRef.current) {
-      setDuration(videoRef.current.duration);
-    }
-  };
-
-  const handleProgressChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const time = parseFloat(e.target.value);
-    if (videoRef.current) {
-      videoRef.current.currentTime = time;
-      setCurrentTime(time);
-    }
-  };
-
-  const toggleMute = () => {
-    if (videoRef.current) {
-      const nextMuted = !isMuted;
-      videoRef.current.muted = nextMuted;
-      setIsMuted(nextMuted);
-    }
-  };
-
-  const formatTime = (time: number) => {
-    const mins = Math.floor(time / 60);
-    const secs = Math.floor(time % 60);
-    return `${mins}:${secs < 10 ? "0" : ""}${secs}`;
-  };
-
-  return (
-    <div className="relative w-full rounded-md overflow-hidden bg-black aspect-[16/9] group/player border border-border/50 select-none">
-      <video
-        ref={videoRef}
-        src={src}
-        poster={poster}
-        onClick={togglePlay}
-        onTimeUpdate={handleTimeUpdate}
-        onLoadedMetadata={handleLoadedMetadata}
-        className="w-full h-full object-cover cursor-pointer"
-      />
-
-      {/* Control Overlay */}
-      <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col gap-2 transition-opacity duration-300 opacity-0 group-hover/player:opacity-100">
-
-        {/* Progress Slider */}
-        <input
-          type="range"
-          min={0}
-          max={duration || 100}
-          value={currentTime}
-          onChange={handleProgressChange}
-          className="w-full h-1 bg-white/30 rounded-lg appearance-none cursor-pointer accent-white"
-        />
-
-        {/* Buttons & Labels */}
-        <div className="flex items-center justify-between text-white text-xs mt-1">
-          <div className="flex items-center gap-3">
-            <button onClick={togglePlay} className="hover:text-zinc-300 transition-colors cursor-pointer active:scale-95">
-              {isPlaying ? <Pause className="size-4" /> : <Play className="size-4" fill="currentColor" />}
-            </button>
-            <span>{formatTime(currentTime)} / {formatTime(duration || 58)}</span>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <button onClick={toggleMute} className="hover:text-zinc-300 transition-colors cursor-pointer active:scale-95">
-              {isMuted ? <VolumeX className="size-4" /> : <Volume2 className="size-4" />}
-            </button>
-            <Settings className="size-4 text-zinc-300 cursor-pointer" />
-            <Maximize
-              onClick={() => videoRef.current?.requestFullscreen()}
-              className="size-4 text-zinc-300 cursor-pointer hover:text-white transition-colors"
-            />
-          </div>
-        </div>
-
-      </div>
-    </div>
-  );
 };
 
 // Chat Mockup Component 1
@@ -326,27 +136,54 @@ const ChatMockup2 = () => {
   );
 };
 
-export default function BlogPostPage({
+export async function generateStaticParams() {
+  const posts = await getBlogPosts();
+  return posts.map((post: any) => ({
+    slug: post.slug,
+  }));
+}
+
+export default async function BlogPostPage({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  const resolvedParams = use(params);
+  const resolvedParams = await params;
   const slug = resolvedParams.slug;
-  const post = articlesData[slug];
+  const postData = await getBlogPost(slug);
 
-  if (!post) {
-    return (
-      <div className="flex flex-col min-h-screen bg-background text-foreground">
-        <Navbar />
-        <main className="flex-1 flex flex-col items-center justify-center pt-28 lg:pt-32 pb-16 lg:pb-20 xl:pb-24">
-          <h1 className="font-display text-3xl font-semibold mb-4">Post Not Found</h1>
-          <Link href="/blog" className="text-sm underline">Back to Blog</Link>
-        </main>
-        <Footer />
-      </div>
-    );
+  if (!postData) {
+    notFound();
   }
+
+  // Get author details
+  const authorName = postData.author || "Unknown";
+  const authorInfo = authorDetailsMap[authorName] || {
+    role: "KeilHQ Team",
+    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=150&auto=format&fit=crop&crop=face"
+  };
+
+  const post = {
+    slug,
+    tag: postData.category || "Uncategorized",
+    title: postData.title || "",
+    excerpt: postData.excerpt || "",
+    date: postData.publishedDate ? new Date(postData.publishedDate).toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric"
+    }) : "",
+    image: postData.coverImage || "/mockups/blog1.png",
+    readTime: postData.readingTime || "5 min read",
+    author: {
+      name: authorName,
+      role: authorInfo.role,
+      avatar: authorInfo.avatar,
+    }
+  };
+
+  // Resolve content Markdoc AST
+  const contentAST = await postData.content();
 
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground select-text selection:bg-primary/10">
@@ -373,7 +210,7 @@ export default function BlogPostPage({
 
             {/* Author details */}
             <div className="flex items-center gap-3 mt-4 text-left">
-              <div className="size-10 rounded-full overflow-hidden bg-muted border border-border/50">
+              <div className="size-10 rounded-full overflow-hidden bg-muted border border-border/50 animate-pulse-subtle">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={post.author.avatar}
@@ -472,15 +309,9 @@ export default function BlogPostPage({
                   <p className="font-semibold text-zinc-900 dark:text-white text-lg">
                     {post.excerpt}
                   </p>
-                  <p>
-                    At KeilHQ, we believe in building software that makes work visible, unified, and actionable. Traditional tools create silos where decisions are lost in chat histories, sprint updates are manual, and documents have no relationship to active tasks.
-                  </p>
-                  <p>
-                    This article covers our core research and guidelines for how teams can streamline their delivery workflow. By integrating real-time calendars, contextual AI assistants, and hard blocking logic directly into the database level, we enforce clarity without sacrificing velocity.
-                  </p>
-                  <p>
-                    We will continue sharing updates, design documentation, and client success stories as we expand our integrations. Sign up for our newsletter to stay informed.
-                  </p>
+                  <div className="prose prose-zinc dark:prose-invert max-w-none text-[15px] leading-relaxed text-zinc-800 dark:text-zinc-200 flex flex-col gap-6">
+                    <DocumentRenderer document={contentAST || []} />
+                  </div>
                 </div>
 
               </div>

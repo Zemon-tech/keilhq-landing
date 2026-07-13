@@ -1,0 +1,136 @@
+{
+  "heroTitle": "The product development system for teams and agents",
+  "heroSubtitle": "Purpose-built for planning and building products. Designed for the AI era.",
+  "heroCtaLabel": "Start free today",
+  "heroCtaLink": "https://app.Keilhq.in/login",
+  "heroSecondaryCtaLabel": "Book a demo",
+  "heroSecondaryCtaLink": "/demo",
+  "announcementEnabled": true,
+  "announcementText": "New Coding Sessions",
+  "announcementLink": "#",
+  "logoCloud": [
+    {
+      "name": "Vercel"
+    },
+    {
+      "name": "Cursor"
+    },
+    {
+      "name": "Oscar"
+    },
+    {
+      "name": "OpenAI"
+    },
+    {
+      "name": "Coinbase"
+    },
+    {
+      "name": "Cash App"
+    },
+    {
+      "name": "Boom"
+    },
+    {
+      "name": "Ramp"
+    }
+  ],
+  "featureSections": [
+    {
+      "id": "smart-dashboard",
+      "badgeText": "Smart Dashboard",
+      "title": "Know exactly what to work on right now",
+      "description": "A 3D wheel picker cycles through six live cards — Current Focus, Blockers, Needs Reply, Next Event, Quick Capture, and Up Next — with urgent, reply, and queued stats plus a live clock.",
+      "lightImage": "/images/cms/homepage/featureSections/0/lightImage.png",
+      "darkImage": "/images/cms/homepage/featureSections/0/darkImage.png",
+      "alt": "KeilHQ Smart Dashboard"
+    },
+    {
+      "id": "ai-command-center",
+      "badgeText": "AI Command Center",
+      "title": "Your AI assistant that knows your workspace",
+      "description": "Built-in AI agents for task management, scheduling, GitHub integration, and web search. Chain-of-thought execution shows you exactly how decisions are made using your real data.",
+      "lightImage": "/images/cms/homepage/featureSections/1/lightImage.png",
+      "darkImage": "/images/cms/homepage/featureSections/1/darkImage.png",
+      "alt": "KeilHQ AI Command Center"
+    },
+    {
+      "id": "tasks",
+      "badgeText": "Task Management",
+      "title": "Tasks with clarity built in — not bolted on",
+      "description": "Built-in Objectives and Success Criteria on every task. Kanban, Gantt, and Calendar views with hard dependency blocking. Tasks cannot be marked done until their blockers are resolved.",
+      "lightImage": "/images/cms/homepage/featureSections/2/lightImage.png",
+      "darkImage": "/images/cms/homepage/featureSections/2/darkImage.png",
+      "alt": "KeilHQ Task Management"
+    },
+    {
+      "id": "motion",
+      "badgeText": "Motion — Docs & Notes",
+      "title": "Notion-quality docs, built right in",
+      "description": "Block-based rich-text editor with real-time collaborative editing, subpage hierarchies, cover images, and Notion sync. Full TipTap editor with slash commands and @mentions.",
+      "lightImage": "/images/cms/homepage/featureSections/3/lightImage.png",
+      "darkImage": "/images/cms/homepage/featureSections/3/darkImage.png",
+      "alt": "KeilHQ Motion Docs"
+    },
+    {
+      "id": "calendar-integration",
+      "badgeText": "Calendar & Scheduling",
+      "title": "Two-way Google Calendar sync with smart scheduling",
+      "description": "Tasks automatically become calendar events. AI scheduler finds free slots and auto-schedules your unscheduled tasks. Google Meet links generated automatically for events.",
+      "lightImage": "/images/cms/homepage/featureSections/4/lightImage.png",
+      "darkImage": "/images/cms/homepage/featureSections/4/darkImage.png",
+      "alt": "KeilHQ Calendar Integration"
+    },
+    {
+      "id": "chats",
+      "badgeText": "Team Chat",
+      "title": "Real-time chat that stays connected to your work",
+      "description": "Group channels, direct messages, and emoji reactions with real-time Socket.io delivery. Chat threads link directly to tasks, documents, and calendar events they describe.",
+      "lightImage": "/images/cms/homepage/featureSections/5/lightImage.png",
+      "darkImage": "/images/cms/homepage/featureSections/5/darkImage.png",
+      "alt": "KeilHQ Team Chat"
+    },
+    {
+      "id": "meeting-recorder",
+      "badgeText": "Meeting Recorder",
+      "title": "Stop losing what was decided in your last meeting",
+      "description": "Record audio with 5 visualizer styles, auto-transcribe with speaker diarization using Sarvam AI (23 Indian languages) or ElevenLabs. Turn decisions into tasks instantly.",
+      "lightImage": "/images/cms/homepage/featureSections/6/lightImage.png",
+      "darkImage": "/images/cms/homepage/featureSections/6/darkImage.png",
+      "alt": "KeilHQ Meeting Recorder"
+    },
+    {
+      "id": "integrations",
+      "badgeText": "Integrations",
+      "title": "Connect with your entire tech stack",
+      "description": "Native integrations with Google Workspace, GitHub, Notion, and more. OAuth connections for Calendar, Drive, Gmail, Meet, Docs, Sheets. GitHub agent creates issues from tasks.",
+      "lightImage": "/images/cms/homepage/featureSections/7/lightImage.png",
+      "darkImage": "/images/cms/homepage/featureSections/7/darkImage.png",
+      "alt": "KeilHQ Integrations"
+    },
+    {
+      "id": "notifications",
+      "badgeText": "Smart Notifications",
+      "title": "Stay in the loop without being overwhelmed",
+      "description": "Real-time WebSocket notifications with granular controls. Filter by type: Tasks, Mentions, Chat, System, Motion. Mark all read, per-type toggles, and unread badges throughout the UI.",
+      "lightImage": "/images/cms/homepage/featureSections/8/lightImage.png",
+      "darkImage": "/images/cms/homepage/featureSections/8/darkImage.png",
+      "alt": "KeilHQ Smart Notifications"
+    },
+    {
+      "id": "workspace",
+      "badgeText": "Workspace & Teams",
+      "title": "Orgs, spaces, and settings — built in",
+      "description": "Multi-tenant Org → Space architecture with sidebar navigation, org switcher, onboarding wizard, full settings dialog, keyboard shortcuts, and role-based permissions at every level.",
+      "lightImage": "/images/cms/homepage/featureSections/9/lightImage.png",
+      "darkImage": "/images/cms/homepage/featureSections/9/darkImage.png",
+      "alt": "KeilHQ Workspace"
+    }
+  ],
+  "finalCtaTitle": "Your team deserves a workspace that works.",
+  "finalCtaDescription": "Join 7,000+ teams who replaced their scattered stack with KeilHQ. Everything unified. AI that knows your work.",
+  "finalCtaButtonLabel": "Start free today",
+  "finalCtaButtonLink": "https://app.Keilhq.in/login",
+  "finalCtaSecondaryButtonLabel": "Book a demo",
+  "finalCtaSecondaryButtonLink": "/demo",
+  "finalCtaTrustText": "No credit card required · Cancel any time"
+}

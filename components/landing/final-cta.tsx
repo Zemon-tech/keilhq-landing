@@ -3,7 +3,25 @@
 import React, { useEffect, useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
 
-export function FinalCta() {
+interface FinalCtaProps {
+  finalCtaTitle?: string;
+  finalCtaDescription?: string;
+  finalCtaButtonLabel?: string;
+  finalCtaButtonLink?: string;
+  finalCtaSecondaryButtonLabel?: string;
+  finalCtaSecondaryButtonLink?: string;
+  finalCtaTrustText?: string;
+}
+
+export function FinalCta({
+  finalCtaTitle = "Your team deserves a workspace that works.",
+  finalCtaDescription = "Join 7,000+ teams who replaced their scattered stack with KeilHQ. Everything unified. AI that knows your work.",
+  finalCtaButtonLabel = "Start free today",
+  finalCtaButtonLink = "https://app.Keilhq.in/login",
+  finalCtaSecondaryButtonLabel = "Book a demo",
+  finalCtaSecondaryButtonLink = "/demo",
+  finalCtaTrustText = "No credit card required · Cancel any time",
+}: FinalCtaProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
@@ -37,55 +55,61 @@ export function FinalCta() {
             }`}
             style={{ textWrap: "balance" }}
           >
-            Your team deserves a workspace that works.
+            {finalCtaTitle}
           </h2>
           <p
             className={`text-[15px] font-normal text-zinc-500 dark:text-[#8A8F98] leading-relaxed max-w-[42ch] transition-all duration-1000 delay-100 ${
               visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
             }`}
           >
-            Join 7,000+ teams who replaced their scattered stack with KeilHQ. Everything unified. AI that knows your work.
+            {finalCtaDescription}
           </p>
         </div>
 
-        {/* CTAs — Small, clean buttons per style guide */}
+        {/* CTAs */}
         <div
           className={`flex flex-col sm:flex-row items-center gap-3 mt-2 transition-all duration-1000 delay-200 ${
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
           }`}
         >
-          <a
-            href="https://app.Keilhq.in/login"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-sm bg-zinc-900 text-white dark:bg-[#F7F8F8] dark:text-zinc-950 text-[13px] font-semibold hover:bg-zinc-800 dark:hover:bg-white transition-all cursor-pointer shadow-sm active:scale-[0.97] w-full sm:w-auto justify-center"
-          >
-            Start free today
-            <ArrowRight
-              className="size-3.5"
-              aria-hidden="true"
-            />
-          </a>
-          <a
-            href="/demo"
-            className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-sm border border-zinc-200/60 dark:border-white/10 text-zinc-900 dark:text-[#F7F8F8] hover:bg-zinc-50 dark:hover:bg-white/[0.03] text-[13px] font-semibold transition-all cursor-pointer active:scale-[0.97] w-full sm:w-auto justify-center"
-          >
-            Book a demo
-            <ArrowRight
-              className="size-3.5 opacity-55"
-              aria-hidden="true"
-            />
-          </a>
+          {finalCtaButtonLabel && finalCtaButtonLink && (
+            <a
+              href={finalCtaButtonLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-sm bg-zinc-900 text-white dark:bg-[#F7F8F8] dark:text-zinc-950 text-[13px] font-semibold hover:bg-zinc-800 dark:hover:bg-white transition-all cursor-pointer shadow-sm active:scale-[0.97] w-full sm:w-auto justify-center"
+            >
+              {finalCtaButtonLabel}
+              <ArrowRight
+                className="size-3.5"
+                aria-hidden="true"
+              />
+            </a>
+          )}
+          {finalCtaSecondaryButtonLabel && finalCtaSecondaryButtonLink && (
+            <a
+              href={finalCtaSecondaryButtonLink}
+              className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-sm border border-zinc-200/60 dark:border-white/10 text-zinc-900 dark:text-[#F7F8F8] hover:bg-zinc-50 dark:hover:bg-white/[0.03] text-[13px] font-semibold transition-all cursor-pointer active:scale-[0.97] w-full sm:w-auto justify-center"
+            >
+              {finalCtaSecondaryButtonLabel}
+              <ArrowRight
+                className="size-3.5 opacity-55"
+                aria-hidden="true"
+              />
+            </a>
+          )}
         </div>
 
         {/* Trust micro-copy */}
-        <p
-          className={`text-[11px] font-mono tracking-wider text-zinc-400 dark:text-zinc-600 transition-all duration-1000 delay-300 ${
-            visible ? "opacity-100" : "opacity-0"
-          }`}
-        >
-          No credit card required · Cancel any time
-        </p>
+        {finalCtaTrustText && (
+          <p
+            className={`text-[11px] font-mono tracking-wider text-zinc-400 dark:text-zinc-600 transition-all duration-1000 delay-300 ${
+              visible ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            {finalCtaTrustText}
+          </p>
+        )}
       </div>
     </section>
   );

@@ -23,13 +23,18 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "KeilHQ — The Operating System for Teams That Ship",
-  description: "Replace Slack, Asana, Notion, and your calendar chaos. KeilHQ is the one workspace where your team actually gets work done.",
-  icons: {
-    icon: "/keilhq-white.svg",
-  },
-};
+import { getSiteSettings } from "@/lib/keystatic/site-settings";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const siteSettings = await getSiteSettings();
+  return {
+    title: siteSettings?.defaultSeoTitle || "KeilHQ — The Operating System for Teams That Ship",
+    description: siteSettings?.defaultSeoDescription || "Replace Slack, Asana, Notion, and your calendar chaos. KeilHQ is the one workspace where your team actually gets work done.",
+    icons: {
+      icon: siteSettings?.logo || "/keilhq-white.svg",
+    },
+  };
+}
 
 export default function RootLayout({
   children,

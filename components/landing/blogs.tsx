@@ -12,34 +12,22 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-const blogPosts = [
-  {
-    id: 1,
-    slug: "the-plan-behind-the-315",
-    tag: "User Stories",
-    title: "The Plan Behind the 3:15",
-    date: "May 7, 2026",
-    image: "/mockups/blog1.png",
-  },
-  {
-    id: 2,
-    slug: "what-meeting-notes-could-be",
-    tag: "Productivity",
-    title: "What Meeting Notes Could Be",
-    date: "May 1, 2026",
-    image: "/mockups/blog2.png",
-  },
-  {
-    id: 3,
-    slug: "clarity-before-action",
-    tag: "Product",
-    title: "Why clarity before action is the most important feature we ever built",
-    date: "May 20, 2026",
-    image: "/mockups/blog3.png",
-  },
-];
+interface BlogPost {
+  id: number | string;
+  slug: string;
+  tag: string;
+  title: string;
+  date: string;
+  image: string;
+}
 
-export function Blogs() {
+interface BlogsProps {
+  posts: BlogPost[];
+}
+
+export function Blogs({ posts }: BlogsProps) {
+  const displayPosts = posts;
+
   return (
     <section className="w-full py-16 lg:py-24 xl:py-28 px-6 sm:px-8 lg:px-12 bg-background select-text">
       <div className="max-w-[1400px] mx-auto w-full">
@@ -76,7 +64,7 @@ export function Blogs() {
             <div className="hidden lg:block w-1/4 shrink-0" />
             <div className="w-full lg:w-3/4">
               <CarouselContent className="-ml-4 sm:-ml-6">
-                {blogPosts.map((post) => (
+                {displayPosts.map((post) => (
                   <CarouselItem key={post.id} className="pl-4 sm:pl-6 md:basis-1/2 lg:basis-1/2">
                     <Link href={`/blog/${post.slug}`} className="group cursor-pointer flex flex-col gap-4 select-none">
                       <div className="overflow-hidden rounded-sm bg-muted aspect-[1.6/1] relative border border-zinc-200/50 dark:border-white/[0.06]">

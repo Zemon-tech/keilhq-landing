@@ -1,0 +1,72 @@
+{
+  "columns": [
+    {
+      "title": "Product",
+      "links": [
+        {
+          "label": "Pricing",
+          "href": "/pricing"
+        },
+        {
+          "label": "FAQ",
+          "href": "/faq"
+        },
+        {
+          "label": "Privacy & Security",
+          "href": "/privacy-security"
+        },
+        {
+          "label": "Changelog",
+          "href": "/changelog"
+        }
+      ]
+    },
+    {
+      "title": "Features",
+      "links": [
+        {
+          "label": "Team Chat",
+          "href": "/features/team-chat"
+        },
+        {
+          "label": "Meeting Notes",
+          "href": "/features/meeting-recorder"
+        },
+        {
+          "label": "Dashboard",
+          "href": "/features/smart-dashboard"
+        },
+        {
+          "label": "Task Board",
+          "href": "/features/task-management"
+        }
+      ]
+    },
+    {
+      "title": "Company",
+      "links": [
+        {
+          "label": "About us",
+          "href": "/about"
+        },
+        {
+          "label": "Support",
+          "href": "/support"
+        },
+        {
+          "label": "Blog",
+          "href": "/blog"
+        },
+        {
+          "label": "Report a bug",
+          "href": "/report"
+        }
+      ]
+    }
+  ],
+  "copyright": "KeilHQ. All rights reserved. © 2026",
+  "twitterUrl": "https://x.com",
+  "instagramUrl": "https://instagram.com",
+  "linkedinUrl": "https://linkedin.com",
+  "youtubeUrl": "https://youtube.com"
+}
