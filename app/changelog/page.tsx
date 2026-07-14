@@ -233,7 +233,7 @@ export default function ChangelogPage() {
                       <div className="absolute inset-0 rounded-lg border border-zinc-200/5 dark:border-white/[0.03] pointer-events-none" />
                       
                       {/* Bottom shadow blend */}
-                      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background via-background/45 to-transparent pointer-events-none" />
+                      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-background/80 via-background/20 to-transparent pointer-events-none" />
                     </div>
                   </div>
 

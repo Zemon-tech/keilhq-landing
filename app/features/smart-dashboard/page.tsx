@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 import React from "react";
 import { FeatureLayout } from "@/components/landing/feature-layout";
 import { Layers, Sparkles, AlertTriangle, Calendar } from "lucide-react";
@@ -36,50 +38,24 @@ export default function SmartDashboardPage() {
   ];
 
   const mockup = (
-    <div className="w-full bg-[#08090A] p-6 sm:p-8 flex flex-col gap-6 text-left">
-      <div className="flex items-center justify-between pb-4 border-b border-white/[0.05]">
-        <span className="text-sm font-semibold text-zinc-900 dark:text-white">Dashboard Panel · Wheel Picker</span>
-        <div className="flex items-center gap-2">
-          <span className="text-[10px] bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded-sm font-mono uppercase font-bold tracking-wide">Live</span>
-          <span className="text-[11px] font-mono text-zinc-500">2:34 PM</span>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {/* Active wheel card */}
-        <div className="p-4 rounded-sm border border-indigo-500/30 bg-zinc-950/20 flex flex-col gap-2 shadow-2xs">
-          <span className="text-[10px] font-bold uppercase text-indigo-400 tracking-wider">Current Focus</span>
-          <span className="text-xs font-semibold text-zinc-300">Fix login bug — API token refresh</span>
-          <div className="flex items-center gap-2 mt-1">
-            <span className="text-[9px] px-1.5 py-0.5 bg-rose-500/10 text-rose-400 rounded-xs font-bold uppercase">Urgent</span>
-            <span className="text-[10px] text-zinc-500">Due tomorrow</span>
-          </div>
-        </div>
-
-        {/* Stats row */}
-        <div className="grid grid-cols-3 gap-2">
-          {[
-            { label: "Urgent", count: 3, className: "text-rose-400" },
-            { label: "Replies", count: 5, className: "text-blue-400" },
-            { label: "Queued", count: 8, className: "text-emerald-400" },
-          ].map((stat) => (
-            <div key={stat.label} className="p-3 rounded-sm border border-white/[0.05] bg-zinc-950/15 text-center">
-              <div className={`font-sans text-xl font-bold ${stat.className}`}>{stat.count}</div>
-              <div className="text-[9px] text-zinc-500 font-medium uppercase tracking-wider">{stat.label}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Other wheel cards */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-        {["Immediate Blockers", "Needs Reply", "Next Event", "Quick Capture", "Up Next"].map((card) => (
-          <div key={card} className="p-2.5 rounded-sm border border-white/[0.03] bg-zinc-950/10 text-[10px] font-medium text-zinc-500">
-            {card}
-          </div>
-        ))}
-      </div>
-    </div>
+    <>
+      <Image
+        src="/mockups/light/Dashboard light.png"
+        alt="Smart Dashboard"
+        width={1600}
+        height={1000}
+        className="w-full h-auto object-cover object-top dark:hidden rounded-lg"
+        priority
+      />
+      <Image
+        src="/mockups/dark/Dashboard Dark.png"
+        alt="Smart Dashboard"
+        width={1600}
+        height={1000}
+        className="w-full h-auto object-cover object-top hidden dark:block rounded-lg"
+        priority
+      />
+    </>
   );
 
   return (

@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 import React from "react";
 import { FeatureLayout } from "@/components/landing/feature-layout";
 import { Bell, Mail, Filter, ShieldAlert } from "lucide-react";
@@ -36,36 +38,24 @@ export default function NotificationsPage() {
   ];
 
   const mockup = (
-    <div className="w-full bg-[#08090A] p-6 flex flex-col gap-4 text-left">
-      <div className="flex items-center justify-between pb-3 border-b border-white/[0.05]">
-        <div className="flex items-center gap-2">
-          <Bell className="size-4 text-zinc-500" />
-          <span className="text-xs font-semibold text-zinc-300">Workspace Activity Log</span>
-        </div>
-        <span className="text-[10px] bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded-sm font-mono uppercase font-bold tracking-wide">Filtered</span>
-      </div>
-
-      {/* Feed items */}
-      <div className="flex flex-col gap-3 font-sans text-xs">
-        {/* Item 1 */}
-        <div className="p-3 bg-zinc-950/20 border border-white/[0.05] rounded-sm flex items-center justify-between gap-4 shadow-2xs">
-          <div className="flex flex-col gap-0.5">
-            <span className="font-semibold text-zinc-300">Priya Nair mentioned you in spec/sprint-4-specs.md</span>
-            <span className="text-[10px] text-zinc-500">&ldquo;Sam Okafor to verify migration script by Monday.&rdquo;</span>
-          </div>
-          <span className="text-[9px] bg-indigo-500/10 text-indigo-400 px-2 py-0.5 rounded-sm shrink-0 w-fit font-bold uppercase tracking-wider">Mention</span>
-        </div>
-
-        {/* Item 2 */}
-        <div className="p-3 bg-zinc-950/20 border border-white/[0.05] rounded-sm flex items-center justify-between gap-4 shadow-2xs">
-          <div className="flex flex-col gap-0.5">
-            <span className="font-semibold text-zinc-300">Task Completed: Configure SSL endpoints</span>
-            <span className="text-[10px] text-zinc-500">Completed by Luca Bianchi · Staging active</span>
-          </div>
-          <span className="text-[9px] bg-zinc-900 text-zinc-400 px-2 py-0.5 rounded-sm shrink-0 w-fit font-bold uppercase tracking-wider">Update</span>
-        </div>
-      </div>
-    </div>
+    <>
+      <Image
+        src="/mockups/light/Notifications Light.png"
+        alt="Smart Notifications"
+        width={1600}
+        height={1000}
+        className="w-full h-auto object-cover object-top dark:hidden rounded-lg"
+        priority
+      />
+      <Image
+        src="/mockups/dark/Notifications Dark.png"
+        alt="Smart Notifications"
+        width={1600}
+        height={1000}
+        className="w-full h-auto object-cover object-top hidden dark:block rounded-lg"
+        priority
+      />
+    </>
   );
 
   return (

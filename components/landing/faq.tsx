@@ -33,10 +33,10 @@ export function Faq() {
               Common Questions
             </span>
           </div>
-          <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-semibold leading-[1.1] text-foreground tracking-tight">
+          <h2 className="font-sans text-[clamp(2rem,4vw,2.75rem)] font-medium leading-[1.1] text-foreground tracking-[-0.03em]">
             Frequently Asked Questions
           </h2>
-          <p className="text-[15px] font-medium text-muted-foreground leading-relaxed max-w-[500px]">
+          <p className="text-[17px] lg:text-[18px] font-normal text-muted-foreground leading-[1.55] max-w-[500px]">
             Everything you need to know about KeilHQ, our pricing, and how we handle your data.
           </p>
         </div>

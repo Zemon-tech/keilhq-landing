@@ -97,7 +97,7 @@ export function IntegrationCloud() {
           <div className="flex items-center justify-between w-full mb-10 relative z-20">
             {/* Left: Copy Text */}
             <div className="max-w-xl text-left select-text pl-2">
-              <h2 className="font-display text-[clamp(1.75rem,3.5vw,2.75rem)] font-semibold leading-[1.1] text-zinc-900 dark:text-white" style={{ letterSpacing: "-0.025em", textWrap: "balance" } as React.CSSProperties}>
+              <h2 className="font-sans text-[clamp(1.75rem,3vw,2.5rem)] font-medium leading-[1.1] text-zinc-900 dark:text-white" style={{ letterSpacing: "-0.03em", textWrap: "balance" } as React.CSSProperties}>
                 KeilHQ lives in every app you already use.
               </h2>
             </div>

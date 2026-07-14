@@ -40,7 +40,7 @@ export function Blogs({ posts }: BlogsProps) {
           {/* Header with Title and Controls */}
           <div className="flex flex-col lg:flex-row lg:items-start justify-between mb-10 sm:mb-12">
             <div className="w-full lg:w-1/4 shrink-0">
-              <h2 className="font-sans text-[clamp(2rem,4vw,3rem)] leading-[1.08] font-semibold text-zinc-900 dark:text-[#F7F8F8] tracking-[-0.025em]">
+              <h2 className="font-sans text-[clamp(2rem,4vw,2.75rem)] leading-[1.1] font-medium text-zinc-900 dark:text-[#F7F8F8] tracking-[-0.03em]">
                 From the blog
               </h2>
             </div>
