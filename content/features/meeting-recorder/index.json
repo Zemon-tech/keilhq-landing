@@ -1,0 +1,43 @@
+{
+  "title": "meeting-recorder",
+  "eyebrowIndex": "7.0",
+  "eyebrowText": "Meeting Recorder",
+  "subHeroTitle": "Hands-off capture. Immediate specifications.",
+  "subHeroDesc": "Record conversations directly inside KeilHQ, transcribe discussions automatically with speaker diarization, and turn decisions into tasks in one click.",
+  "subHeroLink": "https://app.Keilhq.in/login",
+  "subHeroLinkText": "Try Meeting Recorder",
+  "lightImage": "/mockups/light/Meetings Light.png",
+  "darkImage": "/mockups/dark/Meetings Dark.png",
+  "capabilitiesTitle": "Hands-off capture. Immediate specs.",
+  "capabilitiesDesc": "KeilHQ uploads and transcribes meeting audio using high-fidelity pipelines, linking discussions directly to tasks.",
+  "capabilitiesGrid": [
+    {
+      "title": "Sarvam AI Transcription",
+      "desc": "Primary batch transcription powered by Sarvam AI (Saaras v3), optimized for 23 Indian languages + English.",
+      "iconName": "Mic"
+    },
+    {
+      "title": "AI Action Extraction",
+      "desc": "Automatically translates conversation notes into task cards, specifications, and action summaries with one click.",
+      "iconName": "Sparkles"
+    },
+    {
+      "title": "AWS S3 Storage",
+      "desc": "Upload audio clips securely to AWS S3 storage buckets with high-grade data encryption boundaries.",
+      "iconName": "Database"
+    },
+    {
+      "title": "Speaker Diarization",
+      "desc": "Diarization models automatically identify and assign spoken blocks to individual speakers.",
+      "iconName": "Search"
+    }
+  ],
+  "checklistTitle": "Make meetings actionable again",
+  "checklistDesc": "Eliminate manual documentation. Turn voice recordings directly into team deliverables.",
+  "checklistItems": [
+    "Record audio directly inside the app using the built-in frontend voice recorder.,",
+    "Multi-lingual auto-detection and transcription with ElevenLabs as fallback provider.,",
+    "Transcripts are stored, fully searchable, and tied to their respective project spaces.,",
+    "Ask KeilHQ AI to scan and summarize historical meeting records for quick references.,"
+  ]
+}

@@ -53,6 +53,34 @@ export default config({
                 }),
             },
         }),
+        press: collection({
+            label: 'Press & Social',
+            path: 'content/press/*/',
+            slugField: 'title',
+            format: { data: 'json' },
+            schema: {
+                title: fields.slug({ name: { label: 'Title / Caption' } }),
+                platform: fields.select({
+                    label: 'Platform',
+                    options: [
+                        { label: 'LinkedIn', value: 'linkedin' },
+                        { label: 'Instagram', value: 'instagram' },
+                        { label: 'X (Twitter)', value: 'x' },
+                        { label: 'News / Press', value: 'news' },
+                    ],
+                    defaultValue: 'linkedin',
+                }),
+                url: fields.text({ label: 'Post / Article URL' }),
+                thumbnail: fields.image({
+                    label: 'Thumbnail Image',
+                    directory: 'public/images/cms/press',
+                    publicPath: '/images/cms/press/',
+                }),
+                excerpt: fields.text({ label: 'Excerpt / Caption', multiline: true }),
+                publishedDate: fields.date({ label: 'Published Date' }),
+                featured: fields.checkbox({ label: 'Featured', defaultValue: false }),
+            },
+        }),
         changelog: collection({
             label: 'Changelog',
             path: 'content/changelog/*/',
@@ -71,12 +99,96 @@ export default config({
                     ],
                     defaultValue: 'New',
                 }),
+                image: fields.image({
+                    label: 'Mockup Image',
+                    directory: 'public/mockups/dark',
+                    publicPath: '/mockups/dark/',
+                }),
                 content: fields.document({
                     label: 'Content',
                     formatting: true,
                     links: true,
                     images: true
                 }),
+            },
+        }),
+        features: collection({
+            label: 'Features',
+            path: 'content/features/*/',
+            slugField: 'title',
+            format: { data: 'json' },
+            schema: {
+                title: fields.slug({ name: { label: 'Slug / Title' } }),
+                heroTitle: fields.text({ label: 'Page Heading (H1)' }),
+                eyebrowIndex: fields.text({ label: 'Index (e.g. 2.0)' }),
+                eyebrowText: fields.text({ label: 'Eyebrow Text' }),
+                lightImage: fields.image({
+                    label: 'Light-mode Mockup Image',
+                    directory: 'public/images/cms/features',
+                    publicPath: '/images/cms/features/',
+                }),
+                darkImage: fields.image({
+                    label: 'Dark-mode Mockup Image',
+                    directory: 'public/images/cms/features',
+                    publicPath: '/images/cms/features/',
+                }),
+                subHeroTitle: fields.text({ label: 'Sub-hero Title' }),
+                subHeroDesc: fields.text({ label: 'Sub-hero Description', multiline: true }),
+                subHeroLink: fields.text({ label: 'Sub-hero CTA Link' }),
+                subHeroLinkText: fields.text({ label: 'Sub-hero CTA Label' }),
+                capabilitiesTitle: fields.text({ label: 'Capabilities Section Title' }),
+                capabilitiesDesc: fields.text({ label: 'Capabilities Section Description', multiline: true }),
+                capabilitiesGrid: fields.array(
+                    fields.object({
+                        title: fields.text({ label: 'Capability Title' }),
+                        desc: fields.text({ label: 'Capability Description', multiline: true }),
+                        iconName: fields.text({ label: 'Icon Name (Lucide icon, e.g. Layers)' }),
+                    }),
+                    {
+                        label: 'Capabilities Grid',
+                        itemLabel: (item) => item.fields.title.value || 'Capability',
+                    }
+                ),
+                checklistTitle: fields.text({ label: 'Checklist Section Title' }),
+                checklistDesc: fields.text({ label: 'Checklist Section Description', multiline: true }),
+                checklistItems: fields.array(
+                    fields.text({ label: 'Checklist Item' }),
+                    {
+                        label: 'Checklist Items',
+                        itemLabel: (props) => props.value || 'Item',
+                    }
+                ),
+            },
+        }),
+        solutions: collection({
+            label: 'Solutions',
+            path: 'content/solutions/*/',
+            slugField: 'title',
+            format: { data: 'json' },
+            schema: {
+                title: fields.slug({ name: { label: 'Slug / Title' } }),
+                eyebrow: fields.text({ label: 'Eyebrow Label (e.g. Solutions · Agencies)' }),
+                persona: fields.text({ label: 'Persona Description', multiline: true }),
+                sprawlHeading: fields.text({ label: 'Sprawl Section Heading' }),
+                sprawlBullets: fields.array(
+                    fields.text({ label: 'Bullet' }),
+                    {
+                        label: 'Sprawl Bullets',
+                        itemLabel: (props) => props.value || 'Bullet',
+                    }
+                ),
+                sprawlResearch: fields.text({ label: 'Research Note', multiline: true }),
+                withKeilhqHeading: fields.text({ label: 'With KeilHQ Section Heading' }),
+                withKeilhqIntro: fields.text({ label: 'Intro Paragraph', multiline: true }),
+                withKeilhqBenefits: fields.array(
+                    fields.text({ label: 'Benefit' }),
+                    {
+                        label: 'Benefits',
+                        itemLabel: (props) => props.value || 'Benefit',
+                    }
+                ),
+                withKeilhqQuote: fields.text({ label: 'Pull Quote', multiline: true }),
+                withKeilhqAttribution: fields.text({ label: 'Quote Attribution' }),
             },
         }),
     },

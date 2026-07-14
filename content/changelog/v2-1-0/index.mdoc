@@ -1,0 +1,27 @@
+---
+title: v2.1.0 — Real-time Socket Delivery
+version: v2.1.0
+releaseDate: 2026-02-03
+type: New
+---
+
+This release delivers real-time updates across all workspaces via WebSocket. Task state changes, comments, and status transitions now propagate instantly to every connected team member with no page refresh required. We've also shipped a live notification center and a persistent presence indicator.
+
+### Improvements
+* Real-time task updates over WebSocket — no more stale states
+* Live presence indicators show who is viewing the same task or doc
+* Notification center now streams alerts in real time
+* Optimistic UI updates for task status changes — feels instant even on slow connections
+* Automatic reconnect logic with exponential backoff on disconnect
+
+### Fixes
+* Fixed race condition where two simultaneous edits could overwrite each other
+* Resolved phantom unread counts after switching workspaces
+* Fixed WebSocket auth token expiry causing silent disconnects
+
+### API
+* New `/events` streaming endpoint for real-time task and comment webhooks
+* Added `X-Socket-Session-ID` header to all WebSocket handshake responses
+
+### Shortcuts
+* Press N to open the notification center from anywhere in the app

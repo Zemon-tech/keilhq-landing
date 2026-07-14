@@ -1,0 +1,22 @@
+{
+  "eyebrow": "Solutions · Startups",
+  "title": "startups",
+  "persona": "Founder, 6-person early-stage startup, pre-Series A",
+  "sprawlHeading": "The sprawl",
+  "sprawlBullets": [
+    "Product decisions made in Google Meet calls with no consistent notes",
+    "Roadmap living half in Notion, half in a founder's head",
+    "Investor updates drafted from memory instead of from what actually shipped",
+    "Slack threads holding decisions that never make it into docs"
+  ],
+  "sprawlResearch": "Knowledge workers spend an average of 60% of their time on \"work about work\" — chasing updates, attending status meetings, and switching tools — leaving a small early team with even less room to also play archivist.²",
+  "withKeilhqHeading": "With KeilHQ",
+  "withKeilhqIntro": "Most AI tools wait for a question. KeilHQ doesn't. It stitches together calendar, Meet transcripts, Slack, and docs into a live organizational memory layer — so the moment something changes, KeilHQ already knows, and surfaces it before anyone has to ask.",
+  "withKeilhqBenefits": [
+    "Decisions made on a call are captured without anyone owning \"notes\"",
+    "Investor updates draft themselves from what actually happened that month, not from memory",
+    "New hires get caught up without three onboarding calls"
+  ],
+  "withKeilhqQuote": "Most of our decisions are made dynamically. KeilHQ is the first tool that captures the context automatically.",
+  "withKeilhqAttribution": "Representative founder scenario"
+}

@@ -1,0 +1,9 @@
+{
+  "title": "how-we-built-speaker-diarization",
+  "platform": "x",
+  "url": "https://x.com/keilhq",
+  "thumbnail": null,
+  "excerpt": "Speaker diarization in meeting recorder — who said what, exactly. Built on top of Whisper with a custom segmentation layer. Thread on how we did it. 🧵",
+  "publishedDate": "2026-06-15",
+  "featured": false
+}

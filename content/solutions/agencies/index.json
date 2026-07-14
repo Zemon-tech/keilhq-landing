@@ -1,0 +1,22 @@
+{
+  "eyebrow": "Solutions · Agencies",
+  "title": "agencies",
+  "persona": "Ops lead, 12-person digital agency, three live retainers and two project sprints",
+  "sprawlHeading": "The sprawl",
+  "sprawlBullets": [
+    "Client briefs in Notion, scattered across five different workspaces",
+    "Status updates in Slack, one channel per client",
+    "Deliverables tracked in Jira for two clients, spreadsheets for the rest",
+    "Deadlines confirmed over email and never copied anywhere else"
+  ],
+  "sprawlResearch": "Agencies report that waiting on client responses and reconciling status across tools are consistently ranked among their top operational pain points — and unintegrated tools mean the same update gets re-confirmed in three places before it's trusted.⁴",
+  "withKeilhqHeading": "With KeilHQ",
+  "withKeilhqIntro": "KeilHQ pulls live context from each client's Slack channel, Notion brief, and task tracker into one organizational memory layer. Instead of hunting for what changed, the ops lead opens KeilHQ and gets surfaced what needs attention.",
+  "withKeilhqBenefits": [
+    "One view across all five client workstreams instead of five separate logins",
+    "Deadline conflicts surfaced automatically before they become fire drills",
+    "New account managers ramp into a client's context in hours, not weeks"
+  ],
+  "withKeilhqQuote": "I stopped reconstructing context every Monday. The thing I used to spend ninety minutes piecing together, I just get told.",
+  "withKeilhqAttribution": "Representative ops-lead scenario"
+}

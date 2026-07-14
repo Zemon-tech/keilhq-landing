@@ -1,0 +1,23 @@
+{
+  "eyebrow": "Solutions · Dev Teams",
+  "title": "dev-teams",
+  "persona": "Engineering lead, 8-person distributed dev team",
+  "sprawlHeading": "The sprawl",
+  "sprawlBullets": [
+    "Tickets in Jira, technical decisions buried in Slack threads",
+    "Dependencies tracked nowhere — discovered the hard way mid-sprint",
+    "Design specs in Docs, API contracts in Sheets, none cross-linked",
+    "Standups spent re-explaining context that was discussed last week"
+  ],
+  "sprawlResearch": "Engineering teams report that strategic decisions get lost across chat threads and siloed docs — so finding \"the why behind the what\" can take hours, and tool-switching alone is estimated to cost teams over 44 hours per employee per year.",
+  "withKeilhqHeading": "With KeilHQ",
+  "withKeilhqIntro": "Most tools wait for someone to go looking — open Jira, dig through Slack, hope the right doc surfaces. KeilHQ doesn't wait. It already links the ticket to the thread where the decision was made and the spec it depends on, so the blocker shows up before sprint planning starts, not mid-sprint when it's expensive.",
+  "withKeilhqBenefits": [
+    "Dependencies between tickets surfaced before sprint commitment, not after",
+    "\"Why did we decide this\" answered automatically by linked context, not by memory",
+    "Standups spend time on what's next, not on re-explaining what already happened",
+    "New engineers inherit the reasoning behind a ticket, not just the ticket"
+  ],
+  "withKeilhqQuote": "Jira told us what was due. It never told us why. KeilHQ is the first tool that surfaces the why before we even ask.",
+  "withKeilhqAttribution": "Representative engineering-lead scenario"
+}

@@ -5,9 +5,11 @@ import Link from "next/link";
 import { Navbar } from "@/components/landing/navbar";
 import { Footer } from "@/components/landing/footer";
 import { ArrowRight, Check } from "lucide-react";
+import * as LucideIcons from "lucide-react";
+
 
 interface Capability {
-  icon: React.ComponentType<{ className?: string }>;
+  iconName: string;
   title: string;
   desc: string;
 }
@@ -198,17 +200,20 @@ export function FeatureLayout({
 
           {/* Capabilities Grid (4 clean top-border cards) */}
           <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-12">
-            {capabilitiesGrid.map((item, idx) => (
-              <div key={idx} className="pt-6 border-t border-zinc-200/50 dark:border-white/[0.05] flex flex-col gap-3">
-                <div className="flex items-center gap-2 text-zinc-900 dark:text-[#F7F8F8]">
-                  <item.icon className="size-4" />
-                  <h3 className="font-sans text-sm font-semibold tracking-tight uppercase">{item.title}</h3>
+            {capabilitiesGrid.map((item, idx) => {
+              const IconComponent = (LucideIcons as any)[item.iconName] || LucideIcons.Sparkles;
+              return (
+                <div key={idx} className="pt-6 border-t border-zinc-200/50 dark:border-white/[0.05] flex flex-col gap-3">
+                  <div className="flex items-center gap-2 text-zinc-900 dark:text-[#F7F8F8]">
+                    <IconComponent className="size-4" />
+                    <h3 className="font-sans text-sm font-semibold tracking-tight uppercase">{item.title}</h3>
+                  </div>
+                  <p className="text-[13px] text-zinc-500 dark:text-[#8A8F98] leading-relaxed">
+                    {item.desc}
+                  </p>
                 </div>
-                <p className="text-[13px] text-zinc-500 dark:text-[#8A8F98] leading-relaxed">
-                  {item.desc}
-                </p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </section>
 
