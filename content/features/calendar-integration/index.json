@@ -1,0 +1,43 @@
+{
+  "title": "calendar-integration",
+  "eyebrowIndex": "5.0",
+  "eyebrowText": "Smart Calendar",
+  "subHeroTitle": "Your tasks, meetings, and availability in one unified view",
+  "subHeroDesc": "Tasks automatically become calendar events. The AI scheduler finds free slots and auto-schedules your tasks based on priority and availability. Google Meet links are generated automatically.",
+  "subHeroLink": "https://app.Keilhq.in/login",
+  "subHeroLinkText": "Try Smart Calendar",
+  "lightImage": "/mockups/light/Calendar overview Light.png",
+  "darkImage": "/mockups/dark/Calendar Overview Dark.png",
+  "capabilitiesTitle": "Unified scheduling. Seamless sync.",
+  "capabilitiesDesc": "KeilHQ integrates deeply with Google Calendar to provide unified time management across tasks and meetings.",
+  "capabilitiesGrid": [
+    {
+      "title": "Two-way Sync",
+      "desc": "Tasks with dates automatically become Google Calendar events. GCal events appear in KeilHQ calendar view with full details.",
+      "iconName": "RefreshCw"
+    },
+    {
+      "title": "Smart Scheduling",
+      "desc": "AI scheduler analyzes your calendar, finds free slots, and auto-schedules unscheduled tasks based on priority and time estimates.",
+      "iconName": "Clock"
+    },
+    {
+      "title": "Google Meet Integration",
+      "desc": "Toggle \\",
+      "iconName": "Video"
+    },
+    {
+      "title": "Event Details",
+      "desc": "Rich event creation with location, agenda, guest lists, and event types. All data syncs bidirectionally with Google Calendar.",
+      "iconName": "MapPin"
+    }
+  ],
+  "checklistTitle": "One calendar. Complete visibility.",
+  "checklistDesc": "See your tasks, meetings, and availability in one unified view. Never double-book or miss a deadline again.",
+  "checklistItems": [
+    "Multiple view modes: monthly calendar, weekly timeline, and daily agenda with drag-to-select date ranges.,",
+    "Click any day to create tasks or events with that date pre-filled for rapid scheduling.,",
+    "Event detail pane shows overview, activity comments, and full Google Calendar integration status.,",
+    "Manual sync button plus automatic background sync ensures your calendar is always up to date.,"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "title": "docs-notes",
+  "eyebrowIndex": "4.0",
+  "eyebrowText": "Motion Docs",
+  "subHeroTitle": "Keyboard-first document editor connected to active sprints",
+  "subHeroDesc": "Meet Motion. KeilHQ's native keyboard-first document editor connects your team's knowledge base directly to active sprints, tasks, and discussions. Embed references, tag blocks, and edit concurrently.",
+  "subHeroLink": "https://app.Keilhq.in/login",
+  "subHeroLinkText": "Try Motion Docs",
+  "lightImage": "/mockups/light/Motion Light.png",
+  "darkImage": "/mockups/dark/Motion Dark.png",
+  "capabilitiesTitle": "Connected knowledge. Actionable details.",
+  "capabilitiesDesc": "Forget isolated documentation silos. Motion integrates rich-text block editing directly to active tasks and space permissions.",
+  "capabilitiesGrid": [
+    {
+      "title": "Block Editor",
+      "desc": "Keyboard-first editor supporting text, headings, code blocks, toggles, callouts, and cover images (built on TipTap).",
+      "iconName": "Heading1"
+    },
+    {
+      "title": "Socket Collaboration",
+      "desc": "Edit documents simultaneously with team members in real-time, backed by Socket.io and active cursor tracking.",
+      "iconName": "Sparkles"
+    },
+    {
+      "title": "Notion Sync",
+      "desc": "OAuth or token connections let you import Notion pages, export Motion files, and sync content bidirectionally.",
+      "iconName": "Link2"
+    },
+    {
+      "title": "Nested Hierarchies",
+      "desc": "Build complete, organized team directories using cover images, emojis, and deep subpage directory trees.",
+      "iconName": "FolderKanban"
+    }
+  ],
+  "checklistTitle": "Keep your workspace fully aligned",
+  "checklistDesc": "Unify product specifications, team guides, and meeting transcripts inside one integrated knowledge canvas.",
+  "checklistItems": [
+    "Write comfortably with customized full-width or compact small-text layouts.,",
+    "Discuss specifications directly via comment threads attached to individual document blocks.,",
+    "Lock pages to read-only state when final specs and project blueprints are signed off.,",
+    "Configure cross-space sharing boundaries to grant view or edit permissions to other spaces.,"
+  ]
+}

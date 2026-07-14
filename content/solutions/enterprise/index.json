@@ -1,0 +1,22 @@
+{
+  "eyebrow": "Solutions · Enterprise",
+  "title": "enterprise",
+  "persona": "VP of Product / Head of Engineering, 100+ seats, enterprise infrastructure",
+  "sprawlHeading": "The sprawl",
+  "sprawlBullets": [
+    "Multiple Slack workspaces and fragmented task tracking across product lines",
+    "Context and decisions buried in siloed docs and private channels",
+    "Legacy trackers failing to align teams and emerging AI coding agents",
+    "Security compliance gaps with no unified audit trails across platforms"
+  ],
+  "sprawlResearch": "Enterprises report that lack of unified context is the primary blocker to safe and effective AI agent adoption — leaving EPD teams struggling to coordinate human and machine workflows.⁹",
+  "withKeilhqHeading": "With KeilHQ",
+  "withKeilhqIntro": "KeilHQ provides a shared product development system where teams and agents work from the same context, priorities, and structure. Our enterprise-grade platform links every Slack thread, Jira ticket, and Notion brief to ensure unified operations.",
+  "withKeilhqBenefits": [
+    "Centralised organizational memory layer spanning teams and agents",
+    "SSO/SAML, advanced RBAC, and SOC 2 compliance built-in",
+    "99.9% uptime SLA and dedicated customer success from day one"
+  ],
+  "withKeilhqQuote": "We migrated 300 engineers off Jira in six weeks. KeilHQ gave us a single, clean audit trail across all human and AI agent actions.",
+  "withKeilhqAttribution": "Representative VP of Product scenario"
+}

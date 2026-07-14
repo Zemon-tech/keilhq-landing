@@ -1,0 +1,43 @@
+{
+  "title": "task-management",
+  "eyebrowIndex": "3.0",
+  "eyebrowText": "Task Management",
+  "subHeroTitle": "Database-level blocker requirements and strict sprint state",
+  "subHeroDesc": "Plan, track, and complete tasks with strict blocker validation and native sprint structures that prevent unfinished items from sliding by.",
+  "subHeroLink": "https://app.Keilhq.in/login",
+  "subHeroLinkText": "Try Task Management",
+  "lightImage": "/mockups/light/Dashboard light.png",
+  "darkImage": "/mockups/dark/Dashboard Dark.png",
+  "capabilitiesTitle": "The Clarity Engine. Enforced progress.",
+  "capabilitiesDesc": "KeilHQ eliminates vague task lists at the database schema level so you can rest assured execution matches design specs.",
+  "capabilitiesGrid": [
+    {
+      "title": "Clarity Engine",
+      "desc": "Every task has built-in Objectives and Success Criteria fields to define \\",
+      "iconName": "Sparkles"
+    },
+    {
+      "title": "Blocker Logic",
+      "desc": "Prevent tasks from being completed until their pre-selected dependency prerequisites are marked done.",
+      "iconName": "Lock"
+    },
+    {
+      "title": "Task Hierarchies",
+      "desc": "Organize work with parent-child task relationships to break complex epics into infinitely nested subtasks.",
+      "iconName": "Layers"
+    },
+    {
+      "title": "Derived Statuses",
+      "desc": "Task states automatically compute to \\",
+      "iconName": "Grid"
+    }
+  ],
+  "checklistTitle": "Designed for high-speed engineering teams",
+  "checklistDesc": "Unify workflows, switch context-free between layouts, and track exact changes with comprehensive audit logs.",
+  "checklistItems": [
+    "Switch seamlessly between Kanban Boards, Gantt Timelines, and shared team Calendars.,",
+    "Organize tasks through 4 workflow states (Backlog, To Do, In Progress, Done) and 4 priority levels (Low, Medium, High, Urgent).,",
+    "Assign work to multiple team members and collaborate using threaded comments with nested replies.,",
+    "Export complete task history audit trails and share progress externally using public links with no login required.,"
+  ]
+}

@@ -3,6 +3,7 @@ import { getReader } from './reader';
 
 function getNodeText(node: any): string {
   if (!node) return '';
+  if (typeof node.text === 'string') return node.text;
   if (node.type === 'text') return node.value || '';
   if (node.children) {
     return node.children.map(getNodeText).join('');
@@ -18,10 +19,7 @@ export const getChangelogs = cache(async () => {
   const entries = [];
   for (const item of allChangelogs) {
     const { slug, entry } = item;
-    const { node } = await entry.content();
-    
-    // Parse AST children
-    const children = node.children || [];
+    const children = await entry.content();
     
     // Summary consists of children until the first heading
     const firstHeadingIndex = children.findIndex((child: any) => child.type === 'heading');
@@ -29,7 +27,7 @@ export const getChangelogs = cache(async () => {
     
     // Construct summary Markdoc node
     const summaryNode = {
-      ...node,
+      type: 'document',
       children: summaryChildren,
     };
     
@@ -45,7 +43,7 @@ export const getChangelogs = cache(async () => {
         const headingText = child.children ? child.children.map(getNodeText).join('').toLowerCase() : '';
         const nextChild = children[i + 1];
         
-        if (nextChild && nextChild.type === 'list') {
+        if (nextChild && (nextChild.type === 'unordered-list' || nextChild.type === 'ordered-list' || nextChild.type === 'list')) {
           const listItems = nextChild.children || [];
           const itemsText = listItems.map((li: any) => getNodeText(li).trim()).filter(Boolean);
           
@@ -85,11 +83,14 @@ export const getChangelogs = cache(async () => {
     });
     
     // Mockup mapping based on slug
-    let mockup = '/mockups/dark/Dashboard.png';
-    if (slug.includes('v2-4-0')) mockup = '/mockups/dark/Meeting.png';
-    else if (slug.includes('v2-3-0')) mockup = '/mockups/dark/Motion.png';
-    else if (slug.includes('v2-2-0')) mockup = '/mockups/dark/Dashboard.png';
-    else if (slug.includes('v2-1-0')) mockup = '/mockups/dark/Tasks.png';
+    let mockup = entry.image;
+    if (!mockup) {
+      if (slug.includes('v2-4-0')) mockup = '/mockups/dark/Meetings Dark.png';
+      else if (slug.includes('v2-3-0')) mockup = '/mockups/dark/Motion Dark.png';
+      else if (slug.includes('v2-2-0')) mockup = '/mockups/dark/Dashboard Dark.png';
+      else if (slug.includes('v2-1-0')) mockup = '/mockups/dark/Task Overview Dark.png';
+      else mockup = '/mockups/dark/Dashboard Dark.png';
+    }
     
     entries.push({
       slug,

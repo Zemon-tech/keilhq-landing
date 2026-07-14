@@ -1,0 +1,43 @@
+{
+  "title": "integrations",
+  "eyebrowIndex": "8.0",
+  "eyebrowText": "Integrations",
+  "subHeroTitle": "Secure OAuth connections for seamless developer data flow",
+  "subHeroDesc": "Native integrations with Google Workspace, GitHub, Notion, and more. Connect with your favorite tools to sync events, link code files, and build autonomous AI agents.",
+  "subHeroLink": "https://app.Keilhq.in/login",
+  "subHeroLinkText": "Try Integrations",
+  "lightImage": "/mockups/light/Settings Connectors Light.png",
+  "darkImage": "/mockups/dark/Settings Connectors Dark.png",
+  "capabilitiesTitle": "Secure connections. Seamless workflows.",
+  "capabilitiesDesc": "KeilHQ integrates with your favorite tools using secure OAuth flows and API connections to create unified workflows.",
+  "capabilitiesGrid": [
+    {
+      "title": "OAuth Security",
+      "desc": "All integrations use secure OAuth 2.0 flows. KeilHQ never stores your passwords or sensitive credentials.",
+      "iconName": "Shield"
+    },
+    {
+      "title": "Real-time Sync",
+      "desc": "Changes sync instantly across platforms. Create a task in KeilHQ, see it in Google Calendar immediately.",
+      "iconName": "Zap"
+    },
+    {
+      "title": "AI Integration",
+      "desc": "AI agents can interact with connected services on your behalf - create GitHub issues, schedule meetings, search documents.",
+      "iconName": "Plug"
+    },
+    {
+      "title": "Granular Control",
+      "desc": "Configure sync preferences, manage permissions, and control exactly how data flows between your tools.",
+      "iconName": "Settings"
+    }
+  ],
+  "checklistTitle": "One workspace. All your tools.",
+  "checklistDesc": "Stop switching between dozens of apps. Bring your entire toolkit into KeilHQ's unified interface.",
+  "checklistItems": [
+    "Google Workspace single OAuth unlocks Calendar, Gmail, Drive, Docs, Sheets, Slides, and Meet integrations.,",
+    "GitHub integration enables AI agents to list issues/PRs, get details, create issues from tasks, and manage workflows.,",
+    "Notion OAuth or manual token connections for importing pages, exporting Motion docs, and bidirectional content sync.,",
+    "Enterprise integrations with Slack notifications, Linear project sync, Jira board connections, and ChronicleHQ presentations.,"
+  ]
+}
