@@ -28,14 +28,9 @@ export function middleware(request: NextRequest) {
     const adminUser = process.env.KEYSTATIC_ADMIN_USER;
     const adminPass = process.env.KEYSTATIC_ADMIN_PASS;
 
-    // Enforce basic auth in production OR if local credentials are provided in dev
-    if (process.env.NODE_ENV === "production" || (adminUser && adminPass)) {
+    // Enforce basic auth if administrative credentials are configured
+    if (adminUser && adminPass) {
       const authHeader = request.headers.get("authorization");
-
-      if (!adminUser || !adminPass) {
-        // Fallback: Prevent access if administrative credentials are not configured in production
-        return new NextResponse("CMS Access Blocked: Administrative credentials are not configured.", { status: 403 });
-      }
 
       if (authHeader) {
         try {
