@@ -13,7 +13,9 @@ const getHandler = () => {
     const clientSecret = process.env.KEYSTATIC_GITHUB_CLIENT_SECRET;
     const secret = process.env.KEYSTATIC_SECRET;
 
-    if (!clientId || !clientSecret || !secret) {
+    const isProduction = process.env.NODE_ENV === 'production';
+
+    if (isProduction && (!clientId || !clientSecret || !secret)) {
       throw new Error(
         `Missing required environment variables for Keystatic GitHub mode:\n` +
         `- KEYSTATIC_GITHUB_CLIENT_ID: ${clientId ? 'present' : 'missing'}\n` +

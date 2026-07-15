@@ -6,9 +6,9 @@ export default config({
     storage: isDev
         ? { kind: 'local' }
         : {
-              kind: 'github',
-              repo: 'Zemon-tech/keilhq-landing',
-          },
+            kind: 'github',
+            repo: 'Zemon-tech/keilhq-landing',
+        },
     collections: {
         pages: collection({
             label: 'Pages',
