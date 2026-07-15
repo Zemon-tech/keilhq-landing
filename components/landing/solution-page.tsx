@@ -3,8 +3,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Navbar } from "@/components/landing/navbar";
-import { Footer } from "@/components/landing/footer";
 import { ChevronDown } from "lucide-react";
 import type { SolutionContent } from "@/lib/solutions-content";
 
@@ -135,10 +133,7 @@ export function SolutionPage({ content, ctaLabel }: SolutionPageProps) {
         ];
 
   return (
-    <div className="flex flex-col min-h-screen bg-background text-foreground font-sans select-text selection:bg-primary/10">
-      <Navbar />
-
-      <main className="flex-1 flex flex-col pt-32 pb-24">
+    <main className="flex-1 flex flex-col pt-32 pb-24">
         {/* ─── HERO SECTION ─── */}
         <section className="max-w-[1200px] w-full mx-auto px-6 text-center flex flex-col items-center gap-6">
           <div className="size-16 rounded-full border border-border/40 bg-card/60 flex items-center justify-center mb-2">
@@ -356,8 +351,5 @@ export function SolutionPage({ content, ctaLabel }: SolutionPageProps) {
           </div>
         </section>
       </main>
-
-      <Footer />
-    </div>
   );
 }

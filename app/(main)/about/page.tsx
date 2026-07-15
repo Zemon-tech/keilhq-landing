@@ -2,8 +2,6 @@
 
 import React, { useRef, useState, useEffect } from "react";
 import Link from "next/link";
-import { Navbar } from "@/components/landing/navbar";
-import { Footer } from "@/components/landing/footer";
 import { Play, Pause, Volume2, VolumeX, Maximize, Minimize } from "lucide-react";
 
 // Team database using only the 9 authentic KeilHQ team members
@@ -140,10 +138,7 @@ export default function AboutPage() {
   const remainingTime = duration - currentTime;
 
   return (
-    <div className="flex flex-col min-h-screen bg-background text-foreground select-text selection:bg-primary/10">
-      <Navbar />
-
-      <main className="flex-1 flex flex-col items-center">
+    <main className="flex-1 flex flex-col items-center">
         {/* Ambient top mesh glow */}
         <div
           className="absolute inset-0 pointer-events-none z-0"
@@ -369,17 +364,14 @@ export default function AboutPage() {
                   <span className="text-[13px] font-semibold text-zinc-900 dark:text-[#F7F8F8]">Stephanie Zhan</span>
                   <span className="text-[11px] font-mono tracking-wide text-zinc-400 dark:text-zinc-600 uppercase">Partner, Sequoia</span>
                 </div>
-              </div>
-
             </div>
 
           </div>
 
-        </section>
+        </div>
 
-      </main>
+      </section>
 
-      <Footer />
-    </div>
+    </main>
   );
 }

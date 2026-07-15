@@ -9,13 +9,13 @@ const FALLBACK_IMAGES: Record<string, { light: string; dark: string }> = {
   "ai-command-center":     { light: "/mockups/light/AI Light.png",                dark: "/mockups/dark/AI Dark.png" },
   "smart-dashboard":       { light: "/mockups/light/Dashboard light.png",          dark: "/mockups/dark/Dashboard Dark.png" },
   "task-management":       { light: "/mockups/light/Task Overview Light.png",      dark: "/mockups/dark/Task Overview Dark.png" },
-  "docs-notes":            { light: "/mockups/light/Motion Share Light.png",       dark: "/mockups/dark/Motion.png" },
-  "calendar-integration":  { light: "/mockups/light/Calendar Light.png",           dark: "/mockups/dark/Calendar Dark.png" },
-  "team-chat":             { light: "/mockups/light/Team Chat Light.png",          dark: "/mockups/dark/Team Chat Dark.png" },
-  "meeting-recorder":      { light: "/mockups/light/Meeting Light.png",            dark: "/mockups/dark/Meeting.png" },
-  "integrations":          { light: "/mockups/light/Integrations Light.png",       dark: "/mockups/dark/Integrations Dark.png" },
+  "docs-notes":            { light: "/mockups/light/Motion Light.png",             dark: "/mockups/dark/Motion Dark.png" },
+  "calendar-integration":  { light: "/mockups/light/Calendar overview Light.png",  dark: "/mockups/dark/Calendar Overview Dark.png" },
+  "team-chat":             { light: "/mockups/light/Chat Light.png",              dark: "/mockups/dark/Chat Dark.png" },
+  "meeting-recorder":      { light: "/mockups/light/Meetings Light.png",          dark: "/mockups/dark/Meetings Dark.png" },
+  "integrations":          { light: "/mockups/light/Settings Connectors Light.png", dark: "/mockups/dark/Settings Connectors Dark.png" },
   "notifications":         { light: "/mockups/light/Notifications Light.png",      dark: "/mockups/dark/Notifications Dark.png" },
-  "workspace":             { light: "/mockups/light/Workspace Light.png",          dark: "/mockups/dark/Workspace Dark.png" },
+  "workspace":             { light: "/mockups/light/Org & Ws switching Light.png", dark: "/mockups/dark/Org & Ws Switching Dark.png" },
 };
 
 /* ── Fallback hero titles (used until heroTitle is set via CMS) ── */

@@ -1,11 +1,9 @@
 import Image from "next/image";
-import { Navbar } from "@/components/landing/navbar";
 import { Hero } from "@/components/landing/hero";
 import { BackedBy } from "@/components/landing/backed-by";
 import { IntegrationCloud } from "@/components/landing/integration-cloud";
 import { Features, StickyScrollSection } from "@/components/landing/features";
 import { LovedBy } from "@/components/landing/loved-by";
-import { Footer } from "@/components/landing/footer";
 import { Blogs } from "@/components/landing/blogs";
 import { FinalCta } from "@/components/landing/final-cta";
 import { getHomepage } from "@/lib/keystatic/homepage";
@@ -76,36 +74,32 @@ export default async function Home() {
   });
 
   return (
-    <div className="flex flex-col min-h-screen bg-background font-sans text-foreground selection:bg-primary/10">
-      <Navbar />
-      <main className="flex-1 flex flex-col">
-        <Hero
-          heroTitle={homepageData?.heroTitle || undefined}
-          heroSubtitle={homepageData?.heroSubtitle || undefined}
-          heroCtaLabel={homepageData?.heroCtaLabel || undefined}
-          heroCtaLink={homepageData?.heroCtaLink || undefined}
-          heroSecondaryCtaLabel={homepageData?.heroSecondaryCtaLabel || undefined}
-          heroSecondaryCtaLink={homepageData?.heroSecondaryCtaLink || undefined}
-          announcementEnabled={homepageData?.announcementEnabled || undefined}
-          announcementText={homepageData?.announcementText || undefined}
-          announcementLink={homepageData?.announcementLink || undefined}
-        />
-        <BackedBy logoCloud={homepageData?.logoCloud || undefined} />
-        <IntegrationCloud />
-        <Features data={featuresData} />
-        <Blogs posts={displayBlogPosts} />
-        <LovedBy />
-        <FinalCta
-          finalCtaTitle={homepageData?.finalCtaTitle || undefined}
-          finalCtaDescription={homepageData?.finalCtaDescription || undefined}
-          finalCtaButtonLabel={homepageData?.finalCtaButtonLabel || undefined}
-          finalCtaButtonLink={homepageData?.finalCtaButtonLink || undefined}
-          finalCtaSecondaryButtonLabel={homepageData?.finalCtaSecondaryButtonLabel || undefined}
-          finalCtaSecondaryButtonLink={homepageData?.finalCtaSecondaryButtonLink || undefined}
-          finalCtaTrustText={homepageData?.finalCtaTrustText || undefined}
-        />
-      </main>
-      <Footer />
-    </div>
+    <main className="flex-1 flex flex-col">
+      <Hero
+        heroTitle={homepageData?.heroTitle || undefined}
+        heroSubtitle={homepageData?.heroSubtitle || undefined}
+        heroCtaLabel={homepageData?.heroCtaLabel || undefined}
+        heroCtaLink={homepageData?.heroCtaLink || undefined}
+        heroSecondaryCtaLabel={homepageData?.heroSecondaryCtaLabel || undefined}
+        heroSecondaryCtaLink={homepageData?.heroSecondaryCtaLink || undefined}
+        announcementEnabled={homepageData?.announcementEnabled || undefined}
+        announcementText={homepageData?.announcementText || undefined}
+        announcementLink={homepageData?.announcementLink || undefined}
+      />
+      <BackedBy logoCloud={homepageData?.logoCloud || undefined} />
+      <IntegrationCloud />
+      <Features data={featuresData} />
+      <Blogs posts={displayBlogPosts} />
+      <LovedBy />
+      <FinalCta
+        finalCtaTitle={homepageData?.finalCtaTitle || undefined}
+        finalCtaDescription={homepageData?.finalCtaDescription || undefined}
+        finalCtaButtonLabel={homepageData?.finalCtaButtonLabel || undefined}
+        finalCtaButtonLink={homepageData?.finalCtaButtonLink || undefined}
+        finalCtaSecondaryButtonLabel={homepageData?.finalCtaSecondaryButtonLabel || undefined}
+        finalCtaSecondaryButtonLink={homepageData?.finalCtaSecondaryButtonLink || undefined}
+        finalCtaTrustText={homepageData?.finalCtaTrustText || undefined}
+      />
+    </main>
   );
 }

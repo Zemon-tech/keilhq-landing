@@ -1,8 +1,6 @@
 import { getBlogPosts } from "@/lib/keystatic/blog";
 import { getPressItems } from "@/lib/keystatic/press";
 import { PressPageClient, BlogListItem, PressListItem } from "./press-client";
-import { Navbar } from "@/components/landing/navbar";
-import { Footer } from "@/components/landing/footer";
 
 const authorDetailsMap: Record<string, { role: string; avatar: string }> = {
   "Michael Sand": {
@@ -80,10 +78,6 @@ export default async function BlogPage() {
   }));
 
   return (
-    <div className="flex flex-col min-h-screen bg-background text-foreground select-text selection:bg-primary/10">
-      <Navbar />
-      <PressPageClient posts={mappedPosts} pressItems={mappedPress} />
-      <Footer />
-    </div>
+    <PressPageClient posts={mappedPosts} pressItems={mappedPress} />
   );
 }

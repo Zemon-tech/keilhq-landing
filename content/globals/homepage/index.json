@@ -40,8 +40,8 @@
       "badgeText": "Smart Dashboard",
       "title": "Know exactly what to work on right now",
       "description": "A 3D wheel picker cycles through six live cards — Current Focus, Blockers, Needs Reply, Next Event, Quick Capture, and Up Next — with urgent, reply, and queued stats plus a live clock.",
-      "lightImage": "/images/cms/homepage/featureSections/0/lightImage.png",
-      "darkImage": "/images/cms/homepage/featureSections/0/darkImage.png",
+      "lightImage": "/mockups/light/Dashboard light.png",
+      "darkImage": "/mockups/dark/Dashboard Dark.png",
       "alt": "KeilHQ Smart Dashboard"
     },
     {
@@ -49,8 +49,8 @@
       "badgeText": "AI Command Center",
       "title": "Your AI assistant that knows your workspace",
       "description": "Built-in AI agents for task management, scheduling, GitHub integration, and web search. Chain-of-thought execution shows you exactly how decisions are made using your real data.",
-      "lightImage": "/images/cms/homepage/featureSections/1/lightImage.png",
-      "darkImage": "/images/cms/homepage/featureSections/1/darkImage.png",
+      "lightImage": "/mockups/light/AI Light.png",
+      "darkImage": "/mockups/dark/AI Dark.png",
       "alt": "KeilHQ AI Command Center"
     },
     {
@@ -58,8 +58,8 @@
       "badgeText": "Task Management",
       "title": "Tasks with clarity built in — not bolted on",
       "description": "Built-in Objectives and Success Criteria on every task. Kanban, Gantt, and Calendar views with hard dependency blocking. Tasks cannot be marked done until their blockers are resolved.",
-      "lightImage": "/images/cms/homepage/featureSections/2/lightImage.png",
-      "darkImage": "/images/cms/homepage/featureSections/2/darkImage.png",
+      "lightImage": "/mockups/light/Task Overview Light.png",
+      "darkImage": "/mockups/dark/Task Overview Dark.png",
       "alt": "KeilHQ Task Management"
     },
     {
@@ -67,8 +67,8 @@
       "badgeText": "Motion — Docs & Notes",
       "title": "Notion-quality docs, built right in",
       "description": "Block-based rich-text editor with real-time collaborative editing, subpage hierarchies, cover images, and Notion sync. Full TipTap editor with slash commands and @mentions.",
-      "lightImage": "/images/cms/homepage/featureSections/3/lightImage.png",
-      "darkImage": "/images/cms/homepage/featureSections/3/darkImage.png",
+      "lightImage": "/mockups/light/Motion Light.png",
+      "darkImage": "/mockups/dark/Motion Dark.png",
       "alt": "KeilHQ Motion Docs"
     },
     {
@@ -76,8 +76,8 @@
       "badgeText": "Calendar & Scheduling",
       "title": "Two-way Google Calendar sync with smart scheduling",
       "description": "Tasks automatically become calendar events. AI scheduler finds free slots and auto-schedules your unscheduled tasks. Google Meet links generated automatically for events.",
-      "lightImage": "/images/cms/homepage/featureSections/4/lightImage.png",
-      "darkImage": "/images/cms/homepage/featureSections/4/darkImage.png",
+      "lightImage": "/mockups/light/Calendar overview Light.png",
+      "darkImage": "/mockups/dark/Calendar Overview Dark.png",
       "alt": "KeilHQ Calendar Integration"
     },
     {
@@ -85,8 +85,8 @@
       "badgeText": "Team Chat",
       "title": "Real-time chat that stays connected to your work",
       "description": "Group channels, direct messages, and emoji reactions with real-time Socket.io delivery. Chat threads link directly to tasks, documents, and calendar events they describe.",
-      "lightImage": "/images/cms/homepage/featureSections/5/lightImage.png",
-      "darkImage": "/images/cms/homepage/featureSections/5/darkImage.png",
+      "lightImage": "/mockups/light/Chat Light.png",
+      "darkImage": "/mockups/dark/Chat Dark.png",
       "alt": "KeilHQ Team Chat"
     },
     {
@@ -94,8 +94,8 @@
       "badgeText": "Meeting Recorder",
       "title": "Stop losing what was decided in your last meeting",
       "description": "Record audio with 5 visualizer styles, auto-transcribe with speaker diarization using Sarvam AI (23 Indian languages) or ElevenLabs. Turn decisions into tasks instantly.",
-      "lightImage": "/images/cms/homepage/featureSections/6/lightImage.png",
-      "darkImage": "/images/cms/homepage/featureSections/6/darkImage.png",
+      "lightImage": "/mockups/light/Meetings Light.png",
+      "darkImage": "/mockups/dark/Meetings Dark.png",
       "alt": "KeilHQ Meeting Recorder"
     },
     {
@@ -103,8 +103,8 @@
       "badgeText": "Integrations",
       "title": "Connect with your entire tech stack",
       "description": "Native integrations with Google Workspace, GitHub, Notion, and more. OAuth connections for Calendar, Drive, Gmail, Meet, Docs, Sheets. GitHub agent creates issues from tasks.",
-      "lightImage": "/images/cms/homepage/featureSections/7/lightImage.png",
-      "darkImage": "/images/cms/homepage/featureSections/7/darkImage.png",
+      "lightImage": "/mockups/light/Settings Connectors Light.png",
+      "darkImage": "/mockups/dark/Settings Connectors Dark.png",
       "alt": "KeilHQ Integrations"
     },
     {
@@ -112,8 +112,8 @@
       "badgeText": "Smart Notifications",
       "title": "Stay in the loop without being overwhelmed",
       "description": "Real-time WebSocket notifications with granular controls. Filter by type: Tasks, Mentions, Chat, System, Motion. Mark all read, per-type toggles, and unread badges throughout the UI.",
-      "lightImage": "/images/cms/homepage/featureSections/8/lightImage.png",
-      "darkImage": "/images/cms/homepage/featureSections/8/darkImage.png",
+      "lightImage": "/mockups/light/Notifications Light.png",
+      "darkImage": "/mockups/dark/Notifications Dark.png",
       "alt": "KeilHQ Smart Notifications"
     },
     {
@@ -121,8 +121,8 @@
       "badgeText": "Workspace & Teams",
       "title": "Orgs, spaces, and settings — built in",
       "description": "Multi-tenant Org → Space architecture with sidebar navigation, org switcher, onboarding wizard, full settings dialog, keyboard shortcuts, and role-based permissions at every level.",
-      "lightImage": "/images/cms/homepage/featureSections/9/lightImage.png",
-      "darkImage": "/images/cms/homepage/featureSections/9/darkImage.png",
+      "lightImage": "/mockups/light/Org & Ws switching Light.png",
+      "darkImage": "/mockups/dark/Org & Ws Switching Dark.png",
       "alt": "KeilHQ Workspace"
     }
   ],

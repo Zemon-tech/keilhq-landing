@@ -2,8 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Navbar } from "@/components/landing/navbar";
-import { Footer } from "@/components/landing/footer";
 import {
   ArrowRight,
   Check,
@@ -73,10 +71,7 @@ export default function PricingPage() {
   const [proMode, setProMode] = useState<"trial" | "paid">("trial");
 
   return (
-    <div className="flex flex-col min-h-screen bg-background text-foreground select-text selection:bg-primary/10">
-      <Navbar />
-
-      <main className="flex-1 flex flex-col">
+    <main className="flex-1 flex flex-col">
 
         {/* ── SECTION 1: HERO & PRICING TIERS ── */}
         <section className="w-full pt-28 lg:pt-32 pb-16 lg:pb-20 xl:pb-24 px-5 sm:px-8 lg:px-12 animate-fade-rise">
@@ -789,7 +784,5 @@ export default function PricingPage() {
         </section>
 
       </main>
-      <Footer />
-    </div>
   );
 }

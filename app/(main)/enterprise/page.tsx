@@ -2,8 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Navbar } from "@/components/landing/navbar";
-import { Footer } from "@/components/landing/footer";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -18,10 +16,7 @@ export default function EnterprisePage() {
   const [formStatus, setFormStatus] = useState<"idle" | "sent">("idle");
 
   return (
-    <div className="flex flex-col min-h-screen bg-background text-foreground font-sans select-text selection:bg-primary/10">
-      <Navbar />
-
-      <main className="flex-1 flex flex-col pt-32 pb-24">
+    <main className="flex-1 flex flex-col pt-32 pb-24">
         {/* ─── HERO SECTION ─── */}
         <section className="max-w-[1200px] w-full mx-auto px-6 text-center flex flex-col items-center gap-6">
           <h1 className="font-display text-[clamp(2.5rem,6vw,4.5rem)] font-semibold leading-[1.05] tracking-tight text-foreground max-w-4xl">
@@ -445,7 +440,5 @@ export default function EnterprisePage() {
           </div>
         </section>
       </main>
-      <Footer />
-    </div>
   );
 }

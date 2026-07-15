@@ -6,8 +6,8 @@
   "subHeroDesc": "Plan, track, and complete tasks with strict blocker validation and native sprint structures that prevent unfinished items from sliding by.",
   "subHeroLink": "https://app.Keilhq.in/login",
   "subHeroLinkText": "Try Task Management",
-  "lightImage": "/mockups/light/Dashboard light.png",
-  "darkImage": "/mockups/dark/Dashboard Dark.png",
+  "lightImage": "/mockups/light/Task Overview Light.png",
+  "darkImage": "/mockups/dark/Task Overview Dark.png",
   "capabilitiesTitle": "The Clarity Engine. Enforced progress.",
   "capabilitiesDesc": "KeilHQ eliminates vague task lists at the database schema level so you can rest assured execution matches design specs.",
   "capabilitiesGrid": [

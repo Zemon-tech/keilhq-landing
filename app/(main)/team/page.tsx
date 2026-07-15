@@ -1,5 +1,3 @@
-import { Navbar } from "@/components/landing/navbar";
-import { Footer } from "@/components/landing/footer";
 
 const members = [
   { name: "Shivang Kandoi", role: "Co-founder & CEO", initials: "SK", bg: "bg-blue-100/80 text-blue-800 dark:bg-blue-950/40 dark:text-blue-300" },
@@ -15,10 +13,7 @@ const members = [
 
 export default function TeamPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-background text-foreground select-text selection:bg-primary/10">
-      <Navbar />
-
-      <main className="flex-1 flex flex-col">
+    <main className="flex-1 flex flex-col">
 
         {/* ── SECTION 1: HERO & INTRO ── */}
         <section className="w-full pt-28 lg:pt-32 pb-16 lg:pb-20 xl:pb-24 px-5 sm:px-8 lg:px-12 animate-fade-rise">
@@ -91,8 +86,5 @@ export default function TeamPage() {
         </section>
 
       </main>
-
-      <Footer />
-    </div>
   );
 }

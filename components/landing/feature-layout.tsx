@@ -2,8 +2,6 @@
 
 import React, { ReactNode } from "react";
 import Link from "next/link";
-import { Navbar } from "@/components/landing/navbar";
-import { Footer } from "@/components/landing/footer";
 import { ArrowRight, Check } from "lucide-react";
 import * as LucideIcons from "lucide-react";
 
@@ -121,10 +119,7 @@ export function FeatureLayout({
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-background text-foreground select-text selection:bg-primary/10">
-      <Navbar />
-
-      <main className="flex-1 flex flex-col items-center">
+    <main className="flex-1 flex flex-col items-center">
         {/* Ambient top mesh glow */}
         <div
           className="absolute inset-0 pointer-events-none z-0"
@@ -266,8 +261,5 @@ export function FeatureLayout({
         </section>
 
       </main>
-
-      <Footer />
-    </div>
   );
 }

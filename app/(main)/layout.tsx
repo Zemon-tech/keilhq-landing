@@ -36,6 +36,9 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
+import { Navbar } from "@/components/landing/navbar";
+import { Footer } from "@/components/landing/footer";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -63,10 +66,15 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <SmoothScrolling>
-            {children}
+            <div className="flex flex-col min-h-screen bg-background text-foreground select-text selection:bg-primary/10">
+              <Navbar />
+              {children}
+              <Footer />
+            </div>
           </SmoothScrolling>
         </ThemeProvider>
       </body>
     </html>
   );
 }
+
