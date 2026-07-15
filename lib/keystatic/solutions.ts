@@ -1,6 +1,16 @@
 import { cache } from 'react';
-import { getReader } from './reader';
 import type { SolutionContent } from '@/lib/solutions-content';
+import agencies from '../../content/solutions/agencies/index.json';
+import devTeams from '../../content/solutions/dev-teams/index.json';
+import enterprise from '../../content/solutions/enterprise/index.json';
+import startups from '../../content/solutions/startups/index.json';
+
+const solutionsMap: Record<string, any> = {
+  agencies,
+  "dev-teams": devTeams,
+  enterprise,
+  startups,
+};
 
 /** Transforms the flat CMS JSON into the SolutionContent interface expected by SolutionPage */
 function transformSolution(slug: string, entry: any): SolutionContent {
@@ -25,16 +35,11 @@ function transformSolution(slug: string, entry: any): SolutionContent {
 }
 
 export const getSolutions = cache(async (): Promise<SolutionContent[]> => {
-  const reader = await getReader();
-  if (!reader) return [];
-  const items = await (reader.collections as any).solutions.all();
-  return items.map((item: any) => transformSolution(item.slug, item.entry));
+  return Object.entries(solutionsMap).map(([slug, entry]) => transformSolution(slug, entry));
 });
 
 export const getSolution = cache(async (slug: string): Promise<SolutionContent | null> => {
-  const reader = await getReader();
-  if (!reader) return null;
-  const entry = await (reader.collections as any).solutions.read(slug);
+  const entry = solutionsMap[slug];
   if (!entry) return null;
   return transformSolution(slug, entry);
 });

@@ -1,8 +1,6 @@
 import { cache } from 'react';
-import { getReader } from './reader';
+import homepageData from '../../content/globals/homepage/index.json';
 
 export const getHomepage = cache(async () => {
-  const reader = await getReader();
-  if (!reader) return null;
-  return await reader.singletons.homepage.read();
+  return homepageData as any;
 });

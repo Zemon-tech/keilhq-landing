@@ -1,8 +1,6 @@
 import { cache } from 'react';
-import { getReader } from './reader';
+import footerData from '../../content/globals/footer/index.json';
 
 export const getFooter = cache(async () => {
-  const reader = await getReader();
-  if (!reader) return null;
-  return await reader.singletons.footer.read();
+  return footerData as any;
 });

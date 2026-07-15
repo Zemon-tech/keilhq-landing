@@ -1,8 +1,6 @@
 import { cache } from 'react';
-import { getReader } from './reader';
+import siteSettingsData from '../../content/globals/site-settings/index.json';
 
 export const getSiteSettings = cache(async () => {
-  const reader = await getReader();
-  if (!reader) return null;
-  return await reader.singletons.siteSettings.read();
+  return siteSettingsData as any;
 });

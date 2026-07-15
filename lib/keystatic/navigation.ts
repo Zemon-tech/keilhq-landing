@@ -1,8 +1,6 @@
 import { cache } from 'react';
-import { getReader } from './reader';
+import navigationData from '../../content/globals/navigation/index.json';
 
 export const getNavigation = cache(async () => {
-  const reader = await getReader();
-  if (!reader) return null;
-  return await reader.singletons.navigation.read();
+  return navigationData as any;
 });
