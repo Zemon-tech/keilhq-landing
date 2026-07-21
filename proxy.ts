@@ -20,7 +20,7 @@ import type { NextRequest } from "next/server";
 
 const APP_URL = "https://app.Keilhq.in";
 
-export function middleware(request: NextRequest) {
+export default function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // 1. Apply Basic Authentication to Keystatic routes
