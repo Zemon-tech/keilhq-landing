@@ -1,0 +1,40 @@
+# KeilHQ — Human Clarity for Teams
+
+> KeilHQ is an all-in-one work management platform designed for desktop viewports. It combines database-enforced task clarity, real-time team chat, block-based documents, Google Calendar synchronization, meeting recording with AI transcription, and a multi-agent AI assistant into one unified workspace.
+
+## Core Differentiators & Product Truth
+
+- **The Clarity Engine**: KeilHQ requires every task to carry explicitly defined Objectives and Success Criteria at creation. Vague assignments are database-prevented before work begins.
+- **Multi-Agent AI Assistant**: Built on Mastra Core, four specialist sub-agents (Task Agent, Chat Agent, Motion Docs Agent, GitHub Agent) read real workspace state—overdue items, sprint blockers, calendar events, document content—and execute operations on behalf of users.
+- **Native Meeting Recording & Transcription**: Records audio directly in the browser and transcribes using Sarvam AI (multilingual & Indian languages) and ElevenLabs Scribe v2 with speaker diarization. Transcripts save to Motion documents in one click.
+- **Motion Block-Based Editor**: Built on TipTap with Socket.io real-time collaborative editing, block comments, subpage hierarchies, view analytics, and bidirectional Notion import/export.
+- **Real-Time Team Chat**: Socket.io channels and direct messages with threaded replies, message attachments, and cross-space search.
+- **Two-Way Google Calendar Sync**: Tasks and calendar slots automatically reflect as Google Calendar events, with real-time webhook updates and conflict detection.
+- **GitHub Bidirectional Sync**: Sync issues, pull requests, and contributors directly with KeilHQ tasks.
+
+## Brand & Aesthetics
+
+- **Brand Idea**: Human Clarity — calm over stimulation, substance over spectacle.
+- **Design System**: Warm Ink (`#171514`) text on Cotton Paper (`#F7F4EE`) canvas with Linen (`#F1EEE8`) cards and Limestone (`#DDD7CE`) borders.
+- **AI Accent**: Oxidized Copper (`#2B6F6A`) reserved exclusively for AI states.
+- **Typography**: DM Sans for marketing & landing surfaces, Inter for product UI, JetBrains Mono for code & data.
+
+## Product Access & Specs
+
+- **Viewport**: Desktop-first web application (requires >= 1024px viewport width for workspace; public shared links work on all mobile/desktop devices).
+- **Billing**: Free 30-day Pro trial auto-provisioned upon signup, no credit card required. Paid tiers for Pro, Teams, and Enterprise.
+- **AI Models**: OpenRouter SDK integration (default) and Local Ollama-compatible endpoint support.
+
+## Canonical Pages & Links
+
+- Home: https://keilhq.com
+- Features: https://keilhq.com/features
+- Pricing: https://keilhq.com/pricing
+- Enterprise: https://keilhq.com/enterprise
+- Solutions: https://keilhq.com/solutions
+- Changelog: https://keilhq.com/changelog
+- About: https://keilhq.com/about
+- Brand: https://keilhq.com/brand
+- Privacy: https://keilhq.com/privacy
+- Terms: https://keilhq.com/terms
+- Security: https://keilhq.com/privacy-security

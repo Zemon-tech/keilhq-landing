@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import Image from "next/image";
 import { getFeature, getFeatures } from "@/cms/helpers/features";
 import { FeatureLayout } from "@/components/landing/feature-layout";
-
 
 /* ── Fallback image map (used until images are set via CMS) ── */
 const FALLBACK_IMAGES: Record<string, { light: string; dark: string }> = {
@@ -18,7 +18,7 @@ const FALLBACK_IMAGES: Record<string, { light: string; dark: string }> = {
   "workspace":             { light: "/mockups/light/Org & Ws switching Light.png", dark: "/mockups/dark/Org & Ws Switching Dark.png" },
 };
 
-/* ── Fallback hero titles (used until heroTitle is set via CMS) ── */
+/* ── Fallback hero titles ── */
 const FALLBACK_TITLES: Record<string, string> = {
   "ai-command-center":    "Your AI assistant that knows your workspace",
   "smart-dashboard":      "Know exactly what to work on right now",
@@ -30,6 +30,20 @@ const FALLBACK_TITLES: Record<string, string> = {
   "integrations":         "Your existing stack, unified",
   "notifications":        "Alerts that know what actually matters",
   "workspace":            "One workspace for the whole team",
+};
+
+/* ── Single word title map for clean SEO titles ── */
+const SINGLE_WORD_TITLES: Record<string, string> = {
+  "ai-command-center":    "AI",
+  "smart-dashboard":      "Dashboard",
+  "task-management":      "Tasks",
+  "docs-notes":           "Motion",
+  "calendar-integration": "Calendar",
+  "team-chat":            "Chat",
+  "meeting-recorder":     "Meetings",
+  "integrations":         "Connectors",
+  "notifications":        "Alerts",
+  "workspace":            "Workspace",
 };
 
 /* ── Feature index map (for bottom nav in FeatureLayout) ── */
@@ -46,10 +60,21 @@ const FEATURE_INDEX: Record<string, number> = {
   "workspace":            9,
 };
 
-
 export async function generateStaticParams() {
   const features = await getFeatures();
   return features.map((f: any) => ({ slug: f.slug }));
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const feature = await getFeature(slug);
+  const title = SINGLE_WORD_TITLES[slug] || (feature as any)?.eyebrowText || "Feature";
+  const description = (feature as any)?.subHeroDesc || (feature as any)?.capabilitiesDesc || "Explore KeilHQ workspace feature.";
+
+  return {
+    title,
+    description,
+  };
 }
 
 export default async function FeaturePage({ params }: { params: Promise<{ slug: string }> }) {

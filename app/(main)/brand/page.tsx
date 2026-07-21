@@ -6,7 +6,7 @@ import { BrandTypographySpecimen } from "@/components/brand/brand-typography-spe
 import { BrandAssetDownload } from "@/components/brand/brand-asset-download";
 
 export const metadata: Metadata = {
-  title: "Brand Guidelines — KeilHQ",
+  title: "Brand",
   description:
     "Explore KeilHQ's brand identity, physical vision, material color system, typography architecture, and official brand logo assets.",
 };

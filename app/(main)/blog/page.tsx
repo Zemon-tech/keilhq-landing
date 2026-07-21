@@ -1,6 +1,12 @@
+import type { Metadata } from "next";
 import { getBlogPosts } from "@/cms/helpers/blog";
 import { getPressItems } from "@/cms/helpers/press";
 import { PressPageClient, BlogListItem, PressListItem } from "./press-client";
+
+export const metadata: Metadata = {
+  title: "Blog",
+  description: "Insights, product updates, and articles on human clarity and modern product development from KeilHQ.",
+};
 
 const authorDetailsMap: Record<string, { role: string; avatar: string }> = {
   "Michael Sand": {

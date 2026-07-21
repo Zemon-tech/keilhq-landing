@@ -1,7 +1,13 @@
 import React from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { getAboutPage } from "@/cms/helpers/about";
 import { AboutVideoPlayer } from "@/components/about/about-video-player";
+
+export const metadata: Metadata = {
+  title: "About",
+  description: "About KeilHQ. We are building the work management platform for the next era of product development, giving teams and AI agents human clarity.",
+};
 
 export default async function AboutPage() {
   const data = await getAboutPage();

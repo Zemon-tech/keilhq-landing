@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { Hero } from "@/components/landing/hero";
 import { BackedBy } from "@/components/landing/backed-by";
@@ -9,6 +10,11 @@ import { FinalCta } from "@/components/landing/final-cta";
 import { getHomepage } from "@/cms/helpers/homepage";
 import { getBlogPosts } from "@/cms/helpers/blog";
 import { getLovedBy } from "@/cms/helpers/loved-by";
+
+export const metadata: Metadata = {
+  title: "KeilHQ",
+  description: "Human clarity for teams. KeilHQ is the desktop-first work management platform combining database-enforced task clarity, real-time team chat, block docs, 2-way calendar sync, meeting transcription, and multi-agent AI.",
+};
 
 // ─── Mockup image wrapper — consistent shadow + rounding ─────────────────────
 const MockupImage = ({ lightSrc, darkSrc, alt }: { lightSrc: string; darkSrc: string; alt: string }) => (

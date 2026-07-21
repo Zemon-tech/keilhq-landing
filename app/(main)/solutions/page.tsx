@@ -1,6 +1,12 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { caseStudyIntro, caseStudyStats, solutions } from "@/lib/solutions-content";
+
+export const metadata: Metadata = {
+  title: "Solutions",
+  description: "KeilHQ solutions for agencies, dev teams, startups, and enterprises. One workspace for clarity, collaboration, and execution.",
+};
 
 const solutionLinks = [
   { href: "/solutions/agencies", label: "Agencies", desc: "Manage multiple clients without losing the thread" },

@@ -4,8 +4,6 @@ import { ToggleTheme } from "@/components/ui/toggle-theme";
 import { getFooter } from "@/cms/helpers/footer";
 import { getSiteSettings } from "@/cms/helpers/site-settings";
 
-const badges = ["SOC 2", "GDPR", "CCPA", "HIPAA", "SOC 3"];
-
 export async function Footer() {
   const [footerData, siteSettings] = await Promise.all([
     getFooter(),
@@ -15,7 +13,49 @@ export async function Footer() {
   const siteName = siteSettings?.siteName || "KeilHQ";
   const logo = siteSettings?.logo || "/keilhq.svg";
   
-  const columns = footerData?.columns || [];
+  const columns = footerData?.columns || [
+    {
+      title: "Features",
+      links: [
+        { label: "Dashboard", href: "/features/smart-dashboard" },
+        { label: "Task Management", href: "/features/task-management" },
+        { label: "Docs & Notes", href: "/features/docs-notes" },
+        { label: "Team Chat", href: "/features/team-chat" },
+        { label: "Meeting Notes", href: "/features/meeting-recorder" },
+        { label: "AI Assistant", href: "/features/ai-command-center" },
+      ],
+    },
+    {
+      title: "Solutions",
+      links: [
+        { label: "Overview", href: "/solutions" },
+        { label: "Startups", href: "/solutions/startups" },
+        { label: "Agencies", href: "/solutions/agencies" },
+        { label: "Dev Teams", href: "/solutions/dev-teams" },
+        { label: "Enterprise", href: "/enterprise" },
+      ],
+    },
+    {
+      title: "Product",
+      links: [
+        { label: "Pricing", href: "/pricing" },
+        { label: "Changelog", href: "/changelog" },
+        { label: "Blog", href: "/blog" },
+        { label: "Support", href: "/support" },
+        { label: "FAQ", href: "/faq" },
+      ],
+    },
+    {
+      title: "Company",
+      links: [
+        { label: "About us", href: "/about" },
+        { label: "Brand", href: "/brand" },
+        { label: "Privacy Policy", href: "/privacy" },
+        { label: "Terms of Service", href: "/terms" },
+      ],
+    },
+  ];
+
   const rawCopyright = footerData?.copyright || "KeilHQ. All rights reserved. © {year}";
   const copyrightText = rawCopyright
     .replace("{year}", new Date().getFullYear().toString())
@@ -80,7 +120,7 @@ export async function Footer() {
         </div>
 
         {/* Links Grid */}
-        <div className="w-full md:w-2/3 grid grid-cols-2 md:grid-cols-3 gap-12 md:gap-8">
+        <div className="w-full md:w-3/4 grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-8">
           {columns.map((column: any) => (
             <div key={column.title} className="flex flex-col gap-4 text-left">
               <span className="text-[11px] font-mono tracking-widest text-zinc-400 dark:text-zinc-500 uppercase">
@@ -102,18 +142,14 @@ export async function Footer() {
         </div>
       </div>
 
-      {/* Badges Section with center divider */}
+      {/* Compliance / Status Section with center divider */}
       <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-8 lg:px-12 mt-16 sm:mt-24 z-10 relative">
         <div className="w-full h-px bg-zinc-200/50 dark:bg-white/[0.05] relative flex items-center justify-center">
-          <div className="absolute bg-background px-6 flex items-center gap-4">
-            {badges.map((badge) => (
-              <div
-                key={badge}
-                className="flex items-center justify-center size-10 rounded-sm border border-zinc-200/50 dark:border-white/[0.05] bg-background shadow-xs text-[8px] font-bold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest select-none"
-              >
-                {badge}
-              </div>
-            ))}
+          <div className="absolute bg-background px-6 flex items-center gap-2">
+            <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-zinc-200/60 dark:border-white/[0.08] bg-background text-[11px] font-mono font-medium text-zinc-500 dark:text-zinc-400 tracking-wide select-none shadow-2xs">
+              <span className="size-2 rounded-full bg-amber-500/90 animate-pulse" />
+              <span>SOC 2 in transit</span>
+            </div>
           </div>
         </div>
       </div>
@@ -134,15 +170,26 @@ export async function Footer() {
         </span>
 
         <div className="flex items-center gap-6 flex-wrap justify-center w-full md:w-1/3 text-[13px] font-normal tracking-wide">
-          {["Your Privacy Choices", "Privacy policy"].map((item) => (
-            <Link
-              key={item}
-              href={`/${item.toLowerCase().replace(/\s+/g, "-")}`}
-              className="text-zinc-400 dark:text-[#8A8F98] hover:text-zinc-900 dark:hover:text-white transition-colors"
-            >
-              {item}
-            </Link>
-          ))}
+          <Link
+            href="/privacy"
+            className="text-zinc-400 dark:text-[#8A8F98] hover:text-zinc-900 dark:hover:text-white transition-colors"
+          >
+            Privacy Policy
+          </Link>
+          <Link
+            href="/terms"
+            className="text-zinc-400 dark:text-[#8A8F98] hover:text-zinc-900 dark:hover:text-white transition-colors"
+          >
+            Terms of Service
+          </Link>
+          <a
+            href="/llms.txt"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-zinc-400 dark:text-[#8A8F98] hover:text-zinc-900 dark:hover:text-white transition-colors font-mono text-[12px]"
+          >
+            llms.txt
+          </a>
         </div>
 
         <div className="flex items-center justify-center md:justify-end w-full md:w-1/3 gap-3">

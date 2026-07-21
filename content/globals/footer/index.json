@@ -1,29 +1,20 @@
 {
   "columns": [
     {
-      "title": "Product",
-      "links": [
-        {
-          "label": "Pricing",
-          "href": "/pricing"
-        },
-        {
-          "label": "FAQ",
-          "href": "/faq"
-        },
-        {
-          "label": "Privacy & Security",
-          "href": "/privacy-security"
-        },
-        {
-          "label": "Changelog",
-          "href": "/changelog"
-        }
-      ]
-    },
-    {
       "title": "Features",
       "links": [
+        {
+          "label": "Dashboard",
+          "href": "/features/smart-dashboard"
+        },
+        {
+          "label": "Task Management",
+          "href": "/features/task-management"
+        },
+        {
+          "label": "Docs & Notes",
+          "href": "/features/docs-notes"
+        },
         {
           "label": "Team Chat",
           "href": "/features/team-chat"
@@ -33,12 +24,58 @@
           "href": "/features/meeting-recorder"
         },
         {
-          "label": "Dashboard",
-          "href": "/features/smart-dashboard"
+          "label": "AI Assistant",
+          "href": "/features/ai-command-center"
+        }
+      ]
+    },
+    {
+      "title": "Solutions",
+      "links": [
+        {
+          "label": "Overview",
+          "href": "/solutions"
         },
         {
-          "label": "Task Board",
-          "href": "/features/task-management"
+          "label": "Startups",
+          "href": "/solutions/startups"
+        },
+        {
+          "label": "Agencies",
+          "href": "/solutions/agencies"
+        },
+        {
+          "label": "Dev Teams",
+          "href": "/solutions/dev-teams"
+        },
+        {
+          "label": "Enterprise",
+          "href": "/enterprise"
+        }
+      ]
+    },
+    {
+      "title": "Product",
+      "links": [
+        {
+          "label": "Pricing",
+          "href": "/pricing"
+        },
+        {
+          "label": "Changelog",
+          "href": "/changelog"
+        },
+        {
+          "label": "Blog",
+          "href": "/blog"
+        },
+        {
+          "label": "Support",
+          "href": "/support"
+        },
+        {
+          "label": "FAQ",
+          "href": "/faq"
         }
       ]
     },
@@ -50,25 +87,21 @@
           "href": "/about"
         },
         {
-          "label": "Brand & Style",
+          "label": "Brand",
           "href": "/brand"
         },
         {
-          "label": "Support",
-          "href": "/support"
+          "label": "Privacy Policy",
+          "href": "/privacy"
         },
         {
-          "label": "Blog",
-          "href": "/blog"
-        },
-        {
-          "label": "Report a bug",
-          "href": "/report"
+          "label": "Terms of Service",
+          "href": "/terms"
         }
       ]
     }
   ],
-  "copyright": "KeilHQ. All rights reserved. © 2026",
+  "copyright": "KeilHQ. All rights reserved. © {year}",
   "twitterUrl": "https://x.com",
   "instagramUrl": "https://instagram.com",
   "linkedinUrl": "https://linkedin.com",

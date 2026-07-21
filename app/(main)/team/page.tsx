@@ -1,3 +1,9 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Team",
+  description: "Meet the team building KeilHQ — a small, focused team obsessed with clarity, execution, and software craftsmanship.",
+};
 
 const members = [
   { name: "Shivang Kandoi", role: "Co-founder & CEO", initials: "SK", bg: "bg-blue-100/80 text-blue-800 dark:bg-blue-950/40 dark:text-blue-300" },

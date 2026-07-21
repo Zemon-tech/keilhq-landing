@@ -4,41 +4,108 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import SmoothScrolling from "@/components/smooth-scrolling";
+import { JsonLd } from "@/components/json-ld";
+import { getSiteSettings } from "@/cms/helpers/site-settings";
+import { Navbar } from "@/components/landing/navbar";
+import { Footer } from "@/components/landing/footer";
 
-// Marketing font — DM Sans for landing headings, marketing, navigation, buttons, badges
 const dmSans = DM_Sans({
   weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
   variable: "--font-display",
 });
 
-// App font — Inter for UI, body copy, descriptions, paragraphs, etc.
 const inter = Inter({
   variable: "--font-sans",
   subsets: ["latin"],
 });
 
-// Utility mono — JetBrains Mono for code, data, timestamps
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
 
-import { getSiteSettings } from "@/cms/helpers/site-settings";
-
 export async function generateMetadata(): Promise<Metadata> {
   const siteSettings = await getSiteSettings();
+  const description =
+    siteSettings?.defaultSeoDescription ||
+    "Human clarity for teams. KeilHQ is the desktop-first work management workspace combining database-enforced task clarity, real-time team chat, block docs, 2-way calendar sync, meeting transcription, and multi-agent AI.";
+
   return {
-    title: siteSettings?.defaultSeoTitle || "KeilHQ — The Operating System for Teams That Ship",
-    description: siteSettings?.defaultSeoDescription || "Replace Slack, Asana, Notion, and your calendar chaos. KeilHQ is the one workspace where your team actually gets work done.",
+    metadataBase: new URL("https://keilhq.com"),
+    title: {
+      default: "KeilHQ",
+      template: "%s | KeilHQ",
+    },
+    description,
+    keywords: [
+      "KeilHQ",
+      "Keil",
+      "Keil HQ",
+      "Keil App",
+      "Keil Workspace",
+      "Keil Land",
+      "Keil Platform",
+      "Keil GTM",
+      "Clarity Engine",
+      "work management platform",
+      "task management software",
+      "team collaboration",
+      "meeting transcription AI",
+      "multi agent workspace",
+      "block document editor",
+      "TipTap editor",
+    ],
+    authors: [{ name: "KeilHQ Team", url: "https://keilhq.com" }],
+    creator: "KeilHQ",
+    publisher: "KeilHQ",
     icons: {
-      icon: siteSettings?.logo || "/keilhq-white.svg",
+      icon: [
+        {
+          url: "/keilhq.svg",
+          media: "(prefers-color-scheme: light)",
+        },
+        {
+          url: "/keilhq-white.svg",
+          media: "(prefers-color-scheme: dark)",
+        },
+      ],
+    },
+    openGraph: {
+      type: "website",
+      locale: "en_US",
+      url: "https://keilhq.com",
+      siteName: "KeilHQ",
+      title: "KeilHQ — Human Clarity for Teams",
+      description,
+      images: [
+        {
+          url: "/keilhq.svg",
+          width: 1200,
+          height: 630,
+          alt: "KeilHQ — Human Clarity for Teams",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "KeilHQ — Human Clarity for Teams",
+      description,
+      images: ["/keilhq.svg"],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
   };
 }
-
-import { Navbar } from "@/components/landing/navbar";
-import { Footer } from "@/components/landing/footer";
 
 export default function RootLayout({
   children,
@@ -59,6 +126,9 @@ export default function RootLayout({
       )}
       suppressHydrationWarning
     >
+      <head>
+        <JsonLd />
+      </head>
       <body className="min-h-full flex flex-col">
         <ThemeProvider
           attribute="class"
@@ -78,4 +148,3 @@ export default function RootLayout({
     </html>
   );
 }
-

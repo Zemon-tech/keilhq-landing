@@ -1,4 +1,10 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Support",
+  description: "KeilHQ support and help center. Email support, documentation, and live demo requests.",
+};
 
 export default function SupportPage() {
   return (
