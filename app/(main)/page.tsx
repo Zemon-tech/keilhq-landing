@@ -6,8 +6,9 @@ import { Features, StickyScrollSection } from "@/components/landing/features";
 import { LovedBy } from "@/components/landing/loved-by";
 import { Blogs } from "@/components/landing/blogs";
 import { FinalCta } from "@/components/landing/final-cta";
-import { getHomepage } from "@/lib/keystatic/homepage";
-import { getBlogPosts } from "@/lib/keystatic/blog";
+import { getHomepage } from "@/cms/helpers/homepage";
+import { getBlogPosts } from "@/cms/helpers/blog";
+import { getLovedBy } from "@/cms/helpers/loved-by";
 
 // ─── Mockup image wrapper — consistent shadow + rounding ─────────────────────
 const MockupImage = ({ lightSrc, darkSrc, alt }: { lightSrc: string; darkSrc: string; alt: string }) => (
@@ -32,9 +33,10 @@ const MockupImage = ({ lightSrc, darkSrc, alt }: { lightSrc: string; darkSrc: st
 );
 
 export default async function Home() {
-  const [homepageData, blogPosts] = await Promise.all([
+  const [homepageData, blogPosts, lovedByData] = await Promise.all([
     getHomepage(),
     getBlogPosts(),
+    getLovedBy(),
   ]);
 
   // Construct features scroll sections dynamically
@@ -90,7 +92,7 @@ export default async function Home() {
       <IntegrationCloud />
       <Features data={featuresData} />
       <Blogs posts={displayBlogPosts} />
-      <LovedBy />
+      <LovedBy data={lovedByData} />
       <FinalCta
         finalCtaTitle={homepageData?.finalCtaTitle || undefined}
         finalCtaDescription={homepageData?.finalCtaDescription || undefined}

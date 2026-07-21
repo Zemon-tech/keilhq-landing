@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getSolution } from "@/lib/keystatic/solutions";
+import { getSolution } from "@/cms/helpers/solutions";
 import { SolutionPage } from "@/components/landing/solution-page";
 
 export default async function StartupsPage() {

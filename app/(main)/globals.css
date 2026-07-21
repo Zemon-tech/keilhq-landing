@@ -12,13 +12,37 @@
   --font-heading: var(--font-display);
   --font-display: var(--font-display);
   --width-9xl: 96rem;
-  /* Landing accent — black/white based on active theme */
+
+  /* KeilHQ Material Tokens */
+  --color-ink: #171514;
+  --color-paper: #F7F4EE;
+  --color-linen: #F1EEE8;
+  --color-limestone: #DDD7CE;
+  --color-slate: #7E7A74;
+
+  /* AI Accent - Exclusive */
+  --color-copper: #2B6F6A;
+
+  /* Contextual Accents */
+  --color-forest: #1D3429;
+  --color-sandstone: #A98563;
+  --color-marigold: #C68A34;
+  --color-indigo: #31425E;
+  --color-clay: #744739;
+
+  /* Semantic Aliases */
+  --color-accent-ai: var(--color-copper);
   --color-accent-landing: var(--accent-landing);
   --color-accent-landing-fg: var(--accent-landing-fg);
   --color-accent-landing-hover: var(--accent-landing-hover);
-  /* Custom easing curves per Emil design system */
-  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+
+  /* Motion - Natural breathing curves */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-breathe: cubic-bezier(0.33, 0, 0.2, 1);
+  --duration-fast: 150ms;
+  --duration-standard: 280ms;
+  --duration-slow: 480ms;
+
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -48,247 +72,139 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
-  --radius-sm: calc(var(--radius) * 0.6);
-  --radius-md: calc(var(--radius) * 0.8);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.4);
-  --radius-2xl: calc(var(--radius) * 1.8);
-  --radius-3xl: calc(var(--radius) * 2.2);
-  --radius-4xl: calc(var(--radius) * 2.6);
 
-  /* Custom Calendar Block tokens */
-  --color-event-meeting-bg: var(--event-meeting-bg);
-  --color-event-meeting-text: var(--event-meeting-text);
-  --color-event-meeting-border: var(--event-meeting-border);
-
-  --color-event-focus-bg: var(--event-focus-bg);
-  --color-event-focus-text: var(--event-focus-text);
-  --color-event-focus-border: var(--event-focus-border);
-
-  --color-event-task-bg: var(--event-task-bg);
-  --color-event-task-text: var(--event-task-text);
-  --color-event-task-border: var(--event-task-border);
-
-  --color-event-deadline-bg: var(--event-deadline-bg);
-  --color-event-deadline-text: var(--event-deadline-text);
-  --color-event-deadline-border: var(--event-deadline-border);
-
-  --color-event-reminder-bg: var(--event-reminder-bg);
-  --color-event-reminder-text: var(--event-reminder-text);
-  --color-event-reminder-border: var(--event-reminder-border);
-
-  --color-event-generic-bg: var(--event-generic-bg);
-  --color-event-generic-text: var(--event-generic-text);
-  --color-event-generic-border: var(--event-generic-border);
-
-  /* Custom Priorities tokens */
-  --color-priority-urgent-bg: var(--priority-urgent-bg);
-  --color-priority-urgent-text: var(--priority-urgent-text);
-  --color-priority-urgent-border: var(--priority-urgent-border);
-
-  --color-priority-high-bg: var(--priority-high-bg);
-  --color-priority-high-text: var(--priority-high-text);
-  --color-priority-high-border: var(--priority-high-border);
-
-  --color-priority-medium-bg: var(--priority-medium-bg);
-  --color-priority-medium-text: var(--priority-medium-text);
-  --color-priority-medium-border: var(--priority-medium-border);
-
-  --color-priority-low-bg: var(--priority-low-bg);
-  --color-priority-low-text: var(--priority-low-text);
-  --color-priority-low-border: var(--priority-low-border);
-
-  --color-priority-done-bg: var(--priority-done-bg);
-  --color-priority-done-text: var(--priority-done-text);
-  --color-priority-done-border: var(--priority-done-border);
+  /* Carved Radii per brand guidelines: sm: 4px, md: 8px, lg: 14px */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
 }
 
 :root {
-  --accent-landing: #0d0e10;
-  --accent-landing-fg: #f7f8f8;
-  --accent-landing-hover: #27272a;
-  --background: #f6f6f4;
-  --foreground: #171717;
-  --card: #ffffff;
-  --card-foreground: #171717;
-  --popover: #ffffff;
-  --popover-foreground: #171717;
-  --primary: #191919;
-  --primary-foreground: #fafafa;
-  --secondary: #f1f1ef;
-  --secondary-foreground: #232323;
-  --muted: #f4f4f2;
-  --muted-foreground: #737373;
-  --accent: #ececea;
-  --accent-foreground: #191919;
-  --destructive: #b04d4d;
-  --destructive-foreground: #ffffff;
-  --border: #e7e5e4;
-  --input: #eceae8;
-  --ring: #a1a1aa;
-  --chart-1: #202020;
-  --chart-2: #4b4b4b;
-  --chart-3: #737373;
-  --chart-4: #a3a3a3;
-  --chart-5: #d4d4d4;
-  --radius: 0.875rem;
+  /* KeilHQ Brand Tokens */
+  --color-ink: #171514;
+  --color-paper: #F7F4EE;
+  --color-linen: #F1EEE8;
+  --color-limestone: #DDD7CE;
+  --color-slate: #7E7A74;
 
-  --sidebar: #f6f6f4;
-  --sidebar-foreground: #171717;
-  --sidebar-primary: #191919;
-  --sidebar-primary-foreground: #fafafa;
-  --sidebar-accent: rgba(0, 0, 0, 0.035);
-  --sidebar-accent-foreground: #181818;
-  --sidebar-border: rgba(0, 0, 0, 0.04);
-  --sidebar-ring: #9a9a9a;
+  --color-copper: #2B6F6A;
+  --color-forest: #1D3429;
+  --color-sandstone: #A98563;
+  --color-marigold: #C68A34;
+  --color-indigo: #31425E;
+  --color-clay: #744739;
 
-  /* Calendar Blocks & Events - Light Mode */
-  --event-meeting-bg: #f1f3f9;
-  --event-meeting-text: #334155;
-  --event-meeting-border: rgba(51, 65, 85, 0.08);
+  /* Foundation - Light Mode */
+  --accent-landing: #171514;
+  --accent-landing-fg: #F7F4EE;
+  --accent-landing-hover: #2E2A28;
 
-  --event-focus-bg: #f0f4f1;
-  --event-focus-text: #3f4e41;
-  --event-focus-border: rgba(63, 78, 65, 0.08);
+  --background: #F7F4EE;        /* Cotton Paper */
+  --foreground: #171514;        /* Warm Ink */
+  --card: #F1EEE8;              /* Linen surface */
+  --card-foreground: #171514;
+  --popover: #F1EEE8;
+  --popover-foreground: #171514;
+  --primary: #171514;           /* Warm Ink button/fill */
+  --primary-foreground: #F7F4EE;
+  --secondary: #F1EEE8;         /* Linen */
+  --secondary-foreground: #171514;
+  --muted: #F1EEE8;
+  --muted-foreground: #7E7A74;  /* Weathered Slate */
+  --accent: #F1EEE8;
+  --accent-foreground: #171514;
+  --destructive: #744739;       /* Terracotta Clay */
+  --destructive-foreground: #F7F4EE;
+  --border: #DDD7CE;           /* Limestone hairline */
+  --input: #DDD7CE;
+  --ring: #7E7A74;
+  --radius: 14px;
 
-  --event-task-bg: #f2f2f7;
-  --event-task-text: #535370;
-  --event-task-border: rgba(83, 83, 112, 0.08);
+  --sidebar: #F7F4EE;
+  --sidebar-foreground: #171514;
+  --sidebar-primary: #171514;
+  --sidebar-primary-foreground: #F7F4EE;
+  --sidebar-accent: rgba(23, 21, 20, 0.04);
+  --sidebar-accent-foreground: #171514;
+  --sidebar-border: #DDD7CE;
+  --sidebar-ring: #7E7A74;
 
-  --event-deadline-bg: #f7f3f0;
-  --event-deadline-text: #78350f;
-  --event-deadline-border: rgba(120, 53, 15, 0.08);
+  /* Carved Shadows - Restrained, non-glow */
+  --shadow-sm: 0 1px 2px rgba(23, 21, 20, 0.06);
+  --shadow-md: 0 2px 8px rgba(23, 21, 20, 0.08);
 
-  --event-reminder-bg: #f6f1f4;
-  --event-reminder-text: #831843;
-  --event-reminder-border: rgba(131, 24, 67, 0.08);
+  /* Exclusive AI State Token */
+  --color-accent-ai: #2B6F6A;
 
-  --event-generic-bg: #f0f9ff;
-  --event-generic-text: #0369a1;
-  --event-generic-border: rgba(3, 105, 161, 0.1);
-
-  /* Task Priorities & States - Light Mode */
-  --priority-urgent-bg: #fff1f2;
-  --priority-urgent-text: #9f1239;
-  --priority-urgent-border: rgba(159, 18, 57, 0.12);
-
-  --priority-high-bg: #fffbeb;
-  --priority-high-text: #92400e;
-  --priority-high-border: rgba(146, 64, 14, 0.10);
-
-  --priority-medium-bg: #f9f9f8;
-  --priority-medium-text: #44403c;
-  --priority-medium-border: rgba(68, 64, 60, 0.10);
-
-  --priority-low-bg: #f5f5f5;
-  --priority-low-text: #737373;
-  --priority-low-border: rgba(115, 115, 115, 0.10);
-
-  --priority-done-bg: #f0fdf4;
-  --priority-done-text: #166534;
-  --priority-done-border: rgba(22, 101, 52, 0.10);
-
-  /* Premium Glassmorphic Styles - Light Mode */
-  --glass-bg: linear-gradient(to bottom, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.75));
-  --glass-border: #e7e5e4;
-  --glass-shadow: 0px 8px 24px rgba(0, 0, 0, 0.05);
+  /* Motion */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-breathe: cubic-bezier(0.33, 0, 0.2, 1);
+  --duration-fast: 150ms;
+  --duration-standard: 280ms;
+  --duration-slow: 480ms;
 }
 
-.dark {
-  --accent-landing: #f7f8f8;
-  --accent-landing-fg: #0d0e10;
-  --accent-landing-hover: #e4e4e7;
-  --background: #0d0d0d;
-  --foreground: #f5f5f5;
-  --card: #151515;
-  --card-foreground: #f5f5f5;
-  --popover: #151515;
-  --popover-foreground: #f5f5f5;
-  --primary: #f3f3f3;
-  --primary-foreground: #111111;
-  --secondary: #1b1b1b;
-  --secondary-foreground: #f3f3f3;
-  --muted: #171717;
-  --muted-foreground: #8b8b8b;
-  --accent: #202020;
-  --accent-foreground: #f5f5f5;
-  --destructive: #c15c5c;
-  --destructive-foreground: #ffffff;
+.dark, [data-theme="dark"] {
+  --accent-landing: #F7F4EE;
+  --accent-landing-fg: #0B0C0E;
+  --accent-landing-hover: #E8E4DC;
+
+  /* Dark mode - sleek engineering-grade dark background */
+  --background: #0B0C0E;        /* Near-black dark background */
+  --foreground: #F7F4EE;        /* Cotton Paper text */
+  --card: #131417;              /* Slightly lifted dark surface */
+  --card-foreground: #F7F4EE;
+  --popover: #131417;
+  --popover-foreground: #F7F4EE;
+  --primary: #F7F4EE;
+  --primary-foreground: #0B0C0E;
+  --secondary: #131417;
+  --secondary-foreground: #F7F4EE;
+  --muted: #131417;
+  --muted-foreground: #8A8F98;
+  --accent: #131417;
+  --accent-foreground: #F7F4EE;
+  --destructive: #A98563;
+  --destructive-foreground: #0B0C0E;
   --border: rgba(255, 255, 255, 0.08);
-  --input: rgba(255, 255, 255, 0.09);
-  --ring: #7c7c7c;
-  --chart-1: #fafafa;
-  --chart-2: #d6d6d6;
-  --chart-3: #9d9d9d;
-  --chart-4: #6f6f6f;
-  --chart-5: #444444;
+  --input: rgba(255, 255, 255, 0.08);
+  --ring: #8A8F98;
 
-  --sidebar: #0d0d0d;
-  --sidebar-foreground: #f5f5f5;
-  --sidebar-primary: #fafafa;
-  --sidebar-primary-foreground: #111111;
-  --sidebar-accent: rgba(255, 255, 255, 0.045);
-  --sidebar-accent-foreground: #f5f5f5;
-  --sidebar-border: rgba(255, 255, 255, 0.04);
-  --sidebar-ring: #7c7c7c;
+  --sidebar: #0B0C0E;
+  --sidebar-foreground: #F7F4EE;
+  --sidebar-primary: #F7F4EE;
+  --sidebar-primary-foreground: #0B0C0E;
+  --sidebar-accent: rgba(247, 244, 238, 0.05);
+  --sidebar-accent-foreground: #F7F4EE;
+  --sidebar-border: rgba(255, 255, 255, 0.08);
+  --sidebar-ring: #8A8F98;
 
-  /* Calendar Blocks & Events - Dark Mode */
-  --event-meeting-bg: rgba(148, 163, 184, 0.10);
-  --event-meeting-text: #cbd5e1;
-  --event-meeting-border: rgba(148, 163, 184, 0.15);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.3);
 
-  --event-focus-bg: rgba(74, 222, 128, 0.08);
-  --event-focus-text: #86efac;
-  --event-focus-border: rgba(74, 222, 128, 0.15);
-
-  --event-task-bg: rgba(167, 139, 250, 0.08);
-  --event-task-text: #c4b5fd;
-  --event-task-border: rgba(167, 139, 250, 0.15);
-
-  --event-deadline-bg: rgba(251, 191, 36, 0.08);
-  --event-deadline-text: #fcd34d;
-  --event-deadline-border: rgba(251, 191, 36, 0.15);
-
-  --event-reminder-bg: rgba(244, 114, 182, 0.08);
-  --event-reminder-text: #f9a8d4;
-  --event-reminder-border: rgba(244, 114, 182, 0.15);
-
-  --event-generic-bg: rgba(14, 165, 233, 0.10);
-  --event-generic-text: #7dd3fc;
-  --event-generic-border: rgba(14, 165, 233, 0.20);
-
-  /* Task Priorities & States - Dark Mode */
-  --priority-urgent-bg: rgba(244, 63, 94, 0.1);
-  --priority-urgent-text: #fda4af;
-  --priority-urgent-border: rgba(244, 63, 94, 0.2);
-
-  --priority-high-bg: rgba(245, 158, 11, 0.1);
-  --priority-high-text: #fcd34d;
-  --priority-high-border: rgba(245, 158, 11, 0.2);
-
-  --priority-medium-bg: rgba(120, 113, 108, 0.1);
-  --priority-medium-text: #d6d3d1;
-  --priority-medium-border: rgba(120, 113, 108, 0.2);
-
-  --priority-low-bg: rgba(82, 82, 82, 0.1);
-  --priority-low-text: #a3a3a3;
-  --priority-low-border: rgba(82, 82, 82, 0.2);
-
-  --priority-done-bg: rgba(34, 197, 94, 0.1);
-  --priority-done-text: #86efac;
-  --priority-done-border: rgba(34, 197, 94, 0.2);
-
-  /* Premium Glassmorphic Styles - Dark Mode */
-  --glass-bg: linear-gradient(to bottom, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
-  --glass-border: rgba(255, 255, 255, 0.08);
-  --glass-shadow: 0px 8px 24px rgba(0, 0, 0, 0.35);
+  --color-accent-ai: #2B6F6A;
 }
 
+/* Carved Surface Utility per Brand System (Replaces Glassmorphic Card) */
 @utility glass-card {
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--glass-shadow);
-  backdrop-filter: blur(8px);
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+@utility surface-carved {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+@utility badge-ai {
+  background-color: rgba(43, 111, 106, 0.1);
+  color: var(--color-copper);
+  border: 1px solid rgba(43, 111, 106, 0.25);
 }
 
 @layer base {
@@ -297,6 +213,7 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-sans), -apple-system, sans-serif;
     overscroll-behavior: none;
   }
   html {
@@ -305,7 +222,9 @@
     scroll-behavior: auto !important;
   }
 
-  /* Global typography mapping for Montserrat */
+  /* Typography Rules per Section 6:
+     Headings, buttons, nav, badges use DM Sans (var(--font-display)).
+     Body copy uses Inter (var(--font-sans)). */
   h1, h2, h3, h4, h5, h6,
   .font-display,
   button,
@@ -324,15 +243,15 @@
   .stat,
   .stats,
   .statistic {
-    font-family: var(--font-display), sans-serif;
+    font-family: var(--font-display), "DM Sans", -apple-system, sans-serif;
   }
 }
 
-/* ─── Scroll-entry animation — fade + rise ──────────────────────── */
+/* ─── Scroll-entry animation — breathing fade + rise ──────────────── */
 @keyframes fade-rise {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
@@ -341,7 +260,7 @@
 }
 
 .animate-fade-rise {
-  animation: fade-rise 0.6s var(--ease-out-expo, cubic-bezier(0.16, 1, 0.3, 1)) both;
+  animation: fade-rise 0.48s var(--ease-breathe) both;
 }
 
 /* Stagger delay utilities for sequential reveals */
@@ -361,19 +280,26 @@
 
 /* ─── Font utilities ─────────────────────────────────────────────── */
 .font-display {
-  font-family: var(--font-display), sans-serif;
+  font-family: var(--font-display), "DM Sans", -apple-system, sans-serif;
+}
+.font-sans {
+  font-family: var(--font-sans), "Inter", -apple-system, sans-serif;
+}
+.font-mono {
+  font-family: var(--font-geist-mono), "JetBrains Mono", monospace;
 }
 
-/* ─── Landing accent button ─────────────────────────────────────── */
+/* ─── Carved accent button per brand system ─────────────────────── */
 .btn-accent {
   background-color: var(--color-accent-landing);
   color: var(--color-accent-landing-fg);
-  transition: background-color 150ms cubic-bezier(0.25, 1, 0.5, 1),
-              transform 150ms cubic-bezier(0.25, 1, 0.5, 1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background-color var(--duration-fast) var(--ease-breathe),
+              transform var(--duration-fast) var(--ease-breathe);
 }
 .btn-accent:hover {
   background-color: var(--color-accent-landing-hover);
 }
 .btn-accent:active {
-  transform: scale(0.97);
+  transform: scale(0.98);
 }

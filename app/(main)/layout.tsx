@@ -1,29 +1,30 @@
 import type { Metadata } from "next";
-import { Montserrat, Inter, Geist_Mono } from "next/font/google";
+import { DM_Sans, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import SmoothScrolling from "@/components/smooth-scrolling";
 
-// Display font — Montserrat for headings, navigation, buttons, badges, statistics, and UI emphasis
-const montserrat = Montserrat({
-  weight: ["400", "500", "600", "700", "800", "900"],
+// Marketing font — DM Sans for landing headings, marketing, navigation, buttons, badges
+const dmSans = DM_Sans({
+  weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
   variable: "--font-display",
 });
 
-// Primary sans — Inter for all body copy, descriptions, paragraphs, etc.
+// App font — Inter for UI, body copy, descriptions, paragraphs, etc.
 const inter = Inter({
   variable: "--font-sans",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
+// Utility mono — JetBrains Mono for code, data, timestamps
+const jetbrainsMono = JetBrains_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
 
-import { getSiteSettings } from "@/lib/keystatic/site-settings";
+import { getSiteSettings } from "@/cms/helpers/site-settings";
 
 export async function generateMetadata(): Promise<Metadata> {
   const siteSettings = await getSiteSettings();
@@ -50,9 +51,9 @@ export default function RootLayout({
       className={cn(
         "h-full",
         "antialiased",
-        montserrat.variable,
+        dmSans.variable,
         inter.variable,
-        geistMono.variable,
+        jetbrainsMono.variable,
         "font-sans",
         "bg-background text-foreground transition-colors duration-300"
       )}

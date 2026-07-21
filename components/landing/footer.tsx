@@ -1,8 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ToggleTheme } from "@/components/ui/toggle-theme";
-import { getFooter } from "@/lib/keystatic/footer";
-import { getSiteSettings } from "@/lib/keystatic/site-settings";
+import { getFooter } from "@/cms/helpers/footer";
+import { getSiteSettings } from "@/cms/helpers/site-settings";
 
 const badges = ["SOC 2", "GDPR", "CCPA", "HIPAA", "SOC 3"];
 
@@ -121,7 +121,7 @@ export async function Footer() {
       {/* Giant Watermark Text */}
       <div className="w-full flex justify-center items-center overflow-hidden mt-12 sm:mt-16 mb-2 select-none z-0 relative">
         <span
-          className="font-sans text-[clamp(5rem,18vw,15rem)] font-bold tracking-[-0.04em] leading-none text-zinc-100 dark:text-[#161718] select-none pointer-events-none"
+          className="font-sans text-[clamp(5rem,18vw,15rem)] font-bold tracking-[-0.04em] leading-none text-[#DDD7CE] dark:text-[#F7F4EE]/[0.08] select-none pointer-events-none transition-colors duration-300"
         >
           {siteName}
         </span>

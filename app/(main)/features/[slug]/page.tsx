@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import { getFeature, getFeatures } from "@/lib/keystatic/features";
+import { getFeature, getFeatures } from "@/cms/helpers/features";
 import { FeatureLayout } from "@/components/landing/feature-layout";
 
 

@@ -1,0 +1,23 @@
+{
+  "title": "Loved by the best.",
+  "stat1Label": "Average savings per seat",
+  "stat1Value": "$40–$70 / mo",
+  "stat2Label": "Teams worldwide",
+  "stat2Value": "7,000+",
+  "testimonials": [
+    {
+      "quote": "KeilHQ is by far the best agency tool I have ever used. Everything is connected — tasks, docs, chat, calendar — and the AI actually knows what I'm working on.",
+      "authorName": "Martha Punla",
+      "authorRole": "VP Marketing, Meta",
+      "authorAvatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=100&auto=format&fit=crop&crop=face",
+      "isHighlighted": false
+    },
+    {
+      "quote": "From client onboarding to getting paid, this just works — clean, fast, and beautifully built. We cancelled four tools in the first week.",
+      "authorName": "Leah Daniel",
+      "authorRole": "Design Ops Lead, Teamwork",
+      "authorAvatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=100&auto=format&fit=crop&crop=face",
+      "isHighlighted": true
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 import { makeRouteHandler } from '@keystatic/next/route-handler';
-import config from '../../../../keystatic.config';
+import config from '../../../../cms/config';
 
 let cachedHandler: ReturnType<typeof makeRouteHandler> | null = null;
 

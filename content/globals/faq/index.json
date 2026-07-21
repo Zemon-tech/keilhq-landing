@@ -1,0 +1,27 @@
+{
+  "eyebrow": "Common Questions",
+  "title": "Frequently Asked Questions",
+  "description": "Everything you need to know about KeilHQ, our pricing, and how we handle your data.",
+  "faqs": [
+    {
+      "question": "What makes KeilHQ different from other tools?",
+      "answer": "KeilHQ unifies tasks, docs, chat, and your calendar in one seamless workspace. Instead of switching between five different apps, everything is connected. Plus, our built-in AI reads your actual data to help prioritize work and unblock your team."
+    },
+    {
+      "question": "Do I need a credit card to sign up?",
+      "answer": "No! You can get started with KeilHQ for completely free without a credit card. We offer a generous free plan perfect for individuals and small teams to experience the unified workspace."
+    },
+    {
+      "question": "Can I import my existing data from Notion or Jira?",
+      "answer": "Yes, absolutely. We provide seamless one-click importers for major platforms like Notion, Jira, Asana, and Linear so you can bring your context over without missing a beat."
+    },
+    {
+      "question": "How does the AI Assistant actually help?",
+      "answer": "Unlike generic AI chat bots, KeilHQ's AI is deeply integrated into your workflow. It cross-references your calendar, scans your assigned tasks, and identifies blockers automatically so you always know exactly what to tackle next."
+    },
+    {
+      "question": "Is my team's data secure?",
+      "answer": "Security is our top priority. All data is encrypted in transit and at rest using enterprise-grade standards. We also ensure your private company data is never used to train public AI models."
+    }
+  ]
+}

@@ -32,7 +32,7 @@ export function EnterpriseCapabilities() {
           
           {/* RBAC & Permissions */}
           <div className="flex flex-col items-start gap-4 p-6 bg-background border border-border/60 dark:border-white/5 rounded-sm shadow-sm">
-            <div className="size-12 rounded-sm bg-blue-500/10 dark:bg-blue-500/5 text-blue-600 dark:text-blue-400 flex items-center justify-center">
+            <div className="size-12 rounded-sm bg-[var(--color-indigo)]/10 text-[var(--color-indigo)] dark:text-[var(--color-limestone)] flex items-center justify-center">
               <Shield className="size-6" />
             </div>
             <div className="flex flex-col gap-2">
@@ -43,7 +43,7 @@ export function EnterpriseCapabilities() {
             </div>
             <div className="flex flex-wrap gap-1 mt-2">
               {['Owner', 'Admin', 'Manager', 'Member'].map((role) => (
-                <span key={role} className="text-[9px] bg-blue-500/10 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded-xs font-medium">
+                <span key={role} className="text-[9px] bg-[var(--color-indigo)]/10 text-[var(--color-indigo)] dark:text-[var(--color-limestone)] px-2 py-0.5 rounded-xs font-medium">
                   {role}
                 </span>
               ))}
@@ -52,7 +52,7 @@ export function EnterpriseCapabilities() {
 
           {/* Real-time Collaboration */}
           <div className="flex flex-col items-start gap-4 p-6 bg-background border border-border/60 dark:border-white/5 rounded-sm shadow-sm">
-            <div className="size-12 rounded-sm bg-emerald-500/10 dark:bg-emerald-500/5 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+            <div className="size-12 rounded-sm bg-[var(--color-forest)]/10 text-[var(--color-forest)] dark:text-[var(--color-copper)] flex items-center justify-center">
               <Zap className="size-6" />
             </div>
             <div className="flex flex-col gap-2">
@@ -62,14 +62,14 @@ export function EnterpriseCapabilities() {
               </p>
             </div>
             <div className="flex items-center gap-2 mt-2">
-              <div className="size-2 rounded-full bg-emerald-500 animate-pulse"></div>
-              <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-medium">Live Updates Active</span>
+              <div className="size-2 rounded-full bg-[var(--color-copper)] animate-pulse"></div>
+              <span className="text-[10px] text-[var(--color-copper)] font-medium">Live Updates Active</span>
             </div>
           </div>
 
           {/* Multi-tenant Architecture */}
           <div className="flex flex-col items-start gap-4 p-6 bg-background border border-border/60 dark:border-white/5 rounded-sm shadow-sm">
-            <div className="size-12 rounded-sm bg-violet-500/10 dark:bg-violet-500/5 text-violet-600 dark:text-violet-400 flex items-center justify-center">
+            <div className="size-12 rounded-sm bg-[var(--color-sandstone)]/10 text-[var(--color-sandstone)] flex items-center justify-center">
               <Users className="size-6" />
             </div>
             <div className="flex flex-col gap-2">
@@ -92,7 +92,7 @@ export function EnterpriseCapabilities() {
 
           {/* Security & Audit */}
           <div className="flex flex-col items-start gap-4 p-6 bg-background border border-border/60 dark:border-white/5 rounded-sm shadow-sm">
-            <div className="size-12 rounded-sm bg-amber-500/10 dark:bg-amber-500/5 text-amber-600 dark:text-amber-400 flex items-center justify-center">
+            <div className="size-12 rounded-sm bg-[var(--color-marigold)]/10 text-[var(--color-marigold)] flex items-center justify-center">
               <Eye className="size-6" />
             </div>
             <div className="flex flex-col gap-2">
@@ -179,14 +179,14 @@ export function EnterpriseCapabilities() {
               </div>
             </div>
             
-            <div className="p-6 bg-gradient-to-br from-emerald-500/5 via-blue-500/5 to-violet-500/5 border border-emerald-500/10 rounded-sm">
+            <div className="p-6 bg-card border border-border/60 rounded-sm shadow-sm">
               <h4 className="font-display text-lg font-semibold text-zinc-900 dark:text-white mb-3">Enterprise Support</h4>
               <p className="text-[13px] text-muted-foreground leading-relaxed mb-4">
                 Dedicated support, custom integrations, SSO setup, and migration assistance for enterprise customers.
               </p>
               <div className="flex items-center gap-2">
-                <div className="size-2 rounded-full bg-emerald-500"></div>
-                <span className="text-[11px] text-emerald-600 dark:text-emerald-400 font-medium">Available for Enterprise plans</span>
+                <div className="size-2 rounded-full bg-[var(--color-copper)]"></div>
+                <span className="text-[11px] text-[var(--color-copper)] font-medium">Available for Enterprise plans</span>
               </div>
             </div>
           </div>

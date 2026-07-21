@@ -120,13 +120,14 @@ export function FeatureLayout({
 
   return (
     <main className="flex-1 flex flex-col items-center">
-        {/* Ambient top mesh glow */}
+        {/* Ambient top material subtle gradient */}
         <div
           className="absolute inset-0 pointer-events-none z-0"
           aria-hidden="true"
           style={{
             background:
-              "radial-gradient(ellipse 70% 50% at 50% -5%, oklch(0.55 0.18 250 / 0.04), transparent)",
+              "radial-gradient(ellipse 70% 40% at 50% -5%, var(--color-limestone), transparent 70%)",
+            opacity: 0.15,
           }}
         />
 
@@ -227,7 +228,7 @@ export function FeatureLayout({
           <div className="flex-1 flex flex-col gap-6">
             {checklistItems.map((item, idx) => (
               <div key={idx} className="flex items-start gap-4">
-                <div className="size-5 rounded-full bg-emerald-500/10 dark:bg-emerald-500/5 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                <div className="size-5 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0 mt-0.5">
                   <Check className="size-3.5" />
                 </div>
                 <p className="text-[13px] text-zinc-600 dark:text-zinc-400 leading-relaxed">

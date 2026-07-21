@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
-import { getBlogPost, getBlogPosts } from "@/lib/keystatic/blog";
+import { getBlogPost, getBlogPosts } from "@/cms/helpers/blog";
 import { DocumentRenderer } from "@keystatic/core/renderer";
 import { VideoPlayer } from "./video-player";
 

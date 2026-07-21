@@ -1,4 +1,4 @@
-import { getChangelogs } from "@/lib/keystatic/changelog";
+import { getChangelogs } from "@/cms/helpers/changelog";
 import { ChangelogClient } from "./changelog-client";
 
 export default async function ChangelogPage() {

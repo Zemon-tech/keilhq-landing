@@ -1,5 +1,5 @@
-import { getBlogPosts } from "@/lib/keystatic/blog";
-import { getPressItems } from "@/lib/keystatic/press";
+import { getBlogPosts } from "@/cms/helpers/blog";
+import { getPressItems } from "@/cms/helpers/press";
 import { PressPageClient, BlogListItem, PressListItem } from "./press-client";
 
 const authorDetailsMap: Record<string, { role: string; avatar: string }> = {

@@ -1,0 +1,73 @@
+{
+  "heroTitle": "Building tools for the next era of product development",
+  "heroSubtitle": "AI is fundamentally changing how products get built. We are shaping what comes next.",
+  "editorialTitle": "A new species of product tool",
+  "editorialLead": "Software development is at an inflection point. Artificial intelligence is fundamentally reshaping how products are built.",
+  "editorialParagraphs": [
+    "AI increases what teams can create, but it also raises the bar for clarity and coordination. At KeilHQ, we are building the tools for this new era of product development. A purpose-built system where teams and agents operate together in a shared, structured environment.",
+    "Founded in 2025, KeilHQ has become the tool of choice for thousands of fast-growing teams to plan, build, and ship their products.",
+    "Our team is distributed across North America and India, and we're continuing to grow internationally. What unites us is relentless focus, fast execution, and a deep care for software craftsmanship."
+  ],
+  "teamTitle": "Meet the team behind KeilHQ",
+  "teamSubtitle": "We are designers and engineers. Problem solvers and storytellers. We are a diverse team of individuals, all makers at heart.",
+  "teamMembers": [
+    {
+      "name": "Shivang Kandoi",
+      "role": "Co-founder & CEO",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop"
+    },
+    {
+      "name": "Satyajit Jena",
+      "role": "Co-founder & CTO",
+      "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400&auto=format&fit=crop"
+    },
+    {
+      "name": "Harshit Kundra",
+      "role": "COO",
+      "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=400&auto=format&fit=crop"
+    },
+    {
+      "name": "Disha Jain",
+      "role": "Software Engineer",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop"
+    },
+    {
+      "name": "Akshat Chowdhary",
+      "role": "AI Engineer",
+      "avatar": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=400&auto=format&fit=crop"
+    },
+    {
+      "name": "Naveen",
+      "role": "Software Engineer",
+      "avatar": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=400&auto=format&fit=crop"
+    },
+    {
+      "name": "Krishna Jaiswal",
+      "role": "Software Engineer",
+      "avatar": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=400&auto=format&fit=crop"
+    },
+    {
+      "name": "Rohan Vashisth",
+      "role": "Software Engineer",
+      "avatar": "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=400&auto=format&fit=crop"
+    },
+    {
+      "name": "Shivansh Tiwari",
+      "role": "Software Engineer",
+      "avatar": "https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?q=80&w=400&auto=format&fit=crop"
+    }
+  ],
+  "investorsTitle": "Backed by the best",
+  "investors": [
+    {
+      "firmName": "Accel",
+      "partnerName": "Miles Clements",
+      "partnerRole": "Partner, Accel"
+    },
+    {
+      "firmName": "Sequoia",
+      "partnerName": "Stephanie Zhan",
+      "partnerRole": "Partner, Sequoia"
+    }
+  ]
+}

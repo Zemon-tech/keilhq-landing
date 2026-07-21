@@ -79,7 +79,7 @@ export default function PricingPage() {
 
             {/* Eyebrow badge */}
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary/80 border border-border/50 transition-all duration-300">
-              <span className="size-1.5 rounded-full bg-emerald-500 inline-block animate-pulse" />
+              <span className="size-1.5 rounded-full bg-[var(--color-copper)] inline-block animate-pulse" />
               <span className="text-[11px] font-medium text-muted-foreground tracking-wide uppercase">
                 Plans · Pricing
               </span>
@@ -119,7 +119,7 @@ export default function PricingPage() {
                   </div>
                 )}
                 {proMode === "paid" && (
-                  <div className="absolute -top-3 right-0 bg-emerald-600 text-white px-3 py-1 text-[10px] font-semibold uppercase tracking-wider rounded-sm shadow-sm z-10">
+                  <div className="absolute -top-3 right-0 bg-[var(--color-sandstone)] text-white px-3 py-1 text-[10px] font-semibold uppercase tracking-wider rounded-sm shadow-sm z-10">
                     50% Discount
                   </div>
                 )}
@@ -199,7 +199,7 @@ export default function PricingPage() {
                   {proMode === "trial" ? (
                     <div className="flex flex-col gap-3.5">
                       <div className="flex items-start gap-3">
-                        <div className="size-5 rounded-full bg-indigo-500/10 dark:bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 flex items-center justify-center shrink-0 mt-0.5">
+                        <div className="size-5 rounded-full bg-[var(--color-copper)]/10 text-[var(--color-copper)] flex items-center justify-center shrink-0 mt-0.5">
                           <Sparkles className="size-3" />
                         </div>
                         <p className="text-[13px] text-muted-foreground leading-relaxed">
@@ -207,7 +207,7 @@ export default function PricingPage() {
                         </p>
                       </div>
                       <div className="flex items-start gap-3">
-                        <div className="size-5 rounded-full bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                        <div className="size-5 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0 mt-0.5">
                           <svg viewBox="0 0 24 24" className="size-3.5" fill="none" stroke="currentColor" strokeWidth="3">
                             <polyline points="20 6 9 17 4 12" />
                           </svg>
@@ -217,10 +217,10 @@ export default function PricingPage() {
                         </p>
                       </div>
                       <div className="flex items-start gap-3">
-                        <div className="size-5 rounded-full bg-amber-500/10 dark:bg-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0 mt-0.5">
+                        <div className="size-5 rounded-full bg-[var(--color-sandstone)]/10 text-[var(--color-sandstone)] flex items-center justify-center shrink-0 mt-0.5">
                           <Lock className="size-3" />
                         </div>
-                        <p className="text-[13px] text-amber-600 dark:text-amber-500 leading-relaxed font-medium">
+                        <p className="text-[13px] text-[var(--color-sandstone)] leading-relaxed font-medium">
                           Trial data will be used to train future models
                         </p>
                       </div>
@@ -228,7 +228,7 @@ export default function PricingPage() {
                   ) : (
                     <div className="flex flex-col gap-3.5">
                       <div className="flex items-start gap-3">
-                        <div className="size-5 rounded-full bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                        <div className="size-5 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0 mt-0.5">
                           <svg viewBox="0 0 24 24" className="size-3.5" fill="none" stroke="currentColor" strokeWidth="3">
                             <polyline points="20 6 9 17 4 12" />
                           </svg>
@@ -238,7 +238,7 @@ export default function PricingPage() {
                         </p>
                       </div>
                       <div className="flex items-start gap-3">
-                        <div className="size-5 rounded-full bg-indigo-500/10 dark:bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 flex items-center justify-center shrink-0 mt-0.5">
+                        <div className="size-5 rounded-full bg-[var(--color-copper)]/10 text-[var(--color-copper)] flex items-center justify-center shrink-0 mt-0.5">
                           <Sparkles className="size-3" />
                         </div>
                         <p className="text-[13px] text-muted-foreground leading-relaxed">
@@ -246,7 +246,7 @@ export default function PricingPage() {
                         </p>
                       </div>
                       <div className="flex items-start gap-3">
-                        <div className="size-5 rounded-full bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                        <div className="size-5 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0 mt-0.5">
                           <svg viewBox="0 0 24 24" className="size-3.5" fill="none" stroke="currentColor" strokeWidth="3">
                             <polyline points="20 6 9 17 4 12" />
                           </svg>
@@ -256,7 +256,7 @@ export default function PricingPage() {
                         </p>
                       </div>
                       <div className="flex items-start gap-3">
-                        <div className="size-5 rounded-full bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                        <div className="size-5 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0 mt-0.5">
                           <svg viewBox="0 0 24 24" className="size-3.5" fill="none" stroke="currentColor" strokeWidth="3">
                             <polyline points="20 6 9 17 4 12" />
                           </svg>
@@ -266,10 +266,10 @@ export default function PricingPage() {
                         </p>
                       </div>
                       <div className="flex items-start gap-3">
-                        <div className="size-5 rounded-full bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                        <div className="size-5 rounded-full bg-[var(--color-copper)]/10 text-[var(--color-copper)] flex items-center justify-center shrink-0 mt-0.5">
                           <Shield className="size-3.5" />
                         </div>
-                        <p className="text-[13px] text-emerald-600 dark:text-emerald-500 font-medium leading-relaxed">
+                        <p className="text-[13px] text-[var(--color-copper)] font-medium leading-relaxed">
                           Fully secure data (no model training)
                         </p>
                       </div>
