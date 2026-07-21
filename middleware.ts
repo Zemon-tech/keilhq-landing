@@ -18,9 +18,11 @@ import type { NextRequest } from "next/server";
 // This file runs at the Edge so it is ultra-fast (<5 ms) and adds zero latency
 // to unauthenticated visitors.
 
+export const runtime = "edge";
+
 const APP_URL = "https://app.Keilhq.in";
 
-export default function proxy(request: NextRequest) {
+export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // 1. Apply Basic Authentication to Keystatic routes
