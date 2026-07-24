@@ -1,14 +1,17 @@
 import { cache } from 'react';
-import { getReader } from '../reader';
+import blogData from '../__generated__/blog.json';
 
 export const getBlogPosts = cache(async () => {
-  const reader = await getReader();
-  if (!reader) return [];
-  return await reader.collections.blog.all();
+  return blogData;
 });
 
 export const getBlogPost = cache(async (slug: string) => {
-  const reader = await getReader();
-  if (!reader) return null;
-  return await reader.collections.blog.read(slug);
+  const post = blogData.find((p) => p.slug === slug);
+  if (!post) return null;
+  // Return entry with a content() method matching the Reader API shape
+  const entry = { ...post.entry };
+  return {
+    ...entry,
+    content: async () => entry.content as any,
+  };
 });

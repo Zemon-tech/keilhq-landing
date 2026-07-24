@@ -40,6 +40,9 @@ yarn-error.log*
 .open-next
 cloudflare-env.d.ts
 
+# keystone generated content
+cms/__generated__
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

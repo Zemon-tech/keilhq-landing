@@ -1,11 +1,8 @@
 import { cache } from 'react';
-import { getReader } from '../reader';
+import pressData from '../__generated__/press.json';
 
 export const getPressItems = cache(async () => {
-  const reader = await getReader();
-  if (!reader) return [];
-  const items = await (reader.collections as any).press.all();
-  return items as Array<{
+  return pressData as Array<{
     slug: string;
     entry: {
       title: string;
@@ -20,7 +17,7 @@ export const getPressItems = cache(async () => {
 });
 
 export const getPressItem = cache(async (slug: string) => {
-  const reader = await getReader();
-  if (!reader) return null;
-  return await (reader.collections as any).press.read(slug);
+  const item = pressData.find((p: any) => p.slug === slug);
+  if (!item) return null;
+  return item as { slug: string; entry: Record<string, unknown> };
 });
