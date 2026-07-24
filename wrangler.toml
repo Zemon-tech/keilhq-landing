@@ -4,9 +4,16 @@ compatibility_date = "2026-06-01"
 compatibility_flags = ["nodejs_compat"]
 keep_names = false
 
+routes = [
+  { pattern = "keilhq.in", custom_domain = true }
+]
+
 [assets]
 directory = ".open-next/assets"
 binding = "ASSETS"
+
+[vars]
+NODE_ENV = "production"
 
 [observability]
 enabled = true

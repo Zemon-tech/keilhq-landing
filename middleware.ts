@@ -23,8 +23,8 @@ const APP_URL = "https://app.Keilhq.in";
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // 1. Apply Basic Authentication to Keystatic routes
-  if (pathname.startsWith("/keystatic") || pathname.startsWith("/api/keystatic")) {
+  // 1. Apply Basic Authentication to Keystatic admin page only (not API routes)
+  if (pathname.startsWith("/keystatic")) {
     const adminUser = process.env.KEYSTATIC_ADMIN_USER;
     const adminPass = process.env.KEYSTATIC_ADMIN_PASS;
 
@@ -112,6 +112,5 @@ export const config = {
   matcher: [
     "/",
     "/keystatic/:path*",
-    "/api/keystatic/:path*",
   ],
 };
