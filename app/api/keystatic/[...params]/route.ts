@@ -40,5 +40,20 @@ const getHandler = () => {
   return cachedHandler;
 };
 
-export const GET = (req: Request) => getHandler().GET(req);
-export const POST = (req: Request) => getHandler().POST(req);
+async function safeHandle(req: Request, method: 'GET' | 'POST') {
+  try {
+    const handler = getHandler();
+    return await handler[method](req);
+  } catch (err: unknown) {
+    const message = err instanceof Error ? err.message : String(err);
+    const stack = err instanceof Error ? err.stack : undefined;
+    console.error(`[keystatic] ${method} ${new URL(req.url).pathname} error:`, message, stack);
+    return new Response(
+      JSON.stringify({ error: 'Internal Server Error', detail: message }),
+      { status: 500, headers: { 'Content-Type': 'application/json' } }
+    );
+  }
+}
+
+export const GET = (req: Request) => safeHandle(req, 'GET');
+export const POST = (req: Request) => safeHandle(req, 'POST');
