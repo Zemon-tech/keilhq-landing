@@ -12,7 +12,7 @@ import { getBlogPosts } from "@/cms/helpers/blog";
 import { getLovedBy } from "@/cms/helpers/loved-by";
 
 export const metadata: Metadata = {
-  title: "KeilHQ",
+  title: "KeilHQ — Human Clarity for Teams",
   description: "Human clarity for teams. KeilHQ is the desktop-first work management platform combining database-enforced task clarity, real-time team chat, block docs, 2-way calendar sync, meeting transcription, and multi-agent AI.",
 };
 

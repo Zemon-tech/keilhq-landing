@@ -45,18 +45,18 @@ const ChatMockup1 = () => {
               <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
             </svg>
           </div>
-          <span className="text-[12px] font-semibold text-foreground font-display">Littlebird AI</span>
+          <span className="text-[12px] font-semibold text-foreground font-display">KeilHQ AI</span>
         </div>
         <span className="text-[10px] text-muted-foreground font-sans">active just now</span>
       </div>
 
       <div className="flex flex-col gap-3">
         <div className="self-end max-w-[85%] bg-primary text-primary-foreground rounded-lg px-3 py-2 text-[13px] shadow-xs">
-          Hey Littlebird! Help me plan for the marathon I registered for please!
+          Hey KeilHQ! Help me plan for the marathon I registered for please!
         </div>
 
         <div className="self-start max-w-[85%] bg-secondary text-secondary-foreground rounded-lg px-3 py-2 text-[13px] border border-border flex flex-col gap-1 shadow-xs">
-          <span className="font-semibold text-foreground text-[11px] uppercase tracking-wider block font-display">Littlebird</span>
+          <span className="font-semibold text-foreground text-[11px] uppercase tracking-wider block font-display">KeilHQ</span>
           <span>Got it — I pulled everything up for you.</span>
         </div>
       </div>
@@ -75,7 +75,7 @@ const ChatMockup2 = () => {
               <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
             </svg>
           </div>
-          <span className="text-[12px] font-semibold text-foreground font-display">Littlebird AI</span>
+          <span className="text-[12px] font-semibold text-foreground font-display">KeilHQ AI</span>
         </div>
         <span className="text-[10px] text-muted-foreground font-sans">active just now</span>
       </div>
@@ -87,7 +87,7 @@ const ChatMockup2 = () => {
 
         <div className="self-start max-w-[90%] bg-secondary text-secondary-foreground rounded-lg px-3.5 py-3.5 text-[13px] border border-border flex flex-col gap-3 shadow-xs">
           <div className="flex flex-col gap-1">
-            <span className="font-semibold text-foreground text-[11px] uppercase tracking-wider block font-display">Littlebird</span>
+            <span className="font-semibold text-foreground text-[11px] uppercase tracking-wider block font-display">KeilHQ</span>
             <span>Based on Chicago&apos;s elevation and a 3:15 goal, here are your key splits:</span>
           </div>
 
@@ -279,20 +279,20 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   Two years and a few marathons later, she had a new number to chase: 3:15, the time she needed to qualify for the Boston Marathon with a safe buffer. The course was again flat and net-downhill. The same conversion problem was waiting for her.
                 </p>
                 <p>
-                  This time she didn&apos;t guess. She asked Littlebird.
+                  This time she didn&apos;t guess. She asked KeilHQ.
                 </p>
 
                 {/* Interactive SMS Mockup 1 */}
                 <ChatMockup1 />
 
                 <p>
-                  She didn&apos;t paste in the course profile. She didn&apos;t re-type her recent run history. She didn&apos;t explain that she lives in San Francisco but the race was elsewhere. Littlebird had been quietly building context from the things she was already doing - the registration email in her inbox, the training plan open in another tab, the elevation map she&apos;d pulled up the week before. By the time she asked, the picture was already there. A short, half-thought question was enough to get back a mile-by-mile training plan, adjusted for the terrain.
+                  She didn&apos;t paste in the course profile. She didn&apos;t re-type her recent run history. She didn&apos;t explain that she lives in San Francisco but the race was elsewhere. KeilHQ had been quietly building context from the things she was already doing - the registration email in her inbox, the training plan open in another tab, the elevation map she&apos;d pulled up the week before. By the time she asked, the picture was already there. A short, half-thought question was enough to get back a mile-by-mile training plan, adjusted for the terrain.
                 </p>
                 <p className="border-l-2 border-primary pl-4 font-display text-lg font-medium text-foreground italic my-2">
                   &ldquo;I asked it one question and it knew everything else. I didn&apos;t have to re-explain my life.&rdquo;
                 </p>
                 <p>
-                  The pace plan was the headline, but it wasn&apos;t the only thing. Across the sixteen weeks, Littlebird filled in the smaller decisions she didn&apos;t want to keep making from scratch: what to eat the night before a long run, when to take her last real meal before a 5 a.m. start, how many recovery days a peak week actually needed. A steady second opinion, in the background, that knew her training block as well as she did.
+                  The pace plan was the headline, but it wasn&apos;t the only thing. Across the sixteen weeks, KeilHQ filled in the smaller decisions she didn&apos;t want to keep making from scratch: what to eat the night before a long run, when to take her last real meal before a 5 a.m. start, how many recovery days a peak week actually needed. A steady second opinion, in the background, that knew her training block as well as she did.
                 </p>
                 <p>
                   When race day came, she turned the mile-by-mile plan into a phone lock screen so she could glance at it mid-race without unlocking. The numbers held.
