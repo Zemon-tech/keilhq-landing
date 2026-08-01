@@ -31,13 +31,12 @@
 
 ## Canonical Pages & Links
 
-- Home: https://keilhq.com
-- Features: https://keilhq.com/features
-- Pricing: https://keilhq.com/pricing
-- Enterprise: https://keilhq.com/enterprise
-- Changelog: https://keilhq.com/changelog
-- About: https://keilhq.com/about
-- Brand: https://keilhq.com/brand
-- Privacy: https://keilhq.com/privacy
-- Terms: https://keilhq.com/terms
-- Security: https://keilhq.com/privacy-security
+- Home: https://keilhq.in
+- Features: https://keilhq.in/features
+- Pricing: https://keilhq.in/pricing
+- Enterprise: https://keilhq.in/enterprise
+- Changelog: https://keilhq.in/changelog
+- About: https://keilhq.in/about
+- Brand: https://keilhq.in/brand
+- Privacy & Security: https://keilhq.in/privacy
+- Terms of Service: https://keilhq.in/terms

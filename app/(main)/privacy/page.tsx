@@ -109,8 +109,8 @@ export default function PrivacyPage() {
               </ul>
               <p>
                 To exercise any of these rights, contact our privacy team at{" "}
-                <a href="mailto:privacy@keilhq.com" className="text-foreground underline underline-offset-4 hover:opacity-80 transition-opacity">
-                  privacy@keilhq.com
+                <a href="mailto:privacy@keilhq.in" className="text-foreground underline underline-offset-4 hover:opacity-80 transition-opacity">
+                  privacy@keilhq.in
                 </a>.
               </p>
             </section>
@@ -125,7 +125,7 @@ export default function PrivacyPage() {
               <p className="text-[13px] text-foreground">
                 KeilHQ Inc.<br />
                 Attn: Privacy Officer<br />
-                Email: privacy@keilhq.com
+                Email: privacy@keilhq.in
               </p>
             </section>
           </div>

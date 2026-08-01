@@ -13,8 +13,8 @@ export function JsonLd() {
       "Keil Land",
       "Keil Platform"
     ],
-    "url": "https://keilhq.com",
-    "logo": "https://keilhq.com/keilhq.svg",
+    "url": "https://keilhq.in",
+    "logo": "https://keilhq.in/keilhq.svg",
     "description": "KeilHQ is a work management platform combining database-enforced task clarity, real-time team chat, block-based documents, calendar sync, meeting transcription, and multi-agent AI.",
     "sameAs": [
       "https://twitter.com/keilhq",
@@ -32,10 +32,10 @@ export function JsonLd() {
       "Keil App",
       "Keil Workspace"
     ],
-    "url": "https://keilhq.com",
+    "url": "https://keilhq.in",
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "https://keilhq.com/search?q={search_term_string}",
+      "target": "https://keilhq.in/search?q={search_term_string}",
       "query-input": "required name=search_term_string"
     }
   };

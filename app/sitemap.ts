@@ -3,7 +3,7 @@ import { getFeatures } from "@/cms/helpers/features";
 import { getBlogPosts } from "@/cms/helpers/blog";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = "https://keilhq.com";
+  const baseUrl = "https://keilhq.in";
 
   const staticRoutes = [
     "",
@@ -16,7 +16,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/support",
     "/privacy",
     "/terms",
-    "/privacy-security",
     "/brand",
     "/demo",
     "/blog",

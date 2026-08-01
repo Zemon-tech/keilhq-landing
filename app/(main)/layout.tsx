@@ -32,7 +32,7 @@ export async function generateMetadata(): Promise<Metadata> {
     "Human clarity for teams. KeilHQ is the desktop-first work management workspace combining database-enforced task clarity, real-time team chat, block docs, 2-way calendar sync, meeting transcription, and multi-agent AI.";
 
   return {
-    metadataBase: new URL("https://keilhq.com"),
+    metadataBase: new URL("https://keilhq.in"),
     title: {
       default: "KeilHQ",
       template: "%s | KeilHQ",
@@ -56,7 +56,7 @@ export async function generateMetadata(): Promise<Metadata> {
       "block document editor",
       "TipTap editor",
     ],
-    authors: [{ name: "KeilHQ Team", url: "https://keilhq.com" }],
+    authors: [{ name: "KeilHQ Team", url: "https://keilhq.in" }],
     creator: "KeilHQ",
     publisher: "KeilHQ",
     icons: {
@@ -74,7 +74,7 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       type: "website",
       locale: "en_US",
-      url: "https://keilhq.com",
+      url: "https://keilhq.in",
       siteName: "KeilHQ",
       title: "KeilHQ — Human Clarity for Teams",
       description,

@@ -58,8 +58,8 @@ To connect Keystatic to your GitHub repository:
 1. **Create a GitHub App** on your GitHub account/org:
    - Go to **Settings > Developer Settings > GitHub Apps > New GitHub App**.
    - **GitHub App name:** `KeilHQ Landing CMS` (or any unique name).
-   - **Homepage URL:** `https://keilhq.com`
-   - **Callback URL:** `https://keilhq.com/api/keystatic/github/callback` (For local development, you can use `http://localhost:3000/api/keystatic/github/callback`).
+   - **Homepage URL:** `https://keilhq.in`
+   - **Callback URL:** `https://keilhq.in/api/keystatic/github/callback` (For local development, you can use `http://localhost:3000/api/keystatic/github/callback`).
    - **Expire user authorization tokens:** Checked.
    - **Request user authorization (OAuth) during installation:** Checked.
 
@@ -78,7 +78,7 @@ To connect Keystatic to your GitHub repository:
 Because GitHub OAuth Apps only support a single Redirect Callback URL, preview URLs (like those generated dynamically by Cloudflare Pages on pull requests) will fail authentication if they do not match the Callback URL.
 
 To handle preview deployments, you have two options:
-* **Option A (Recommended):** Setup a **separate Staging GitHub App** configured specifically with the callback URL of your staging or main preview branch (e.g. `https://preview.keilhq.com/api/keystatic/github/callback`), and configure those environment variables on Cloudflare's preview branch settings.
+* **Option A (Recommended):** Setup a **separate Staging GitHub App** configured specifically with the callback URL of your staging or main preview branch (e.g. `https://preview.keilhq.in/api/keystatic/github/callback`), and configure those environment variables on Cloudflare's preview branch settings.
 * **Option B:** For local development and temporary preview checks, set the Callback URL in your primary GitHub App configuration to `http://localhost:3000/api/keystatic/github/callback` or the temporary preview domain.
 
 ### 4. Deploying on Cloudflare Pages

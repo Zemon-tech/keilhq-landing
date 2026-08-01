@@ -111,7 +111,7 @@ export default function TermsPage() {
               <p className="text-[13px] text-foreground">
                 KeilHQ Inc.<br />
                 Attn: Legal Department<br />
-                Email: legal@keilhq.com
+                Email: legal@keilhq.in
               </p>
             </section>
           </div>
