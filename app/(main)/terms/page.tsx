@@ -13,11 +13,11 @@ export default function TermsPage() {
           {/* Header */}
           <div className="mb-12 flex flex-col items-start gap-4">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/80 border border-border/50">
-              <span className="text-[11px] font-mono uppercase tracking-widest text-muted-foreground">
+              <span className="text-[11px] font-sans uppercase tracking-widest text-muted-foreground">
                 Legal
               </span>
             </div>
-            <h1 className="font-sans text-[clamp(2.25rem,4vw,3.5rem)] font-semibold leading-[1.1] text-foreground tracking-tight">
+            <h1 className="font-display text-[clamp(2.25rem,4vw,3.5rem)] font-semibold leading-[1.1] text-foreground tracking-tight">
               Terms of Service
             </h1>
             <p className="text-[15px] text-muted-foreground leading-relaxed">
@@ -26,9 +26,9 @@ export default function TermsPage() {
           </div>
 
           {/* Terms Body */}
-          <div className="flex flex-col gap-10 text-[15px] leading-relaxed text-muted-foreground border-t border-border/40 pt-10">
+          <div className="flex flex-col gap-10 text-[15px] leading-relaxed text-muted-foreground border-t border-border pt-10">
             <section className="flex flex-col gap-3">
-              <h2 className="text-[18px] font-semibold text-foreground tracking-tight">
+              <h2 className="text-[18px] font-semibold text-foreground tracking-tight font-display">
                 1. Acceptance of Terms
               </h2>
               <p>
@@ -37,7 +37,7 @@ export default function TermsPage() {
             </section>
 
             <section className="flex flex-col gap-3">
-              <h2 className="text-[18px] font-semibold text-foreground tracking-tight">
+              <h2 className="text-[18px] font-semibold text-foreground tracking-tight font-display">
                 2. User Accounts & Workspace Responsibilities
               </h2>
               <p>
@@ -52,7 +52,7 @@ export default function TermsPage() {
             </section>
 
             <section className="flex flex-col gap-3">
-              <h2 className="text-[18px] font-semibold text-foreground tracking-tight">
+              <h2 className="text-[18px] font-semibold text-foreground tracking-tight font-display">
                 3. Content Ownership & Intellectual Property
               </h2>
               <p>
@@ -64,7 +64,7 @@ export default function TermsPage() {
             </section>
 
             <section className="flex flex-col gap-3">
-              <h2 className="text-[18px] font-semibold text-foreground tracking-tight">
+              <h2 className="text-[18px] font-semibold text-foreground tracking-tight font-display">
                 4. Subscription, Billing & Cancellation
               </h2>
               <p>
@@ -78,7 +78,7 @@ export default function TermsPage() {
             </section>
 
             <section className="flex flex-col gap-3">
-              <h2 className="text-[18px] font-semibold text-foreground tracking-tight">
+              <h2 className="text-[18px] font-semibold text-foreground tracking-tight font-display">
                 5. Prohibited Conduct
               </h2>
               <p>
@@ -93,7 +93,7 @@ export default function TermsPage() {
             </section>
 
             <section className="flex flex-col gap-3">
-              <h2 className="text-[18px] font-semibold text-foreground tracking-tight">
+              <h2 className="text-[18px] font-semibold text-foreground tracking-tight font-display">
                 6. Service Level & Limitation of Liability
               </h2>
               <p>
@@ -101,14 +101,14 @@ export default function TermsPage() {
               </p>
             </section>
 
-            <section className="flex flex-col gap-3 border-t border-border/40 pt-8 mt-4">
-              <h2 className="text-[18px] font-semibold text-foreground tracking-tight">
+            <section className="flex flex-col gap-3 border-t border-border pt-8 mt-4 font-sans">
+              <h2 className="text-[18px] font-semibold text-foreground tracking-tight font-display">
                 7. Contact & Support
               </h2>
               <p>
                 For questions regarding these Terms or legal notices, please reach out to:
               </p>
-              <p className="font-mono text-[13px] text-foreground">
+              <p className="text-[13px] text-foreground">
                 KeilHQ Inc.<br />
                 Attn: Legal Department<br />
                 Email: legal@keilhq.com

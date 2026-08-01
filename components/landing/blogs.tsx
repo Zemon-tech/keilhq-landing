@@ -40,7 +40,7 @@ export function Blogs({ posts }: BlogsProps) {
           {/* Header with Title and Controls */}
           <div className="flex flex-col lg:flex-row lg:items-start justify-between mb-10 sm:mb-12">
             <div className="w-full lg:w-1/4 shrink-0">
-              <h2 className="font-sans text-[clamp(2rem,4vw,2.75rem)] leading-[1.1] font-medium text-zinc-900 dark:text-[#F7F8F8] tracking-[-0.03em]">
+              <h2 className="font-display text-[clamp(2rem,4vw,2.75rem)] leading-[1.1] font-medium text-foreground tracking-tight">
                 From the blog
               </h2>
             </div>
@@ -67,7 +67,7 @@ export function Blogs({ posts }: BlogsProps) {
                 {displayPosts.map((post) => (
                   <CarouselItem key={post.id} className="pl-4 sm:pl-6 md:basis-1/2 lg:basis-1/2">
                     <Link href={`/blog/${post.slug}`} className="group cursor-pointer flex flex-col gap-4 select-none">
-                      <div className="overflow-hidden rounded-sm bg-muted aspect-[1.6/1] relative border border-zinc-200/50 dark:border-white/[0.06]">
+                      <div className="overflow-hidden rounded-sm bg-muted aspect-[1.6/1] relative border border-border">
                         <Image
                           src={post.image}
                           alt={post.title}
@@ -77,13 +77,13 @@ export function Blogs({ posts }: BlogsProps) {
                         />
                       </div>
                       <div className="flex flex-col gap-1.5 pr-4 text-left">
-                        <span className="text-[11px] font-mono tracking-widest text-zinc-400 dark:text-zinc-500 uppercase">
+                        <span className="text-[11px] font-sans tracking-widest text-muted-foreground uppercase">
                           {post.tag}
                         </span>
-                        <h3 className="font-sans text-lg font-semibold text-zinc-900 dark:text-[#F7F8F8] tracking-tight leading-snug group-hover:text-zinc-700 dark:group-hover:text-white transition-colors duration-150 line-clamp-2">
+                        <h3 className="font-display text-lg font-semibold text-foreground tracking-tight leading-snug group-hover:text-muted-foreground/80 transition-colors duration-150 line-clamp-2">
                           {post.title}
                         </h3>
-                        <p className="text-[11px] font-mono tracking-wider text-zinc-400 dark:text-zinc-500 mt-1">
+                        <p className="text-[11px] font-sans tracking-wider text-muted-foreground mt-1">
                           {post.date}
                         </p>
                       </div>

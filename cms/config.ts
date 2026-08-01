@@ -160,37 +160,7 @@ export default config({
                 ),
             },
         }),
-        solutions: collection({
-            label: 'Solutions',
-            path: 'content/solutions/*/',
-            slugField: 'title',
-            format: { data: 'json' },
-            schema: {
-                title: fields.slug({ name: { label: 'Slug / Title' } }),
-                eyebrow: fields.text({ label: 'Eyebrow Label (e.g. Solutions · Agencies)' }),
-                persona: fields.text({ label: 'Persona Description', multiline: true }),
-                sprawlHeading: fields.text({ label: 'Sprawl Section Heading' }),
-                sprawlBullets: fields.array(
-                    fields.text({ label: 'Bullet' }),
-                    {
-                        label: 'Sprawl Bullets',
-                        itemLabel: (props) => props.value || 'Bullet',
-                    }
-                ),
-                sprawlResearch: fields.text({ label: 'Research Note', multiline: true }),
-                withKeilhqHeading: fields.text({ label: 'With KeilHQ Section Heading' }),
-                withKeilhqIntro: fields.text({ label: 'Intro Paragraph', multiline: true }),
-                withKeilhqBenefits: fields.array(
-                    fields.text({ label: 'Benefit' }),
-                    {
-                        label: 'Benefits',
-                        itemLabel: (props) => props.value || 'Benefit',
-                    }
-                ),
-                withKeilhqQuote: fields.text({ label: 'Pull Quote', multiline: true }),
-                withKeilhqAttribution: fields.text({ label: 'Quote Attribution' }),
-            },
-        }),
+
     },
     singletons: {
         siteSettings: singleton({
@@ -357,13 +327,26 @@ export default config({
                 investorsTitle: fields.text({ label: 'Backed By Section Title' }),
                 investors: fields.array(
                     fields.object({
-                        firmName: fields.text({ label: 'Firm Name (e.g. Accel)' }),
+                        firmName: fields.text({ label: 'Firm Name' }),
+                        logo: fields.text({ label: 'Logo URL' }),
                         partnerName: fields.text({ label: 'Partner Name' }),
                         partnerRole: fields.text({ label: 'Partner Title / Role' }),
                     }),
                     {
                         label: 'Investors',
                         itemLabel: (item) => item.fields.firmName.value || 'Investor',
+                    }
+                ),
+                mentorsTitle: fields.text({ label: 'Mentors Section Title' }),
+                mentors: fields.array(
+                    fields.object({
+                        name: fields.text({ label: 'Name' }),
+                        role: fields.text({ label: 'Role / Company' }),
+                        avatar: fields.text({ label: 'Avatar URL' }),
+                    }),
+                    {
+                        label: 'Mentors',
+                        itemLabel: (item) => item.fields.name.value || 'Mentor',
                     }
                 ),
             },

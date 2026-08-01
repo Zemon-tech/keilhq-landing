@@ -29,31 +29,7 @@
         }
       ]
     },
-    {
-      "title": "Solutions",
-      "links": [
-        {
-          "label": "Overview",
-          "href": "/solutions"
-        },
-        {
-          "label": "Startups",
-          "href": "/solutions/startups"
-        },
-        {
-          "label": "Agencies",
-          "href": "/solutions/agencies"
-        },
-        {
-          "label": "Dev Teams",
-          "href": "/solutions/dev-teams"
-        },
-        {
-          "label": "Enterprise",
-          "href": "/enterprise"
-        }
-      ]
-    },
+
     {
       "title": "Product",
       "links": [

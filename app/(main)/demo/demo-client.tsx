@@ -79,8 +79,7 @@ export function DemoClient() {
           </div>
 
           <h1
-            className="font-display text-[clamp(2.5rem,5vw,3.75rem)] font-semibold leading-[1.08] text-foreground tracking-tight mb-4"
-            style={{ textWrap: "balance" } as React.CSSProperties}
+            className="font-display text-[clamp(2.5rem,5vw,3.75rem)] font-semibold leading-[1.08] text-foreground tracking-tight text-balance mb-4"
           >
             See KeilHQ in action — live, with your team
           </h1>

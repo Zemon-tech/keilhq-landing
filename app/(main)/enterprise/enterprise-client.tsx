@@ -28,7 +28,7 @@ export function EnterpriseClient() {
         <div className="mt-4">
           <Link
             href="#contact"
-            className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2.5 rounded-full text-[13px] font-semibold transition-colors duration-150 inline-flex items-center gap-1.5"
+            className="btn-accent px-6 py-2.5 rounded-sm text-[13px] font-semibold inline-flex items-center gap-1.5"
           >
             Talk to sales
           </Link>
@@ -83,7 +83,7 @@ export function EnterpriseClient() {
             </div>
 
             {/* Initiatives Table */}
-            <div className="flex flex-col gap-2 font-mono text-[11px] text-muted-foreground">
+            <div className="flex flex-col gap-2 font-sans text-[11px] text-muted-foreground">
               {/* Headers */}
               <div className="grid grid-cols-12 gap-2 pb-2 text-[10px] font-bold text-muted-foreground/60 uppercase border-b border-border/20">
                 <div className="col-span-5 font-sans">Name</div>
@@ -142,7 +142,7 @@ export function EnterpriseClient() {
       <section className="max-w-[1200px] w-full mx-auto px-6 py-20 border-b border-border/40">
         <div className="flex flex-wrap items-center justify-between gap-8 opacity-45 grayscale">
           {["OpenAI", "Coinbase", "Oscar", "Ramp", "Opendoor", "Cash App", "Scale"].map((logo) => (
-            <span key={logo} className="text-sm font-semibold tracking-wider font-mono text-muted-foreground">
+            <span key={logo} className="text-sm font-semibold tracking-wider font-sans text-muted-foreground">
               {logo}
             </span>
           ))}
@@ -175,7 +175,7 @@ export function EnterpriseClient() {
               { value: "5.0x", label: "Growth in agent-completed work" },
             ].map((stat) => (
               <div key={stat.label} className="flex items-baseline gap-6">
-                <span className="font-mono text-3xl font-bold text-foreground shrink-0 w-20">{stat.value}</span>
+                <span className="font-sans text-3xl font-bold text-foreground shrink-0 w-20">{stat.value}</span>
                 <span className="text-[13px] text-muted-foreground">{stat.label}</span>
               </div>
             ))}
@@ -199,7 +199,7 @@ export function EnterpriseClient() {
         </div>
 
         {/* Flow Diagram */}
-        <div className="w-full border border-border/40 bg-card/30 rounded-lg p-8 sm:p-12 flex flex-col md:flex-row items-center justify-between gap-6 relative select-none font-mono text-[11px] text-muted-foreground">
+        <div className="w-full border border-border bg-card rounded-md p-8 sm:p-12 flex flex-col md:flex-row items-center justify-between gap-6 relative select-none font-sans text-[11px] text-muted-foreground">
           {/* Input Sources */}
           <div className="flex flex-col gap-2 p-4 bg-secondary/20 border border-border/40 rounded-sm w-full md:w-auto">
             <span className="text-[9px] font-bold text-foreground uppercase tracking-wider">Inputs</span>
@@ -327,7 +327,7 @@ export function EnterpriseClient() {
           <p className="text-[12.5px] text-muted-foreground leading-relaxed">
             KeilHQ connects with AI coding agents, GitHub, Slack, Microsoft Teams, and the rest of your stack.
           </p>
-          <Link href="/solutions" className="text-[12px] text-foreground font-medium hover:underline inline-flex items-center gap-1 mt-1">
+          <Link href="/features/integrations" className="text-[12px] text-foreground font-medium hover:underline inline-flex items-center gap-1 mt-1">
             See all integrations →
           </Link>
         </div>
@@ -427,7 +427,7 @@ export function EnterpriseClient() {
                 <button
                   type="button"
                   onClick={() => setFormStatus("sent")}
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-2 rounded-sm text-xs font-semibold transition-colors mt-2"
+                  className="w-full btn-accent py-2 rounded-sm text-xs font-semibold mt-2"
                 >
                   Request a Demo
                 </button>

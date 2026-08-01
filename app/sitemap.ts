@@ -8,10 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/features",
     "/pricing",
     "/enterprise",
-    "/solutions",
-    "/solutions/agencies",
-    "/solutions/dev-teams",
-    "/solutions/startups",
+
     "/about",
     "/changelog",
     "/faq",

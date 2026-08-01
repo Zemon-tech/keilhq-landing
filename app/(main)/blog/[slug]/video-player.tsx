@@ -56,7 +56,7 @@ export const VideoPlayer = ({ src, poster }: { src: string; poster: string }) =>
   };
 
   return (
-    <div className="relative w-full rounded-md overflow-hidden bg-black aspect-[16/9] group/player border border-border/50 select-none">
+    <div className="relative w-full rounded-md overflow-hidden bg-black aspect-[16/9] group/player border border-border select-none">
       <video
         ref={videoRef}
         src={src}
@@ -83,14 +83,14 @@ export const VideoPlayer = ({ src, poster }: { src: string; poster: string }) =>
         {/* Buttons & Labels */}
         <div className="flex items-center justify-between text-white text-xs mt-1">
           <div className="flex items-center gap-3">
-            <button onClick={togglePlay} className="hover:text-zinc-300 transition-colors cursor-pointer active:scale-95">
+            <button onClick={togglePlay} className="hover:text-zinc-300 transition-colors cursor-pointer active:scale-95 bg-transparent border-none">
               {isPlaying ? <Pause className="size-4" /> : <Play className="size-4" fill="currentColor" />}
             </button>
-            <span>{formatTime(currentTime)} / {formatTime(duration || 58)}</span>
+            <span className="font-sans">{formatTime(currentTime)} / {formatTime(duration || 58)}</span>
           </div>
 
           <div className="flex items-center gap-3">
-            <button onClick={toggleMute} className="hover:text-zinc-300 transition-colors cursor-pointer active:scale-95">
+            <button onClick={toggleMute} className="hover:text-zinc-300 transition-colors cursor-pointer active:scale-95 bg-transparent border-none">
               {isMuted ? <VolumeX className="size-4" /> : <Volume2 className="size-4" />}
             </button>
             <Settings className="size-4 text-zinc-300 cursor-pointer" />

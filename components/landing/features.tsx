@@ -31,8 +31,7 @@ export function Features({ data }: FeaturesProps) {
             {/* Left Column: Headline */}
             <div className="col-span-12 lg:col-span-6 flex flex-col">
               <h2 
-                className="font-sans text-[clamp(1.75rem,3vw,2.5rem)] font-medium tracking-[-0.03em] leading-[1.1] text-zinc-900 dark:text-[#F7F8F8]"
-                style={{ textWrap: "balance" }}
+                className="font-display text-[clamp(1.75rem,3vw,2.5rem)] font-medium tracking-tight leading-[1.1] text-foreground text-balance"
               >
                 {item.title}
               </h2>
@@ -40,15 +39,15 @@ export function Features({ data }: FeaturesProps) {
 
             {/* Right Column: Description & Call-to-action Link */}
             <div className="col-span-12 lg:col-span-6 flex flex-col gap-4 lg:pt-[5px]">
-              <p className="text-[17px] lg:text-[18px] font-normal text-zinc-500 dark:text-[#8A8F98] leading-[1.55] max-w-[48ch]">
+              <p className="text-[17px] lg:text-[18px] font-normal text-muted-foreground leading-[1.55] max-w-[48ch]">
                 {item.description}
               </p>
               <Link
                 href={featureHrefById[item.id] ?? "#"}
-                className="text-[13px] font-medium text-zinc-400 dark:text-zinc-500 hover:text-zinc-900 dark:hover:text-[#F7F8F8] transition-colors flex items-center gap-1.5 group w-fit mt-2"
+                className="text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5 group w-fit mt-2"
               >
                 <span>{idx + 1}.0 {item.badgeText}</span>
-                <ArrowRight className="size-3.5 transition-transform duration-150 group-hover:translate-x-0.5 text-zinc-400 dark:text-zinc-500 group-hover:text-zinc-900 group-hover:dark:text-[#F7F8F8]" />
+                <ArrowRight className="size-3.5 transition-transform duration-150 group-hover:translate-x-0.5 text-muted-foreground group-hover:text-foreground" />
               </Link>
             </div>
 
@@ -60,7 +59,7 @@ export function Features({ data }: FeaturesProps) {
               {item.visualComponent}
               
               {/* Subtle hairline edge-lit boundary */}
-              <div className="absolute inset-0 rounded-lg border border-zinc-200/5 dark:border-white/[0.03] pointer-events-none" />
+              <div className="absolute inset-0 rounded-lg border border-border pointer-events-none" />
               
               {/* Bottom shadow blend */}
               <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-background/80 via-background/20 to-transparent pointer-events-none" />

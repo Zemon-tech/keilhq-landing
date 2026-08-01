@@ -102,12 +102,11 @@ export default async function AboutPage() {
       <section className="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 pt-32 lg:pt-40 pb-16 lg:pb-24 flex flex-col gap-12 text-left">
         <div className="max-w-[1000px] flex flex-col gap-6">
           <h1
-            className="font-sans text-[clamp(2.5rem,5.2vw,4.25rem)] font-semibold tracking-[-0.03em] leading-[1.05] text-zinc-900 dark:text-[#F7F8F8]"
-            style={{ textWrap: "balance" }}
+            className="font-display text-[clamp(2.5rem,5.2vw,4.25rem)] font-semibold tracking-tight leading-[1.05] text-foreground text-balance"
           >
             {heroTitle}
           </h1>
-          <p className="text-[15px] sm:text-base font-normal text-zinc-500 dark:text-[#8A8F98] leading-relaxed max-w-[65ch]">
+          <p className="text-[15px] sm:text-base font-normal text-muted-foreground leading-relaxed max-w-[65ch]">
             {heroSubtitle}
           </p>
         </div>
@@ -117,18 +116,18 @@ export default async function AboutPage() {
       </section>
 
       {/* ── SECTION 2: EDITORIAL ── */}
-      <section className="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 py-20 lg:py-28 xl:py-32 flex flex-col lg:flex-row gap-16 text-left border-t border-zinc-200/50 dark:border-white/[0.05]">
+      <section className="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 py-20 lg:py-28 xl:py-32 flex flex-col lg:flex-row gap-16 text-left border-t border-border">
         <div className="w-full lg:w-1/3 shrink-0">
-          <h2 className="font-sans text-[clamp(2rem,4vw,2.75rem)] font-semibold tracking-[-0.025em] leading-[1.08] text-zinc-900 dark:text-[#F7F8F8]">
+          <h2 className="font-display text-[clamp(2rem,4vw,2.75rem)] font-semibold tracking-tight leading-[1.08] text-foreground">
             {editorialTitle}
           </h2>
         </div>
 
         <div className="flex-1 flex flex-col gap-8">
-          <p className="font-sans text-[20px] sm:text-[22px] font-normal leading-[1.4] tracking-tight text-zinc-800 dark:text-zinc-200">
+          <p className="font-sans text-[20px] sm:text-[22px] font-normal leading-[1.4] tracking-tight text-foreground">
             {editorialLead}
           </p>
-          <div className="flex flex-col gap-6 text-[14px] text-zinc-500 dark:text-[#8A8F98] leading-relaxed max-w-[650px]">
+          <div className="flex flex-col gap-6 text-[14px] text-muted-foreground leading-relaxed max-w-[650px]">
             {editorialParagraphs.map((paragraph: string, idx: number) => (
               <p key={idx}>{paragraph}</p>
             ))}
@@ -136,22 +135,62 @@ export default async function AboutPage() {
         </div>
       </section>
 
-      {/* ── SECTION 3: TEAM ── */}
-      <section className="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 py-20 lg:py-28 xl:py-32 flex flex-col gap-16 text-left border-t border-zinc-200/50 dark:border-white/[0.05]">
+      {/* ── SECTION 3: ADVISORS ── */}
+      {data?.mentors && data.mentors.length > 0 && (
+        <section className="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 py-20 lg:py-28 xl:py-32 flex flex-col gap-16 text-left border-t border-border">
+          {/* Header */}
+          <div className="w-full flex flex-col lg:flex-row justify-between items-start gap-8">
+            <div className="w-full lg:w-1/3 shrink-0">
+              <h2 className="font-display text-[clamp(2rem,4vw,2.75rem)] font-semibold tracking-tight leading-[1.08] text-foreground">
+                {data.mentorsTitle || "Advisors"}
+              </h2>
+            </div>
+            <div className="flex-1 flex flex-col gap-6">
+              <p className="font-sans text-[15px] sm:text-base font-normal leading-relaxed text-muted-foreground max-w-[48ch]">
+                Supported by industry veterans guiding our mission and growth.
+              </p>
+            </div>
+          </div>
+
+          {/* Advisors Grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-12 w-full">
+            {data.mentors.map((mentor: any) => (
+              <div key={mentor.name} className="flex flex-col gap-4">
+                <div className="w-full aspect-square relative rounded-sm overflow-hidden border border-border bg-card">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={mentor.avatar || "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=400&auto=format&fit=crop"}
+                    alt={mentor.name}
+                    className="w-full h-full object-cover object-center grayscale contrast-125 hover:grayscale-0 transition-all duration-300"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="flex flex-col gap-0.5 text-left">
+                  <span className="text-[14px] font-semibold text-foreground">{mentor.name}</span>
+                  <span className="text-[13px] text-muted-foreground font-normal">{mentor.role}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* ── SECTION 4: TEAM ── */}
+      <section className="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 py-20 lg:py-28 xl:py-32 flex flex-col gap-16 text-left border-t border-border">
         {/* Header */}
         <div className="w-full flex flex-col lg:flex-row justify-between items-start gap-8">
           <div className="w-full lg:w-1/3 shrink-0">
-            <h2 className="font-sans text-[clamp(2rem,4vw,2.75rem)] font-semibold tracking-[-0.025em] leading-[1.08] text-zinc-900 dark:text-[#F7F8F8]">
+            <h2 className="font-display text-[clamp(2rem,4vw,2.75rem)] font-semibold tracking-tight leading-[1.08] text-foreground">
               {teamTitle}
             </h2>
           </div>
           <div className="flex-1 flex flex-col gap-6">
-            <p className="font-sans text-[15px] sm:text-base font-normal leading-relaxed text-zinc-500 dark:text-[#8A8F98] max-w-[48ch]">
+            <p className="font-sans text-[15px] sm:text-base font-normal leading-relaxed text-muted-foreground max-w-[48ch]">
               {teamSubtitle}
             </p>
             <Link 
               href="mailto:careers@keilhq.in" 
-              className="text-[13px] font-semibold text-zinc-900 dark:text-[#F7F8F8] hover:text-zinc-600 dark:hover:text-white transition-colors w-fit"
+              className="text-[13px] font-semibold text-foreground hover:text-muted-foreground transition-colors w-fit"
             >
               We&apos;re hiring →
             </Link>
@@ -159,10 +198,10 @@ export default async function AboutPage() {
         </div>
 
         {/* Portrait Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-12 w-full">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-12 w-full">
           {coreTeam.map((m: any) => (
             <div key={m.name} className="flex flex-col gap-4">
-              <div className="w-full aspect-square relative rounded-sm overflow-hidden border border-zinc-200/50 dark:border-white/[0.06] bg-zinc-100 dark:bg-white/[0.01]">
+              <div className="w-full aspect-square relative rounded-sm overflow-hidden border border-border bg-card">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={m.avatar}
@@ -172,39 +211,53 @@ export default async function AboutPage() {
                 />
               </div>
               <div className="flex flex-col gap-0.5 text-left">
-                <span className="text-[14px] font-semibold text-zinc-900 dark:text-[#F7F8F8]">{m.name}</span>
-                <span className="text-[12px] font-mono tracking-wide text-zinc-400 dark:text-zinc-600 uppercase">{m.role}</span>
+                <span className="text-[14px] font-semibold text-foreground">{m.name}</span>
+                <span className="text-[13px] text-muted-foreground font-normal">{m.role}</span>
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* ── SECTION 4: BACKED BY THE BEST ── */}
-      <section className="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 py-20 lg:py-28 xl:py-32 flex flex-col lg:flex-row gap-16 text-left border-t border-zinc-200/50 dark:border-white/[0.05]">
+      {/* ── SECTION 5: BACKED BY ── */}
+      <section className="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 py-20 lg:py-28 xl:py-32 flex flex-col lg:flex-row gap-16 text-left border-t border-border">
         <div className="w-full lg:w-1/3 shrink-0">
-          <h2 className="font-sans text-[clamp(2rem,4vw,2.75rem)] font-semibold tracking-[-0.025em] leading-[1.08] text-zinc-900 dark:text-[#F7F8F8]">
-            {investorsTitle.includes("Backed") ? (
-              <>Backed by<br />the best</>
-            ) : (
-              investorsTitle
-            )}
+          <h2 className="font-display text-[clamp(2rem,4vw,2.75rem)] font-semibold tracking-tight leading-[1.08] text-foreground">
+            Backed by
           </h2>
         </div>
 
-        <div className="flex-1 flex flex-col gap-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="flex-1 flex flex-col gap-12">
+          {/* Unique Firm Logo Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-[800px]">
+            {Array.from(new Set(investors.map((inv: any) => inv.firmName))).map((firmName: any, idx: number) => {
+              const firm = investors.find((inv: any) => inv.firmName === firmName);
+              if (!firm) return null;
+              return (
+                <div key={idx} className="w-full aspect-[2/1] rounded-lg bg-card border border-border flex items-center justify-center p-6">
+                  {firm.logo ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={firm.logo}
+                      alt={firm.firmName}
+                      className="h-16 w-auto object-contain dark:brightness-110"
+                    />
+                  ) : (
+                    <span className="font-display text-xl font-bold tracking-tight text-foreground select-none">
+                      {firm.firmName}
+                    </span>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Partners/Individuals Text Row */}
+          <div className="flex flex-col gap-6 max-w-[800px] mt-6 pt-6 border-t border-border">
             {investors.map((inv: any, idx: number) => (
-              <div key={idx} className="flex flex-col gap-4 text-left">
-                <div className="w-full h-36 rounded-md bg-[#D2E2FB]/40 dark:bg-[#1E293B]/60 border border-zinc-200/60 dark:border-white/[0.05] flex items-center justify-center">
-                  <span className="font-sans text-xl font-bold tracking-tight text-zinc-900 dark:text-white select-none">
-                    {inv.firmName}
-                  </span>
-                </div>
-                <div className="flex flex-col gap-0.5 pl-1">
-                  <span className="text-[13px] font-semibold text-zinc-900 dark:text-[#F7F8F8]">{inv.partnerName}</span>
-                  <span className="text-[11px] font-mono tracking-wide text-zinc-400 dark:text-zinc-600 uppercase">{inv.partnerRole}</span>
-                </div>
+              <div key={idx} className="flex flex-col gap-0.5 text-left">
+                <span className="text-[14px] font-semibold text-foreground">{inv.partnerName}</span>
+                <span className="text-[13px] text-muted-foreground">{inv.partnerRole}</span>
               </div>
             ))}
           </div>

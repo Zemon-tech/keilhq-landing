@@ -104,7 +104,7 @@ function PlatformIcon({ platform, className }: { platform: PressListItem["platfo
 function PressCard({ item }: { item: PressListItem }) {
   const platformColor: Record<PressListItem["platform"], string> = {
     linkedin: "text-[#0A66C2] bg-[#0A66C2]/8 border-[#0A66C2]/20",
-    x:        "text-zinc-900 dark:text-[#F7F8F8] bg-zinc-100 dark:bg-white/5 border-zinc-200/50 dark:border-white/[0.08]",
+    x:        "text-foreground bg-muted border-border",
     instagram:"text-pink-600 bg-pink-50 dark:bg-pink-500/8 border-pink-200/50 dark:border-pink-500/20",
     news:     "text-violet-600 bg-violet-50 dark:bg-violet-500/8 border-violet-200/50 dark:border-violet-500/20",
   };
@@ -114,10 +114,10 @@ function PressCard({ item }: { item: PressListItem }) {
       href={item.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex flex-col gap-0 text-left rounded-lg border border-zinc-200/50 dark:border-white/[0.06] bg-white dark:bg-white/[0.02] hover:bg-zinc-50 dark:hover:bg-white/[0.04] transition-all duration-200 overflow-hidden"
+      className="group flex flex-col gap-0 text-left rounded-lg border border-border bg-card hover:bg-muted/30 transition-all duration-200 overflow-hidden shadow-xs"
     >
       {/* Thumbnail */}
-      <div className="aspect-[16/9] w-full overflow-hidden bg-zinc-100 dark:bg-white/[0.04] relative">
+      <div className="aspect-[16/9] w-full overflow-hidden bg-muted relative">
         {item.thumbnail ? (
           <Image
             src={item.thumbnail}
@@ -131,7 +131,7 @@ function PressCard({ item }: { item: PressListItem }) {
           <div className="w-full h-full flex items-center justify-center">
             <PlatformIcon
               platform={item.platform}
-              className="size-10 text-zinc-300 dark:text-zinc-700"
+              className="size-10 text-muted-foreground/40"
             />
           </div>
         )}
@@ -145,24 +145,24 @@ function PressCard({ item }: { item: PressListItem }) {
             <PlatformIcon platform={item.platform} className="size-3" />
             {PLATFORM_LABELS[item.platform]}
           </span>
-          <ExternalLink className="size-3.5 text-zinc-300 dark:text-zinc-600 group-hover:text-zinc-500 dark:group-hover:text-zinc-400 transition-colors" />
+          <ExternalLink className="size-3.5 text-muted-foreground group-hover:text-foreground transition-colors" />
         </div>
 
         {/* Title */}
-        <p className="text-sm font-semibold text-zinc-900 dark:text-[#F7F8F8] leading-snug line-clamp-2 group-hover:text-zinc-700 dark:group-hover:text-zinc-300 transition-colors">
+        <p className="text-sm font-semibold text-foreground leading-snug line-clamp-2 group-hover:text-muted-foreground/80 transition-colors font-display">
           {item.title.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())}
         </p>
 
         {/* Excerpt */}
         {item.excerpt && (
-          <p className="text-[12px] text-zinc-500 dark:text-[#8A8F98] leading-relaxed line-clamp-3">
+          <p className="text-[12px] text-muted-foreground leading-relaxed line-clamp-3 font-sans">
             {item.excerpt}
           </p>
         )}
 
         {/* Date */}
         {item.date && (
-          <span className="text-[11px] text-zinc-400 dark:text-zinc-600 mt-auto pt-1">
+          <span className="text-[11px] text-muted-foreground mt-auto pt-1 font-sans">
             {item.date}
           </span>
         )}
@@ -235,8 +235,7 @@ export function PressPageClient({
             KeilHQ Editorial
           </span>
           <h1
-            className="font-display text-[clamp(2.5rem,6vw,4rem)] font-semibold leading-[1.08] text-zinc-900 dark:text-white max-w-3xl"
-            style={{ letterSpacing: "-0.025em" }}
+            className="font-display text-[clamp(2.5rem,6vw,4rem)] font-semibold leading-[1.08] text-foreground max-w-3xl tracking-tight"
           >
             Stories, insights &amp; press.
           </h1>
@@ -245,7 +244,7 @@ export function PressPageClient({
           </p>
 
           {/* Tab switcher */}
-          <div className="flex items-center gap-1 border-b border-border/40 mt-2">
+          <div className="flex items-center gap-1 border-b border-border mt-2">
             {([
               { id: "blog" as TabId, label: "Blog" },
               { id: "social" as TabId, label: "Social & Press" },
@@ -253,7 +252,7 @@ export function PressPageClient({
               <button
                 key={tab.id}
                 onClick={() => { setActiveTab(tab.id); setSearchQuery(""); }}
-                className={`px-4 py-2.5 text-[13px] font-semibold tracking-wide border-b-2 -mb-px transition-all duration-150 cursor-pointer ${
+                className={`px-4 py-2.5 text-[13px] font-semibold tracking-wide border-b-2 -mb-px transition-all duration-150 cursor-pointer font-display ${
                   activeTab === tab.id
                     ? "border-foreground text-foreground"
                     : "border-transparent text-muted-foreground hover:text-foreground"
@@ -273,12 +272,12 @@ export function PressPageClient({
           {showFeaturedSection && featuredPost && (
             <section className="w-full pb-10 px-5 sm:px-8 lg:px-12">
               <div className="max-w-7xl mx-auto w-full">
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-16 items-start w-full border-t border-border/40 pt-10">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-16 items-start w-full border-t border-border pt-10">
                   {/* Latest Post */}
                   <div className="lg:col-span-2 flex flex-col gap-6">
                     <h2 className="text-[12px] font-semibold text-muted-foreground uppercase tracking-wider">Latest Post</h2>
                     <Link href={`/blog/${featuredPost.slug}`} className="group flex flex-col gap-6 w-full">
-                      <div className="overflow-hidden rounded-lg bg-muted aspect-[16/9] relative border border-border/50 shadow-md">
+                      <div className="overflow-hidden rounded-lg bg-muted aspect-[16/9] relative border border-border shadow-md">
                         <Image
                           src={featuredPost.image}
                           alt={featuredPost.title}
@@ -290,16 +289,16 @@ export function PressPageClient({
                       </div>
                       <div className="flex flex-col gap-3 text-left">
                         <div className="flex items-center gap-3">
-                          <span className="px-2.5 py-0.5 rounded-sm bg-secondary/80 border border-border/40 text-[10px] font-semibold text-muted-foreground uppercase tracking-wide">
+                          <span className="px-2.5 py-0.5 rounded-sm bg-secondary/80 border border-border text-[10px] font-semibold text-muted-foreground uppercase tracking-wide">
                             {featuredPost.tag}
                           </span>
                           <span className="text-[11px] text-muted-foreground">{featuredPost.readTime}</span>
                         </div>
-                        <h3 className="font-display text-2xl md:text-3xl font-semibold text-zinc-900 dark:text-white leading-tight group-hover:text-zinc-700 dark:group-hover:text-zinc-300 transition-colors duration-150">
+                        <h3 className="font-display text-2xl md:text-3xl font-semibold text-foreground leading-tight group-hover:text-muted-foreground/80 transition-colors duration-150">
                           {featuredPost.title}
                         </h3>
                         <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl">{featuredPost.excerpt}</p>
-                        <div className="flex items-center gap-3 mt-3 pt-4 border-t border-border/40">
+                        <div className="flex items-center gap-3 mt-3 pt-4 border-t border-border">
                           <div className="size-9 rounded-full overflow-hidden bg-muted shrink-0 border border-border/20">
                             {/* eslint-disable-next-line @next/next/no-img-element */}
                             <img src={featuredPost.author.avatar} alt={featuredPost.author.name} className="w-full h-full object-cover object-center" />
@@ -319,12 +318,12 @@ export function PressPageClient({
                     <div className="flex flex-col gap-8">
                       {editorsPicks.map((post) => (
                         <Link key={post.slug} href={`/blog/${post.slug}`} className="group flex items-start gap-4 text-left">
-                          <div className="size-20 rounded-md overflow-hidden bg-muted relative border border-border/50 shrink-0 shadow-sm">
+                          <div className="size-20 rounded-md overflow-hidden bg-muted relative border border-border shrink-0 shadow-sm">
                             <Image src={post.image} alt={post.title} fill sizes="80px" className="object-cover object-center transition-transform duration-500 group-hover:scale-105" />
                           </div>
                           <div className="flex flex-col gap-1.5 flex-1 pr-2">
                             <span className="text-[9px] font-semibold text-muted-foreground tracking-wider uppercase">{post.tag}</span>
-                            <h4 className="font-display text-sm font-semibold text-zinc-900 dark:text-white leading-snug line-clamp-2 group-hover:text-zinc-700 dark:group-hover:text-zinc-300 transition-colors">
+                            <h4 className="font-display text-sm font-semibold text-foreground leading-snug line-clamp-2 group-hover:text-muted-foreground/80 transition-colors">
                               {post.title}
                             </h4>
                             <span className="text-[10px] text-muted-foreground">{post.date} &middot; {post.readTime}</span>
@@ -343,7 +342,7 @@ export function PressPageClient({
             <div className="max-w-7xl mx-auto w-full flex flex-col gap-10">
 
               {/* Controls */}
-              <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 border-b border-border/30 pb-6">
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 border-b border-border pb-6">
                 <div className="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 [scrollbar-width:none]">
                   {BLOG_TAGS.map((tag) => (
                     <button
@@ -352,7 +351,7 @@ export function PressPageClient({
                       className={`px-3.5 py-1.5 rounded-sm text-xs font-semibold tracking-wide cursor-pointer transition-all duration-150 active:scale-[0.97] border whitespace-nowrap ${
                         activeBlogTag === tag.value
                           ? "bg-foreground border-foreground text-background"
-                          : "bg-secondary/40 border-border/50 text-muted-foreground hover:text-foreground hover:bg-secondary/80"
+                          : "bg-secondary/40 border-border text-muted-foreground hover:text-foreground hover:bg-secondary/80"
                       }`}
                     >
                       {tag.label}
@@ -366,7 +365,7 @@ export function PressPageClient({
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Search articles..."
-                    className="w-full pl-9 pr-4 py-2 rounded-sm bg-secondary/20 border border-border/50 text-xs focus:outline-none focus:border-foreground/30 focus:bg-secondary/40 text-foreground placeholder-muted-foreground transition-all"
+                    className="w-full pl-9 pr-4 py-2 rounded-sm bg-card border border-border text-xs focus:outline-none focus:border-foreground/30 focus:bg-secondary/40 text-foreground placeholder-muted-foreground transition-all"
                   />
                 </div>
               </div>
@@ -376,7 +375,7 @@ export function PressPageClient({
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 md:gap-y-16">
                   {filteredBlogPosts.map((post) => (
                     <Link key={post.slug} href={`/blog/${post.slug}`} className="group flex flex-col gap-4 text-left">
-                      <div className="overflow-hidden rounded-md bg-muted aspect-[1.6/1] relative border border-border/50 shadow-xs">
+                      <div className="overflow-hidden rounded-md bg-muted aspect-[1.6/1] relative border border-border shadow-xs">
                         <Image src={post.image} alt={post.title} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.01]" />
                       </div>
                       <div className="flex flex-col gap-2.5">
@@ -384,7 +383,7 @@ export function PressPageClient({
                           <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">{post.tag}</span>
                           <span className="text-[11px] text-muted-foreground">&middot; {post.readTime}</span>
                         </div>
-                        <h3 className="font-display text-lg font-semibold text-zinc-900 dark:text-white leading-snug group-hover:text-zinc-700 dark:group-hover:text-zinc-300 transition-colors duration-150 line-clamp-2">
+                        <h3 className="font-display text-lg font-semibold text-foreground leading-snug group-hover:text-muted-foreground/80 transition-colors duration-150 line-clamp-2">
                           {post.title}
                         </h3>
                         <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2">{post.excerpt}</p>
@@ -403,7 +402,7 @@ export function PressPageClient({
                   ))}
                 </div>
               ) : (
-                <div className="py-20 text-center flex flex-col items-center justify-center border border-dashed border-border/50 rounded-lg bg-secondary/10">
+                <div className="py-20 text-center flex flex-col items-center justify-center border border-dashed border-border rounded-lg bg-secondary/10">
                   <span className="text-sm font-semibold text-muted-foreground">No articles match your search.</span>
                   <button
                     onClick={() => { setActiveBlogTag("All"); setSearchQuery(""); }}
@@ -424,7 +423,7 @@ export function PressPageClient({
           <div className="max-w-7xl mx-auto w-full flex flex-col gap-10">
 
             {/* Controls */}
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 border-t border-border/40 pt-8">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 border-t border-border pt-8">
               <div className="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 [scrollbar-width:none]">
                 {PRESS_FILTERS.map((f) => (
                   <button
@@ -433,7 +432,7 @@ export function PressPageClient({
                     className={`px-3.5 py-1.5 rounded-sm text-xs font-semibold tracking-wide cursor-pointer transition-all duration-150 active:scale-[0.97] border whitespace-nowrap ${
                       activePressFilter === f.value
                         ? "bg-foreground border-foreground text-background"
-                        : "bg-secondary/40 border-border/50 text-muted-foreground hover:text-foreground hover:bg-secondary/80"
+                        : "bg-secondary/40 border-border text-muted-foreground hover:text-foreground hover:bg-secondary/80"
                     }`}
                   >
                     {f.label}
@@ -447,7 +446,7 @@ export function PressPageClient({
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search posts..."
-                  className="w-full pl-9 pr-4 py-2 rounded-sm bg-secondary/20 border border-border/50 text-xs focus:outline-none focus:border-foreground/30 focus:bg-secondary/40 text-foreground placeholder-muted-foreground transition-all"
+                  className="w-full pl-9 pr-4 py-2 rounded-sm bg-card border border-border text-xs focus:outline-none focus:border-foreground/30 focus:bg-secondary/40 text-foreground placeholder-muted-foreground transition-all"
                 />
               </div>
             </div>
@@ -461,14 +460,14 @@ export function PressPageClient({
                   href={featured.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group w-full border border-zinc-200/50 dark:border-white/[0.06] rounded-lg overflow-hidden flex flex-col md:flex-row bg-white dark:bg-white/[0.02] hover:bg-zinc-50 dark:hover:bg-white/[0.04] transition-all duration-200"
+                  className="group w-full border border-border rounded-lg overflow-hidden flex flex-col md:flex-row bg-card hover:bg-muted/30 transition-all duration-200 shadow-xs"
                 >
-                  <div className="md:w-1/2 aspect-[16/9] md:aspect-auto relative bg-zinc-100 dark:bg-white/[0.04] overflow-hidden">
+                  <div className="md:w-1/2 aspect-[16/9] md:aspect-auto relative bg-muted overflow-hidden">
                     {featured.thumbnail ? (
                       <Image src={featured.thumbnail} alt={featured.title} fill className="object-cover group-hover:scale-[1.02] transition-transform duration-500" />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center">
-                        <PlatformIcon platform={featured.platform} className="size-16 text-zinc-200 dark:text-zinc-700" />
+                        <PlatformIcon platform={featured.platform} className="size-16 text-muted-foreground/40" />
                       </div>
                     )}
                   </div>
@@ -476,7 +475,7 @@ export function PressPageClient({
                     <span className={`inline-flex items-center gap-1.5 self-start px-2.5 py-1 rounded text-[11px] font-semibold tracking-wide border ${
                       {
                         linkedin: "text-[#0A66C2] bg-[#0A66C2]/8 border-[#0A66C2]/20",
-                        x: "text-zinc-900 dark:text-[#F7F8F8] bg-zinc-100 dark:bg-white/5 border-zinc-200/50 dark:border-white/[0.08]",
+                        x: "text-foreground bg-muted border-border",
                         instagram: "text-pink-600 bg-pink-50 dark:bg-pink-500/8 border-pink-200/50 dark:border-pink-500/20",
                         news: "text-violet-600 bg-violet-50 dark:bg-violet-500/8 border-violet-200/50 dark:border-violet-500/20",
                       }[featured.platform]
@@ -484,15 +483,15 @@ export function PressPageClient({
                       <PlatformIcon platform={featured.platform} className="size-3.5" />
                       {PLATFORM_LABELS[featured.platform]}
                     </span>
-                    <h3 className="font-display text-xl md:text-2xl font-semibold text-zinc-900 dark:text-[#F7F8F8] leading-snug group-hover:text-zinc-700 dark:group-hover:text-zinc-300 transition-colors">
+                    <h3 className="font-display text-xl md:text-2xl font-semibold text-foreground leading-snug group-hover:text-muted-foreground/80 transition-colors">
                       {featured.title.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())}
                     </h3>
                     {featured.excerpt && (
-                      <p className="text-sm text-zinc-500 dark:text-[#8A8F98] leading-relaxed line-clamp-3">{featured.excerpt}</p>
+                      <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3 font-sans">{featured.excerpt}</p>
                     )}
                     <div className="flex items-center justify-between mt-2">
-                      {featured.date && <span className="text-[11px] text-zinc-400 dark:text-zinc-600">{featured.date}</span>}
-                      <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold text-zinc-500 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-[#F7F8F8] transition-colors">
+                      {featured.date && <span className="text-[11px] text-muted-foreground font-sans">{featured.date}</span>}
+                      <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold text-muted-foreground group-hover:text-foreground transition-colors font-sans">
                         View post <ExternalLink className="size-3.5" />
                       </span>
                     </div>
@@ -511,7 +510,7 @@ export function PressPageClient({
                   ))}
               </div>
             ) : (
-              <div className="py-20 text-center flex flex-col items-center justify-center border border-dashed border-border/50 rounded-lg bg-secondary/10">
+              <div className="py-20 text-center flex flex-col items-center justify-center border border-dashed border-border rounded-lg bg-secondary/10">
                 <span className="text-sm font-semibold text-muted-foreground">No posts match your filter.</span>
                 <button
                   onClick={() => { setActivePressFilter("all"); setSearchQuery(""); }}
@@ -523,7 +522,7 @@ export function PressPageClient({
             )}
 
             {/* CTA to add more via CMS */}
-            <div className="text-center pt-8 border-t border-border/30">
+            <div className="text-center pt-8 border-t border-border">
               <p className="text-xs text-muted-foreground">
                 Add more social posts and press mentions via the{" "}
                 <Link href="/keystatic/collections/press" className="underline underline-offset-2 hover:text-foreground transition-colors">
@@ -536,9 +535,9 @@ export function PressPageClient({
       )}
 
       {/* ── NEWSLETTER CTA ── */}
-      <section className="w-full py-20 px-5 sm:px-8 lg:px-12 bg-secondary/15 dark:bg-white/[0.01] border-t border-border/40">
+      <section className="w-full py-20 px-5 sm:px-8 lg:px-12 bg-muted/30 border-t border-border">
         <div className="max-w-2xl mx-auto text-center flex flex-col items-center gap-6">
-          <h2 className="font-display text-2xl md:text-3xl font-semibold text-zinc-900 dark:text-white tracking-tight">
+          <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground tracking-tight">
             Subscribe to the KeilHQ newsletter
           </h2>
           <p className="text-xs md:text-sm text-muted-foreground leading-relaxed max-w-md">
@@ -549,11 +548,11 @@ export function PressPageClient({
               type="email"
               placeholder="Enter your email"
               required
-              className="flex-1 px-4 py-2.5 rounded-sm bg-background border border-border/50 text-xs focus:outline-none focus:border-foreground/40"
+              className="flex-1 px-4 py-2.5 rounded-sm bg-background border border-border text-xs focus:outline-none focus:border-foreground/40"
             />
             <button
               type="submit"
-              className="px-6 py-2.5 rounded-sm bg-foreground text-background text-xs font-semibold hover:opacity-90 active:scale-[0.98] transition-all cursor-pointer"
+              className="px-6 py-2.5 rounded-sm bg-foreground text-background text-xs font-semibold hover:opacity-90 active:scale-[0.98] transition-all cursor-pointer font-display"
             >
               Subscribe
             </button>

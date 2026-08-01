@@ -51,15 +51,13 @@ function FAQItem({ q, a }: { q: string; a: string }) {
           {q}
         </span>
         <ChevronDown
-          className={`size-4 text-muted-foreground shrink-0 transition-transform duration-200 ${
-            open ? "rotate-180" : ""
-          }`}
+          className={`size-4 text-muted-foreground shrink-0 transition-transform duration-200 ${open ? "rotate-180" : ""
+            }`}
         />
       </button>
       <div
-        className={`overflow-hidden transition-all duration-200 ${
-          open ? "max-h-40 pb-5" : "max-h-0"
-        }`}
+        className={`overflow-hidden transition-all duration-200 ${open ? "max-h-40 pb-5" : "max-h-0"
+          }`}
       >
         <p className="text-[13px] text-muted-foreground leading-relaxed">
           {a}
@@ -87,7 +85,7 @@ export function PricingClient() {
 
           {/* Title */}
           <h1
-            className="font-display text-[clamp(2.5rem,6vw,4.5rem)] font-semibold leading-[1.05] text-zinc-900 dark:text-white max-w-4xl"
+            className="font-display text-[clamp(2.5rem,6vw,4.5rem)] font-semibold leading-[1.05] text-foreground max-w-4xl"
             style={{ letterSpacing: "-0.025em" }}
           >
             Pricing plans for teams of all sizes
@@ -128,7 +126,7 @@ export function PricingClient() {
 
               <div className="flex flex-col gap-1.5 mt-2">
                 <div className="flex items-center gap-2">
-                  <h3 className="font-display text-2xl font-semibold text-zinc-900 dark:text-white">Pro</h3>
+                  <h3 className="font-display text-2xl font-semibold text-foreground">Pro</h3>
                   <span className="text-[10px] bg-secondary text-muted-foreground px-2 py-0.5 rounded-sm font-medium">
                     Individual
                   </span>
@@ -144,7 +142,7 @@ export function PricingClient() {
                   {proMode === "trial" ? (
                     <>
                       <div className="flex items-baseline gap-1">
-                        <span className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white">$0</span>
+                        <span className="text-3xl font-bold tracking-tight text-foreground">$0</span>
                         <span className="text-xs text-muted-foreground">/ trial</span>
                       </div>
                       <span className="text-[10px] text-muted-foreground font-medium">30 days free</span>
@@ -152,11 +150,11 @@ export function PricingClient() {
                   ) : (
                     <>
                       <div className="flex items-baseline gap-1.5">
-                        <span className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white">$25</span>
+                        <span className="text-3xl font-bold tracking-tight text-foreground">$25</span>
                         <span className="text-xs line-through text-muted-foreground/60 font-medium">$50</span>
                         <span className="text-xs text-muted-foreground">/ mo</span>
                       </div>
-                      <span className="text-[10px] text-emerald-600 dark:text-emerald-500 font-medium font-mono">50% intro discount</span>
+                      <span className="text-[10px] text-emerald-600 dark:text-emerald-500 font-medium font-sans">50% intro discount</span>
                     </>
                   )}
                 </div>
@@ -165,21 +163,19 @@ export function PricingClient() {
                 <div className="flex bg-secondary p-0.5 rounded-sm border border-border/50 text-[11px] font-medium max-w-[130px] shrink-0">
                   <button
                     onClick={() => setProMode("trial")}
-                    className={`px-2.5 py-1 rounded-xs transition-all cursor-pointer ${
-                      proMode === "trial"
+                    className={`px-2.5 py-1 rounded-xs transition-all cursor-pointer ${proMode === "trial"
                         ? "bg-background text-foreground shadow-xs font-semibold"
                         : "text-muted-foreground hover:text-foreground"
-                    }`}
+                      }`}
                   >
                     Trial
                   </button>
                   <button
                     onClick={() => setProMode("paid")}
-                    className={`px-2.5 py-1 rounded-xs transition-all cursor-pointer ${
-                      proMode === "paid"
+                    className={`px-2.5 py-1 rounded-xs transition-all cursor-pointer ${proMode === "paid"
                         ? "bg-background text-foreground shadow-xs font-semibold"
                         : "text-muted-foreground hover:text-foreground"
-                    }`}
+                      }`}
                   >
                     Paid
                   </button>
@@ -286,7 +282,7 @@ export function PricingClient() {
             <div className="pt-8 border-t border-border/60 flex flex-col gap-6 relative">
               <div className="flex flex-col gap-1.5 mt-2">
                 <div className="flex items-center gap-2">
-                  <h3 className="font-display text-2xl font-semibold text-zinc-900 dark:text-white">Teams</h3>
+                  <h3 className="font-display text-2xl font-semibold text-foreground">Teams</h3>
                   <span className="text-[10px] bg-secondary text-muted-foreground px-2 py-0.5 rounded-sm font-medium">
                     Collaboration
                   </span>
@@ -299,7 +295,7 @@ export function PricingClient() {
               <div className="flex items-center justify-between gap-4 min-h-[56px] py-1">
                 <div className="flex flex-col gap-0.5">
                   <div className="flex items-baseline gap-1.5">
-                    <span className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white">$50</span>
+                    <span className="text-3xl font-bold tracking-tight text-foreground">$50</span>
                     <span className="text-xs line-through text-muted-foreground/60 font-medium">$75</span>
                     <span className="text-xs text-muted-foreground">/ user / mo</span>
                   </div>
@@ -364,7 +360,7 @@ export function PricingClient() {
             <div className="pt-8 border-t border-border/60 flex flex-col gap-6 relative">
               <div className="flex flex-col gap-1.5 mt-2">
                 <div className="flex items-center gap-2">
-                  <h3 className="font-display text-2xl font-semibold text-zinc-900 dark:text-white">Enterprise</h3>
+                  <h3 className="font-display text-2xl font-semibold text-foreground">Enterprise</h3>
                   <span className="text-[10px] bg-secondary text-muted-foreground px-2 py-0.5 rounded-sm font-medium">
                     Custom Scale
                   </span>
@@ -376,7 +372,7 @@ export function PricingClient() {
 
               <div className="flex items-center justify-between gap-4 min-h-[56px] py-1">
                 <div className="flex flex-col gap-0.5">
-                  <span className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white">Contact Sales</span>
+                  <span className="text-3xl font-bold tracking-tight text-foreground">Contact Sales</span>
                   <span className="text-[10px] text-muted-foreground font-medium">Custom contracts</span>
                 </div>
               </div>
@@ -437,128 +433,13 @@ export function PricingClient() {
         </div>
       </section>
 
-      {/* ── SECTION 2: WHY IT'S PRICED DIFFERENTLY ── */}
-      <section className="w-full py-12 lg:py-16 px-5 sm:px-8 lg:px-12 bg-zinc-50/30 dark:bg-zinc-950/10">
-        <div className="max-w-7xl mx-auto w-full flex flex-col gap-12">
-          <div className="flex flex-col gap-4 text-left max-w-3xl">
-            <span className="text-[11px] font-semibold tracking-wider text-muted-foreground uppercase">
-              {pricingComparison.eyebrow}
-            </span>
-            <h2
-              className="font-display text-[clamp(2rem,4.5vw,3.5rem)] font-semibold leading-[1.05] text-zinc-900 dark:text-white"
-              style={{ letterSpacing: "-0.025em" }}
-            >
-              {pricingComparison.title}
-            </h2>
-            <p className="text-[14px] text-muted-foreground leading-relaxed">
-              {pricingComparison.intro}
-            </p>
-          </div>
-
-          <div className="w-full overflow-x-auto">
-            <table className="w-full min-w-[720px] border-collapse text-left">
-              <thead>
-                <tr className="border-b border-border/60">
-                  <th className="py-4 pr-6 text-[11px] font-semibold text-muted-foreground uppercase tracking-wider w-[18%]">
-                    Platform
-                  </th>
-                  <th className="py-4 pr-6 text-[11px] font-semibold text-muted-foreground uppercase tracking-wider w-[22%]">
-                    List price
-                  </th>
-                  <th className="py-4 text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">
-                    What it actually costs a small team
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-border/40">
-                {pricingComparison.rows.map((row) => (
-                  <tr
-                    key={row.platform}
-                    className={
-                      row.highlight
-                        ? "bg-background border border-border/60"
-                        : "hover:bg-secondary/20 transition-colors"
-                    }
-                  >
-                    <td
-                      className={`py-5 pr-6 text-sm font-semibold ${
-                        row.highlight
-                          ? "text-zinc-900 dark:text-white"
-                          : "text-zinc-800 dark:text-zinc-200"
-                      }`}
-                    >
-                      {row.platform}
-                    </td>
-                    <td className="py-5 pr-6 text-[13px] text-muted-foreground leading-relaxed">
-                      {row.listPrice}
-                    </td>
-                    <td className="py-5 text-[13px] text-muted-foreground leading-relaxed">
-                      {row.smallTeamCost}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      {/* ── SECTION 3: PRIVACY & SECURITY GRID ── */}
-      <section className="w-full py-12 lg:py-16 px-5 sm:px-8 lg:px-12 bg-zinc-50/30 dark:bg-zinc-950/10">
-        <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          {/* Left Column: Heading & Description */}
-          <div className="flex flex-col gap-6 text-left">
-            <h2
-              className="font-display text-[clamp(2rem,4.5vw,3.5rem)] font-semibold leading-[1.05] text-zinc-900 dark:text-white"
-              style={{ letterSpacing: "-0.025em" }}
-            >
-              Secure architecture.<br />Absolute data privacy.
-            </h2>
-            <p className="text-[14px] text-muted-foreground leading-relaxed max-w-[42ch]">
-              Your security is our default. Paid tiers completely exclude workspace data from model training, while enterprise environments offer full network isolation.
-            </p>
-          </div>
-
-          {/* Right Column: 4 Cards with Top Borders */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-12 w-full text-left">
-            <div className="pt-6 border-t border-border/60 flex flex-col gap-3">
-              <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Zero Model Training</h3>
-              <p className="text-[13px] text-muted-foreground leading-relaxed">
-                We guarantee that your code, docs, meeting recordings, and prompts are never used to train foundational AI models on any paid tier.
-              </p>
-            </div>
-
-            <div className="pt-6 border-t border-border/60 flex flex-col gap-3">
-              <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Database Isolation</h3>
-              <p className="text-[13px] text-muted-foreground leading-relaxed">
-                Workspace access controls enforce strict logical data segregation. Enterprise tier customers can deploy on dedicated cloud databases.
-              </p>
-            </div>
-
-            <div className="pt-6 border-t border-border/60 flex flex-col gap-3">
-              <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">SSO & Access Rules</h3>
-              <p className="text-[13px] text-muted-foreground leading-relaxed">
-                Lock down access through Okta, Azure AD, or custom SAML providers, and define granular workspace role assignments.
-              </p>
-            </div>
-
-            <div className="pt-6 border-t border-border/60 flex flex-col gap-3">
-              <h3 className="font-display text-xl font-semibold text-zinc-900 dark:text-white">Compliance Standard</h3>
-              <p className="text-[13px] text-muted-foreground leading-relaxed">
-                KeilHQ is developed under strict security controls, built to align with SOC 2 compliance standards and secure data transit laws.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* ── SECTION 4: FAQ ── */}
-      <section className="w-full py-12 lg:py-16 px-5 sm:px-8 lg:px-12 bg-zinc-50/30 dark:bg-zinc-950/10">
+      <section className="w-full py-12 lg:py-16 px-5 sm:px-8 lg:px-12 bg-muted/30">
         <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           {/* Left side info */}
           <div className="flex flex-col gap-6 text-left">
             <h2
-              className="font-display text-[clamp(2rem,4.5vw,3.5rem)] font-semibold leading-[1.05] text-zinc-900 dark:text-white"
+              className="font-display text-[clamp(2rem,4.5vw,3.5rem)] font-semibold leading-[1.05] text-foreground"
               style={{ letterSpacing: "-0.025em" }}
             >
               Common<br />questions

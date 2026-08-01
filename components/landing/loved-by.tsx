@@ -33,7 +33,7 @@ export function LovedBy({ data }: { data?: any }) {
 
           {/* ── Left: heading + stat ── */}
           <div className="xl:w-[400px] shrink-0 flex flex-col gap-10 text-left">
-            <h2 className="font-sans text-[clamp(2.5rem,5vw,3.5rem)] font-medium leading-[1.1] tracking-[-0.03em] text-zinc-900 dark:text-[#F7F8F8]">
+            <h2 className="font-display text-[clamp(2.5rem,5vw,3.5rem)] font-medium leading-[1.1] tracking-tight text-foreground">
               {title.includes("Loved by") ? (
                 <>
                   Loved by<br />the best.
@@ -44,18 +44,18 @@ export function LovedBy({ data }: { data?: any }) {
             </h2>
             <div className="flex flex-col gap-6">
               <div className="flex flex-col gap-1">
-                <span className="text-[12px] font-mono tracking-widest text-zinc-400 dark:text-zinc-500 uppercase">
+                <span className="text-[12px] font-sans tracking-widest text-muted-foreground uppercase">
                   {stat1Label}
                 </span>
-                <span className="text-2xl font-semibold text-zinc-900 dark:text-[#F7F8F8] tracking-tight">
+                <span className="text-2xl font-semibold text-foreground tracking-tight font-display">
                   {stat1Value}
                 </span>
               </div>
               <div className="flex flex-col gap-1">
-                <span className="text-[12px] font-mono tracking-widest text-zinc-400 dark:text-zinc-500 uppercase">
+                <span className="text-[12px] font-sans tracking-widest text-muted-foreground uppercase">
                   {stat2Label}
                 </span>
-                <span className="text-2xl font-semibold text-zinc-900 dark:text-[#F7F8F8] tracking-tight">
+                <span className="text-2xl font-semibold text-foreground tracking-tight font-display">
                   {stat2Value}
                 </span>
               </div>
@@ -67,7 +67,7 @@ export function LovedBy({ data }: { data?: any }) {
             {testimonials.map((t: any, idx: number) => {
               if (t.isHighlighted) {
                 return (
-                  <div key={idx} className="flex flex-col justify-between p-8 rounded-lg min-h-[300px] border border-[var(--color-marigold)]/40 bg-[var(--color-marigold)] text-ink">
+                  <div key={idx} className="flex flex-col justify-between p-8 rounded-lg min-h-[300px] border border-[var(--color-marigold)]/40 bg-[var(--color-marigold)] text-[#171514]">
                     <p className="text-[15px] sm:text-[16px] font-medium leading-[1.6] tracking-[0.01em] text-[#171514]">
                       &ldquo;{t.quote}&rdquo;
                     </p>
@@ -83,7 +83,7 @@ export function LovedBy({ data }: { data?: any }) {
                         <span className="text-[13px] font-bold text-[#171514]">
                           {t.authorName}
                         </span>
-                        <span className="text-[10px] font-mono tracking-widest text-[#171514]/80 uppercase">
+                        <span className="text-[10px] font-sans tracking-widest text-[#171514]/80 uppercase">
                           {t.authorRole}
                         </span>
                       </div>
@@ -93,8 +93,8 @@ export function LovedBy({ data }: { data?: any }) {
               }
 
               return (
-                <div key={idx} className="flex flex-col justify-between p-8 rounded-lg min-h-[300px] border border-zinc-200/50 dark:border-white/[0.06] bg-zinc-50/50 dark:bg-white/[0.01]">
-                  <p className="text-[15px] sm:text-[16px] font-normal leading-[1.6] tracking-[0.01em] text-zinc-800 dark:text-[#8A8F98]">
+                <div key={idx} className="flex flex-col justify-between p-8 rounded-lg min-h-[300px] border border-border bg-card shadow-sm">
+                  <p className="text-[15px] sm:text-[16px] font-normal leading-[1.6] tracking-[0.01em] text-muted-foreground">
                     &ldquo;{t.quote}&rdquo;
                   </p>
                   
@@ -106,10 +106,10 @@ export function LovedBy({ data }: { data?: any }) {
                       className="size-9 rounded-sm object-cover grayscale opacity-80"
                     />
                     <div className="flex flex-col text-left">
-                      <span className="text-[13px] font-semibold text-zinc-900 dark:text-[#F7F8F8]">
+                      <span className="text-[13px] font-semibold text-foreground">
                         {t.authorName}
                       </span>
-                      <span className="text-[11px] font-mono tracking-wider text-zinc-400 dark:text-zinc-600 uppercase">
+                      <span className="text-[11px] font-sans tracking-wider text-muted-foreground uppercase">
                         {t.authorRole}
                       </span>
                     </div>

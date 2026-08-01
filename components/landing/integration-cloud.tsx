@@ -34,14 +34,14 @@ function LogoIcon({ url }: LogoIconProps) {
   if (error) {
     // Elegant fallback placeholder dot
     return (
-      <div className="flex items-center justify-center size-11 rounded-sm bg-white/80 border border-zinc-200 dark:bg-[#161616]/90 dark:border-white/5 shrink-0 shadow-sm">
-        <div className="size-2 rounded-full bg-zinc-300 dark:bg-white/20" />
+      <div className="flex items-center justify-center size-11 rounded-sm bg-card border border-border shrink-0 shadow-sm">
+        <div className="size-2 rounded-full bg-muted-foreground/30" />
       </div>
     );
   }
 
   return (
-    <div className="flex items-center justify-center size-11 rounded-sm bg-white/80 border border-zinc-200 dark:bg-[#161616]/90 dark:border-white/5 p-2 shrink-0 shadow-sm hover:border-zinc-300 dark:hover:border-white/10 transition-colors">
+    <div className="flex items-center justify-center size-11 rounded-sm bg-card border border-border p-2 shrink-0 shadow-sm hover:border-muted-foreground/30 transition-colors">
       <img
         src={url}
         alt=""
@@ -97,7 +97,7 @@ export function IntegrationCloud() {
           <div className="flex items-center justify-between w-full mb-10 relative z-20">
             {/* Left: Copy Text */}
             <div className="max-w-xl text-left select-text pl-2">
-              <h2 className="font-sans text-[clamp(1.75rem,3vw,2.5rem)] font-medium leading-[1.1] text-zinc-900 dark:text-white" style={{ letterSpacing: "-0.03em", textWrap: "balance" } as React.CSSProperties}>
+              <h2 className="font-display text-[clamp(1.75rem,3vw,2.5rem)] font-medium leading-[1.1] text-foreground tracking-tight text-balance">
                 KeilHQ lives in every app you already use.
               </h2>
             </div>
@@ -110,14 +110,14 @@ export function IntegrationCloud() {
                 <img
                   src="/keilhq.svg"
                   alt="KeilHQ Logo"
-                  className="w-26 h-26 sm:w-26 sm:h-26 object-contain block dark:hidden filter drop-shadow-[0_0_8px_rgba(0,0,0,0.08)]"
+                  className="w-26 h-26 sm:w-26 sm:h-26 object-contain block dark:hidden"
                 />
 
                 {/* Dark theme logo */}
                 <img
                   src="/keilhq-white.svg"
                   alt="KeilHQ Logo"
-                  className="w-14 h-14 sm:w-16 sm:h-16 object-contain hidden dark:block filter drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]"
+                  className="w-14 h-14 sm:w-16 sm:h-16 object-contain hidden dark:block"
                 />
               </div>
             </div>

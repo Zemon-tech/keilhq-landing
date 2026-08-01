@@ -13,11 +13,11 @@ export default function PrivacyPage() {
           {/* Header */}
           <div className="mb-12 flex flex-col items-start gap-4">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/80 border border-border/50">
-              <span className="text-[11px] font-mono uppercase tracking-widest text-muted-foreground">
+              <span className="text-[11px] font-sans uppercase tracking-widest text-muted-foreground">
                 Legal
               </span>
             </div>
-            <h1 className="font-sans text-[clamp(2.25rem,4vw,3.5rem)] font-semibold leading-[1.1] text-foreground tracking-tight">
+            <h1 className="font-display text-[clamp(2.25rem,4vw,3.5rem)] font-semibold leading-[1.1] text-foreground tracking-tight">
               Privacy Policy
             </h1>
             <p className="text-[15px] text-muted-foreground leading-relaxed">
@@ -26,9 +26,9 @@ export default function PrivacyPage() {
           </div>
 
           {/* Policy Body */}
-          <div className="flex flex-col gap-10 text-[15px] leading-relaxed text-muted-foreground border-t border-border/40 pt-10">
+          <div className="flex flex-col gap-10 text-[15px] leading-relaxed text-muted-foreground border-t border-border pt-10">
             <section className="flex flex-col gap-3">
-              <h2 className="text-[18px] font-semibold text-foreground tracking-tight">
+              <h2 className="text-[18px] font-semibold text-foreground tracking-tight font-display">
                 1. Overview & Commitment to Privacy
               </h2>
               <p>
@@ -40,7 +40,7 @@ export default function PrivacyPage() {
             </section>
 
             <section className="flex flex-col gap-3">
-              <h2 className="text-[18px] font-semibold text-foreground tracking-tight">
+              <h2 className="text-[18px] font-semibold text-foreground tracking-tight font-display">
                 2. Information We Collect
               </h2>
               <p>
@@ -63,7 +63,7 @@ export default function PrivacyPage() {
             </section>
 
             <section className="flex flex-col gap-3">
-              <h2 className="text-[18px] font-semibold text-foreground tracking-tight">
+              <h2 className="text-[18px] font-semibold text-foreground tracking-tight font-display">
                 3. How We Use Information & AI Safeguards
               </h2>
               <p>
@@ -74,14 +74,14 @@ export default function PrivacyPage() {
                 <li>Authenticating access and executing billing and plan management.</li>
                 <li>Detecting, preventing, and responding to technical issues or security threats.</li>
               </ul>
-              <div className="p-5 rounded-lg border border-border/50 bg-secondary/30 text-foreground text-[14px] leading-relaxed my-2">
+              <div className="p-5 rounded-lg border border-border bg-card text-foreground text-[14px] leading-relaxed my-2">
                 <strong className="font-semibold block mb-1">AI Privacy Guarantee:</strong>
                 KeilHQ offers AI-assisted workflows. <span className="underline decoration-muted-foreground/40">We do not use your private workspace data, documents, or team chats to train public or foundation AI models.</span> Processing for AI features occurs ephemerally over encrypted channels solely to serve your requests.
               </div>
             </section>
 
             <section className="flex flex-col gap-3">
-              <h2 className="text-[18px] font-semibold text-foreground tracking-tight">
+              <h2 className="text-[18px] font-semibold text-foreground tracking-tight font-display">
                 4. Data Security & Storage
               </h2>
               <p>
@@ -95,7 +95,7 @@ export default function PrivacyPage() {
             </section>
 
             <section className="flex flex-col gap-3">
-              <h2 className="text-[18px] font-semibold text-foreground tracking-tight">
+              <h2 className="text-[18px] font-semibold text-foreground tracking-tight font-display">
                 5. Your Privacy Rights & Choices
               </h2>
               <p>
@@ -115,14 +115,14 @@ export default function PrivacyPage() {
               </p>
             </section>
 
-            <section className="flex flex-col gap-3 border-t border-border/40 pt-8 mt-4">
-              <h2 className="text-[18px] font-semibold text-foreground tracking-tight">
+            <section className="flex flex-col gap-3 border-t border-border pt-8 mt-4 font-sans">
+              <h2 className="text-[18px] font-semibold text-foreground tracking-tight font-display">
                 6. Contact Information
               </h2>
               <p>
                 If you have questions, concerns, or requests regarding this Privacy Policy or our data handling practices, please contact us at:
               </p>
-              <p className="font-mono text-[13px] text-foreground">
+              <p className="text-[13px] text-foreground">
                 KeilHQ Inc.<br />
                 Attn: Privacy Officer<br />
                 Email: privacy@keilhq.com

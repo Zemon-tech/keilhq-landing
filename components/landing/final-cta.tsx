@@ -50,15 +50,14 @@ export function FinalCta({
         {/* Heading */}
         <div className="flex flex-col items-center gap-4 max-w-[600px] text-center">
           <h2
-            className={`font-sans text-[clamp(1.75rem,3.5vw,2.5rem)] font-semibold leading-[1.1] tracking-[-0.03em] text-zinc-900 dark:text-[#F7F8F8] transition-all duration-1000 ${
+            className={`font-display text-[clamp(1.75rem,3.5vw,2.5rem)] font-semibold leading-[1.1] tracking-tight text-foreground text-balance transition-all duration-1000 ${
               visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
-            style={{ textWrap: "balance" }}
           >
             {finalCtaTitle}
           </h2>
           <p
-            className={`text-[15px] font-normal text-zinc-500 dark:text-[#8A8F98] leading-relaxed max-w-[42ch] transition-all duration-1000 delay-100 ${
+            className={`text-[15px] font-normal text-muted-foreground leading-relaxed max-w-[42ch] transition-all duration-1000 delay-100 ${
               visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
             }`}
           >
@@ -77,7 +76,7 @@ export function FinalCta({
               href={finalCtaButtonLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-sm bg-zinc-900 text-white dark:bg-[#F7F8F8] dark:text-zinc-950 text-[13px] font-semibold hover:bg-zinc-800 dark:hover:bg-white transition-all cursor-pointer shadow-sm active:scale-[0.97] w-full sm:w-auto justify-center"
+              className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-sm btn-accent text-[13px] font-semibold transition-all cursor-pointer shadow-sm w-full sm:w-auto justify-center"
             >
               {finalCtaButtonLabel}
               <ArrowRight
@@ -89,7 +88,7 @@ export function FinalCta({
           {finalCtaSecondaryButtonLabel && finalCtaSecondaryButtonLink && (
             <a
               href={finalCtaSecondaryButtonLink}
-              className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-sm border border-zinc-200/60 dark:border-white/10 text-zinc-900 dark:text-[#F7F8F8] hover:bg-zinc-50 dark:hover:bg-white/[0.03] text-[13px] font-semibold transition-all cursor-pointer active:scale-[0.97] w-full sm:w-auto justify-center"
+              className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-sm border border-border text-foreground hover:bg-muted/50 text-[13px] font-semibold transition-all cursor-pointer active:scale-[0.97] w-full sm:w-auto justify-center"
             >
               {finalCtaSecondaryButtonLabel}
               <ArrowRight
@@ -103,7 +102,7 @@ export function FinalCta({
         {/* Trust micro-copy */}
         {finalCtaTrustText && (
           <p
-            className={`text-[11px] font-mono tracking-wider text-zinc-400 dark:text-zinc-600 transition-all duration-1000 delay-300 ${
+            className={`text-[11px] font-sans tracking-wider text-muted-foreground transition-all duration-1000 delay-300 ${
               visible ? "opacity-100" : "opacity-0"
             }`}
           >

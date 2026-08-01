@@ -120,7 +120,7 @@ export function AboutVideoPlayer({ videoSrc = "/launch.mp4" }: { videoSrc?: stri
             >
               {isMuted ? <VolumeX className="size-4" /> : <Volume2 className="size-4" />}
             </button>
-            <span className="text-xs font-mono opacity-80">
+            <span className="text-xs font-sans opacity-80">
               {formatTime(currentTime)}
             </span>
           </div>
@@ -144,10 +144,10 @@ export function AboutVideoPlayer({ videoSrc = "/launch.mp4" }: { videoSrc?: stri
 
           {/* Right Controls: Remaining, speed, full screen */}
           <div className="flex items-center gap-4">
-            <span className="text-xs font-mono opacity-80">
+            <span className="text-xs font-sans opacity-80">
               -{formatTime(remainingTime)}
             </span>
-            <span className="text-xs font-mono opacity-80 px-1 border border-white/20 rounded-xs select-none">
+            <span className="text-xs font-sans opacity-80 px-1 border border-white/20 rounded-xs select-none">
               1x
             </span>
             <button

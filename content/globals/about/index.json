@@ -13,12 +13,12 @@
   "teamMembers": [
     {
       "name": "Shivang Kandoi",
-      "role": "Co-founder & CEO",
+      "role": "Co Founder and CEO",
       "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop"
     },
     {
       "name": "Satyajit Jena",
-      "role": "Co-founder & CTO",
+      "role": "Co founder and CTO",
       "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400&auto=format&fit=crop"
     },
     {
@@ -32,42 +32,57 @@
       "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop"
     },
     {
-      "name": "Akshat Chowdhary",
-      "role": "AI Engineer",
-      "avatar": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=400&auto=format&fit=crop"
-    },
-    {
-      "name": "Naveen",
-      "role": "Software Engineer",
-      "avatar": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=400&auto=format&fit=crop"
-    },
-    {
       "name": "Krishna Jaiswal",
       "role": "Software Engineer",
       "avatar": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=400&auto=format&fit=crop"
     },
     {
-      "name": "Rohan Vashisth",
-      "role": "Software Engineer",
-      "avatar": "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=400&auto=format&fit=crop"
-    },
-    {
       "name": "Shivansh Tiwari",
       "role": "Software Engineer",
       "avatar": "https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?q=80&w=400&auto=format&fit=crop"
-    }
-  ],
-  "investorsTitle": "Backed by the best",
-  "investors": [
-    {
-      "firmName": "Accel",
-      "partnerName": "Miles Clements",
-      "partnerRole": "Partner, Accel"
     },
     {
-      "firmName": "Sequoia",
-      "partnerName": "Stephanie Zhan",
-      "partnerRole": "Partner, Sequoia"
+      "name": "Krishna Sharma",
+      "role": "Ai Engineer",
+      "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=400&auto=format&fit=crop"
+    }
+  ],
+  "investorsTitle": "Backed by",
+  "investors": [
+    {
+      "firmName": "AIC GGSIPU",
+      "logo": "https://7f0c3c9283690942f12072675bea02f1.cdn.bubble.io/cdn-cgi/image/w=96,h=92,f=auto,dpr=2,fit=contain/f1707545874849x730155311730143000/WhatsApp_Image_2024-02-10_at_11.17.23_AM-removebg-preview.png",
+      "partnerName": "Heman Srivastav",
+      "partnerRole": "Ceo of AIC GGSIPU"
+    },
+    {
+      "firmName": "AIC GGSIPU",
+      "logo": "https://7f0c3c9283690942f12072675bea02f1.cdn.bubble.io/cdn-cgi/image/w=96,h=92,f=auto,dpr=2,fit=contain/f1707545874849x730155311730143000/WhatsApp_Image_2024-02-10_at_11.17.23_AM-removebg-preview.png",
+      "partnerName": "Sagar Sahu",
+      "partnerRole": "Program Manager at AIC GGSIPU"
+    }
+  ],
+  "mentorsTitle": "Advisors",
+  "mentors": [
+    {
+      "name": "Hemant Srivastav",
+      "role": "AIC GGSIPU",
+      "avatar": "https://images.unsplash.com/photo-1500048993953-d23a436266cf?q=80&w=400&auto=format&fit=crop"
+    },
+    {
+      "name": "Sagar Sahu",
+      "role": "AIC GGSIPU",
+      "avatar": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=400&auto=format&fit=crop"
+    },
+    {
+      "name": "Kuldeep Anand",
+      "role": "Visomni",
+      "avatar": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=400&auto=format&fit=crop"
+    },
+    {
+      "name": "Raman Tehlan",
+      "role": "Vxplain",
+      "avatar": "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=400&auto=format&fit=crop"
     }
   ]
 }
