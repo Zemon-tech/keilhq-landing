@@ -137,6 +137,7 @@ export default async function FeaturePage({ params }: { params: Promise<{ slug: 
       checklistDesc={(feature as any).checklistDesc || ""}
       checklistItems={checklistItems}
       currentIndex={FEATURE_INDEX[slug] ?? 0}
+      sections={(feature as any).sections || undefined}
     />
   );
 }

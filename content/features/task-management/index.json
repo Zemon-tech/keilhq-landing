@@ -2,42 +2,152 @@
   "title": "task-management",
   "eyebrowIndex": "3.0",
   "eyebrowText": "Task Management",
-  "subHeroTitle": "Database-level blocker requirements and strict sprint state",
-  "subHeroDesc": "Plan, track, and complete tasks with strict blocker validation and native sprint structures that prevent unfinished items from sliding by.",
+  "subHeroTitle": "Database-level blocker requirements and multi-view execution",
+  "subHeroDesc": "Plan, track, and complete tasks with strict blocker validation, recursive scheduling, cross-project mobility, and multi-view layouts built for modern engineering teams.",
   "subHeroLink": "https://app.Keilhq.in/login",
   "subHeroLinkText": "Try Task Management",
   "lightImage": "/mockups/light/Task Overview Light.png",
   "darkImage": "/mockups/dark/Task Overview Dark.png",
-  "capabilitiesTitle": "The Clarity Engine. Enforced progress.",
-  "capabilitiesDesc": "KeilHQ eliminates vague task lists at the database schema level so you can rest assured execution matches design specs.",
-  "capabilitiesGrid": [
+  "sections": [
     {
-      "title": "Clarity Engine",
-      "desc": "Every task has built-in Objectives and Success Criteria fields to define \\",
-      "iconName": "Sparkles"
+      "title": "Define and execute every sprint perspective",
+      "desc": "Switch context-free across Calendar, List, Kanban, and Track views with database-enforced blocker logic and a high-density shortcut list pane.",
+      "isInteractiveShowcase": true,
+      "tags": [
+        { "index": "3.1", "name": "List Pane" },
+        { "index": "3.2", "name": "Multiple Views" }
+      ],
+      "gridItems": [
+        {
+          "index": "3.1",
+          "title": "Shortcut List Pane",
+          "desc": "The persistent List Pane serves as your central command shortcut bar, aggregating all tasks, calendar events, and active sprints into a unified high-density list. Effortlessly jump between workspace priorities, quick actions, and upcoming milestones without breaking focus or navigating away from your active work.",
+          "iconName": "SlidersHorizontal"
+        },
+        {
+          "index": "3.2",
+          "title": "Multi-View Engine",
+          "desc": "Switch context-free across four specialized layout perspectives: Calendar View offering Day, Week, and Month schedule grids; List View featuring instant temporal filters to slice tasks across Day, Week, Month, and Year periods; Kanban View for visual drag-and-drop column workflows; and Track View to monitor real-time progress, live execution status, and active change logs.",
+          "iconName": "LayoutGrid"
+        }
+      ]
     },
     {
-      "title": "Blocker Logic",
-      "desc": "Prevent tasks from being completed until their pre-selected dependency prerequisites are marked done.",
-      "iconName": "Lock"
+      "title": "Instant side drawers and quick dialog popups",
+      "desc": "Inspect task parameters, assignees, and blocker statuses on the fly without breaking your current board or calendar workspace view.",
+      "isImageLeft": true,
+      "lightImage": "/mockups/light/Task Sidebar overview Light.png",
+      "darkImage": "/mockups/dark/Task Sidebar overview Dark.png",
+      "tags": [
+        { "index": "3.3", "name": "Sidebar Overview" },
+        { "index": "3.3", "name": "Quick Dialog Modal" }
+      ],
+      "gridItems": [
+        {
+          "index": "3.3",
+          "title": "Task Details Sidebar",
+          "desc": "Access full task parameters, due dates, assignee cards, and priority badges in a sleek slide-over side drawer that preserves your surrounding workspace context.",
+          "iconName": "Sidebar"
+        },
+        {
+          "index": "3.3",
+          "title": "Task Details Dialog",
+          "desc": "Open lightweight modal dialogs for rapid task editing, tag updates, and blocker checks directly from any list, calendar, or kanban card.",
+          "iconName": "Maximize2"
+        }
+      ]
     },
     {
-      "title": "Task Hierarchies",
-      "desc": "Organize work with parent-child task relationships to break complex epics into infinitely nested subtasks.",
-      "iconName": "Layers"
+      "title": "Deep task workspaces with AI activity summaries",
+      "desc": "Comprehensive 4-tab task detail pages featuring full parameter specs, collaborative team work logs, AI-generated activity summaries, relational dependencies, and immutable audit logs.",
+      "isImageRight": true,
+      "lightImage": "/mockups/light/Task Activity Light.png",
+      "darkImage": "/mockups/dark/Task Activity Dark.png",
+      "tags": [
+        { "index": "3.4", "name": "Overview" },
+        { "index": "3.4", "name": "Activity & AI" },
+        { "index": "3.4", "name": "Dependencies" },
+        { "index": "3.4", "name": "Audit History" }
+      ],
+      "gridItems": [
+        {
+          "index": "3.4",
+          "title": "Overview Tab",
+          "desc": "Inspect complete task specs, objectives, success criteria, custom parameters, assignees, priority levels, and scheduling metadata.",
+          "iconName": "FileText"
+        },
+        {
+          "index": "3.4",
+          "title": "Activity Tab & AI Summary",
+          "desc": "Log work updates and collaborate across multi-assignee tasks. Built-in AI agents condense all activity comments and progress notes into instant actionable summaries.",
+          "iconName": "Sparkles"
+        },
+        {
+          "index": "3.4",
+          "title": "Dependency Engine",
+          "desc": "Define strict relational blockers linking task prerequisites, calendar events, and team member assignments to prevent dependent tasks from closing early.",
+          "iconName": "Lock"
+        },
+        {
+          "index": "3.4",
+          "title": "Immutable History Log",
+          "desc": "Track every change, field edit, assignee update, and status transition across the entire task lifecycle in a complete audit history stream.",
+          "iconName": "History"
+        }
+      ]
     },
     {
-      "title": "Derived Statuses",
-      "desc": "Task states automatically compute to \\",
-      "iconName": "Grid"
+      "title": "Move work forward across tools and projects",
+      "desc": "Connect GitHub PRs and Google Calendar natively, query backlogs with multi-variable smart filters, automate recurring tasks, and transfer tasks across projects.",
+      "lightImage": "/mockups/light/Settings Connectors Light.png",
+      "darkImage": "/mockups/dark/Settings Connectors Dark.png",
+      "tags": [
+        { "index": "3.5", "name": "Integrations" },
+        { "index": "3.6", "name": "Smart Filters" },
+        { "index": "3.7", "name": "Recurring Tasks" },
+        { "index": "3.8", "name": "Project Transfer" }
+      ],
+      "gridItems": [
+        {
+          "index": "3.5",
+          "title": "Native Stack Integrations",
+          "desc": "Connect your core developer workflow natively with built-in integrations for GitHub (issues & PRs), Google Meet (one-click video call generation), and Google Calendar (two-way schedule sync).",
+          "iconName": "GitBranch"
+        },
+        {
+          "index": "3.6",
+          "title": "Smart Task Filters",
+          "desc": "Query and slice complex task backlogs using advanced Smart Filters across custom date ranges, priority tiers, assignees, execution states, tags, and project spaces.",
+          "iconName": "Filter"
+        },
+        {
+          "index": "3.7",
+          "title": "Automated Recurring Tasks",
+          "desc": "Automate repetitive operational workflows with flexible Recurring Tasks. Schedule daily standups, weekly sprint grooming, or monthly maintenance tasks on automated schedules.",
+          "iconName": "Repeat"
+        },
+        {
+          "index": "3.8",
+          "title": "Direct Cross-Project Transfer",
+          "desc": "Relocate tasks from one project space to another in a single click while automatically preserving all attached dependencies, activity threads, AI summaries, and audit history.",
+          "iconName": "ArrowRightLeft"
+        }
+      ]
     }
   ],
-  "checklistTitle": "Designed for high-speed engineering teams",
-  "checklistDesc": "Unify workflows, switch context-free between layouts, and track exact changes with comprehensive audit logs.",
+  "capabilitiesTitle": "Engineering-grade task management",
+  "capabilitiesDesc": "KeilHQ unifies task tracking, strict dependency logic, native integrations, and granular audit history in one high-performance workspace.",
+  "capabilitiesGrid": [],
+  "checklistTitle": "Built for clarity, collaboration, and total accountability",
+  "checklistDesc": "Every detail of KeilHQ Task Management is designed to eliminate ambiguity and streamline engineering execution across teams.",
   "checklistItems": [
-    "Switch seamlessly between Kanban Boards, Gantt Timelines, and shared team Calendars.,",
-    "Organize tasks through 4 workflow states (Backlog, To Do, In Progress, Done) and 4 priority levels (Low, Medium, High, Urgent).,",
-    "Assign work to multiple team members and collaborate using threaded comments with nested replies.,",
-    "Export complete task history audit trails and share progress externally using public links with no login required.,"
+    "Shortcut List Pane: The persistent List Pane acts as a rapid-access shortcut bar, listing all types of tasks, milestones, and upcoming events in one structured view so you can navigate priorities without switching screens.,",
+    "Comprehensive Layout Views: View your work through specialized perspectives including Calendar View (Day, Week, Month grids), List View (with instant filters for Day, Week, Month, and Year horizons), visual Kanban Boards, and Track View for real-time progress monitoring and change oversight.,",
+    "Fast Overview Sidebar & Dialog: Get a lightweight snapshot of any task using the Task Details Sidebar or quick Dialog popups to quickly review specs, assignees, and blockers without leaving your active workflow.,",
+    "4-Tab Task Detail Page: Deep-dive into work items via dedicated tabs: Overview (full parameters & metadata), Activity (collaborative work logs for team members paired with an AI summary engine that condenses updates into key insights), Dependency (enforced blocking logic for tasks, events, and people), and History (an immutable change log of every update).,",
+    "Developer Tool Integrations: Bridge project management with developer workflows through native integrations with GitHub (link PRs & issues), Google Meet (generate one-click video meeting links), and Google Calendar (two-way schedule synchronization).,",
+    "Multi-Parameter Smart Filters: Surface exact task queues with powerful Smart Filters that instantly query tasks by custom date ranges, urgency levels, assignees, completion statuses, tags, and project boundaries.,",
+    "Automated Recurring Tasks: Eliminate manual setup for routine operations by setting up recursive tasks that auto-generate on daily, weekly, monthly, or custom schedules with pre-configured assignees and dependencies.,",
+    "Direct Cross-Project Mobility: Seamlessly transfer tasks from one project space to another directly without losing linked dependencies, activity logs, AI summaries, attached files, or historical audit entries."
   ]
 }
