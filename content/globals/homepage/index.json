@@ -37,33 +37,24 @@
   "featureSections": [
     {
       "id": "smart-dashboard",
-      "badgeText": "Smart Dashboard",
-      "title": "Know exactly what to work on right now",
-      "description": "A 3D wheel picker cycles through six live cards — Current Focus, Blockers, Needs Reply, Next Event, Quick Capture, and Up Next — with urgent, reply, and queued stats plus a live clock.",
+      "badgeText": "Smart Dashboard & AI",
+      "title": "Six cards, one command center, built-in AI",
+      "description": "Cycle through focus, blockers, replies, and events on a 3D wheel picker, or query the Supervisor AI directly with natural language and file attachments. Track live tool execution logs in real-time.",
       "lightImage": "/mockups/light/Dashboard light.png",
       "darkImage": "/mockups/dark/Dashboard Dark.png",
       "alt": "KeilHQ Smart Dashboard"
     },
     {
-      "id": "ai-command-center",
-      "badgeText": "AI Command Center",
-      "title": "Your AI assistant that knows your workspace",
-      "description": "Built-in AI agents for task management, scheduling, GitHub integration, and web search. Chain-of-thought execution shows you exactly how decisions are made using your real data.",
-      "lightImage": "/mockups/light/AI Light.png",
-      "darkImage": "/mockups/dark/AI Dark.png",
-      "alt": "KeilHQ AI Command Center"
-    },
-    {
-      "id": "tasks",
-      "badgeText": "Task Management",
-      "title": "Tasks with clarity built in — not bolted on",
-      "description": "Built-in Objectives and Success Criteria on every task. Kanban, Gantt, and Calendar views with hard dependency blocking. Tasks cannot be marked done until their blockers are resolved.",
+      "id": "task-management",
+      "badgeText": "Task Management & Scheduling",
+      "title": "Tasks, calendars, and schedules in one unified flow",
+      "description": "Plan work with strict dependency blocking, Kanban, and calendar views. Tasks automatically sync with Google Calendar, allowing the AI scheduler to find free slots and auto-allocate time slots.",
       "lightImage": "/mockups/light/Task Overview Light.png",
       "darkImage": "/mockups/dark/Task Overview Dark.png",
       "alt": "KeilHQ Task Management"
     },
     {
-      "id": "motion",
+      "id": "docs-notes",
       "badgeText": "Motion — Docs & Notes",
       "title": "Notion-quality docs, built right in",
       "description": "Block-based rich-text editor with real-time collaborative editing, subpage hierarchies, cover images, and Notion sync. Full TipTap editor with slash commands and @mentions.",
@@ -79,15 +70,6 @@
       "lightImage": "/mockups/light/Meetings Light.png",
       "darkImage": "/mockups/dark/Meetings Dark.png",
       "alt": "KeilHQ Meeting Recorder"
-    },
-    {
-      "id": "calendar-integration",
-      "badgeText": "Calendar & Scheduling",
-      "title": "Two-way Google Calendar sync with smart scheduling",
-      "description": "Tasks automatically become calendar events. AI scheduler finds free slots and auto-schedules your unscheduled tasks. Google Meet links generated automatically for events.",
-      "lightImage": "/mockups/light/Calendar overview Light.png",
-      "darkImage": "/mockups/dark/Calendar Overview Dark.png",
-      "alt": "KeilHQ Calendar Integration"
     }
   ],
   "finalCtaTitle": "Your team deserves a workspace that works.",

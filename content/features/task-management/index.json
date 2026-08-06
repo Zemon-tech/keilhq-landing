@@ -1,6 +1,6 @@
 {
   "title": "task-management",
-  "eyebrowIndex": "3.0",
+  "eyebrowIndex": "2.0",
   "eyebrowText": "Task Management",
   "subHeroTitle": "Database-level blocker requirements and multi-view execution",
   "subHeroDesc": "Plan, track, and complete tasks with strict blocker validation, recursive scheduling, cross-project mobility, and multi-view layouts built for modern engineering teams.",
@@ -133,6 +133,38 @@
           "iconName": "ArrowRightLeft"
         }
       ]
+    },
+    {
+      "title": "Smart Calendar and two-way Google Calendar sync",
+      "desc": "Tasks automatically become calendar events. The AI scheduler analyzes your calendar, finds free slots, and auto-schedules tasks based on priority and availability, generating Google Meet links automatically.",
+      "isImageLeft": true,
+      "lightImage": "/mockups/light/Calendar overview Light.png",
+      "darkImage": "/mockups/dark/Calendar Overview Dark.png",
+      "tags": [
+        { "index": "3.9", "name": "AI Auto-Scheduling" },
+        { "index": "3.10", "name": "Two-Way GCal Sync" },
+        { "index": "3.11", "name": "Google Meet Links" }
+      ],
+      "gridItems": [
+        {
+          "index": "3.9",
+          "title": "AI Smart Scheduler",
+          "desc": "Analyzes your calendar, finds free slots, and auto-schedules unscheduled tasks based on priority and time estimates.",
+          "iconName": "Clock"
+        },
+        {
+          "index": "3.10",
+          "title": "Two-Way Calendar Sync",
+          "desc": "Tasks with dates automatically become Google Calendar events, and GCal events appear in KeilHQ with full bidirectional details.",
+          "iconName": "RefreshCw"
+        },
+        {
+          "index": "3.11",
+          "title": "Native Google Meet Integration",
+          "desc": "Generate Google Meet links automatically for scheduled team events or task-related sprint syncs.",
+          "iconName": "Video"
+        }
+      ]
     }
   ],
   "capabilitiesTitle": "Engineering-grade task management",
@@ -148,6 +180,8 @@
     "Developer Tool Integrations: Bridge project management with developer workflows through native integrations with GitHub (link PRs & issues), Google Meet (generate one-click video meeting links), and Google Calendar (two-way schedule synchronization).,",
     "Multi-Parameter Smart Filters: Surface exact task queues with powerful Smart Filters that instantly query tasks by custom date ranges, urgency levels, assignees, completion statuses, tags, and project boundaries.,",
     "Automated Recurring Tasks: Eliminate manual setup for routine operations by setting up recursive tasks that auto-generate on daily, weekly, monthly, or custom schedules with pre-configured assignees and dependencies.,",
-    "Direct Cross-Project Mobility: Seamlessly transfer tasks from one project space to another directly without losing linked dependencies, activity logs, AI summaries, attached files, or historical audit entries."
+    "Direct Cross-Project Mobility: Seamlessly transfer tasks from one project space to another directly without losing linked dependencies, activity logs, AI summaries, attached files, or historical audit entries.,",
+    "Two-Way Google Calendar Sync: Synchronize tasks with dates to Google Calendar automatically, and display external calendar events with full details in your workspace.,",
+    "AI-Powered Smart Scheduling: Let the built-in AI assistant analyze your calendar, find free slots, and auto-schedule tasks based on priority and duration estimates."
   ]
 }

@@ -1,43 +1,100 @@
 {
   "title": "team-chat",
-  "eyebrowIndex": "6.0",
+  "eyebrowIndex": "4.0",
   "eyebrowText": "Team Chat",
-  "subHeroTitle": "Contextual channels. Instant alignments. Replace Slack.",
-  "subHeroDesc": "Replace Slack. KeilHQ brings real-time group channels and direct messaging right next to your team's active tasks and documents, with high-speed Socket.io pipelines.",
+  "subHeroTitle": "Real-time direct messages and group channels inside your workspace",
+  "subHeroDesc": "KeilHQ unifies communication directly within your active workspace. Connect via public or private group channels and private DMs, upload cloud attachments, and co-author right next to your active sprints.",
   "subHeroLink": "https://app.Keilhq.in/login",
   "subHeroLinkText": "Try Team Chat",
   "lightImage": "/mockups/light/Chat Light.png",
   "darkImage": "/mockups/dark/Chat Dark.png",
-  "capabilitiesTitle": "Contextual channels. Instant alignments.",
-  "capabilitiesDesc": "KeilHQ brings communication directly into your projects, making discussions and files contextual.",
-  "capabilitiesGrid": [
+  "sections": [
     {
-      "title": "Group Channels",
-      "desc": "Establish group channels dedicated to specific client projects, team areas, or custom topics.",
-      "iconName": "Users"
+      "title": "Scoped channels and rich messaging features",
+      "desc": "Establish focused channels and private direct messages scoped securely to your organization. Discuss in threaded context, drop files directly onto cloud storage, and interact expressively.",
+      "tags": [
+        { "index": "4.1", "name": "Direct Messages" },
+        { "index": "4.2", "name": "Group Channels" },
+        { "index": "4.3", "name": "Threaded Replies" },
+        { "index": "4.4", "name": "S3 Cloud Attachments" }
+      ],
+      "gridItems": [
+        {
+          "index": "4.1",
+          "title": "Direct & Group Channels",
+          "desc": "Establish private 1:1 direct messages or create public/private group rooms (e.g., #engineering) that are strictly locked to your Organization and Space.",
+          "iconName": "Users"
+        },
+        {
+          "index": "4.2",
+          "title": "Threaded Conversations",
+          "desc": "Reply directly to specific messages to organize conversations, with automatic scroll-to-original context when tapping a reply preview.",
+          "iconName": "MessageSquare"
+        },
+        {
+          "index": "4.3",
+          "title": "Cloud File Attachments",
+          "desc": "Drop files, PDFs, images, or designs straight into chat rooms. Attachments upload instantly to secure Amazon S3 cloud storage.",
+          "iconName": "UploadCloud"
+        },
+        {
+          "index": "4.4",
+          "title": "Emojis & Secure Deletes",
+          "desc": "React using a built-in emoji picker, or delete messages to securely hide them from view using underlying deleted_by tracking.",
+          "iconName": "Shield"
+        }
+      ]
     },
     {
-      "title": "Direct Messaging",
-      "desc": "Connect instantly via private 1:1 direct messages or establish custom group DMs with unread indicators.",
-      "iconName": "MessageSquare"
-    },
-    {
-      "title": "Socket.io Engine",
-      "desc": "High-speed Socket.io connection delivers chat notifications and message events in real-time.",
-      "iconName": "Zap"
-    },
-    {
-      "title": "Connected Feed",
-      "desc": "Chat threads link directly inside the tasks, documents, and calendar events they describe.",
-      "iconName": "Sparkles"
+      "title": "Real-time WebSocket pipeline and group roles",
+      "desc": "Deliver messages in milliseconds without polling, see active typing indicators, and manage channel memberships and roles using a simple creation wizard.",
+      "isImageRight": true,
+      "lightImage": "/mockups/light/Chat Sidebar Light.png",
+      "darkImage": "/mockups/dark/Chat Sidebar Dark.png",
+      "tags": [
+        { "index": "4.5", "name": "WebSocket Engine" },
+        { "index": "4.6", "name": "Typing Indicators" },
+        { "index": "4.7", "name": "Unread Badges" },
+        { "index": "4.8", "name": "Admin Management" }
+      ],
+      "gridItems": [
+        {
+          "index": "4.5",
+          "title": "No-Lag Socket Delivery",
+          "desc": "Experience lag-free conversations. The real-time WebSocket connection pushes messages instantly without reloading or page refreshes.",
+          "iconName": "Zap"
+        },
+        {
+          "index": "4.6",
+          "title": "Live Typing Indicators",
+          "desc": "Know exactly when team members are draft replying with real-time indicators (e.g. 'Sarah is typing...') that prevent double text overlap.",
+          "iconName": "PenTool"
+        },
+        {
+          "index": "4.7",
+          "title": "Unread Sidebar Badges",
+          "desc": "Light up channels with red notification counts, tracked accurately using last_read_at timestamps mapping your active read state.",
+          "iconName": "Bell"
+        },
+        {
+          "index": "4.8",
+          "title": "Roles & Channel Wizard",
+          "desc": "Spin up channels using a creation wizard. Creator admins can add or remove members, rename the group, or leave when needed.",
+          "iconName": "Sliders"
+        }
+      ]
     }
   ],
+  "capabilitiesTitle": "Contextual channels. Instant alignments.",
+  "capabilitiesDesc": "KeilHQ brings communication directly into your projects, making discussions and files contextual.",
+  "capabilitiesGrid": [],
   "checklistTitle": "Keep your team in sync without the noise",
   "checklistDesc": "Eliminate status meetings. Integrated chat streams keep everyone aligned in real-time.",
   "checklistItems": [
-    "Never miss a chat ping with unread badges and contextual workspace mentions.,",
-    "Database-level client spaces isolate channels and protect private details.,",
-    "WebSocket delivery registers message receipts across the team in milliseconds.,",
-    "Tied directly to the Clarity Engine to track task discussions and decisions.,"
+    "Secure Scoped Channels: Public or private group rooms and private DMs isolated to your organization and space context.,",
+    "Rich Threaded Messaging: Threaded message replies with auto-scroll navigation, emoji support, and secure message deletion.,",
+    "S3 Cloud Attachments: Direct secure file drops (images, PDFs, documents) uploaded instantly to Amazon S3 storage streams.,",
+    "Real-Time WebSocket Pipeline: Instant message updates, active typing indicators, and red unread counts with timestamp tracking.,",
+    "Group Admin Roles: A wizard to spin up DMs or group rooms, where admin creators can add/remove members and rename channels."
   ]
 }

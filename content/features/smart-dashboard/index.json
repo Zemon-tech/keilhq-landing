@@ -6,36 +6,94 @@
   "subHeroDesc": "The Dashboard Panel gives you a live workspace snapshot — a 3D wheel picker with six context cards, real-time stats, and a live clock that respects your time format preference. Scroll through top priorities and blocked queues instantly.",
   "subHeroLink": "https://app.Keilhq.in/login",
   "subHeroLinkText": "Try Smart Dashboard",
-  "capabilitiesTitle": "Six cards. One glance.",
-  "capabilitiesDesc": "Scroll the 3D wheel picker to cycle through your most important context — from today's top priority to messages waiting for your reply.",
-  "capabilitiesGrid": [
+  "lightImage": "/mockups/light/Dashboard light.png",
+  "darkImage": "/mockups/dark/Dashboard Dark.png",
+  "sections": [
     {
-      "title": "Wheel Picker Cards",
-      "desc": "Six scrollable cards: Current Focus, Immediate Blockers, Needs Reply, Next Event, Quick Capture, and Up Next — each linking to the relevant task, chat, or event.",
-      "iconName": "Layers"
+      "title": "A live workspace snapshot on a 3D wheel picker",
+      "desc": "Cycle through six dedicated cards summarizing your focus, blockers, replies, and upcoming events. Monitor real-time stats and capture tasks instantly without leaving your central view.",
+      "tags": [
+        { "index": "1.1", "name": "3D Wheel Picker" },
+        { "index": "1.2", "name": "Live Clock & Format" },
+        { "index": "1.3", "name": "Real-Time Stats" },
+        { "index": "1.4", "name": "One-Tap Quick Capture" }
+      ],
+      "gridItems": [
+        {
+          "index": "1.1",
+          "title": "Six Wheel Picker Cards",
+          "desc": "Cycle through Current Focus, Immediate Blockers, Needs Reply, Next Event, Quick Capture, and Up Next cards, each linking directly to relevant items.",
+          "iconName": "Layers"
+        },
+        {
+          "index": "1.2",
+          "title": "Real-Time Stats Row",
+          "desc": "Track urgent blockers (red), pending replies (blue), and today's task queue (green) updating in real-time alongside clock options.",
+          "iconName": "AlertTriangle"
+        },
+        {
+          "index": "1.3",
+          "title": "Live Clock Preference",
+          "desc": "A persistent dashboard clock displaying local time, automatically respecting your 12h or 24h format user settings.",
+          "iconName": "Clock"
+        },
+        {
+          "index": "1.4",
+          "title": "Instant Quick Capture",
+          "desc": "One-click task capture card on the wheel that opens quick-creation dialogs without leaving the main dashboard.",
+          "iconName": "Calendar"
+        }
+      ]
     },
     {
-      "title": "AI Command Centre",
-      "desc": "The HeroSection below the panel lets you query the Supervisor AI with file attachments, conversation history, and chain-of-thought tool execution.",
-      "iconName": "Sparkles"
-    },
-    {
-      "title": "Live Stats Row",
-      "desc": "Urgent count (red), replies awaiting (blue), and today's queued tasks (green) update in real time alongside a live clock with 12h/24h format support.",
-      "iconName": "AlertTriangle"
-    },
-    {
-      "title": "Quick Capture",
-      "desc": "One-tap task creation from the dashboard wheel — opens the create dialog without leaving your command centre.",
-      "iconName": "Calendar"
+      "title": "Supervisor AI and autonomous agents command center",
+      "desc": "Interact with a master Supervisor AI agent that routes natural language commands to specialized sub-agents. Track chain-of-thought decision logs and file attachments with conversation memory.",
+      "isImageRight": true,
+      "lightImage": "/mockups/light/AI Light.png",
+      "darkImage": "/mockups/dark/AI Dark.png",
+      "tags": [
+        { "index": "1.5", "name": "Supervisor AI" },
+        { "index": "1.6", "name": "Autonomous Sub-Agents" },
+        { "index": "1.7", "name": "Chain-of-Thought logs" },
+        { "index": "1.8", "name": "PostgreSQL Conversation Memory" }
+      ],
+      "gridItems": [
+        {
+          "index": "1.5",
+          "title": "Master Supervisor Agent",
+          "desc": "A central AI coordinator routing complex requests to specialized agents for tasks, scheduling, and documentation workflows.",
+          "iconName": "Brain"
+        },
+        {
+          "index": "1.6",
+          "title": "Specialized Task & Schedule Agents",
+          "desc": "Create and search tasks using natural language, and let the AI scheduler auto-allocate unscheduled sprint items.",
+          "iconName": "Zap"
+        },
+        {
+          "index": "1.7",
+          "title": "GitHub & Dev Stack Tools",
+          "desc": "Integrate code repositories to list PRs, generate issues from tasks, and sync workflows in real-time.",
+          "iconName": "Code2"
+        },
+        {
+          "index": "1.8",
+          "title": "Chain-of-Thought & Exa Search",
+          "desc": "Track exact execution steps showing tool decisions, supplemented by live web searches via Exa API and PostgreSQL conversation memory.",
+          "iconName": "Sparkles"
+        }
+      ]
     }
   ],
+  "capabilitiesTitle": "Six cards. One glance.",
+  "capabilitiesDesc": "Scroll the 3D wheel picker to cycle through your most important context — from today's top priority to messages waiting for your reply.",
+  "capabilitiesGrid": [],
   "checklistTitle": "Integrate your day in one workspace",
   "checklistDesc": "KeilHQ parses calendars, sprint files, and task logs to compose your optimal focus list automatically.",
   "checklistItems": [
-    "Current Focus card shows your #1 priority task for today with status, due date, and one-click navigation.,",
-    "Needs Reply card surfaces chat messages and task comments sent to you that haven't been answered yet.,",
-    "Next Event card displays the upcoming calendar event with start time and Google Meet link if generated.,",
-    "Stats row links urgent count to filtered tasks, replies to chat channels, and queued to today's task queue.,"
+    "3D Wheel Picker: Six scrollable context cards representing priorities, blockers, replies, quick captures, and upcoming sprint items.,",
+    "Supervisor AI Agent: Natural language command input routing queries to specialized agents for tasks, calendars, and documentation.,",
+    "Chain-of-Thought Logs: Real-time decision logs illustrating exactly how the AI processes and retrieves data for each command.,",
+    "Unread comments & replies: Automatic aggregation of pending replies, calendar updates, and urgent blockers updating in real-time."
   ]
 }

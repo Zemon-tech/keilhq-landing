@@ -9,14 +9,8 @@ export const featureNavItems: FeatureNavItem[] = [
   {
     id: "smart-dashboard",
     title: "Smart Dashboard",
-    desc: "Wheel picker & live workspace snapshot",
+    desc: "3D wheel picker & Supervisor AI Command Center",
     href: "/features/smart-dashboard",
-  },
-  {
-    id: "ai-command-center",
-    title: "AI Command Center",
-    desc: "Supervisor AI with specialized agents",
-    href: "/features/ai-command-center",
   },
   {
     id: "task-management",
@@ -29,12 +23,6 @@ export const featureNavItems: FeatureNavItem[] = [
     title: "Docs & Notes",
     desc: "Motion — collaborative block editor",
     href: "/features/docs-notes",
-  },
-  {
-    id: "calendar-integration",
-    title: "Calendar & Scheduling",
-    desc: "Two-way Google Calendar sync",
-    href: "/features/calendar-integration",
   },
   {
     id: "team-chat",
@@ -51,19 +39,13 @@ export const featureNavItems: FeatureNavItem[] = [
   {
     id: "integrations",
     title: "Integrations",
-    desc: "Google, GitHub, Notion & more",
+    desc: "Google, GitHub, Slack & Notification preferences",
     href: "/features/integrations",
   },
   {
-    id: "notifications",
-    title: "Notifications",
-    desc: "Real-time alerts with smart filters",
-    href: "/features/notifications",
-  },
-  {
     id: "workspace",
-    title: "Workspace & Teams",
-    desc: "Orgs, spaces, settings & onboarding",
+    title: "Org & RBAC",
+    desc: "Organizations, Spaces, and Role-Based Access Control",
     href: "/features/workspace",
   },
 ];

@@ -1,43 +1,100 @@
 {
   "title": "docs-notes",
-  "eyebrowIndex": "4.0",
+  "eyebrowIndex": "3.0",
   "eyebrowText": "Motion Docs",
-  "subHeroTitle": "Keyboard-first document editor connected to active sprints",
-  "subHeroDesc": "Meet Motion. KeilHQ's native keyboard-first document editor connects your team's knowledge base directly to active sprints, tasks, and discussions. Embed references, tag blocks, and edit concurrently.",
+  "subHeroTitle": "A unified document and file hub integrated with your workspace",
+  "subHeroDesc": "Meet Motion. Write structured documents, upload reference files, collaborate with your team in real time, and link everything directly to your tasks and active sprint state.",
   "subHeroLink": "https://app.Keilhq.in/login",
   "subHeroLinkText": "Try Motion Docs",
   "lightImage": "/mockups/light/Motion Light.png",
   "darkImage": "/mockups/dark/Motion Dark.png",
-  "capabilitiesTitle": "Connected knowledge. Actionable details.",
-  "capabilitiesDesc": "Forget isolated documentation silos. Motion integrates rich-text block editing directly to active tasks and space permissions.",
-  "capabilitiesGrid": [
+  "sections": [
     {
-      "title": "Block Editor",
-      "desc": "Keyboard-first editor supporting text, headings, code blocks, toggles, callouts, and cover images (built on TipTap).",
-      "iconName": "Heading1"
+      "title": "A rich interactive document and file canvas",
+      "desc": "Write documents with typographic styling and inline widgets, and keep uploaded files side-by-side using structured directories supported by secure cloud uploads.",
+      "tags": [
+        { "index": "3.1", "name": "Block Editor" },
+        { "index": "3.2", "name": "Tree Structures" },
+        { "index": "3.3", "name": "Directory Folders" },
+        { "index": "3.4", "name": "S3 Cloud Uploads" }
+      ],
+      "gridItems": [
+        {
+          "index": "3.1",
+          "title": "Rich Block Canvas",
+          "desc": "Write comfortably using text, headings, bullet lists, block quotes, and code blocks built on a customizable TipTap editor with crash protection auto-saving to localStorage.",
+          "iconName": "Heading1"
+        },
+        {
+          "index": "3.2",
+          "title": "Infinite Nested Trees",
+          "desc": "Nest pages infinitely (e.g. subpages Q3 Strategy inside Marketing) to build structured team wikis, knowledge bases, and deep subpage directories.",
+          "iconName": "FolderKanban"
+        },
+        {
+          "index": "3.3",
+          "title": "Two-Level Folder Structure",
+          "desc": "Group multiple pages and external files side-by-side inside client or project folders supporting up to two levels of nested directories.",
+          "iconName": "Folder"
+        },
+        {
+          "index": "3.4",
+          "title": "S3 Cloud Uploads & Previews",
+          "desc": "Upload PDFs, Word docs, slide decks, images, and videos directly to Amazon S3, complete with formats scanning and color-coded type tag previews.",
+          "iconName": "UploadCloud"
+        }
+      ]
     },
     {
-      "title": "Socket Collaboration",
-      "desc": "Edit documents simultaneously with team members in real-time, backed by Socket.io and active cursor tracking.",
-      "iconName": "Sparkles"
-    },
-    {
-      "title": "Notion Sync",
-      "desc": "OAuth or token connections let you import Notion pages, export Motion files, and sync content bidirectionally.",
-      "iconName": "Link2"
-    },
-    {
-      "title": "Nested Hierarchies",
-      "desc": "Build complete, organized team directories using cover images, emojis, and deep subpage directory trees.",
-      "iconName": "FolderKanban"
+      "title": "Real-time collaboration with secure space access",
+      "desc": "Co-edit documents simultaneously with team members, manage granular access permissions, and sync edits bi-directionally with your Notion workspace.",
+      "isImageRight": true,
+      "lightImage": "/mockups/light/Motion Share Light.png",
+      "darkImage": "/mockups/dark/Motion share dark.png",
+      "tags": [
+        { "index": "3.5", "name": "WebSocket Collaboration" },
+        { "index": "3.6", "name": "AI Writing Partner" },
+        { "index": "3.7", "name": "Notion API Sync" },
+        { "index": "3.8", "name": "Granular Permissions" }
+      ],
+      "gridItems": [
+        {
+          "index": "3.5",
+          "title": "WebSocket Concurrent Edits",
+          "desc": "Edit concurrently with teammates in real-time, backed by active cursor tracking, text comments, selection threads, and visual 28-day analytics.",
+          "iconName": "Users"
+        },
+        {
+          "index": "3.6",
+          "title": "AI Writing Partner",
+          "desc": "Highlight paragraphs and ask the AI helper to stream rewrites, translations, or summaries directly onto your document canvas in real-time.",
+          "iconName": "Sparkles"
+        },
+        {
+          "index": "3.7",
+          "title": "2-Way Notion Integration",
+          "desc": "Connect Notion via 1-click OAuth to import/export documents and auto-convert blocks bi-directionally using Last-Write-Wins updates.",
+          "iconName": "RefreshCw"
+        },
+        {
+          "index": "3.8",
+          "title": "Granular Permissions",
+          "desc": "Control visibility using Private invite-only mode, Space access, or web public links, with roles like Full Access, Can Edit, or Can View.",
+          "iconName": "Lock"
+        }
+      ]
     }
   ],
+  "capabilitiesTitle": "Connected knowledge. Actionable details.",
+  "capabilitiesDesc": "Forget isolated documentation silos. Motion integrates rich-text block editing directly to active tasks and space permissions.",
+  "capabilitiesGrid": [],
   "checklistTitle": "Keep your workspace fully aligned",
   "checklistDesc": "Unify product specifications, team guides, and meeting transcripts inside one integrated knowledge canvas.",
   "checklistItems": [
-    "Write comfortably with customized full-width or compact small-text layouts.,",
-    "Discuss specifications directly via comment threads attached to individual document blocks.,",
-    "Lock pages to read-only state when final specs and project blueprints are signed off.,",
-    "Configure cross-space sharing boundaries to grant view or edit permissions to other spaces.,"
+    "TipTap Block Editor: Write using structured elements (text, headings, lists, quotes, tables) with background auto-save and local localStorage memory backup.,",
+    "Directories Folders & Files: Create up to two levels of nested folders, uploading PDFs, slide decks, and media side-by-side to secure Amazon S3 with visual previews.,",
+    "Granular Security Permissions: Secure pages using Private invite-only settings, open access to team Spaces, or publish secure read-only public web links.,",
+    "Native Notion API Integration: Authenticate with Notion in one click to import/export documents and sync edits bidirectionally using Last-Write-Wins conflict resolution.,",
+    "WebSocket & AI Collaboration: Edit in real-time with concurrent cursor tracks, use streaming AI copy generators, leave block-specific comments, and review 28-day view charts."
   ]
 }

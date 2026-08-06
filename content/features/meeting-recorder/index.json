@@ -1,6 +1,6 @@
 {
   "title": "meeting-recorder",
-  "eyebrowIndex": "7.0",
+  "eyebrowIndex": "5.0",
   "eyebrowText": "Meeting Recorder",
   "subHeroTitle": "Hands-off capture. Immediate specifications.",
   "subHeroDesc": "Record conversations directly inside KeilHQ, transcribe discussions automatically with speaker diarization, and turn decisions into tasks in one click.",
@@ -8,36 +8,93 @@
   "subHeroLinkText": "Try Meeting Recorder",
   "lightImage": "/mockups/light/Meetings Light.png",
   "darkImage": "/mockups/dark/Meetings Dark.png",
-  "capabilitiesTitle": "Hands-off capture. Immediate specs.",
-  "capabilitiesDesc": "KeilHQ uploads and transcribes meeting audio using high-fidelity pipelines, linking discussions directly to tasks.",
-  "capabilitiesGrid": [
+  "sections": [
     {
-      "title": "Sarvam AI Transcription",
-      "desc": "Primary batch transcription powered by Sarvam AI (Saaras v3), optimized for 23 Indian languages + English.",
-      "iconName": "Mic"
+      "title": "Floating audio visualizer and smart transcription",
+      "desc": "Record meetings with a draggable Picture-in-Picture widget that survives app navigation and minimizes to the sidebar. Auto-transcribe conversations with multi-speaker diarization and secure S3 storage.",
+      "tags": [
+        { "index": "5.1", "name": "Draggable PIP Widget" },
+        { "index": "5.2", "name": "Voice Visualizers" },
+        { "index": "5.3", "name": "Speaker Diarization" },
+        { "index": "5.4", "name": "Multi-Language Detect" }
+      ],
+      "gridItems": [
+        {
+          "index": "5.1",
+          "title": "Picture-in-Picture Widget",
+          "desc": "A floating PIP widget that is fully draggable and survives app navigation, letting you record uninterrupted as you navigate tasks and files.",
+          "iconName": "Maximize2"
+        },
+        {
+          "index": "5.2",
+          "title": "Voice Pattern Visualizers",
+          "desc": "Choose from custom visualization themes (Aura, Wave, Radial, or Bar) animating your voice pattern in real-time.",
+          "iconName": "Activity"
+        },
+        {
+          "index": "5.3",
+          "title": "Multi-Speaker Diarization",
+          "desc": "Splits transcripts by speaker (e.g. Speaker 1, Speaker 2) to easily track who agreed to what, avoiding giant walls of text.",
+          "iconName": "Users"
+        },
+        {
+          "index": "5.4",
+          "title": "Auto-Language Detection",
+          "desc": "Processes audio with automatic language detection, supporting 23 regional Indian languages via Sarvam AI, with secure S3 storage.",
+          "iconName": "Globe"
+        }
+      ]
     },
     {
-      "title": "AI Action Extraction",
-      "desc": "Automatically translates conversation notes into task cards, specifications, and action summaries with one click.",
-      "iconName": "Sparkles"
-    },
-    {
-      "title": "AWS S3 Storage",
-      "desc": "Upload audio clips securely to AWS S3 storage buckets with high-grade data encryption boundaries.",
-      "iconName": "Database"
-    },
-    {
-      "title": "Speaker Diarization",
-      "desc": "Diarization models automatically identify and assign spoken blocks to individual speakers.",
-      "iconName": "Search"
+      "title": "AI-generated summaries and actionable intelligence",
+      "desc": "Extract bulleted summaries and export them directly to Motion or Notion in one click. Review AI action proposals backed by exact transcript quotes, modifying details before approval.",
+      "isImageRight": true,
+      "lightImage": "/mockups/light/Meetings Summary Light.png",
+      "darkImage": "/mockups/dark/Meetings Summary Dark.png",
+      "tags": [
+        { "index": "5.5", "name": "Bullet Summaries" },
+        { "index": "5.6", "name": "Notion & Motion Exports" },
+        { "index": "5.7", "name": "Action Proposals" },
+        { "index": "5.8", "name": "Review & Execute" }
+      ],
+      "gridItems": [
+        {
+          "index": "5.5",
+          "title": "Bulleted AI Summaries",
+          "desc": "Receive instant, clean summaries of your meetings organized by discussion topic instead of reviewing raw transcripts.",
+          "iconName": "FileText"
+        },
+        {
+          "index": "5.6",
+          "title": "1-Click Workspace Export",
+          "desc": "Export your meeting summaries and full transcripts directly into editable pages inside Motion or connected Notion workspaces.",
+          "iconName": "RefreshCw"
+        },
+        {
+          "index": "5.7",
+          "title": "Evidentiary Action Proposals",
+          "desc": "Extract commitments to propose tasks, CRM edits, pipeline updates, and invoices, complete with the triggering quote.",
+          "iconName": "Sparkles"
+        },
+        {
+          "index": "5.8",
+          "title": "Review & Approval Flow",
+          "desc": "Review suggestions on interactive approval cards. Modify assignees, adjust parameters, and click Approve to create items instantly.",
+          "iconName": "Check"
+        }
+      ]
     }
   ],
-  "checklistTitle": "Make meetings actionable again",
-  "checklistDesc": "Eliminate manual documentation. Turn voice recordings directly into team deliverables.",
+  "capabilitiesTitle": "Contextual capture. Actionable details.",
+  "capabilitiesDesc": "KeilHQ brings voice recordings and summaries directly into your projects, making transcripts contextual.",
+  "capabilitiesGrid": [],
+  "checklistTitle": "Never lose what was decided in your last meeting",
+  "checklistDesc": "Stop taking manual minutes. Let the AI recorder handle documentation and actions for you.",
   "checklistItems": [
-    "Record audio directly inside the app using the built-in frontend voice recorder.,",
-    "Multi-lingual auto-detection and transcription with ElevenLabs as fallback provider.,",
-    "Transcripts are stored, fully searchable, and tied to their respective project spaces.,",
-    "Ask KeilHQ AI to scan and summarize historical meeting records for quick references.,"
+    "Picture-in-Picture Widget: Draggable, floating PIP recorder window that survives app navigation and minimizes to the sidebar.,",
+    "Audio visualizer patterns: Aura, Wave, Radial, or Bar voice pattern animations responding to live audio input.,",
+    "Speaker Diarization: Automatically splits full transcripts by speaker (Speaker 1, Speaker 2) for clear conversation mapping.,",
+    "Auto-Language Detection: Supports 23 regional Indian languages via Sarvam AI, with secure AWS S3 cloud audio storage.,",
+    "AI Action Proposals: Extract commitments to propose new tasks, task updates, CRM edits, pipeline updates, and invoice drafts with evidence verification."
   ]
 }

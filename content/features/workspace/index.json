@@ -1,43 +1,100 @@
 {
   "title": "workspace",
-  "eyebrowIndex": "10.0",
-  "eyebrowText": "Workspace",
-  "subHeroTitle": "Structured context. Persistent application shell.",
-  "subHeroDesc": "KeilHQ is built around Organisations and Spaces. Your sidebar, settings, and onboarding flow keep every task, doc, and message scoped to the right context automatically.",
+  "eyebrowIndex": "7.0",
+  "eyebrowText": "Org & RBAC",
+  "subHeroTitle": "Organizations, spaces, and granular keycard security",
+  "subHeroDesc": "KeilHQ unifies work around structured company Organizations and project Spaces. Secure your directory, billing, and resources with strict Role-Based Access Control (RBAC).",
   "subHeroLink": "https://app.Keilhq.in/login",
-  "subHeroLinkText": "Try Workspace",
+  "subHeroLinkText": "Try Org & RBAC",
   "lightImage": "/mockups/light/Org & Ws switching Light.png",
   "darkImage": "/mockups/dark/Org & Ws Switching Dark.png",
-  "capabilitiesTitle": "Structured context. Built for teams.",
-  "capabilitiesDesc": "Personal mode is always available. Add organisations, create spaces, and invite teammates — every API call respects your active org and space.",
-  "capabilitiesGrid": [
+  "sections": [
     {
-      "title": "Org & Space Model",
-      "desc": "Nested org switcher with checkmarks on active space. Create orgs with auto-generated General space or join via invitation token.",
-      "iconName": "Layers"
+      "title": "Structured company buildings and project spaces",
+      "desc": "Scope your entire company into a single Organization that owns billing and settings, and spin up individual project Spaces for tasks, channels, and Motion docs.",
+      "tags": [
+        { "index": "7.1", "name": "Organization Directory" },
+        { "index": "7.2", "name": "Project Spaces Rooms" },
+        { "index": "7.3", "name": "Lobby Default Access" },
+        { "index": "7.4", "name": "Platform Admin Controls" }
+      ],
+      "gridItems": [
+        {
+          "index": "7.1",
+          "title": "🏢 Organization Structure",
+          "desc": "The Organization represents your entire company (e.g. Acme Corp), owning the billing subscriptions, member directories, and global preferences.",
+          "iconName": "Home"
+        },
+        {
+          "index": "7.2",
+          "title": "🚪 Project Spaces Rooms",
+          "desc": "Spaces represent project workspaces (e.g. #engineering) containing their own tasks, chat channels, and Motion document trees.",
+          "iconName": "Layers"
+        },
+        {
+          "index": "7.3",
+          "title": "🚪 Default Space Lobby",
+          "desc": "A Default Space acts like a lobby. When new employees join, they are automatically placed here to start communicating immediately.",
+          "iconName": "DoorOpen"
+        },
+        {
+          "index": "7.4",
+          "title": "🛠&nbsp;Platform Admin Panels",
+          "desc": "Hidden operator controls allow system operators to manage billing rates, turn feature flags on/off, and monitor platform health.",
+          "iconName": "Sliders"
+        }
+      ]
     },
     {
-      "title": "Settings Dialog",
-      "desc": "Account, preferences, AI assistant, task defaults, notification toggles, connectors, sessions, billing, and org management — all in one place.",
-      "iconName": "Settings"
-    },
-    {
-      "title": "Onboarding Wizard",
-      "desc": "Welcome flow for new users: display name, plan selection, first organisation, and team invites before landing on the dashboard.",
-      "iconName": "UserPlus"
-    },
-    {
-      "title": "Keyboard Shortcuts",
-      "desc": "Navigate dashboard, tasks, motion, chat, notifications, meetings, and settings with full keyboard control. Reference panel via ⌘/.",
-      "iconName": "Keyboard"
+      "title": "Role-Based Access Control and security safety guards",
+      "desc": "Control member access at both Organization and Space levels with granular roles. Enforce safety rules that prevent accidental administrator lockouts.",
+      "isImageRight": true,
+      "lightImage": "/mockups/light/Settings Accounts Light.png",
+      "darkImage": "/mockups/dark/Settings account Dark.png",
+      "tags": [
+        { "index": "7.5", "name": "Organization Roles" },
+        { "index": "7.6", "name": "Space-Level Roles" },
+        { "index": "7.7", "name": "Self-Demotion Blocks" },
+        { "index": "7.8", "name": "Peer Protection Rules" }
+      ],
+      "gridItems": [
+        {
+          "index": "7.5",
+          "title": "👑 Organization Roles",
+          "desc": "Configure company-wide permissions: Owners manage subscriptions; Admins manage users/spaces; Members access permitted workspaces.",
+          "iconName": "Shield"
+        },
+        {
+          "index": "7.6",
+          "title": "🔑 Space-Level Roles",
+          "desc": "Grant local permissions: Space Admins edit settings/delete content; Managers create tasks/edit docs; Members post messages/comments.",
+          "iconName": "Key"
+        },
+        {
+          "index": "7.7",
+          "title": "🚫 Self-Demotion Guards",
+          "desc": "The security engine blocks you from changing or deleting your own admin role, ensuring a room is never left with zero administrators.",
+          "iconName": "Slash"
+        },
+        {
+          "index": "7.8",
+          "title": "🛡&nbsp;Peer Protection Rules",
+          "desc": "Standard Space Admins cannot demote or remove other Space Admins. Only a global Org Owner or Admin can execute demotions.",
+          "iconName": "ShieldCheck"
+        }
+      ]
     }
   ],
-  "checklistTitle": "Platform features that power everything",
-  "checklistDesc": "The application shell is persistent across every page — sidebar navigation, real-time notification badges, and meeting minimised pills included.",
+  "capabilitiesTitle": "Structured context. Persistent application shell.",
+  "capabilitiesDesc": "KeilHQ is built around Organisations and Spaces. Your sidebar, settings, and onboarding flow keep every task, doc, and message scoped to the right context automatically.",
+  "capabilitiesGrid": [],
+  "checklistTitle": "Enterprise-grade keycard security and space setup",
+  "checklistDesc": "Control access across all company domains and project workspaces automatically.",
   "checklistItems": [
-    "Org management: create, join, invite tokens, member roles (Owner, Admin, Member), and space privacy controls.,",
-    "Settings cover appearance, time format, calendar preferences, AI toggles, task section defaults, and per-type notification controls.,",
-    "Sidebar search for quick lookup, theme toggle (Light / Dark / System), and profile photo upload.,",
-    "Meeting Studio minimises to a sidebar pill with elapsed time — restore with one click or ⌘M.,"
+    "Organization & Space Directories: Building-level company accounts owning billing, paired with room-level workspaces scoping task/chat content.,",
+    "Company Role Tiers: Configure company-wide access permissions for Owners (subscription billing control), Admins, and Members.,",
+    "Space Role Tiers: Configure room-level access permissions for Space Admins (renaming, hard deletes), Managers (tasks & docs), and Members.,",
+    "Self-Demotion Blocker: System rules blocking you from deleting your own admin state, protecting workspaces against zero-admin lockouts.,",
+    "Platform Operator controls: Hidden operator panel monitoring overall system health, adjusting rate limits, and toggling account feature flags."
   ]
 }

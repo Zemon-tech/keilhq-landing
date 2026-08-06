@@ -62,63 +62,45 @@ interface FeatureLayoutProps {
 const featuresList = [
   {
     index: "1.0",
-    name: "AI Command Center",
-    slug: "ai-command-center",
-    tagline: "Built-in AI agents that execute sprints",
+    name: "Smart Dashboard",
+    slug: "smart-dashboard",
+    tagline: "3D wheel picker & Supervisor AI Command Center",
   },
   {
     index: "2.0",
-    name: "Smart Dashboard",
-    slug: "smart-dashboard",
-    tagline: "Prioritize replies, blockers, and events instantly",
-  },
-  {
-    index: "3.0",
     name: "Task Management",
     slug: "task-management",
     tagline: "Database-level blocker requirements and sprint state",
   },
   {
-    index: "4.0",
+    index: "3.0",
     name: "Motion Docs",
     slug: "docs-notes",
     tagline: "Collaborative wikis and sprint-linked pages",
   },
   {
-    index: "5.0",
-    name: "Smart Calendar",
-    slug: "calendar-integration",
-    tagline: "Auto-schedule tasks into calendar slots",
-  },
-  {
-    index: "6.0",
+    index: "4.0",
     name: "Team Chat",
     slug: "team-chat",
     tagline: "Real-time socket channels and direct messages",
   },
   {
-    index: "7.0",
+    index: "5.0",
     name: "Meeting Recorder",
     slug: "meeting-recorder",
     tagline: "Record meetings with AI transcripts and notes",
   },
   {
-    index: "8.0",
+    index: "6.0",
     name: "Integrations",
     slug: "integrations",
     tagline: "Connect with your entire developer tech stack",
   },
   {
-    index: "9.0",
-    name: "Notifications",
-    slug: "notifications",
-    tagline: "Never miss an update or blocker reply",
-  },
-  {
-    index: "10.0",
-    name: "Workspace",
+    index: "7.0",
+    name: "Org & RBAC",
     slug: "workspace",
-    tagline: "One space to unify your entire team",
+    tagline: "Organizations, Spaces, and Role-Based Access Control",
   },
 ];
 
