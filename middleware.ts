@@ -62,46 +62,37 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // 2. Apply Supabase auth redirection for homepage visitors
+  // 2. Apply auth redirection for homepage visitors
   if (pathname === "/") {
-    // Find the Supabase session cookie dynamically.
-    // The name format is "sb-<project-ref>-auth-token" — we match the prefix/suffix
-    // so we don't need to hardcode the project ref.
-    const sessionCookie = request.cookies
-      .getAll()
-      .find(
-        (c) => c.name.startsWith("sb-") && c.name.endsWith("-auth-token")
-      );
+    // Check for the shared non-sensitive session marker cookie ("keilhq_session=1")
+    // written to .keilhq.in by the Vite web application at app.keilhq.in
+    const sessionMarker = request.cookies.get("keilhq_session")?.value;
 
-    if (!sessionCookie?.value) {
-      // No session cookie — render landing page normally
-      return NextResponse.next();
+    if (sessionMarker === "1") {
+      // Active user session detected — redirect straight to web app (<5ms)
+      return NextResponse.redirect(new URL(APP_URL));
     }
 
-    try {
-      // The value is URL-encoded JSON like:
-      // {"access_token":"...","expires_at":1234567890,...}
-      const session = JSON.parse(decodeURIComponent(sessionCookie.value));
+    // Fallback: Check for legacy sb-*-auth-token cookie if present
+    const legacySessionCookie = request.cookies
+      .getAll()
+      .find(
+        (c) => c.name.startsWith("sb-") && (c.name.endsWith("-auth-token") || c.name.includes("-auth-token"))
+      );
 
-      const accessToken: string | undefined = session?.access_token;
-      const expiresAt: number | undefined = session?.expires_at;
+    if (legacySessionCookie?.value) {
+      try {
+        const session = JSON.parse(decodeURIComponent(legacySessionCookie.value));
+        const accessToken: string | undefined = session?.access_token;
+        const expiresAt: number | undefined = session?.expires_at;
+        const nowSeconds = Math.floor(Date.now() / 1000);
 
-      if (!accessToken) {
-        return NextResponse.next();
+        if (accessToken && expiresAt !== undefined && expiresAt - 30 > nowSeconds) {
+          return NextResponse.redirect(new URL(APP_URL));
+        }
+      } catch {
+        /* ignore invalid legacy JSON */
       }
-
-      // expires_at is a Unix timestamp (seconds). Check it hasn't passed yet.
-      // We add a 30-second buffer to avoid redirecting with a token that's about
-      // to expire mid-redirect.
-      const nowSeconds = Math.floor(Date.now() / 1000);
-      const isValid = expiresAt !== undefined && expiresAt - 30 > nowSeconds;
-
-      if (isValid) {
-        // User is logged in — send them straight to the app
-        return NextResponse.redirect(new URL(APP_URL));
-      }
-    } catch {
-      // Malformed cookie value — silently ignore and render landing page
     }
   }
 
