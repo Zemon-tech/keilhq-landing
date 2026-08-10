@@ -102,6 +102,18 @@ const featuresList = [
     slug: "workspace",
     tagline: "Organizations, Spaces, and Role-Based Access Control",
   },
+  {
+    index: "8.0",
+    name: "Relational CRM",
+    slug: "crm",
+    tagline: "Custom databases, dynamic fields, and omnichannel lead ingestion",
+  },
+  {
+    index: "9.0",
+    name: "Finance & Bookkeeping",
+    slug: "finance",
+    tagline: "Multi-book accounting, invoices, bank reconciliation, and payroll",
+  },
 ];
 
 export function FeatureLayout({

@@ -24,6 +24,14 @@
           "href": "/features/meeting-recorder"
         },
         {
+          "label": "Relational CRM",
+          "href": "/features/crm"
+        },
+        {
+          "label": "Finance & Bookkeeping",
+          "href": "/features/finance"
+        },
+        {
           "label": "AI Assistant",
           "href": "/features/ai-command-center"
         }

@@ -48,6 +48,18 @@ export const featureNavItems: FeatureNavItem[] = [
     desc: "Organizations, Spaces, and Role-Based Access Control",
     href: "/features/workspace",
   },
+  {
+    id: "crm",
+    title: "Relational CRM",
+    desc: "Custom databases, dynamic fields & pipeline management",
+    href: "/features/crm",
+  },
+  {
+    id: "finance",
+    title: "Finance & Bookkeeping",
+    desc: "Multi-book accounting, invoices, bank reconciliation & payroll",
+    href: "/features/finance",
+  },
 ];
 
 export const featureHrefById: Record<string, string> = Object.fromEntries(

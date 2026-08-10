@@ -27,6 +27,8 @@ export async function Footer() {
         { label: "Docs & Notes", href: "/features/docs-notes" },
         { label: "Team Chat", href: "/features/team-chat" },
         { label: "Meeting Notes", href: "/features/meeting-recorder" },
+        { label: "Relational CRM", href: "/features/crm" },
+        { label: "Finance & Bookkeeping", href: "/features/finance" },
         { label: "AI Assistant", href: "/features/ai-command-center" },
       ],
     },

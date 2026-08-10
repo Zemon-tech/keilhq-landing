@@ -13,6 +13,8 @@ const FALLBACK_IMAGES: Record<string, { light: string; dark: string }> = {
   "meeting-recorder":      { light: "/mockups/light/Meetings Light.png",          dark: "/mockups/dark/Meetings Dark.png" },
   "integrations":          { light: "/mockups/light/Settings Connectors Light.png", dark: "/mockups/dark/Settings Connectors Dark.png" },
   "workspace":             { light: "/mockups/light/Org & Ws switching Light.png", dark: "/mockups/dark/Org & Ws Switching Dark.png" },
+  "crm":                   { light: "/mockups/light/Task Overview Light.png",      dark: "/mockups/dark/Task Overview Dark.png" },
+  "finance":               { light: "/mockups/light/Settings Billing Light.png",   dark: "/mockups/dark/Settings Billing Dark.png" },
 };
 
 /* ── Fallback hero titles ── */
@@ -24,6 +26,8 @@ const FALLBACK_TITLES: Record<string, string> = {
   "meeting-recorder":     "Meetings captured, transcribed, and acted on",
   "integrations":         "Your existing stack, unified",
   "workspace":            "One workspace for the whole team",
+  "crm":                  "Relational CRM and omnichannel deal intelligence",
+  "finance":              "Complete financial control and multi-book accounting",
 };
 
 /* ── Single word title map for clean SEO titles ── */
@@ -35,6 +39,8 @@ const SINGLE_WORD_TITLES: Record<string, string> = {
   "meeting-recorder":     "Meetings",
   "integrations":         "Connectors",
   "workspace":            "RBAC",
+  "crm":                  "CRM",
+  "finance":              "Finance",
 };
 
 /* ── Feature index map (for bottom nav in FeatureLayout) ── */
@@ -46,6 +52,8 @@ const FEATURE_INDEX: Record<string, number> = {
   "meeting-recorder":     4,
   "integrations":         5,
   "workspace":            6,
+  "crm":                  7,
+  "finance":              8,
 };
 
 export async function generateStaticParams() {

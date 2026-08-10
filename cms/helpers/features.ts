@@ -6,6 +6,8 @@ import teamChat from '../../content/features/team-chat/index.json';
 import meetingRecorder from '../../content/features/meeting-recorder/index.json';
 import integrations from '../../content/features/integrations/index.json';
 import workspace from '../../content/features/workspace/index.json';
+import crm from '../../content/features/crm/index.json';
+import finance from '../../content/features/finance/index.json';
 
 const featuresMap: Record<string, any> = {
   "smart-dashboard": smartDashboard,
@@ -15,6 +17,8 @@ const featuresMap: Record<string, any> = {
   "meeting-recorder": meetingRecorder,
   "integrations": integrations,
   "workspace": workspace,
+  "crm": crm,
+  "finance": finance,
 };
 
 export const getFeatures = cache(async () => {

@@ -2,8 +2,8 @@
   "title": "smart-dashboard",
   "eyebrowIndex": "1.0",
   "eyebrowText": "Smart Dashboard",
-  "subHeroTitle": "Six cards. One glance. Complete dashboard command.",
-  "subHeroDesc": "The Dashboard Panel gives you a live workspace snapshot — a 3D wheel picker with six context cards, real-time stats, and a live clock that respects your time format preference. Scroll through top priorities and blocked queues instantly.",
+  "subHeroTitle": "Six cards. One glance. Complete AI command center.",
+  "subHeroDesc": "The Smart Dashboard unifies your daily execution with a 3D wheel picker, real-time workspace metrics, persistent local clock, and a master Supervisor AI engine that automates tasks, calendar events, Motion docs, and web intelligence in one central view.",
   "subHeroLink": "https://app.Keilhq.in/login",
   "subHeroLinkText": "Try Smart Dashboard",
   "lightImage": "/mockups/light/Dashboard light.png",
@@ -14,86 +14,141 @@
       "desc": "Cycle through six dedicated cards summarizing your focus, blockers, replies, and upcoming events. Monitor real-time stats and capture tasks instantly without leaving your central view.",
       "tags": [
         { "index": "1.1", "name": "3D Wheel Picker" },
-        { "index": "1.2", "name": "Live Clock & Format" },
-        { "index": "1.3", "name": "Real-Time Stats" },
+        { "index": "1.2", "name": "Real-Time Stats" },
+        { "index": "1.3", "name": "Live Clock & Format" },
         { "index": "1.4", "name": "One-Tap Quick Capture" }
       ],
       "gridItems": [
         {
           "index": "1.1",
           "title": "Six Wheel Picker Cards",
-          "desc": "Cycle through Current Focus, Immediate Blockers, Needs Reply, Next Event, Quick Capture, and Up Next cards, each linking directly to relevant items.",
+          "desc": "Cycle through Current Focus, Immediate Blockers, Needs Reply, Next Event, Quick Capture, and Up Next cards. Each card provides an instant visual snapshot and direct deep links to relevant items across your workspace.",
           "iconName": "Layers"
         },
         {
           "index": "1.2",
           "title": "Real-Time Stats Row",
-          "desc": "Track urgent blockers (red), pending replies (blue), and today's task queue (green) updating in real-time alongside clock options.",
+          "desc": "Track urgent blockers (highlighted in red), pending team replies (highlighted in blue), and today's active task queue (highlighted in green), updating dynamically in real-time alongside clock settings.",
           "iconName": "AlertTriangle"
         },
         {
           "index": "1.3",
           "title": "Live Clock Preference",
-          "desc": "A persistent dashboard clock displaying local time, automatically respecting your 12h or 24h format user settings.",
+          "desc": "A persistent dashboard clock displaying local time, automatically respecting your preferred 12-hour (AM/PM) or 24-hour time format as configured in your user settings.",
           "iconName": "Clock"
         },
         {
           "index": "1.4",
           "title": "Instant Quick Capture",
-          "desc": "One-click task capture card on the wheel that opens quick-creation dialogs without leaving the main dashboard.",
+          "desc": "One-click rapid task capture card built right into the 3D wheel picker, opening quick-creation modal dialogs to capture thoughts and tasks instantly without leaving the main dashboard view.",
           "iconName": "Calendar"
         }
       ]
     },
     {
-      "title": "Supervisor AI and autonomous agents command center",
-      "desc": "Interact with a master Supervisor AI agent that routes natural language commands to specialized sub-agents. Track chain-of-thought decision logs and file attachments with conversation memory.",
-      "isImageRight": true,
-      "lightImage": "/mockups/light/AI Light.png",
-      "darkImage": "/mockups/dark/AI Dark.png",
+      "title": "Autonomous AI execution across tasks, calendar events, and Motion docs",
+      "desc": "Execute complete workspace operations using natural language prompts. KeilHQ's AI engine creates, updates, and deletes tasks, calendar events, and Motion wiki pages while providing instant on-demand summaries.",
+      "isImageLeft": true,
+      "lightImage": "/mockups/light/AI Sidebar Light.png",
+      "darkImage": "/mockups/dark/Ai Sidebar Dark.png",
       "tags": [
-        { "index": "1.5", "name": "Supervisor AI" },
-        { "index": "1.6", "name": "Autonomous Sub-Agents" },
-        { "index": "1.7", "name": "Chain-of-Thought logs" },
-        { "index": "1.8", "name": "PostgreSQL Conversation Memory" }
+        { "index": "1.5", "name": "Task Operations (CRUD)" },
+        { "index": "1.6", "name": "Calendar & Event Operations" },
+        { "index": "1.7", "name": "Motion Page Operations" },
+        { "index": "1.8", "name": "Instant Workspace Summaries" }
       ],
       "gridItems": [
         {
           "index": "1.5",
-          "title": "Master Supervisor Agent",
-          "desc": "A central AI coordinator routing complex requests to specialized agents for tasks, scheduling, and documentation workflows.",
-          "iconName": "Brain"
+          "title": "Complete Task Lifecycle Management",
+          "desc": "Command the AI assistant to create, update, re-prioritize, modify assignees, set dependencies, or delete tasks directly through simple natural language prompts.",
+          "iconName": "CheckSquare"
         },
         {
           "index": "1.6",
-          "title": "Specialized Task & Schedule Agents",
-          "desc": "Create and search tasks using natural language, and let the AI scheduler auto-allocate unscheduled sprint items.",
-          "iconName": "Zap"
+          "title": "Calendar & Event Scheduling Engine",
+          "desc": "Delegate calendar operations to AI to schedule new events, update time slots, adjust meeting durations, modify attendee lists, or delete obsolete calendar entries hands-free.",
+          "iconName": "Calendar"
         },
         {
           "index": "1.7",
-          "title": "GitHub & Dev Stack Tools",
-          "desc": "Integrate code repositories to list PRs, generate issues from tasks, and sync workflows in real-time.",
-          "iconName": "Code2"
+          "title": "Motion Docs & Wiki Automation",
+          "desc": "Create new Motion wiki pages, edit existing document structures, update sprint-linked notes, or delete outdated pages seamlessly through conversational commands.",
+          "iconName": "FileText"
         },
         {
           "index": "1.8",
-          "title": "Chain-of-Thought & Exa Search",
-          "desc": "Track exact execution steps showing tool decisions, supplemented by live web searches via Exa API and PostgreSQL conversation memory.",
+          "title": "On-Demand Workspace Summaries",
+          "desc": "Instantly generate condensed, intelligent summaries of active task queues, upcoming calendar events, and Motion documentation pages whenever you need a fast status update.",
+          "iconName": "BarChart3"
+        }
+      ]
+    },
+    {
+      "title": "Supervisor AI, specialized agents, and web intelligence command center",
+      "desc": "Interact with a master Supervisor AI agent that routes natural language commands to specialized sub-agents. Track chain-of-thought execution steps, search the web live via Exa API, and integrate developer tools with persistent PostgreSQL conversation memory.",
+      "isImageRight": true,
+      "lightImage": "/mockups/light/AI Light.png",
+      "darkImage": "/mockups/dark/AI Dark.png",
+      "tags": [
+        { "index": "1.9", "name": "Master Supervisor Agent" },
+        { "index": "1.10", "name": "Specialized Sub-Agents" },
+        { "index": "1.11", "name": "Chatbot & Live Web Search" },
+        { "index": "1.12", "name": "GitHub & Dev Stack Tools" },
+        { "index": "1.13", "name": "Chain-of-Thought & Memory" }
+      ],
+      "gridItems": [
+        {
+          "index": "1.9",
+          "title": "Master Supervisor Agent",
+          "desc": "A central AI coordinator routing complex multi-step user prompts to specialized sub-agents for tasks, calendar scheduling, and documentation workflows.",
+          "iconName": "Brain"
+        },
+        {
+          "index": "1.10",
+          "title": "Specialized Task & Schedule Agents",
+          "desc": "Create and search tasks using natural language queries, and let the AI scheduler auto-allocate unscheduled sprint items into open slots based on priority and availability.",
+          "iconName": "Zap"
+        },
+        {
+          "index": "1.11",
+          "title": "Conversational Chatbot & Web Search",
+          "desc": "Engage in natural conversations like any standard chatbot while leveraging live web searches via Exa API to retrieve up-to-date web intelligence directly inside your workspace.",
+          "iconName": "Globe"
+        },
+        {
+          "index": "1.12",
+          "title": "GitHub & Dev Stack Tools",
+          "desc": "Connect code repositories to list active pull requests, generate GitHub issues directly from tasks, inspect commits, and synchronize engineering workflows in real time.",
+          "iconName": "Code2"
+        },
+        {
+          "index": "1.13",
+          "title": "Chain-of-Thought & Postgres Memory",
+          "desc": "Inspect transparent step-by-step AI reasoning logs showing exact tool usage decisions, backed by persistent PostgreSQL conversation memory to maintain context across sessions.",
           "iconName": "Sparkles"
         }
       ]
     }
   ],
-  "capabilitiesTitle": "Six cards. One glance.",
-  "capabilitiesDesc": "Scroll the 3D wheel picker to cycle through your most important context — from today's top priority to messages waiting for your reply.",
+  "capabilitiesTitle": "Six cards. One glance. Unlimited AI control.",
+  "capabilitiesDesc": "Scroll the 3D wheel picker to cycle through your top context cards or invoke the Supervisor AI assistant to automate tasks, events, docs, and research.",
   "capabilitiesGrid": [],
-  "checklistTitle": "Integrate your day in one workspace",
-  "checklistDesc": "KeilHQ parses calendars, sprint files, and task logs to compose your optimal focus list automatically.",
+  "checklistTitle": "Complete command over your daily workflow",
+  "checklistDesc": "KeilHQ unifies real-time workspace metrics, 3D wheel context navigation, and autonomous multi-agent AI execution into a single, high-performance command center.",
   "checklistItems": [
-    "3D Wheel Picker: Six scrollable context cards representing priorities, blockers, replies, quick captures, and upcoming sprint items.,",
-    "Supervisor AI Agent: Natural language command input routing queries to specialized agents for tasks, calendars, and documentation.,",
-    "Chain-of-Thought Logs: Real-time decision logs illustrating exactly how the AI processes and retrieves data for each command.,",
-    "Unread comments & replies: Automatic aggregation of pending replies, calendar updates, and urgent blockers updating in real-time."
+    "3D Wheel Picker Cards: Cycle through six interactive context cards — Current Focus, Immediate Blockers, Needs Reply, Next Event, Quick Capture, and Up Next — each providing direct deep-link navigation to relevant items.,",
+    "Real-Time Metric Indicators: Monitor urgent blockers (red), pending team replies (blue), and today's task queue (green) updating dynamically in real time alongside clock options.,",
+    "Persistent Live Clock: Display local time persistently on your dashboard while automatically respecting your 12-hour or 24-hour time format preference.,",
+    "Instant One-Tap Quick Capture: Launch quick-creation modals directly from the wheel picker to capture urgent items without disrupting your current view.,",
+    "Autonomous Task Lifecycle AI: Execute full task operations including creating new tasks, updating assignees or priorities, managing dependencies, and deleting tasks via natural language.,",
+    "Calendar & Event Operations AI: Manage your schedule effortlessly by prompting AI to create new events, update time slots, adjust meeting durations, or delete calendar entries.,",
+    "Motion Docs & Wiki Automation AI: Create new Motion documentation pages, update existing content notes, link docs to sprint tasks, or delete obsolete pages using AI prompts.,",
+    "On-Demand Workspace Summaries: Request instant AI-generated summaries covering task backlogs, calendar events, and Motion documentation pages anytime.,",
+    "Conversational Chatbot with Live Web Search: Chat naturally with an AI assistant that performs real-time web searches via Exa API for answers on any topic.,",
+    "Master Supervisor Multi-Agent System: A central AI coordinator that analyzes complex user requests and orchestrates execution across specialized task, scheduling, and doc sub-agents.,",
+    "Specialized Scheduling & Sprint Allocation: Natural language task query parsing paired with an AI smart scheduler that auto-allocates unscheduled items into free calendar slots.,",
+    "GitHub & Dev Stack Tool Sync: Integrate developer repositories to view pull requests, convert tasks into GitHub issues, and sync code workflows seamlessly.,",
+    "Chain-of-Thought Logs & Postgres Memory: Full transparency into AI reasoning steps and tool decisions, supported by persistent PostgreSQL conversation memory across sessions."
   ]
 }
