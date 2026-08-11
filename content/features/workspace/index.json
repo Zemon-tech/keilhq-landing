@@ -1,100 +1,88 @@
 {
   "title": "workspace",
   "eyebrowIndex": "7.0",
-  "eyebrowText": "Org & RBAC",
-  "subHeroTitle": "Organizations, spaces, and granular keycard security",
-  "subHeroDesc": "KeilHQ unifies work around structured company Organizations and project Spaces. Secure your directory, billing, and resources with strict Role-Based Access Control (RBAC).",
+  "eyebrowText": "Org & Permissions",
+  "subHeroTitle": "One company. Many teams. Total access control.",
+  "subHeroDesc": "KeilHQ gives every organization a clean structure — your company at the top, individual project spaces below — with precise control over who can see and do what.",
   "subHeroLink": "https://app.Keilhq.in/login",
-  "subHeroLinkText": "Try Org & RBAC",
+  "subHeroLinkText": "Try Org & Permissions",
   "lightImage": "/mockups/light/organization-settings-light.webp",
   "darkImage": "/mockups/dark/organization-settings-dark.webp",
   "sections": [
     {
-      "title": "Structured company buildings and project spaces",
-      "desc": "Scope your entire company into a single Organization that owns billing and settings, and spin up individual project Spaces for tasks, channels, and Motion docs.",
+      "title": "Your company, organized from the top down",
+      "desc": "Your organization is the home for your whole company. Inside it, you create individual spaces for each team or project — each with its own tasks, conversations, and documents.",
+      "lightImage": "/mockups/light/organization-settings-light.webp",
+      "darkImage": "/mockups/dark/organization-settings-dark.webp",
       "tags": [
-        { "index": "7.1", "name": "Organization Directory" },
-        { "index": "7.2", "name": "Project Spaces Rooms" },
-        { "index": "7.3", "name": "Lobby Default Access" },
-        { "index": "7.4", "name": "Platform Admin Controls" }
+        { "index": "7.1", "name": "Organization" },
+        { "index": "7.2", "name": "Project Spaces" },
+        { "index": "7.3", "name": "Default Space" }
       ],
       "gridItems": [
         {
           "index": "7.1",
-          "title": "🏢 Organization Structure",
-          "desc": "The Organization represents your entire company (e.g. Acme Corp), owning the billing subscriptions, member directories, and global preferences.",
-          "iconName": "Home"
+          "title": "Your organization",
+          "desc": "The top-level account for your whole company — where billing, members, and settings all live.",
+          "iconName": "Building2"
         },
         {
           "index": "7.2",
-          "title": "🚪 Project Spaces Rooms",
-          "desc": "Spaces represent project workspaces (e.g. #engineering) containing their own tasks, chat channels, and Motion document trees.",
+          "title": "Project spaces",
+          "desc": "Separate workspaces for each team or project, each with its own tasks, channels, and documents.",
           "iconName": "Layers"
         },
         {
           "index": "7.3",
-          "title": "🚪 Default Space Lobby",
-          "desc": "A Default Space acts like a lobby. When new employees join, they are automatically placed here to start communicating immediately.",
+          "title": "Default welcome space",
+          "desc": "New team members land here automatically when they join. They can start contributing right away without needing setup.",
           "iconName": "DoorOpen"
-        },
-        {
-          "index": "7.4",
-          "title": "🛠&nbsp;Platform Admin Panels",
-          "desc": "Hidden operator controls allow system operators to manage billing rates, turn feature flags on/off, and monitor platform health.",
-          "iconName": "Sliders"
         }
       ]
     },
     {
-      "title": "Role-Based Access Control and security safety guards",
-      "desc": "Control member access at both Organization and Space levels with granular roles. Enforce safety rules that prevent accidental administrator lockouts.",
+      "title": "Precise control over who can do what",
+      "desc": "Set roles at both the company level and the space level. Admins can manage the workspace, managers can create and assign work, and members can contribute — each within their own boundaries.",
       "isImageRight": true,
       "lightImage": "/mockups/light/account-settings-light.webp",
       "darkImage": "/mockups/dark/account-settings-dark.webp",
       "tags": [
-        { "index": "7.5", "name": "Organization Roles" },
-        { "index": "7.6", "name": "Space-Level Roles" },
-        { "index": "7.7", "name": "Self-Demotion Blocks" },
-        { "index": "7.8", "name": "Peer Protection Rules" }
+        { "index": "7.4", "name": "Company Roles" },
+        { "index": "7.5", "name": "Space Roles" },
+        { "index": "7.6", "name": "Safety Guards" }
       ],
       "gridItems": [
         {
-          "index": "7.5",
-          "title": "👑 Organization Roles",
-          "desc": "Configure company-wide permissions: Owners manage subscriptions; Admins manage users/spaces; Members access permitted workspaces.",
+          "index": "7.4",
+          "title": "Company-level roles",
+          "desc": "Owners control billing and company-wide settings. Admins manage members and spaces. Everyone else gets access to only what they need.",
           "iconName": "Shield"
         },
         {
-          "index": "7.6",
-          "title": "🔑 Space-Level Roles",
-          "desc": "Grant local permissions: Space Admins edit settings/delete content; Managers create tasks/edit docs; Members post messages/comments.",
+          "index": "7.5",
+          "title": "Space-level roles",
+          "desc": "Assign admin, manager, or member roles per space — so each team controls their own workspace without affecting others.",
           "iconName": "Key"
         },
         {
-          "index": "7.7",
-          "title": "🚫 Self-Demotion Guards",
-          "desc": "The security engine blocks you from changing or deleting your own admin role, ensuring a room is never left with zero administrators.",
-          "iconName": "Slash"
-        },
-        {
-          "index": "7.8",
-          "title": "🛡&nbsp;Peer Protection Rules",
-          "desc": "Standard Space Admins cannot demote or remove other Space Admins. Only a global Org Owner or Admin can execute demotions.",
+          "index": "7.6",
+          "title": "Lockout protection",
+          "desc": "The system prevents anyone from accidentally removing the last admin from a workspace, so you're never locked out of your own account.",
           "iconName": "ShieldCheck"
         }
       ]
     }
   ],
-  "capabilitiesTitle": "Structured context. Persistent application shell.",
-  "capabilitiesDesc": "KeilHQ is built around Organisations and Spaces. Your sidebar, settings, and onboarding flow keep every task, doc, and message scoped to the right context automatically.",
+  "capabilitiesTitle": "Structure that scales with your team.",
+  "capabilitiesDesc": "KeilHQ keeps every project, team, and permission organized so your workspace grows cleanly as your company does.",
   "capabilitiesGrid": [],
-  "checklistTitle": "Enterprise-grade keycard security and space setup",
-  "checklistDesc": "Control access across all company domains and project workspaces automatically.",
+  "checklistTitle": "Everyone in the right place, with the right access",
+  "checklistDesc": "KeilHQ's permission system is simple enough for a small team and robust enough for a growing company.",
   "checklistItems": [
-    "Organization & Space Directories: Building-level company accounts owning billing, paired with room-level workspaces scoping task/chat content.,",
-    "Company Role Tiers: Configure company-wide access permissions for Owners (subscription billing control), Admins, and Members.,",
-    "Space Role Tiers: Configure room-level access permissions for Space Admins (renaming, hard deletes), Managers (tasks & docs), and Members.,",
-    "Self-Demotion Blocker: System rules blocking you from deleting your own admin state, protecting workspaces against zero-admin lockouts.,",
-    "Platform Operator controls: Hidden operator panel monitoring overall system health, adjusting rate limits, and toggling account feature flags."
+    "Organize your company into separate workspaces for each team or project — each one isolated with its own tasks and conversations.",
+    "New team members are automatically placed into your default space so they can get started immediately.",
+    "Set who can manage, create, or just view — at both the company level and the individual space level.",
+    "The system prevents accidental lockouts so no workspace ever ends up without an admin.",
+    "Owners control billing and company-wide settings, keeping sensitive configuration away from everyday users."
   ]
 }

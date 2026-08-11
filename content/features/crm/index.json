@@ -2,184 +2,166 @@
   "title": "crm",
   "eyebrowIndex": "8.0",
   "eyebrowText": "Relational CRM",
-  "subHeroTitle": "Custom entity databases, dynamic fields, and omnichannel pipeline intelligence",
-  "subHeroDesc": "Build custom databases for contacts, accounts, and deal pipelines with 11+ field types, interactive kanban and spreadsheet layouts, omnichannel webhooks, native email outreach, AI meeting transcript BANT extraction, and 360° prospect record hubs.",
+  "subHeroTitle": "All your contacts, deals, and conversations — in one place.",
+  "subHeroDesc": "KeilHQ gives your sales team a CRM they actually want to use. Build custom pipelines, capture leads from every channel, and let AI extract the key insights from your sales calls.",
   "subHeroLink": "https://app.Keilhq.in/login",
   "subHeroLinkText": "Try Relational CRM",
   "lightImage": "/mockups/light/crm-overview-light.webp",
   "darkImage": "/mockups/dark/crm-overview-dark.webp",
   "sections": [
     {
-      "title": "Custom entity architecture with 11+ dynamic field types",
-      "desc": "Construct multi-tenant databases for Contacts, Companies, and Deals with rich field types, strict validation rules, header field creation, inter-database relations, and custom blueprints.",
+      "title": "Build a database that fits the way you sell",
+      "desc": "Set up custom databases for contacts, companies, and deals with the exact fields your team needs. Link records together so a contact connects to the company and the deal — all visible in one place.",
+      "lightImage": "/mockups/light/crm-records-light.webp",
+      "darkImage": "/mockups/dark/crm-records-dark.webp",
       "tags": [
         { "index": "8.1", "name": "Custom Databases" },
-        { "index": "8.2", "name": "11+ Dynamic Fields" },
-        { "index": "8.3", "name": "Header Schema Builder" },
-        { "index": "8.4", "name": "Record Relations" }
+        { "index": "8.2", "name": "Custom Fields" },
+        { "index": "8.3", "name": "Linked Records" }
       ],
       "gridItems": [
         {
           "index": "8.1",
-          "title": "Custom Databases & Blueprint Templates",
-          "desc": "Create independent multi-tenant databases tailored for People (Contacts), Companies, Deals, or any custom entity, with customizable icons, colors, descriptions, space assignments, and pre-built templates.",
+          "title": "Custom databases",
+          "desc": "Create separate databases for contacts, companies, deals, or any entity your business tracks — built to match how you actually work.",
           "iconName": "Database"
         },
         {
           "index": "8.2",
-          "title": "11+ Rich Dynamic Field Types",
-          "desc": "Define properties using Text, Multiline, Number & Currency (with symbol & decimal formatting), Date/Range, Select & Multi-Select (with color-coded badges), Email, Phone, URL (with favicons), Boolean toggles, User Assignments, and Record Relations.",
+          "title": "Custom fields",
+          "desc": "Add the fields that matter to your business — text, numbers, dates, dropdowns, phone numbers, file links, and more.",
           "iconName": "SlidersHorizontal"
         },
         {
           "index": "8.3",
-          "title": "Field Constraints & Column Header Creation",
-          "desc": "Enforce Required Fields, Unique Value Constraints to eliminate duplicate emails or phone numbers, custom field reordering, column visibility controls, and instant field creation directly from table headers.",
-          "iconName": "ShieldCheck"
-        },
-        {
-          "index": "8.4",
-          "title": "Inter-Record Relational Linking",
-          "desc": "Establish cross-database relationships linking contacts directly to company accounts and active deal pipelines (Contact → Company → Deal), manageable via a dedicated Related Records sidepane.",
+          "title": "Connected records",
+          "desc": "Link a contact to their company and the deal they're part of. The full picture is always one click away.",
           "iconName": "Link2"
         }
       ]
     },
     {
-      "title": "Multi-view pipeline boards, advanced query filters, and spreadsheet calculations",
-      "desc": "Manage deal pipelines across interactive Kanban boards, high-density spreadsheet views, and stage lists with multi-tier sorting, nested AND/OR filters, group-by headers, and footer calculation rows.",
+      "title": "Manage your pipeline the way your team thinks",
+      "desc": "View your deals as a Kanban board to drag and drop through stages, or as a spreadsheet for bulk editing. Advanced filters let you slice the data exactly the way you need it.",
       "isImageRight": true,
       "lightImage": "/mockups/light/crm-list-light.webp",
       "darkImage": "/mockups/dark/crm-lists-dark.webp",
       "tags": [
-        { "index": "8.5", "name": "Interactive Kanban" },
-        { "index": "8.6", "name": "Spreadsheet View" },
-        { "index": "8.7", "name": "Nested Query Filters" },
-        { "index": "8.8", "name": "Footer Aggregation Rows" }
+        { "index": "8.4", "name": "Kanban Pipeline" },
+        { "index": "8.5", "name": "Spreadsheet View" },
+        { "index": "8.6", "name": "Filters & Sorting" },
+        { "index": "8.7", "name": "Totals & Grouping" }
       ],
       "gridItems": [
         {
-          "index": "8.5",
-          "title": "Interactive Kanban & Stage Duration Engine",
-          "desc": "Drag and drop deal cards between pipeline stages while tracking stage entry timestamps (stage_entered_at), duration in stage, Closed-Won and Closed-Lost stage automation rules, and customizable card property visibility.",
+          "index": "8.4",
+          "title": "Kanban pipeline board",
+          "desc": "Drag deals between stages and see exactly where every opportunity sits in your pipeline at a glance.",
           "iconName": "LayoutGrid"
         },
         {
-          "index": "8.6",
-          "title": "High-Density Spreadsheet & Custom Views",
-          "desc": "Perform inline cell editing, column resizing, drag-and-drop column reordering, and real-time input validation, while saving multiple custom views per database with pre-configured filters and layouts.",
+          "index": "8.5",
+          "title": "Spreadsheet view",
+          "desc": "Edit records in bulk, reorder columns, and save custom views — great for teams that think in rows and columns.",
           "iconName": "Table"
         },
         {
-          "index": "8.7",
-          "title": "Nested Query Filters & Multi-Tier Sorting",
-          "desc": "Construct advanced search queries with nested AND/OR conjunction groups using type-aware operators for text, numbers, dates, and select badges, combined with multi-tier sorting rules (Primary, Secondary, Tertiary).",
+          "index": "8.6",
+          "title": "Filters and sorting",
+          "desc": "Build precise queries to find exactly the records you need — by owner, status, date, deal size, or any custom field.",
           "iconName": "Filter"
         },
         {
-          "index": "8.8",
-          "title": "Table Aggregation & Group-By Engine",
-          "desc": "Compute bottom-row table calculations (Sum, Average, Min, Max, Count, Unique Count) for numeric and currency columns, and group records dynamically by select properties or owners with collapsible headers.",
+          "index": "8.7",
+          "title": "Totals and grouping",
+          "desc": "See pipeline totals, average deal sizes, and count summaries at the bottom of any column — without exporting to a spreadsheet.",
           "iconName": "BarChart2"
         }
       ]
     },
     {
-      "title": "Omnichannel lead ingestion, spreadsheet imports, and native email outreach",
-      "desc": "Capture leads from embedded web forms, Meta Lead Ads, WhatsApp, and telephony webhooks. Import spreadsheets with auto-mapping, and send emails natively via Gmail and Zoho OAuth.",
+      "title": "Capture leads from wherever they come in",
+      "desc": "Whether a lead fills out your website form, sends a WhatsApp message, or comes in from a Meta ad — KeilHQ captures them automatically and puts them straight into your pipeline.",
       "isImageLeft": true,
       "lightImage": "/mockups/light/connectors-settings-light.webp",
       "darkImage": "/mockups/dark/connectors-settings-dark.webp",
       "tags": [
-        { "index": "8.9", "name": "Omnichannel Lead Webhooks" },
-        { "index": "8.10", "name": "Bulk Spreadsheet Import" },
-        { "index": "8.11", "name": "Native Gmail & Zoho OAuth" },
-        { "index": "8.12", "name": "Automated Activity Logging" }
+        { "index": "8.8", "name": "Web Forms" },
+        { "index": "8.9", "name": "WhatsApp & Meta Ads" },
+        { "index": "8.10", "name": "Spreadsheet Import" },
+        { "index": "8.11", "name": "Email Outreach" }
       ],
       "gridItems": [
         {
-          "index": "8.9",
-          "title": "Omnichannel Lead Ingestion & Webhooks Hub",
-          "desc": "Capture website form submissions using copy-paste embed snippets, ingest Meta Lead Ads with Conversions API (CAPI) feedback, process WhatsApp Business messages, and log telephony call status callbacks.",
+          "index": "8.8",
+          "title": "Website forms",
+          "desc": "Embed a lead capture form on any page. Submissions go straight into your CRM — no manual entry.",
           "iconName": "Globe"
         },
         {
+          "index": "8.9",
+          "title": "WhatsApp & Meta Ads",
+          "desc": "Connect your WhatsApp Business account and Meta Lead Ads to capture inbound leads the moment they come in.",
+          "iconName": "MessageSquare"
+        },
+        {
           "index": "8.10",
-          "title": "Multi-Format Import & Auto-Field Mapping",
-          "desc": "Bulk import records using .csv, .xlsx, .xls, or .ods files with intelligent header auto-mapping, on-the-fly custom field creation for unmapped columns, and pre-import row validation.",
+          "title": "Spreadsheet import",
+          "desc": "Upload a CSV or Excel file and KeilHQ maps the columns to your fields automatically. Import hundreds of contacts in seconds.",
           "iconName": "Upload"
         },
         {
           "index": "8.11",
-          "title": "Native Gmail & Zoho Mail OAuth Outreach",
-          "desc": "Authorize team email accounts directly via OAuth without third-party tools, using an in-app email composer to send emails with attachments directly from any contact record.",
+          "title": "Email directly from CRM",
+          "desc": "Connect Gmail or Zoho and send emails to contacts without leaving the CRM. Every email is logged to the record automatically.",
           "iconName": "Mail"
-        },
-        {
-          "index": "8.12",
-          "title": "Automated Activity Logs & CSV Export",
-          "desc": "Automatically record sent emails and prospect communications in the immutable Activity Timeline, and export filtered CRM databases and custom view layouts to CSV with one click.",
-          "iconName": "Download"
         }
       ]
     },
     {
-      "title": "AI sales meeting BANT extraction, smart deduplication, and 360° record hubs",
-      "desc": "Transcribe sales calls to auto-extract BANT criteria, merge duplicate leads with side-by-side comparison, manage 5-tab record hubs, and sync CRM pipeline metrics directly to your main dashboard.",
+      "title": "AI that listens to your sales calls and updates your CRM",
+      "desc": "Record a sales meeting and KeilHQ extracts the key details — what the prospect's budget is, who the decision-maker is, what they need, and when they want to move. All proposed for your review, never applied automatically.",
       "isImageRight": true,
       "lightImage": "/mockups/light/crm-records-light.webp",
       "darkImage": "/mockups/dark/crm-records-dark.webp",
       "tags": [
-        { "index": "8.13", "name": "AI Sales Bot & BANT Extraction" },
-        { "index": "8.14", "name": "Smart Deduplication" },
-        { "index": "8.15", "name": "360° Record Command Hub" },
-        { "index": "8.16", "name": "Smart Dashboard Sync" }
+        { "index": "8.12", "name": "Sales Call AI" },
+        { "index": "8.13", "name": "Duplicate Detection" },
+        { "index": "8.14", "name": "Full Record View" }
       ],
       "gridItems": [
         {
-          "index": "8.13",
-          "title": "AI Sales Meeting Bot & BANT Extraction",
-          "desc": "Integrate Recall.ai / Meeting Baas to transcribe sales calls automatically, extracting BANT (Budget, Authority, Need, Timeline) highlight cards directly into prospect CRM records.",
+          "index": "8.12",
+          "title": "Sales call intelligence",
+          "desc": "KeilHQ reads your meeting transcripts and extracts budget, authority, need, and timeline details directly into the prospect's record.",
           "iconName": "Sparkles"
         },
         {
-          "index": "8.14",
-          "title": "Smart Deduplication & Merge Drawer",
-          "desc": "Detect duplicate contact and company records automatically across databases, using a side-by-side review drawer to inspect, resolve conflicts, and merge duplicate leads cleanly.",
+          "index": "8.13",
+          "title": "Duplicate detection",
+          "desc": "KeilHQ spots duplicate contacts automatically and lets you review and merge them side by side — keeping your database clean.",
           "iconName": "Users"
         },
         {
-          "index": "8.15",
-          "title": "360° Record Command Center & 5-Tab Hub",
-          "desc": "Inspect leads in full-page or sidepane view across specialized tabs: Overview (properties & touchpoints), Activity Timeline, Notes, Tasks, and Files, with automatic domain favicon enrichment.",
+          "index": "8.14",
+          "title": "Full contact record",
+          "desc": "Every contact has a dedicated page with their activity history, notes, linked tasks, files, and every interaction — all in one view.",
           "iconName": "UserCheck"
-        },
-        {
-          "index": "8.16",
-          "title": "Smart Dashboard CRM Pipeline Sync",
-          "desc": "Display active deal counts, pipeline stage breakdowns, win rates, and total revenue on the KeilHQ main dashboard, synced cross-module with Tasks, Motion Pages, and Meeting Recordings.",
-          "iconName": "TrendingUp"
         }
       ]
     }
   ],
-  "capabilitiesTitle": "Relational lead intelligence. Complete pipeline control.",
-  "capabilitiesDesc": "Connect contacts, accounts, deal stages, and webhooks in a unified multi-tenant database built for modern sales execution.",
+  "capabilitiesTitle": "A CRM built around how you actually sell.",
+  "capabilitiesDesc": "Custom pipelines, omnichannel lead capture, AI sales insights, and email outreach — all connected to your workspace.",
   "capabilitiesGrid": [],
-  "checklistTitle": "Empower your entire revenue workflow",
-  "checklistDesc": "KeilHQ CRM unifies custom entity databases, dynamic fields, AI meeting intelligence, and omnichannel outreach into a single, high-performance sales hub.",
+  "checklistTitle": "Your entire revenue pipeline, under control",
+  "checklistDesc": "KeilHQ gives your sales team the visibility and automation they need to close deals faster — without the complexity of traditional CRMs.",
   "checklistItems": [
-    "Custom Databases & Blueprint Templates: Create independent multi-tenant databases for Contacts, Companies, Deals, or Custom Entities with custom branding and reusable blueprint templates.,",
-    "11+ Dynamic Custom Field Types: Define properties using Text, Multiline, Number/Currency, Date/Range, Select/Multi-Select, Email, Phone, URL, Boolean, User Assignment, and Record Relations.,",
-    "Field Constraints & Header Schema Creation: Enforce Required fields, Unique Value constraints to prevent duplicate emails or phones, and add custom fields directly from table headers.,",
-    "Inter-Record Relational Linking: Link contacts directly to company accounts and deal records (Contact → Company → Deal) with a dedicated Related Records sidepane.,",
-    "Interactive Kanban & Stage Duration Engine: Drag-and-drop deal cards between stages while tracking stage_entered_at timestamps, stage duration, Closed-Won/Lost rules, and card settings.,",
-    "High-Density Spreadsheet & Saved Custom Views: Edit cells inline with input validation, drag-and-drop column reordering, and save custom view configurations per database.,",
-    "Nested Query Filters & Multi-Tier Sorting: Build complex AND/OR search logic with type-aware operators for text, numbers, dates, and select badges alongside multi-tier ASC/DESC sorting.,",
-    "Table Aggregation & Collapsible Grouping: Compute bottom-row table calculations (Sum, Average, Min, Max, Count, Unique Count) and group records dynamically by select fields or owners.,",
-    "Omnichannel Lead Ingestion & Webhooks: Capture website leads via embed snippets, Meta Lead Ads with CAPI feedback, WhatsApp Business Cloud webhooks, and telephony call status callbacks.,",
-    "Bulk Spreadsheet Import & Auto-Mapping: Bulk import .csv, .xlsx, .xls, and .ods files with automated header mapping, on-the-fly custom field creation, and pre-import validation.,",
-    "Native Gmail & Zoho OAuth Outreach: Authorize team email accounts via OAuth to send emails with attachments directly from contact records with automated activity logging.,",
-    "AI Sales Bot BANT Extraction & 360° Record Hubs: Transcribe sales meetings to extract Budget, Authority, Need, and Timeline insights into 5-tab record hubs with Smart Dashboard widgets."
+    "Build a custom pipeline that matches your actual sales process — with the stages, fields, and views your team needs.",
+    "Capture leads automatically from your website, WhatsApp, Meta Ads, or a spreadsheet import — no manual data entry.",
+    "Send emails directly from any contact record and have every message logged to their history automatically.",
+    "AI reads your sales call transcripts and proposes updates to the CRM record — you review and approve each one.",
+    "Detect and merge duplicate contacts before they clutter your database and confuse your team.",
+    "See the full picture of any contact — their emails, activity, tasks, notes, and deal history — all on one page."
   ]
 }

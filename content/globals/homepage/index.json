@@ -38,10 +38,10 @@
     {
       "id": "smart-dashboard",
       "badgeText": "Smart Dashboard & AI",
-      "title": "Six cards, one command center, built-in AI",
-      "description": "Cycle through focus, blockers, replies, and events on a 3D wheel picker, or query the Supervisor AI directly with natural language and file attachments. Track live tool execution logs in real-time.",
-      "lightImage": "/mockups/light/dashboard-2-light.webp",
-      "darkImage": "/mockups/dark/dashboard-2-dark.webp",
+      "title": "Your entire workday, visible at a glance",
+      "description": "See what needs your attention the moment you open KeilHQ. Your focus, blockers, replies, and upcoming events are surfaced automatically — and a built-in AI lets you act on any of it instantly.",
+      "lightImage": "/mockups/light/dashboard-light.webp",
+      "darkImage": "/mockups/dark/dashboard-dark.webp",
       "alt": "KeilHQ Smart Dashboard"
     },
     {

@@ -2,99 +2,94 @@
   "title": "integrations",
   "eyebrowIndex": "6.0",
   "eyebrowText": "Integrations",
-  "subHeroTitle": "Secure OAuth connections for seamless developer data flow",
-  "subHeroDesc": "Native integrations with Google Workspace, GitHub, Notion, and more. Connect with your favorite tools to sync events, link code files, and build autonomous AI agents.",
+  "subHeroTitle": "KeilHQ fits into the tools you already use.",
+  "subHeroDesc": "Connect Google Workspace, GitHub, Notion, and more — so your team doesn't have to choose between the tools they know and the workspace that keeps everything together.",
   "subHeroLink": "https://app.Keilhq.in/login",
   "subHeroLinkText": "Try Integrations",
   "lightImage": "/mockups/light/connectors-settings-light.webp",
   "darkImage": "/mockups/dark/connectors-settings-dark.webp",
   "sections": [
     {
-      "title": "Unified tool stack and secure OAuth workflows",
-      "desc": "Connect your developer tools natively via secure OAuth 2.0. Allow AI agents to access Google Calendar, interact with GitHub issues, import Notion pages, and sync Linear tasks.",
+      "title": "Connect the tools your team already relies on",
+      "desc": "One authorization connects Google Calendar, Gmail, GitHub, Notion, and more. Your data flows into KeilHQ automatically — no manual syncing, no copy-pasting between tabs.",
+      "lightImage": "/mockups/light/connectors-settings-light.webp",
+      "darkImage": "/mockups/dark/connectors-settings-dark.webp",
       "tags": [
-        { "index": "6.1", "name": "OAuth Security" },
-        { "index": "6.2", "name": "Google & GitHub Sync" },
-        { "index": "6.3", "name": "Notion 2-Way Sync" },
-        { "index": "6.4", "name": "Enterprise Connectors" }
+        { "index": "6.1", "name": "Google Workspace" },
+        { "index": "6.2", "name": "GitHub" },
+        { "index": "6.3", "name": "Notion" },
+        { "index": "6.4", "name": "Slack & Linear" }
       ],
       "gridItems": [
         {
           "index": "6.1",
-          "title": "OAuth 2.0 Security Flow",
-          "desc": "All tool integrations utilize encrypted OAuth 2.0 flows, meaning KeilHQ never stores passwords or credentials.",
-          "iconName": "Shield"
+          "title": "Google Workspace",
+          "desc": "Connect Calendar, Gmail, Drive, Docs, Meet, Sheets, and Slides with a single sign-in. Your schedule and files are always in sync.",
+          "iconName": "Chrome"
         },
         {
           "index": "6.2",
-          "title": "Google & GitHub Sync",
-          "desc": "Automatically link Google Workspace calendars/meetings, and let AI agents interact with GitHub repositories, PRs, and issues.",
-          "iconName": "Zap"
+          "title": "GitHub",
+          "desc": "Link your repositories so your AI assistant can view open pull requests, create issues from tasks, and keep engineering and project management in sync.",
+          "iconName": "GitBranch"
         },
         {
           "index": "6.3",
-          "title": "Notion Content Imports",
-          "desc": "Establish OAuth token pipelines to import Notion pages, export Motion docs, and keep content bidirectionally updated.",
+          "title": "Notion",
+          "desc": "Connect Notion and your documents stay synchronized in both directions — no manual exporting or importing.",
           "iconName": "RefreshCw"
         },
         {
           "index": "6.4",
-          "title": "Linear & Slack Connectors",
-          "desc": "Sync Linear project boards and push workspace notification updates directly into Slack channels automatically.",
+          "title": "Slack & Linear",
+          "desc": "Push workspace notifications into Slack channels and keep Linear project boards in sync with your KeilHQ tasks.",
           "iconName": "Plug"
         }
       ]
     },
     {
-      "title": "Granular notification controls and smart filters",
-      "desc": "Filter distraction with real-time in-app alert triggers delivered in under 50ms via WebSockets. Control exactly what alerts reach you and configure silence focus filters.",
+      "title": "Stay on top of what needs your attention",
+      "desc": "KeilHQ sends you alerts when something changes — a task is assigned, a comment is left, or someone mentions you. Smart filters mean you only hear about the things that actually matter.",
       "isImageRight": true,
       "lightImage": "/mockups/light/notification-light.webp",
       "darkImage": "/mockups/dark/notification-dark.webp",
       "tags": [
-        { "index": "6.5", "name": "In-App Alerts" },
-        { "index": "6.6", "name": "WebSocket Delivery" },
-        { "index": "6.7", "name": "Unread Badges" },
-        { "index": "6.8", "name": "Custom Silence Filters" }
+        { "index": "6.5", "name": "Smart Alerts" },
+        { "index": "6.6", "name": "Instant Delivery" },
+        { "index": "6.7", "name": "Focus Mode" }
       ],
       "gridItems": [
         {
           "index": "6.5",
-          "title": "Smart Alert Triggers",
-          "desc": "Receive notifications when tasks are assigned, comments are left, notes are shared, or you are mentioned.",
+          "title": "Smart alerts",
+          "desc": "Get notified when tasks are assigned to you, when someone comments on your work, or when you're mentioned in a conversation.",
           "iconName": "Bell"
         },
         {
           "index": "6.6",
-          "title": "Under-50ms WebSocket Sync",
-          "desc": "A high-speed WebSocket pipeline syncs in-app alert lists across active browser tabs in under 50 milliseconds.",
+          "title": "Instant delivery",
+          "desc": "Notifications arrive the moment something happens — across every open tab, with no delay.",
           "iconName": "Zap"
         },
         {
           "index": "6.7",
-          "title": "Granular Sidebar Badges",
-          "desc": "Track pending actions with unread counts in the sidebar, cleared instantly via mark-all-read controls.",
-          "iconName": "Mail"
-        },
-        {
-          "index": "6.8",
-          "title": "Focus Silence Preferences",
-          "desc": "Define silence intervals for uninterrupted focus sessions, and configure role filters to prevent notification leaks.",
+          "title": "Focus mode",
+          "desc": "Set quiet hours or filter out the alert types that don't need your immediate attention. Less noise, more focus.",
           "iconName": "Sliders"
         }
       ]
     }
   ],
-  "capabilitiesTitle": "Secure connections. Seamless workflows.",
-  "capabilitiesDesc": "KeilHQ integrates with your favorite tools using secure OAuth flows and API connections to create unified workflows.",
+  "capabilitiesTitle": "One workspace. All your tools.",
+  "capabilitiesDesc": "Stop switching between apps. Bring your entire toolkit into KeilHQ and let everything work together.",
   "capabilitiesGrid": [],
-  "checklistTitle": "One workspace. All your tools.",
-  "checklistDesc": "Stop switching between dozens of apps. Bring your entire toolkit and notifications into KeilHQ's unified interface.",
+  "checklistTitle": "Your stack, connected",
+  "checklistDesc": "Integrations aren't an afterthought in KeilHQ — they're how your whole team's work stays connected without anyone doing manual updates.",
   "checklistItems": [
-    "Google Workspace single OAuth unlocks Calendar, Gmail, Drive, Docs, Sheets, Slides, and Meet integrations.,",
-    "GitHub integration enables AI agents to list issues/PRs, get details, create issues from tasks, and manage workflows.,",
-    "Notion OAuth or manual token connections for importing pages, exporting Motion docs, and bidirectional content sync.,",
-    "WebSocket alert updates: High-speed notifications syncing task assignments, comments, and mentions across tabs in under 50ms.,",
-    "Granular Silence Controls: Silence parameters and filters to configure exactly which events trigger an alert."
+    "Connect Google Calendar so your tasks and meetings stay in sync automatically — no double-entry required.",
+    "Link Gmail to send emails directly from contact records without opening another tab.",
+    "Connect GitHub so pull requests, issues, and code activity are visible right next to your project tasks.",
+    "Sync documents with Notion so your team can work from both platforms without keeping two copies in sync manually.",
+    "Get notified the moment something needs your attention — and filter out everything that doesn't."
   ]
 }

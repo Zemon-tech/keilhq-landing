@@ -2,166 +2,143 @@
   "title": "task-management",
   "eyebrowIndex": "2.0",
   "eyebrowText": "Task Management",
-  "subHeroTitle": "Database-level blocker requirements and multi-view execution",
-  "subHeroDesc": "Plan, track, and complete tasks with strict blocker validation, recursive scheduling, cross-project mobility, and multi-view layouts built for modern engineering teams.",
+  "subHeroTitle": "Plan, assign, and track work — without the chaos.",
+  "subHeroDesc": "KeilHQ keeps every task clear and every team member accountable. Work moves forward because nothing can be marked done until its blockers are resolved.",
   "subHeroLink": "https://app.Keilhq.in/login",
   "subHeroLinkText": "Try Task Management",
   "lightImage": "/mockups/light/task-overview-page-light.webp",
   "darkImage": "/mockups/dark/task-overview-page-dark.webp",
   "sections": [
     {
-      "title": "Define and execute every sprint perspective",
-      "desc": "Switch context-free across Calendar, List, Kanban, and Track views with database-enforced blocker logic and a high-density shortcut list pane.",
-      "isInteractiveShowcase": true,
+      "title": "See your work from any angle",
+      "desc": "Switch between a calendar, a list, a board, or a progress tracker — whatever helps you think. All views stay in sync so you never lose context switching between them.",
+      "lightImage": "/mockups/light/task-kanban-view-light.webp",
+      "darkImage": "/mockups/dark/task-kanban-view-dark.webp",
       "tags": [
-        { "index": "3.1", "name": "List Pane" },
-        { "index": "3.2", "name": "Multiple Views" }
+        { "index": "2.1", "name": "Calendar View" },
+        { "index": "2.2", "name": "List View" },
+        { "index": "2.3", "name": "Kanban Board" },
+        { "index": "2.4", "name": "Track View" }
       ],
       "gridItems": [
         {
-          "index": "3.1",
-          "title": "Shortcut List Pane",
-          "desc": "The persistent List Pane serves as your central command shortcut bar, aggregating all tasks, calendar events, and active sprints into a unified high-density list. Effortlessly jump between workspace priorities, quick actions, and upcoming milestones without breaking focus or navigating away from your active work.",
-          "iconName": "SlidersHorizontal"
+          "index": "2.1",
+          "title": "Calendar view",
+          "desc": "See your team's work laid out day by day, week by week. Great for spotting overload before it becomes a problem.",
+          "iconName": "Calendar"
         },
         {
-          "index": "3.2",
-          "title": "Multi-View Engine",
-          "desc": "Switch context-free across four specialized layout perspectives: Calendar View offering Day, Week, and Month schedule grids; List View featuring instant temporal filters to slice tasks across Day, Week, Month, and Year periods; Kanban View for visual drag-and-drop column workflows; and Track View to monitor real-time progress, live execution status, and active change logs.",
+          "index": "2.2",
+          "title": "List view",
+          "desc": "A clean, filterable list of everything on your plate — organized by day, week, month, or however you need it.",
+          "iconName": "List"
+        },
+        {
+          "index": "2.3",
+          "title": "Kanban board",
+          "desc": "Drag tasks from To Do to Done across a visual board. Everyone can see exactly what's in progress and what's next.",
           "iconName": "LayoutGrid"
+        },
+        {
+          "index": "2.4",
+          "title": "Track view",
+          "desc": "A live progress view showing what's moving, what's stalled, and what changed — without needing to ask for a status update.",
+          "iconName": "TrendingUp"
         }
       ]
     },
     {
-      "title": "Instant side drawers and quick dialog popups",
-      "desc": "Inspect task parameters, assignees, and blocker statuses on the fly without breaking your current board or calendar workspace view.",
+      "title": "Full task details without leaving your flow",
+      "desc": "Click any task and get the full picture in a side drawer — who owns it, what's blocking it, when it's due — without losing your place in the board.",
       "isImageLeft": true,
       "lightImage": "/mockups/light/task-sidebar-overview-light.webp",
       "darkImage": "/mockups/dark/task-sidebar-dark.webp",
       "tags": [
-        { "index": "3.3", "name": "Sidebar Overview" },
-        { "index": "3.3", "name": "Quick Dialog Modal" }
+        { "index": "2.5", "name": "Side Drawer" },
+        { "index": "2.6", "name": "Quick Edit" }
       ],
       "gridItems": [
         {
-          "index": "3.3",
-          "title": "Task Details Sidebar",
-          "desc": "Access full task parameters, due dates, assignee cards, and priority badges in a sleek slide-over side drawer that preserves your surrounding workspace context.",
+          "index": "2.5",
+          "title": "Task details sidebar",
+          "desc": "Review the full task — owner, due date, priority, status — in a slide-over panel that keeps your board in view.",
           "iconName": "Sidebar"
         },
         {
-          "index": "3.3",
-          "title": "Task Details Dialog",
-          "desc": "Open lightweight modal dialogs for rapid task editing, tag updates, and blocker checks directly from any list, calendar, or kanban card.",
+          "index": "2.6",
+          "title": "Quick edit popup",
+          "desc": "Make fast updates to any task right from the list or board. No need to open a new page just to change a priority or due date.",
           "iconName": "Maximize2"
         }
       ]
     },
     {
-      "title": "Deep task workspaces with AI activity summaries",
-      "desc": "Comprehensive 4-tab task detail pages featuring full parameter specs, collaborative team work logs, AI-generated activity summaries, relational dependencies, and immutable audit logs.",
+      "title": "The full story behind every task",
+      "desc": "Every task has a dedicated page with full context — updates from the team, a log of every change ever made, and a clear view of what it depends on.",
       "isImageRight": true,
       "lightImage": "/mockups/light/task-activity-light.webp",
       "darkImage": "/mockups/dark/task-activity-dark.webp",
       "tags": [
-        { "index": "3.4", "name": "Overview" },
-        { "index": "3.4", "name": "Activity & AI" },
-        { "index": "3.4", "name": "Dependencies" },
-        { "index": "3.4", "name": "Audit History" }
+        { "index": "2.7", "name": "Team Activity" },
+        { "index": "2.8", "name": "AI Summary" },
+        { "index": "2.9", "name": "Blockers" },
+        { "index": "2.10", "name": "Change History" }
       ],
       "gridItems": [
         {
-          "index": "3.4",
-          "title": "Overview Tab",
-          "desc": "Inspect complete task specs, objectives, success criteria, custom parameters, assignees, priority levels, and scheduling metadata.",
-          "iconName": "FileText"
+          "index": "2.7",
+          "title": "Team activity log",
+          "desc": "Everyone working on a task can leave updates, notes, and progress comments in one place — no more scattered Slack threads.",
+          "iconName": "MessageSquare"
         },
         {
-          "index": "3.4",
-          "title": "Activity Tab & AI Summary",
-          "desc": "Log work updates and collaborate across multi-assignee tasks. Built-in AI agents condense all activity comments and progress notes into instant actionable summaries.",
+          "index": "2.8",
+          "title": "AI summary",
+          "desc": "Ask AI to summarize all the updates on a task and get a clean, one-paragraph overview of where things stand.",
           "iconName": "Sparkles"
         },
         {
-          "index": "3.4",
-          "title": "Dependency Engine",
-          "desc": "Define strict relational blockers linking task prerequisites, calendar events, and team member assignments to prevent dependent tasks from closing early.",
+          "index": "2.9",
+          "title": "Blocker dependencies",
+          "desc": "Link tasks together so that dependent work can't be closed until the prerequisite is done. No accidental early sign-offs.",
           "iconName": "Lock"
         },
         {
-          "index": "3.4",
-          "title": "Immutable History Log",
-          "desc": "Track every change, field edit, assignee update, and status transition across the entire task lifecycle in a complete audit history stream.",
+          "index": "2.10",
+          "title": "Full change history",
+          "desc": "Every edit — status change, reassignment, due date shift — is recorded automatically. Always know what changed and when.",
           "iconName": "History"
         }
       ]
     },
     {
-      "title": "Move work forward across tools and projects",
-      "desc": "Connect GitHub PRs and Google Calendar natively, query backlogs with multi-variable smart filters, automate recurring tasks, and transfer tasks across projects.",
-      "lightImage": "/mockups/light/connectors-settings-light.webp",
-      "darkImage": "/mockups/dark/connectors-settings-dark.webp",
-      "tags": [
-        { "index": "3.5", "name": "Integrations" },
-        { "index": "3.6", "name": "Smart Filters" },
-        { "index": "3.7", "name": "Recurring Tasks" },
-        { "index": "3.8", "name": "Project Transfer" }
-      ],
-      "gridItems": [
-        {
-          "index": "3.5",
-          "title": "Native Stack Integrations",
-          "desc": "Connect your core developer workflow natively with built-in integrations for GitHub (issues & PRs), Google Meet (one-click video call generation), and Google Calendar (two-way schedule sync).",
-          "iconName": "GitBranch"
-        },
-        {
-          "index": "3.6",
-          "title": "Smart Task Filters",
-          "desc": "Query and slice complex task backlogs using advanced Smart Filters across custom date ranges, priority tiers, assignees, execution states, tags, and project spaces.",
-          "iconName": "Filter"
-        },
-        {
-          "index": "3.7",
-          "title": "Automated Recurring Tasks",
-          "desc": "Automate repetitive operational workflows with flexible Recurring Tasks. Schedule daily standups, weekly sprint grooming, or monthly maintenance tasks on automated schedules.",
-          "iconName": "Repeat"
-        },
-        {
-          "index": "3.8",
-          "title": "Direct Cross-Project Transfer",
-          "desc": "Relocate tasks from one project space to another in a single click while automatically preserving all attached dependencies, activity threads, AI summaries, and audit history.",
-          "iconName": "ArrowRightLeft"
-        }
-      ]
-    },
-    {
-      "title": "Smart Calendar and two-way Google Calendar sync",
-      "desc": "Tasks automatically become calendar events. The AI scheduler analyzes your calendar, finds free slots, and auto-schedules tasks based on priority and availability, generating Google Meet links automatically.",
+      "title": "Your calendar and your tasks, finally in sync",
+      "desc": "Tasks with deadlines automatically appear on your Google Calendar. Your AI assistant can find open slots and schedule work for you, so nothing gets missed.",
       "isImageLeft": true,
       "lightImage": "/mockups/light/task-calendar-view-light.webp",
       "darkImage": "/mockups/dark/task-calendar-view-dark.webp",
       "tags": [
-        { "index": "3.9", "name": "AI Auto-Scheduling" },
-        { "index": "3.10", "name": "Two-Way GCal Sync" },
-        { "index": "3.11", "name": "Google Meet Links" }
+        { "index": "2.11", "name": "Google Calendar Sync" },
+        { "index": "2.12", "name": "AI Scheduling" },
+        { "index": "2.13", "name": "Google Meet" }
       ],
       "gridItems": [
         {
-          "index": "3.9",
-          "title": "AI Smart Scheduler",
-          "desc": "Analyzes your calendar, finds free slots, and auto-schedules unscheduled tasks based on priority and time estimates.",
-          "iconName": "Clock"
-        },
-        {
-          "index": "3.10",
-          "title": "Two-Way Calendar Sync",
-          "desc": "Tasks with dates automatically become Google Calendar events, and GCal events appear in KeilHQ with full bidirectional details.",
+          "index": "2.11",
+          "title": "Two-way Google Calendar sync",
+          "desc": "Tasks with due dates show up in Google Calendar automatically. Changes on either side stay in sync — no manual updating.",
           "iconName": "RefreshCw"
         },
         {
-          "index": "3.11",
-          "title": "Native Google Meet Integration",
-          "desc": "Generate Google Meet links automatically for scheduled team events or task-related sprint syncs.",
+          "index": "2.12",
+          "title": "AI smart scheduling",
+          "desc": "Tell the AI which tasks need time blocked and it'll find open slots in your calendar and schedule them for you.",
+          "iconName": "Clock"
+        },
+        {
+          "index": "2.13",
+          "title": "One-click Google Meet links",
+          "desc": "Schedule a team sync from a task and the Meet link gets generated automatically — no need to open Google Calendar separately.",
           "iconName": "Video"
         }
       ]
@@ -170,18 +147,14 @@
   "capabilitiesTitle": "Engineering-grade task management",
   "capabilitiesDesc": "KeilHQ unifies task tracking, strict dependency logic, native integrations, and granular audit history in one high-performance workspace.",
   "capabilitiesGrid": [],
-  "checklistTitle": "Built for clarity, collaboration, and total accountability",
-  "checklistDesc": "Every detail of KeilHQ Task Management is designed to eliminate ambiguity and streamline engineering execution across teams.",
+  "checklistTitle": "Work that stays organized, even when things get busy",
+  "checklistDesc": "KeilHQ keeps every task clear and every team member accountable — without the overhead of manual status meetings.",
   "checklistItems": [
-    "Shortcut List Pane: The persistent List Pane acts as a rapid-access shortcut bar, listing all types of tasks, milestones, and upcoming events in one structured view so you can navigate priorities without switching screens.,",
-    "Comprehensive Layout Views: View your work through specialized perspectives including Calendar View (Day, Week, Month grids), List View (with instant filters for Day, Week, Month, and Year horizons), visual Kanban Boards, and Track View for real-time progress monitoring and change oversight.,",
-    "Fast Overview Sidebar & Dialog: Get a lightweight snapshot of any task using the Task Details Sidebar or quick Dialog popups to quickly review specs, assignees, and blockers without leaving your active workflow.,",
-    "4-Tab Task Detail Page: Deep-dive into work items via dedicated tabs: Overview (full parameters & metadata), Activity (collaborative work logs for team members paired with an AI summary engine that condenses updates into key insights), Dependency (enforced blocking logic for tasks, events, and people), and History (an immutable change log of every update).,",
-    "Developer Tool Integrations: Bridge project management with developer workflows through native integrations with GitHub (link PRs & issues), Google Meet (generate one-click video meeting links), and Google Calendar (two-way schedule synchronization).,",
-    "Multi-Parameter Smart Filters: Surface exact task queues with powerful Smart Filters that instantly query tasks by custom date ranges, urgency levels, assignees, completion statuses, tags, and project boundaries.,",
-    "Automated Recurring Tasks: Eliminate manual setup for routine operations by setting up recursive tasks that auto-generate on daily, weekly, monthly, or custom schedules with pre-configured assignees and dependencies.,",
-    "Direct Cross-Project Mobility: Seamlessly transfer tasks from one project space to another directly without losing linked dependencies, activity logs, AI summaries, attached files, or historical audit entries.,",
-    "Two-Way Google Calendar Sync: Synchronize tasks with dates to Google Calendar automatically, and display external calendar events with full details in your workspace.,",
-    "AI-Powered Smart Scheduling: Let the built-in AI assistant analyze your calendar, find free slots, and auto-schedule tasks based on priority and duration estimates."
+    "See exactly what's in progress, what's blocked, and what's next — across any view that works for your team.",
+    "Nothing gets marked done until its blockers are resolved. Work moves forward in the right order, every time.",
+    "Tasks automatically appear on your Google Calendar. No double-entry, no missed deadlines.",
+    "Every change to a task — who changed it, when, and what — is recorded automatically. Full accountability, zero effort.",
+    "Let AI find open slots in your calendar and schedule unscheduled work for you.",
+    "Recurring work like weekly standups or monthly reviews can be automated so you never have to set them up twice."
   ]
 }

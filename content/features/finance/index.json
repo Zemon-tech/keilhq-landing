@@ -2,184 +2,180 @@
   "title": "finance",
   "eyebrowIndex": "9.0",
   "eyebrowText": "Finance & Bookkeeping",
-  "subHeroTitle": "Complete financial control, multi-book accounting, and automated payroll",
-  "subHeroDesc": "Manage multi-book accounting ledgers, issue custom recurring invoices, automate bank statement reconciliation, run employee payroll with digital payslips, and monitor 11 built-in financial reports — all inside your connected workspace.",
+  "subHeroTitle": "All your business finances, managed in one workspace.",
+  "subHeroDesc": "KeilHQ handles invoicing, expense tracking, bank reconciliation, and payroll — so your team spends less time on financial admin and more time on the work that matters.",
   "subHeroLink": "https://app.Keilhq.in/login",
   "subHeroLinkText": "Try Finance & Bookkeeping",
   "lightImage": "/mockups/light/finance-overview-light.webp",
   "darkImage": "/mockups/dark/finance-overview-dark.webp",
   "sections": [
     {
-      "title": "Multi-book accounting ledgers and granular general ledger tracking",
-      "desc": "Construct independent financial books for subsidiaries and business units, logging transactions across 9 distinct ledger types, multi-currency support, and multi-tier verification lifecycles.",
+      "title": "Track every dollar, across every part of your business",
+      "desc": "Log revenue, expenses, transfers, and taxes — organized by category, project, department, or team. Works across multiple currencies and multiple business entities.",
+      "lightImage": "/mockups/light/finance-transaction-light.webp",
+      "darkImage": "/mockups/dark/finance-transaction-dark.webp",
       "tags": [
-        { "index": "9.1", "name": "Multi-Book Accounting" },
-        { "index": "9.2", "name": "9 Ledger Types" },
-        { "index": "9.3", "name": "Multi-Currency Logging" },
-        { "index": "9.4", "name": "Verification Lifecycle" }
+        { "index": "9.1", "name": "Transaction Ledger" },
+        { "index": "9.2", "name": "Multiple Books" },
+        { "index": "9.3", "name": "Multi-Currency" },
+        { "index": "9.4", "name": "Custom Tagging" }
       ],
       "gridItems": [
         {
           "index": "9.1",
-          "title": "Multi-Book Management & Subsidiaries",
-          "desc": "Create and manage independent financial books for different companies, subsidiaries, or business units while keeping ledgers isolated and structured.",
-          "iconName": "BookOpen"
-        },
-        {
-          "index": "9.2",
-          "title": "Unified 9-Type General Ledger",
-          "desc": "Categorize every financial movement across 9 distinct transaction types — Revenue, Expense, Asset, Liability, Transfer, Investment, Tax, Refund, and Adjustment.",
+          "title": "Full transaction ledger",
+          "desc": "Log and categorize every financial transaction — revenue, expenses, taxes, refunds, transfers, and more.",
           "iconName": "Layers"
         },
         {
+          "index": "9.2",
+          "title": "Multiple books",
+          "desc": "Run separate books for different subsidiaries or business units — all managed from the same workspace.",
+          "iconName": "BookOpen"
+        },
+        {
           "index": "9.3",
-          "title": "Global Multi-Currency Support",
-          "desc": "Log transactions and generate financial statements across international currencies including INR (₹), USD ($), EUR (€), GBP (£), and custom global currencies.",
+          "title": "Multi-currency",
+          "desc": "Log transactions and generate reports in any currency — INR, USD, EUR, GBP, or whatever your business uses.",
           "iconName": "Globe"
         },
         {
           "index": "9.4",
-          "title": "Granular Tagging & Verification Lifecycle",
-          "desc": "Tag transactions by Category, Vendor/Customer Entity, Project, and Department, while tracking verification states (Unverified, Matched, Reconciled, Verified) and payment status.",
-          "iconName": "CheckCircle2"
+          "title": "Tag by project or department",
+          "desc": "Attach every transaction to a category, vendor, project, or department so you can analyze spending any way you need.",
+          "iconName": "Tag"
         }
       ]
     },
     {
-      "title": "Itemized invoice builder, automated recurring billing, and instant PDF emailing",
-      "desc": "Generate professional invoices with automatic tax and discount calculations, schedule recurring billing cycles, send client emails with PDF attachments, and collect payments via instant links.",
+      "title": "Create invoices and get paid, without the back-and-forth",
+      "desc": "Build professional invoices with automatic tax and discount calculations, send them directly to clients by email, and share a payment link so they can settle instantly.",
       "isImageRight": true,
       "lightImage": "/mockups/light/finance-invoice-light.webp",
       "darkImage": "/mockups/dark/finance-invoice-dark.webp",
       "tags": [
-        { "index": "9.5", "name": "Professional Invoice Builder" },
-        { "index": "9.6", "name": "Automated Recurring Billing" },
-        { "index": "9.7", "name": "PDF Generation & Emailing" },
-        { "index": "9.8", "name": "Instant Payment Collection Links" }
+        { "index": "9.5", "name": "Invoice Builder" },
+        { "index": "9.6", "name": "Recurring Billing" },
+        { "index": "9.7", "name": "PDF & Email" },
+        { "index": "9.8", "name": "Payment Links" }
       ],
       "gridItems": [
         {
           "index": "9.5",
-          "title": "Itemized Invoice Builder & Instant Math",
-          "desc": "Generate customized, itemized invoices with line items, quantities, unit prices, tax percentages, subtotal calculations, percentage discounts, and net balance due.",
+          "title": "Invoice builder",
+          "desc": "Add line items, quantities, prices, taxes, and discounts — totals calculate automatically.",
           "iconName": "Receipt"
         },
         {
           "index": "9.6",
-          "title": "Lifecycle Tracker & Recurring Billing",
-          "desc": "Track invoices from Draft → Sent → Paid → Overdue → Cancelled, and schedule automated recurring billing on Weekly, Monthly, Quarterly, or Yearly intervals.",
+          "title": "Recurring billing",
+          "desc": "Set up invoices to send automatically on a weekly, monthly, or quarterly schedule for subscription clients.",
           "iconName": "Clock"
         },
         {
           "index": "9.7",
-          "title": "Pixel-Perfect PDF Generation & Emailing",
-          "desc": "Download pixel-perfect invoice PDFs directly inside your browser or email invoices to clients with custom messaging and embedded tracking.",
+          "title": "PDF generation and email",
+          "desc": "Download a professional invoice PDF or send it directly to your client with a custom message — straight from KeilHQ.",
           "iconName": "FileText"
         },
         {
           "index": "9.8",
-          "title": "Instant Online Payment Collection Links",
-          "desc": "Generate and share secure online payment collection links directly with clients for rapid invoice settlement and instant ledger updates.",
+          "title": "Payment collection links",
+          "desc": "Share a secure link so clients can pay online. The ledger updates automatically when they do.",
           "iconName": "CreditCard"
         }
       ]
     },
     {
-      "title": "Multi-account banking tracking, inter-account transfers, and statement reconciliation",
-      "desc": "Track bank accounts, credit cards, cash registers, and wallets in one dashboard. Bulk import banking CSV statements and run automated reconciliation engines for 100% accounting accuracy.",
+      "title": "Know exactly what's in your bank accounts at all times",
+      "desc": "Track all your bank accounts, credit cards, and wallets in one dashboard. Import bank statements and KeilHQ matches the transactions to your records automatically.",
       "isImageLeft": true,
       "lightImage": "/mockups/light/finance-banking-light.webp",
       "darkImage": "/mockups/dark/finance-banking-dark.webp",
       "tags": [
-        { "index": "9.9", "name": "Multi-Account Banking Hub" },
-        { "index": "9.10", "name": "Inter-Account Fund Transfers" },
-        { "index": "9.11", "name": "Banking CSV Statement Import" },
-        { "index": "9.12", "name": "Automated Reconciliation Engine" }
+        { "index": "9.9", "name": "Account Tracking" },
+        { "index": "9.10", "name": "Fund Transfers" },
+        { "index": "9.11", "name": "Statement Import" },
+        { "index": "9.12", "name": "Reconciliation" }
       ],
       "gridItems": [
         {
           "index": "9.9",
-          "title": "Multi-Account Banking & Wallet Support",
-          "desc": "Manage Bank Accounts, Cash Registers, Credit Cards, and Digital Wallets in one place, storing IFSC codes, account numbers, opening balances, and live balances.",
+          "title": "All accounts in one place",
+          "desc": "See live balances across every bank account, credit card, cash register, and digital wallet your business uses.",
           "iconName": "Landmark"
         },
         {
           "index": "9.10",
-          "title": "Inter-Account Bank Transfers",
-          "desc": "Record bank-to-bank fund transfers between internal accounts with custom reference numbers, transfer fees, and complete audit trail notes.",
+          "title": "Internal fund transfers",
+          "desc": "Record transfers between your own accounts with reference numbers and notes — so nothing looks unaccounted for.",
           "iconName": "ArrowRightLeft"
         },
         {
           "index": "9.11",
-          "title": "Banking CSV Statement Import",
-          "desc": "Bulk import bank statements in .csv format to quickly ingest external transactions, auto-matching records against existing ledger entries.",
+          "title": "Bank statement import",
+          "desc": "Upload your bank statement and KeilHQ ingests all the transactions automatically — no manual entry required.",
           "iconName": "Upload"
         },
         {
           "index": "9.12",
-          "title": "Automated Reconciliation Engine",
-          "desc": "Reconcile bank statements against internal ledger transactions with automated matching rules to ensure 100% accounting accuracy.",
+          "title": "Automatic reconciliation",
+          "desc": "KeilHQ matches imported bank transactions against your ledger entries automatically, flagging any discrepancies.",
           "iconName": "CheckSquare"
         }
       ]
     },
     {
-      "title": "Automated employee payroll runs, digital payslips, and 11 financial reports",
-      "desc": "Process monthly payroll with PF and TDS tax deductions, export official digital payslips, and analyze business health using 11 built-in financial reports including P&L, Balance Sheet, Burn Rate, and Runway Estimators.",
+      "title": "Run payroll and understand your financial health",
+      "desc": "Process monthly salaries with tax deductions calculated automatically, generate payslips for each employee, and get a clear view of your business's financial position through 11 built-in reports.",
       "isImageRight": true,
       "lightImage": "/mockups/light/finance-reports-light.webp",
       "darkImage": "/mockups/dark/finance-reports-dark.webp",
       "tags": [
-        { "index": "9.13", "name": "Employee Directory & Salary Specs" },
-        { "index": "9.14", "name": "Automated Monthly Payroll Runs" },
-        { "index": "9.15", "name": "Digital Payslip Generation" },
-        { "index": "9.16", "name": "11 Financial Reports & Runway Estimator" }
+        { "index": "9.13", "name": "Payroll" },
+        { "index": "9.14", "name": "Payslips" },
+        { "index": "9.15", "name": "Financial Reports" },
+        { "index": "9.16", "name": "Runway Estimator" }
       ],
       "gridItems": [
         {
           "index": "9.13",
-          "title": "Employee Directory & Salary Configuration",
-          "desc": "Manage employee profiles including Designation, Department, Base Salary, Bank Details, Account Numbers, IFSC codes, PF %, and TDS % tax settings.",
-          "iconName": "Users"
-        },
-        {
-          "index": "9.14",
-          "title": "Automated Monthly Payroll Runs",
-          "desc": "Calculate gross salary, PF contributions, TDS tax deductions, reimbursements, bonuses, and net payouts in a single automated workflow.",
+          "title": "Automated payroll",
+          "desc": "Calculate gross pay, tax deductions, reimbursements, and net salary for every employee in one automated run.",
           "iconName": "Calculator"
         },
         {
-          "index": "9.15",
-          "title": "Digital Payslip Generation & Workflow",
-          "desc": "Preview and export official monthly payslips for employees while managing approval workflows from Draft → Pending Approval → Approved → Paid.",
+          "index": "9.14",
+          "title": "Digital payslips",
+          "desc": "Generate and download official monthly payslips for every employee — ready to share or file.",
           "iconName": "FileSpreadsheet"
         },
         {
-          "index": "9.16",
-          "title": "11 Financial Reports, Burn Rate & Runway Estimator",
-          "desc": "Gain total financial visibility with P&L, Balance Sheet, Cash Flow, Revenue, Expense, Vendor Spend, Tax Reports, Monthly Burn Rate, and dynamic Operational Runway Estimators.",
+          "index": "9.15",
+          "title": "11 financial reports",
+          "desc": "Track profit & loss, cash flow, revenue, expenses, and vendor spend with reports that update in real time.",
           "iconName": "TrendingUp"
+        },
+        {
+          "index": "9.16",
+          "title": "Runway estimator",
+          "desc": "See how long your current cash lasts at your current burn rate — so you can make informed decisions before it becomes urgent.",
+          "iconName": "BarChart2"
         }
       ]
     }
   ],
-  "capabilitiesTitle": "Total accounting clarity. Automated financial execution.",
-  "capabilitiesDesc": "Connect multi-book ledgers, automated invoicing, banking statement reconciliation, employee payroll, and runway analytics in one connected platform.",
+  "capabilitiesTitle": "Complete financial control, built into your workspace.",
+  "capabilitiesDesc": "Invoicing, expense tracking, bank reconciliation, payroll, and financial reporting — all in the same place as your team's work.",
   "capabilitiesGrid": [],
-  "checklistTitle": "Master your company's financial operations",
-  "checklistDesc": "KeilHQ Finance & Bookkeeping unifies multi-book ledgers, invoice automation, bank reconciliation, payroll runs, and financial planning into one workspace.",
+  "checklistTitle": "Financial admin that runs itself",
+  "checklistDesc": "KeilHQ handles the financial tasks your team spends too much time on — so you can focus on actually running the business.",
   "checklistItems": [
-    "Multi-Book Accounting & Subsidiary Isolation: Create independent financial books for different entities or subsidiaries while keeping ledgers isolated and organized.,",
-    "Unified 9-Type General Ledger: Track transactions across Revenue, Expense, Asset, Liability, Transfer, Investment, Tax, Refund, and Adjustment ledger categories.,",
-    "Global Multi-Currency Logging: Log transactions and generate reports across international currencies including INR (₹), USD ($), EUR (€), GBP (£), and global currencies.,",
-    "Granular Tagging & Verification Lifecycle: Tag transactions by Category, Entity, Project, and Department, while tracking verification (Unverified, Matched, Reconciled) and payment status.,",
-    "Itemized Invoice Builder & Instant Math: Generate custom invoices with line items, quantities, unit prices, tax percentages, subtotal calculations, percentage discounts, and net balance due.,",
-    "Automated Recurring Billing & PDF Emailing: Schedule recurring invoices (Weekly, Monthly, Quarterly, Yearly), export pixel-perfect PDFs, and send invoices to clients via email.,",
-    "Instant Online Payment Links: Share direct online payment links with clients for rapid collection and automated ledger reconciliation.,",
-    "Multi-Account Banking & Fund Transfers: Manage Bank Accounts, Cash Registers, Credit Cards, and Digital Wallets with IFSC code tracking and bank-to-bank inter-account fund transfers.,",
-    "Banking CSV Import & Reconciliation Engine: Import .csv bank statements to bulk ingest, match, and reconcile transactions against internal ledger records with 100% accuracy.,",
-    "Employee Directory & Salary Configuration: Maintain employee profiles with designation, department, base salary, bank account info, IFSC codes, PF %, and TDS % settings.,",
-    "Automated Monthly Payroll Runs & Digital Payslips: Calculate gross salary, PF contributions, TDS deductions, bonuses, and net payouts, generating downloadable digital payslips.,",
-    "11 Built-In Financial Reports & Runway Estimator: Analyze P&L, Balance Sheet, Cash Flow, Revenue, Expense, Vendor Spend, Tax Reports, Monthly Burn Rate, and dynamic Runway Estimators."
+    "Track every transaction across multiple accounts, books, and currencies — organized by project, department, or vendor.",
+    "Create and send professional invoices in minutes, with taxes calculated automatically and a payment link included.",
+    "Set up recurring invoices for subscription clients so billing runs automatically every month without manual effort.",
+    "Import your bank statement and KeilHQ reconciles it against your records automatically — no manual matching.",
+    "Run monthly payroll with tax deductions calculated and payslips generated in one workflow.",
+    "Get a clear view of profit, cash flow, and runway so you always know where your business stands financially."
   ]
 }

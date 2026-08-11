@@ -2,145 +2,141 @@
   "title": "docs-notes",
   "eyebrowIndex": "3.0",
   "eyebrowText": "Motion Docs",
-  "subHeroTitle": "A unified document canvas, cloud asset hub, and AI workspace",
-  "subHeroDesc": "Meet Motion. Write structured block documents, store cloud files, collaborate in real time with granular security, sync bi-directionally with Notion, and automate your wiki with an inline AI writing partner and autonomous page management.",
+  "subHeroTitle": "A place for every document your team actually needs.",
+  "subHeroDesc": "Motion is your team's shared writing space — connected to your tasks, synced with Notion, and backed by an AI that can write, summarize, and organize documents for you.",
   "subHeroLink": "https://app.Keilhq.in/login",
   "subHeroLinkText": "Try Motion Docs",
   "lightImage": "/mockups/light/motion-page-light.webp",
   "darkImage": "/mockups/dark/motion-page-dark.webp",
   "sections": [
     {
-      "title": "A rich block canvas with nested page and folder hierarchies",
-      "desc": "Write structured documents on a customizable TipTap editor with crash-proof auto-saving. Organize your knowledge base using nested pages, subpages, folders, and S3 cloud asset uploads.",
+      "title": "Write, organize, and find anything — without switching tools",
+      "desc": "Motion gives you a full document editor with folders, subpages, and a clean hierarchy. Everything your team writes lives in one place, organized the way your business actually works.",
+      "lightImage": "/mockups/light/motion-folder-light.webp",
+      "darkImage": "/mockups/dark/motion-folder-dark.webp",
       "tags": [
-        { "index": "3.1", "name": "Rich Block Canvas" },
-        { "index": "3.2", "name": "Local Storage Auto-Save" },
-        { "index": "3.3", "name": "Pages & Subpages Hierarchy" },
-        { "index": "3.4", "name": "Folders & Subfolders" },
-        { "index": "3.5", "name": "Import & Export Engine" }
+        { "index": "3.1", "name": "Rich Document Editor" },
+        { "index": "3.2", "name": "Auto-Save" },
+        { "index": "3.3", "name": "Pages & Subpages" },
+        { "index": "3.4", "name": "Folders" },
+        { "index": "3.5", "name": "Import & Export" }
       ],
       "gridItems": [
         {
           "index": "3.1",
-          "title": "Rich TipTap Block Canvas",
-          "desc": "Write comfortably using text, headings, bullet lists, block quotes, tables, and syntax-highlighted code blocks built on a customizable TipTap editor environment.",
+          "title": "Rich document editor",
+          "desc": "Write with headings, bullet lists, tables, quotes, and code — a full editing experience without the bloat.",
           "iconName": "Heading1"
         },
         {
           "index": "3.2",
-          "title": "Local Storage Auto-Save Protection",
-          "desc": "Never lose a single keystroke. All document changes automatically save in real time to local storage to protect against accidental browser crashes or connection drops.",
+          "title": "Auto-save, always",
+          "desc": "Every word you type saves automatically. Close the tab, lose the connection — your work is never lost.",
           "iconName": "Save"
         },
         {
           "index": "3.3",
-          "title": "Pages & Subpages Hierarchy",
-          "desc": "Build deep knowledge bases and structured team wikis with infinite nesting of main pages and nested subpages.",
+          "title": "Nested pages",
+          "desc": "Build a proper knowledge base with pages inside pages. Great for product wikis, onboarding guides, and project docs.",
           "iconName": "FolderKanban"
         },
         {
           "index": "3.4",
-          "title": "Folders & Subfolders Structure",
-          "desc": "Organize documents, project briefs, and external files cleanly using multi-tier folders and subfolders.",
+          "title": "Folders for everything",
+          "desc": "Group related documents, specs, and files into folders and subfolders so the right people can always find the right things.",
           "iconName": "Folder"
         },
         {
           "index": "3.5",
-          "title": "Flexible Import & Export Engine",
-          "desc": "Import external documents smoothly and export your Motion pages into standard file formats like Markdown, HTML, and PDF with one click.",
+          "title": "Import and export",
+          "desc": "Bring in existing documents and export anything as Markdown, HTML, or PDF — ready to share with anyone.",
           "iconName": "FileOutput"
         }
       ]
     },
     {
-      "title": "Cloud asset previews, granular permissions, and live team co-editing",
-      "desc": "Upload media directly to Amazon S3, control access with granular role permissions, co-edit in real-time with live cursor tracking, and collaborate using inline comment threads and analytics.",
+      "title": "Your whole team can write and review together",
+      "desc": "Multiple people can work on the same document at the same time, leave comments, and control who can see or edit anything — just like the tools you're used to, but built into your workspace.",
       "isImageRight": true,
       "lightImage": "/mockups/light/motion-share-light.webp",
       "darkImage": "/mockups/dark/motion-share-dark.webp",
       "tags": [
-        { "index": "3.6", "name": "S3 Cloud Uploads" },
-        { "index": "3.7", "name": "Share & Granular Permissions" },
-        { "index": "3.8", "name": "Real-Time Co-Editing & Comments" },
-        { "index": "3.9", "name": "2-Way Notion Integration" }
+        { "index": "3.6", "name": "Co-Editing" },
+        { "index": "3.7", "name": "Permissions" },
+        { "index": "3.8", "name": "Comments" },
+        { "index": "3.9", "name": "Notion Sync" }
       ],
       "gridItems": [
         {
           "index": "3.6",
-          "title": "S3 Cloud Uploads & Previews",
-          "desc": "Upload PDFs, Word docs, slide decks, high-res images, and videos directly to Amazon S3 with automatic format scanning and color-coded type tag previews.",
-          "iconName": "UploadCloud"
+          "title": "Live co-editing",
+          "desc": "See your teammates editing in real time. No version conflicts, no 'who has the latest copy' confusion.",
+          "iconName": "Users"
         },
         {
           "index": "3.7",
-          "title": "Sharing & Granular Permissions",
-          "desc": "Share documents securely using Private invite-only mode, Space team access, or public web links with granular roles like Full Access, Can Edit, or Can View.",
+          "title": "Access control",
+          "desc": "Keep sensitive documents private, share with specific people, or open them to the whole team — your choice.",
           "iconName": "Lock"
         },
         {
           "index": "3.8",
-          "title": "Real-Time Concurrent Co-Editing & Comments",
-          "desc": "Co-edit simultaneously with active cursor tracking, selection threads, block inline text comments, and 28-day document activity analytics.",
-          "iconName": "Users"
+          "title": "Inline comments",
+          "desc": "Highlight any section and leave a comment for your team. Review cycles stay in the document, not scattered in email.",
+          "iconName": "MessageSquare"
         },
         {
           "index": "3.9",
-          "title": "2-Way Notion Integration",
-          "desc": "Connect Notion via 1-click OAuth to import/export documents and auto-convert blocks bi-directionally using Last-Write-Wins conflict resolution.",
+          "title": "Two-way Notion sync",
+          "desc": "Already using Notion? Connect it and your documents sync both ways automatically — no manual copying.",
           "iconName": "RefreshCw"
         }
       ]
     },
     {
-      "title": "Streaming AI writing partner and hands-free page automation",
-      "desc": "Leverage an inline AI assistant for document rewrites, summaries, and translations, while letting autonomous AI agents create, update, and delete Motion pages directly.",
+      "title": "AI that writes and organizes documents for you",
+      "desc": "Highlight any section and ask AI to rewrite, summarize, or translate it. Or tell your AI assistant to create an entire page from scratch — and it will.",
       "isImageLeft": true,
       "lightImage": "/mockups/light/motion-updates-light.webp",
       "darkImage": "/mockups/dark/motion-updates-dark.webp",
       "tags": [
-        { "index": "3.10", "name": "Streaming AI Writing Partner" },
-        { "index": "3.11", "name": "Instant AI Page Summaries" },
-        { "index": "3.12", "name": "Autonomous AI Page CRUD" }
+        { "index": "3.10", "name": "AI Writing Assistant" },
+        { "index": "3.11", "name": "Instant Summaries" },
+        { "index": "3.12", "name": "AI Page Management" }
       ],
       "gridItems": [
         {
           "index": "3.10",
-          "title": "Streaming AI Writing Partner",
-          "desc": "Highlight any paragraph or text block to prompt the AI assistant for instant rewrites, tone adjustments, translations, or summaries streamed live onto your document canvas.",
+          "title": "AI writing partner",
+          "desc": "Select any text and ask AI to improve it, shorten it, translate it, or change the tone — right in the document.",
           "iconName": "Sparkles"
         },
         {
           "index": "3.11",
-          "title": "Instant AI Page Summaries",
-          "desc": "Condensed AI summary engine that extracts core takeaways, action items, and technical decisions from lengthy Motion documents on demand.",
+          "title": "Instant page summaries",
+          "desc": "Ask AI to summarize a long document and get the key points in seconds. No more reading through pages to find one decision.",
           "iconName": "FileText"
         },
         {
           "index": "3.12",
-          "title": "Autonomous Motion Page Operations",
-          "desc": "Direct natural language AI capabilities to create new pages, update existing document content, link notes to active sprint tasks, or delete obsolete wiki pages hands-free.",
+          "title": "AI page creation and cleanup",
+          "desc": "Tell your AI assistant to create a new page, update an existing one, or remove outdated content — it handles the admin.",
           "iconName": "Zap"
         }
       ]
     }
   ],
   "capabilitiesTitle": "Connected knowledge. Actionable details.",
-  "capabilitiesDesc": "Forget isolated documentation silos. Motion integrates rich-text block editing directly to active tasks and space permissions.",
+  "capabilitiesDesc": "Motion connects your documents directly to active tasks, team permissions, and your existing tools.",
   "capabilitiesGrid": [],
-  "checklistTitle": "Keep your workspace fully aligned",
-  "checklistDesc": "Unify product specifications, team guides, and meeting transcripts inside one integrated knowledge canvas.",
+  "checklistTitle": "Documents that actually stay useful",
+  "checklistDesc": "Motion keeps your team's knowledge organized, up to date, and connected to the work — not buried in a folder nobody opens.",
   "checklistItems": [
-    "Rich TipTap Block Canvas: Write comfortably using text, headings, bullet lists, block quotes, tables, and syntax-highlighted code blocks built on a customizable TipTap editor environment.,",
-    "Local Storage Auto-Save Protection: Safeguard your work against browser crashes or network dropouts with instant real-time auto-saving stored directly in local storage.,",
-    "Pages & Subpages Hierarchy: Construct structured team wikis, technical documentation, and product roadmaps with unlimited nesting of pages and subpages.,",
-    "Folders & Subfolders Directory: Group related documents, sprint specs, and media assets side-by-side inside multi-tier folders and subfolders.,",
-    "Seamless Import & Export Capabilities: Effortlessly import existing documents and export your Motion pages into Markdown, HTML, and PDF formats for frictionless sharing.,",
-    "Share Links & Granular Role Permissions: Manage document visibility with Private invite-only access, Space team permissions, or public web links, configured with Full Access, Can Edit, or Can View roles.,",
-    "Amazon S3 Cloud Uploads & Previews: Upload PDFs, Word documents, slide decks, images, and videos directly to secure S3 storage, featured alongside format scanning and color-coded type tag previews.,",
-    "Real-Time Co-Editing & Inline Comments: Co-author documents live with team members featuring real-time multiplayer cursors, inline text comments, selection threads, and 28-day document view analytics.,",
-    "Streaming AI Writing Assistant: Select any text block on your canvas and trigger the AI writing partner to stream instant rewrites, translations, or stylistic improvements in real time.,",
-    "2-Way Notion Integration: Link your Notion workspace via 1-click OAuth to import/export documents and synchronize blocks bidirectionally using Last-Write-Wins update logic.,",
-    "Collaborative Commenting & Threading: Leave granular inline text comments and selection feedback threads directly on document blocks to streamline team review cycles.,",
-    "Autonomous AI Motion Page Management: Command AI agents to summarize document contents, create new pages, update existing notes, or delete deprecated wiki pages using simple natural language."
+    "All your team's documents in one place — organized with folders, subpages, and a structure that matches how your business actually works.",
+    "Multiple people can edit the same document at the same time. No version conflicts, no confusion over who has the latest copy.",
+    "Control who can see or edit anything. Keep sensitive docs private, share with a select few, or open them to the whole team.",
+    "AI can rewrite, summarize, or translate any section of a document on demand — saving hours on review and editing.",
+    "Already using Notion? Connect it once and your documents stay in sync automatically, both ways.",
+    "Meeting summaries can be saved directly as Motion pages with one click — so decisions never get lost in someone's notes app."
   ]
 }
