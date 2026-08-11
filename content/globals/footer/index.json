@@ -37,7 +37,6 @@
         }
       ]
     },
-
     {
       "title": "Product",
       "links": [
@@ -86,8 +85,8 @@
     }
   ],
   "copyright": "KeilHQ. All rights reserved. © {year}",
-  "twitterUrl": "https://x.com",
-  "instagramUrl": "https://instagram.com",
+  "twitterUrl": "https://x.com/keilhq",
+  "instagramUrl": "https://www.instagram.com/zemonindia",
   "linkedinUrl": "https://linkedin.com",
   "youtubeUrl": "https://youtube.com"
 }
