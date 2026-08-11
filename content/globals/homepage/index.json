@@ -70,6 +70,24 @@
       "lightImage": "/mockups/light/meetings light.png",
       "darkImage": "/mockups/dark/meetings dark.png",
       "alt": "KeilHQ Meeting Recorder"
+    },
+    {
+      "id": "crm",
+      "badgeText": "Relational CRM",
+      "title": "Custom databases, dynamic fields, and omnichannel pipelines",
+      "description": "Build custom databases for contacts, accounts, and deal pipelines with 11+ field types, interactive Kanban and spreadsheet layouts, omnichannel webhooks, native email outreach, and AI meeting transcript BANT extraction.",
+      "lightImage": "/mockups/light/crm overview light.png",
+      "darkImage": "/mockups/dark/crm overview dark.png",
+      "alt": "KeilHQ Relational CRM"
+    },
+    {
+      "id": "finance",
+      "badgeText": "Finance & Bookkeeping",
+      "title": "Multi-book accounting ledgers and automated payroll",
+      "description": "Manage multi-book accounting ledgers, issue custom recurring invoices, automate bank statement reconciliation, run employee payroll with digital payslips, and monitor 11 built-in financial reports.",
+      "lightImage": "/mockups/light/finance overview light.png",
+      "darkImage": "/mockups/dark/finance overview dark.png",
+      "alt": "KeilHQ Finance & Bookkeeping"
     }
   ],
   "finalCtaTitle": "Your team deserves a workspace that works.",
