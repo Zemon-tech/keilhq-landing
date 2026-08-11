@@ -135,89 +135,9 @@ export default async function AboutPage() {
         </div>
       </section>
 
-      {/* ── SECTION 3: ADVISORS ── */}
-      {data?.mentors && data.mentors.length > 0 && (
-        <section className="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 py-20 lg:py-28 xl:py-32 flex flex-col gap-16 text-left border-t border-border">
-          {/* Header */}
-          <div className="w-full flex flex-col lg:flex-row justify-between items-start gap-8">
-            <div className="w-full lg:w-1/3 shrink-0">
-              <h2 className="font-display text-[clamp(2rem,4vw,2.75rem)] font-semibold tracking-tight leading-[1.08] text-foreground">
-                {data.mentorsTitle || "Advisors"}
-              </h2>
-            </div>
-            <div className="flex-1 flex flex-col gap-6">
-              <p className="font-sans text-[15px] sm:text-base font-normal leading-relaxed text-muted-foreground max-w-[48ch]">
-                Supported by industry veterans guiding our mission and growth.
-              </p>
-            </div>
-          </div>
 
-          {/* Advisors Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-12 w-full">
-            {data.mentors.map((mentor: any) => (
-              <div key={mentor.name} className="flex flex-col gap-4">
-                <div className="w-full aspect-square relative rounded-sm overflow-hidden border border-border bg-card">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={mentor.avatar || "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=400&auto=format&fit=crop"}
-                    alt={mentor.name}
-                    className="w-full h-full object-cover object-center grayscale contrast-125 hover:grayscale-0 transition-all duration-300"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="flex flex-col gap-0.5 text-left">
-                  <span className="text-[14px] font-semibold text-foreground">{mentor.name}</span>
-                  <span className="text-[13px] text-muted-foreground font-normal">{mentor.role}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
 
-      {/* ── SECTION 4: TEAM ── */}
-      <section className="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 py-20 lg:py-28 xl:py-32 flex flex-col gap-16 text-left border-t border-border">
-        {/* Header */}
-        <div className="w-full flex flex-col lg:flex-row justify-between items-start gap-8">
-          <div className="w-full lg:w-1/3 shrink-0">
-            <h2 className="font-display text-[clamp(2rem,4vw,2.75rem)] font-semibold tracking-tight leading-[1.08] text-foreground">
-              {teamTitle}
-            </h2>
-          </div>
-          <div className="flex-1 flex flex-col gap-6">
-            <p className="font-sans text-[15px] sm:text-base font-normal leading-relaxed text-muted-foreground max-w-[48ch]">
-              {teamSubtitle}
-            </p>
-            <Link 
-              href="mailto:careers@keilhq.in" 
-              className="text-[13px] font-semibold text-foreground hover:text-muted-foreground transition-colors w-fit"
-            >
-              We&apos;re hiring →
-            </Link>
-          </div>
-        </div>
 
-        {/* Portrait Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-12 w-full">
-          {coreTeam.map((m: any) => (
-            <div key={m.name} className="flex flex-col gap-4">
-              <div className="w-full aspect-square relative rounded-sm overflow-hidden border border-border bg-card">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={m.avatar}
-                  alt={m.name}
-                  className="w-full h-full object-cover object-center grayscale contrast-125 hover:grayscale-0 transition-all duration-300"
-                  loading="lazy"
-                />
-              </div>
-              <div className="flex flex-col gap-0.5 text-left">
-                <span className="text-[14px] font-semibold text-foreground">{m.name}</span>
-                <span className="text-[13px] text-muted-foreground font-normal">{m.role}</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
 
       {/* ── SECTION 5: BACKED BY ── */}
       <section className="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 py-20 lg:py-28 xl:py-32 flex flex-col lg:flex-row gap-16 text-left border-t border-border">

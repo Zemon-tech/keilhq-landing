@@ -6,8 +6,8 @@
   "subHeroDesc": "Meet Motion. Write structured block documents, store cloud files, collaborate in real time with granular security, sync bi-directionally with Notion, and automate your wiki with an inline AI writing partner and autonomous page management.",
   "subHeroLink": "https://app.Keilhq.in/login",
   "subHeroLinkText": "Try Motion Docs",
-  "lightImage": "/mockups/light/motion page light.png",
-  "darkImage": "/mockups/dark/motion page dark.png",
+  "lightImage": "/mockups/light/motion-page-light.webp",
+  "darkImage": "/mockups/dark/motion-page-dark.webp",
   "sections": [
     {
       "title": "A rich block canvas with nested page and folder hierarchies",
@@ -56,8 +56,8 @@
       "title": "Cloud asset previews, granular permissions, and live team co-editing",
       "desc": "Upload media directly to Amazon S3, control access with granular role permissions, co-edit in real-time with live cursor tracking, and collaborate using inline comment threads and analytics.",
       "isImageRight": true,
-      "lightImage": "/mockups/light/motion share light.png",
-      "darkImage": "/mockups/dark/motion share dark.png",
+      "lightImage": "/mockups/light/motion-share-light.webp",
+      "darkImage": "/mockups/dark/motion-share-dark.webp",
       "tags": [
         { "index": "3.6", "name": "S3 Cloud Uploads" },
         { "index": "3.7", "name": "Share & Granular Permissions" },
@@ -95,8 +95,8 @@
       "title": "Streaming AI writing partner and hands-free page automation",
       "desc": "Leverage an inline AI assistant for document rewrites, summaries, and translations, while letting autonomous AI agents create, update, and delete Motion pages directly.",
       "isImageLeft": true,
-      "lightImage": "/mockups/light/motion updates light.png",
-      "darkImage": "/mockups/dark/motion updates dark.png",
+      "lightImage": "/mockups/light/motion-updates-light.webp",
+      "darkImage": "/mockups/dark/motion-updates-dark.webp",
       "tags": [
         { "index": "3.10", "name": "Streaming AI Writing Partner" },
         { "index": "3.11", "name": "Instant AI Page Summaries" },

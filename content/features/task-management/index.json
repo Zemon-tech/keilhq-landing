@@ -6,8 +6,8 @@
   "subHeroDesc": "Plan, track, and complete tasks with strict blocker validation, recursive scheduling, cross-project mobility, and multi-view layouts built for modern engineering teams.",
   "subHeroLink": "https://app.Keilhq.in/login",
   "subHeroLinkText": "Try Task Management",
-  "lightImage": "/mockups/light/task overview page light.png",
-  "darkImage": "/mockups/dark/task overview page dark.png",
+  "lightImage": "/mockups/light/task-overview-page-light.webp",
+  "darkImage": "/mockups/dark/task-overview-page-dark.webp",
   "sections": [
     {
       "title": "Define and execute every sprint perspective",
@@ -36,8 +36,8 @@
       "title": "Instant side drawers and quick dialog popups",
       "desc": "Inspect task parameters, assignees, and blocker statuses on the fly without breaking your current board or calendar workspace view.",
       "isImageLeft": true,
-      "lightImage": "/mockups/light/task sidebar overview light.png",
-      "darkImage": "/mockups/dark/task sidebar dark.png",
+      "lightImage": "/mockups/light/task-sidebar-overview-light.webp",
+      "darkImage": "/mockups/dark/task-sidebar-dark.webp",
       "tags": [
         { "index": "3.3", "name": "Sidebar Overview" },
         { "index": "3.3", "name": "Quick Dialog Modal" }
@@ -61,8 +61,8 @@
       "title": "Deep task workspaces with AI activity summaries",
       "desc": "Comprehensive 4-tab task detail pages featuring full parameter specs, collaborative team work logs, AI-generated activity summaries, relational dependencies, and immutable audit logs.",
       "isImageRight": true,
-      "lightImage": "/mockups/light/task activity light.png",
-      "darkImage": "/mockups/dark/task activity dark.png",
+      "lightImage": "/mockups/light/task-activity-light.webp",
+      "darkImage": "/mockups/dark/task-activity-dark.webp",
       "tags": [
         { "index": "3.4", "name": "Overview" },
         { "index": "3.4", "name": "Activity & AI" },
@@ -99,8 +99,8 @@
     {
       "title": "Move work forward across tools and projects",
       "desc": "Connect GitHub PRs and Google Calendar natively, query backlogs with multi-variable smart filters, automate recurring tasks, and transfer tasks across projects.",
-      "lightImage": "/mockups/light/connectors settings light.png",
-      "darkImage": "/mockups/dark/connectors settings dark.png",
+      "lightImage": "/mockups/light/connectors-settings-light.webp",
+      "darkImage": "/mockups/dark/connectors-settings-dark.webp",
       "tags": [
         { "index": "3.5", "name": "Integrations" },
         { "index": "3.6", "name": "Smart Filters" },
@@ -138,8 +138,8 @@
       "title": "Smart Calendar and two-way Google Calendar sync",
       "desc": "Tasks automatically become calendar events. The AI scheduler analyzes your calendar, finds free slots, and auto-schedules tasks based on priority and availability, generating Google Meet links automatically.",
       "isImageLeft": true,
-      "lightImage": "/mockups/light/task calendar view light.png",
-      "darkImage": "/mockups/dark/task calendar view dark.png",
+      "lightImage": "/mockups/light/task-calendar-view-light.webp",
+      "darkImage": "/mockups/dark/task-calendar-view-dark.webp",
       "tags": [
         { "index": "3.9", "name": "AI Auto-Scheduling" },
         { "index": "3.10", "name": "Two-Way GCal Sync" },

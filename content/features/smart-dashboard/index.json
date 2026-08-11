@@ -6,8 +6,8 @@
   "subHeroDesc": "The Smart Dashboard unifies your daily execution with a 3D wheel picker, real-time workspace metrics, persistent local clock, and a master Supervisor AI engine that automates tasks, calendar events, Motion docs, and web intelligence in one central view.",
   "subHeroLink": "https://app.Keilhq.in/login",
   "subHeroLinkText": "Try Smart Dashboard",
-  "lightImage": "/mockups/light/dashboard light.png",
-  "darkImage": "/mockups/dark/dashboard dark.png",
+  "lightImage": "/mockups/light/dashboard-light.webp",
+  "darkImage": "/mockups/dark/dashboard-dark.webp",
   "sections": [
     {
       "title": "A live workspace snapshot on a 3D wheel picker",
@@ -49,8 +49,8 @@
       "title": "Autonomous AI execution across tasks, calendar events, and Motion docs",
       "desc": "Execute complete workspace operations using natural language prompts. KeilHQ's AI engine creates, updates, and deletes tasks, calendar events, and Motion wiki pages while providing instant on-demand summaries.",
       "isImageLeft": true,
-      "lightImage": "/mockups/light/ai sidebar light.png",
-      "darkImage": "/mockups/dark/AI sidebar dark.png",
+      "lightImage": "/mockups/light/ai-sidebar-light.webp",
+      "darkImage": "/mockups/dark/ai-sidebar-dark.webp",
       "tags": [
         { "index": "1.5", "name": "Task Operations (CRUD)" },
         { "index": "1.6", "name": "Calendar & Event Operations" },
@@ -88,8 +88,8 @@
       "title": "Supervisor AI, specialized agents, and web intelligence command center",
       "desc": "Interact with a master Supervisor AI agent that routes natural language commands to specialized sub-agents. Track chain-of-thought execution steps, search the web live via Exa API, and integrate developer tools with persistent PostgreSQL conversation memory.",
       "isImageRight": true,
-      "lightImage": "/mockups/light/AI chat light.png",
-      "darkImage": "/mockups/dark/AI chat dark.png",
+      "lightImage": "/mockups/light/ai-chat-light.webp",
+      "darkImage": "/mockups/dark/ai-chat-dark.webp",
       "tags": [
         { "index": "1.9", "name": "Master Supervisor Agent" },
         { "index": "1.10", "name": "Specialized Sub-Agents" },

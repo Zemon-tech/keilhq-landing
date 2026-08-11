@@ -54,8 +54,8 @@ export default async function Home() {
     description: section.description,
     visualComponent: (
       <MockupImage
-        lightSrc={section.lightImage || "/mockups/light/dashboard light.png"}
-        darkSrc={section.darkImage || "/mockups/dark/dashboard dark.png"}
+        lightSrc={section.lightImage || "/mockups/light/dashboard-light.webp"}
+        darkSrc={section.darkImage || "/mockups/dark/dashboard-dark.webp"}
         alt={section.alt || section.title}
       />
     ),

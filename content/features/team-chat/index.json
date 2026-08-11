@@ -6,8 +6,8 @@
   "subHeroDesc": "KeilHQ unifies communication directly within your active workspace. Connect via public or private group channels and private DMs, upload cloud attachments, and co-author right next to your active sprints.",
   "subHeroLink": "https://app.Keilhq.in/login",
   "subHeroLinkText": "Try Team Chat",
-  "lightImage": "/mockups/light/chat light.png",
-  "darkImage": "/mockups/dark/chat dark.png",
+  "lightImage": "/mockups/light/chat-light.webp",
+  "darkImage": "/mockups/dark/chat-dark.webp",
   "sections": [
     {
       "title": "Scoped channels and rich messaging features",
@@ -49,8 +49,8 @@
       "title": "Real-time WebSocket pipeline and group roles",
       "desc": "Deliver messages in milliseconds without polling, see active typing indicators, and manage channel memberships and roles using a simple creation wizard.",
       "isImageRight": true,
-      "lightImage": "/mockups/light/chat sidebar light.png",
-      "darkImage": "/mockups/dark/chat sidebar dark.png",
+      "lightImage": "/mockups/light/chat-sidebar-light.webp",
+      "darkImage": "/mockups/dark/chat-sidebar-dark.webp",
       "tags": [
         { "index": "4.5", "name": "WebSocket Engine" },
         { "index": "4.6", "name": "Typing Indicators" },

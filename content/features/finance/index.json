@@ -6,8 +6,8 @@
   "subHeroDesc": "Manage multi-book accounting ledgers, issue custom recurring invoices, automate bank statement reconciliation, run employee payroll with digital payslips, and monitor 11 built-in financial reports — all inside your connected workspace.",
   "subHeroLink": "https://app.Keilhq.in/login",
   "subHeroLinkText": "Try Finance & Bookkeeping",
-  "lightImage": "/mockups/light/finance overview light.png",
-  "darkImage": "/mockups/dark/finance overview dark.png",
+  "lightImage": "/mockups/light/finance-overview-light.webp",
+  "darkImage": "/mockups/dark/finance-overview-dark.webp",
   "sections": [
     {
       "title": "Multi-book accounting ledgers and granular general ledger tracking",
@@ -49,8 +49,8 @@
       "title": "Itemized invoice builder, automated recurring billing, and instant PDF emailing",
       "desc": "Generate professional invoices with automatic tax and discount calculations, schedule recurring billing cycles, send client emails with PDF attachments, and collect payments via instant links.",
       "isImageRight": true,
-      "lightImage": "/mockups/light/finance invoice light.png",
-      "darkImage": "/mockups/dark/finance invoice dark.png",
+      "lightImage": "/mockups/light/finance-invoice-light.webp",
+      "darkImage": "/mockups/dark/finance-invoice-dark.webp",
       "tags": [
         { "index": "9.5", "name": "Professional Invoice Builder" },
         { "index": "9.6", "name": "Automated Recurring Billing" },
@@ -88,8 +88,8 @@
       "title": "Multi-account banking tracking, inter-account transfers, and statement reconciliation",
       "desc": "Track bank accounts, credit cards, cash registers, and wallets in one dashboard. Bulk import banking CSV statements and run automated reconciliation engines for 100% accounting accuracy.",
       "isImageLeft": true,
-      "lightImage": "/mockups/light/finance banking light.png",
-      "darkImage": "/mockups/dark/finance banking dark.png",
+      "lightImage": "/mockups/light/finance-banking-light.webp",
+      "darkImage": "/mockups/dark/finance-banking-dark.webp",
       "tags": [
         { "index": "9.9", "name": "Multi-Account Banking Hub" },
         { "index": "9.10", "name": "Inter-Account Fund Transfers" },
@@ -127,8 +127,8 @@
       "title": "Automated employee payroll runs, digital payslips, and 11 financial reports",
       "desc": "Process monthly payroll with PF and TDS tax deductions, export official digital payslips, and analyze business health using 11 built-in financial reports including P&L, Balance Sheet, Burn Rate, and Runway Estimators.",
       "isImageRight": true,
-      "lightImage": "/mockups/light/finance reports light.png",
-      "darkImage": "/mockups/dark/finance reports dark.png",
+      "lightImage": "/mockups/light/finance-reports-light.webp",
+      "darkImage": "/mockups/dark/finance-reports-dark.webp",
       "tags": [
         { "index": "9.13", "name": "Employee Directory & Salary Specs" },
         { "index": "9.14", "name": "Automated Monthly Payroll Runs" },
