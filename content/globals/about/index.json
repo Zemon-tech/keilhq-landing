@@ -14,37 +14,27 @@
     {
       "name": "Shivang Kandoi",
       "role": "Co Founder and CEO",
-      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop"
+      "avatar": "https://zemonhouseofbuilders.in/shivang.png"
     },
     {
       "name": "Satyajit Jena",
-      "role": "Co founder and CTO",
-      "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400&auto=format&fit=crop"
+      "role": "Co Founder and CTO",
+      "avatar": "https://zemonhouseofbuilders.in/satyajit.png"
     },
     {
       "name": "Harshit Kundra",
       "role": "COO",
-      "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=400&auto=format&fit=crop"
-    },
-    {
-      "name": "Disha Jain",
-      "role": "Software Engineer",
-      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop"
-    },
-    {
-      "name": "Krishna Jaiswal",
-      "role": "Software Engineer",
-      "avatar": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=400&auto=format&fit=crop"
+      "avatar": "https://zemonhouseofbuilders.in/harshit.png"
     },
     {
       "name": "Shivansh Tiwari",
       "role": "Software Engineer",
-      "avatar": "https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?q=80&w=400&auto=format&fit=crop"
+      "avatar": "https://media.licdn.com/dms/image/v2/D4D03AQG0YphMsFFcow/profile-displayphoto-crop_800_800/B4DZpZkAW.GgAM-/0/1762439205060?e=1787788800&v=beta&t=-H7hV38GxGpQ_eLnsKAAvmzi_T8pC9bKf0_s-tJqfn8"
     },
     {
       "name": "Krishna Sharma",
-      "role": "Ai Engineer",
-      "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=400&auto=format&fit=crop"
+      "role": "AI Engineer",
+      "avatar": "https://media.licdn.com/dms/image/v2/D5603AQGX3R4U3aVmiQ/profile-displayphoto-crop_800_800/B56ZuCJfloKgAI-/0/1767415086879?e=1787788800&v=beta&t=ya5dEQqFHg8EE8wlhlfYv_FsgeG70QX0LuCwuL2CrtI"
     }
   ],
   "investorsTitle": "Backed by",
@@ -66,23 +56,23 @@
   "mentors": [
     {
       "name": "Hemant Srivastav",
-      "role": "AIC GGSIPU",
-      "avatar": "https://images.unsplash.com/photo-1500048993953-d23a436266cf?q=80&w=400&auto=format&fit=crop"
+      "role": "CEO, AIC GGSIPU",
+      "avatar": "https://7f0c3c9283690942f12072675bea02f1.cdn.bubble.io/cdn-cgi/image/w=384,h=373,f=auto,dpr=2,fit=contain/f1706696421230x555922538285202400/Hemant%20%282%29.jpeg"
     },
     {
       "name": "Sagar Sahu",
-      "role": "AIC GGSIPU",
-      "avatar": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=400&auto=format&fit=crop"
+      "role": "Program Manager, AIC GGSIPU",
+      "avatar": "https://7f0c3c9283690942f12072675bea02f1.cdn.bubble.io/cdn-cgi/image/w=384,h=373,f=auto,dpr=2,fit=contain/f1780921371029x651737872941958000/51397r73ev%20%281%29.png"
     },
     {
       "name": "Kuldeep Anand",
       "role": "Visomni",
-      "avatar": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=400&auto=format&fit=crop"
+      "avatar": "https://media.contra.com/image/upload/h_1000,w_1000/mwsscqlrd7fbjscoig49.avif"
     },
     {
       "name": "Raman Tehlan",
       "role": "Vxplain",
-      "avatar": "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=400&auto=format&fit=crop"
+      "avatar": "https://ramantehlan.github.io/images/me.png"
     }
   ]
 }
