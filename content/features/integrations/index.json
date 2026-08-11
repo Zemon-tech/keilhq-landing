@@ -6,8 +6,8 @@
   "subHeroDesc": "Native integrations with Google Workspace, GitHub, Notion, and more. Connect with your favorite tools to sync events, link code files, and build autonomous AI agents.",
   "subHeroLink": "https://app.Keilhq.in/login",
   "subHeroLinkText": "Try Integrations",
-  "lightImage": "/mockups/light/Settings Connectors Light.png",
-  "darkImage": "/mockups/dark/Settings Connectors Dark.png",
+  "lightImage": "/mockups/light/connectors settings light.png",
+  "darkImage": "/mockups/dark/connectors settings dark.png",
   "sections": [
     {
       "title": "Unified tool stack and secure OAuth workflows",
@@ -49,8 +49,8 @@
       "title": "Granular notification controls and smart filters",
       "desc": "Filter distraction with real-time in-app alert triggers delivered in under 50ms via WebSockets. Control exactly what alerts reach you and configure silence focus filters.",
       "isImageRight": true,
-      "lightImage": "/mockups/light/Notifications Light.png",
-      "darkImage": "/mockups/dark/Notifications Dark.png",
+      "lightImage": "/mockups/light/notification light.png",
+      "darkImage": "/mockups/dark/notification dark.png",
       "tags": [
         { "index": "6.5", "name": "In-App Alerts" },
         { "index": "6.6", "name": "WebSocket Delivery" },

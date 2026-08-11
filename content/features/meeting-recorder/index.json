@@ -1,100 +1,300 @@
 {
   "title": "meeting-recorder",
   "eyebrowIndex": "5.0",
-  "eyebrowText": "Meeting Recorder",
-  "subHeroTitle": "Hands-off capture. Immediate specifications.",
-  "subHeroDesc": "Record conversations directly inside KeilHQ, transcribe discussions automatically with speaker diarization, and turn decisions into tasks in one click.",
+  "eyebrowText": "Meeting Intelligence",
+  "subHeroTitle": "Turn every meeting into structured knowledge and automated action",
+  "subHeroDesc": "KeilHQ captures audio, transcribes dialogue with speaker identification, generates executive summaries, and proposes ready-to-approve tasks, CRM updates, and docs.",
   "subHeroLink": "https://app.Keilhq.in/login",
-  "subHeroLinkText": "Try Meeting Recorder",
-  "lightImage": "/mockups/light/Meetings Light.png",
-  "darkImage": "/mockups/dark/Meetings Dark.png",
+  "subHeroLinkText": "Try Meeting Intelligence",
+  "lightImage": "/mockups/light/meetings light.png",
+  "darkImage": "/mockups/dark/meetings dark.png",
   "sections": [
     {
-      "title": "Floating audio visualizer and smart transcription",
-      "desc": "Record meetings with a draggable Picture-in-Picture widget that survives app navigation and minimizes to the sidebar. Auto-transcribe conversations with multi-speaker diarization and secure S3 storage.",
+      "title": "Studio-grade audio recording and live voice visualizers",
+      "desc": "Record high-fidelity meeting audio straight from your browser with zero plugins. Features 5 real-time voice visualizers (Bar, Aura, Grid, Wave, Radial), in-flight controls, live timers, and instant cloud uploads.",
+      "isImageLeft": false,
+      "lightImage": "/mockups/light/meetings recorder light.png",
+      "darkImage": "/mockups/dark/meetings recorder dark.png",
       "tags": [
-        { "index": "5.1", "name": "Draggable PIP Widget" },
-        { "index": "5.2", "name": "Voice Visualizers" },
-        { "index": "5.3", "name": "Speaker Diarization" },
-        { "index": "5.4", "name": "Multi-Language Detect" }
+        { "index": "5.1", "name": "Instant Browser Recording" },
+        { "index": "5.2", "name": "5 Voice Visualizer Themes" },
+        { "index": "5.3", "name": "In-Flight Controls" },
+        { "index": "5.4", "name": "Instant Cloud Streaming" }
       ],
       "gridItems": [
         {
           "index": "5.1",
-          "title": "Picture-in-Picture Widget",
-          "desc": "A floating PIP widget that is fully draggable and survives app navigation, letting you record uninterrupted as you navigate tasks and files.",
-          "iconName": "Maximize2"
+          "title": "Instant Browser Recording",
+          "desc": "Record high-fidelity meeting audio straight from your browser with zero plugins or downloads required.",
+          "iconName": "Mic"
         },
         {
           "index": "5.2",
-          "title": "Voice Pattern Visualizers",
-          "desc": "Choose from custom visualization themes (Aura, Wave, Radial, or Bar) animating your voice pattern in real-time.",
+          "title": "Dynamic Voice Visualizers",
+          "desc": "Choose from 5 real-time visualizer themes (Bar, Aura, Grid, Wave, Radial) that dynamically pulse and respond to live voice audio.",
           "iconName": "Activity"
         },
         {
           "index": "5.3",
-          "title": "Multi-Speaker Diarization",
-          "desc": "Splits transcripts by speaker (e.g. Speaker 1, Speaker 2) to easily track who agreed to what, avoiding giant walls of text.",
-          "iconName": "Users"
+          "title": "Full In-Flight Control",
+          "desc": "Manage recordings with a live elapsed timer, quick mute/unmute toggles, pause/resume controls, and one-click discard with instant cleanup.",
+          "iconName": "SlidersHorizontal"
         },
         {
           "index": "5.4",
-          "title": "Auto-Language Detection",
-          "desc": "Processes audio with automatic language detection, supporting 23 regional Indian languages via Sarvam AI, with secure S3 storage.",
-          "iconName": "Globe"
+          "title": "Instant Cloud Upload",
+          "desc": "Lightning-fast streaming direct to secure cloud storage for immediate AI processing and transcript generation.",
+          "iconName": "Upload"
         }
       ]
     },
     {
-      "title": "AI-generated summaries and actionable intelligence",
-      "desc": "Extract bulleted summaries and export them directly to Motion or Notion in one click. Review AI action proposals backed by exact transcript quotes, modifying details before approval.",
+      "title": "Speaker-diarized transcription and smart audio player",
+      "desc": "Distinguish turn-by-turn dialogue with automatic participant labels across global languages. Filter by speaker, search keywords in-transcript, and control playback with variable speeds and waveform scrubbing.",
       "isImageRight": true,
-      "lightImage": "/mockups/light/Meetings Summary Light.png",
-      "darkImage": "/mockups/dark/Meetings Summary Dark.png",
+      "lightImage": "/mockups/light/meetings transcription light.png",
+      "darkImage": "/mockups/dark/meetings transcription dark.png",
       "tags": [
-        { "index": "5.5", "name": "Bullet Summaries" },
-        { "index": "5.6", "name": "Notion & Motion Exports" },
-        { "index": "5.7", "name": "Action Proposals" },
-        { "index": "5.8", "name": "Review & Execute" }
+        { "index": "5.5", "name": "Speaker Diarization" },
+        { "index": "5.6", "name": "Multi-Language Detect" },
+        { "index": "5.7", "name": "Interactive Speaker Filters" },
+        { "index": "5.8", "name": "Waveform Audio Player" }
       ],
       "gridItems": [
         {
           "index": "5.5",
-          "title": "Bulleted AI Summaries",
-          "desc": "Receive instant, clean summaries of your meetings organized by discussion topic instead of reviewing raw transcripts.",
-          "iconName": "FileText"
+          "title": "Speaker Identification (Diarization)",
+          "desc": "Automatically distinguishes between different speakers, tagging turn-by-turn dialogue with distinct participant labels.",
+          "iconName": "Users"
         },
         {
           "index": "5.6",
-          "title": "1-Click Workspace Export",
-          "desc": "Export your meeting summaries and full transcripts directly into editable pages inside Motion or connected Notion workspaces.",
-          "iconName": "RefreshCw"
+          "title": "Multi-Language Support",
+          "desc": "High-accuracy transcription with automatic language detection supporting global languages and regional dialects.",
+          "iconName": "Globe"
         },
         {
           "index": "5.7",
-          "title": "Evidentiary Action Proposals",
-          "desc": "Extract commitments to propose tasks, CRM edits, pipeline updates, and invoices, complete with the triggering quote.",
-          "iconName": "Sparkles"
+          "title": "Interactive Speaker Filters & Search",
+          "desc": "Click any participant's name to isolate their dialogue snippets, or search key terms with highlighted in-transcript matches.",
+          "iconName": "Search"
         },
         {
           "index": "5.8",
-          "title": "Review & Approval Flow",
-          "desc": "Review suggestions on interactive approval cards. Modify assignees, adjust parameters, and click Approve to create items instantly.",
-          "iconName": "Check"
+          "title": "Advanced Audio Player",
+          "desc": "Control listening with variable playback speeds (0.5x–2.0x), visual waveform scrubbers, ±10-second skips, and 1-click export.",
+          "iconName": "PlayCircle"
+        }
+      ]
+    },
+    {
+      "title": "Automated AI executive summaries and structured notes",
+      "desc": "AI automatically transforms raw dialogue into executive-ready meeting notes—including executive summaries, topic breakdowns, bulleted decision logs, and unresolved risk alerts.",
+      "isImageLeft": true,
+      "lightImage": "/mockups/light/meetings summary light.png",
+      "darkImage": "/mockups/dark/meetings summary dark.png",
+      "tags": [
+        { "index": "5.9", "name": "Executive Summaries" },
+        { "index": "5.10", "name": "Categorized Topics" },
+        { "index": "5.11", "name": "Decisions & Risks Log" },
+        { "index": "5.12", "name": "Markdown Export" }
+      ],
+      "gridItems": [
+        {
+          "index": "5.9",
+          "title": "Executive Summary",
+          "desc": "High-level overview of meeting purpose, main highlights, and key outcomes generated instantly.",
+          "iconName": "FileText"
+        },
+        {
+          "index": "5.10",
+          "title": "Key Discussion Topics",
+          "desc": "Categorized breakdown of main conversation points for rapid scannability and quick reference.",
+          "iconName": "ListFilter"
+        },
+        {
+          "index": "5.11",
+          "title": "Decisions Made & Risk Alerts",
+          "desc": "Bulleted log of agreed-upon decisions alongside flagged risks and unresolved open questions requiring follow-up.",
+          "iconName": "CheckSquare"
+        },
+        {
+          "index": "5.12",
+          "title": "Smart Deduplication & Formatting",
+          "desc": "Intelligent processing ensures meetings are never redundantly analyzed, displaying formatted views with 1-click markdown export.",
+          "iconName": "Sparkles"
+        }
+      ]
+    },
+    {
+      "title": "Human-in-the-loop AI action extraction",
+      "desc": "AI continuously analyzes meeting dialogue to propose tasks, CRM edits, deal stage movements, and finance entries across 5 modules. Review certainty ratings, direct transcript quote evidence, and edit prior to approval.",
+      "isImageRight": true,
+      "lightImage": "/mockups/light/meetings action light.png",
+      "darkImage": "/mockups/dark/meetings action dark.png",
+      "tags": [
+        { "index": "5.13", "name": "5 Smart Action Types" },
+        { "index": "5.14", "name": "AI Confidence Score" },
+        { "index": "5.15", "name": "Direct Quote Evidence" },
+        { "index": "5.16", "name": "Human Approval Control" }
+      ],
+      "gridItems": [
+        {
+          "index": "5.13",
+          "title": "5 Smart Workspace Action Types",
+          "desc": "Extracts Task Creations, Task Updates, CRM Contact Updates, CRM Pipeline Stage Movements, and Finance Ledger Entries automatically.",
+          "iconName": "Zap"
+        },
+        {
+          "index": "5.14",
+          "title": "AI Confidence & Transcript Evidence",
+          "desc": "Every proposal displays a clear certainty rating (0–100%) paired with the exact meeting transcript excerpt that triggered the proposal.",
+          "iconName": "ShieldCheck"
+        },
+        {
+          "index": "5.15",
+          "title": "Full Inline Editing & Control",
+          "desc": "Edit proposed task titles, assignees, priority levels, or financial figures prior to approving—you maintain 100% control.",
+          "iconName": "Edit3"
+        },
+        {
+          "index": "5.16",
+          "title": "1-Click Review & Duplicate Safeguards",
+          "desc": "Approve individual items, reject with feedback, or batch-process pending actions with built-in duplicate protection.",
+          "iconName": "CheckCircle2"
+        }
+      ]
+    },
+    {
+      "title": "1-click save to Motion Docs and Notion 2-way sync",
+      "desc": "Convert meeting summaries into formatted block-based Motion documentation pages or sync meeting notes automatically into connected Notion workspaces for centralized team access.",
+      "isImageLeft": true,
+      "lightImage": "/mockups/light/meetings save motion light.png",
+      "darkImage": "/mockups/dark/meetings save motion light.png",
+      "tags": [
+        { "index": "5.17", "name": "Save to Motion Docs" },
+        { "index": "5.18", "name": "Notion 2-Way Sync" },
+        { "index": "5.19", "name": "Centralized Knowledge" },
+        { "index": "5.20", "name": "Instant Export" }
+      ],
+      "gridItems": [
+        {
+          "index": "5.17",
+          "title": "Save to Motion Docs",
+          "desc": "Instantly convert meeting summaries into formatted, block-based Motion documentation pages within your project space.",
+          "iconName": "FileCode"
+        },
+        {
+          "index": "5.18",
+          "title": "Notion 2-Way Sync",
+          "desc": "Automatically syncs meeting notes into your connected Notion workspace for centralized team access and cross-platform search.",
+          "iconName": "RefreshCw"
+        },
+        {
+          "index": "5.19",
+          "title": "Structured Knowledge Base",
+          "desc": "Organize meeting documentation under project subpages with rich tags, cover images, and collaborative comment threads.",
+          "iconName": "FolderTree"
+        },
+        {
+          "index": "5.20",
+          "title": "Universal Clipboard Copy",
+          "desc": "Copy clean formatted markdown or raw transcript files with a single click for external reports and client deliverables.",
+          "iconName": "Copy"
+        }
+      ]
+    },
+    {
+      "title": "Connected workspace and universal meeting history",
+      "desc": "Attach recordings to specific tasks or calendar events, access past recordings via the universal history drawer from anywhere in KeilHQ, and inspect approved meeting actions in the activity feed.",
+      "isImageRight": true,
+      "lightImage": "/mockups/light/meetings minimize light.png",
+      "darkImage": "/mockups/dark/meetings minimize dark.png",
+      "tags": [
+        { "index": "5.21", "name": "Linked Calendar Events" },
+        { "index": "5.22", "name": "Universal History Drawer" },
+        { "index": "5.23", "name": "Activity Audit Feed" },
+        { "index": "5.24", "name": "Privacy Controls" }
+      ],
+      "gridItems": [
+        {
+          "index": "5.21",
+          "title": "Linked Workspace Meetings",
+          "desc": "Attach recordings directly to specific workspace tasks, project spaces, or scheduled calendar events.",
+          "iconName": "Calendar"
+        },
+        {
+          "index": "5.22",
+          "title": "Universal History Drawer",
+          "desc": "Access and review past meeting recordings from anywhere in the app (Dashboard, Tasks, Calendar, or Docs).",
+          "iconName": "History"
+        },
+        {
+          "index": "5.23",
+          "title": "Activity Audit Stream",
+          "desc": "Full team visibility into all approved meeting actions, task creations, and CRM updates within your real-time activity feed.",
+          "iconName": "Activity"
+        },
+        {
+          "index": "5.24",
+          "title": "Privacy & Ownership Controls",
+          "desc": "Secure owner-only deletion and granular workspace access permissions to protect sensitive discussion audio.",
+          "iconName": "Lock"
+        }
+      ]
+    },
+    {
+      "title": "Autonomous meeting bots and natural language AI assistant",
+      "desc": "Schedule bots to join Zoom, Google Meet, or Teams video calls to record and transcribe hands-free. Capture phone calls and query your meeting history in natural language.",
+      "isImageLeft": true,
+      "lightImage": "/mockups/light/meetings light.png",
+      "darkImage": "/mockups/dark/meetings dark.png",
+      "tags": [
+        { "index": "5.25", "name": "Autonomous Video Bots" },
+        { "index": "5.26", "name": "Phone Call Capture" },
+        { "index": "5.27", "name": "Ask AI About Meetings" },
+        { "index": "5.28", "name": "Cross-Module Sync" }
+      ],
+      "gridItems": [
+        {
+          "index": "5.25",
+          "title": "Autonomous Meeting Bots",
+          "desc": "Schedule bots to join video call links (Zoom, Google Meet, Microsoft Teams) to record and transcribe discussions hands-free.",
+          "iconName": "Bot"
+        },
+        {
+          "index": "5.26",
+          "title": "Phone Call Integration",
+          "desc": "Capture, transcribe, and extract actionable follow-ups directly from incoming and outgoing phone calls.",
+          "iconName": "Phone"
+        },
+        {
+          "index": "5.27",
+          "title": "Ask AI About Meetings",
+          "desc": "Query your meeting history in natural language using the built-in AI Assistant (e.g., 'What did we decide about the Q3 budget in yesterday's meeting?').",
+          "iconName": "MessageSquare"
+        },
+        {
+          "index": "5.28",
+          "title": "Cross-Module Intelligence",
+          "desc": "Seamlessly link meeting insights with Tasks, Motion Pages, CRM pipelines, and Financial ledgers in real-time.",
+          "iconName": "Sparkles"
         }
       ]
     }
   ],
-  "capabilitiesTitle": "Contextual capture. Actionable details.",
-  "capabilitiesDesc": "KeilHQ brings voice recordings and summaries directly into your projects, making transcripts contextual.",
+  "capabilitiesTitle": "Total meeting intelligence. Instant action extraction.",
+  "capabilitiesDesc": "Connect voice recording, speaker diarization, executive summaries, human-in-the-loop action proposals, and Notion sync in one unified platform.",
   "capabilitiesGrid": [],
-  "checklistTitle": "Never lose what was decided in your last meeting",
-  "checklistDesc": "Stop taking manual minutes. Let the AI recorder handle documentation and actions for you.",
+  "checklistTitle": "Turn every conversation into structured execution",
+  "checklistDesc": "KeilHQ Meeting Intelligence eliminates manual note-taking and automates workspace actions with full human approval control.",
   "checklistItems": [
-    "Picture-in-Picture Widget: Draggable, floating PIP recorder window that survives app navigation and minimizes to the sidebar.,",
-    "Audio visualizer patterns: Aura, Wave, Radial, or Bar voice pattern animations responding to live audio input.,",
-    "Speaker Diarization: Automatically splits full transcripts by speaker (Speaker 1, Speaker 2) for clear conversation mapping.,",
-    "Auto-Language Detection: Supports 23 regional Indian languages via Sarvam AI, with secure AWS S3 cloud audio storage.,",
-    "AI Action Proposals: Extract commitments to propose new tasks, task updates, CRM edits, pipeline updates, and invoice drafts with evidence verification."
+    "Studio-Grade Audio Recording & Live Visualizers: High-fidelity browser recording with 5 real-time voice visualizer themes, live timer, and in-flight controls.,",
+    "Speaker-Diarized Transcription & Smart Player: Turn-by-turn speaker identification, multi-language support, speaker filters, and visual waveform player with variable playback speeds.,",
+    "Automated AI Executive Summaries: Structured executive notes including high-level summaries, categorized topics, bulleted decisions, and unresolved risk alerts.,",
+    "Human-in-the-Loop AI Action Extraction: Automatically proposes Tasks, Task Updates, CRM Edits, Pipeline Movements, and Finance Entries with confidence scores and quote evidence.,",
+    "1-Click Motion & Notion 2-Way Sync: Convert meeting summaries into block-based Motion docs or sync notes automatically into connected Notion workspaces.,",
+    "Connected Workspace & Universal History: Link recordings to calendar events, access past recordings via the universal history drawer, and audit actions in the activity feed.,",
+    "Autonomous Meeting Bots & AI Assistant: Dispatch video bots to Zoom/Meet/Teams, capture phone calls, and query past meeting history using natural language AI prompts."
   ]
 }

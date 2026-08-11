@@ -40,8 +40,8 @@
       "badgeText": "Smart Dashboard & AI",
       "title": "Six cards, one command center, built-in AI",
       "description": "Cycle through focus, blockers, replies, and events on a 3D wheel picker, or query the Supervisor AI directly with natural language and file attachments. Track live tool execution logs in real-time.",
-      "lightImage": "/mockups/light/Dashboard light.png",
-      "darkImage": "/mockups/dark/Dashboard Dark.png",
+      "lightImage": "/mockups/light/dashboard 2 light.png",
+      "darkImage": "/mockups/dark/dashboard 2 dark.png",
       "alt": "KeilHQ Smart Dashboard"
     },
     {
@@ -49,8 +49,8 @@
       "badgeText": "Task Management & Scheduling",
       "title": "Tasks, calendars, and schedules in one unified flow",
       "description": "Plan work with strict dependency blocking, Kanban, and calendar views. Tasks automatically sync with Google Calendar, allowing the AI scheduler to find free slots and auto-allocate time slots.",
-      "lightImage": "/mockups/light/Task Overview Light.png",
-      "darkImage": "/mockups/dark/Task Overview Dark.png",
+      "lightImage": "/mockups/light/task calendar view light.png",
+      "darkImage": "/mockups/dark/task calendar view dark.png",
       "alt": "KeilHQ Task Management"
     },
     {
@@ -58,8 +58,8 @@
       "badgeText": "Motion — Docs & Notes",
       "title": "Notion-quality docs, built right in",
       "description": "Block-based rich-text editor with real-time collaborative editing, subpage hierarchies, cover images, and Notion sync. Full TipTap editor with slash commands and @mentions.",
-      "lightImage": "/mockups/light/Motion Light.png",
-      "darkImage": "/mockups/dark/Motion Dark.png",
+      "lightImage": "/mockups/light/motion page light.png",
+      "darkImage": "/mockups/dark/motion page dark.png",
       "alt": "KeilHQ Motion Docs"
     },
     {
@@ -67,8 +67,8 @@
       "badgeText": "Meeting Recorder",
       "title": "Stop losing what was decided in your last meeting",
       "description": "Record audio with 5 visualizer styles, auto-transcribe with speaker diarization using Sarvam AI (23 Indian languages) or ElevenLabs. Turn decisions into tasks instantly.",
-      "lightImage": "/mockups/light/Meetings Light.png",
-      "darkImage": "/mockups/dark/Meetings Dark.png",
+      "lightImage": "/mockups/light/meetings light.png",
+      "darkImage": "/mockups/dark/meetings dark.png",
       "alt": "KeilHQ Meeting Recorder"
     }
   ],

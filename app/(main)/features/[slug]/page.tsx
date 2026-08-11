@@ -6,15 +6,15 @@ import { FeatureLayout } from "@/components/landing/feature-layout";
 
 /* ── Fallback image map (used until images are set via CMS) ── */
 const FALLBACK_IMAGES: Record<string, { light: string; dark: string }> = {
-  "smart-dashboard":       { light: "/mockups/light/Dashboard light.png",          dark: "/mockups/dark/Dashboard Dark.png" },
-  "task-management":       { light: "/mockups/light/Task Overview Light.png",      dark: "/mockups/dark/Task Overview Dark.png" },
-  "docs-notes":            { light: "/mockups/light/Motion Light.png",             dark: "/mockups/dark/Motion Dark.png" },
-  "team-chat":             { light: "/mockups/light/Chat Light.png",              dark: "/mockups/dark/Chat Dark.png" },
-  "meeting-recorder":      { light: "/mockups/light/Meetings Light.png",          dark: "/mockups/dark/Meetings Dark.png" },
-  "integrations":          { light: "/mockups/light/Settings Connectors Light.png", dark: "/mockups/dark/Settings Connectors Dark.png" },
-  "workspace":             { light: "/mockups/light/Org & Ws switching Light.png", dark: "/mockups/dark/Org & Ws Switching Dark.png" },
-  "crm":                   { light: "/mockups/light/Task Overview Light.png",      dark: "/mockups/dark/Task Overview Dark.png" },
-  "finance":               { light: "/mockups/light/Settings Billing Light.png",   dark: "/mockups/dark/Settings Billing Dark.png" },
+  "smart-dashboard":       { light: "/mockups/light/dashboard light.png",          dark: "/mockups/dark/dashboard dark.png" },
+  "task-management":       { light: "/mockups/light/task overview page light.png",      dark: "/mockups/dark/task overview page dark.png" },
+  "docs-notes":            { light: "/mockups/light/motion page light.png",             dark: "/mockups/dark/motion page dark.png" },
+  "team-chat":             { light: "/mockups/light/chat light.png",              dark: "/mockups/dark/chat dark.png" },
+  "meeting-recorder":      { light: "/mockups/light/meetings light.png",          dark: "/mockups/dark/meetings dark.png" },
+  "integrations":          { light: "/mockups/light/connectors settings light.png", dark: "/mockups/dark/connectors settings dark.png" },
+  "workspace":             { light: "/mockups/light/organization settings light.png", dark: "/mockups/dark/organization settings dark.png" },
+  "crm":                   { light: "/mockups/light/task overview page light.png",      dark: "/mockups/dark/task overview page dark.png" },
+  "finance":               { light: "/mockups/light/billing & subscription settings light.png",   dark: "/mockups/dark/billing & subscription settings dark.png" },
 };
 
 /* ── Fallback hero titles ── */
@@ -79,7 +79,7 @@ export default async function FeaturePage({ params }: { params: Promise<{ slug: 
 
   if (!feature) notFound();
 
-  const images = FALLBACK_IMAGES[slug] || { light: "/mockups/dark/Dashboard.png", dark: "/mockups/dark/Dashboard.png" };
+  const images = FALLBACK_IMAGES[slug] || { light: "/mockups/dark/dashboard dark.png", dark: "/mockups/dark/dashboard dark.png" };
 
   const lightSrc = (feature as any).lightImage || images.light;
   const darkSrc  = (feature as any).darkImage  || images.dark;

@@ -123,7 +123,7 @@ export function Hero({
           
           <div className="relative w-full rounded-lg overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.3)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.6)]">
             <Image
-              src="/mockups/light/Dashboard light.png"
+              src="/mockups/light/dashboard light.png"
               alt={`${heroTitle} — AI-powered workspace`}
               width={1600}
               height={1000}
@@ -131,7 +131,7 @@ export function Hero({
               priority
             />
             <Image
-              src="/mockups/dark/Dashboard Dark.png"
+              src="/mockups/dark/dashboard dark.png"
               alt={`${heroTitle} — AI-powered workspace`}
               width={1600}
               height={1000}

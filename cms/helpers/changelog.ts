@@ -81,11 +81,11 @@ export const getChangelogs = cache(async () => {
     // Mockup mapping based on slug
     let mockup = entry.image;
     if (!mockup) {
-      if (slug.includes('v2-4-0')) mockup = '/mockups/dark/Meetings Dark.png';
-      else if (slug.includes('v2-3-0')) mockup = '/mockups/dark/Motion Dark.png';
-      else if (slug.includes('v2-2-0')) mockup = '/mockups/dark/Dashboard Dark.png';
-      else if (slug.includes('v2-1-0')) mockup = '/mockups/dark/Task Overview Dark.png';
-      else mockup = '/mockups/dark/Dashboard Dark.png';
+      if (slug.includes('v2-4-0')) mockup = '/mockups/dark/meetings dark.png';
+      else if (slug.includes('v2-3-0')) mockup = '/mockups/dark/motion page dark.png';
+      else if (slug.includes('v2-2-0')) mockup = '/mockups/dark/dashboard dark.png';
+      else if (slug.includes('v2-1-0')) mockup = '/mockups/dark/task overview page dark.png';
+      else mockup = '/mockups/dark/dashboard dark.png';
     }
 
     entries.push({

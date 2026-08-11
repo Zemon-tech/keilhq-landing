@@ -6,8 +6,8 @@
   "subHeroDesc": "Build custom databases for contacts, accounts, and deal pipelines with 11+ field types, interactive kanban and spreadsheet layouts, omnichannel webhooks, native email outreach, AI meeting transcript BANT extraction, and 360° prospect record hubs.",
   "subHeroLink": "https://app.Keilhq.in/login",
   "subHeroLinkText": "Try Relational CRM",
-  "lightImage": "/mockups/light/Task Overview Light.png",
-  "darkImage": "/mockups/dark/Task Overview Dark.png",
+  "lightImage": "/mockups/light/crm overview light.png",
+  "darkImage": "/mockups/dark/crm overview dark.png",
   "sections": [
     {
       "title": "Custom entity architecture with 11+ dynamic field types",
@@ -49,8 +49,8 @@
       "title": "Multi-view pipeline boards, advanced query filters, and spreadsheet calculations",
       "desc": "Manage deal pipelines across interactive Kanban boards, high-density spreadsheet views, and stage lists with multi-tier sorting, nested AND/OR filters, group-by headers, and footer calculation rows.",
       "isImageRight": true,
-      "lightImage": "/mockups/light/Task Overview Light.png",
-      "darkImage": "/mockups/dark/Task Overview Dark.png",
+      "lightImage": "/mockups/light/crm list light.png",
+      "darkImage": "/mockups/dark/crm lists dark.png",
       "tags": [
         { "index": "8.5", "name": "Interactive Kanban" },
         { "index": "8.6", "name": "Spreadsheet View" },
@@ -88,8 +88,8 @@
       "title": "Omnichannel lead ingestion, spreadsheet imports, and native email outreach",
       "desc": "Capture leads from embedded web forms, Meta Lead Ads, WhatsApp, and telephony webhooks. Import spreadsheets with auto-mapping, and send emails natively via Gmail and Zoho OAuth.",
       "isImageLeft": true,
-      "lightImage": "/mockups/light/Settings Connectors Light.png",
-      "darkImage": "/mockups/dark/Settings Connectors Dark.png",
+      "lightImage": "/mockups/light/connectors settings light.png",
+      "darkImage": "/mockups/dark/connectors settings dark.png",
       "tags": [
         { "index": "8.9", "name": "Omnichannel Lead Webhooks" },
         { "index": "8.10", "name": "Bulk Spreadsheet Import" },
@@ -127,8 +127,8 @@
       "title": "AI sales meeting BANT extraction, smart deduplication, and 360° record hubs",
       "desc": "Transcribe sales calls to auto-extract BANT criteria, merge duplicate leads with side-by-side comparison, manage 5-tab record hubs, and sync CRM pipeline metrics directly to your main dashboard.",
       "isImageRight": true,
-      "lightImage": "/mockups/light/Task Sidebar overview Light.png",
-      "darkImage": "/mockups/dark/Task Sidebar overview Dark.png",
+      "lightImage": "/mockups/light/crm records light.png",
+      "darkImage": "/mockups/dark/crm records dark.png",
       "tags": [
         { "index": "8.13", "name": "AI Sales Bot & BANT Extraction" },
         { "index": "8.14", "name": "Smart Deduplication" },

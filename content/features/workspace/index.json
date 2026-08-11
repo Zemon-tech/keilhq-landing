@@ -6,8 +6,8 @@
   "subHeroDesc": "KeilHQ unifies work around structured company Organizations and project Spaces. Secure your directory, billing, and resources with strict Role-Based Access Control (RBAC).",
   "subHeroLink": "https://app.Keilhq.in/login",
   "subHeroLinkText": "Try Org & RBAC",
-  "lightImage": "/mockups/light/Org & Ws switching Light.png",
-  "darkImage": "/mockups/dark/Org & Ws Switching Dark.png",
+  "lightImage": "/mockups/light/organization settings light.png",
+  "darkImage": "/mockups/dark/organization settings dark.png",
   "sections": [
     {
       "title": "Structured company buildings and project spaces",
@@ -49,8 +49,8 @@
       "title": "Role-Based Access Control and security safety guards",
       "desc": "Control member access at both Organization and Space levels with granular roles. Enforce safety rules that prevent accidental administrator lockouts.",
       "isImageRight": true,
-      "lightImage": "/mockups/light/Settings Accounts Light.png",
-      "darkImage": "/mockups/dark/Settings account Dark.png",
+      "lightImage": "/mockups/light/account settings light.png",
+      "darkImage": "/mockups/dark/account settings dark.png",
       "tags": [
         { "index": "7.5", "name": "Organization Roles" },
         { "index": "7.6", "name": "Space-Level Roles" },
