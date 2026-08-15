@@ -17,15 +17,15 @@ interface HeroProps {
 }
 
 export function Hero({
-  heroTitle = "The product development system for teams and agents",
-  heroSubtitle = "Purpose-built for planning and building products. Designed for the AI era.",
+  heroTitle = "The operational and context layer for modern companies",
+  heroSubtitle = "Unite tasks, documents, client records, meeting intelligence, and financials in one shared context engine. Managed and operated by AI.",
   heroCtaLabel = "Start free today",
   heroCtaLink = "https://app.Keilhq.in/login",
   heroSecondaryCtaLabel = "Book a demo",
   heroSecondaryCtaLink = "/demo",
   announcementEnabled = false,
-  announcementText = "New Coding Sessions",
-  announcementLink = "#",
+  announcementText = "VC Portfolio Offer: Free 1-Month Team Workspace →",
+  announcementLink = "/enterprise",
 }: HeroProps) {
   const [isVisible, setIsVisible] = useState(false);
 

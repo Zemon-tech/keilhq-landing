@@ -1,100 +1,88 @@
 {
-  "heroTitle": "The product development system for teams and agents",
-  "heroSubtitle": "Purpose-built for planning and building products. Designed for the AI era.",
+  "heroTitle": "The operational and context layer for modern companies",
+  "heroSubtitle": "Unite tasks, documents, client records, meeting intelligence, and financials in one shared context engine. Managed and operated by AI.",
   "heroCtaLabel": "Start free today",
   "heroCtaLink": "https://app.Keilhq.in/login",
   "heroSecondaryCtaLabel": "Book a demo",
   "heroSecondaryCtaLink": "/demo",
   "announcementEnabled": true,
-  "announcementText": "New Coding Sessions",
-  "announcementLink": "#",
+  "announcementText": "VC Portfolio Offer: Free 1-Month Team Workspace →",
+  "announcementLink": "/enterprise",
   "logoCloud": [
     {
-      "name": "Vercel"
+      "name": "AIC GGSIPU"
     },
     {
-      "name": "Cursor"
+      "name": "Qeno AI"
     },
     {
-      "name": "Oscar"
+      "name": "Sarvam AI"
     },
     {
-      "name": "OpenAI"
+      "name": "GitHub"
     },
     {
-      "name": "Coinbase"
+      "name": "Google Workspace"
     },
     {
-      "name": "Cash App"
+      "name": "Notion"
     },
     {
-      "name": "Boom"
+      "name": "PostHog"
     },
     {
-      "name": "Ramp"
+      "name": "Grafana"
     }
   ],
   "featureSections": [
     {
       "id": "smart-dashboard",
-      "badgeText": "Smart Dashboard & AI",
-      "title": "Your entire workday, visible at a glance",
-      "description": "See what needs your attention the moment you open KeilHQ. Your focus, blockers, replies, and upcoming events are surfaced automatically — and a built-in AI lets you act on any of it instantly.",
-      "lightImage": "/mockups/light/dashboard-light.webp",
-      "darkImage": "/mockups/dark/dashboard-dark.webp",
-      "alt": "KeilHQ Smart Dashboard"
-    },
-    {
-      "id": "task-management",
-      "badgeText": "Task Management & Scheduling",
-      "title": "Tasks, calendars, and schedules in one unified flow",
-      "description": "Plan work with strict dependency blocking, Kanban, and calendar views. Tasks automatically sync with Google Calendar, allowing the AI scheduler to find free slots and auto-allocate time slots.",
-      "lightImage": "/mockups/light/task-calendar-view-light.webp",
-      "darkImage": "/mockups/dark/task-calendar-view-dark.webp",
-      "alt": "KeilHQ Task Management"
-    },
-    {
-      "id": "docs-notes",
-      "badgeText": "Motion — Docs & Notes",
-      "title": "Notion-quality docs, built right in",
-      "description": "Block-based rich-text editor with real-time collaborative editing, subpage hierarchies, cover images, and Notion sync. Full TipTap editor with slash commands and @mentions.",
-      "lightImage": "/mockups/light/motion-page-light.webp",
-      "darkImage": "/mockups/dark/motion-page-dark.webp",
-      "alt": "KeilHQ Motion Docs"
+      "badgeText": "Operational Context Engine",
+      "title": "Ask anything about your company. Get the verified source.",
+      "description": "KeilHQ continuously synthesizes your tasks, docs, meeting transcripts, client records, and chat into an active organizational memory. Your AI co-workers answer with exact context — not generic hallucinations.",
+      "alt": "KeilHQ Operational Context Engine & Smart Dashboard"
     },
     {
       "id": "meeting-recorder",
-      "badgeText": "Meeting Recorder",
-      "title": "Stop losing what was decided in your last meeting",
-      "description": "Record audio with 5 visualizer styles, auto-transcribe with speaker diarization using Sarvam AI (23 Indian languages) or ElevenLabs. Turn decisions into tasks instantly.",
-      "lightImage": "/mockups/light/meetings-light.webp",
-      "darkImage": "/mockups/dark/meetings-dark.webp",
-      "alt": "KeilHQ Meeting Recorder"
+      "badgeText": "Meeting Intelligence to Action",
+      "title": "Client calls produce approved tasks and CRM updates in 2 minutes",
+      "description": "Record meetings with speaker diarization in 23+ Indian and global languages. KeilHQ extracts action items, proposes CRM updates, and stages them for 1-click human approval — no more lost post-call notes.",
+      "alt": "KeilHQ Multilingual Meeting Intelligence"
     },
     {
       "id": "crm",
-      "badgeText": "Relational CRM",
-      "title": "Custom databases, dynamic fields, and omnichannel pipelines",
-      "description": "Build custom databases for contacts, accounts, and deal pipelines with 11+ field types, interactive Kanban and spreadsheet layouts, omnichannel webhooks, native email outreach, and AI meeting transcript BANT extraction.",
-      "lightImage": "/mockups/light/crm-overview-light.webp",
-      "darkImage": "/mockups/dark/crm-overview-dark.webp",
-      "alt": "KeilHQ Relational CRM"
+      "badgeText": "Relational CRM & Unified Lifecycle",
+      "title": "A client's full history in one screen. Deal-to-onboarding in <24h",
+      "description": "Move a deal to 'Closed Won' and KeilHQ instantly auto-provisions the onboarding workspace, briefs, and tasks. From initial intake call to year-three renewals, customer context never evaporates.",
+      "alt": "KeilHQ Relational CRM & Lifecycle Automation"
+    },
+    {
+      "id": "task-management",
+      "badgeText": "Execution & Dependency Scheduling",
+      "title": "Strict dependency blocking with automated calendar and PR sync",
+      "description": "Maintain momentum across sales, product, and delivery. Tasks automatically block dependent workflows, sync bi-directionally with Google Calendar, and auto-update when GitHub PRs merge.",
+      "alt": "KeilHQ Task Execution and Auto Scheduling"
+    },
+    {
+      "id": "docs-notes",
+      "badgeText": "Motion — Smart Knowledge Base",
+      "title": "Collaborative docs that actually stay connected to the work",
+      "description": "TipTap-powered block editor for SOPs, specs, and playbooks. Motion pages connect natively to tasks and CRM records, searchable via RAG semantic search across your entire workspace.",
+      "alt": "KeilHQ Motion Collaborative Docs"
     },
     {
       "id": "finance",
-      "badgeText": "Finance & Bookkeeping",
-      "title": "Multi-book accounting ledgers and automated payroll",
-      "description": "Manage multi-book accounting ledgers, issue custom recurring invoices, automate bank statement reconciliation, run employee payroll with digital payslips, and monitor 11 built-in financial reports.",
-      "lightImage": "/mockups/light/finance-overview-light.webp",
-      "darkImage": "/mockups/dark/finance-overview-dark.webp",
-      "alt": "KeilHQ Finance & Bookkeeping"
+      "badgeText": "Connected Operational Finance",
+      "title": "Invoicing and ledgers connected directly to delivered work",
+      "description": "Manage multi-book accounting ledgers, reconcile bank statements automatically, and convert finished project milestones into verified client invoices. Monthly reconciliation drops from 12 hours to 3.",
+      "alt": "KeilHQ Operational Finance & Accounting"
     }
   ],
-  "finalCtaTitle": "Your team deserves a workspace that works.",
-  "finalCtaDescription": "Join 7,000+ teams who replaced their scattered stack with KeilHQ. Everything unified. AI that knows your work.",
+  "finalCtaTitle": "Stop managing work across 15 tabs. Start executing.",
+  "finalCtaDescription": "Join modern startups, agencies, and revenue teams running on KeilHQ's AI-native operational context layer. Everything connected. Zero lost context.",
   "finalCtaButtonLabel": "Start free today",
   "finalCtaButtonLink": "https://app.Keilhq.in/login",
   "finalCtaSecondaryButtonLabel": "Book a demo",
   "finalCtaSecondaryButtonLink": "/demo",
-  "finalCtaTrustText": "No credit card required · Cancel any time"
+  "finalCtaTrustText": "Free 1-month team trial · No credit card required · 6-hour SLA support"
 }

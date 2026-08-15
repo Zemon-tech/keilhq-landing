@@ -12,8 +12,8 @@ import { getBlogPosts } from "@/cms/helpers/blog";
 import { getLovedBy } from "@/cms/helpers/loved-by";
 
 export const metadata: Metadata = {
-  title: "KeilHQ — Human Clarity for Teams",
-  description: "Human clarity for teams. KeilHQ is the desktop-first work management platform combining database-enforced task clarity, real-time team chat, block docs, 2-way calendar sync, meeting transcription, and multi-agent AI.",
+  title: "KeilHQ — AI-Native Operational & Context Layer for Modern Teams",
+  description: "Stop wasting time across 15+ disconnected tools. KeilHQ unifies tasks, docs, customer records, meeting intelligence, and financials into a single shared operational context engine managed by AI.",
 };
 
 // ─── Mockup image wrapper — consistent shadow + rounding ─────────────────────

@@ -14,13 +14,13 @@ interface FinalCtaProps {
 }
 
 export function FinalCta({
-  finalCtaTitle = "Your team deserves a workspace that works.",
-  finalCtaDescription = "Join 7,000+ teams who replaced their scattered stack with KeilHQ. Everything unified. AI that knows your work.",
+  finalCtaTitle = "Stop managing work across 15 tabs. Start executing.",
+  finalCtaDescription = "Join modern startups, agencies, and revenue teams running on KeilHQ's AI-native operational context layer. Everything connected. Zero lost context.",
   finalCtaButtonLabel = "Start free today",
   finalCtaButtonLink = "https://app.Keilhq.in/login",
   finalCtaSecondaryButtonLabel = "Book a demo",
   finalCtaSecondaryButtonLink = "/demo",
-  finalCtaTrustText = "No credit card required · Cancel any time",
+  finalCtaTrustText = "Free 1-month team trial · No credit card required · 6-hour SLA support",
 }: FinalCtaProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);

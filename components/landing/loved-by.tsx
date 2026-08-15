@@ -3,25 +3,25 @@
 import React from "react";
 
 export function LovedBy({ data }: { data?: any }) {
-  const title = data?.title || "Loved by the best.";
-  const stat1Label = data?.stat1Label || "Average savings per seat";
-  const stat1Value = data?.stat1Value || "$40–$70 / mo";
-  const stat2Label = data?.stat2Label || "Teams worldwide";
-  const stat2Value = data?.stat2Value || "7,000+";
+  const title = data?.title || "Proven operational ROI.";
+  const stat1Label = data?.stat1Label || "Time recovered per team member";
+  const stat1Value = data?.stat1Value || "11 hrs / wk";
+  const stat2Label = data?.stat2Label || "Deal to onboarding velocity";
+  const stat2Value = data?.stat2Value || "< 24 hrs";
 
   const testimonials = data?.testimonials || [
     {
-      quote: "KeilHQ is by far the best agency tool I have ever used. Everything is connected — tasks, docs, chat, calendar — and the AI actually knows what I'm working on.",
-      authorName: "Martha Punla",
-      authorRole: "VP Marketing, Meta",
-      authorAvatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=100&auto=format&fit=crop&crop=face",
+      quote: "A client mentioned something from an intake call six months earlier. We didn't have to scramble or remember it — KeilHQ's meeting intelligence and CRM surfaced the exact note. That wins renewals.",
+      authorName: "Sagar Sahu",
+      authorRole: "Program Manager, AIC GGSIPU",
+      authorAvatar: "https://7f0c3c9283690942f12072675bea02f1.cdn.bubble.io/cdn-cgi/image/w=384,h=373,f=auto,dpr=2,fit=contain/f1780921371029x651737872941958000/51397r73ev%20%281%29.png",
       isHighlighted: false,
     },
     {
-      quote: "From client onboarding to getting paid, this just works — clean, fast, and beautifully built. We cancelled four tools in the first week.",
-      authorName: "Leah Daniel",
-      authorRole: "Design Ops Lead, Teamwork",
-      authorAvatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=100&auto=format&fit=crop&crop=face",
+      quote: "The meeting intelligence and shared context layer alone justified the switch. We replaced 5 disconnected SaaS subscriptions and context actually flows between sales, delivery, and leadership.",
+      authorName: "Sahil",
+      authorRole: "CEO & Founder, Qeno AI",
+      authorAvatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRcidjK4k8HMKHeSUCaK9WSLowqwCDTiYoOtrJGljoLQ8A2VWmGRZr8q23&s=10",
       isHighlighted: true,
     },
   ];
@@ -34,13 +34,7 @@ export function LovedBy({ data }: { data?: any }) {
           {/* ── Left: heading + stat ── */}
           <div className="xl:w-[400px] shrink-0 flex flex-col gap-10 text-left">
             <h2 className="font-display text-[clamp(2.5rem,5vw,3.5rem)] font-medium leading-[1.1] tracking-tight text-foreground">
-              {title.includes("Loved by") ? (
-                <>
-                  Loved by<br />the best.
-                </>
-              ) : (
-                title
-              )}
+              {title}
             </h2>
             <div className="flex flex-col gap-6">
               <div className="flex flex-col gap-1">
@@ -51,14 +45,16 @@ export function LovedBy({ data }: { data?: any }) {
                   {stat1Value}
                 </span>
               </div>
-              <div className="flex flex-col gap-1">
-                <span className="text-[12px] font-sans tracking-widest text-muted-foreground uppercase">
-                  {stat2Label}
-                </span>
-                <span className="text-2xl font-semibold text-foreground tracking-tight font-display">
-                  {stat2Value}
-                </span>
-              </div>
+              {data?.stat2Label && (
+                <div className="flex flex-col gap-1">
+                  <span className="text-[12px] font-sans tracking-widest text-muted-foreground uppercase">
+                    {data.stat2Label}
+                  </span>
+                  <span className="text-2xl font-semibold text-foreground tracking-tight font-display">
+                    {data.stat2Value}
+                  </span>
+                </div>
+              )}
             </div>
           </div>
 
@@ -71,7 +67,7 @@ export function LovedBy({ data }: { data?: any }) {
                     <p className="text-[15px] sm:text-[16px] font-medium leading-[1.6] tracking-[0.01em] text-[#171514]">
                       &ldquo;{t.quote}&rdquo;
                     </p>
-                    
+
                     <div className="flex items-center gap-3 mt-8">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
@@ -97,7 +93,7 @@ export function LovedBy({ data }: { data?: any }) {
                   <p className="text-[15px] sm:text-[16px] font-normal leading-[1.6] tracking-[0.01em] text-muted-foreground">
                     &ldquo;{t.quote}&rdquo;
                   </p>
-                  
+
                   <div className="flex items-center gap-3 mt-8">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img

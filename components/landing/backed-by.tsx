@@ -165,15 +165,15 @@ export function BackedBy({ logoCloud }: BackedByProps) {
           </div>
         </div>
 
-        {/* ── A New Species Header ── */}
-        <div className="max-w-[800px] flex flex-col gap-6 text-left">
+        {/* ── Operational Moat Header ── */}
+        <div className="max-w-[850px] flex flex-col gap-6 text-left">
           <h2 
             className="font-display text-[clamp(2rem,4vw,2.75rem)] font-medium tracking-tight leading-[1.1] text-foreground text-balance"
           >
-            A new species of product tool
+            The operational layer built for modern companies
           </h2>
-          <p className="text-[17px] lg:text-[18px] font-normal text-muted-foreground leading-[1.55] max-w-[65ch]">
-            Purpose-built for modern teams with AI workflows at its core, KeilHQ sets a new standard for planning and building products.
+          <p className="text-[17px] lg:text-[18px] font-normal text-muted-foreground leading-[1.55] max-w-[68ch]">
+            Most businesses waste 40% of their day switching between 15 disconnected tabs, chasing lost notes, and re-explaining context. KeilHQ unifies your operational core so your team actually executes.
           </p>
         </div>
 
@@ -182,48 +182,48 @@ export function BackedBy({ logoCloud }: BackedByProps) {
           
           {/* Card 1 */}
           <div className="flex flex-col gap-4 p-6 border border-border bg-card hover:bg-muted/30 rounded-md shadow-sm transition-all duration-300">
-            <div className="text-[10px] font-mono tracking-widest text-muted-foreground/80">FIG 0.2</div>
+            <div className="text-[10px] font-mono tracking-widest text-muted-foreground/80">FIG 0.1</div>
             <div className="w-full flex items-center justify-center py-4 bg-muted/40 rounded-sm">
               <FigBuiltForPurpose />
             </div>
             <div className="flex flex-col gap-2 mt-2">
               <h3 className="text-sm font-semibold tracking-tight text-foreground font-display">
-                Built for purpose
+                Operational Context Engine
               </h3>
               <p className="text-[13px] font-normal text-muted-foreground leading-relaxed">
-                KeilHQ is shaped by the practices and principles of world-class product teams.
+                Continuously synthesizes tasks, documents, client history, and meeting transcripts into unified organizational memory.
               </p>
             </div>
           </div>
 
           {/* Card 2 */}
           <div className="flex flex-col gap-4 p-6 border border-border bg-card hover:bg-muted/30 rounded-md shadow-sm transition-all duration-300">
-            <div className="text-[10px] font-mono tracking-widest text-muted-foreground/80">FIG 0.3</div>
+            <div className="text-[10px] font-mono tracking-widest text-muted-foreground/80">FIG 0.2</div>
             <div className="w-full flex items-center justify-center py-4 bg-muted/40 rounded-sm">
               <FigPoweredByAIAgents />
             </div>
             <div className="flex flex-col gap-2 mt-2">
               <h3 className="text-sm font-semibold tracking-tight text-foreground font-display">
-                Powered by AI agents
+                Agentic Execution & Co-workers
               </h3>
               <p className="text-[13px] font-normal text-muted-foreground leading-relaxed">
-                Designed for workflows shared by humans and agents. From drafting PRDs to pushing PRs.
+                Role-specific AI agents (CEO, CTO, CFO) that coordinate workflows, draft actions, and surface blocked projects.
               </p>
             </div>
           </div>
 
           {/* Card 3 */}
           <div className="flex flex-col gap-4 p-6 border border-border bg-card hover:bg-muted/30 rounded-md shadow-sm transition-all duration-300">
-            <div className="text-[10px] font-mono tracking-widest text-muted-foreground/80">FIG 0.4</div>
+            <div className="text-[10px] font-mono tracking-widest text-muted-foreground/80">FIG 0.3</div>
             <div className="w-full flex items-center justify-center py-4 bg-muted/40 rounded-sm">
               <FigDesignedForSpeed />
             </div>
             <div className="flex flex-col gap-2 mt-2">
               <h3 className="text-sm font-semibold tracking-tight text-foreground font-display">
-                Designed for speed
+                Zero-Friction Handoffs
               </h3>
               <p className="text-[13px] font-normal text-muted-foreground leading-relaxed">
-                Reduces noise and restores momentum to help teams ship with high velocity and focus.
+                Deals auto-trigger client onboarding in &lt;24 hours. Finished milestones flow straight into ready-to-send invoices.
               </p>
             </div>
           </div>

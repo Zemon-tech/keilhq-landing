@@ -1,22 +1,22 @@
 {
-  "title": "Loved by the best.",
-  "stat1Label": "Average savings per seat",
-  "stat1Value": "$40–$70 / mo",
-  "stat2Label": "Teams worldwide",
-  "stat2Value": "7,000+",
+  "title": "Proven operational ROI.",
+  "stat1Label": "Time recovered per team member",
+  "stat1Value": "11 hrs / wk",
+  "stat2Label": "Deal to onboarding velocity",
+  "stat2Value": "< 24 hrs",
   "testimonials": [
     {
-      "quote": "KeilHQ is by far the best agency tool I have ever used. Everything is connected — tasks, docs, chat, calendar — and the AI actually knows what I'm working on.",
-      "authorName": "Martha Punla",
-      "authorRole": "VP Marketing, Meta",
-      "authorAvatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=100&auto=format&fit=crop&crop=face",
+      "quote": "A client mentioned something from an intake call six months earlier. We didn't have to scramble or remember it — KeilHQ's meeting intelligence and CRM surfaced the exact note. That wins renewals.",
+      "authorName": "Sagar Sahu",
+      "authorRole": "Program Manager, AIC GGSIPU",
+      "authorAvatar": "https://7f0c3c9283690942f12072675bea02f1.cdn.bubble.io/cdn-cgi/image/w=384,h=373,f=auto,dpr=2,fit=contain/f1780921371029x651737872941958000/51397r73ev%20%281%29.png",
       "isHighlighted": false
     },
     {
-      "quote": "From client onboarding to getting paid, this just works — clean, fast, and beautifully built. We cancelled four tools in the first week.",
-      "authorName": "Leah Daniel",
-      "authorRole": "Design Ops Lead, Teamwork",
-      "authorAvatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=100&auto=format&fit=crop&crop=face",
+      "quote": "The meeting intelligence and shared context layer alone justified the switch. We replaced 5 disconnected SaaS subscriptions and context actually flows between sales, delivery, and leadership.",
+      "authorName": "Sahil",
+      "authorRole": "CEO & Founder, Qeno AI",
+      "authorAvatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRcidjK4k8HMKHeSUCaK9WSLowqwCDTiYoOtrJGljoLQ8A2VWmGRZr8q23&s=10",
       "isHighlighted": true
     }
   ]
