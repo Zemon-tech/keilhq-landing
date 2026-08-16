@@ -12,8 +12,8 @@
     {
       "title": "Your company, organized from the top down",
       "desc": "Your organization is the home for your whole company. Inside it, you create individual spaces for each team or project — each with its own tasks, conversations, and documents.",
-      "lightImage": "/mockups/light/organization-settings-light.webp",
-      "darkImage": "/mockups/dark/organization-settings-dark.webp",
+      "lightImage": "/mockups/light/organization-data-export-settings-light.webp",
+      "darkImage": "/mockups/dark/organization-data-export-settings-dark.webp",
       "tags": [
         { "index": "7.1", "name": "Organization" },
         { "index": "7.2", "name": "Project Spaces" },

@@ -122,8 +122,8 @@
       "title": "AI that listens to your sales calls and updates your CRM",
       "desc": "Record a sales meeting and KeilHQ extracts the key details — what the prospect's budget is, who the decision-maker is, what they need, and when they want to move. All proposed for your review, never applied automatically.",
       "isImageRight": true,
-      "lightImage": "/mockups/light/crm-records-light.webp",
-      "darkImage": "/mockups/dark/crm-records-dark.webp",
+      "lightImage": "/mockups/light/ai-chat-light.webp",
+      "darkImage": "/mockups/dark/ai-chat-dark.webp",
       "tags": [
         { "index": "8.12", "name": "Sales Call AI" },
         { "index": "8.13", "name": "Duplicate Detection" },

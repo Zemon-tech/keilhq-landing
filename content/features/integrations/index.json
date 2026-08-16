@@ -12,8 +12,8 @@
     {
       "title": "Connect the tools your team already relies on",
       "desc": "One authorization connects Google Calendar, Gmail, GitHub, Notion, and more. Your data flows into KeilHQ automatically — no manual syncing, no copy-pasting between tabs.",
-      "lightImage": "/mockups/light/connectors-settings-light.webp",
-      "darkImage": "/mockups/dark/connectors-settings-dark.webp",
+      "lightImage": "/mockups/light/shortcut-settings-light.webp",
+      "darkImage": "/mockups/dark/shortcuts-settings-dark.webp",
       "tags": [
         { "index": "6.1", "name": "Google Workspace" },
         { "index": "6.2", "name": "GitHub" },

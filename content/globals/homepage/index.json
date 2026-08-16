@@ -40,6 +40,8 @@
       "badgeText": "Operational Context Engine",
       "title": "Ask anything about your company. Get the verified source.",
       "description": "KeilHQ continuously synthesizes your tasks, docs, meeting transcripts, client records, and chat into an active organizational memory. Your AI co-workers answer with exact context — not generic hallucinations.",
+      "lightImage": "/mockups/light/dashboard-light.webp",
+      "darkImage": "/mockups/dark/dashboard-dark.webp",
       "alt": "KeilHQ Operational Context Engine & Smart Dashboard"
     },
     {
@@ -47,6 +49,8 @@
       "badgeText": "Meeting Intelligence to Action",
       "title": "Client calls produce approved tasks and CRM updates in 2 minutes",
       "description": "Record meetings with speaker diarization in 23+ Indian and global languages. KeilHQ extracts action items, proposes CRM updates, and stages them for 1-click human approval — no more lost post-call notes.",
+      "lightImage": "/mockups/light/meetings-light.webp",
+      "darkImage": "/mockups/dark/meetings-dark.webp",
       "alt": "KeilHQ Multilingual Meeting Intelligence"
     },
     {
@@ -54,6 +58,8 @@
       "badgeText": "Relational CRM & Unified Lifecycle",
       "title": "A client's full history in one screen. Deal-to-onboarding in <24h",
       "description": "Move a deal to 'Closed Won' and KeilHQ instantly auto-provisions the onboarding workspace, briefs, and tasks. From initial intake call to year-three renewals, customer context never evaporates.",
+      "lightImage": "/mockups/light/crm-overview-light.webp",
+      "darkImage": "/mockups/dark/crm-overview-dark.webp",
       "alt": "KeilHQ Relational CRM & Lifecycle Automation"
     },
     {
@@ -61,6 +67,8 @@
       "badgeText": "Execution & Dependency Scheduling",
       "title": "Strict dependency blocking with automated calendar and PR sync",
       "description": "Maintain momentum across sales, product, and delivery. Tasks automatically block dependent workflows, sync bi-directionally with Google Calendar, and auto-update when GitHub PRs merge.",
+      "lightImage": "/mockups/light/task-overview-page-light.webp",
+      "darkImage": "/mockups/dark/task-overview-page-dark.webp",
       "alt": "KeilHQ Task Execution and Auto Scheduling"
     },
     {
@@ -68,6 +76,8 @@
       "badgeText": "Motion — Smart Knowledge Base",
       "title": "Collaborative docs that actually stay connected to the work",
       "description": "TipTap-powered block editor for SOPs, specs, and playbooks. Motion pages connect natively to tasks and CRM records, searchable via RAG semantic search across your entire workspace.",
+      "lightImage": "/mockups/light/motion-page-light.webp",
+      "darkImage": "/mockups/dark/motion-page-dark.webp",
       "alt": "KeilHQ Motion Collaborative Docs"
     },
     {
@@ -75,6 +85,8 @@
       "badgeText": "Connected Operational Finance",
       "title": "Invoicing and ledgers connected directly to delivered work",
       "description": "Manage multi-book accounting ledgers, reconcile bank statements automatically, and convert finished project milestones into verified client invoices. Monthly reconciliation drops from 12 hours to 3.",
+      "lightImage": "/mockups/light/finance-overview-light.webp",
+      "darkImage": "/mockups/dark/finance-overview-dark.webp",
       "alt": "KeilHQ Operational Finance & Accounting"
     }
   ],
