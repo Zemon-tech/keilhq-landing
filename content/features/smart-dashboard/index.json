@@ -17,8 +17,7 @@
       "tags": [
         { "index": "1.1", "name": "Current Focus" },
         { "index": "1.2", "name": "Live Blockers" },
-        { "index": "1.3", "name": "Pending Replies" },
-        { "index": "1.4", "name": "Quick Capture" }
+        { "index": "1.3", "name": "Quick Capture" }
       ],
       "gridItems": [
         {
@@ -35,12 +34,6 @@
         },
         {
           "index": "1.3",
-          "title": "Always-on workspace clock",
-          "desc": "Your local time is always visible on the dashboard, in whichever format you prefer. A small detail, but one less thing to check elsewhere.",
-          "iconName": "Clock"
-        },
-        {
-          "index": "1.4",
           "title": "Capture anything in one click",
           "desc": "A quick-capture shortcut lives right in the dashboard. Caught a thought mid-meeting? Log it as a task instantly and get back to what you were doing.",
           "iconName": "PlusCircle"
@@ -49,85 +42,85 @@
     },
     {
       "title": "Autonomous AI execution across tasks, calendar events, and Motion docs",
-      "desc": "Execute complete workspace operations using natural language prompts. KeilHQ's AI engine creates, updates, and deletes tasks, calendar events, and Motion wiki pages while providing instant on-demand summaries.",
+      "desc": "Orchestrate your entire workspace purely through natural conversation. KeilHQ's AI engine creates and prioritizes tasks, harmonizes schedules, and authors rich documentation while delivering real-time executive summaries.",
       "isImageLeft": true,
       "lightImage": "/mockups/light/ai-sidebar-light.webp",
       "darkImage": "/mockups/dark/ai-sidebar-dark.webp",
       "tags": [
-        { "index": "1.5", "name": "Task Operations (CRUD)" },
-        { "index": "1.6", "name": "Calendar & Event Operations" },
-        { "index": "1.7", "name": "Motion Page Operations" },
-        { "index": "1.8", "name": "Instant Workspace Summaries" }
+        { "index": "1.4", "name": "Autonomous Task Execution" },
+        { "index": "1.5", "name": "Intelligent Scheduling" },
+        { "index": "1.6", "name": "Dynamic Documentation" },
+        { "index": "1.7", "name": "Live Context Summaries" }
       ],
       "gridItems": [
         {
-          "index": "1.5",
+          "index": "1.4",
           "title": "Complete Task Lifecycle Management",
-          "desc": "Command the AI assistant to create, update, re-prioritize, modify assignees, set dependencies, or delete tasks directly through simple natural language prompts.",
+          "desc": "Command your AI to create, reprioritize, assign teammates, track dependencies, and manage complete sprint workflows with simple conversational instructions.",
           "iconName": "CheckSquare"
         },
         {
-          "index": "1.6",
+          "index": "1.5",
           "title": "Calendar & Event Scheduling Engine",
-          "desc": "Delegate calendar operations to AI to schedule new events, update time slots, adjust meeting durations, modify attendee lists, or delete obsolete calendar entries hands-free.",
+          "desc": "Let your AI handle the calendar maze — book syncs, resolve meeting conflicts, adapt durations, and align key stakeholders completely hands-free.",
           "iconName": "Calendar"
         },
         {
-          "index": "1.7",
+          "index": "1.6",
           "title": "Motion Docs & Wiki Automation",
-          "desc": "Create new Motion wiki pages, edit existing document structures, update sprint-linked notes, or delete outdated pages seamlessly through conversational commands.",
+          "desc": "Draft detailed product specs, structure SOPs, auto-generate meeting summaries, and maintain living knowledge bases effortlessly through conversational prompts.",
           "iconName": "FileText"
         },
         {
-          "index": "1.8",
+          "index": "1.7",
           "title": "On-Demand Workspace Summaries",
-          "desc": "Instantly generate condensed, intelligent summaries of active task queues, upcoming calendar events, and Motion documentation pages whenever you need a fast status update.",
+          "desc": "Instantly pull high-signal executive briefings of active project queues, upcoming team deadlines, and critical milestones with zero manual searching.",
           "iconName": "BarChart3"
         }
       ]
     },
     {
-      "title": "Supervisor AI, specialized agents, and web intelligence command center",
-      "desc": "Interact with a master Supervisor AI agent that routes natural language commands to specialized sub-agents. Track chain-of-thought execution steps, search the web live via Exa API, and integrate developer tools with persistent PostgreSQL conversation memory.",
+      "title": "Supervisor AI, specialized agents, and live intelligence command center",
+      "desc": "Command a master Supervisor AI that orchestrates dedicated agents to handle complex cross-team workflows. Watch step-by-step reasoning unfold in real time, pull instant verified market intelligence into any project, and retain permanent contextual memory across your entire organization.",
       "isImageRight": true,
       "lightImage": "/mockups/light/ai-chat-light.webp",
       "darkImage": "/mockups/dark/ai-chat-dark.webp",
       "tags": [
-        { "index": "1.9", "name": "Master Supervisor Agent" },
-        { "index": "1.10", "name": "Specialized Sub-Agents" },
-        { "index": "1.11", "name": "Chatbot & Live Web Search" },
-        { "index": "1.12", "name": "GitHub & Dev Stack Tools" },
-        { "index": "1.13", "name": "Chain-of-Thought & Memory" }
+        { "index": "1.8", "name": "Master Supervisor Agent" },
+        { "index": "1.9", "name": "Specialized Sub-Agents" },
+        { "index": "1.10", "name": "Live Web & Market Intel" },
+        { "index": "1.11", "name": "Connected Engineering Stack" },
+        { "index": "1.12", "name": "Transparent Reasoning & Memory" }
       ],
       "gridItems": [
         {
-          "index": "1.9",
+          "index": "1.8",
           "title": "Master Supervisor Agent",
-          "desc": "A central AI coordinator routing complex multi-step user prompts to specialized sub-agents for tasks, calendar scheduling, and documentation workflows.",
+          "desc": "A central AI coordinator that breaks down ambitious multi-step goals and orchestrates specialized co-workers to execute tasks, calendar events, and docs in parallel.",
           "iconName": "Brain"
         },
         {
-          "index": "1.10",
+          "index": "1.9",
           "title": "Specialized Task & Schedule Agents",
-          "desc": "Create and search tasks using natural language queries, and let the AI scheduler auto-allocate unscheduled sprint items into open slots based on priority and availability.",
+          "desc": "Turn high-level thoughts into executed roadmaps. The AI scheduler automatically allocates unscheduled priorities into optimal calendar slots around your deep focus time.",
           "iconName": "Zap"
         },
         {
-          "index": "1.11",
-          "title": "Conversational Chatbot & Web Search",
-          "desc": "Engage in natural conversations like any standard chatbot while leveraging live web searches via Exa API to retrieve up-to-date web intelligence directly inside your workspace.",
+          "index": "1.10",
+          "title": "Conversational Co-worker & Web Intelligence",
+          "desc": "Engage in deep strategic discussions and pull verified real-time web research, industry trends, and competitor insights directly into your workflow without leaving the app.",
           "iconName": "Globe"
         },
         {
-          "index": "1.12",
-          "title": "GitHub & Dev Stack Tools",
-          "desc": "Connect code repositories to list active pull requests, generate GitHub issues directly from tasks, inspect commits, and synchronize engineering workflows in real time.",
+          "index": "1.11",
+          "title": "Connected Tool & Engineering Stack",
+          "desc": "Bridge leadership, product, and engineering in one view. Triage pull requests, transform user requests into linked issues, and keep development perfectly in sync with company goals.",
           "iconName": "Code2"
         },
         {
-          "index": "1.13",
-          "title": "Chain-of-Thought & Postgres Memory",
-          "desc": "Inspect transparent step-by-step AI reasoning logs showing exact tool usage decisions, backed by persistent PostgreSQL conversation memory to maintain context across sessions.",
+          "index": "1.12",
+          "title": "Transparent Reasoning & Infinite Context",
+          "desc": "Watch complete chain-of-thought logic unfold before execution. Your AI co-workers never forget past decisions, meeting context, or client preferences across workspace sessions.",
           "iconName": "Sparkles"
         }
       ]

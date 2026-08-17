@@ -1,9 +1,10 @@
 {
   "title": "integrations",
+  "heroTitle": "Every tool you love, finally in sync",
   "eyebrowIndex": "6.0",
   "eyebrowText": "Integrations",
   "subHeroTitle": "KeilHQ fits into the tools you already use.",
-  "subHeroDesc": "Connect Google Workspace, GitHub, Notion, and more — so your team doesn't have to choose between the tools they know and the workspace that keeps everything together.",
+  "subHeroDesc": "Real-time, two-way sync with Google Workspace, GitHub, Notion, and Slack. Every task scheduled, document edited, or update made in KeilHQ instantly reflects across all your apps and devices — zero friction, zero tab hopping.",
   "subHeroLink": "https://app.Keilhq.in/login",
   "subHeroLinkText": "Try Integrations",
   "lightImage": "/mockups/light/connectors-settings-light.webp",
@@ -46,38 +47,6 @@
           "iconName": "Plug"
         }
       ]
-    },
-    {
-      "title": "Stay on top of what needs your attention",
-      "desc": "KeilHQ sends you alerts when something changes — a task is assigned, a comment is left, or someone mentions you. Smart filters mean you only hear about the things that actually matter.",
-      "isImageRight": true,
-      "lightImage": "/mockups/light/notification-light.webp",
-      "darkImage": "/mockups/dark/notification-dark.webp",
-      "tags": [
-        { "index": "6.5", "name": "Smart Alerts" },
-        { "index": "6.6", "name": "Instant Delivery" },
-        { "index": "6.7", "name": "Focus Mode" }
-      ],
-      "gridItems": [
-        {
-          "index": "6.5",
-          "title": "Smart alerts",
-          "desc": "Get notified when tasks are assigned to you, when someone comments on your work, or when you're mentioned in a conversation.",
-          "iconName": "Bell"
-        },
-        {
-          "index": "6.6",
-          "title": "Instant delivery",
-          "desc": "Notifications arrive the moment something happens — across every open tab, with no delay.",
-          "iconName": "Zap"
-        },
-        {
-          "index": "6.7",
-          "title": "Focus mode",
-          "desc": "Set quiet hours or filter out the alert types that don't need your immediate attention. Less noise, more focus.",
-          "iconName": "Sliders"
-        }
-      ]
     }
   ],
   "capabilitiesTitle": "One workspace. All your tools.",
@@ -89,7 +58,6 @@
     "Connect Google Calendar so your tasks and meetings stay in sync automatically — no double-entry required.",
     "Link Gmail to send emails directly from contact records without opening another tab.",
     "Connect GitHub so pull requests, issues, and code activity are visible right next to your project tasks.",
-    "Sync documents with Notion so your team can work from both platforms without keeping two copies in sync manually.",
-    "Get notified the moment something needs your attention — and filter out everything that doesn't."
+    "Sync documents with Notion so your team can work from both platforms without keeping two copies in sync manually."
   ]
 }

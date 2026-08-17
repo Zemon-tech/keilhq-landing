@@ -100,12 +100,11 @@ export function NavbarClient({ navigation, siteSettings }: NavbarClientProps) {
             if (link.href === "/features") {
               return (
                 <div key={link.href} className="relative group">
-                  <Link
-                    href="/features"
-                    className="flex items-center gap-1 text-[13px] font-semibold tracking-[0.01em] text-muted-foreground hover:text-foreground transition-colors duration-150 py-2 cursor-pointer bg-transparent border-none font-display"
+                  <span
+                    className="flex items-center gap-1 text-[13px] font-semibold tracking-[0.01em] text-muted-foreground hover:text-foreground transition-colors duration-150 py-2 cursor-default select-none font-display"
                   >
                     Product
-                  </Link>
+                  </span>
                   <div className="absolute top-full left-0 right-0 h-2 z-50" />
                   <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[900px] bg-card border border-border rounded-md shadow-md opacity-0 pointer-events-none scale-[0.97] origin-top transition-all duration-200 group-hover:opacity-100 group-hover:pointer-events-auto group-hover:scale-100 z-50 flex overflow-hidden">
                     <div className="w-[260px] shrink-0 bg-muted/40 p-8 border-r border-border flex flex-col justify-start text-left">
@@ -204,7 +203,6 @@ export function NavbarClient({ navigation, siteSettings }: NavbarClientProps) {
                     <div className="flex-1 p-8 flex flex-col gap-5 text-left bg-card">
                       {[
                         { title: "About Us", desc: "Our mission and team", href: "/about" },
-                        { title: "Team", desc: "Meet the crew", href: "/team" },
                         { title: "Demo", desc: "Book a personal walkthrough", href: "/demo" },
                       ].map((item) => (
                         <Link
@@ -316,7 +314,6 @@ export function NavbarClient({ navigation, siteSettings }: NavbarClientProps) {
                     <div className="flex flex-col gap-1.5 pl-4 mt-1">
                       {[
                         { title: "About Us", href: "/about" },
-                        { title: "Team", href: "/team" },
                         { title: "Demo", href: "/demo" },
                       ].map((item) => (
                         <Link

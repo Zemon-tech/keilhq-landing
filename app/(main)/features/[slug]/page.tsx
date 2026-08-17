@@ -24,7 +24,7 @@ const FALLBACK_TITLES: Record<string, string> = {
   "docs-notes":           "Collaborative docs wired to your project",
   "team-chat":            "Real-time chat inside your workspace",
   "meeting-recorder":     "Meetings captured, transcribed, and acted on",
-  "integrations":         "Your existing stack, unified",
+  "integrations":         "Every tool you love, finally in sync",
   "workspace":            "One workspace for the whole team",
   "crm":                  "Relational CRM and omnichannel deal intelligence",
   "finance":              "Complete financial control and multi-book accounting",

@@ -5,9 +5,9 @@
   "heroCtaLink": "https://app.Keilhq.in/login",
   "heroSecondaryCtaLabel": "Book a demo",
   "heroSecondaryCtaLink": "/demo",
-  "announcementEnabled": true,
-  "announcementText": "VC Portfolio Offer: Free 1-Month Team Workspace →",
-  "announcementLink": "/enterprise",
+  "announcementEnabled": false,
+  "announcementText": "",
+  "announcementLink": "",
   "logoCloud": [
     {
       "name": "AIC GGSIPU"

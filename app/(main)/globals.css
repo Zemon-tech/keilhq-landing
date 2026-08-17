@@ -270,11 +270,42 @@
 .animate-delay-300 { animation-delay: 300ms; }
 .animate-delay-400 { animation-delay: 400ms; }
 
+/* ─── Marquee animations ─────────────────────────────────────────── */
+@keyframes marquee-left {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes marquee-right {
+  0% {
+    transform: translate3d(-100%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-marquee-left {
+  animation: marquee-left linear infinite;
+}
+
+.animate-marquee-right {
+  animation: marquee-right linear infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-fade-rise {
     animation: none;
     opacity: 1;
     transform: none;
+  }
+  .animate-marquee-left,
+  .animate-marquee-right {
+    animation: none;
   }
 }
 

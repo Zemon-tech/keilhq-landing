@@ -24,8 +24,8 @@ export function Hero({
   heroSecondaryCtaLabel = "Book a demo",
   heroSecondaryCtaLink = "/demo",
   announcementEnabled = false,
-  announcementText = "VC Portfolio Offer: Free 1-Month Team Workspace →",
-  announcementLink = "/enterprise",
+  announcementText = "",
+  announcementLink = "",
 }: HeroProps) {
   const [isVisible, setIsVisible] = useState(false);
 

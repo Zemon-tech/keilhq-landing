@@ -48,9 +48,8 @@
       "darkImage": "/mockups/dark/meetings-transcription-dark.webp",
       "tags": [
         { "index": "5.4", "name": "Speaker Labels" },
-        { "index": "5.5", "name": "Search & Filter" },
-        { "index": "5.6", "name": "Multi-Language" },
-        { "index": "5.7", "name": "Audio Playback" }
+        { "index": "5.5", "name": "Multi-Language" },
+        { "index": "5.6", "name": "Audio Playback" }
       ],
       "gridItems": [
         {
@@ -61,18 +60,12 @@
         },
         {
           "index": "5.5",
-          "title": "Search any moment",
-          "desc": "Type any word or topic and jump to every place it was mentioned. Never scrub through audio again.",
-          "iconName": "Search"
-        },
-        {
-          "index": "5.6",
           "title": "Multiple languages",
           "desc": "KeilHQ detects the language automatically and transcribes in it — across a wide range of global and regional languages.",
           "iconName": "Globe"
         },
         {
-          "index": "5.7",
+          "index": "5.6",
           "title": "Audio playback",
           "desc": "Listen back at your own pace with speed controls, waveform scrubbing, and 10-second skip buttons.",
           "iconName": "PlayCircle"
@@ -86,32 +79,32 @@
       "lightImage": "/mockups/light/meetings-summary-light.webp",
       "darkImage": "/mockups/dark/meetings-summary-dark.webp",
       "tags": [
-        { "index": "5.8", "name": "Executive Summary" },
-        { "index": "5.9", "name": "Decisions Log" },
-        { "index": "5.10", "name": "Open Questions" },
-        { "index": "5.11", "name": "Export" }
+        { "index": "5.7", "name": "Executive Summary" },
+        { "index": "5.8", "name": "Decisions Log" },
+        { "index": "5.9", "name": "Open Questions" },
+        { "index": "5.10", "name": "Export" }
       ],
       "gridItems": [
         {
-          "index": "5.8",
+          "index": "5.7",
           "title": "Executive summary",
           "desc": "A clear, concise overview of what the meeting covered — ready to share with anyone who wasn't in the room.",
           "iconName": "FileText"
         },
         {
-          "index": "5.9",
+          "index": "5.8",
           "title": "Decisions made",
           "desc": "A bulleted list of everything the team agreed on, so there's no debate later about what was actually decided.",
           "iconName": "CheckSquare"
         },
         {
-          "index": "5.10",
+          "index": "5.9",
           "title": "Open questions and risks",
           "desc": "Anything left unresolved gets flagged automatically — so follow-ups don't fall through the cracks.",
           "iconName": "AlertCircle"
         },
         {
-          "index": "5.11",
+          "index": "5.10",
           "title": "One-click export",
           "desc": "Copy clean meeting notes to share anywhere, or save them directly as a document in your workspace.",
           "iconName": "Copy"
@@ -125,25 +118,25 @@
       "lightImage": "/mockups/light/meetings-action-light.webp",
       "darkImage": "/mockups/dark/meetings-action-dark.webp",
       "tags": [
-        { "index": "5.12", "name": "Task Proposals" },
-        { "index": "5.13", "name": "CRM Updates" },
-        { "index": "5.14", "name": "You Stay in Control" }
+        { "index": "5.11", "name": "Task Proposals" },
+        { "index": "5.12", "name": "CRM Updates" },
+        { "index": "5.13", "name": "You Stay in Control" }
       ],
       "gridItems": [
         {
-          "index": "5.12",
+          "index": "5.11",
           "title": "Automatic task proposals",
           "desc": "KeilHQ identifies action items from the meeting and proposes them as tasks — with owners, priorities, and context already filled in.",
           "iconName": "Zap"
         },
         {
-          "index": "5.13",
+          "index": "5.12",
           "title": "CRM and pipeline updates",
           "desc": "Sales calls automatically surface deal updates, contact changes, and pipeline movements to review and approve.",
           "iconName": "TrendingUp"
         },
         {
-          "index": "5.14",
+          "index": "5.13",
           "title": "You approve everything",
           "desc": "Nothing gets created without your sign-off. Review each proposal, edit if needed, then approve or dismiss.",
           "iconName": "CheckCircle2"
@@ -157,18 +150,18 @@
       "lightImage": "/mockups/light/meetings-save-motion-light.webp",
       "darkImage": "/mockups/dark/meetings-save-motion-light.webp",
       "tags": [
-        { "index": "5.15", "name": "Save to Motion Docs" },
-        { "index": "5.16", "name": "Notion Sync" }
+        { "index": "5.14", "name": "Save to Motion Docs" },
+        { "index": "5.15", "name": "Notion Sync" }
       ],
       "gridItems": [
         {
-          "index": "5.15",
+          "index": "5.14",
           "title": "Save to Motion Docs",
           "desc": "One click turns your meeting summary into a formatted, organized document saved directly in your workspace.",
           "iconName": "FileCode"
         },
         {
-          "index": "5.16",
+          "index": "5.15",
           "title": "Notion sync",
           "desc": "If your team uses Notion, meeting notes sync there automatically — no copy-pasting between tools.",
           "iconName": "RefreshCw"

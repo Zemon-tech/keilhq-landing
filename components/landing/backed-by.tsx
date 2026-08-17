@@ -1,68 +1,6 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
-
-// ─── Custom SVG Logos ────────────────────────────────────────────────────────
-const VercelLogo = () => (
-  <svg viewBox="0 0 24 24" className="h-[14px] fill-current text-muted-foreground hover:text-foreground transition-colors" aria-label="Vercel">
-    <path d="M24 22.525H0L12 1.475L24 22.525Z" />
-  </svg>
-);
-
-const CursorLogo = () => (
-  <div className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors select-none">
-    <svg viewBox="0 0 24 24" className="h-3.5 w-3.5 fill-current">
-      <path d="M5.5 2v15.5l4.5-4.5 4 8 2.5-1-4-8 6.5-.5z" />
-    </svg>
-    <span className="text-[11px] font-bold tracking-widest uppercase">Cursor</span>
-  </div>
-);
-
-const OscarLogo = () => (
-  <div className="flex items-center text-muted-foreground hover:text-foreground transition-colors select-none">
-    <span className="text-[13px] font-semibold tracking-[0.25em] font-sans">OSCAR</span>
-  </div>
-);
-
-const OpenAILogo = () => (
-  <div className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors select-none">
-    <svg viewBox="0 0 24 24" className="h-4 w-4 fill-none stroke-current" strokeWidth="1.5">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 2v20M17 5L7 19M19 12H5M17 19L7 5" />
-      <circle cx="12" cy="12" r="7" />
-    </svg>
-    <span className="text-[11px] font-semibold tracking-wider font-sans">OpenAI</span>
-  </div>
-);
-
-const CoinbaseLogo = () => (
-  <div className="flex items-center text-muted-foreground hover:text-foreground transition-colors select-none">
-    <span className="text-[14px] font-bold tracking-tight lowercase">coinbase</span>
-  </div>
-);
-
-const CashAppLogo = () => (
-  <div className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors select-none">
-    <svg viewBox="0 0 24 24" className="h-4 w-4 fill-none stroke-current" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <line x1="12" y1="1" x2="12" y2="23" />
-      <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-    </svg>
-    <span className="text-[11px] font-semibold tracking-wider font-sans">Cash App</span>
-  </div>
-);
-
-const BoomLogo = () => (
-  <div className="flex items-center text-muted-foreground hover:text-foreground transition-colors select-none">
-    <span className="text-[13px] font-extrabold tracking-widest font-sans">BOOM</span>
-  </div>
-);
-
-const RampLogo = () => (
-  <div className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors select-none">
-    <span className="text-[13px] font-semibold tracking-tight lowercase">ramp</span>
-    <span className="text-[14px] font-extrabold leading-none text-muted-foreground">/</span>
-  </div>
-);
 
 // ─── Custom Minimalist Wireframes ────────────────────────────────────────────
 const FigBuiltForPurpose = () => (
@@ -119,6 +57,61 @@ const FigDesignedForSpeed = () => (
   </svg>
 );
 
+const defaultPartners = [
+  { name: "AIC GGSIPU", logo: null },
+  { name: "QENO AI", logo: null },
+  { name: "SARVAM AI", logo: null },
+  { name: "GITHUB", logo: null },
+  { name: "GOOGLE WORKSPACE", logo: null },
+  { name: "NOTION", logo: null },
+  { name: "POSTHOG", logo: null },
+  { name: "GRAFANA", logo: null },
+];
+
+function PartnerCard({ name, logo }: { name: string; logo?: string | null }) {
+  return (
+    <div className="flex items-center justify-center h-11 px-5 rounded-sm bg-card border border-border shrink-0 shadow-sm hover:border-muted-foreground/30 transition-colors">
+      {logo ? (
+        <img
+          src={logo}
+          alt={name}
+          className="h-5 w-auto object-contain opacity-70 grayscale dark:opacity-50 filter brightness-95 dark:brightness-100"
+        />
+      ) : (
+        <span className="text-[12px] font-semibold tracking-wider uppercase text-muted-foreground hover:text-foreground transition-colors font-sans whitespace-nowrap">
+          {name}
+        </span>
+      )}
+    </div>
+  );
+}
+
+function PartnersMarqueeRow({ partners, speed = "45s" }: { partners: readonly { readonly name: string; readonly logo?: string | null }[]; speed?: string }) {
+  const repeated = [...partners, ...partners, ...partners, ...partners];
+
+  return (
+    <div className="w-full flex select-none pointer-events-none overflow-hidden relative h-11 flex-row flex-nowrap">
+      <div
+        className="flex shrink-0 items-center gap-6 min-w-full justify-start animate-marquee-right"
+        style={{ animationDuration: speed }}
+      >
+        {repeated.map((p, idx) => (
+          <PartnerCard key={`partner-a-${idx}`} name={p.name} logo={p.logo} />
+        ))}
+      </div>
+      <div
+        className="flex shrink-0 items-center gap-6 min-w-full justify-start animate-marquee-right"
+        style={{ animationDuration: speed }}
+        aria-hidden="true"
+      >
+        {repeated.map((p, idx) => (
+          <PartnerCard key={`partner-b-${idx}`} name={p.name} logo={p.logo} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 interface BackedByProps {
   logoCloud?: readonly {
     readonly name: string;
@@ -127,54 +120,49 @@ interface BackedByProps {
 }
 
 export function BackedBy({ logoCloud }: BackedByProps) {
+  const partnersToDisplay = (logoCloud && logoCloud.length > 0) ? logoCloud : defaultPartners;
+
   return (
-    <section className="w-full bg-background flex flex-col items-center justify-center py-20 lg:py-28 xl:py-32">
+    <section className="w-full bg-background flex flex-col items-center justify-center py-16 lg:py-20 xl:py-24">
       <div className="w-full max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 flex flex-col gap-24">
         
-        {/* ── Partners Row ── */}
-        <div className="w-full flex flex-col gap-8">
-          <div className="w-full flex flex-wrap items-center justify-between gap-x-12 gap-y-6 opacity-75 dark:opacity-60">
-            {logoCloud && logoCloud.length > 0 ? (
-              logoCloud.map((partner) => (
-                <div key={partner.name} className="flex items-center gap-1.5 select-none h-[14px]">
-                  {partner.logo ? (
-                    <Image
-                      src={partner.logo}
-                      alt={partner.name}
-                      width={100}
-                      height={20}
-                      className="h-[14px] w-auto object-contain brightness-75 dark:brightness-100 dark:invert opacity-70 hover:opacity-100 transition-opacity"
-                    />
-                  ) : (
-                    <span className="text-[11px] font-bold tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors">{partner.name}</span>
-                  )}
-                </div>
-              ))
-            ) : (
-              <>
-                <VercelLogo />
-                <CursorLogo />
-                <OscarLogo />
-                <OpenAILogo />
-                <CoinbaseLogo />
-                <CashAppLogo />
-                <BoomLogo />
-                <RampLogo />
-              </>
-            )}
+        {/* ── Working with Section (Marquee on Left flowing into Heading on Right) ── */}
+        <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 transition-colors duration-300">
+          {/* Left Column: Flowing Marquee (Left-to-Right into the heading) */}
+          <div className="order-2 lg:order-1 flex-1 min-w-0 w-full relative overflow-hidden py-2">
+            {/* Left fade mask */}
+            <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-background via-background/90 to-transparent z-10 pointer-events-none" />
+            {/* Right fade mask (blending into the heading) */}
+            <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background via-background/95 to-transparent z-10 pointer-events-none" />
+
+            <PartnersMarqueeRow partners={partnersToDisplay} speed="45s" />
+          </div>
+
+          {/* Right Column: Heading */}
+          <div className="order-1 lg:order-2 w-full lg:max-w-[400px] shrink-0 text-left select-text pl-0 lg:pl-2">
+            <h2 className="font-display text-[clamp(1.75rem,2.8vw,2.25rem)] font-medium leading-[1.15] text-foreground tracking-tight text-balance">
+              Working with leading teams and AI pioneers.
+            </h2>
           </div>
         </div>
 
-        {/* ── Operational Moat Header ── */}
-        <div className="max-w-[850px] flex flex-col gap-6 text-left">
-          <h2 
-            className="font-display text-[clamp(2rem,4vw,2.75rem)] font-medium tracking-tight leading-[1.1] text-foreground text-balance"
-          >
-            The operational layer built for modern companies
-          </h2>
-          <p className="text-[17px] lg:text-[18px] font-normal text-muted-foreground leading-[1.55] max-w-[68ch]">
-            Most businesses waste 40% of their day switching between 15 disconnected tabs, chasing lost notes, and re-explaining context. KeilHQ unifies your operational core so your team actually executes.
-          </p>
+        {/* ── Operational Moat Header (Two-column layout matching reference) ── */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 w-full text-left items-start">
+          {/* Left Column: Headline */}
+          <div className="col-span-12 lg:col-span-6 flex flex-col">
+            <h2 
+              className="font-display text-[clamp(1.75rem,3vw,2.5rem)] font-medium tracking-tight leading-[1.1] text-foreground text-balance"
+            >
+              The operational layer built for modern companies
+            </h2>
+          </div>
+
+          {/* Right Column: Description in front of heading */}
+          <div className="col-span-12 lg:col-span-6 flex flex-col gap-4 lg:pt-[5px]">
+            <p className="text-[17px] lg:text-[18px] font-normal text-muted-foreground leading-[1.55] max-w-[48ch]">
+              Most businesses waste 40% of their day switching between 15 disconnected tabs, chasing lost notes, and re-explaining context. KeilHQ unifies your operational core so your team actually executes.
+            </p>
+          </div>
         </div>
 
         {/* ── 3-Column Figures Grid ── */}

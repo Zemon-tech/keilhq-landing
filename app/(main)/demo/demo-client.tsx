@@ -13,44 +13,62 @@ import {
   MessageSquare,
   Mic,
   Sparkles,
+  Users,
+  Wallet,
+  RefreshCw,
 } from "lucide-react";
 
 const demoFeatures = [
   {
     icon: LayoutDashboard,
-    title: "Smart Dashboard & AI ranking",
-    desc: "See how work surfaces automatically by priority — no manual sorting.",
+    title: "Smart Dashboard & Prioritization",
+    desc: "See how critical work, blockers, and updates surface automatically with zero manual triage.",
   },
   {
     icon: ListTodo,
-    title: "Task management & Clarity Engine",
-    desc: "Objectives, success criteria, and hard dependency blocking.",
-  },
-  {
-    icon: FileText,
-    title: "Real-time docs & calendar sync",
-    desc: "Motion docs, collaborative editing, and Google Calendar integration.",
-  },
-  {
-    icon: Mic,
-    title: "Meeting recorder & transcription",
-    desc: "Auto-transcribe with speaker diarization. One click to task.",
+    title: "Task Management & Clarity Engine",
+    desc: "Strict dependency enforcement, objective success criteria, and sprint milestone tracking.",
   },
   {
     icon: Sparkles,
-    title: "KeilHQ AI with your actual data",
-    desc: "AI that reads your tasks, workload, and sprint — not generic advice.",
+    title: "Supervisor AI & Multi-Agent Engine",
+    desc: "Autonomous AI co-workers that orchestrate multi-step tasks, scheduling, and docs in parallel.",
+  },
+  {
+    icon: Users,
+    title: "Relational CRM & Deal Pipeline",
+    desc: "Omnichannel customer timelines, deal stage tracking, and automated client follow-ups.",
+  },
+  {
+    icon: Wallet,
+    title: "Finance & Accounting Control",
+    desc: "Real-time cashflow analytics, invoice lifecycle management, and expense tracking.",
+  },
+  {
+    icon: FileText,
+    title: "Motion Docs & Project Wikis",
+    desc: "Real-time collaborative rich-text documents wired directly into tasks and sprints.",
+  },
+  {
+    icon: Mic,
+    title: "Meeting Intelligence & Action Items",
+    desc: "Browser recording, speaker-labeled transcripts, and automated meeting action items.",
   },
   {
     icon: MessageSquare,
-    title: "Real-time team chat",
-    desc: "Channels and DMs tied directly to the projects they belong to.",
+    title: "Real-Time Team Chat",
+    desc: "Contextual channels and threaded DMs tied directly to the projects they discuss.",
+  },
+  {
+    icon: RefreshCw,
+    title: "Two-Way Tool Integrations",
+    desc: "Real-time bi-directional sync with Google Workspace, GitHub, Notion, and Slack.",
   },
 ];
 
 const testimonials = [
   {
-    quote: "We consolidated our documentation, task management, and chat into one workspace within 30 days.",
+    quote: "We consolidated our documentation, task management, CRM, and chat into one workspace within 30 days.",
     author: "Engineering Lead, high-growth startup",
   },
   {
@@ -84,7 +102,7 @@ export function DemoClient() {
             See KeilHQ in action — live, with your team
           </h1>
           <p className="text-[15px] font-medium text-muted-foreground leading-relaxed max-w-xl mb-10">
-            Book a 30-minute live walkthrough. We'll show you how KeilHQ replaces your separate task, chat, doc, and transcription tools.
+            Book a 30-minute live walkthrough. We'll show you how KeilHQ unifies your tasks, docs, meetings, CRM, finances, and AI agents into one operational system.
           </p>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">

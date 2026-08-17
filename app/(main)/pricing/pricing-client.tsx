@@ -14,8 +14,6 @@ import {
   ChevronDown,
 } from "lucide-react";
 
-import { pricingComparison } from "@/lib/solutions-content";
-
 const faqs = [
   {
     q: "Does the free trial require a credit card?",
@@ -142,7 +140,7 @@ export function PricingClient() {
                   {proMode === "trial" ? (
                     <>
                       <div className="flex items-baseline gap-1">
-                        <span className="text-3xl font-bold tracking-tight text-foreground">$0</span>
+                        <span className="text-3xl font-bold tracking-tight text-foreground">₹0</span>
                         <span className="text-xs text-muted-foreground">/ trial</span>
                       </div>
                       <span className="text-[10px] text-muted-foreground font-medium">30 days free</span>
@@ -150,8 +148,8 @@ export function PricingClient() {
                   ) : (
                     <>
                       <div className="flex items-baseline gap-1.5">
-                        <span className="text-3xl font-bold tracking-tight text-foreground">$25</span>
-                        <span className="text-xs line-through text-muted-foreground/60 font-medium">$50</span>
+                        <span className="text-3xl font-bold tracking-tight text-foreground">₹500</span>
+                        <span className="text-xs line-through text-muted-foreground/60 font-medium">₹1,000</span>
                         <span className="text-xs text-muted-foreground">/ mo</span>
                       </div>
                       <span className="text-[10px] text-emerald-600 dark:text-emerald-500 font-medium font-sans">50% intro discount</span>
@@ -295,8 +293,8 @@ export function PricingClient() {
               <div className="flex items-center justify-between gap-4 min-h-[56px] py-1">
                 <div className="flex flex-col gap-0.5">
                   <div className="flex items-baseline gap-1.5">
-                    <span className="text-3xl font-bold tracking-tight text-foreground">$50</span>
-                    <span className="text-xs line-through text-muted-foreground/60 font-medium">$75</span>
+                    <span className="text-3xl font-bold tracking-tight text-foreground">₹1,500</span>
+                    <span className="text-xs line-through text-muted-foreground/60 font-medium">₹2,250</span>
                     <span className="text-xs text-muted-foreground">/ user / mo</span>
                   </div>
                   <span className="text-[10px] text-emerald-600 dark:text-emerald-500 font-medium">33% team discount</span>
