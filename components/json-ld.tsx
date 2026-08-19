@@ -15,9 +15,12 @@ export function JsonLd() {
     ],
     "url": "https://keilhq.in",
     "logo": "https://keilhq.in/keilhq.svg",
+    "image": "https://keilhq.in/brand/keilhq-rise.png",
     "description": "KeilHQ is a work management platform combining database-enforced task clarity, real-time team chat, block-based documents, calendar sync, meeting transcription, and multi-agent AI.",
     "sameAs": [
-      "https://twitter.com/keilhq",
+      "https://x.com/keilhq",
+      "https://www.linkedin.com/company/keil-hq/",
+      "https://www.youtube.com/@keilhqglobal",
       "https://github.com/keilhq"
     ]
   };

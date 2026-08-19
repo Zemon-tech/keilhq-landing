@@ -14,6 +14,28 @@ import { getLovedBy } from "@/cms/helpers/loved-by";
 export const metadata: Metadata = {
   title: "KeilHQ — AI-Native Operational & Context Layer for Modern Teams",
   description: "Stop wasting time across 15+ disconnected tools. KeilHQ unifies tasks, docs, customer records, meeting intelligence, and financials into a single shared operational context engine managed by AI.",
+  openGraph: {
+    title: "KeilHQ — AI-Native Operational & Context Layer for Modern Teams",
+    description: "Stop wasting time across 15+ disconnected tools. KeilHQ unifies tasks, docs, customer records, meeting intelligence, and financials into a single shared operational context engine managed by AI.",
+    url: "https://keilhq.in",
+    siteName: "KeilHQ",
+    images: [
+      {
+        url: "/brand/keilhq-rise.png",
+        width: 1600,
+        height: 1000,
+        alt: "KeilHQ — AI-Native Operational & Context Layer",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "KeilHQ — AI-Native Operational & Context Layer for Modern Teams",
+    description: "Stop wasting time across 15+ disconnected tools. KeilHQ unifies tasks, docs, customer records, meeting intelligence, and financials into a single shared operational context engine managed by AI.",
+    images: ["/brand/keilhq-rise.png"],
+  },
 };
 
 // ─── Mockup image wrapper — consistent shadow + rounding ─────────────────────

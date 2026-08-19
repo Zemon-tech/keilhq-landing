@@ -92,7 +92,7 @@ function PartnersMarqueeRow({ partners, speed = "45s" }: { partners: readonly { 
   return (
     <div className="w-full flex select-none pointer-events-none overflow-hidden relative h-11 flex-row flex-nowrap">
       <div
-        className="flex shrink-0 items-center gap-6 min-w-full justify-start animate-marquee-right"
+        className="flex shrink-0 items-center gap-6 min-w-full justify-start animate-marquee-left"
         style={{ animationDuration: speed }}
       >
         {repeated.map((p, idx) => (
@@ -100,7 +100,7 @@ function PartnersMarqueeRow({ partners, speed = "45s" }: { partners: readonly { 
         ))}
       </div>
       <div
-        className="flex shrink-0 items-center gap-6 min-w-full justify-start animate-marquee-right"
+        className="flex shrink-0 items-center gap-6 min-w-full justify-start animate-marquee-left"
         style={{ animationDuration: speed }}
         aria-hidden="true"
       >
@@ -123,26 +123,26 @@ export function BackedBy({ logoCloud }: BackedByProps) {
   const partnersToDisplay = (logoCloud && logoCloud.length > 0) ? logoCloud : defaultPartners;
 
   return (
-    <section className="w-full bg-background flex flex-col items-center justify-center py-16 lg:py-20 xl:py-24">
-      <div className="w-full max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 flex flex-col gap-24">
+    <section className="w-full bg-background flex flex-col items-center justify-center py-20 lg:py-28 xl:py-32">
+      <div className="w-full max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 flex flex-col gap-28 lg:gap-36">
         
-        {/* ── Working with Section (Marquee on Left flowing into Heading on Right) ── */}
-        <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 transition-colors duration-300">
-          {/* Left Column: Flowing Marquee (Left-to-Right into the heading) */}
-          <div className="order-2 lg:order-1 flex-1 min-w-0 w-full relative overflow-hidden py-2">
-            {/* Left fade mask */}
-            <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-background via-background/90 to-transparent z-10 pointer-events-none" />
-            {/* Right fade mask (blending into the heading) */}
-            <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background via-background/95 to-transparent z-10 pointer-events-none" />
-
-            <PartnersMarqueeRow partners={partnersToDisplay} speed="45s" />
-          </div>
-
-          {/* Right Column: Heading */}
-          <div className="order-1 lg:order-2 w-full lg:max-w-[400px] shrink-0 text-left select-text pl-0 lg:pl-2">
+        {/* ── Working with Section (Heading on Left, Marquee on Right) ── */}
+        <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 transition-colors duration-300 py-4 sm:py-6">
+          {/* Left Column: Heading */}
+          <div className="order-1 lg:order-1 w-full lg:max-w-[420px] shrink-0 text-left select-text pr-0 lg:pr-4">
             <h2 className="font-display text-[clamp(1.75rem,2.8vw,2.25rem)] font-medium leading-[1.15] text-foreground tracking-tight text-balance">
               Working with leading teams and AI pioneers.
             </h2>
+          </div>
+
+          {/* Right Column: Flowing Marquee (Flowing to the left) */}
+          <div className="order-2 lg:order-2 flex-1 min-w-0 w-full relative overflow-hidden py-2">
+            {/* Left fade mask */}
+            <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background via-background/95 to-transparent z-10 pointer-events-none" />
+            {/* Right fade mask */}
+            <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-background via-background/90 to-transparent z-10 pointer-events-none" />
+
+            <PartnersMarqueeRow partners={partnersToDisplay} speed="45s" />
           </div>
         </div>
 

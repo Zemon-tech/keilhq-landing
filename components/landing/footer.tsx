@@ -15,8 +15,8 @@ export async function Footer() {
   
   const twitterUrl = footerData?.twitterUrl || "https://x.com";
   const instagramUrl = footerData?.instagramUrl || "https://instagram.com";
-  const linkedinUrl = footerData?.linkedinUrl || "https://linkedin.com";
-  const youtubeUrl = footerData?.youtubeUrl || "https://youtube.com";
+  const linkedinUrl = footerData?.linkedinUrl || "https://www.linkedin.com/company/keil-hq/";
+  const youtubeUrl = footerData?.youtubeUrl || "https://www.youtube.com/@keilhqglobal";
 
   const baseColumns = footerData?.columns || [
     {

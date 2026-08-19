@@ -63,6 +63,10 @@ export async function generateMetadata(): Promise<Metadata> {
       icon: [
         {
           url: "/keilhq.svg",
+          type: "image/svg+xml",
+        },
+        {
+          url: "/keilhq.svg",
           media: "(prefers-color-scheme: light)",
         },
         {
@@ -70,6 +74,8 @@ export async function generateMetadata(): Promise<Metadata> {
           media: "(prefers-color-scheme: dark)",
         },
       ],
+      shortcut: "/keilhq.svg",
+      apple: "/brand/keilhq-rise.png",
     },
     openGraph: {
       type: "website",
@@ -80,9 +86,9 @@ export async function generateMetadata(): Promise<Metadata> {
       description,
       images: [
         {
-          url: "/keilhq.svg",
-          width: 1200,
-          height: 630,
+          url: "/brand/keilhq-rise.png",
+          width: 1600,
+          height: 1000,
           alt: "KeilHQ — Human Clarity for Teams",
         },
       ],
@@ -91,7 +97,7 @@ export async function generateMetadata(): Promise<Metadata> {
       card: "summary_large_image",
       title: "KeilHQ — Human Clarity for Teams",
       description,
-      images: ["/keilhq.svg"],
+      images: ["/brand/keilhq-rise.png"],
     },
     robots: {
       index: true,
