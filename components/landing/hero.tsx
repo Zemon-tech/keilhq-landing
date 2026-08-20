@@ -14,6 +14,9 @@ interface HeroProps {
   announcementEnabled?: boolean;
   announcementText?: string;
   announcementLink?: string;
+  heroImage?: string;
+  heroLightImage?: string;
+  heroDarkImage?: string;
 }
 
 export function Hero({
@@ -26,6 +29,9 @@ export function Hero({
   announcementEnabled = false,
   announcementText = "",
   announcementLink = "",
+  heroImage,
+  heroLightImage = "/mockups/home-hero-light.png",
+  heroDarkImage = "/mockups/home-hero-dark.png",
 }: HeroProps) {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -122,22 +128,35 @@ export function Hero({
           <div className="absolute -inset-1 rounded-lg bg-gradient-to-b from-white/10 to-transparent opacity-0 dark:opacity-20 blur-md pointer-events-none" />
           
           <div className="relative w-full rounded-lg overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.3)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.6)]">
-            <Image
-              src="/mockups/light/dashboard-light.webp"
-              alt={`${heroTitle} — AI-powered workspace`}
-              width={1600}
-              height={1000}
-              className="w-full h-auto object-cover object-top dark:hidden rounded-lg"
-              priority
-            />
-            <Image
-              src="/mockups/dark/dashboard-dark.webp"
-              alt={`${heroTitle} — AI-powered workspace`}
-              width={1600}
-              height={1000}
-              className="w-full h-auto object-cover object-top hidden dark:block rounded-lg"
-              priority
-            />
+            {heroLightImage && heroDarkImage && heroLightImage !== heroDarkImage ? (
+              <>
+                <Image
+                  src={heroLightImage}
+                  alt={`${heroTitle} — AI-powered workspace`}
+                  width={1600}
+                  height={1000}
+                  className="w-full h-auto object-cover object-top dark:hidden rounded-lg"
+                  priority
+                />
+                <Image
+                  src={heroDarkImage}
+                  alt={`${heroTitle} — AI-powered workspace`}
+                  width={1600}
+                  height={1000}
+                  className="w-full h-auto object-cover object-top hidden dark:block rounded-lg"
+                  priority
+                />
+              </>
+            ) : (
+              <Image
+                src={heroImage || heroDarkImage || heroLightImage || "/mockups/home-hero.png"}
+                alt={`${heroTitle} — AI-powered workspace`}
+                width={1600}
+                height={1000}
+                className="w-full h-auto object-cover object-top rounded-lg"
+                priority
+              />
+            )}
             
             {/* Bottom gradient fade to blend the mockup into the background */}
             <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-background/80 via-background/20 to-transparent pointer-events-none" />

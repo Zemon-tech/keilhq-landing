@@ -41,22 +41,35 @@ export const metadata: Metadata = {
 // ─── Mockup image wrapper — consistent shadow + rounding ─────────────────────
 const MockupImage = ({ lightSrc, darkSrc, alt }: { lightSrc: string; darkSrc: string; alt: string }) => (
   <>
-    <Image
-      src={lightSrc}
-      alt={alt}
-      width={1200}
-      height={800}
-      className="w-full h-auto object-cover object-top dark:hidden"
-      priority
-    />
-    <Image
-      src={darkSrc}
-      alt={alt}
-      width={1200}
-      height={800}
-      className="w-full h-auto object-cover object-top hidden dark:block"
-      priority
-    />
+    {lightSrc === darkSrc ? (
+      <Image
+        src={lightSrc}
+        alt={alt}
+        width={1200}
+        height={800}
+        className="w-full h-auto object-cover object-top"
+        priority
+      />
+    ) : (
+      <>
+        <Image
+          src={lightSrc}
+          alt={alt}
+          width={1200}
+          height={800}
+          className="w-full h-auto object-cover object-top dark:hidden"
+          priority
+        />
+        <Image
+          src={darkSrc}
+          alt={alt}
+          width={1200}
+          height={800}
+          className="w-full h-auto object-cover object-top hidden dark:block"
+          priority
+        />
+      </>
+    )}
   </>
 );
 
@@ -76,8 +89,8 @@ export default async function Home() {
     description: section.description,
     visualComponent: (
       <MockupImage
-        lightSrc={section.lightImage || "/mockups/light/dashboard-light.webp"}
-        darkSrc={section.darkImage || "/mockups/dark/dashboard-dark.webp"}
+        lightSrc={section.lightImage || "/mockups/home-dash-light.png"}
+        darkSrc={section.darkImage || "/mockups/home-dash-dark.png"}
         alt={section.alt || section.title}
       />
     ),
@@ -115,6 +128,8 @@ export default async function Home() {
         announcementEnabled={homepageData?.announcementEnabled || undefined}
         announcementText={homepageData?.announcementText || undefined}
         announcementLink={homepageData?.announcementLink || undefined}
+        heroLightImage={homepageData?.heroLightImage || "/mockups/home-hero-light.png"}
+        heroDarkImage={homepageData?.heroDarkImage || "/mockups/home-hero-dark.png"}
       />
       <BackedBy logoCloud={homepageData?.logoCloud || undefined} />
       <IntegrationCloud />
