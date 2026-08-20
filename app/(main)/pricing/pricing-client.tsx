@@ -1,101 +1,167 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Fragment } from "react";
 import Link from "next/link";
 import {
   ArrowRight,
   Check,
-  Minus,
-  X,
   ChevronDown,
-  Sparkles,
-  Building2,
-  Database,
-  Lock,
-  Shield,
-  HelpCircle,
-  AlertCircle,
-  CheckCircle2,
-  Layers,
-  Brain,
-  DollarSign,
 } from "lucide-react";
 
-/* ─── Detailed Linear-Style Comparison Categories ─────────────────────────── */
-interface PlanFeature {
+/* ─── Detailed KeilHQ vs Alternatives Comparison Data ─────────────────────── */
+interface ComparisonRow {
   name: string;
-  free: string | boolean;
-  pro: string | boolean;
-  teams: string | boolean;
-  enterprise: string | boolean;
   note?: string;
+  keil: string;
+  alternatives: string;
 }
 
-interface FeatureCategory {
+interface ComparisonSection {
   category: string;
-  features: PlanFeature[];
+  features: ComparisonRow[];
 }
 
-const detailedFeatureCategories: FeatureCategory[] = [
+const comparisonSections: ComparisonSection[] = [
   {
-    category: "Core Workspace & Task Management",
+    category: "Core & Task Operations",
     features: [
-      { name: "Unified workspace members", free: "Up to 5", pro: "Unlimited", teams: "Unlimited", enterprise: "Unlimited" },
-      { name: "Task management (Kanban, List, Gantt, Timeline)", free: true, pro: true, teams: true, enterprise: true },
-      { name: "Motion Docs & Block Wiki Editor", free: true, pro: true, teams: true, enterprise: true },
-      { name: "Built-in Team Chat & DM Channels (No Slack required)", free: true, pro: true, teams: true, enterprise: true },
-      { name: "Task hierarchies, dependencies & auto-blockers", free: "Basic", pro: true, teams: true, enterprise: true },
-      { name: "Custom workspace properties & custom fields", free: "3 / board", pro: "Unlimited", teams: "Unlimited", enterprise: "Unlimited" },
-      { name: "File attachments & document asset storage", free: "5 GB", pro: "50 GB", teams: "250 GB / user", enterprise: "Unlimited" },
+      {
+        name: "Task views (Kanban, List, Gantt, Timeline)",
+        note: "Multiple synchronized perspectives on a single data model",
+        keil: "Native, ultra-fast (<50ms latency), zero menu bloat",
+        alternatives: "ClickUp & Monday suffer from sluggish loading. Jira requires complex configuration. Notion lacks true sprint velocity.",
+      },
+      {
+        name: "Subtasks, dependencies & auto-blockers",
+        keil: "Built-in auto-blocking logic and multi-level hierarchies",
+        alternatives: "ClickUp gates dependencies on higher tiers. Notion requires complex formula workarounds. Jira requires workflow schemes.",
+      },
+      {
+        name: "Sprint planning & recurring cycle velocity",
+        keil: "Included with automated rollover and velocity tracking",
+        alternatives: "Linear & Jira do this well but lack docs/chat. ClickUp & Monday require paid add-ons or top-tier plans.",
+      },
+      {
+        name: "Custom field attributes & multi-board filters",
+        keil: "Unlimited custom properties and workspace views",
+        alternatives: "ClickUp restricts custom field limits on lower tiers. Monday requires expensive Pro plan.",
+      },
     ],
   },
   {
-    category: "AI Multi-Agent & Audio Intelligence",
+    category: "Motion Docs & Knowledge Wikis",
     features: [
-      { name: "Live Meeting Bot (Auto-joins Google Meet & Zoom)", free: "5 calls / mo", pro: "Unlimited", teams: "Unlimited", enterprise: "Unlimited" },
-      { name: "Real-time speech-to-text & call summarization", free: "Saaras / Whisper", pro: "High-precision STT", teams: "High-precision STT", enterprise: "Dedicated Models" },
-      { name: "Auto-task generation from meeting transcripts", free: true, pro: true, teams: true, enterprise: true },
-      { name: "Cross-system AI assistant (Mastra Multi-Agent)", free: "25 prompts / day", pro: "100 prompts / day", teams: "Unlimited priority", enterprise: "Custom limits" },
-      { name: "Company memory & contextual awareness", free: "Basic", pro: true, teams: true, enterprise: true },
-      { name: "Zero model training on customer data", free: false, pro: true, teams: true, enterprise: true, note: "Paid plans guarantee absolute data isolation" },
+      {
+        name: "Block-based rich text & wiki editor",
+        note: "Slash commands, callouts, toggles, code blocks & embeds",
+        keil: "Built-in Motion Docs linked directly to tasks and chat",
+        alternatives: "Notion is disconnected from active task pipelines. ClickUp Docs is slow and clunky. Linear has no native wiki.",
+      },
+      {
+        name: "Bi-directional task & conversation backlinks",
+        keil: "Instant references across docs, active tasks, and DMs",
+        alternatives: "Requires jumping between Notion, Jira, and Slack with manual copy-pasting and broken links.",
+      },
+      {
+        name: "Live multiplayer collaborative editing",
+        keil: "Real-time multiplayer cursors and version history",
+        alternatives: "Notion ($10–$20/mo) or Coda ($10–$30/mo) required separately for full team collaboration.",
+      },
+      {
+        name: "Automatic meeting note ingestion to wiki",
+        note: "Transcripts auto-format into organized doc pages",
+        keil: "Native sync from meeting bot directly into knowledge base",
+        alternatives: "Requires manual export from Otter/Fireflies and pasting into Notion.",
+      },
     ],
   },
   {
-    category: "CRM & Omnichannel Deals",
+    category: "Real-Time Team Chat & Messaging",
     features: [
-      { name: "Relational CRM pipelines & stage tracking", free: true, pro: true, teams: true, enterprise: true },
-      { name: "Omnichannel lead ingest (WhatsApp, Meta, Webhooks)", free: "1 channel", pro: "All channels", teams: "All channels", enterprise: "Custom routing" },
-      { name: "Contact & company timelines", free: true, pro: true, teams: true, enterprise: true },
-      { name: "Activity history & call recording playback", free: "30 days", pro: "1 year", teams: "Unlimited", enterprise: "Unlimited" },
+      {
+        name: "Native channels, DMs & topic threads",
+        note: "Full Slack replacement with voice, rich media & pins",
+        keil: "Built-in team chat included at no extra charge",
+        alternatives: "Requires separate Slack subscription ($8.75/user/mo). ClickUp chat is just a basic view without voice or channels.",
+      },
+      {
+        name: "One-click convert message into tracked task",
+        keil: "Instant conversion with author context and deep link",
+        alternatives: "Requires clunky Slack integrations or manual copy-paste into Jira/Linear/ClickUp.",
+      },
+      {
+        name: "Contextual task & document discussion threads",
+        keil: "Live thread on every item without polluting team channels",
+        alternatives: "Discussions get fragmented across Slack channels and Jira ticket comments.",
+      },
     ],
   },
   {
-    category: "Finance & Operations",
+    category: "AI Multi-Agent & Meeting Intelligence",
     features: [
-      { name: "Invoice generator & PDF dispatch", free: true, pro: true, teams: true, enterprise: true },
-      { name: "Milestone-to-invoice auto-conversion", free: false, pro: true, teams: true, enterprise: true },
-      { name: "Expense logging & basic ledger overview", free: true, pro: true, teams: true, enterprise: true },
+      {
+        name: "Live Meeting Bot (Google Meet & Zoom)",
+        note: "Autonomous bot joins calls, records audio, and tags speakers",
+        keil: "Built-in meeting bot with real-time transcription",
+        alternatives: "Requires separate Fireflies ($10–$18/mo) or Otter ($10–$20/mo) subscription per user.",
+      },
+      {
+        name: "Auto-extract action items from call transcripts",
+        keil: "Automatically creates and assigns tasks from meetings",
+        alternatives: "Manual copy-paste required from meeting recorder tools into project management software.",
+      },
+      {
+        name: "Cross-system AI assistant (Tasks + Docs + Chat)",
+        note: "Context-aware AI with full workspace memory",
+        keil: "Included in all plans with zero per-seat penalty",
+        alternatives: "ClickUp Brain forces +$9–$28/user/mo across ALL workspace seats. Notion AI adds +$10/user/mo. Linear has no meeting AI.",
+      },
+      {
+        name: "Zero AI model training on customer data",
+        keil: "Zero model training on customer data on all paid tiers",
+        alternatives: "Many tools use customer data for training by default or require expensive Enterprise tiers for data isolation.",
+      },
     ],
   },
   {
-    category: "Integrations & Platform",
+    category: "CRM Pipelines & Operational Invoicing",
     features: [
-      { name: "Google Calendar 2-way live sync", free: true, pro: true, teams: true, enterprise: true },
-      { name: "Google Workspace & Gmail context integration", free: true, pro: true, teams: true, enterprise: true },
-      { name: "GitHub pull requests & commit linkers", free: true, pro: true, teams: true, enterprise: true },
-      { name: "REST API & Webhooks access", free: "Read-only", pro: true, teams: true, enterprise: true },
+      {
+        name: "Visual deal pipelines & client stage tracking",
+        keil: "Built-in relational CRM connected to tasks and clients",
+        alternatives: "Requires separate HubSpot ($15–$50/mo), Pipedrive ($14–$29/mo), or Monday CRM (+$12–$28/user/mo).",
+      },
+      {
+        name: "Native invoice generator & PDF dispatch",
+        note: "Generate professional tax invoices directly from project milestones",
+        keil: "Built-in invoicing with one-click payment tracking",
+        alternatives: "Not supported in ClickUp, Jira, Notion, or Linear. Requires separate billing tools like QuickBooks or Harvest.",
+      },
+      {
+        name: "Omnichannel lead capture (WhatsApp, Webhooks, Forms)",
+        keil: "Leads route directly into CRM and trigger squad tasks",
+        alternatives: "Requires Zapier/Make automations ($20–$50/mo) and multi-tool webhook setups.",
+      },
     ],
   },
   {
-    category: "Security, Governance & Support",
+    category: "Stack Economics & Transparency",
     features: [
-      { name: "Single Sign-On (SAML / Okta / Google Workspace SSO)", free: false, pro: false, teams: true, enterprise: true },
-      { name: "Role-Based Access Control (RBAC) & Admin hierarchy", free: "Standard", pro: "Standard", teams: "Advanced", enterprise: "Custom roles" },
-      { name: "Centralized seat management & team billing", free: false, pro: false, teams: true, enterprise: true },
-      { name: "Detailed audit logs & activity compliance streams", free: false, pro: false, teams: true, enterprise: true },
-      { name: "SOC 2 Type II compliance controls", free: "In transit", pro: "In transit", teams: "In transit", enterprise: "Certified" },
-      { name: "On-premise / Self-hosted database option", free: false, pro: false, teams: false, enterprise: true },
-      { name: "Support tier", free: "Community", pro: "24/7 Priority", teams: "24/7 Dedicated", enterprise: "Dedicated account manager & SLA" },
+      {
+        name: "Single unified workspace vs tool sprawl",
+        keil: "1 login, 1 tab, 1 shared relational database",
+        alternatives: "5–6 fragmented tools: Slack + ClickUp/Jira + Notion + Fireflies + HubSpot + Invoicing.",
+      },
+      {
+        name: "Seat minimum penalties",
+        keil: "Zero seat minimums. Start with 1 seat anytime.",
+        alternatives: "Monday.com forces a 3-seat minimum on all paid plans. Zoho One forces all employees on payroll.",
+      },
+      {
+        name: "Total estimated monthly stack cost per user",
+        keil: "₹500 – ₹1,500 ($6–$18 / user / mo)",
+        alternatives: "$60 – $120+ / user / mo when combining Slack ($8.75) + ClickUp ($12) + Notion ($10) + Fireflies ($10) + CRM ($15+).",
+      },
     ],
   },
 ];
@@ -188,15 +254,13 @@ function FAQItem({ q, a }: { q: string; a: string }) {
           {q}
         </span>
         <ChevronDown
-          className={`size-4 text-muted-foreground shrink-0 transition-transform duration-200 ${
-            open ? "rotate-180 text-foreground" : ""
-          }`}
+          className={`size-4 text-muted-foreground shrink-0 transition-transform duration-200 ${open ? "rotate-180 text-foreground" : ""
+            }`}
         />
       </button>
       <div
-        className={`overflow-hidden transition-all duration-200 ${
-          open ? "max-h-48 pb-5" : "max-h-0"
-        }`}
+        className={`overflow-hidden transition-all duration-200 ${open ? "max-h-48 pb-5" : "max-h-0"
+          }`}
       >
         <p className="text-[14px] text-muted-foreground leading-relaxed font-sans">
           {a}
@@ -206,26 +270,16 @@ function FAQItem({ q, a }: { q: string; a: string }) {
   );
 }
 
-function RenderFeatureValue({ value }: { value: string | boolean }) {
-  if (value === true) {
-    return <Check className="size-4 text-foreground stroke-[2.5] mx-auto lg:mx-0" />;
-  }
-  if (value === false) {
-    return <Minus className="size-4 text-muted-foreground/40 stroke-[2] mx-auto lg:mx-0" />;
-  }
-  return <span className="text-[13px] text-muted-foreground font-sans">{value}</span>;
-}
-
 export function PricingClient() {
   const [billingCycle, setBillingCycle] = useState<"annual" | "monthly">("annual");
 
   return (
     <main className="min-h-screen bg-background text-foreground selection:bg-[var(--color-copper)]/20 select-text">
-      
+
       {/* ── 1. HEADER HERO ── */}
       <section className="w-full pt-32 pb-16 lg:pt-40 lg:pb-20 px-6 sm:px-8 lg:px-12">
         <div className="max-w-[1200px] mx-auto flex flex-col items-center text-center">
-          
+
           <h1 className="font-display text-[clamp(2.5rem,5.5vw,4.25rem)] font-medium leading-[1.08] tracking-tight text-foreground text-balance">
             Product plans
           </h1>
@@ -246,9 +300,8 @@ export function PricingClient() {
               aria-checked={billingCycle === "annual"}
             >
               <span
-                className={`pointer-events-none inline-block size-5 transform rounded-full bg-foreground shadow-xs transition duration-200 ease-in-out ${
-                  billingCycle === "annual" ? "translate-x-5" : "translate-x-0"
-                }`}
+                className={`pointer-events-none inline-block size-5 transform rounded-full bg-foreground shadow-xs transition duration-200 ease-in-out ${billingCycle === "annual" ? "translate-x-5" : "translate-x-0"
+                  }`}
               />
             </button>
             <span className={billingCycle === "monthly" ? "text-foreground font-semibold" : "text-muted-foreground"}>
@@ -262,10 +315,10 @@ export function PricingClient() {
       {/* ── 2. 4-COLUMN FLAT LINEAR PRICING GRID ── */}
       <section className="w-full pb-24 px-6 sm:px-8 lg:px-12">
         <div className="max-w-[1200px] mx-auto">
-          
+
           {/* Grid without heavy boxes — flat Linear border dividers */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-border/60 rounded-xl overflow-hidden border border-border/60">
-            
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-border/60">
+
             {/* Plan 1: Free Trial */}
             <div className="bg-background p-8 flex flex-col justify-between gap-8">
               <div className="flex flex-col gap-6">
@@ -434,7 +487,7 @@ export function PricingClient() {
       {/* ── 3. THE REALITY CHECK: 5-6 TOOL SPRAWL VS UNIFIED COCKPIT ── */}
       <section className="w-full py-24 lg:py-32 border-t border-border/40 px-6 sm:px-8 lg:px-12">
         <div className="max-w-[1200px] mx-auto flex flex-col gap-16 text-left">
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             <div className="lg:col-span-5 flex flex-col gap-3">
               <span className="text-xs uppercase tracking-widest text-[var(--color-copper)] font-semibold font-display">
@@ -493,89 +546,98 @@ export function PricingClient() {
         </div>
       </section>
 
-      {/* ── 4. LINEAR-STYLE COMPLETE FEATURE COMPARISON MATRIX ── */}
-      <section className="w-full pb-24 border-t border-border/40 pt-20 px-6 sm:px-8 lg:px-12">
-        <div className="max-w-[1200px] mx-auto text-left">
-          
-          <div className="flex flex-col gap-2 mb-8">
+      {/* ── 4. DETAILED ALTERNATIVE COMPARISON MATRIX (LINEAR STYLE) ── */}
+      <section className="w-full pb-32 pt-20 px-6 sm:px-8 lg:px-12">
+        <div className="max-w-[1200px] mx-auto text-left flex flex-col gap-10">
+
+          {/* Section Header */}
+          <div className="flex flex-col gap-3">
+            <span className="text-xs uppercase tracking-widest text-[var(--color-copper)] font-semibold font-display">
+              Alternative Comparison
+            </span>
             <h2 className="font-display text-[clamp(2rem,3.5vw,2.75rem)] font-medium leading-tight text-foreground tracking-tight">
-              Compare all features
+              How KeilHQ compares to alternatives
             </h2>
-            <p className="text-[15px] text-muted-foreground font-sans">
-              Detailed breakdown of features across all plans.
+            <p className="text-[15px] text-muted-foreground font-sans max-w-3xl leading-relaxed">
+              A comprehensive breakdown of how KeilHQ replaces fragmented point solutions like ClickUp, Jira, Notion, and Slack with one unified cockpit.
             </p>
           </div>
 
-          {/* Table Container without redundant top border */}
-          <div className="w-full overflow-x-auto">
-            <table className="w-full text-left border-collapse min-w-[760px]">
-              
-              {/* Sticky Table Header */}
-              <thead className="sticky top-14 bg-background z-20 border-b border-border/80">
-                <tr>
-                  <th className="py-4 px-4 w-[36%] text-xs font-semibold uppercase tracking-wider text-muted-foreground font-display">
-                    Feature
+          {/* Borderless Table with Sticky Header and Column Separators Only */}
+          <div className="w-full">
+            <table className="w-full text-left border-collapse table-fixed">
+
+              {/* Sticky Column Header pinned to top-0 with top padding to mask scrolled content behind floating navbar */}
+              <thead className="sticky top-0 z-20">
+                <tr className="border-b border-border/60">
+                  <th className="sticky top-0 z-20 bg-background/95 backdrop-blur-lg pt-30 pb-4 pr-6 w-[28%] text-xs font-semibold uppercase tracking-wider text-muted-foreground font-display border-b border-border/60">
+                    Features
                   </th>
-                  <th className="py-4 px-4 w-[16%] text-xs font-semibold uppercase tracking-wider text-foreground font-display">
-                    Free Trial
+                  <th className="sticky top-0 z-20 bg-background/95 backdrop-blur-lg pt-30 pb-4 px-6 w-[36%] border-b border-border/40 text-xs font-semibold uppercase tracking-wider text-foreground font-display">
+                    <span className="text-[var(--color-copper)]">KeilHQ</span>
                   </th>
-                  <th className="py-4 px-4 w-[16%] text-xs font-semibold uppercase tracking-wider text-foreground font-display">
-                    Pro
-                  </th>
-                  <th className="py-4 px-4 w-[16%] text-xs font-semibold uppercase tracking-wider text-foreground font-display">
-                    Teams
-                  </th>
-                  <th className="py-4 px-4 w-[16%] text-xs font-semibold uppercase tracking-wider text-foreground font-display">
-                    Enterprise
+                  <th className="sticky top-0 z-20 bg-background/95 backdrop-blur-lg pt-30 pb-4 pl-6 w-[36%] border-b border-border/40 text-xs font-semibold uppercase tracking-wider text-muted-foreground font-display">
+                    Alternatives (ClickUp, Jira, Notion, Slack)
                   </th>
                 </tr>
               </thead>
 
-              {/* Categories with full display heading styling */}
+              {/* Table Body with Categories and Feature Rows */}
               <tbody>
-                {detailedFeatureCategories.map((group, gIdx) => (
-                  <tr key={`group-${gIdx}`} className="contents">
-                    {/* Category Title Row with Compare all features Heading Style */}
+                {comparisonSections.map((section, sIdx) => (
+                  <Fragment key={`section-${sIdx}`}>
+                    {/* Category Title Row */}
                     <tr>
                       <td
-                        colSpan={5}
-                        className="pt-16 pb-4 px-4 text-left border-b border-border/40"
+                        colSpan={3}
+                        className="pt-16 pb-4 pr-6 text-left border-b border-border/40"
                       >
-                        <h3 className="font-display text-[clamp(1.5rem,2.8vw,2.25rem)] font-medium leading-tight text-foreground tracking-tight">
-                          {group.category}
+                        <h3 className="font-display text-[clamp(1.4rem,2.4vw,1.85rem)] font-medium leading-tight text-foreground tracking-tight">
+                          {section.category}
                         </h3>
                       </td>
                     </tr>
 
-                    {/* Category Feature Rows */}
-                    {group.features.map((feature, fIdx) => (
+                    {/* Feature Rows */}
+                    {section.features.map((feature, fIdx) => (
                       <tr
-                        key={`f-${gIdx}-${fIdx}`}
-                        className="border-b border-border/20 hover:bg-muted/20 transition-colors"
+                        key={`row-${sIdx}-${fIdx}`}
+                        className="border-b border-border/20 hover:bg-muted/15 transition-colors group"
                       >
-                        <td className="py-3.5 px-4 align-top">
-                          <span className="text-[14px] text-foreground font-sans font-medium">{feature.name}</span>
+                        {/* 1. Feature Name & Note */}
+                        <td className="py-4 pr-6 align-top">
+                          <span className="text-[14px] text-foreground font-sans font-medium leading-snug block">
+                            {feature.name}
+                          </span>
                           {feature.note && (
-                            <p className="text-[11px] text-muted-foreground/80 mt-0.5 font-sans">{feature.note}</p>
+                            <p className="text-[11px] text-muted-foreground/80 mt-1 font-sans leading-normal">
+                              {feature.note}
+                            </p>
                           )}
                         </td>
-                        <td className="py-3.5 px-4 align-middle">
-                          <RenderFeatureValue value={feature.free} />
+
+                        {/* 2. KeilHQ Value (Highlighted) */}
+                        <td className="py-4 px-6 align-top border-l border-border/40 bg-[var(--color-copper)]/[0.02]">
+                          <div className="flex items-start gap-2.5">
+                            <Check className="size-4 text-[var(--color-copper)] shrink-0 mt-0.5" />
+                            <span className="text-[13.5px] text-foreground font-sans font-medium leading-snug">
+                              {feature.keil}
+                            </span>
+                          </div>
                         </td>
-                        <td className="py-3.5 px-4 align-middle">
-                          <RenderFeatureValue value={feature.pro} />
-                        </td>
-                        <td className="py-3.5 px-4 align-middle">
-                          <RenderFeatureValue value={feature.teams} />
-                        </td>
-                        <td className="py-3.5 px-4 align-middle">
-                          <RenderFeatureValue value={feature.enterprise} />
+
+                        {/* 3. Alternatives Discussion */}
+                        <td className="py-4 pl-6 align-top border-l border-border/40">
+                          <p className="text-[13px] text-muted-foreground font-sans leading-relaxed">
+                            {feature.alternatives}
+                          </p>
                         </td>
                       </tr>
                     ))}
-                  </tr>
+                  </Fragment>
                 ))}
               </tbody>
+
             </table>
           </div>
 
@@ -585,7 +647,7 @@ export function PricingClient() {
       {/* ── 5. REAL PRICING & GOTCHA BREAKDOWN ── */}
       <section className="w-full py-24 border-t border-border/40 px-6 sm:px-8 lg:px-12">
         <div className="max-w-[1200px] mx-auto text-left">
-          
+
           <div className="flex flex-col gap-2 mb-12">
             <span className="text-xs uppercase tracking-widest text-muted-foreground font-semibold font-display">
               Pricing Transparency
@@ -602,18 +664,16 @@ export function PricingClient() {
             {competitorGotchas.map((item) => (
               <div
                 key={item.platform}
-                className={`p-6 rounded-lg border flex flex-col justify-between gap-6 ${
-                  item.isKeil
-                    ? "border-[var(--color-copper)]/70 bg-secondary/30"
-                    : "border-border/60 bg-background"
-                }`}
+                className={`p-6 rounded-lg border flex flex-col justify-between gap-6 ${item.isKeil
+                  ? "border-[var(--color-copper)]/70 bg-secondary/30"
+                  : "border-border/60 bg-background"
+                  }`}
               >
                 <div className="flex flex-col gap-3">
                   <div className="flex items-center justify-between">
                     <span className="font-display text-base font-semibold text-foreground">{item.platform}</span>
-                    <span className={`text-[10px] uppercase font-semibold px-2 py-0.5 rounded-sm tracking-wider font-display ${
-                      item.isKeil ? "bg-[var(--color-copper)]/15 text-[var(--color-copper)]" : "bg-muted text-muted-foreground"
-                    }`}>
+                    <span className={`text-[10px] uppercase font-semibold px-2 py-0.5 rounded-sm tracking-wider font-display ${item.isKeil ? "bg-[var(--color-copper)]/15 text-[var(--color-copper)]" : "bg-muted text-muted-foreground"
+                      }`}>
                       {item.badge}
                     </span>
                   </div>
@@ -625,9 +685,8 @@ export function PricingClient() {
 
                 <div className="pt-3 border-t border-border/40 flex flex-col gap-0.5">
                   <span className="text-[10px] uppercase tracking-wider text-muted-foreground">True Cost per Seat:</span>
-                  <span className={`text-[13px] font-semibold font-display ${
-                    item.isKeil ? "text-[var(--color-copper)]" : "text-foreground"
-                  }`}>
+                  <span className={`text-[13px] font-semibold font-display ${item.isKeil ? "text-[var(--color-copper)]" : "text-foreground"
+                    }`}>
                     {item.verdict}
                   </span>
                 </div>
@@ -641,7 +700,7 @@ export function PricingClient() {
       {/* ── 6. HONEST BOUNDARIES: WHO IS KEILHQ FOR? ── */}
       <section className="w-full py-24 border-t border-border/40 px-6 sm:px-8 lg:px-12">
         <div className="max-w-[1200px] mx-auto text-left">
-          
+
           <div className="flex flex-col gap-2 mb-12">
             <span className="text-xs uppercase tracking-widest text-muted-foreground font-semibold font-display">
               Honest Boundaries
@@ -683,7 +742,7 @@ export function PricingClient() {
       {/* ── 7. COMMON QUESTIONS (FAQ) — Seamless without top separator ── */}
       <section className="w-full py-24 px-6 sm:px-8 lg:px-12">
         <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start text-left">
-          
+
           <div className="lg:col-span-5 flex flex-col gap-4">
             <h2 className="font-display text-[clamp(2rem,3.5vw,2.75rem)] font-medium leading-tight text-foreground tracking-tight">
               Common questions
