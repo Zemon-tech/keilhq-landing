@@ -484,69 +484,7 @@ export function PricingClient() {
         </div>
       </section>
 
-      {/* ── 3. THE REALITY CHECK: 5-6 TOOL SPRAWL VS UNIFIED COCKPIT ── */}
-      <section className="w-full py-24 lg:py-32 border-t border-border/40 px-6 sm:px-8 lg:px-12">
-        <div className="max-w-[1200px] mx-auto flex flex-col gap-16 text-left">
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            <div className="lg:col-span-5 flex flex-col gap-3">
-              <span className="text-xs uppercase tracking-widest text-[var(--color-copper)] font-semibold font-display">
-                The Reality Check
-              </span>
-              <h2 className="font-display text-[clamp(2rem,3.8vw,2.75rem)] font-medium leading-[1.1] text-foreground tracking-tight">
-                What problem are we actually solving?
-              </h2>
-              <p className="text-[15px] text-muted-foreground leading-relaxed font-sans">
-                Most growing businesses (agencies, dev shops, startups, consulting teams) run on a fractured stack of 5–6 different tools.
-              </p>
-            </div>
-
-            <div className="lg:col-span-7 flex flex-col gap-4">
-              <div className="border border-border/60 rounded-lg p-6 bg-background divide-y divide-border/40 font-sans">
-                <div className="flex items-center justify-between pb-3">
-                  <span className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">Fractured Software Stack</span>
-                  <span className="text-xs font-mono font-medium text-destructive">~$60–$120+ / user / mo</span>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 pt-3 text-[13px]">
-                  <div className="flex justify-between py-1 border-b border-border/20"><span>Slack (Chat)</span><span className="text-muted-foreground font-mono">$8.75</span></div>
-                  <div className="flex justify-between py-1 border-b border-border/20"><span>ClickUp / Monday (Tasks)</span><span className="text-muted-foreground font-mono">$12–$19</span></div>
-                  <div className="flex justify-between py-1 border-b border-border/20"><span>Notion (Docs/Wikis)</span><span className="text-muted-foreground font-mono">$10–$20</span></div>
-                  <div className="flex justify-between py-1 border-b border-border/20"><span>Fireflies (Meeting AI)</span><span className="text-muted-foreground font-mono">$10–$18</span></div>
-                  <div className="flex justify-between py-1 border-b border-border/20"><span>HubSpot (CRM)</span><span className="text-muted-foreground font-mono">$15–$50</span></div>
-                  <div className="flex justify-between py-1 border-b border-border/20"><span>AI Subscriptions</span><span className="text-muted-foreground font-mono">$9–$28</span></div>
-                </div>
-                <div className="pt-4 mt-2 text-[13px] text-muted-foreground leading-relaxed">
-                  <strong className="text-foreground">The result:</strong> You pay heavy per-seat bills, your company context is trapped in disconnected tabs, and your team spends hours pasting notes between meeting bots, tasks, and Slack.
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Plain English Value Bar */}
-          <div className="border border-border/80 rounded-lg p-8 bg-background flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
-            <div className="flex flex-col gap-2 max-w-3xl">
-              <span className="text-xs uppercase tracking-widest text-foreground font-semibold font-display">
-                What KeilHQ does in plain English
-              </span>
-              <p className="text-[16px] text-muted-foreground font-sans leading-relaxed">
-                KeilHQ unifies <strong className="text-foreground">Tasks + Rich Motion Docs + Team Chat + Live Meeting Bot &amp; Transcription + CRM + Invoicing</strong> into one clean workspace. Instead of 6 bills and 6 browser tabs, you have one calm cockpit where AI works across all your data without extra plug-ins.
-              </p>
-            </div>
-            <Link
-              href="https://app.Keilhq.in/login"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-accent shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-md text-xs font-semibold active:scale-[0.97] transition-transform font-display"
-            >
-              Start Free Trial
-              <ArrowRight className="size-3.5" />
-            </Link>
-          </div>
-
-        </div>
-      </section>
-
-      {/* ── 4. DETAILED ALTERNATIVE COMPARISON MATRIX (LINEAR STYLE) ── */}
+      {/* ── 3. DETAILED ALTERNATIVE COMPARISON MATRIX (LINEAR STYLE) ── */}
       <section className="w-full pb-32 pt-20 px-6 sm:px-8 lg:px-12">
         <div className="max-w-[1200px] mx-auto text-left flex flex-col gap-10">
 
@@ -559,7 +497,7 @@ export function PricingClient() {
               How KeilHQ compares to alternatives
             </h2>
             <p className="text-[15px] text-muted-foreground font-sans max-w-3xl leading-relaxed">
-              A comprehensive breakdown of how KeilHQ replaces fragmented point solutions like ClickUp, Jira, Notion, and Slack with one unified cockpit.
+              A comprehensive breakdown of how KeilHQ replaces fragmented point solutions like ClickUp, Zoho, Notion, and Slack with one unified cockpit.
             </p>
           </div>
 
@@ -577,7 +515,35 @@ export function PricingClient() {
                     <span className="text-[var(--color-copper)]">KeilHQ</span>
                   </th>
                   <th className="sticky top-0 z-20 bg-background/95 backdrop-blur-lg pt-30 pb-4 pl-6 w-[36%] border-b border-border/40 text-xs font-semibold uppercase tracking-wider text-muted-foreground font-display">
-                    Alternatives (ClickUp, Jira, Notion, Slack)
+                    <div className="flex items-center gap-3">
+                      <span>Alternatives</span>
+                      <div className="flex items-center gap-2.5">
+                        <img
+                          src="https://cdn.brandfetch.io/idU6lzwMYA/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B"
+                          alt="ClickUp"
+                          className="size-3.5 object-contain opacity-70 hover:opacity-100 transition-opacity"
+                          loading="lazy"
+                        />
+                        <img
+                          src="https://cdn.brandfetch.io/idssig0_jY/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B"
+                          alt="Zoho"
+                          className="h-3.5 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
+                          loading="lazy"
+                        />
+                        <img
+                          src="https://cdn.brandfetch.io/idPYUoikV7/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B"
+                          alt="Notion"
+                          className="size-3.5 object-contain opacity-70 hover:opacity-100 transition-opacity"
+                          loading="lazy"
+                        />
+                        <img
+                          src="https://cdn.brandfetch.io/idJ_HhtG0Z/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B"
+                          alt="Slack"
+                          className="size-3.5 object-contain opacity-70 hover:opacity-100 transition-opacity"
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
                   </th>
                 </tr>
               </thead>
