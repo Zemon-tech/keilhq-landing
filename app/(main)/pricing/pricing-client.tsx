@@ -167,11 +167,22 @@ const comparisonSections: ComparisonSection[] = [
 ];
 
 /* ─── Gotchas Data ────────────────────────────────────────────────────────── */
-const competitorGotchas = [
+interface CompetitorGotcha {
+  platform: string;
+  badge: string;
+  price: string;
+  logo: string;
+  gotcha: string;
+  verdict: string;
+  isKeil: boolean;
+}
+
+const competitorGotchas: CompetitorGotcha[] = [
   {
     platform: "KeilHQ",
     badge: "Transparent Core",
     price: "₹500 – ₹1,500 / mo",
+    logo: "/keilhq.svg",
     gotcha: "Zero seat penalty mandates. AI, team chat, rich docs, meeting recorder bot, CRM, and finance are built into the single platform core.",
     verdict: "Predictable, unified pricing",
     isKeil: true,
@@ -180,6 +191,7 @@ const competitorGotchas = [
     platform: "ClickUp",
     badge: "Mandatory Workspace AI Tax",
     price: "$7 – $12 base + AI add-on",
+    logo: "https://cdn.brandfetch.io/idU6lzwMYA/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B",
     gotcha: "ClickUp Brain adds +$9 to +$28/user/mo and charges every single seat in your workspace, regardless of who uses it.",
     verdict: "~$21 – $40 / user / mo",
     isKeil: false,
@@ -188,6 +200,7 @@ const competitorGotchas = [
     platform: "Monday.com",
     badge: "Seat Minimum Penalty",
     price: "$9 – $19 base + CRM SKU",
+    logo: "https://cdn.brandfetch.io/id_2e59d2W/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B",
     gotcha: "Mandatory 3-seat minimum on all paid plans. Plus, CRM is billed as a separate product (+$12 to +$28/user/mo).",
     verdict: "~$24 – $47 / user / mo",
     isKeil: false,
@@ -196,6 +209,7 @@ const competitorGotchas = [
     platform: "Zoho One",
     badge: "All-Employee Mandate",
     price: "$37 (All) / $90 (Flex)",
+    logo: "https://cdn.brandfetch.io/idssig0_jY/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B",
     gotcha: "$37/mo forces licenses for everyone on payroll (even non-users). Otherwise flexible pricing jumps to $90/user/mo.",
     verdict: "$37 – $90 / user / mo + setup",
     isKeil: false,
@@ -204,16 +218,18 @@ const competitorGotchas = [
     platform: "Notion",
     badge: "Plan Lock-in",
     price: "$10 – $20 base + credits",
+    logo: "https://cdn.brandfetch.io/idPYUoikV7/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B",
     gotcha: "Full AI is locked behind the $20/user/mo Business plan plus metered credits. Lacks native chat and meeting bots.",
     verdict: "~$20 – $30 / user / mo (+ Slack + Fireflies)",
     isKeil: false,
   },
   {
-    platform: "Motion",
-    badge: "Metered Overage Fees",
-    price: "$19 – $29 / user / mo",
-    gotcha: "Strict 7-day card-required trial with no permanent free tier. AI credits are metered with unexpected overage fees.",
-    verdict: "~$29 – $49 / user / mo",
+    platform: "Slack",
+    badge: "Add-on Tool Tax",
+    price: "$8.75 / user / mo",
+    logo: "https://cdn.brandfetch.io/idJ_HhtG0Z/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B",
+    gotcha: "Essential for team chat in fragmented stacks, but adds $8.75/user/mo on top of separate task managers and docs tools.",
+    verdict: "~$8.75 / user / mo (+ Jira + Notion)",
     isKeil: false,
   },
 ];
@@ -508,38 +524,56 @@ export function PricingClient() {
               {/* Sticky Column Header pinned to top-0 with top padding to mask scrolled content behind floating navbar */}
               <thead className="sticky top-0 z-20">
                 <tr className="border-b border-border/60">
-                  <th className="sticky top-0 z-20 bg-background/95 backdrop-blur-lg pt-30 pb-4 pr-6 w-[28%] text-xs font-semibold uppercase tracking-wider text-muted-foreground font-display border-b border-border/60">
+                  <th className="sticky top-0 z-20 bg-background/95 backdrop-blur-lg pt-30 pb-4 pr-6 w-[28%] text-sm sm:text-[15px] font-semibold text-foreground font-display border-b border-border/60">
                     Features
                   </th>
-                  <th className="sticky top-0 z-20 bg-background/95 backdrop-blur-lg pt-30 pb-4 px-6 w-[36%] border-b border-border/40 text-xs font-semibold uppercase tracking-wider text-foreground font-display">
-                    <span className="text-[var(--color-copper)]">KeilHQ</span>
+                  <th className="sticky top-0 z-20 bg-background/95 backdrop-blur-lg pt-30 pb-4 px-6 w-[36%] border-b border-border/40 text-sm sm:text-[15px] font-semibold text-[var(--color-copper)] font-display">
+                    KeilHQ
                   </th>
-                  <th className="sticky top-0 z-20 bg-background/95 backdrop-blur-lg pt-30 pb-4 pl-6 w-[36%] border-b border-border/40 text-xs font-semibold uppercase tracking-wider text-muted-foreground font-display">
-                    <div className="flex items-center gap-3">
+                  <th className="sticky top-0 z-20 bg-background/95 backdrop-blur-lg pt-30 pb-4 pl-6 w-[36%] border-b border-border/40 text-sm sm:text-[15px] font-semibold text-foreground font-display">
+                    <div className="flex flex-wrap items-center gap-3">
                       <span>Alternatives</span>
                       <div className="flex items-center gap-2.5">
                         <img
                           src="https://cdn.brandfetch.io/idU6lzwMYA/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B"
                           alt="ClickUp"
-                          className="size-3.5 object-contain opacity-70 hover:opacity-100 transition-opacity"
+                          className="size-5 sm:size-6 object-contain opacity-80 hover:opacity-100 transition-opacity"
                           loading="lazy"
                         />
                         <img
                           src="https://cdn.brandfetch.io/idssig0_jY/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B"
                           alt="Zoho"
-                          className="h-3.5 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
+                          className="h-5 sm:h-6 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
                           loading="lazy"
                         />
                         <img
                           src="https://cdn.brandfetch.io/idPYUoikV7/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B"
                           alt="Notion"
-                          className="size-3.5 object-contain opacity-70 hover:opacity-100 transition-opacity"
+                          className="size-5 sm:size-6 object-contain opacity-80 hover:opacity-100 transition-opacity"
                           loading="lazy"
                         />
                         <img
                           src="https://cdn.brandfetch.io/idJ_HhtG0Z/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B"
                           alt="Slack"
-                          className="size-3.5 object-contain opacity-70 hover:opacity-100 transition-opacity"
+                          className="size-5 sm:size-6 object-contain opacity-80 hover:opacity-100 transition-opacity"
+                          loading="lazy"
+                        />
+                        <img
+                          src="https://cdn.brandfetch.io/idHFUcTb1F/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B"
+                          alt="Monday.com"
+                          className="size-5 sm:size-6 object-contain opacity-80 hover:opacity-100 transition-opacity"
+                          loading="lazy"
+                        />
+                        <img
+                          src="https://cdn.brandfetch.io/idRt0LuzRf/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B"
+                          alt="Hubspot"
+                          className="size-5 sm:size-6 object-contain opacity-80 hover:opacity-100 transition-opacity"
+                          loading="lazy"
+                        />
+                        <img
+                          src="https://cdn.brandfetch.io/iduDa181eM/w/400/h/400/theme/dark/icon.jpeg?c=1dxbfHSJFAPEGdCLU4o5B"
+                          alt="Linear"
+                          className="size-5 sm:size-6 object-contain opacity-80 hover:opacity-100 transition-opacity"
                           loading="lazy"
                         />
                       </div>
@@ -610,8 +644,8 @@ export function PricingClient() {
         </div>
       </section>
 
-      {/* ── 5. REAL PRICING & GOTCHA BREAKDOWN ── */}
-      <section className="w-full py-24 border-t border-border/40 px-6 sm:px-8 lg:px-12">
+      {/* ── 4. REAL PRICING & GOTCHA BREAKDOWN ── */}
+      <section className="w-full py-24 border-border/40 px-6 sm:px-8 lg:px-12">
         <div className="max-w-[1200px] mx-auto text-left">
 
           <div className="flex flex-col gap-2 mb-12">
@@ -630,14 +664,24 @@ export function PricingClient() {
             {competitorGotchas.map((item) => (
               <div
                 key={item.platform}
-                className={`p-6 rounded-lg border flex flex-col justify-between gap-6 ${item.isKeil
+                className={`p-6 flex flex-col justify-between gap-6 ${item.isKeil
                   ? "border-[var(--color-copper)]/70 bg-secondary/30"
                   : "border-border/60 bg-background"
                   }`}
               >
                 <div className="flex flex-col gap-3">
                   <div className="flex items-center justify-between">
-                    <span className="font-display text-base font-semibold text-foreground">{item.platform}</span>
+                    <div className="flex items-center gap-2.5">
+                      {item.logo && (
+                        <img
+                          src={item.logo}
+                          alt={item.platform}
+                          className={item.platform === "Zoho One" ? "h-4 w-auto object-contain shrink-0" : "size-4.5 object-contain shrink-0"}
+                          loading="lazy"
+                        />
+                      )}
+                      <span className="font-display text-base font-semibold text-foreground">{item.platform}</span>
+                    </div>
                     <span className={`text-[10px] uppercase font-semibold px-2 py-0.5 rounded-sm tracking-wider font-display ${item.isKeil ? "bg-[var(--color-copper)]/15 text-[var(--color-copper)]" : "bg-muted text-muted-foreground"
                       }`}>
                       {item.badge}
@@ -664,7 +708,7 @@ export function PricingClient() {
       </section>
 
       {/* ── 6. HONEST BOUNDARIES: WHO IS KEILHQ FOR? ── */}
-      <section className="w-full py-24 border-t border-border/40 px-6 sm:px-8 lg:px-12">
+      <section className="w-full py-24 border-border/40 px-6 sm:px-8 lg:px-12">
         <div className="max-w-[1200px] mx-auto text-left">
 
           <div className="flex flex-col gap-2 mb-12">
@@ -680,21 +724,21 @@ export function PricingClient() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 font-sans">
-            <div className="p-6 border border-border/60 rounded-lg flex flex-col gap-3">
+            <div className="p-6 flex flex-col gap-3">
               <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider font-display">10,000+ Enterprise ERP Needs</span>
               <p className="text-[13px] text-muted-foreground leading-relaxed">
                 If a Fortune 500 company requires SAP-level payroll compliance, custom multi-tier SAML SCIM across 50 legacy divisions, legacy suites like Zoho One or Microsoft 365 are designed for that.
               </p>
             </div>
 
-            <div className="p-6 border border-border/60 rounded-lg flex flex-col gap-3">
+            <div className="p-6 flex flex-col gap-3">
               <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider font-display">Pure Git-Centric Dev Tracking</span>
               <p className="text-[13px] text-muted-foreground leading-relaxed">
                 If an engineering team strictly wants an issue tracker connected only to GitHub PRs without docs, chat, CRM, or meeting AI, specialized tools like Linear or Jira are pure-play dev tools.
               </p>
             </div>
 
-            <div className="p-6 border border-[var(--color-copper)]/60 rounded-lg flex flex-col gap-3 bg-secondary/30">
+            <div className="p-6 flex flex-col gap-3 bg-secondary/30">
               <span className="text-xs font-semibold text-[var(--color-copper)] uppercase tracking-wider font-display">KeilHQ Sweet Spot (Ideal Fit)</span>
               <p className="text-[13px] text-foreground leading-relaxed">
                 Fast-moving agencies, dev studios, consulting teams, startups, and SMBs with <strong className="text-foreground">5 to 250 members</strong> who want high velocity, zero overhead, and one unified workspace.
