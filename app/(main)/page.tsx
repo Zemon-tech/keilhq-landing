@@ -131,7 +131,7 @@ export default async function Home() {
         heroLightImage={homepageData?.heroLightImage || "/mockups/home-hero-light.png"}
         heroDarkImage={homepageData?.heroDarkImage || "/mockups/home-hero-dark.png"}
       />
-      <BackedBy logoCloud={homepageData?.logoCloud || undefined} />
+      {/* <BackedBy logoCloud={homepageData?.logoCloud || undefined} /> */}
       <IntegrationCloud />
       <Features data={featuresData} />
       <Blogs posts={displayBlogPosts} />
