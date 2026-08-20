@@ -1,7 +1,4 @@
-"use client";
-
-import React, { useEffect, useRef, useState } from "react";
-import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 interface FinalCtaProps {
   finalCtaTitle?: string;
@@ -15,97 +12,61 @@ interface FinalCtaProps {
 
 export function FinalCta({
   finalCtaTitle = "AI Native Operating System for Work",
-  finalCtaDescription = "Join modern startups, agencies, and revenue teams running on KeilHQ's AI-native operational context layer. Everything connected. Zero lost context.",
-  finalCtaButtonLabel = "Start free today",
+  finalCtaDescription,
+  finalCtaButtonLabel = "Get started",
   finalCtaButtonLink = "https://app.Keilhq.in/login",
-  finalCtaSecondaryButtonLabel = "Book a demo",
-  finalCtaSecondaryButtonLink = "/demo",
-  finalCtaTrustText = "Free 1-month team trial · No credit card required · 6-hour SLA support",
+  finalCtaSecondaryButtonLabel = "Talk to sales",
+  finalCtaSecondaryButtonLink = "/enterprise",
+  finalCtaTrustText,
 }: FinalCtaProps) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
+  const isExternalPrimary =
+    finalCtaButtonLink?.startsWith("http://") ||
+    finalCtaButtonLink?.startsWith("https://") ||
+    finalCtaButtonLink?.startsWith("//");
 
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: "-10% 0px" }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
+  const isExternalSecondary =
+    finalCtaSecondaryButtonLink?.startsWith("http://") ||
+    finalCtaSecondaryButtonLink?.startsWith("https://") ||
+    finalCtaSecondaryButtonLink?.startsWith("//");
 
   return (
-    <section className="w-full min-h-[100dvh] bg-background flex items-center justify-center py-20 lg:py-28 xl:py-32">
-      <div
-        ref={ref}
-        className="max-w-[1400px] w-full mx-auto px-6 sm:px-8 lg:px-12 flex flex-col items-center text-center gap-8"
-      >
-        {/* Heading */}
-        <div className="flex flex-col items-center gap-4 max-w-[600px] text-center">
-          <h2
-            className={`font-display text-[clamp(1.75rem,3.5vw,2.5rem)] font-semibold leading-[1.1] tracking-tight text-foreground text-balance transition-all duration-1000 ${
-              visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-            }`}
-          >
-            {finalCtaTitle}
-          </h2>
-          <p
-            className={`text-[15px] font-normal text-muted-foreground leading-relaxed max-w-[42ch] transition-all duration-1000 delay-100 ${
-              visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
-            }`}
-          >
+    <section className="w-full py-28 lg:py-36 border-border/40 px-6 sm:px-8 lg:px-12 text-center">
+      <div className="max-w-3xl mx-auto flex flex-col items-center gap-6">
+        <h2 className="font-display text-[clamp(2.5rem,5vw,3.75rem)] font-medium tracking-tight leading-[1.08] text-foreground text-balance">
+          {finalCtaTitle}
+        </h2>
+
+        {finalCtaDescription && (
+          <p className="text-[16px] sm:text-[17px] text-muted-foreground max-w-[54ch] leading-relaxed font-sans -mt-2">
             {finalCtaDescription}
           </p>
-        </div>
+        )}
 
-        {/* CTAs */}
-        <div
-          className={`flex flex-col sm:flex-row items-center gap-3 mt-2 transition-all duration-1000 delay-200 ${
-            visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
-          }`}
-        >
+        <div className="flex items-center justify-center gap-3 mt-2 font-display">
           {finalCtaButtonLabel && finalCtaButtonLink && (
-            <a
+            <Link
               href={finalCtaButtonLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-sm btn-accent text-[13px] font-semibold transition-all cursor-pointer shadow-sm w-full sm:w-auto justify-center"
+              target={isExternalPrimary ? "_blank" : undefined}
+              rel={isExternalPrimary ? "noopener noreferrer" : undefined}
+              className="px-5 py-2.5 rounded-full bg-primary hover:bg-primary/90 text-primary-foreground text-xs font-semibold transition-transform duration-150 active:scale-[0.97] shadow-xs"
             >
               {finalCtaButtonLabel}
-              <ArrowRight
-                className="size-3.5"
-                aria-hidden="true"
-              />
-            </a>
+            </Link>
           )}
           {finalCtaSecondaryButtonLabel && finalCtaSecondaryButtonLink && (
-            <a
+            <Link
               href={finalCtaSecondaryButtonLink}
-              className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-sm border border-border text-foreground hover:bg-muted/50 text-[13px] font-semibold transition-all cursor-pointer active:scale-[0.97] w-full sm:w-auto justify-center"
+              target={isExternalSecondary ? "_blank" : undefined}
+              rel={isExternalSecondary ? "noopener noreferrer" : undefined}
+              className="px-5 py-2.5 rounded-full bg-secondary hover:bg-secondary/80 text-foreground border border-border/60 text-xs font-semibold transition-transform duration-150 active:scale-[0.97]"
             >
               {finalCtaSecondaryButtonLabel}
-              <ArrowRight
-                className="size-3.5 opacity-55"
-                aria-hidden="true"
-              />
-            </a>
+            </Link>
           )}
         </div>
 
-        {/* Trust micro-copy */}
         {finalCtaTrustText && (
-          <p
-            className={`text-[11px] font-sans tracking-wider text-muted-foreground transition-all duration-1000 delay-300 ${
-              visible ? "opacity-100" : "opacity-0"
-            }`}
-          >
+          <p className="text-[11px] font-sans tracking-wider text-muted-foreground mt-2">
             {finalCtaTrustText}
           </p>
         )}

@@ -12,7 +12,7 @@ export async function Footer() {
 
   const siteName = siteSettings?.siteName || "KeilHQ";
   const logo = siteSettings?.logo || "/keilhq.svg";
-  
+
   const twitterUrl = footerData?.twitterUrl || "https://x.com";
   const instagramUrl = footerData?.instagramUrl || "https://instagram.com";
   const linkedinUrl = footerData?.linkedinUrl || "https://www.linkedin.com/company/keil-hq/";
@@ -142,7 +142,7 @@ export async function Footer() {
       </div>
 
       {/* Copyright and Privacy Links Row */}
-      <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-8 lg:px-12 pt-6 pb-12 flex flex-col md:flex-row items-center justify-between gap-6 border-t border-border z-10 relative">
+      <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-8 lg:px-12 pt-6 pb-12 flex flex-col md:flex-row items-center justify-between gap-6 border-border z-10 relative">
         <span className="text-[13px] text-muted-foreground font-normal tracking-wide w-full md:w-1/3 text-center md:text-left">
           {copyrightText}
         </span>

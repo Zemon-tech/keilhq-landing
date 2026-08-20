@@ -93,10 +93,10 @@
     }
   ],
   "finalCtaTitle": "AI Native Operating System for Work",
-  "finalCtaDescription": "Join modern startups, agencies, and revenue teams running on KeilHQ's AI-native operational context layer. Everything connected. Zero lost context.",
-  "finalCtaButtonLabel": "Start free today",
+  "finalCtaDescription": "",
+  "finalCtaButtonLabel": "Get started",
   "finalCtaButtonLink": "https://app.Keilhq.in/login",
-  "finalCtaSecondaryButtonLabel": "Book a demo",
-  "finalCtaSecondaryButtonLink": "/demo",
-  "finalCtaTrustText": "Free 1-month team trial · No credit card required · 6-hour SLA support"
+  "finalCtaSecondaryButtonLabel": "Talk to sales",
+  "finalCtaSecondaryButtonLink": "/enterprise",
+  "finalCtaTrustText": ""
 }
