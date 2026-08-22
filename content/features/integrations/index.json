@@ -7,14 +7,14 @@
   "subHeroDesc": "Real-time, two-way sync with Google Workspace, GitHub, Notion, and Slack. Every task scheduled, document edited, or update made in KeilHQ instantly reflects across all your apps and devices — zero friction, zero tab hopping.",
   "subHeroLink": "https://app.Keilhq.in/login",
   "subHeroLinkText": "Try Integrations",
-  "lightImage": "/mockups/light/connectors-settings-light.webp",
-  "darkImage": "/mockups/dark/connectors-settings-dark.webp",
+  "lightImage": "/mockups/integrations/integrations-light.png",
+  "darkImage": "/mockups/integrations/integrations-dark.png",
   "sections": [
     {
       "title": "Connect the tools your team already relies on",
       "desc": "One authorization connects Google Calendar, Gmail, GitHub, Notion, and more. Your data flows into KeilHQ automatically — no manual syncing, no copy-pasting between tabs.",
-      "lightImage": "/mockups/light/shortcut-settings-light.webp",
-      "darkImage": "/mockups/dark/shortcuts-settings-dark.webp",
+      "lightImage": "/mockups/integrations/crm-integrations-light.png",
+      "darkImage": "/mockups/integrations/crm-integrations-dark.png",
       "tags": [
         { "index": "6.1", "name": "Google Workspace" },
         { "index": "6.2", "name": "GitHub" },

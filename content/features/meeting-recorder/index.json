@@ -6,14 +6,14 @@
   "subHeroDesc": "KeilHQ records, transcribes, and summarizes your meetings — then automatically suggests the tasks and follow-ups that came out of them. You review, approve, and move on.",
   "subHeroLink": "https://app.Keilhq.in/login",
   "subHeroLinkText": "Try Meeting Intelligence",
-  "lightImage": "/mockups/light/meetings-light.webp",
-  "darkImage": "/mockups/dark/meetings-dark.webp",
+  "lightImage": "/mockups/meeting/meetings-recorder-light.png",
+  "darkImage": "/mockups/meeting/meetings-recorder-dark.png",
   "sections": [
     {
       "title": "Record any meeting, straight from your browser",
       "desc": "No app to install, no third-party tools. Hit record, and KeilHQ captures everything. Pause, mute, and stop controls are always one click away.",
-      "lightImage": "/mockups/light/meetings-recorder-light.webp",
-      "darkImage": "/mockups/dark/meetings-recorder-dark.webp",
+      "lightImage": "/mockups/meeting/meetings-recorder-light.png",
+      "darkImage": "/mockups/meeting/meetings-recorder-dark.png",
       "tags": [
         { "index": "5.1", "name": "Browser Recording" },
         { "index": "5.2", "name": "Recording Controls" },
@@ -44,8 +44,8 @@
       "title": "Know who said what, and when",
       "desc": "The transcript labels each speaker separately so you can follow the conversation by person, not just by time. Search for any keyword and jump straight to that moment.",
       "isImageRight": true,
-      "lightImage": "/mockups/light/meetings-transcription-light.webp",
-      "darkImage": "/mockups/dark/meetings-transcription-dark.webp",
+      "lightImage": "/mockups/meeting/meetings-transcript-light.png",
+      "darkImage": "/mockups/meeting/meetings-transcriipt-dark.png",
       "tags": [
         { "index": "5.4", "name": "Speaker Labels" },
         { "index": "5.5", "name": "Multi-Language" },
@@ -76,8 +76,8 @@
       "title": "Meeting notes that write themselves",
       "desc": "When the recording ends, KeilHQ generates a structured summary — the main topics discussed, decisions made, and open questions still on the table.",
       "isImageLeft": true,
-      "lightImage": "/mockups/light/meetings-summary-light.webp",
-      "darkImage": "/mockups/dark/meetings-summary-dark.webp",
+      "lightImage": "/mockups/meeting/meetings-summary-light.png",
+      "darkImage": "/mockups/meeting/meetings-summary-dark.png",
       "tags": [
         { "index": "5.7", "name": "Executive Summary" },
         { "index": "5.8", "name": "Decisions Log" },
@@ -115,8 +115,8 @@
       "title": "Turn meeting decisions into real work, automatically",
       "desc": "KeilHQ reads through the meeting and proposes the tasks, updates, and follow-ups that came out of it. You review each suggestion and approve or edit before anything gets created.",
       "isImageRight": true,
-      "lightImage": "/mockups/light/meetings-action-light.webp",
-      "darkImage": "/mockups/dark/meetings-action-dark.webp",
+      "lightImage": "/mockups/meeting/meetings-action-light.png",
+      "darkImage": "/mockups/meeting/meetings-action-dark.png",
       "tags": [
         { "index": "5.11", "name": "Task Proposals" },
         { "index": "5.12", "name": "CRM Updates" },
@@ -147,8 +147,8 @@
       "title": "Save meeting notes straight into your workspace",
       "desc": "Turn any meeting summary into a formatted document with one click — saved directly into Motion Docs and synced to Notion if you use it.",
       "isImageLeft": true,
-      "lightImage": "/mockups/light/meetings-save-motion-light.webp",
-      "darkImage": "/mockups/dark/meetings-save-motion-light.webp",
+      "lightImage": "/mockups/meeting/meetings-dialog-light.png",
+      "darkImage": "/mockups/meeting/meetings-savemotion-dark.png",
       "tags": [
         { "index": "5.14", "name": "Save to Motion Docs" },
         { "index": "5.15", "name": "Notion Sync" }

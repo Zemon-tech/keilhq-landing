@@ -6,14 +6,14 @@
   "subHeroDesc": "KeilHQ gives every organization a clean structure — your company at the top, individual project spaces below — with precise control over who can see and do what.",
   "subHeroLink": "https://app.Keilhq.in/login",
   "subHeroLinkText": "Try Org & Permissions",
-  "lightImage": "/mockups/light/organization-settings-light.webp",
-  "darkImage": "/mockups/dark/organization-settings-dark.webp",
+  "lightImage": "/mockups/organisations/organisation-light.png",
+  "darkImage": "/mockups/organisations/organisation-dark.png",
   "sections": [
     {
       "title": "Your company, organized from the top down",
       "desc": "Your organization is the home for your whole company. Inside it, you create individual spaces for each team or project — each with its own tasks, conversations, and documents.",
-      "lightImage": "/mockups/light/organization-data-export-settings-light.webp",
-      "darkImage": "/mockups/dark/organization-data-export-settings-dark.webp",
+      "lightImage": "/mockups/organisations/organisation-dataexport-light.png",
+      "darkImage": "/mockups/organisations/organisaiton-dataexport-dark.png",
       "tags": [
         { "index": "7.1", "name": "Organization" },
         { "index": "7.2", "name": "Project Spaces" },
@@ -44,8 +44,8 @@
       "title": "Precise control over who can do what",
       "desc": "Set roles at both the company level and the space level. Admins can manage the workspace, managers can create and assign work, and members can contribute — each within their own boundaries.",
       "isImageRight": true,
-      "lightImage": "/mockups/light/account-settings-light.webp",
-      "darkImage": "/mockups/dark/account-settings-dark.webp",
+      "lightImage": "/mockups/organisations/organisation-featureaccess-light.png",
+      "darkImage": "/mockups/organisations/organisation-featureaccess-dark.png",
       "tags": [
         { "index": "7.4", "name": "Company Roles" },
         { "index": "7.5", "name": "Space Roles" },

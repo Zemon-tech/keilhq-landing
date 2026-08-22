@@ -6,14 +6,14 @@
   "subHeroDesc": "KeilHQ handles invoicing, expense tracking, bank reconciliation, and payroll — so your team spends less time on financial admin and more time on the work that matters.",
   "subHeroLink": "https://app.Keilhq.in/login",
   "subHeroLinkText": "Try Finance & Bookkeeping",
-  "lightImage": "/mockups/light/finance-overview-light.webp",
-  "darkImage": "/mockups/dark/finance-overview-dark.webp",
+  "lightImage": "/mockups/finance/finance-overview-light.png",
+  "darkImage": "/mockups/finance/finance-overview-dark.png",
   "sections": [
     {
       "title": "Track every dollar, across every part of your business",
       "desc": "Log revenue, expenses, transfers, and taxes — organized by category, project, department, or team. Works across multiple currencies and multiple business entities.",
-      "lightImage": "/mockups/light/finance-transaction-light.webp",
-      "darkImage": "/mockups/dark/finance-transaction-dark.webp",
+      "lightImage": "/mockups/finance/finance-transaction-light.png",
+      "darkImage": "/mockups/finance/finance-transactions-dark.png",
       "tags": [
         { "index": "9.1", "name": "Transaction Ledger" },
         { "index": "9.2", "name": "Multiple Books" },
@@ -51,8 +51,8 @@
       "title": "Create invoices and get paid, without the back-and-forth",
       "desc": "Build professional invoices with automatic tax and discount calculations, send them directly to clients by email, and share a payment link so they can settle instantly.",
       "isImageRight": true,
-      "lightImage": "/mockups/light/finance-invoice-light.webp",
-      "darkImage": "/mockups/dark/finance-invoice-dark.webp",
+      "lightImage": "/mockups/finance/finance-invoices-light.png",
+      "darkImage": "/mockups/finance/finance-invoice-dark.png",
       "tags": [
         { "index": "9.5", "name": "Invoice Builder" },
         { "index": "9.6", "name": "Recurring Billing" },
@@ -90,8 +90,8 @@
       "title": "Know exactly what's in your bank accounts at all times",
       "desc": "Track all your bank accounts, credit cards, and wallets in one dashboard. Import bank statements and KeilHQ matches the transactions to your records automatically.",
       "isImageLeft": true,
-      "lightImage": "/mockups/light/finance-banking-light.webp",
-      "darkImage": "/mockups/dark/finance-banking-dark.webp",
+      "lightImage": "/mockups/finance/finance-banking-light.png",
+      "darkImage": "/mockups/finance/finance-banking-dark.png",
       "tags": [
         { "index": "9.9", "name": "Account Tracking" },
         { "index": "9.10", "name": "Fund Transfers" },
@@ -129,8 +129,8 @@
       "title": "Run payroll and understand your financial health",
       "desc": "Process monthly salaries with tax deductions calculated automatically, generate payslips for each employee, and get a clear view of your business's financial position through 11 built-in reports.",
       "isImageRight": true,
-      "lightImage": "/mockups/light/finance-reports-light.webp",
-      "darkImage": "/mockups/dark/finance-reports-dark.webp",
+      "lightImage": "/mockups/finance/finance-reports-light.png",
+      "darkImage": "/mockups/finance/finance-reports-dark.png",
       "tags": [
         { "index": "9.13", "name": "Payroll" },
         { "index": "9.14", "name": "Payslips" },

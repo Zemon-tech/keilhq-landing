@@ -6,14 +6,14 @@
   "subHeroDesc": "KeilHQ gives your sales team a CRM they actually want to use. Build custom pipelines, capture leads from every channel, and let AI extract the key insights from your sales calls.",
   "subHeroLink": "https://app.Keilhq.in/login",
   "subHeroLinkText": "Try Relational CRM",
-  "lightImage": "/mockups/light/crm-overview-light.webp",
-  "darkImage": "/mockups/dark/crm-overview-dark.webp",
+  "lightImage": "/mockups/crm/crm-overview-light.png",
+  "darkImage": "/mockups/crm/crm-overview-dark.png",
   "sections": [
     {
       "title": "Build a database that fits the way you sell",
       "desc": "Set up custom databases for contacts, companies, and deals with the exact fields your team needs. Link records together so a contact connects to the company and the deal — all visible in one place.",
-      "lightImage": "/mockups/light/crm-records-light.webp",
-      "darkImage": "/mockups/dark/crm-records-dark.webp",
+      "lightImage": "/mockups/crm/crm-records-light.png",
+      "darkImage": "/mockups/crm/crm-records-dark.png",
       "tags": [
         { "index": "8.1", "name": "Custom Databases" },
         { "index": "8.2", "name": "Custom Fields" },
@@ -44,8 +44,8 @@
       "title": "Manage your pipeline the way your team thinks",
       "desc": "View your deals as a Kanban board to drag and drop through stages, or as a spreadsheet for bulk editing. Advanced filters let you slice the data exactly the way you need it.",
       "isImageRight": true,
-      "lightImage": "/mockups/light/crm-list-light.webp",
-      "darkImage": "/mockups/dark/crm-lists-dark.webp",
+      "lightImage": "/mockups/crm/crm-lists-light.png",
+      "darkImage": "/mockups/crm/crm-lists-dark.png",
       "tags": [
         { "index": "8.4", "name": "Kanban Pipeline" },
         { "index": "8.5", "name": "Spreadsheet View" },
@@ -83,8 +83,8 @@
       "title": "Capture leads from wherever they come in",
       "desc": "Whether a lead fills out your website form, sends a WhatsApp message, or comes in from a Meta ad — KeilHQ captures them automatically and puts them straight into your pipeline.",
       "isImageLeft": true,
-      "lightImage": "/mockups/light/connectors-settings-light.webp",
-      "darkImage": "/mockups/dark/connectors-settings-dark.webp",
+      "lightImage": "/mockups/crm/crm-record-overview-light.png",
+      "darkImage": "/mockups/crm/crm-record-overview-dark.png",
       "tags": [
         { "index": "8.8", "name": "Web Forms" },
         { "index": "8.9", "name": "WhatsApp & Meta Ads" },
@@ -122,8 +122,8 @@
       "title": "AI that listens to your sales calls and updates your CRM",
       "desc": "Record a sales meeting and KeilHQ extracts the key details — what the prospect's budget is, who the decision-maker is, what they need, and when they want to move. All proposed for your review, never applied automatically.",
       "isImageRight": true,
-      "lightImage": "/mockups/light/ai-chat-light.webp",
-      "darkImage": "/mockups/dark/ai-chat-dark.webp",
+      "lightImage": "/mockups/crm/crm-client-notes-light.png",
+      "darkImage": "/mockups/crm/crm-client-notes-dark.png",
       "tags": [
         { "index": "8.12", "name": "Sales Call AI" },
         { "index": "8.13", "name": "Duplicate Detection" },

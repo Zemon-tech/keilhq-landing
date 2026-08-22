@@ -149,7 +149,7 @@ export function Hero({
               </>
             ) : (
               <Image
-                src={heroImage || heroDarkImage || heroLightImage || "/mockups/home-hero.png"}
+                src={heroImage || heroDarkImage || heroLightImage || "/mockups/home-hero-dark.png"}
                 alt={`${heroTitle} — AI-powered workspace`}
                 width={1600}
                 height={1000}

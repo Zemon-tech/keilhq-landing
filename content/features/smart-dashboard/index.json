@@ -6,14 +6,14 @@
   "subHeroDesc": "The Smart Dashboard shows you what needs attention right now — tasks, blockers, replies, upcoming events — and puts an AI assistant right next to it so you can act on anything without opening another app.",
   "subHeroLink": "https://app.Keilhq.in/login",
   "subHeroLinkText": "Try Smart Dashboard",
-  "lightImage": "/mockups/light/dashboard-light.webp",
-  "darkImage": "/mockups/dark/dashboard-dark.webp",
+  "lightImage": "/mockups/dashboard/dashboard-snapshot-light.png",
+  "darkImage": "/mockups/dashboard/dashboard-snapshot-dark.png",
   "sections": [
     {
       "title": "Your workday, laid out before you open a single app",
       "desc": "The moment you log in, KeilHQ surfaces what actually matters — your current focus, anything blocking progress, messages waiting on you, and what's coming up next. One view, no hunting.",
-      "lightImage": "/mockups/light/dashboard-2-light.webp",
-      "darkImage": "/mockups/dark/dashboard-2-dark.webp",
+      "lightImage": "/mockups/dashboard/dashboard-snapshot-light.png",
+      "darkImage": "/mockups/dashboard/dashboard-snapshot-dark.png",
       "tags": [
         { "index": "1.1", "name": "Current Focus" },
         { "index": "1.2", "name": "Live Blockers" },
@@ -44,8 +44,8 @@
       "title": "Autonomous AI execution across tasks, calendar events, and Motion docs",
       "desc": "Orchestrate your entire workspace purely through natural conversation. KeilHQ's AI engine creates and prioritizes tasks, harmonizes schedules, and authors rich documentation while delivering real-time executive summaries.",
       "isImageLeft": true,
-      "lightImage": "/mockups/light/ai-sidebar-light.webp",
-      "darkImage": "/mockups/dark/ai-sidebar-dark.webp",
+      "lightImage": "/mockups/dashboard/ai-websearch-light.png",
+      "darkImage": "/mockups/dashboard/ai-websearch-dark.png",
       "tags": [
         { "index": "1.4", "name": "Autonomous Task Execution" },
         { "index": "1.5", "name": "Intelligent Scheduling" },
@@ -83,8 +83,8 @@
       "title": "Supervisor AI, specialized agents, and live intelligence command center",
       "desc": "Command a master Supervisor AI that orchestrates dedicated agents to handle complex cross-team workflows. Watch step-by-step reasoning unfold in real time, pull instant verified market intelligence into any project, and retain permanent contextual memory across your entire organization.",
       "isImageRight": true,
-      "lightImage": "/mockups/light/ai-chat-light.webp",
-      "darkImage": "/mockups/dark/ai-chat-dark.webp",
+      "lightImage": "/mockups/dashboard/ai-chat-light.png",
+      "darkImage": "/mockups/dashboard/ai-chat-dark.png",
       "tags": [
         { "index": "1.8", "name": "Master Supervisor Agent" },
         { "index": "1.9", "name": "Specialized Sub-Agents" },

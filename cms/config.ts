@@ -101,8 +101,8 @@ export default config({
                 }),
                 image: fields.image({
                     label: 'Mockup Image',
-                    directory: 'public/mockups/dark',
-                    publicPath: '/mockups/dark/',
+                    directory: 'public/mockups',
+                    publicPath: '/mockups/',
                 }),
                 content: fields.document({
                     label: 'Content',
@@ -124,13 +124,13 @@ export default config({
                 eyebrowText: fields.text({ label: 'Eyebrow Text' }),
                 lightImage: fields.image({
                     label: 'Light-mode Mockup Image',
-                    directory: 'public/mockups/light',
-                    publicPath: '/mockups/light/',
+                    directory: 'public/mockups',
+                    publicPath: '/mockups/',
                 }),
                 darkImage: fields.image({
                     label: 'Dark-mode Mockup Image',
-                    directory: 'public/mockups/dark',
-                    publicPath: '/mockups/dark/',
+                    directory: 'public/mockups',
+                    publicPath: '/mockups/',
                 }),
                 subHeroTitle: fields.text({ label: 'Sub-hero Title' }),
                 subHeroDesc: fields.text({ label: 'Sub-hero Description', multiline: true }),
@@ -271,13 +271,13 @@ export default config({
                         description: fields.text({ label: 'Description' }),
                         lightImage: fields.image({
                             label: 'Light-mode Mockup Image',
-                            directory: 'public/mockups/light',
-                            publicPath: '/mockups/light/',
+                            directory: 'public/mockups',
+                            publicPath: '/mockups/',
                         }),
                         darkImage: fields.image({
                             label: 'Dark-mode Mockup Image',
-                            directory: 'public/mockups/dark',
-                            publicPath: '/mockups/dark/',
+                            directory: 'public/mockups',
+                            publicPath: '/mockups/',
                         }),
                         alt: fields.text({ label: 'Image Alt Text' }),
                     }),

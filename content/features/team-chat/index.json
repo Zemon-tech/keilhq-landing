@@ -6,14 +6,14 @@
   "subHeroDesc": "KeilHQ brings team messaging into your workspace so conversations stay connected to the tasks, projects, and decisions they're about.",
   "subHeroLink": "https://app.Keilhq.in/login",
   "subHeroLinkText": "Try Team Chat",
-  "lightImage": "/mockups/light/chat-light.webp",
-  "darkImage": "/mockups/dark/chat-dark.webp",
+  "lightImage": "/mockups/messages/message-light.png",
+  "darkImage": "/mockups/messages/message-dark.png",
   "sections": [
     {
       "title": "Channels for the whole team, messages for one-on-one",
       "desc": "Create group channels for your teams and projects, or send a direct message to a colleague. All conversations are scoped to your company — nothing leaks out.",
-      "lightImage": "/mockups/light/chat-sidebar-light.webp",
-      "darkImage": "/mockups/dark/chat-sidebar-dark.webp",
+      "lightImage": "/mockups/messages/message-sidebar-light.png",
+      "darkImage": "/mockups/messages/message-sidebar-dark.png",
       "tags": [
         { "index": "4.1", "name": "Direct Messages" },
         { "index": "4.2", "name": "Group Channels" },
@@ -51,8 +51,8 @@
       "title": "Messages that arrive instantly, every time",
       "desc": "Team Chat delivers messages the moment they're sent — no refreshing, no delays. Typing indicators and unread counts mean you always know what needs your attention.",
       "isImageRight": true,
-      "lightImage": "/mockups/light/notification-sidebar-light.webp",
-      "darkImage": "/mockups/dark/notification-sidebar-dark.webp",
+      "lightImage": "/mockups/messages/message-dialog-light.png",
+      "darkImage": "/mockups/messages/message-dialog-dark.png",
       "tags": [
         { "index": "4.5", "name": "Instant Delivery" },
         { "index": "4.6", "name": "Typing Indicators" },

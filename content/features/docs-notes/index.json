@@ -6,14 +6,14 @@
   "subHeroDesc": "Motion is your team's shared writing space — connected to your tasks, synced with Notion, and backed by an AI that can write, summarize, and organize documents for you.",
   "subHeroLink": "https://app.Keilhq.in/login",
   "subHeroLinkText": "Try Motion Docs",
-  "lightImage": "/mockups/light/motion-page-light.webp",
-  "darkImage": "/mockups/dark/motion-page-dark.webp",
+  "lightImage": "/mockups/motion/motion-page-light.png",
+  "darkImage": "/mockups/motion/motion-page-dark.png",
   "sections": [
     {
       "title": "Write, organize, and find anything — without switching tools",
       "desc": "Motion gives you a full document editor with folders, subpages, and a clean hierarchy. Everything your team writes lives in one place, organized the way your business actually works.",
-      "lightImage": "/mockups/light/motion-folder-light.webp",
-      "darkImage": "/mockups/dark/motion-folder-dark.webp",
+      "lightImage": "/mockups/motion/motion-folder-light.png",
+      "darkImage": "/mockups/motion/motion-folder-dark.png",
       "tags": [
         { "index": "3.1", "name": "Rich Document Editor" },
         { "index": "3.2", "name": "Auto-Save" },
@@ -58,8 +58,8 @@
       "title": "Your whole team can write and review together",
       "desc": "Multiple people can work on the same document at the same time, leave comments, and control who can see or edit anything — just like the tools you're used to, but built into your workspace.",
       "isImageRight": true,
-      "lightImage": "/mockups/light/motion-share-light.webp",
-      "darkImage": "/mockups/dark/motion-share-dark.webp",
+      "lightImage": "/mockups/motion/motion-share-light.png",
+      "darkImage": "/mockups/motion/motion-share-dark.png",
       "tags": [
         { "index": "3.6", "name": "Co-Editing" },
         { "index": "3.7", "name": "Permissions" },
@@ -97,8 +97,8 @@
       "title": "AI that writes and organizes documents for you",
       "desc": "Highlight any section and ask AI to rewrite, summarize, or translate it. Or tell your AI assistant to create an entire page from scratch — and it will.",
       "isImageLeft": true,
-      "lightImage": "/mockups/light/motion-updates-light.webp",
-      "darkImage": "/mockups/dark/motion-updates-dark.webp",
+      "lightImage": "/mockups/motion/motion-AIchat-light.png",
+      "darkImage": "/mockups/motion/motion-AIchat-dark.png",
       "tags": [
         { "index": "3.10", "name": "AI Writing Assistant" },
         { "index": "3.11", "name": "Instant Summaries" },

@@ -6,14 +6,14 @@
   "subHeroDesc": "KeilHQ keeps every task clear and every team member accountable. Work moves forward because nothing can be marked done until its blockers are resolved.",
   "subHeroLink": "https://app.Keilhq.in/login",
   "subHeroLinkText": "Try Task Management",
-  "lightImage": "/mockups/light/task-overview-page-light.webp",
-  "darkImage": "/mockups/dark/task-overview-page-dark.webp",
+  "lightImage": "/mockups/project-tasks-events/tasks-overviewpage-light.png",
+  "darkImage": "/mockups/project-tasks-events/tasks-overviewpage-dark.png",
   "sections": [
     {
       "title": "See your work from any angle",
       "desc": "Switch between a calendar, a list, a board, or a progress tracker — whatever helps you think. All views stay in sync so you never lose context switching between them.",
-      "lightImage": "/mockups/light/task-kanban-view-light.webp",
-      "darkImage": "/mockups/dark/task-kanban-view-dark.webp",
+      "lightImage": "/mockups/project-tasks-events/tasks-kanbanview-light.png",
+      "darkImage": "/mockups/project-tasks-events/tasks-kanbanview-dark.png",
       "tags": [
         { "index": "2.1", "name": "Calendar View" },
         { "index": "2.2", "name": "List View" },
@@ -51,8 +51,8 @@
       "title": "Full task details without leaving your flow",
       "desc": "Click any task and get the full picture in a side drawer — who owns it, what's blocking it, when it's due — without losing your place in the board.",
       "isImageLeft": true,
-      "lightImage": "/mockups/light/task-sidebar-overview-light.webp",
-      "darkImage": "/mockups/dark/task-sidebar-dark.webp",
+      "lightImage": "/mockups/project-tasks-events/tasks-sidebar-overview-light.png",
+      "darkImage": "/mockups/project-tasks-events/tasks-sidebar-overview-dark.png",
       "tags": [
         { "index": "2.5", "name": "Side Drawer" },
         { "index": "2.6", "name": "Quick Edit" }
@@ -76,8 +76,8 @@
       "title": "The full story behind every task",
       "desc": "Every task has a dedicated page with full context — updates from the team, a log of every change ever made, and a clear view of what it depends on.",
       "isImageRight": true,
-      "lightImage": "/mockups/light/task-activity-light.webp",
-      "darkImage": "/mockups/dark/task-activity-dark.webp",
+      "lightImage": "/mockups/project-tasks-events/tasks-activity-light.png",
+      "darkImage": "/mockups/project-tasks-events/tasks-activity-dark.png",
       "tags": [
         { "index": "2.7", "name": "Team Activity" },
         { "index": "2.8", "name": "AI Summary" },
@@ -115,8 +115,8 @@
       "title": "Your calendar and your tasks, finally in sync",
       "desc": "Tasks with deadlines automatically appear on your Google Calendar. Your AI assistant can find open slots and schedule work for you, so nothing gets missed.",
       "isImageLeft": true,
-      "lightImage": "/mockups/light/task-calendar-view-light.webp",
-      "darkImage": "/mockups/dark/task-calendar-view-dark.webp",
+      "lightImage": "/mockups/project-tasks-events/tasks-calendarview-light.png",
+      "darkImage": "/mockups/project-tasks-events/tasks-calendarview-dark.png",
       "tags": [
         { "index": "2.11", "name": "Google Calendar Sync" },
         { "index": "2.12", "name": "AI Scheduling" },
