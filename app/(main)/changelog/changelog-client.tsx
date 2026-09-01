@@ -53,50 +53,8 @@ export function ChangelogClient({ entries }: { entries: ChangelogEntry[] }) {
 
   return (
     <main className="flex-1 flex flex-col items-center">
-      {/* Top Header */}
-      <section className="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 pt-32 lg:pt-40 pb-6 flex flex-col gap-8 text-left">
-        <h1 className="font-display text-[clamp(2.5rem,5.5vw,4.5rem)] font-bold tracking-tight leading-none text-foreground">
-          Now
-        </h1>
-
-        {/* Sub Navigation */}
-        <div className="w-full flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-border pb-4">
-          <div className="flex items-center gap-6 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-            {NAV_FILTERS.map((filter) => (
-              <button
-                key={filter}
-                onClick={() => setActiveTab(filter)}
-                className={`text-[13px] font-medium tracking-wide transition-colors cursor-pointer shrink-0 font-display ${
-                  activeTab === filter
-                    ? "text-foreground"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                {filter}
-              </button>
-            ))}
-          </div>
-
-          <div className="flex items-center gap-4 shrink-0">
-            <div className="relative w-44 md:w-56">
-              <Search className="absolute left-2.5 top-2.5 size-3.5 text-muted-foreground" />
-              <input
-                type="text"
-                placeholder="Search..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full h-8 pl-8 pr-3 bg-card border border-border rounded-sm text-[12px] text-foreground placeholder-muted-foreground focus:outline-hidden"
-              />
-            </div>
-            <button className="size-8 flex items-center justify-center rounded-sm bg-card border border-border hover:bg-muted/50 text-muted-foreground cursor-pointer">
-              <Bell className="size-3.5" />
-            </button>
-          </div>
-        </div>
-      </section>
-
       {/* Feed List */}
-      <section className="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 pb-24">
+      <section className="relative z-10 w-full max-w-[1400px] mx-auto px-6 py-20 sm:px-8 lg:px-12 pb-24">
         <div className="w-full flex flex-col">
           {filteredEntries.length === 0 ? (
             <div className="py-20 text-center text-muted-foreground text-sm">
@@ -148,9 +106,9 @@ export function ChangelogClient({ entries }: { entries: ChangelogEntry[] }) {
                     {(
                       [
                         { key: "improvements", label: "Improvements", items: entry.improvements },
-                        { key: "fixes",        label: "Fixes",        items: entry.fixes },
-                        { key: "api",          label: "API",          items: entry.api },
-                        { key: "shortcuts",    label: "Keyboard shortcuts", items: entry.shortcuts },
+                        { key: "fixes", label: "Fixes", items: entry.fixes },
+                        { key: "api", label: "API", items: entry.api },
+                        { key: "shortcuts", label: "Keyboard shortcuts", items: entry.shortcuts },
                       ] as const
                     ).map(({ key, label, items }) =>
                       items.length > 0 ? (

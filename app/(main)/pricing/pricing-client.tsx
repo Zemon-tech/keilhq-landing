@@ -159,7 +159,7 @@ const comparisonSections: ComparisonSection[] = [
       },
       {
         name: "Total estimated monthly stack cost per user",
-        keil: "₹500 – ₹1,500 ($6–$18 / user / mo)",
+        keil: "₹500 intro → ₹2,000/mo (Pro) · ₹1,500 intro → ₹5,000/mo (5 seats) · ₹800/extra seat",
         alternatives: "$60 – $120+ / user / mo when combining Slack ($8.75) + ClickUp ($12) + Notion ($10) + Fireflies ($10) + CRM ($15+).",
       },
     ],
@@ -181,10 +181,10 @@ const competitorGotchas: CompetitorGotcha[] = [
   {
     platform: "KeilHQ",
     badge: "Transparent Core",
-    price: "₹500 – ₹1,500 / mo",
+    price: "₹500 intro / mo · Pro: ₹2,000/mo · Teams (5): ₹5,000/mo",
     logo: "/keilhq.svg",
-    gotcha: "Zero seat penalty mandates. AI, team chat, rich docs, meeting recorder bot, CRM, and finance are built into the single platform core.",
-    verdict: "Predictable, unified pricing",
+    gotcha: "Zero seat penalty mandates. AI, team chat, rich docs, meeting recorder bot, CRM, and finance are built into the single platform core. Add extra seats to Teams at ₹800 / seat / mo.",
+    verdict: "₹500/mo (Solo intro) · ₹800/extra seat (Teams)",
     isKeil: true,
   },
   {
@@ -200,7 +200,7 @@ const competitorGotchas: CompetitorGotcha[] = [
     platform: "Monday.com",
     badge: "Seat Minimum Penalty",
     price: "$9 – $19 base + CRM SKU",
-    logo: "https://cdn.brandfetch.io/id_2e59d2W/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B",
+    logo: "https://cdn.brandfetch.io/idHFUcTb1F/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B",
     gotcha: "Mandatory 3-seat minimum on all paid plans. Plus, CRM is billed as a separate product (+$12 to +$28/user/mo).",
     verdict: "~$24 – $47 / user / mo",
     isKeil: false,
@@ -227,7 +227,7 @@ const competitorGotchas: CompetitorGotcha[] = [
     platform: "Slack",
     badge: "Add-on Tool Tax",
     price: "$8.75 / user / mo",
-    logo: "https://cdn.brandfetch.io/idJ_HhtG0Z/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B",
+    logo: "https://cdn.brandfetch.io/id2VtlXemy/w/400/h/400/theme/dark/icon.png?c=1dxbfHSJFAPEGdCLU4o5B",
     gotcha: "Essential for team chat in fragmented stacks, but adds $8.75/user/mo on top of separate task managers and docs tools.",
     verdict: "~$8.75 / user / mo (+ Jira + Notion)",
     isKeil: false,
@@ -242,7 +242,7 @@ const faqs = [
   },
   {
     q: "Can I switch between monthly and annual billing at any time?",
-    a: "Yes. Upgrade from Trial to Pro, or from Pro to Teams, at any point. Billing adjustments will be prorated automatically.",
+    a: "Yes. You can switch cycles at any point — billing adjustments are prorated automatically. Pro is ₹2,000/mo on monthly or ₹1,800/mo on annual. Teams (5 seats) is ₹5,000/mo monthly or ₹4,500/mo annual. Additional seats on Teams are ₹800/seat/mo regardless of cycle.",
   },
   {
     q: "What happens to my data if I don't upgrade after the trial?",
@@ -286,8 +286,23 @@ function FAQItem({ q, a }: { q: string; a: string }) {
   );
 }
 
+/* ─── Plan pricing data ──────────────────────────────────────────────────── */
+const plans = {
+  pro: {
+    monthly: { intro: "₹500", real: "₹2,000", sub: "/ mo" },
+    annual: { intro: "₹500", real: "₹1,800", sub: "/ mo" },
+  },
+  teams: {
+    monthly: { intro: "₹1,500", real: "₹5,000", sub: "/ mo for 5 seats" },
+    annual: { intro: "₹1,500", real: "₹4,500", sub: "/ mo for 5 seats" },
+  },
+} as const;
+
 export function PricingClient() {
   const [billingCycle, setBillingCycle] = useState<"annual" | "monthly">("annual");
+  const isAnnual = billingCycle === "annual";
+  const pro = plans.pro[billingCycle];
+  const teams = plans.teams[billingCycle];
 
   return (
     <main className="min-h-screen bg-background text-foreground selection:bg-[var(--color-copper)]/20 select-text">
@@ -304,24 +319,40 @@ export function PricingClient() {
             Start free with a 30-day Pro trial. No credit card required. Upgrade as your squad scales.
           </p>
 
-          {/* Clean Linear-style Toggle */}
+          {/* Billing cycle toggle */}
           <div className="mt-8 flex items-center gap-3 text-xs font-medium font-sans">
-            <span className={billingCycle === "annual" ? "text-foreground font-semibold" : "text-muted-foreground"}>
-              Billed annually
+            {/* Monthly label — left side = OFF */}
+            <span className={!isAnnual ? "text-foreground font-semibold" : "text-muted-foreground"}>
+              Monthly
             </span>
+
+            {/* Toggle: right = annual (ON) */}
             <button
-              onClick={() => setBillingCycle(billingCycle === "annual" ? "monthly" : "annual")}
+              onClick={() => setBillingCycle(isAnnual ? "monthly" : "annual")}
               className="relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border border-border/80 bg-muted transition-colors duration-200 focus:outline-hidden"
               role="switch"
-              aria-checked={billingCycle === "annual"}
+              aria-checked={isAnnual}
+              aria-label="Toggle billing cycle"
             >
               <span
-                className={`pointer-events-none inline-block size-5 transform rounded-full bg-foreground shadow-xs transition duration-200 ease-in-out ${billingCycle === "annual" ? "translate-x-5" : "translate-x-0"
+                className={`pointer-events-none inline-block size-5 transform rounded-full bg-foreground shadow-xs transition duration-200 ease-in-out ${isAnnual ? "translate-x-5" : "translate-x-0"
                   }`}
               />
             </button>
-            <span className={billingCycle === "monthly" ? "text-foreground font-semibold" : "text-muted-foreground"}>
-              Billed monthly
+
+            {/* Annual label — right side = ON */}
+            <span className={isAnnual ? "text-foreground font-semibold" : "text-muted-foreground"}>
+              Annual
+            </span>
+
+            {/* Savings pill — only visible when annual is active */}
+            <span
+              className={`inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold font-display transition-all duration-200 ${isAnnual
+                ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 opacity-100"
+                : "opacity-0 pointer-events-none"
+                }`}
+            >
+              Save 10%
             </span>
           </div>
 
@@ -373,30 +404,30 @@ export function PricingClient() {
               </div>
             </div>
 
-            {/* Plan 2: Pro */}
+            {/* Plan 2: Pro (Personal) */}
             <div className="bg-background p-8 flex flex-col justify-between gap-8 relative">
               <div className="flex flex-col gap-6">
                 <div>
                   <div className="flex items-center justify-between">
-                    <h3 className="font-display text-lg font-semibold text-foreground">Pro</h3>
+                    <h3 className="font-display text-lg font-semibold text-foreground">Pro (Personal)</h3>
                     <span className="text-[10px] px-2 py-0.5 rounded-full bg-[var(--color-copper)]/15 text-[var(--color-copper)] font-semibold uppercase tracking-wider font-display">
                       Popular
                     </span>
                   </div>
                   <p className="text-[13px] text-muted-foreground mt-1.5 leading-relaxed font-sans">
-                    For power users and founders demanding high speed.
+                    For power users, founders, and solo operators.
                   </p>
                 </div>
 
-                <div className="flex flex-col gap-0.5 font-display">
+                <div className="flex flex-col gap-1 font-display">
+                  {/* Intro price — hero number */}
                   <div className="flex items-baseline gap-1.5">
-                    <span className="text-3xl font-semibold text-foreground">
-                      {billingCycle === "annual" ? "₹500" : "₹750"}
-                    </span>
-                    <span className="text-xs text-muted-foreground font-sans">/ user / mo</span>
+                    <span className="text-3xl font-semibold text-foreground">{pro.intro}</span>
+                    <span className="text-xs text-muted-foreground font-sans">{pro.sub}</span>
                   </div>
-                  <span className="text-[11px] text-emerald-600 dark:text-emerald-400 font-sans">
-                    {billingCycle === "annual" ? "50% discount applied" : "Billed monthly"}
+                  {/* Real price — shown as "then" beneath */}
+                  <span className="text-[11px] text-muted-foreground font-sans">
+                    for first 3 months, then {pro.real}{pro.sub === "/ mo" ? "/mo" : "/mo"}
                   </span>
                 </div>
 
@@ -411,7 +442,7 @@ export function PricingClient() {
 
                 <div className="flex flex-col gap-3 pt-4 border-t border-border/40 text-[13px] text-muted-foreground font-sans">
                   <span className="text-[11px] uppercase tracking-wider text-foreground font-semibold font-display">Everything in Trial, plus:</span>
-                  <div className="flex items-center gap-2.5"><Check className="size-3.5 text-foreground shrink-0 stroke-[2.5]" /> <span>Unlimited members &amp; storage</span></div>
+                  <div className="flex items-center gap-2.5"><Check className="size-3.5 text-foreground shrink-0 stroke-[2.5]" /> <span>Unlimited personal workspace &amp; storage</span></div>
                   <div className="flex items-center gap-2.5"><Check className="size-3.5 text-foreground shrink-0 stroke-[2.5]" /> <span>100 AI prompts / day</span></div>
                   <div className="flex items-center gap-2.5"><Check className="size-3.5 text-foreground shrink-0 stroke-[2.5]" /> <span>Unlimited live meeting bot</span></div>
                   <div className="flex items-center gap-2.5"><Check className="size-3.5 text-foreground shrink-0 stroke-[2.5]" /> <span>Full Relational CRM pipelines</span></div>
@@ -420,24 +451,26 @@ export function PricingClient() {
               </div>
             </div>
 
-            {/* Plan 3: Teams */}
+            {/* Plan 3: Teams (5 People) */}
             <div className="bg-background p-8 flex flex-col justify-between gap-8">
               <div className="flex flex-col gap-6">
                 <div>
                   <h3 className="font-display text-lg font-semibold text-foreground">Teams</h3>
                   <p className="text-[13px] text-muted-foreground mt-1.5 leading-relaxed font-sans">
-                    For growing squads needing centralized controls.
+                    For growing squads of 5 members needing shared context.
                   </p>
                 </div>
 
-                <div className="flex flex-col gap-0.5 font-display">
+                <div className="flex flex-col gap-1 font-display">
+                  {/* Intro price — hero number */}
                   <div className="flex items-baseline gap-1.5">
-                    <span className="text-3xl font-semibold text-foreground">
-                      {billingCycle === "annual" ? "₹1,500" : "₹2,000"}
-                    </span>
-                    <span className="text-xs text-muted-foreground font-sans">/ user / mo</span>
+                    <span className="text-3xl font-semibold text-foreground">{teams.intro}</span>
+                    <span className="text-xs text-muted-foreground font-sans">{teams.sub}</span>
                   </div>
-                  <span className="text-[11px] text-muted-foreground font-sans">Centralized squad billing</span>
+                  {/* Real price — shown as "then" beneath */}
+                  <span className="text-[11px] text-muted-foreground font-sans">
+                    for first 3 months, then {teams.real}/mo
+                  </span>
                 </div>
 
                 <Link
@@ -451,7 +484,8 @@ export function PricingClient() {
 
                 <div className="flex flex-col gap-3 pt-4 border-t border-border/40 text-[13px] text-muted-foreground font-sans">
                   <span className="text-[11px] uppercase tracking-wider text-foreground font-semibold font-display">Everything in Pro, plus:</span>
-                  <div className="flex items-center gap-2.5"><Check className="size-3.5 text-foreground shrink-0 stroke-[2.5]" /> <span>Centralized billing &amp; seats</span></div>
+                  <div className="flex items-center gap-2.5"><Check className="size-3.5 text-foreground shrink-0 stroke-[2.5]" /> <span>Includes 5 workspace members</span></div>
+                  <div className="flex items-center gap-2.5"><Check className="size-3.5 text-foreground shrink-0 stroke-[2.5]" /> <span>₹800 / extra seat / mo (scalable)</span></div>
                   <div className="flex items-center gap-2.5"><Check className="size-3.5 text-foreground shrink-0 stroke-[2.5]" /> <span>Single Sign-On (SAML / SSO)</span></div>
                   <div className="flex items-center gap-2.5"><Check className="size-3.5 text-foreground shrink-0 stroke-[2.5]" /> <span>Detailed audit &amp; activity logs</span></div>
                   <div className="flex items-center gap-2.5"><Check className="size-3.5 text-foreground shrink-0 stroke-[2.5]" /> <span>Advanced admin permissions</span></div>
@@ -477,12 +511,12 @@ export function PricingClient() {
                   <span className="text-[11px] text-muted-foreground font-sans">Custom annual contracts</span>
                 </div>
 
-                <Link
-                  href="/enterprise"
+                <a
+                  href="mailto:hey@keilhq.in"
                   className="w-full py-2.5 px-4 rounded-md bg-secondary hover:bg-secondary/80 text-foreground text-xs font-semibold text-center border border-border/60 transition-transform duration-150 active:scale-[0.97] font-display"
                 >
                   Contact sales
-                </Link>
+                </a>
 
                 <div className="flex flex-col gap-3 pt-4 border-t border-border/40 text-[13px] text-muted-foreground font-sans">
                   <span className="text-[11px] uppercase tracking-wider text-foreground font-semibold font-display">Everything in Teams, plus:</span>
@@ -694,7 +728,6 @@ export function PricingClient() {
                 </div>
 
                 <div className="pt-3 border-t border-border/40 flex flex-col gap-0.5">
-                  <span className="text-[10px] uppercase tracking-wider text-muted-foreground">True Cost per Seat:</span>
                   <span className={`text-[13px] font-semibold font-display ${item.isKeil ? "text-[var(--color-copper)]" : "text-foreground"
                     }`}>
                     {item.verdict}
@@ -763,9 +796,9 @@ export function PricingClient() {
                 Visit support
               </Link>{" "}
               or{" "}
-              <Link href="/enterprise" className="text-foreground underline underline-offset-4 hover:text-muted-foreground transition-colors">
+              <a href="mailto:hey@keilhq.in" className="text-foreground underline underline-offset-4 hover:text-muted-foreground transition-colors">
                 talk to sales
-              </Link>.
+              </a>.
             </p>
           </div>
 
@@ -779,7 +812,7 @@ export function PricingClient() {
       </section>
 
       {/* ── 8. AI NATIVE OPERATING SYSTEM FOR WORK (CTA BANNER) ── */}
-      <section className="w-full py-28 lg:py-36 border-t border-border/40 px-6 sm:px-8 lg:px-12 text-center">
+      <section className="w-full py-28 lg:py-36 px-6 sm:px-8 lg:px-12 text-center">
         <div className="max-w-3xl mx-auto flex flex-col items-center gap-6">
           <h2 className="font-display text-[clamp(2.5rem,5vw,3.75rem)] font-medium tracking-tight leading-[1.08] text-foreground text-balance">
             AI Native Operating System for Work
@@ -794,12 +827,12 @@ export function PricingClient() {
             >
               Get started
             </Link>
-            <Link
-              href="/enterprise"
+            <a
+              href="mailto:hey@keilhq.in"
               className="px-5 py-2.5 rounded-full bg-secondary hover:bg-secondary/80 text-foreground border border-border/60 text-xs font-semibold transition-transform duration-150 active:scale-[0.97]"
             >
               Talk to sales
-            </Link>
+            </a>
           </div>
         </div>
       </section>

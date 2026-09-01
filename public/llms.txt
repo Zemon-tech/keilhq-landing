@@ -34,7 +34,6 @@
 - Home: https://keilhq.in
 - Features: https://keilhq.in/features
 - Pricing: https://keilhq.in/pricing
-- Enterprise: https://keilhq.in/enterprise
 - Changelog: https://keilhq.in/changelog
 - About: https://keilhq.in/about
 - Brand: https://keilhq.in/brand

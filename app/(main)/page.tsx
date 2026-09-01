@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Hero } from "@/components/landing/hero";
-import { BackedBy } from "@/components/landing/backed-by";
+import { ProductPillars } from "@/components/landing/product-pillars";
 import { IntegrationCloud } from "@/components/landing/integration-cloud";
 import { Features, StickyScrollSection } from "@/components/landing/features";
 import { LovedBy } from "@/components/landing/loved-by";
@@ -131,8 +131,8 @@ export default async function Home() {
         heroLightImage={homepageData?.heroLightImage || "/mockups/home-hero-light.png"}
         heroDarkImage={homepageData?.heroDarkImage || "/mockups/home-hero-dark.png"}
       />
-      {/* <BackedBy logoCloud={homepageData?.logoCloud || undefined} /> */}
       <IntegrationCloud />
+      <ProductPillars />
       <Features data={featuresData} />
       <Blogs posts={displayBlogPosts} />
       <LovedBy data={lovedByData} />

@@ -16,7 +16,7 @@ export function FinalCta({
   finalCtaButtonLabel = "Get started",
   finalCtaButtonLink = "https://app.Keilhq.in/login",
   finalCtaSecondaryButtonLabel = "Talk to sales",
-  finalCtaSecondaryButtonLink = "/enterprise",
+  finalCtaSecondaryButtonLink = "mailto:hey@keilhq.in",
   finalCtaTrustText,
 }: FinalCtaProps) {
   const isExternalPrimary =

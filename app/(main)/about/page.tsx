@@ -123,7 +123,7 @@ export default async function AboutPage() {
       </section>
 
       {/* ── SECTION 2: EDITORIAL ── */}
-      <section className="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 py-20 lg:py-28 xl:py-32 flex flex-col lg:flex-row gap-16 text-left border-t border-border">
+      <section className="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 py-20 lg:py-28 xl:py-32 flex flex-col lg:flex-row gap-16 text-left border-border">
         <div className="w-full lg:w-1/3 shrink-0">
           <h2 className="font-display text-[clamp(2rem,4vw,2.75rem)] font-semibold tracking-tight leading-[1.08] text-foreground">
             {editorialTitle}
@@ -144,7 +144,7 @@ export default async function AboutPage() {
 
       {/* ── SECTION 3: ADVISORS ── */}
       {advisors && advisors.length > 0 && (
-        <section className="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 py-20 lg:py-28 flex flex-col gap-12 text-left border-t border-border">
+        <section className="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 py-20 lg:py-28 flex flex-col gap-12 text-left border-border">
           <div className="w-full flex flex-col gap-2">
             <span className="text-[11px] font-medium text-muted-foreground tracking-wide uppercase">
               Guidance & Advisory
@@ -177,7 +177,7 @@ export default async function AboutPage() {
       )}
 
       {/* ── SECTION 4: MEET THE TEAM ── */}
-      <section className="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 py-20 lg:py-28 flex flex-col gap-12 text-left border-t border-border">
+      <section className="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 py-20 lg:py-28 flex flex-col gap-12 text-left border-border">
         <div className="w-full flex flex-col gap-2">
           <span className="text-[11px] font-medium text-muted-foreground tracking-wide uppercase">
             People
@@ -209,7 +209,7 @@ export default async function AboutPage() {
       </section>
 
       {/* ── SECTION 5: BACKED BY ── */}
-      <section className="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 py-20 lg:py-28 flex flex-col lg:flex-row gap-16 text-left border-t border-border">
+      <section className="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 py-20 lg:py-28 flex flex-col lg:flex-row gap-16 text-left border-border">
         <div className="w-full lg:w-1/3 shrink-0">
           <h2 className="font-display text-[clamp(2rem,4vw,2.75rem)] font-semibold tracking-tight leading-[1.08] text-foreground">
             {data?.investorsTitle || "Backed by"}
@@ -254,7 +254,7 @@ export default async function AboutPage() {
       </section>
 
       {/* ── SECTION 6: HIRING / CAREERS ── */}
-      <section className="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 py-20 lg:py-28 flex flex-col lg:flex-row gap-16 items-start text-left border-t border-border">
+      <section className="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 py-20 lg:py-28 flex flex-col lg:flex-row gap-16 items-start text-left border-border">
         <div className="w-full lg:w-1/2 flex flex-col gap-4">
           <span className="text-[11px] font-medium text-muted-foreground tracking-wide uppercase">
             Careers
