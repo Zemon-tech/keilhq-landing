@@ -1,12 +1,16 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import Link from "next/link";
 import Image from "next/image";
 import {
   Menu,
   X,
   ArrowRight,
+  ChevronRight,
+  ChevronLeft,
+  User,
   Brain,
   Sparkles,
   ShieldCheck,
@@ -35,7 +39,7 @@ import {
   Tag,
   BookOpen,
 } from "lucide-react";
-import { featureNavColumns, featureNavItems } from "@/lib/feature-nav";
+import { featureNavColumns } from "@/lib/feature-nav";
 
 interface NavbarClientProps {
   navigation: {
@@ -128,7 +132,7 @@ function MegaMenuItem({
   );
 }
 
-// Reusable overview preview card on the left
+// Reusable overview preview card
 function MegaMenuOverviewCard({
   href,
   title,
@@ -150,7 +154,7 @@ function MegaMenuOverviewCard({
       onClick={onNavigate}
       className="group/card block rounded-lg border border-border/70 bg-card/60 overflow-hidden hover:border-foreground/20 transition-all duration-200"
     >
-      <div className="relative h-24 w-full overflow-hidden bg-muted/40">
+      <div className="relative h-24 sm:h-28 w-full overflow-hidden bg-muted/40">
         <Image
           src={lightImage}
           alt={title}
@@ -179,12 +183,17 @@ function MegaMenuOverviewCard({
 }
 
 export function NavbarClient({ navigation, siteSettings }: NavbarClientProps) {
+  const [mounted, setMounted] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mobileActiveCategory, setMobileActiveCategory] = useState<"product" | "pricing" | "company" | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLoginDialogOpen, setIsLoginDialogOpen] = useState(false);
-  const [mobileExpandedSection, setMobileExpandedSection] = useState<string | null>(null);
 
-  // Controlled active menu state to seamlessly unify top area + navbar + megamenu
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Controlled active menu state for desktop megamenu
   const [activeMenu, setActiveMenu] = useState<"product" | "pricing" | "company" | null>(null);
   const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -194,14 +203,36 @@ export function NavbarClient({ navigation, siteSettings }: NavbarClientProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close menu on Escape key
+  // Close desktop megamenu or mobile drawer on Escape key
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setActiveMenu(null);
+      if (e.key === "Escape") {
+        setActiveMenu(null);
+        if (isMobileMenuOpen) {
+          if (mobileActiveCategory) {
+            setMobileActiveCategory(null);
+          } else {
+            setIsMobileMenuOpen(false);
+          }
+        }
+      }
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []);
+  }, [isMobileMenuOpen, mobileActiveCategory]);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+      setMobileActiveCategory(null);
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMobileMenuOpen]);
 
   const handleMouseEnterMenu = (menuId: "product" | "pricing" | "company") => {
     if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
@@ -221,10 +252,8 @@ export function NavbarClient({ navigation, siteSettings }: NavbarClientProps) {
   const closeMenu = () => {
     if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
     setActiveMenu(null);
-  };
-
-  const toggleMobileSection = (section: string) => {
-    setMobileExpandedSection(mobileExpandedSection === section ? null : section);
+    setIsMobileMenuOpen(false);
+    setMobileActiveCategory(null);
   };
 
   const links = navigation?.links || [];
@@ -235,7 +264,7 @@ export function NavbarClient({ navigation, siteSettings }: NavbarClientProps) {
 
   return (
     <>
-      {/* ── UNIFIED FIXED HEADER & MEGAMENU SHELL ── */}
+      {/* ── UNIFIED FIXED HEADER & MEGAMENU SHELL (Desktop & Mobile Trigger) ── */}
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-200 ${
           isMenuOpen
@@ -246,10 +275,10 @@ export function NavbarClient({ navigation, siteSettings }: NavbarClientProps) {
         }`}
         onMouseLeave={handleMouseLeaveMenu}
       >
-        {/* ── TOP NAV BAR ROW (Fixed stable positioning with zero layout shift) ── */}
-        <div className="flex justify-center pt-4 sm:pt-5 pb-3">
+        {/* ── TOP NAV BAR ROW ── */}
+        <div className="flex justify-center pt-3 sm:pt-5 pb-2.5">
           <nav
-            className={`flex items-center justify-between md:justify-start gap-6 px-5 py-2 rounded-sm transition-colors duration-200 w-[calc(100%-2rem)] md:w-auto border ${
+            className={`flex items-center justify-between md:justify-start gap-4 sm:gap-6 px-4 sm:px-5 py-2 rounded-sm transition-colors duration-200 w-[calc(100%-1.5rem)] sm:w-[calc(100%-2rem)] md:w-auto border ${
               isMenuOpen
                 ? "bg-transparent border-transparent shadow-none"
                 : isScrolled
@@ -260,7 +289,7 @@ export function NavbarClient({ navigation, siteSettings }: NavbarClientProps) {
             {/* Brand Logo */}
             <Link
               href="/"
-              className="flex items-center gap-2 group mr-2"
+              className="flex items-center gap-2 group mr-2 shrink-0"
               onClick={closeMenu}
               onMouseEnter={closeMenu}
             >
@@ -387,41 +416,41 @@ export function NavbarClient({ navigation, siteSettings }: NavbarClientProps) {
               })}
             </div>
 
-            <div className="flex items-center gap-3 ml-2" onMouseEnter={closeMenu}>
-              {/* Start Free CTA */}
+            {/* Right Action Area */}
+            <div className="flex items-center gap-2 sm:gap-3 ml-auto md:ml-2" onMouseEnter={closeMenu}>
+              {/* CTA Button (Visible on both Desktop & Mobile like Glean header) */}
               <a
                 href={cta.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden md:inline-flex btn-accent items-center gap-1.5 text-[13px] font-semibold tracking-[0.01em] px-4 py-1.5 rounded-sm"
+                className="btn-accent inline-flex items-center gap-1.5 text-[12px] sm:text-[13px] font-semibold tracking-[0.01em] px-3.5 sm:px-4 py-1.5 rounded-full md:rounded-sm transition-transform active:scale-[0.97]"
               >
                 {cta.label}
                 <ArrowRight className="size-3" aria-hidden="true" />
               </a>
 
-              {/* Mobile menu toggle */}
+              {/* Mobile menu hamburger toggle */}
               <button
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="md:hidden p-1 text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
-                aria-label="Toggle Menu"
+                onClick={() => setIsMobileMenuOpen(true)}
+                className="md:hidden p-1.5 text-foreground hover:text-muted-foreground transition-colors cursor-pointer rounded-md active:scale-[0.95]"
+                aria-label="Open Navigation Menu"
               >
-                {isMobileMenuOpen ? <X className="size-4" /> : <Menu className="size-4" />}
+                <Menu className="size-5" />
               </button>
             </div>
           </nav>
         </div>
 
-        {/* ── FULL-WIDTH MEGAMENU PANELS (Directly integrated underneath navbar, sharing the same background) ── */}
+        {/* ── DESKTOP MEGAMENU PANELS ── */}
         {isMenuOpen && (
           <div
-            className="w-full bg-background/95 backdrop-blur-xl border-b border-border/80 shadow-none animate-in fade-in slide-in-from-top-1 duration-150"
+            className="hidden md:block w-full bg-background/95 backdrop-blur-xl border-b border-border/80 shadow-none animate-in fade-in slide-in-from-top-1 duration-150"
             onMouseEnter={handleCancelClose}
           >
             {/* 1. PRODUCT MEGAMENU PANEL */}
             {activeMenu === "product" && (
               <div className="max-w-[1240px] mx-auto px-6 sm:px-8 pt-4 pb-8 flex flex-col gap-6">
                 <div className="grid grid-cols-12 gap-8 items-start">
-                  
                   {/* Left: Platform Overview & Architecture Tree */}
                   <div className="col-span-3 pr-6 border-r border-border/70 flex flex-col gap-5 text-left">
                     <MegaMenuOverviewCard
@@ -522,7 +551,6 @@ export function NavbarClient({ navigation, siteSettings }: NavbarClientProps) {
             {activeMenu === "pricing" && (
               <div className="max-w-[1240px] mx-auto px-6 sm:px-8 pt-4 pb-8 flex flex-col gap-6">
                 <div className="grid grid-cols-12 gap-8 items-start">
-                  
                   {/* Left: Pricing Overview & Guarantee */}
                   <div className="col-span-3 pr-6 border-r border-border/70 flex flex-col gap-5 text-left">
                     <MegaMenuOverviewCard
@@ -652,7 +680,6 @@ export function NavbarClient({ navigation, siteSettings }: NavbarClientProps) {
             {activeMenu === "company" && (
               <div className="max-w-[1240px] mx-auto px-6 sm:px-8 pt-4 pb-8 flex flex-col gap-6">
                 <div className="grid grid-cols-12 gap-8 items-start">
-                  
                   {/* Left: Mission Overview */}
                   <div className="col-span-3 pr-6 border-r border-border/70 flex flex-col gap-5 text-left">
                     <MegaMenuOverviewCard
@@ -781,146 +808,593 @@ export function NavbarClient({ navigation, siteSettings }: NavbarClientProps) {
         )}
       </header>
 
-      {/* ── MOBILE DRAWER ── */}
-      {isMobileMenuOpen && (
-        <div className="fixed top-[calc(100%+4px)] left-4 right-4 border border-border bg-card/95 rounded-sm p-5 shadow-lg flex flex-col gap-3 animate-in fade-in slide-in-from-top-2 duration-200 md:hidden max-h-[85vh] overflow-y-auto backdrop-blur-lg z-50">
-          {links.map((link) => {
-            if (link.href === "/features") {
-              return (
-                <div key={link.href} className="flex flex-col gap-1 border-b border-border pb-2">
-                  <button
-                    onClick={() => toggleMobileSection("features")}
-                    className="flex items-center justify-between text-sm font-semibold text-muted-foreground hover:text-foreground py-2 px-2 text-left w-full bg-transparent border-none cursor-pointer font-display"
-                  >
-                    <span>Product</span>
-                  </button>
-                  {mobileExpandedSection === "features" && (
-                    <div className="flex flex-col gap-4 pl-2 mt-1">
-                      <Link
-                        href="/features"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="flex items-center justify-between p-2 rounded bg-muted/50 text-xs font-semibold text-foreground font-display"
-                      >
-                        <span>Platform Overview</span>
-                        <ArrowRight className="size-3" />
-                      </Link>
+      {/* ── GLEAN-INSPIRED FULL-SCREEN HIERARCHICAL MOBILE DRAWER ── */}
+      {mounted && isMobileMenuOpen && createPortal(
+        <div
+          data-lenis-prevent="true"
+          data-lenis-prevent-touch="true"
+          data-lenis-prevent-wheel="true"
+          className="fixed inset-0 z-[9999] bg-background flex flex-col md:hidden h-[100dvh] max-h-[100dvh] overflow-hidden"
+          style={{ touchAction: "pan-y" }}
+          onTouchMove={(e) => e.stopPropagation()}
+          onWheel={(e) => e.stopPropagation()}
+        >
+          {/* Mobile Top App Bar (Header in Drawer) */}
+          <div className="flex items-center justify-between px-5 pt-4 pb-3 border-b border-border/60 shrink-0">
+            {/* Logo */}
+            <Link
+              href="/"
+              onClick={closeMenu}
+              className="flex items-center gap-2"
+            >
+              {siteSettings?.logo ? (
+                <>
+                  <Image
+                    src={siteSettings.logo}
+                    alt={`${siteName} Logo`}
+                    width={24}
+                    height={24}
+                    className="transition-opacity duration-300 dark:hidden"
+                    priority
+                  />
+                  <Image
+                    src={siteSettings.logo.replace(".svg", "-white.svg")}
+                    alt={`${siteName} Logo`}
+                    width={24}
+                    height={24}
+                    className="transition-opacity duration-300 hidden dark:block"
+                    priority
+                  />
+                </>
+              ) : (
+                <>
+                  <Image
+                    src="/keilhq.svg"
+                    alt="KeilHQ Logo"
+                    width={24}
+                    height={24}
+                    className="transition-opacity duration-300 dark:hidden"
+                    priority
+                  />
+                  <Image
+                    src="/keilhq-white.svg"
+                    alt="KeilHQ Logo"
+                    width={24}
+                    height={24}
+                    className="transition-opacity duration-300 hidden dark:block"
+                    priority
+                  />
+                </>
+              )}
+              <span className="text-base font-semibold tracking-tight text-foreground font-display">
+                {siteName}
+              </span>
+            </Link>
 
-                      {featureNavColumns.map((col) => (
-                        <div key={col.id} className="flex flex-col gap-1.5">
-                          <span className="text-[11px] font-mono uppercase tracking-wider text-muted-foreground px-2">
-                            {col.title}
-                          </span>
-                          {col.items.map((item) => (
-                            <Link
-                              key={item.id}
-                              href={item.href}
-                              onClick={() => setIsMobileMenuOpen(false)}
-                              className="flex flex-col gap-0.5 hover:bg-muted/40 p-2 rounded-sm"
-                            >
-                              <div className="flex items-center gap-1.5">
-                                <NavIcon name={item.iconName} className="size-3 text-muted-foreground" />
-                                <span className="text-xs font-semibold text-foreground font-display">
-                                  {item.title}
-                                </span>
+            {/* Right Action & Close Button */}
+            <div className="flex items-center gap-3">
+              <a
+                href={cta.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-accent inline-flex items-center gap-1.5 text-xs font-semibold px-4 py-1.5 rounded-full active:scale-[0.97] transition-transform"
+              >
+                {cta.label}
+              </a>
+              <button
+                onClick={closeMenu}
+                className="p-1.5 text-foreground hover:text-muted-foreground transition-colors cursor-pointer rounded-md active:scale-[0.95]"
+                aria-label="Close menu"
+              >
+                <X className="size-5" />
+              </button>
+            </div>
+          </div>
+
+          {/* ── LEVEL 1: ROOT MOBILE MENU ── */}
+          {mobileActiveCategory === null ? (
+            <div className="flex-1 min-h-0 overflow-y-auto overscroll-contain px-5 py-3 pb-20 flex flex-col justify-between animate-in fade-in slide-in-from-left-2 duration-150 touch-pan-y">
+              <div className="flex flex-col divide-y divide-border/50">
+                {/* Product Trigger */}
+                <button
+                  onClick={() => setMobileActiveCategory("product")}
+                  className="w-full flex items-center justify-between py-4 text-left font-display text-[15px] font-medium text-foreground hover:text-muted-foreground active:opacity-70 transition-all cursor-pointer bg-transparent border-none"
+                >
+                  <span>Product</span>
+                  <span className="text-[11px] text-foreground font-mono">▶</span>
+                </button>
+
+                {/* Pricing Trigger */}
+                <button
+                  onClick={() => setMobileActiveCategory("pricing")}
+                  className="w-full flex items-center justify-between py-4 text-left font-display text-[15px] font-medium text-foreground hover:text-muted-foreground active:opacity-70 transition-all cursor-pointer bg-transparent border-none"
+                >
+                  <span>Pricing</span>
+                  <span className="text-[11px] text-foreground font-mono">▶</span>
+                </button>
+
+                {/* Company Trigger */}
+                <button
+                  onClick={() => setMobileActiveCategory("company")}
+                  className="w-full flex items-center justify-between py-4 text-left font-display text-[15px] font-medium text-foreground hover:text-muted-foreground active:opacity-70 transition-all cursor-pointer bg-transparent border-none"
+                >
+                  <span>Company</span>
+                  <span className="text-[11px] text-foreground font-mono">▶</span>
+                </button>
+
+                {/* Other direct links from navigation */}
+                {links
+                  .filter((l) => l.href !== "/features" && l.href !== "/pricing" && l.href !== "/company")
+                  .map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      onClick={closeMenu}
+                      className="w-full flex items-center justify-between py-4 text-left font-display text-[15px] font-medium text-foreground hover:text-muted-foreground active:opacity-70 transition-all"
+                    >
+                      <span>{link.label}</span>
+                      <ArrowRight className="size-3.5 text-muted-foreground" />
+                    </Link>
+                  ))}
+
+                {/* Sign in Option */}
+                <button
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    setIsLoginDialogOpen(true);
+                  }}
+                  className="w-full flex items-center justify-between py-4 text-left font-display text-[14px] font-medium text-foreground hover:text-muted-foreground active:opacity-70 transition-all cursor-pointer bg-transparent border-none pt-5"
+                >
+                  <div className="flex items-center gap-2.5">
+                    <User className="size-4 text-foreground" />
+                    <span>Sign in</span>
+                  </div>
+                  <ArrowRight className="size-3.5 text-muted-foreground" />
+                </button>
+              </div>
+
+              {/* Bottom Quick Help Info */}
+              <div className="py-6 border-t border-border/40 text-center">
+                <p className="text-xs text-muted-foreground font-sans">
+                  Need enterprise deployment?{" "}
+                  <Link href="/demo" onClick={closeMenu} className="text-foreground underline font-medium">
+                    Talk to engineering
+                  </Link>
+                </p>
+              </div>
+            </div>
+          ) : (
+            /* ── LEVEL 2: SUBMENU DETAIL DRAWER ── */
+            <div className="flex-1 min-h-0 flex flex-col overflow-hidden animate-in fade-in slide-in-from-right-3 duration-200">
+              {/* Back navigation subheader with uppercase tracking */}
+              <button
+                onClick={() => setMobileActiveCategory(null)}
+                className="flex items-center gap-2.5 px-5 py-3 border-b border-border/50 text-muted-foreground hover:text-foreground active:opacity-60 transition-colors bg-muted/20 cursor-pointer w-full text-left shrink-0"
+              >
+                <ChevronLeft className="size-4 text-muted-foreground shrink-0" />
+                <span className="text-[11px] font-mono uppercase tracking-[0.25em] font-semibold text-muted-foreground">
+                  {mobileActiveCategory === "product" && "P R O D U C T"}
+                  {mobileActiveCategory === "pricing" && "P R I C I N G"}
+                  {mobileActiveCategory === "company" && "C O M P A N Y"}
+                </span>
+              </button>
+
+              {/* Scrollable Sub-Drawer Content */}
+              <div
+                className="flex-1 min-h-0 overflow-y-auto overscroll-contain px-5 py-4 pb-28 space-y-6 touch-pan-y"
+                style={{ WebkitOverflowScrolling: "touch" }}
+              >
+                {/* 1. PRODUCT SUB-DRAWER */}
+                {mobileActiveCategory === "product" && (
+                  <>
+                    {/* Platform Overview Banner Card */}
+                    <MegaMenuOverviewCard
+                      href="/features"
+                      title="Platform overview"
+                      subtitle="See how KeilHQ works."
+                      lightImage="/mockups/dashboard/dashboard-snapshot-light.png"
+                      darkImage="/mockups/dashboard/dashboard-snapshot-dark.png"
+                      onNavigate={closeMenu}
+                    />
+
+                    {/* Glean-Style Architecture Tree */}
+                    <div className="flex flex-col gap-3">
+                      <div className="pb-1.5 border-b border-border/60">
+                        <span className="text-xs font-medium text-muted-foreground">
+                          Built for enterprise AI.
+                        </span>
+                      </div>
+
+                      <div className="flex flex-col gap-4 text-left">
+                        {/* Node 1 */}
+                        <div className="flex flex-col">
+                          <div className="flex items-start gap-2.5">
+                            <Sparkle className="size-4 text-foreground shrink-0 mt-0.5" />
+                            <div>
+                              <div className="text-[13px] font-semibold text-foreground font-display">
+                                Keil Enterprise Context
                               </div>
-                              <span className="text-[10.5px] text-muted-foreground pl-4.5">
-                                {item.desc}
-                              </span>
+                              <div className="text-[11px] text-muted-foreground">
+                                Ground AI in company context
+                              </div>
+                            </div>
+                          </div>
+                          {/* Tree branch */}
+                          <div className="ml-2 pl-4 border-l border-border/70 py-1.5 mt-1">
+                            <Link
+                              href="/features/integrations"
+                              onClick={closeMenu}
+                              className="group flex flex-col p-1.5 rounded hover:bg-muted/40 transition-colors"
+                            >
+                              <div className="text-xs font-medium text-foreground/90 group-hover:text-foreground">
+                                Connectors & actions
+                              </div>
+                              <div className="text-[10.5px] text-muted-foreground">
+                                Keil offers 250+ enterprise connectors
+                              </div>
                             </Link>
-                          ))}
+                          </div>
+                        </div>
+
+                        {/* Node 2 */}
+                        <div className="flex flex-col">
+                          <div className="flex items-start gap-2.5">
+                            <Brain className="size-4 text-foreground shrink-0 mt-0.5" />
+                            <div>
+                              <div className="text-[13px] font-semibold text-foreground font-display">
+                                Supervisor Intelligence
+                              </div>
+                              <div className="text-[11px] text-muted-foreground">
+                                Get more from every AI request
+                              </div>
+                            </div>
+                          </div>
+                          {/* Tree branches */}
+                          <div className="ml-2 pl-4 border-l border-border/70 py-1.5 mt-1 flex flex-col gap-1.5">
+                            <Link
+                              href="/features/smart-dashboard"
+                              onClick={closeMenu}
+                              className="group flex flex-col p-1.5 rounded hover:bg-muted/40 transition-colors"
+                            >
+                              <div className="text-xs font-medium text-foreground/90 group-hover:text-foreground">
+                                Auto routing & 3D context
+                              </div>
+                              <div className="text-[10.5px] text-muted-foreground">
+                                Route work to the right model & triage blockers
+                              </div>
+                            </Link>
+                            <Link
+                              href="/features/task-management"
+                              onClick={closeMenu}
+                              className="group flex flex-col p-1.5 rounded hover:bg-muted/40 transition-colors"
+                            >
+                              <div className="text-xs font-medium text-foreground/90 group-hover:text-foreground">
+                                Task Management
+                              </div>
+                              <div className="text-[10.5px] text-muted-foreground">
+                                Blocker dependencies & two-way calendar sync
+                              </div>
+                            </Link>
+                            <Link
+                              href="/features/docs-notes"
+                              onClick={closeMenu}
+                              className="group flex flex-col p-1.5 rounded hover:bg-muted/40 transition-colors"
+                            >
+                              <div className="text-xs font-medium text-foreground/90 group-hover:text-foreground">
+                                Motion Docs & Wiki
+                              </div>
+                              <div className="text-[10.5px] text-muted-foreground">
+                                Two-way Notion sync & autonomous synthesis
+                              </div>
+                            </Link>
+                          </div>
+                        </div>
+
+                        {/* Node 3 */}
+                        <div className="flex flex-col">
+                          <div className="flex items-start gap-2.5">
+                            <Shield className="size-4 text-foreground shrink-0 mt-0.5" />
+                            <div>
+                              <div className="text-[13px] font-semibold text-foreground font-display">
+                                Keil Protect & RBAC
+                              </div>
+                              <div className="text-[11px] text-muted-foreground">
+                                Safely scale AI across all team spaces
+                              </div>
+                            </div>
+                          </div>
+                          <div className="ml-2 pl-4 border-l border-border/70 py-1.5 mt-1">
+                            <Link
+                              href="/features/workspace"
+                              onClick={closeMenu}
+                              className="group flex flex-col p-1.5 rounded hover:bg-muted/40 transition-colors"
+                            >
+                              <div className="text-xs font-medium text-foreground/90 group-hover:text-foreground">
+                                Multi-space governance
+                              </div>
+                              <div className="text-[10.5px] text-muted-foreground">
+                                Granular permissions & audit logs
+                              </div>
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Detailed Feature Columns */}
+                    <div className="flex flex-col gap-5 pt-2 border-t border-border/50">
+                      {featureNavColumns.map((col) => (
+                        <div key={col.id} className="flex flex-col gap-2">
+                          <div className="flex items-center gap-2 pb-1.5 border-b border-border/40">
+                            <NavIcon name={col.iconName} className="size-3.5 text-foreground" />
+                            <span className="text-[11px] font-mono uppercase tracking-wider font-semibold text-muted-foreground">
+                              {col.title}
+                            </span>
+                          </div>
+                          <div className="flex flex-col gap-1">
+                            {col.items.map((item) => (
+                              <Link
+                                key={item.id}
+                                href={item.href}
+                                onClick={closeMenu}
+                                className="flex items-center justify-between p-2 rounded hover:bg-muted/40 transition-colors"
+                              >
+                                <div className="flex flex-col min-w-0 pr-2">
+                                  <span className="text-xs font-semibold text-foreground font-display truncate">
+                                    {item.title}
+                                  </span>
+                                  <span className="text-[11px] text-muted-foreground leading-tight line-clamp-1">
+                                    {item.desc}
+                                  </span>
+                                </div>
+                                <ArrowRight className="size-3 text-muted-foreground shrink-0" />
+                              </Link>
+                            ))}
+                          </div>
                         </div>
                       ))}
                     </div>
-                  )}
-                </div>
-              );
-            }
 
-            if (link.href === "/pricing") {
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-sm font-semibold text-muted-foreground hover:text-foreground py-2.5 px-2 border-b border-border transition-colors text-left font-display"
-                >
-                  {link.label}
-                </Link>
-              );
-            }
+                    {/* Bottom Callout */}
+                    <div className="p-3 rounded-lg border border-border bg-card/60 flex items-center justify-between">
+                      <div className="flex flex-col pr-2">
+                        <span className="text-[11px] font-mono text-muted-foreground uppercase">Coming soon</span>
+                        <span className="text-xs font-semibold text-foreground">Keil Transform & AI Audit</span>
+                      </div>
+                      <Link
+                        href="/demo"
+                        onClick={closeMenu}
+                        className="text-xs font-semibold text-foreground flex items-center gap-1 shrink-0"
+                      >
+                        Book demo <ArrowRight className="size-3" />
+                      </Link>
+                    </div>
+                  </>
+                )}
 
-            if (link.href === "/company") {
-              return (
-                <div key={link.href} className="flex flex-col gap-1 border-b border-border pb-2">
-                  <button
-                    onClick={() => toggleMobileSection("company")}
-                    className="flex items-center justify-between text-sm font-semibold text-muted-foreground hover:text-foreground py-2 px-2 text-left w-full bg-transparent border-none cursor-pointer font-display"
-                  >
-                    <span>{link.label}</span>
-                  </button>
-                  {mobileExpandedSection === "company" && (
-                    <div className="flex flex-col gap-1.5 pl-4 mt-1">
+                {/* 2. PRICING SUB-DRAWER */}
+                {mobileActiveCategory === "pricing" && (
+                  <>
+                    {/* Pricing Overview Banner Card */}
+                    <MegaMenuOverviewCard
+                      href="/pricing"
+                      title="Transparent pricing"
+                      subtitle="Start free. Scale with confidence."
+                      lightImage="/mockups/finance/finance-overview-light.png"
+                      darkImage="/mockups/finance/finance-overview-dark.png"
+                      onNavigate={closeMenu}
+                    />
+
+                    {/* The KeilHQ Guarantee */}
+                    <div className="flex flex-col gap-2.5">
+                      <div className="pb-1.5 border-b border-border/60">
+                        <span className="text-xs font-medium text-muted-foreground">
+                          The KeilHQ Guarantee.
+                        </span>
+                      </div>
+                      <div className="flex flex-col gap-2">
+                        {[
+                          { icon: "Zap", title: "30-Day Full Trial", sub: "Zero commitment & instant setup" },
+                          { icon: "Receipt", title: "No Hidden Fees", sub: "Predictable self-serve billing" },
+                          { icon: "ShieldCheck", title: "Enterprise Security", sub: "Data isolation & custom SLAs" },
+                        ].map((item) => (
+                          <div key={item.title} className="flex items-start gap-2.5 p-1.5">
+                            <NavIcon name={item.icon} className="size-3.5 text-foreground shrink-0 mt-0.5" />
+                            <div className="flex flex-col">
+                              <span className="text-xs font-semibold text-foreground font-display">{item.title}</span>
+                              <span className="text-[11px] text-muted-foreground">{item.sub}</span>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Pricing Tiers */}
+                    <div className="flex flex-col gap-4 pt-2 border-t border-border/50">
                       {[
-                        { title: "About Us", href: "/about" },
-                        { title: "Demo", href: "/demo" },
-                        { title: "Brand Assets", href: "/brand" },
-                        { title: "Changelog", href: "/changelog" },
-                        { title: "Blog", href: "/blog" },
-                        { title: "FAQ", href: "/faq" },
-                        { title: "Privacy", href: "/privacy" },
-                        { title: "Support", href: "/support" },
-                      ].map((item) => (
-                        <Link
-                          key={item.title}
-                          href={item.href}
-                          onClick={() => setIsMobileMenuOpen(false)}
-                          className="flex flex-col gap-0.5 hover:bg-muted/40 p-2 rounded-sm"
-                        >
-                          <span className="text-xs font-semibold text-foreground font-display">
-                            {item.title}
+                        {
+                          title: "Personal & Solo",
+                          items: [
+                            { title: "Free Trial (₹0)", desc: "30 days of full AI access with zero credit card required." },
+                            { title: "Pro Monthly (₹500/mo*)", desc: "For founders who want continuous Supervisor AI context." },
+                            { title: "Pro Annual (Save 20%)", desc: "Billed yearly with priority model compute & infinite memory." },
+                          ],
+                        },
+                        {
+                          title: "Team Collaboration",
+                          items: [
+                            { title: "Teams 5 Seats (₹1,500/mo*)", desc: "Shared organizational memory, team chat & sprint tracking." },
+                            { title: "Business Tier (₹3,000/mo*)", desc: "Multi-space permissions, Relational CRM & financial ledgers." },
+                          ],
+                        },
+                        {
+                          title: "Enterprise & Scale",
+                          items: [
+                            { title: "Enterprise Custom", desc: "Dedicated instance, custom LLM routing and SSO/SAML integration." },
+                            { title: "White-Glove Migration", desc: "Direct concierge migration from Notion, Slack, Jira and Linear." },
+                          ],
+                        },
+                      ].map((group) => (
+                        <div key={group.title} className="flex flex-col gap-2">
+                          <span className="text-[11px] font-mono uppercase tracking-wider font-semibold text-muted-foreground pb-1 border-b border-border/40">
+                            {group.title}
                           </span>
-                        </Link>
+                          <div className="flex flex-col gap-1.5">
+                            {group.items.map((item) => (
+                              <Link
+                                key={item.title}
+                                href="/pricing"
+                                onClick={closeMenu}
+                                className="flex flex-col p-2 rounded hover:bg-muted/40 transition-colors"
+                              >
+                                <span className="text-xs font-semibold text-foreground font-display">{item.title}</span>
+                                <span className="text-[11px] text-muted-foreground leading-tight">{item.desc}</span>
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
                       ))}
                     </div>
-                  )}
-                </div>
-              );
-            }
 
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="text-sm font-semibold text-muted-foreground hover:text-foreground py-2.5 px-2 border-b border-border last:border-0 transition-colors text-left font-display"
-              >
-                {link.label}
-              </Link>
-            );
-          })}
+                    {/* Bottom Link */}
+                    <div className="pt-2 border-t border-border/50 text-center">
+                      <Link
+                        href="/pricing"
+                        onClick={closeMenu}
+                        className="btn-accent inline-flex items-center justify-center gap-1.5 text-xs font-semibold px-4 py-2 rounded-sm w-full"
+                      >
+                        View Complete Pricing Matrix <ArrowRight className="size-3" />
+                      </Link>
+                    </div>
+                  </>
+                )}
 
-          {/* Login CTA in Mobile */}
-          <button
-            onClick={() => {
-              setIsMobileMenuOpen(false);
-              setIsLoginDialogOpen(true);
-            }}
-            className="text-sm font-semibold text-foreground hover:text-muted-foreground py-2.5 px-2 transition-colors mt-2 text-left bg-transparent border-none cursor-pointer font-display"
-          >
-            Login
-          </button>
-        </div>
+                {/* 3. COMPANY SUB-DRAWER */}
+                {mobileActiveCategory === "company" && (
+                  <>
+                    {/* Mission Overview Banner Card */}
+                    <MegaMenuOverviewCard
+                      href="/about"
+                      title="Built by creators"
+                      subtitle="The future of autonomous work."
+                      lightImage="/mockups/organisations/organisation-light.png"
+                      darkImage="/mockups/organisations/organisation-dark.png"
+                      onNavigate={closeMenu}
+                    />
+
+                    {/* Core Principles */}
+                    <div className="flex flex-col gap-2.5">
+                      <div className="pb-1.5 border-b border-border/60">
+                        <span className="text-xs font-medium text-muted-foreground">
+                          Core Principles.
+                        </span>
+                      </div>
+                      <div className="flex flex-col gap-2">
+                        {[
+                          { icon: "Brain", title: "Quiet Engineering", sub: "Zero notification spam, maximum clarity" },
+                          { icon: "Lock", title: "Data Sovereignty", sub: "Your data is never used for training" },
+                          { icon: "Sparkle", title: "Deep Integration", sub: "Seamlessly bridges existing dev tools" },
+                        ].map((item) => (
+                          <div key={item.title} className="flex items-start gap-2.5 p-1.5">
+                            <NavIcon name={item.icon} className="size-3.5 text-foreground shrink-0 mt-0.5" />
+                            <div className="flex flex-col">
+                              <span className="text-xs font-semibold text-foreground font-display">{item.title}</span>
+                              <span className="text-[11px] text-muted-foreground">{item.sub}</span>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Company Directory Sections */}
+                    <div className="flex flex-col gap-4 pt-2 border-t border-border/50">
+                      {[
+                        {
+                          category: "Company & Team",
+                          links: [
+                            { title: "About Us", desc: "Our philosophy and engineering mission", href: "/about" },
+                            { title: "Interactive Demo", desc: "Book a personalized 1-on-1 walkthrough", href: "/demo" },
+                            { title: "Brand Assets", desc: "Logos, brand guide, and media kit", href: "/brand" },
+                          ],
+                        },
+                        {
+                          category: "News & Releases",
+                          links: [
+                            { title: "Product Changelog", desc: "Weekly shipped updates & speed fixes", href: "/changelog" },
+                            { title: "Engineering Blog", desc: "Architectural breakdowns & AI patterns", href: "/blog" },
+                            { title: "FAQ", desc: "Answers to common workflow questions", href: "/faq" },
+                          ],
+                        },
+                        {
+                          category: "Trust & Support",
+                          links: [
+                            { title: "Privacy & Security", desc: "Encryption and zero-training policy", href: "/privacy" },
+                            { title: "Terms of Service", desc: "Standard service agreements", href: "/terms" },
+                            { title: "Help & Support", desc: "Direct engineering support channel", href: "/support" },
+                          ],
+                        },
+                      ].map((section) => (
+                        <div key={section.category} className="flex flex-col gap-2">
+                          <span className="text-[11px] font-mono uppercase tracking-wider font-semibold text-muted-foreground pb-1 border-b border-border/40">
+                            {section.category}
+                          </span>
+                          <div className="flex flex-col gap-1">
+                            {section.links.map((link) => (
+                              <Link
+                                key={link.title}
+                                href={link.href}
+                                onClick={closeMenu}
+                                className="flex items-center justify-between p-2 rounded hover:bg-muted/40 transition-colors"
+                              >
+                                <div className="flex flex-col min-w-0 pr-2">
+                                  <span className="text-xs font-semibold text-foreground font-display truncate">
+                                    {link.title}
+                                  </span>
+                                  <span className="text-[11px] text-muted-foreground leading-tight">
+                                    {link.desc}
+                                  </span>
+                                </div>
+                                <ArrowRight className="size-3 text-muted-foreground shrink-0" />
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Bottom Callout */}
+                    <div className="pt-2 border-t border-border/50 text-center">
+                      <Link
+                        href="/about"
+                        onClick={closeMenu}
+                        className="text-xs font-semibold text-foreground flex items-center justify-center gap-1 hover:underline"
+                      >
+                        Read our founding story <ArrowRight className="size-3" />
+                      </Link>
+                    </div>
+                  </>
+                )}
+              </div>
+            </div>
+          )}
+        </div>,
+        document.body
       )}
 
       {/* ── LOGIN MODAL DIALOG ── */}
-      {isLoginDialogOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+      {mounted && isLoginDialogOpen && createPortal(
+        <div
+          data-lenis-prevent="true"
+          data-lenis-prevent-touch="true"
+          data-lenis-prevent-wheel="true"
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+        >
           <div
             onClick={() => setIsLoginDialogOpen(false)}
             className="absolute inset-0 bg-black/60 backdrop-blur-sm animate-in fade-in duration-300"
           />
 
-          <div className="relative w-full max-w-lg bg-card border border-border rounded-sm p-5 sm:p-6 shadow-md z-10 animate-in fade-in zoom-in-95 duration-200 select-text flex flex-col gap-4">
+          <div className="relative w-full max-w-lg bg-card border border-border rounded-sm p-5 sm:p-6 shadow-md z-10 animate-in fade-in zoom-in-95 duration-200 select-text flex flex-col gap-4 max-h-[90vh] overflow-y-auto">
             <button
               onClick={() => setIsLoginDialogOpen(false)}
               className="absolute top-4 right-4 p-1 text-muted-foreground hover:text-foreground transition-colors cursor-pointer bg-transparent border-none"
@@ -1040,7 +1514,8 @@ export function NavbarClient({ navigation, siteSettings }: NavbarClientProps) {
               <ArrowRight className="size-4" />
             </a>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );
