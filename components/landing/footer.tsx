@@ -1,14 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ToggleTheme } from "@/components/ui/toggle-theme";
-import { getFooter } from "@/cms/helpers/footer";
-import { getSiteSettings } from "@/cms/helpers/site-settings";
+import { FOOTER, SITE_SETTINGS } from "@/lib/site-content";
 
 export async function Footer() {
-  const [footerData, siteSettings] = await Promise.all([
-    getFooter(),
-    getSiteSettings(),
-  ]);
+  const footerData = FOOTER;
+  const siteSettings = SITE_SETTINGS;
 
   const siteName = siteSettings?.siteName || "KeilHQ";
   const logo = siteSettings?.logo || "/keilhq.svg";
@@ -36,8 +33,9 @@ export async function Footer() {
       title: "Product",
       links: [
         { label: "Pricing", href: "/pricing" },
-        { label: "Changelog", href: "/changelog" },
-        { label: "Blog", href: "/blog" },
+        { label: "Now", href: "/now" },
+        { label: "Changelog", href: "/now?tab=changelog" },
+        { label: "Press", href: "/now?tab=press" },
         { label: "Support", href: "/support" },
         { label: "FAQ", href: "/faq" },
       ],
@@ -117,18 +115,6 @@ export async function Footer() {
               </nav>
             </div>
           ))}
-        </div>
-      </div>
-
-      {/* Compliance / Status Section with center divider */}
-      <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-8 lg:px-12 mt-16 sm:mt-24 z-10 relative">
-        <div className="w-full h-px bg-border relative flex items-center justify-center">
-          <div className="absolute bg-background px-6 flex items-center gap-2">
-            <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-border bg-background text-[11px] font-sans font-medium text-muted-foreground tracking-wide select-none shadow-2xs">
-              <span className="size-2 rounded-full bg-amber-500/90 animate-pulse" />
-              <span>SOC 2 in transit</span>
-            </div>
-          </div>
         </div>
       </div>
 

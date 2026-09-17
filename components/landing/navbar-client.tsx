@@ -734,8 +734,8 @@ export function NavbarClient({ navigation, siteSettings }: NavbarClientProps) {
                         title: "News & Releases",
                         subtitle: "Engineering logs & updates",
                         items: [
-                          { title: "Product Changelog", desc: "Weekly shipped features, improvements and speed fixes.", href: "/changelog", icon: "Newspaper" },
-                          { title: "Engineering Blog", desc: "Technical architectural breakdowns and AI design patterns.", href: "/blog", icon: "Newspaper" },
+                          { title: "Product Changelog", desc: "Weekly shipped features, improvements and speed fixes.", href: "/now", icon: "Newspaper" },
+                          { title: "Engineering Blog", desc: "Technical architectural breakdowns and AI design patterns.", href: "/now", icon: "Newspaper" },
                           { title: "Frequently Asked Questions", desc: "Clear answers to common questions about workflows and setup.", href: "/faq", icon: "Newspaper" },
                         ],
                       },
@@ -1320,8 +1320,8 @@ export function NavbarClient({ navigation, siteSettings }: NavbarClientProps) {
                         {
                           category: "News & Releases",
                           links: [
-                            { title: "Product Changelog", desc: "Weekly shipped updates & speed fixes", href: "/changelog" },
-                            { title: "Engineering Blog", desc: "Architectural breakdowns & AI patterns", href: "/blog" },
+                            { title: "Product Changelog", desc: "Weekly shipped updates & speed fixes", href: "/now" },
+                            { title: "Engineering Blog", desc: "Architectural breakdowns & AI patterns", href: "/now" },
                             { title: "FAQ", desc: "Answers to common workflow questions", href: "/faq" },
                           ],
                         },

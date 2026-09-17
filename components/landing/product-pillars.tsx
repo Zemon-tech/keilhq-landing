@@ -34,133 +34,113 @@ export function ProductPillars() {
               <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground/70 font-medium">
                 FIG 0.1
               </span>
-              <span className="text-[11px] font-mono uppercase tracking-wider text-copper font-medium px-2 py-0.5 rounded bg-copper/10 border border-copper/20">
+              <span className="text-[11px] font-mono uppercase tracking-wider text-muted-foreground font-medium px-2 py-0.5 rounded border border-border">
                 Context
               </span>
             </div>
 
-            {/* Visual: Isometric Layered Context Stack */}
+            {/* Visual: context sources converging into one shared state */}
             <div className="relative w-full aspect-[4/3] flex items-center justify-center my-6">
               <svg
-                viewBox="0 0 320 280"
+                viewBox="0 0 320 240"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-full max-w-[240px] h-auto text-foreground/80 group-hover:text-foreground transition-all duration-300 transform group-hover:-translate-y-1"
+                role="img"
+                aria-label="Diagram: tasks, meetings, docs and CRM flowing into one shared state"
+                className="w-full max-w-[260px] h-auto text-foreground/80 transition-all duration-300"
               >
-                {/* Dotted projection guides */}
-                <path
-                  d="M160 55 V110 M60 112 V168 M260 112 V168 M160 170 V225"
+                {/* Source chips */}
+                {[
+                  { label: "TASKS", y: 34 },
+                  { label: "MEETINGS", y: 84 },
+                  { label: "DOCS", y: 134 },
+                  { label: "CRM", y: 184 },
+                ].map((node) => (
+                  <g key={node.label}>
+                    <rect
+                      x="20"
+                      y={node.y}
+                      width="78"
+                      height="26"
+                      rx="6"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                      strokeOpacity="0.55"
+                      fill="currentColor"
+                      fillOpacity="0.03"
+                    />
+                    <text
+                      x="59"
+                      y={node.y + 17}
+                      textAnchor="middle"
+                      className="font-mono"
+                      fontSize="9"
+                      letterSpacing="0.08em"
+                      fill="currentColor"
+                      fillOpacity="0.85"
+                    >
+                      {node.label}
+                    </text>
+                    <circle cx="104" cy={node.y + 13} r="2" fill="currentColor" fillOpacity="0.6" />
+                    {/* Connector into the shared state */}
+                    <path
+                      d={`M104 ${node.y + 13} C 148 ${node.y + 13}, 152 120, 196 120`}
+                      stroke="currentColor"
+                      strokeWidth="1"
+                      strokeOpacity="0.4"
+                      fill="none"
+                    />
+                  </g>
+                ))}
+
+                {/* Shared state node */}
+                <rect
+                  x="196"
+                  y="82"
+                  width="100"
+                  height="76"
+                  rx="10"
                   stroke="currentColor"
-                  strokeWidth="0.8"
-                  strokeDasharray="2 3"
-                  strokeOpacity="0.2"
-                />
-
-                {/* Floating Top Layer (Universal Context Sentry) */}
-                <g className="transition-transform duration-300 group-hover:-translate-y-1.5">
-                  <path
-                    d="M160 38 L256 93 L160 148 L64 93 Z"
-                    stroke="currentColor"
-                    strokeWidth="1.2"
-                    strokeOpacity="0.9"
-                    fill="currentColor"
-                    fillOpacity="0.04"
-                  />
-                  <path
-                    d="M64 93 V105 L160 160 V148 Z"
-                    stroke="currentColor"
-                    strokeWidth="1.2"
-                    strokeOpacity="0.9"
-                    fill="currentColor"
-                    fillOpacity="0.08"
-                  />
-                  <path
-                    d="M256 93 V105 L160 160 V148 Z"
-                    stroke="currentColor"
-                    strokeWidth="1.2"
-                    strokeOpacity="0.9"
-                    fill="currentColor"
-                    fillOpacity="0.05"
-                  />
-
-                  {/* Concentric Crest / Inscribed Lens */}
-                  <ellipse
-                    cx="160"
-                    cy="93"
-                    rx="44"
-                    ry="26"
-                    stroke="currentColor"
-                    strokeWidth="1"
-                    strokeOpacity="0.5"
-                    fill="none"
-                  />
-                  <ellipse
-                    cx="160"
-                    cy="93"
-                    rx="26"
-                    ry="15"
-                    stroke="#2B6F6A"
-                    strokeWidth="1.2"
-                    strokeOpacity="0.8"
-                    fill="none"
-                  />
-                  <path
-                    d="M126 93 H194"
-                    stroke="currentColor"
-                    strokeWidth="0.9"
-                    strokeOpacity="0.35"
-                  />
-                  <path
-                    d="M132 99 H188"
-                    stroke="currentColor"
-                    strokeWidth="0.9"
-                    strokeOpacity="0.3"
-                  />
-                </g>
-
-                {/* Base Slabs (Indexed Datastores) */}
-                <path
-                  d="M160 120 L256 175 L160 230 L64 175 Z"
-                  stroke="currentColor"
-                  strokeWidth="1.1"
-                  strokeOpacity="0.75"
+                  strokeWidth="1.2"
+                  strokeOpacity="0.85"
                   fill="currentColor"
-                  fillOpacity="0.02"
+                  fillOpacity="0.04"
                 />
-                <path
-                  d="M64 187 L160 242 L256 187"
+                <rect
+                  x="202"
+                  y="88"
+                  width="88"
+                  height="64"
+                  rx="7"
+                  className="text-copper"
                   stroke="currentColor"
                   strokeWidth="1"
-                  strokeOpacity="0.45"
+                  strokeOpacity="0.7"
+                  fill="none"
                 />
-                <path
-                  d="M64 199 L160 254 L256 199"
-                  stroke="currentColor"
-                  strokeWidth="1"
-                  strokeOpacity="0.45"
-                />
-                <path
-                  d="M64 211 L160 266 L256 211"
-                  stroke="currentColor"
-                  strokeWidth="1"
-                  strokeOpacity="0.45"
-                />
-                <path
-                  d="M64 175 V225 L160 280 V230 Z"
-                  stroke="currentColor"
-                  strokeWidth="1.1"
-                  strokeOpacity="0.75"
+                <text
+                  x="246"
+                  y="117"
+                  textAnchor="middle"
+                  className="font-mono"
+                  fontSize="9"
+                  letterSpacing="0.08em"
                   fill="currentColor"
-                  fillOpacity="0.05"
-                />
-                <path
-                  d="M256 175 V225 L160 280 V230 Z"
-                  stroke="currentColor"
-                  strokeWidth="1.1"
-                  strokeOpacity="0.75"
+                  fillOpacity="0.9"
+                >
+                  ONE STATE
+                </text>
+                <text
+                  x="246"
+                  y="132"
+                  textAnchor="middle"
+                  className="font-mono"
+                  fontSize="8"
                   fill="currentColor"
-                  fillOpacity="0.03"
-                />
+                  fillOpacity="0.5"
+                >
+                  always live
+                </text>
               </svg>
             </div>
 
@@ -182,155 +162,125 @@ export function ProductPillars() {
               <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground/70 font-medium">
                 FIG 0.2
               </span>
-              <span className="text-[11px] font-mono uppercase tracking-wider text-copper font-medium px-2 py-0.5 rounded bg-copper/10 border border-copper/20">
+              <span className="text-[11px] font-mono uppercase tracking-wider text-muted-foreground font-medium px-2 py-0.5 rounded border border-border">
                 Agents
               </span>
             </div>
 
-            {/* Visual: Isometric Interconnected Agent Nodes */}
+            {/* Visual: supervisor delegating to three agent lanes */}
             <div className="relative w-full aspect-[4/3] flex items-center justify-center my-6">
               <svg
-                viewBox="0 0 320 280"
+                viewBox="0 0 320 240"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-full max-w-[240px] h-auto text-foreground/80 group-hover:text-foreground transition-all duration-300 transform group-hover:-translate-y-1"
+                role="img"
+                aria-label="Diagram: a supervisor agent delegating a PRD draft, a status note and follow-ups"
+                className="w-full max-w-[260px] h-auto text-foreground/80 transition-all duration-300"
               >
-                {/* Back Node */}
-                <g>
-                  <path
-                    d="M160 76 L208 104 L160 132 L112 104 Z"
-                    stroke="currentColor"
-                    strokeWidth="1.1"
-                    strokeOpacity="0.8"
-                    fill="currentColor"
-                    fillOpacity="0.03"
-                  />
-                  <path
-                    d="M112 104 V148 L160 176 V132 Z"
-                    stroke="currentColor"
-                    strokeWidth="1.1"
-                    strokeOpacity="0.8"
-                    fill="currentColor"
-                    fillOpacity="0.05"
-                  />
-                  <path
-                    d="M208 104 V148 L160 176 V132 Z"
-                    stroke="currentColor"
-                    strokeWidth="1.1"
-                    strokeOpacity="0.8"
-                    fill="currentColor"
-                    fillOpacity="0.03"
-                  />
-                  {/* Copper Active Glyph */}
-                  <path
-                    d="M154 104 L160 100 L166 104 L160 108 Z"
-                    stroke="#2B6F6A"
-                    strokeWidth="1.2"
-                    strokeOpacity="0.9"
-                  />
-                </g>
+                {/* Supervisor node */}
+                <rect
+                  x="108"
+                  y="14"
+                  width="104"
+                  height="30"
+                  rx="8"
+                  stroke="currentColor"
+                  strokeWidth="1.2"
+                  strokeOpacity="0.85"
+                  fill="currentColor"
+                  fillOpacity="0.04"
+                />
+                <circle cx="126" cy="29" r="3" className="text-copper" fill="currentColor" stroke="none" />
+                <text
+                  x="170"
+                  y="35"
+                  textAnchor="middle"
+                  className="font-mono"
+                  fontSize="9.5"
+                  letterSpacing="0.08em"
+                  fill="currentColor"
+                  fillOpacity="0.9"
+                >
+                  Supervisor
+                </text>
 
-                {/* Left Node */}
-                <g>
-                  <path
-                    d="M96 118 L144 146 L96 174 L48 146 Z"
-                    stroke="currentColor"
-                    strokeWidth="1.2"
-                    strokeOpacity="0.85"
-                    fill="currentColor"
-                    fillOpacity="0.03"
-                  />
-                  <path
-                    d="M48 146 V208 L96 236 V174 Z"
-                    stroke="currentColor"
-                    strokeWidth="1.2"
-                    strokeOpacity="0.85"
-                    fill="currentColor"
-                    fillOpacity="0.06"
-                  />
-                  <path
-                    d="M144 146 V208 L96 236 V174 Z"
-                    stroke="currentColor"
-                    strokeWidth="1.2"
-                    strokeOpacity="0.85"
-                    fill="currentColor"
-                    fillOpacity="0.04"
-                  />
-                  <path
-                    d="M90 146 L96 142 L102 146 L96 150 Z"
-                    stroke="#2B6F6A"
-                    strokeWidth="1.2"
-                    strokeOpacity="0.9"
-                  />
-                </g>
+                {/* Distribution bus */}
+                <path
+                  d="M160 44 V64 M56 64 H264 M56 64 V76 M160 64 V76 M264 64 V76"
+                  stroke="currentColor"
+                  strokeWidth="1"
+                  strokeOpacity="0.45"
+                  fill="none"
+                />
 
-                {/* Right Node */}
-                <g>
-                  <path
-                    d="M214 126 L262 154 L214 182 L166 154 Z"
-                    stroke="currentColor"
-                    strokeWidth="1.1"
-                    strokeOpacity="0.8"
-                    fill="currentColor"
-                    fillOpacity="0.03"
-                  />
-                  <path
-                    d="M166 154 V196 L214 224 V182 Z"
-                    stroke="currentColor"
-                    strokeWidth="1.1"
-                    strokeOpacity="0.8"
-                    fill="currentColor"
-                    fillOpacity="0.05"
-                  />
-                  <path
-                    d="M262 154 V196 L214 224 V182 Z"
-                    stroke="currentColor"
-                    strokeWidth="1.1"
-                    strokeOpacity="0.8"
-                    fill="currentColor"
-                    fillOpacity="0.03"
-                  />
-                  <path
-                    d="M208 154 L214 150 L220 154 L214 158 Z"
-                    stroke="#2B6F6A"
-                    strokeWidth="1.2"
-                    strokeOpacity="0.9"
-                  />
-                </g>
-
-                {/* Front Node */}
-                <g>
-                  <path
-                    d="M160 172 L202 196 L160 220 L118 196 Z"
-                    stroke="currentColor"
-                    strokeWidth="1.2"
-                    strokeOpacity="0.9"
-                    fill="currentColor"
-                    fillOpacity="0.04"
-                  />
-                  <path
-                    d="M118 196 V238 L160 262 V220 Z"
-                    stroke="currentColor"
-                    strokeWidth="1.2"
-                    strokeOpacity="0.9"
-                    fill="currentColor"
-                    fillOpacity="0.07"
-                  />
-                  <path
-                    d="M202 196 V238 L160 262 V220 Z"
-                    stroke="currentColor"
-                    strokeWidth="1.2"
-                    strokeOpacity="0.9"
-                    fill="currentColor"
-                    fillOpacity="0.04"
-                  />
-                  <path
-                    d="M155 196 L160 193 L165 196 L160 199 Z"
-                    stroke="#2B6F6A"
-                    strokeWidth="1.3"
-                    strokeOpacity="1"
-                  />
-                </g>
+                {/* Agent lanes */}
+                {[
+                  { x: 14, agent: "Writer", task: "PRD draft", status: "✓ done", live: false },
+                  { x: 116, agent: "Reporter", task: "Status note", status: "✓ done", live: false },
+                  { x: 218, agent: "Chaser", task: "Follow-ups", status: "● live", live: true },
+                ].map((lane) => (
+                  <g key={lane.agent}>
+                    <rect
+                      x={lane.x}
+                      y="76"
+                      width="88"
+                      height="30"
+                      rx="8"
+                      stroke="currentColor"
+                      strokeWidth="1.1"
+                      strokeOpacity="0.7"
+                      fill="currentColor"
+                      fillOpacity="0.03"
+                    />
+                    <text
+                      x={lane.x + 44}
+                      y="95"
+                      textAnchor="middle"
+                      className="font-mono"
+                      fontSize="9"
+                      letterSpacing="0.06em"
+                      fill="currentColor"
+                      fillOpacity="0.85"
+                    >
+                      {lane.agent}
+                    </text>
+                    <rect
+                      x={lane.x}
+                      y="114"
+                      width="88"
+                      height="26"
+                      rx="6"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                      strokeDasharray="3 3"
+                      strokeOpacity="0.4"
+                      fill="none"
+                    />
+                    <text
+                      x={lane.x + 44}
+                      y="131"
+                      textAnchor="middle"
+                      className="font-mono"
+                      fontSize="8.5"
+                      fill="currentColor"
+                      fillOpacity="0.7"
+                    >
+                      {lane.task}
+                    </text>
+                    <text
+                      x={lane.x + 44}
+                      y="158"
+                      textAnchor="middle"
+                      className={`font-mono ${lane.live ? "text-copper" : ""}`}
+                      fontSize="8.5"
+                      letterSpacing="0.06em"
+                      fill="currentColor"
+                      fillOpacity={lane.live ? 0.95 : 0.5}
+                    >
+                      {lane.status}
+                    </text>
+                  </g>
+                ))}
               </svg>
             </div>
 
@@ -352,41 +302,142 @@ export function ProductPillars() {
               <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground/70 font-medium">
                 FIG 0.3
               </span>
-              <span className="text-[11px] font-mono uppercase tracking-wider text-copper font-medium px-2 py-0.5 rounded bg-copper/10 border border-copper/20">
+              <span className="text-[11px] font-mono uppercase tracking-wider text-muted-foreground font-medium px-2 py-0.5 rounded border border-border">
                 Velocity
               </span>
             </div>
 
-            {/* Visual: Stepped Ascending Velocity Fins */}
+            {/* Visual: keyboard-first command bar with live sync */}
             <div className="relative w-full aspect-[4/3] flex items-center justify-center my-6">
               <svg
-                viewBox="0 0 320 280"
+                viewBox="0 0 320 240"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-full max-w-[240px] h-auto text-foreground/80 group-hover:text-foreground transition-all duration-300 transform group-hover:-translate-y-1"
+                role="img"
+                aria-label="Diagram: a command bar with keyboard shortcuts and a live sync status"
+                className="w-full max-w-[260px] h-auto text-foreground/80 transition-all duration-300"
               >
-                {/* Stepped fins */}
-                <path d="M102 248 L138 227 V234 L102 255 Z" stroke="currentColor" strokeWidth="1" strokeOpacity="0.35" fill="currentColor" fillOpacity="0.02" />
-                <path d="M109 240 L149 217 V225 L109 248 Z" stroke="currentColor" strokeWidth="1" strokeOpacity="0.4" fill="currentColor" fillOpacity="0.02" />
-                <path d="M116 232 L160 207 V216 L116 241 Z" stroke="currentColor" strokeWidth="1" strokeOpacity="0.45" fill="currentColor" fillOpacity="0.03" />
-                <path d="M123 224 L171 197 V207 L123 234 Z" stroke="currentColor" strokeWidth="1" strokeOpacity="0.5" fill="currentColor" fillOpacity="0.03" />
-                <path d="M130 216 L182 187 V198 L130 227 Z" stroke="currentColor" strokeWidth="1" strokeOpacity="0.55" fill="currentColor" fillOpacity="0.04" />
-                <path d="M137 208 L193 177 V189 L137 220 Z" stroke="currentColor" strokeWidth="1" strokeOpacity="0.6" fill="currentColor" fillOpacity="0.04" />
-                <path d="M144 200 L204 167 V180 L144 213 Z" stroke="currentColor" strokeWidth="1" strokeOpacity="0.65" fill="currentColor" fillOpacity="0.05" />
-                <path d="M151 192 L215 157 V171 L151 206 Z" stroke="currentColor" strokeWidth="1.1" strokeOpacity="0.7" fill="currentColor" fillOpacity="0.05" />
-                <path d="M158 184 L226 147 V162 L158 199 Z" stroke="currentColor" strokeWidth="1.1" strokeOpacity="0.75" fill="currentColor" fillOpacity="0.06" />
+                {/* Command bar */}
+                <rect
+                  x="40"
+                  y="44"
+                  width="240"
+                  height="46"
+                  rx="10"
+                  stroke="currentColor"
+                  strokeWidth="1.2"
+                  strokeOpacity="0.8"
+                  fill="currentColor"
+                  fillOpacity="0.03"
+                />
+                <rect
+                  x="54"
+                  y="57"
+                  width="36"
+                  height="20"
+                  rx="5"
+                  stroke="currentColor"
+                  strokeWidth="1"
+                  strokeOpacity="0.5"
+                  fill="none"
+                />
+                <text
+                  x="72"
+                  y="71"
+                  textAnchor="middle"
+                  className="font-mono"
+                  fontSize="10"
+                  fill="currentColor"
+                  fillOpacity="0.85"
+                >
+                  ⌘K
+                </text>
+                <text
+                  x="100"
+                  y="72"
+                  className="font-mono"
+                  fontSize="11"
+                  fill="currentColor"
+                  fillOpacity="0.55"
+                >
+                  Ask anything…
+                </text>
+                <line
+                  x1="216"
+                  y1="64"
+                  x2="216"
+                  y2="78"
+                  stroke="currentColor"
+                  strokeWidth="1.4"
+                  strokeOpacity="0.8"
+                />
 
-                {/* Back Leading Fin */}
-                <g>
-                  <path d="M172 108 L254 61" stroke="currentColor" strokeWidth="1.2" strokeOpacity="0.95" />
-                  <path d="M172 108 L254 61 V152 L172 199 Z" stroke="currentColor" strokeWidth="1.2" strokeOpacity="0.9" fill="currentColor" fillOpacity="0.07" />
-                  <path d="M254 61 L259 64 V155 L254 152 Z" stroke="currentColor" strokeWidth="1.2" strokeOpacity="0.9" fill="currentColor" fillOpacity="0.04" />
-                  {/* Subtle Copper Leading Edge */}
-                  <path d="M172 108 L172 199" stroke="#2B6F6A" strokeWidth="1.5" strokeOpacity="0.9" />
-                </g>
+                {/* Shortcut rows */}
+                {[
+                  { key: "N", action: "New task", hint: "no mouse" },
+                  { key: "/", action: "Commands", hint: "jump anywhere" },
+                  { key: ".", action: "Capture", hint: "from anywhere" },
+                ].map((row, i) => (
+                  <g key={row.key}>
+                    <rect
+                      x="52"
+                      y={116 + i * 30}
+                      width="28"
+                      height="20"
+                      rx="5"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                      strokeOpacity="0.45"
+                      fill="none"
+                    />
+                    <text
+                      x="66"
+                      y={130 + i * 30}
+                      textAnchor="middle"
+                      className="font-mono"
+                      fontSize="10"
+                      fill="currentColor"
+                      fillOpacity="0.85"
+                    >
+                      {row.key}
+                    </text>
+                    <text
+                      x="92"
+                      y={130 + i * 30}
+                      className="font-mono"
+                      fontSize="10.5"
+                      fill="currentColor"
+                      fillOpacity="0.8"
+                    >
+                      {row.action}
+                    </text>
+                    <text
+                      x="268"
+                      y={130 + i * 30}
+                      textAnchor="end"
+                      className="font-mono"
+                      fontSize="9"
+                      fill="currentColor"
+                      fillOpacity="0.45"
+                    >
+                      {row.hint}
+                    </text>
+                  </g>
+                ))}
 
-                {/* Base Rails */}
-                <path d="M92 254 L190 197 M102 260 L200 203" stroke="currentColor" strokeWidth="0.8" strokeOpacity="0.2" />
+                {/* Sync status */}
+                <circle cx="60" cy="216" r="2.5" fill="currentColor" fillOpacity="0.8" />
+                <text
+                  x="72"
+                  y="219"
+                  className="font-mono"
+                  fontSize="9"
+                  letterSpacing="0.06em"
+                  fill="currentColor"
+                  fillOpacity="0.55"
+                >
+                  Synced just now
+                </text>
               </svg>
             </div>
 

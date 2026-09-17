@@ -19,6 +19,8 @@ interface BlogPost {
   title: string;
   date: string;
   image: string;
+  href?: string;
+  external?: boolean;
 }
 
 interface BlogsProps {
@@ -46,7 +48,7 @@ export function Blogs({ posts }: BlogsProps) {
             </div>
             
             <div className="w-full lg:w-3/4 flex justify-end items-center gap-2 mt-6 lg:mt-0">
-              <Link href="/blog">
+              <Link href="/now">
                 <Button 
                   variant="secondary" 
                   className="rounded-sm bg-secondary hover:bg-accent text-secondary-foreground font-semibold tracking-[0.01em] px-4 h-9 border-none shadow-none text-[13px] cursor-pointer active:scale-[0.97] transition-transform duration-150"
@@ -64,9 +66,9 @@ export function Blogs({ posts }: BlogsProps) {
             <div className="hidden lg:block w-1/4 shrink-0" />
             <div className="w-full lg:w-3/4">
               <CarouselContent className="-ml-4 sm:-ml-6">
-                {displayPosts.map((post) => (
-                  <CarouselItem key={post.id} className="pl-4 sm:pl-6 md:basis-1/2 lg:basis-1/2">
-                    <Link href={`/blog/${post.slug}`} className="group cursor-pointer flex flex-col gap-4 select-none">
+                {displayPosts.map((post) => {
+                  const body = (
+                    <>
                       <div className="overflow-hidden rounded-sm bg-muted aspect-[1.6/1] relative border border-border">
                         <Image
                           src={post.image}
@@ -87,9 +89,30 @@ export function Blogs({ posts }: BlogsProps) {
                           {post.date}
                         </p>
                       </div>
-                    </Link>
-                  </CarouselItem>
-                ))}
+                    </>
+                  );
+                  const href = post.href || `/now/${post.slug}`;
+                  const linkClassName =
+                    "group cursor-pointer flex flex-col gap-4 select-none";
+                  return (
+                    <CarouselItem key={post.id} className="pl-4 sm:pl-6 md:basis-1/2 lg:basis-1/2">
+                      {post.external ? (
+                        <a
+                          href={href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={linkClassName}
+                        >
+                          {body}
+                        </a>
+                      ) : (
+                        <Link href={href} className={linkClassName}>
+                          {body}
+                        </Link>
+                      )}
+                    </CarouselItem>
+                  );
+                })}
               </CarouselContent>
             </div>
           </div>

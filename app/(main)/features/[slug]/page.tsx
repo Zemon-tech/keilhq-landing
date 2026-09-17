@@ -2,10 +2,10 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Image from "next/image";
-import { getFeature, getFeatures } from "@/cms/helpers/features";
+import { getManualFeature, getManualFeatures } from "@/lib/features";
 import { FeatureLayout } from "@/components/landing/feature-layout";
 
-/* ── Fallback image map (used until images are set via CMS) ── */
+/* ── Fallback image map (used until images are set manually) ── */
 const FALLBACK_IMAGES: Record<string, { light: string; dark: string }> = {
   "smart-dashboard":       { light: "/mockups/dashboard/dashboard-snapshot-light.png",          dark: "/mockups/dashboard/dashboard-snapshot-dark.png" },
   "task-management":       { light: "/mockups/project-tasks-events/tasks-overviewpage-light.png", dark: "/mockups/project-tasks-events/tasks-overviewpage-dark.png" },
@@ -58,13 +58,12 @@ const FEATURE_INDEX: Record<string, number> = {
 };
 
 export async function generateStaticParams() {
-  const features = await getFeatures();
-  return features.map((f: any) => ({ slug: f.slug }));
+  return getManualFeatures().map((f: any) => ({ slug: f.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const feature = await getFeature(slug);
+  const feature = getManualFeature(slug);
   const title = SINGLE_WORD_TITLES[slug] || (feature as any)?.eyebrowText || "Feature";
   const description = (feature as any)?.subHeroDesc || (feature as any)?.capabilitiesDesc || "Explore KeilHQ workspace feature.";
 
@@ -76,7 +75,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function FeaturePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const feature = await getFeature(slug);
+  const feature = getManualFeature(slug);
 
   if (!feature) notFound();
 

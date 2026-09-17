@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import SmoothScrolling from "@/components/smooth-scrolling";
 import { JsonLd } from "@/components/json-ld";
-import { getSiteSettings } from "@/cms/helpers/site-settings";
+import { SITE_SETTINGS } from "@/lib/site-content";
 import { Navbar } from "@/components/landing/navbar";
 import { Footer } from "@/components/landing/footer";
 
@@ -26,10 +26,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export async function generateMetadata(): Promise<Metadata> {
-  const siteSettings = await getSiteSettings();
-  const description =
-    siteSettings?.defaultSeoDescription ||
-    "Human clarity for teams. KeilHQ is the desktop-first work management workspace combining database-enforced task clarity, real-time team chat, block docs, 2-way calendar sync, meeting transcription, and multi-agent AI.";
+  const description = SITE_SETTINGS.defaultSeoDescription;
 
   return {
     metadataBase: new URL("https://keilhq.in"),

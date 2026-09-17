@@ -1,5 +1,9 @@
 import { cache } from 'react';
-import changelogData from '../__generated__/changelog.json';
+import rawChangelogData from '../__generated__/changelog.json';
+
+// Typed explicitly so an empty generated file (no entries yet) doesn't
+// collapse to never[] and break every consumer.
+const changelogData = rawChangelogData as Array<{ slug: string; entry: Record<string, any> }>;
 
 function getNodeText(node: any): string {
   if (!node) return '';

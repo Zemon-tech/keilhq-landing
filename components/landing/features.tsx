@@ -21,11 +21,12 @@ interface FeaturesProps {
 export function Features({ data }: FeaturesProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [direction, setDirection] = useState<1 | -1>(1);
   const prefersReducedMotion = useReducedMotion();
   const lastIndexRef = useRef(0);
+  const lastChangeRef = useRef(0);
 
-  // Smooth scroll handler with passive listener and hysteresis
+  // Scroll-linked index with passive listener + rAF throttle + a short
+  // cooldown so hovering a section boundary doesn't flicker the panel.
   useEffect(() => {
     const container = containerRef.current;
     if (!container || data.length === 0) return;
@@ -50,9 +51,9 @@ export function Features({ data }: FeaturesProps) {
             Math.max(0, Math.floor(progress * data.length * 0.999))
           );
 
-          if (nextIndex !== lastIndexRef.current) {
-            setDirection(nextIndex > lastIndexRef.current ? 1 : -1);
+          if (nextIndex !== lastIndexRef.current && Date.now() - lastChangeRef.current > 140) {
             lastIndexRef.current = nextIndex;
+            lastChangeRef.current = Date.now();
             setActiveIndex(nextIndex);
           }
         }
@@ -72,60 +73,54 @@ export function Features({ data }: FeaturesProps) {
 
   const item = data[activeIndex] || data[0];
 
-  // Motion variants with Emil Kowalski's blur bridge & custom easing
+  // One calm motion language: opacity + a small rise, expo ease-out.
+  // No directional whiplash, no blur, no scale — cheap on the GPU and
+  // quiet under Lenis smooth scrolling. Exits run faster than enters so
+  // mode="wait" swaps never flash blank.
   const textVariants: Variants = {
-    initial: (dir: number) => ({
+    initial: {
       opacity: 0,
-      y: prefersReducedMotion ? 0 : dir * 8,
-      filter: prefersReducedMotion ? "none" : "blur(3px)",
-    }),
+      y: prefersReducedMotion ? 0 : 10,
+    },
     animate: {
       opacity: 1,
       y: 0,
-      filter: "blur(0px)",
       transition: {
-        duration: 0.28,
+        duration: 0.45,
         ease: [0.16, 1, 0.3, 1] as const,
       },
     },
-    exit: (dir: number) => ({
+    exit: {
       opacity: 0,
-      y: prefersReducedMotion ? 0 : dir * -8,
-      filter: prefersReducedMotion ? "none" : "blur(3px)",
+      y: prefersReducedMotion ? 0 : -6,
       transition: {
-        duration: 0.2,
+        duration: 0.18,
         ease: [0.23, 1, 0.32, 1] as const,
       },
-    }),
+    },
   };
 
   const visualVariants: Variants = {
-    initial: (dir: number) => ({
+    initial: {
       opacity: 0,
-      scale: prefersReducedMotion ? 1 : 0.988,
-      y: prefersReducedMotion ? 0 : dir * 6,
-      filter: prefersReducedMotion ? "none" : "blur(4px)",
-    }),
+      y: prefersReducedMotion ? 0 : 12,
+    },
     animate: {
       opacity: 1,
-      scale: 1,
       y: 0,
-      filter: "blur(0px)",
       transition: {
-        duration: 0.36,
+        duration: 0.5,
         ease: [0.16, 1, 0.3, 1] as const,
       },
     },
-    exit: (dir: number) => ({
+    exit: {
       opacity: 0,
-      scale: prefersReducedMotion ? 1 : 0.988,
-      y: prefersReducedMotion ? 0 : dir * -6,
-      filter: prefersReducedMotion ? "none" : "blur(3px)",
+      y: prefersReducedMotion ? 0 : -8,
       transition: {
-        duration: 0.24,
+        duration: 0.25,
         ease: [0.23, 1, 0.32, 1] as const,
       },
-    }),
+    },
   };
 
   return (
@@ -143,10 +138,9 @@ export function Features({ data }: FeaturesProps) {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 w-full text-left items-start min-h-[100px]">
             {/* Left Column: Headline */}
             <div className="col-span-12 lg:col-span-6 flex flex-col">
-              <AnimatePresence mode="wait" custom={direction}>
+              <AnimatePresence mode="wait">
                 <motion.div
                   key={`title-${item.id}`}
-                  custom={direction}
                   variants={textVariants}
                   initial="initial"
                   animate="animate"
@@ -161,10 +155,9 @@ export function Features({ data }: FeaturesProps) {
 
             {/* Right Column: Description & Call-to-action Link */}
             <div className="col-span-12 lg:col-span-6 flex flex-col gap-4 lg:pt-[5px]">
-              <AnimatePresence mode="wait" custom={direction}>
+              <AnimatePresence mode="wait">
                 <motion.div
                   key={`desc-${item.id}`}
-                  custom={direction}
                   variants={textVariants}
                   initial="initial"
                   animate="animate"
@@ -193,16 +186,17 @@ export function Features({ data }: FeaturesProps) {
             <div className="w-full relative rounded-lg overflow-hidden bg-background">
 
               {/* Stacked Screen Crossfade Container */}
+              {/* Visuals are absolutely stacked, so enter + exit crossfade
+                  together with no blank flash (no mode="wait" here). */}
               <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] md:aspect-[16/10] overflow-hidden">
-                <AnimatePresence initial={false} custom={direction}>
+                <AnimatePresence initial={false}>
                   <motion.div
                     key={item.id}
-                    custom={direction}
                     variants={visualVariants}
                     initial="initial"
                     animate="animate"
                     exit="exit"
-                    className="absolute inset-0 w-full h-full flex items-start justify-center will-change-[transform,opacity,filter]"
+                    className="absolute inset-0 w-full h-full flex items-start justify-center will-change-transform"
                   >
                     <div className="w-full h-full [&>img]:w-full [&>img]:h-full [&>img]:object-cover [&>img]:object-top">
                       {item.visualComponent}

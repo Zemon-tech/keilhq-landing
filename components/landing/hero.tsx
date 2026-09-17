@@ -20,7 +20,7 @@ interface HeroProps {
 }
 
 export function Hero({
-  heroTitle = "The operational and context layer for modern companies",
+  heroTitle = "AI Native Workspace for Modern Teams",
   heroSubtitle = "Unite tasks, documents, client records, meeting intelligence, and financials in one shared context engine. Managed and operated by AI.",
   heroCtaLabel = "Start free today",
   heroCtaLink = "https://app.Keilhq.in/login",

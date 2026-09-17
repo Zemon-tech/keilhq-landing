@@ -1,6 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
-import { getAboutPage } from "@/cms/helpers/about";
+import { ABOUT_PAGE } from "@/lib/site-content";
 import { AboutVideoPlayer } from "@/components/about/about-video-player";
 
 export const metadata: Metadata = {
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 export default async function AboutPage() {
-  const data = await getAboutPage();
+  const data = ABOUT_PAGE;
 
   const heroTitle = data?.heroTitle || "Building tools for the next era of product development";
   const heroSubtitle = data?.heroSubtitle || "AI is fundamentally changing how products get built. We are shaping what comes next.";

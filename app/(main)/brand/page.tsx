@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { getBrandPage } from "@/cms/helpers/brand";
+import { BRAND_PAGE } from "@/lib/site-content";
 import { BrandColorPalette } from "@/components/brand/brand-color-palette";
 import { BrandTypographySpecimen } from "@/components/brand/brand-typography-specimen";
 import { BrandAssetDownload } from "@/components/brand/brand-asset-download";
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 };
 
 export default async function BrandPage() {
-  const brandData = await getBrandPage();
+  const brandData = BRAND_PAGE;
 
   const heroTitle = brandData?.heroTitle || "A New Identity for KeilHQ";
   const heroImage = brandData?.heroImage || "/brand/keilhq-rise.png";

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Faq } from "@/components/landing/faq";
-import { getFaqSection } from "@/cms/helpers/faq";
+import { FAQ_SECTION } from "@/lib/site-content";
 
 export const metadata: Metadata = {
   title: "FAQ",
@@ -8,11 +8,9 @@ export const metadata: Metadata = {
 };
 
 export default async function FaqPage() {
-  const faqData = await getFaqSection();
-
   return (
     <main className="flex-1 flex flex-col">
-      <Faq data={faqData} />
+      <Faq data={FAQ_SECTION} />
     </main>
   );
 }

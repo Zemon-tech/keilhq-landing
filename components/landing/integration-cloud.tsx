@@ -64,8 +64,10 @@ function MarqueeRow({ logos, direction = "left", speed = "85s" }: MarqueeRowProp
 
   return (
     <div className="w-full flex select-none pointer-events-none overflow-hidden relative h-11 flex-row flex-nowrap">
+      {/* Trailing pr-6 continues the gap-6 rhythm across the seam between
+          the two halves — without it logos bunch up at every loop point. */}
       <div
-        className={`flex shrink-0 items-center gap-6 min-w-full justify-start animate-marquee-${direction}`}
+        className={`flex shrink-0 items-center gap-6 min-w-full justify-start pr-6 animate-marquee-${direction} motion-reduce:animate-none`}
         style={{ animationDuration: speed }}
       >
         {repeatedLogos.map((url, idx) => (
@@ -73,7 +75,7 @@ function MarqueeRow({ logos, direction = "left", speed = "85s" }: MarqueeRowProp
         ))}
       </div>
       <div
-        className={`flex shrink-0 items-center gap-6 min-w-full justify-start animate-marquee-${direction}`}
+        className={`flex shrink-0 items-center gap-6 min-w-full justify-start pr-6 animate-marquee-${direction} motion-reduce:animate-none`}
         style={{ animationDuration: speed }}
         aria-hidden="true"
       >

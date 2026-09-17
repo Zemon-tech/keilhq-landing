@@ -7,9 +7,8 @@ import { Features, StickyScrollSection } from "@/components/landing/features";
 import { LovedBy } from "@/components/landing/loved-by";
 import { Blogs } from "@/components/landing/blogs";
 import { FinalCta } from "@/components/landing/final-cta";
-import { getHomepage } from "@/cms/helpers/homepage";
-import { getBlogPosts } from "@/cms/helpers/blog";
-import { getLovedBy } from "@/cms/helpers/loved-by";
+import { getNowFeed } from "@/lib/now";
+import { HOMEPAGE, LOVED_BY } from "@/lib/site-content";
 
 export const metadata: Metadata = {
   title: "KeilHQ — AI-Native Operational & Context Layer for Modern Teams",
@@ -74,11 +73,9 @@ const MockupImage = ({ lightSrc, darkSrc, alt }: { lightSrc: string; darkSrc: st
 );
 
 export default async function Home() {
-  const [homepageData, blogPosts, lovedByData] = await Promise.all([
-    getHomepage(),
-    getBlogPosts(),
-    getLovedBy(),
-  ]);
+  const nowFeed = await getNowFeed();
+  const homepageData = HOMEPAGE;
+  const lovedByData = LOVED_BY;
 
   // Construct features scroll sections dynamically
   const featureSections = homepageData?.featureSections || [];
@@ -96,23 +93,18 @@ export default async function Home() {
     ),
   }));
 
-  // Construct blog posts for carousel dynamically
-  const displayBlogPosts = blogPosts.map((post: any) => {
-    const dateObj = new Date(post.entry.publishedDate || '');
-    const formattedDate = dateObj.toLocaleDateString('en-US', {
-      month: 'short',
-      day: 'numeric',
-      year: 'numeric',
-      timeZone: 'UTC'
-    });
-
+  // Homepage carousel mirrors the Now page's All first section: the
+  // latest entries of every kind (blogs, changelog, press).
+  const displayBlogPosts = nowFeed.slice(0, 3).map((item: any) => {
     return {
-      id: post.slug,
-      slug: post.slug,
-      tag: post.entry.category || 'Productivity',
-      title: post.entry.title || "",
-      date: formattedDate,
-      image: post.entry.coverImage || "/mockups/blog1.png",
+      id: `${item.kind}-${item.slug}`,
+      slug: item.slug,
+      tag: item.channel || 'Now',
+      title: item.title || "",
+      date: item.date || "",
+      image: item.image || "/mockups/blog1.png",
+      href: item.href || "/now",
+      external: !!item.external,
     };
   });
 
@@ -134,7 +126,7 @@ export default async function Home() {
       <IntegrationCloud />
       <ProductPillars />
       <Features data={featuresData} />
-      <Blogs posts={displayBlogPosts} />
+      {displayBlogPosts.length > 0 && <Blogs posts={displayBlogPosts} />}
       <LovedBy data={lovedByData} />
       <FinalCta
         finalCtaTitle={homepageData?.finalCtaTitle || undefined}
