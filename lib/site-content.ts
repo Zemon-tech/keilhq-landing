@@ -3,6 +3,8 @@
 // Everything below is edited directly in code.
 // Edit values here to update navbar, footer, homepage, about, brand, FAQ.
 
+import { WAITLIST_URL } from "./waitlist";
+
 export const SITE_SETTINGS = {
   siteName: "KeilHQ",
   tagline: "Clarity first. Execution follows.",
@@ -25,7 +27,7 @@ export const NAVIGATION = {
   ],
   cta: {
     label: "Start Free",
-    href: "https://app.keilhq.in/login",
+    href: WAITLIST_URL,
   },
 } as const;
 
@@ -79,7 +81,7 @@ export const HOMEPAGE = {
   heroLightImage: "/mockups/home-hero-light.png",
   heroDarkImage: "/mockups/home-hero-dark.png",
   heroCtaLabel: "Start free today",
-  heroCtaLink: "https://app.keilhq.in/login",
+  heroCtaLink: WAITLIST_URL,
   heroSecondaryCtaLabel: "Book a demo",
   heroSecondaryCtaLink: "/demo",
   announcementEnabled: false,
@@ -150,7 +152,7 @@ export const HOMEPAGE = {
   finalCtaTitle: "AI Native Operating System for Work",
   finalCtaDescription: "",
   finalCtaButtonLabel: "Get started",
-  finalCtaButtonLink: "https://app.keilhq.in/login",
+  finalCtaButtonLink: WAITLIST_URL,
   finalCtaSecondaryButtonLabel: "Talk to sales",
   finalCtaSecondaryButtonLink: "mailto:hey@keilhq.in",
   finalCtaTrustText: "",

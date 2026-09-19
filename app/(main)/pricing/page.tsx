@@ -3,7 +3,7 @@ import { PricingClient } from "./pricing-client";
 
 export const metadata: Metadata = {
   title: "Pricing",
-  description: "Simple, transparent pricing for teams of all sizes. Start free with a 30-day Pro trial. No credit card required.",
+  description: "Simple, transparent pricing for teams of all sizes. We are currently onboarding pilot teams from the waitlist.",
 };
 
 export default function PricingPage() {

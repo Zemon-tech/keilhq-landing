@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { WAITLIST_URL } from "@/lib/waitlist";
 
 interface FinalCtaProps {
   finalCtaTitle?: string;
@@ -14,7 +15,7 @@ export function FinalCta({
   finalCtaTitle = "AI Native Operating System for Work",
   finalCtaDescription,
   finalCtaButtonLabel = "Get started",
-  finalCtaButtonLink = "https://app.Keilhq.in/login",
+  finalCtaButtonLink = WAITLIST_URL,
   finalCtaSecondaryButtonLabel = "Talk to sales",
   finalCtaSecondaryButtonLink = "mailto:hey@keilhq.in",
   finalCtaTrustText,

@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { getManualFeature, getManualFeatures } from "@/lib/features";
 import { FeatureLayout } from "@/components/landing/feature-layout";
+import { WAITLIST_URL } from "@/lib/waitlist";
 
 /* ── Fallback image map (used until images are set manually) ── */
 const FALLBACK_IMAGES: Record<string, { light: string; dark: string }> = {
@@ -123,7 +124,7 @@ export default async function FeaturePage({ params }: { params: Promise<{ slug: 
       title={heroTitle}
       subHeroTitle={(feature as any).subHeroTitle || ""}
       subHeroDesc={(feature as any).subHeroDesc || ""}
-      subHeroLink={(feature as any).subHeroLink || undefined}
+      subHeroLink={WAITLIST_URL}
       subHeroLinkText={(feature as any).subHeroLinkText || undefined}
       mockup={mockup}
       capabilitiesTitle={(feature as any).capabilitiesTitle || ""}

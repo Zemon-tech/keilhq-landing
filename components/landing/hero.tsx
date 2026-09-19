@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import { WAITLIST_URL } from "@/lib/waitlist";
 
 interface HeroProps {
   heroTitle?: string;
@@ -23,7 +24,7 @@ export function Hero({
   heroTitle = "AI Native Workspace for Modern Teams",
   heroSubtitle = "Unite tasks, documents, client records, meeting intelligence, and financials in one shared context engine. Managed and operated by AI.",
   heroCtaLabel = "Start free today",
-  heroCtaLink = "https://app.Keilhq.in/login",
+  heroCtaLink = WAITLIST_URL,
   heroSecondaryCtaLabel = "Book a demo",
   heroSecondaryCtaLink = "/demo",
   announcementEnabled = false,

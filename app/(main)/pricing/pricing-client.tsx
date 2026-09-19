@@ -7,6 +7,7 @@ import {
   Check,
   ChevronDown,
 } from "lucide-react";
+import { WAITLIST_URL } from "@/lib/waitlist";
 
 /* ─── Detailed KeilHQ vs Alternatives Comparison Data ─────────────────────── */
 interface ComparisonRow {
@@ -316,7 +317,7 @@ export function PricingClient() {
           </h1>
 
           <p className="mt-4 text-[16px] sm:text-[17px] text-muted-foreground max-w-[54ch] leading-relaxed font-sans">
-            Start free with a 30-day Pro trial. No credit card required. Upgrade as your squad scales.
+            We are currently onboarding pilot teams from the waitlist. Join the waitlist and we&apos;ll invite you as slots open.
           </p>
 
           {/* Billing cycle toggle */}
@@ -385,7 +386,7 @@ export function PricingClient() {
                 </div>
 
                 <Link
-                  href="https://app.Keilhq.in/login"
+                  href={WAITLIST_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full py-2.5 px-4 rounded-md bg-secondary hover:bg-secondary/80 text-foreground text-xs font-semibold text-center border border-border/60 transition-transform duration-150 active:scale-[0.97] font-display"
@@ -432,7 +433,7 @@ export function PricingClient() {
                 </div>
 
                 <Link
-                  href="https://app.Keilhq.in/login"
+                  href={WAITLIST_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full py-2.5 px-4 rounded-md bg-primary hover:bg-primary/90 text-primary-foreground text-xs font-semibold text-center transition-transform duration-150 active:scale-[0.97] font-display shadow-xs"
@@ -474,7 +475,7 @@ export function PricingClient() {
                 </div>
 
                 <Link
-                  href="https://app.Keilhq.in/login"
+                  href={WAITLIST_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full py-2.5 px-4 rounded-md bg-secondary hover:bg-secondary/80 text-foreground text-xs font-semibold text-center border border-border/60 transition-transform duration-150 active:scale-[0.97] font-display"
@@ -820,7 +821,7 @@ export function PricingClient() {
 
           <div className="flex items-center gap-3 mt-2 font-display">
             <Link
-              href="https://app.Keilhq.in/login"
+              href={WAITLIST_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="px-5 py-2.5 rounded-full bg-primary hover:bg-primary/90 text-primary-foreground text-xs font-semibold transition-transform duration-150 active:scale-[0.97] shadow-xs"

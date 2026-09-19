@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { WAITLIST_URL } from "@/lib/waitlist";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -213,7 +214,7 @@ export function DemoClient() {
                       <p className="text-[12px] text-center">
                         <span className="text-muted-foreground">Want to explore first? </span>
                         <Link
-                          href="#"
+                          href={WAITLIST_URL}
                           className="text-foreground font-semibold hover:text-muted-foreground transition-colors"
                         >
                           Start free trial instead →

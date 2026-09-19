@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import Image from "next/image";
+import { WAITLIST_URL, APP_LOGIN_URL } from "@/lib/waitlist";
 import {
   Menu,
   X,
@@ -257,7 +258,7 @@ export function NavbarClient({ navigation, siteSettings }: NavbarClientProps) {
   };
 
   const links = navigation?.links || [];
-  const cta = navigation?.cta || { label: "Start Free", href: "https://app.Keilhq.in/login" };
+  const cta = navigation?.cta || { label: "Start Free", href: WAITLIST_URL };
   const siteName = siteSettings?.siteName || "KeilHQ";
 
   const isMenuOpen = activeMenu !== null;
@@ -1505,7 +1506,7 @@ export function NavbarClient({ navigation, siteSettings }: NavbarClientProps) {
             </div>
 
             <a
-              href="https://app.Keilhq.in/login"
+              href={APP_LOGIN_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full flex items-center justify-between p-3 px-4 rounded-sm btn-accent mt-2 cursor-pointer"
