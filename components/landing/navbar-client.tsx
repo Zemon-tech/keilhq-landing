@@ -5,6 +5,7 @@ import { createPortal } from "react-dom";
 import Link from "next/link";
 import Image from "next/image";
 import { WAITLIST_URL, APP_LOGIN_URL } from "@/lib/waitlist";
+import { trackStartFreeClick } from "@/lib/analytics";
 import {
   Menu,
   X,
@@ -424,6 +425,13 @@ export function NavbarClient({ navigation, siteSettings }: NavbarClientProps) {
                 href={cta.href}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() =>
+                  trackStartFreeClick({
+                    location: "navbar_header",
+                    label: cta.label,
+                    href: cta.href,
+                  })
+                }
                 className="btn-accent inline-flex items-center gap-1.5 text-[12px] sm:text-[13px] font-semibold tracking-[0.01em] px-3.5 sm:px-4 py-1.5 rounded-full md:rounded-sm transition-transform active:scale-[0.97]"
               >
                 {cta.label}

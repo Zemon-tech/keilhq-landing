@@ -8,6 +8,7 @@ import {
   ChevronDown,
 } from "lucide-react";
 import { WAITLIST_URL } from "@/lib/waitlist";
+import { trackStartFreeClick, trackCtaClick } from "@/lib/analytics";
 
 /* ─── Detailed KeilHQ vs Alternatives Comparison Data ─────────────────────── */
 interface ComparisonRow {
@@ -389,6 +390,14 @@ export function PricingClient() {
                   href={WAITLIST_URL}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() =>
+                    trackStartFreeClick({
+                      location: "pricing_card_trial",
+                      label: "Start free trial",
+                      plan: "Trial",
+                      href: WAITLIST_URL,
+                    })
+                  }
                   className="w-full py-2.5 px-4 rounded-md bg-secondary hover:bg-secondary/80 text-foreground text-xs font-semibold text-center border border-border/60 transition-transform duration-150 active:scale-[0.97] font-display"
                 >
                   Start free trial
@@ -436,6 +445,14 @@ export function PricingClient() {
                   href={WAITLIST_URL}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() =>
+                    trackStartFreeClick({
+                      location: "pricing_card_pro",
+                      label: "Get Pro",
+                      plan: "Pro",
+                      href: WAITLIST_URL,
+                    })
+                  }
                   className="w-full py-2.5 px-4 rounded-md bg-primary hover:bg-primary/90 text-primary-foreground text-xs font-semibold text-center transition-transform duration-150 active:scale-[0.97] font-display shadow-xs"
                 >
                   Get Pro
@@ -478,6 +495,14 @@ export function PricingClient() {
                   href={WAITLIST_URL}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() =>
+                    trackStartFreeClick({
+                      location: "pricing_card_teams",
+                      label: "Get Teams",
+                      plan: "Teams",
+                      href: WAITLIST_URL,
+                    })
+                  }
                   className="w-full py-2.5 px-4 rounded-md bg-secondary hover:bg-secondary/80 text-foreground text-xs font-semibold text-center border border-border/60 transition-transform duration-150 active:scale-[0.97] font-display"
                 >
                   Get Teams
@@ -824,12 +849,26 @@ export function PricingClient() {
               href={WAITLIST_URL}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() =>
+                trackStartFreeClick({
+                  location: "pricing_bottom_banner",
+                  label: "Get started",
+                  href: WAITLIST_URL,
+                })
+              }
               className="px-5 py-2.5 rounded-full bg-primary hover:bg-primary/90 text-primary-foreground text-xs font-semibold transition-transform duration-150 active:scale-[0.97] shadow-xs"
             >
               Get started
             </Link>
             <a
               href="mailto:hey@keilhq.in"
+              onClick={() =>
+                trackCtaClick({
+                  location: "pricing_bottom_banner",
+                  label: "Talk to sales",
+                  href: "mailto:hey@keilhq.in",
+                })
+              }
               className="px-5 py-2.5 rounded-full bg-secondary hover:bg-secondary/80 text-foreground border border-border/60 text-xs font-semibold transition-transform duration-150 active:scale-[0.97]"
             >
               Talk to sales

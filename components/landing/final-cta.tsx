@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { WAITLIST_URL } from "@/lib/waitlist";
+import { trackStartFreeClick, trackCtaClick } from "@/lib/analytics";
 
 interface FinalCtaProps {
   finalCtaTitle?: string;
@@ -49,6 +52,13 @@ export function FinalCta({
               href={finalCtaButtonLink}
               target={isExternalPrimary ? "_blank" : undefined}
               rel={isExternalPrimary ? "noopener noreferrer" : undefined}
+              onClick={() =>
+                trackStartFreeClick({
+                  location: "final_cta_primary",
+                  label: finalCtaButtonLabel,
+                  href: finalCtaButtonLink,
+                })
+              }
               className="px-5 py-2.5 rounded-full bg-primary hover:bg-primary/90 text-primary-foreground text-xs font-semibold transition-transform duration-150 active:scale-[0.97] shadow-xs"
             >
               {finalCtaButtonLabel}
@@ -59,6 +69,13 @@ export function FinalCta({
               href={finalCtaSecondaryButtonLink}
               target={isExternalSecondary ? "_blank" : undefined}
               rel={isExternalSecondary ? "noopener noreferrer" : undefined}
+              onClick={() =>
+                trackCtaClick({
+                  location: "final_cta_secondary",
+                  label: finalCtaSecondaryButtonLabel,
+                  href: finalCtaSecondaryButtonLink,
+                })
+              }
               className="px-5 py-2.5 rounded-full bg-secondary hover:bg-secondary/80 text-foreground border border-border/60 text-xs font-semibold transition-transform duration-150 active:scale-[0.97]"
             >
               {finalCtaSecondaryButtonLabel}

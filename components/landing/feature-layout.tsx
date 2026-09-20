@@ -6,6 +6,7 @@ import Image from "next/image";
 import { ArrowRight, Check } from "lucide-react";
 import * as LucideIcons from "lucide-react";
 import { InteractiveViewShowcase } from "@/components/landing/interactive-view-showcase";
+import { trackCtaClick } from "@/lib/analytics";
 
 export interface FeatureSectionItem {
   index?: string;
@@ -185,6 +186,13 @@ export function FeatureLayout({
               {subHeroLink && (
                 <Link
                   href={subHeroLink}
+                  onClick={() =>
+                    trackCtaClick({
+                      location: "feature_subhero",
+                      label: subHeroLinkText || "Learn more",
+                      href: subHeroLink,
+                    })
+                  }
                   className="text-[13px] font-semibold text-zinc-900 dark:text-[#F7F8F8] hover:underline inline-flex items-center gap-1"
                 >
                   {subHeroLinkText || "Learn more"} <span className="text-zinc-400 dark:text-zinc-600">+</span>

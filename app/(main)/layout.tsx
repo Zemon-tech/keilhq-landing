@@ -8,6 +8,7 @@ import { JsonLd } from "@/components/json-ld";
 import { SITE_SETTINGS } from "@/lib/site-content";
 import { Navbar } from "@/components/landing/navbar";
 import { Footer } from "@/components/landing/footer";
+import { PostHogProvider } from "@/components/posthog-provider";
 
 const dmSans = DM_Sans({
   weight: ["400", "500", "600", "700"],
@@ -133,20 +134,22 @@ export default function RootLayout({
         <JsonLd />
       </head>
       <body className="min-h-full flex flex-col">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem={true}
-          disableTransitionOnChange
-        >
-          <SmoothScrolling>
-            <div className="flex flex-col min-h-screen bg-background text-foreground select-text selection:bg-primary/10">
-              <Navbar />
-              {children}
-              <Footer />
-            </div>
-          </SmoothScrolling>
-        </ThemeProvider>
+        <PostHogProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem={true}
+            disableTransitionOnChange
+          >
+            <SmoothScrolling>
+              <div className="flex flex-col min-h-screen bg-background text-foreground select-text selection:bg-primary/10">
+                <Navbar />
+                {children}
+                <Footer />
+              </div>
+            </SmoothScrolling>
+          </ThemeProvider>
+        </PostHogProvider>
       </body>
     </html>
   );

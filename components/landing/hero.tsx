@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { WAITLIST_URL } from "@/lib/waitlist";
+import { trackStartFreeClick, trackCtaClick } from "@/lib/analytics";
 
 interface HeroProps {
   heroTitle?: string;
@@ -95,6 +96,13 @@ export function Hero({
                 href={heroCtaLink}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() =>
+                  trackStartFreeClick({
+                    location: "hero_primary",
+                    label: heroCtaLabel,
+                    href: heroCtaLink,
+                  })
+                }
                 className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-sm btn-accent text-[13px] font-semibold transition-all cursor-pointer shadow-sm w-full sm:w-auto justify-center"
               >
                 {heroCtaLabel}
@@ -107,6 +115,13 @@ export function Hero({
             {heroSecondaryCtaLabel && heroSecondaryCtaLink && (
               <a
                 href={heroSecondaryCtaLink}
+                onClick={() =>
+                  trackCtaClick({
+                    location: "hero_secondary",
+                    label: heroSecondaryCtaLabel,
+                    href: heroSecondaryCtaLink,
+                  })
+                }
                 className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-sm border border-border text-foreground hover:bg-muted/50 text-[13px] font-semibold transition-all cursor-pointer active:scale-[0.97] w-full sm:w-auto justify-center"
               >
                 {heroSecondaryCtaLabel}

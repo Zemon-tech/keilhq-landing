@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { WAITLIST_URL } from "@/lib/waitlist";
+import { trackStartFreeClick, trackCtaClick } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -201,7 +202,13 @@ export function DemoClient() {
                       </div>
                       <Button
                         type="button"
-                        onClick={() => setFormStatus("sent")}
+                        onClick={() => {
+                          trackCtaClick({
+                            location: "demo_form",
+                            label: "Book Live Demo",
+                          });
+                          setFormStatus("sent");
+                        }}
                         className="w-full mt-4"
                       >
                         Book Live Demo
@@ -215,6 +222,13 @@ export function DemoClient() {
                         <span className="text-muted-foreground">Want to explore first? </span>
                         <Link
                           href={WAITLIST_URL}
+                          onClick={() =>
+                            trackStartFreeClick({
+                              location: "demo_trial_link",
+                              label: "Start free trial instead",
+                              href: WAITLIST_URL,
+                            })
+                          }
                           className="text-foreground font-semibold hover:text-muted-foreground transition-colors"
                         >
                           Start free trial instead →
