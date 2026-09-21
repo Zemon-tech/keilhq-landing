@@ -3,16 +3,44 @@
 import { useEffect, Suspense } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import posthog from "posthog-js";
-import { PostHogProvider as PHProvider } from "posthog-js/react";
+import { PostHogProvider as PHProvider, usePostHog } from "posthog-js/react";
 
 const POSTHOG_KEY = process.env.NEXT_PUBLIC_POSTHOG_KEY;
 const POSTHOG_HOST = process.env.NEXT_PUBLIC_POSTHOG_HOST || "https://eu.i.posthog.com";
 const IS_DEV = process.env.NODE_ENV === "development";
 const DEV_ENABLED = process.env.NEXT_PUBLIC_POSTHOG_DEV_ENABLED === "true";
 
+// Initialize PostHog synchronously on the client so it's ready before components mount
+if (typeof window !== "undefined" && POSTHOG_KEY) {
+  posthog.init(POSTHOG_KEY, {
+    api_host: POSTHOG_HOST,
+    // Minimum resource & credit consumption:
+    person_profiles: "identified_only", // Treats marketing visitors as lightweight anonymous events
+    autocapture: false, // Disables noisy DOM click & input capture
+    disable_session_recording:
+      process.env.NEXT_PUBLIC_POSTHOG_ENABLE_RECORDING !== "true", // Disables recording to save credits
+    capture_pageleave: false, // Disables exit events
+    capture_performance: false, // Disables Web Vitals overhead
+    capture_pageview: false, // Handled manually by PostHogPageView below
+    cross_subdomain_cookie: true, // Scopes cookie to .keilhq.in for app.keilhq.in attribution
+    persistence: "localStorage+cookie",
+    respect_dnt: true,
+    loaded: (ph) => {
+      // Clear any stale opt-out flag from previous sessions so events are sent
+      if (ph.has_opted_out_capturing() && (!IS_DEV || DEV_ENABLED)) {
+        ph.opt_in_capturing();
+      }
+      if (IS_DEV && !DEV_ENABLED) {
+        ph.opt_out_capturing();
+      }
+    },
+  });
+}
+
 function PostHogPageView() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const ph = usePostHog();
 
   useEffect(() => {
     if (!pathname) return;
@@ -29,61 +57,21 @@ function PostHogPageView() {
         url += `?${search}`;
       }
 
-      // Single, clean $pageview event per route transition
-      posthog.capture("$pageview", {
-        $current_url: url,
-        path: pathname,
-      });
+      // Capture pageview event
+      const client = ph || posthog;
+      if (client && typeof client.capture === "function") {
+        client.capture("$pageview", {
+          $current_url: url,
+          path: pathname,
+        });
+      }
     }
-  }, [pathname, searchParams]);
+  }, [pathname, searchParams, ph]);
 
   return null;
 }
 
 export function PostHogProvider({ children }: { children: React.ReactNode }) {
-  useEffect(() => {
-    if (!POSTHOG_KEY) {
-      if (IS_DEV) {
-        console.info(
-          "[PostHog] NEXT_PUBLIC_POSTHOG_KEY is not set. Analytics are inactive."
-        );
-      }
-      return;
-    }
-
-    // Initialize PostHog with strict resource and credit-saving configurations
-    posthog.init(POSTHOG_KEY, {
-      api_host: POSTHOG_HOST,
-      // Minimal resource configuration:
-      // 1. Disable full DOM autocapture to prevent high event volume & preserve credits
-      autocapture: false,
-      // 2. Disable session replay on marketing site to conserve session recording credits
-      disable_session_recording:
-        process.env.NEXT_PUBLIC_POSTHOG_ENABLE_RECORDING !== "true",
-      // 3. Disable pageleave to avoid doubling page tracking events
-      capture_pageleave: false,
-      // 4. Disable performance autocapture (Web Vitals) to avoid extra event overhead
-      capture_performance: false,
-      // 5. Manage pageviews manually via PostHogPageView for accurate App Router navigation
-      capture_pageview: false,
-      // 6. Share identity across subdomains (.keilhq.in) so marketing visitors
-      //    seamlessly link to their signed-in account on app.keilhq.in
-      cross_subdomain_cookie: true,
-      persistence: "localStorage+cookie",
-      // 7. Respect browser Do Not Track preferences
-      respect_dnt: true,
-      loaded: (ph) => {
-        // Prevent burning startup credits or polluting analytics during local development
-        if (IS_DEV && !DEV_ENABLED) {
-          ph.opt_out_capturing();
-          console.info(
-            "[PostHog] Initialized in dev mode with capturing paused to preserve startup credits. (Set NEXT_PUBLIC_POSTHOG_DEV_ENABLED=true to test live ingestion)."
-          );
-        }
-      },
-    });
-  }, []);
-
   return (
     <PHProvider client={posthog}>
       <Suspense fallback={null}>
