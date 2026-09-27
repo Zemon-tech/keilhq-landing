@@ -80,10 +80,10 @@ export default function WaitlistSuccessPage() {
           {/* Next actions */}
           <div className="flex flex-col sm:flex-row items-center gap-3 mt-10 font-display">
             <Link
-              href="/demo"
+              href="/features/smart-dashboard"
               className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-primary hover:bg-primary/90 text-primary-foreground text-xs font-semibold transition-transform duration-150 active:scale-[0.97] shadow-xs"
             >
-              Book a demo meanwhile
+              Explore features
               <ArrowRight className="size-3.5" />
             </Link>
             <Link
@@ -97,7 +97,7 @@ export default function WaitlistSuccessPage() {
           <p className="mt-8 text-[13px] text-muted-foreground font-sans">
             Didn&apos;t mean to land here?{" "}
             <a
-              href="mailto:hey@keilhq.in"
+              href="mailto:hello@keilhq.in"
               className="text-foreground underline underline-offset-4 hover:text-muted-foreground transition-colors"
             >
               Contact us

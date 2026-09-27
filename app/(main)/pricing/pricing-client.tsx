@@ -538,7 +538,7 @@ export function PricingClient() {
                 </div>
 
                 <a
-                  href="mailto:hey@keilhq.in"
+                  href="mailto:hello@keilhq.in"
                   className="w-full py-2.5 px-4 rounded-md bg-secondary hover:bg-secondary/80 text-foreground text-xs font-semibold text-center border border-border/60 transition-transform duration-150 active:scale-[0.97] font-display"
                 >
                   Contact sales
@@ -732,13 +732,29 @@ export function PricingClient() {
                 <div className="flex flex-col gap-3">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2.5">
-                      {item.logo && (
+                      {item.logo && !item.isKeil && (
                         <img
                           src={item.logo}
                           alt={item.platform}
                           className={item.platform === "Zoho One" ? "h-4 w-auto object-contain shrink-0" : "size-4.5 object-contain shrink-0"}
                           loading="lazy"
                         />
+                      )}
+                      {item.logo && item.isKeil && (
+                        <>
+                          <img
+                            src="/keilhq.svg"
+                            alt={item.platform}
+                            className="size-4.5 object-contain shrink-0 dark:hidden"
+                            loading="lazy"
+                          />
+                          <img
+                            src="/keilhq-white.svg"
+                            alt={item.platform}
+                            className="size-4.5 object-contain shrink-0 hidden dark:block"
+                            loading="lazy"
+                          />
+                        </>
                       )}
                       <span className="font-display text-base font-semibold text-foreground">{item.platform}</span>
                     </div>
@@ -822,7 +838,7 @@ export function PricingClient() {
                 Visit support
               </Link>{" "}
               or{" "}
-              <a href="mailto:hey@keilhq.in" className="text-foreground underline underline-offset-4 hover:text-muted-foreground transition-colors">
+              <a href="mailto:hello@keilhq.in" className="text-foreground underline underline-offset-4 hover:text-muted-foreground transition-colors">
                 talk to sales
               </a>.
             </p>
@@ -861,12 +877,12 @@ export function PricingClient() {
               Get started
             </Link>
             <a
-              href="mailto:hey@keilhq.in"
+              href="mailto:hello@keilhq.in"
               onClick={() =>
                 trackCtaClick({
                   location: "pricing_bottom_banner",
                   label: "Talk to sales",
-                  href: "mailto:hey@keilhq.in",
+                  href: "mailto:hello@keilhq.in",
                 })
               }
               className="px-5 py-2.5 rounded-full bg-secondary hover:bg-secondary/80 text-foreground border border-border/60 text-xs font-semibold transition-transform duration-150 active:scale-[0.97]"

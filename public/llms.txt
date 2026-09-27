@@ -29,13 +29,48 @@
 - **Billing**: Free 30-day Pro trial auto-provisioned upon signup, no credit card required. Paid tiers for Pro, Teams, and Enterprise.
 - **AI Models**: OpenRouter SDK integration (default) and Local Ollama-compatible endpoint support.
 
+## Features
+
+- Smart Dashboard: https://keilhq.in/features/smart-dashboard
+- Task Management: https://keilhq.in/features/task-management
+- Motion Docs: https://keilhq.in/features/docs-notes
+- Team Chat: https://keilhq.in/features/team-chat
+- Meeting Intelligence: https://keilhq.in/features/meeting-recorder
+- Integrations: https://keilhq.in/features/integrations
+- Org & Permissions: https://keilhq.in/features/workspace
+- Relational CRM: https://keilhq.in/features/crm
+- Finance & Bookkeeping: https://keilhq.in/features/finance
+
+## Frequently Asked Questions
+
+Q: What makes KeilHQ different from other tools?
+A: KeilHQ unifies tasks, docs, chat, and your calendar in one seamless workspace. Instead of switching between five different apps, everything is connected. Plus, our built-in AI reads your actual data to help prioritize work and unblock your team.
+
+Q: Do I need a credit card to sign up?
+A: No! You can get started with KeilHQ for completely free without a credit card. We offer a generous free plan perfect for individuals and small teams to experience the unified workspace.
+
+Q: Can I import my existing data from Notion or Jira?
+A: Yes, absolutely. We provide seamless one-click importers for major platforms like Notion, Jira, Asana, and Linear so you can bring your context over without missing a beat.
+
+Q: How does the AI Assistant actually help?
+A: Unlike generic AI chat bots, KeilHQ's AI is deeply integrated into your workflow. It cross-references your calendar, scans your assigned tasks, and identifies blockers automatically so you always know exactly what to tackle next.
+
+Q: Is my team's data secure?
+A: Security is our top priority. All data is encrypted in transit and at rest using enterprise-grade standards. We also ensure your private company data is never used to train public AI models.
+
+## Latest Posts & Updates
+
+- Context Is the Real Infrastructure of Work: https://keilhq.in/now/context-is-the-real-infrastructure-of-work
+
 ## Canonical Pages & Links
 
 - Home: https://keilhq.in
-- Features: https://keilhq.in/features
+- Features: https://keilhq.in/features/smart-dashboard
 - Pricing: https://keilhq.in/pricing
-- Changelog: https://keilhq.in/changelog
+- Now (changelog, blog & press): https://keilhq.in/now
+- Support & FAQ: https://keilhq.in/support
 - About: https://keilhq.in/about
 - Brand: https://keilhq.in/brand
 - Privacy & Security: https://keilhq.in/privacy
 - Terms of Service: https://keilhq.in/terms
+- Contact: hello@keilhq.in

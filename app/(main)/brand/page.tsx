@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   title: "Brand",
   description:
     "Explore KeilHQ's brand identity, physical vision, material color system, typography architecture, and official brand logo assets.",
+  alternates: {
+    canonical: "https://keilhq.in/brand",
+  },
 };
 
 export default async function BrandPage() {

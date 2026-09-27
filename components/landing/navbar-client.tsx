@@ -10,7 +10,6 @@ import {
   Menu,
   X,
   ArrowRight,
-  ChevronRight,
   ChevronLeft,
   User,
   Brain,
@@ -25,21 +24,7 @@ import {
   Database,
   Receipt,
   Shield,
-  Layers,
-  Sparkle,
-  Lock,
-  Boxes,
-  Users,
-  CreditCard,
-  Building2,
-  Newspaper,
-  HelpCircle,
-  PhoneCall,
-  Flame,
-  Award,
   Zap,
-  Tag,
-  BookOpen,
 } from "lucide-react";
 import { featureNavColumns } from "@/lib/feature-nav";
 
@@ -67,21 +52,7 @@ const ICON_MAP: Record<string, React.ElementType> = {
   Database,
   Receipt,
   Shield,
-  Layers,
-  Sparkle,
-  Lock,
-  Boxes,
-  Users,
-  CreditCard,
-  Building2,
-  Newspaper,
-  HelpCircle,
-  PhoneCall,
-  Flame,
-  Award,
   Zap,
-  Tag,
-  BookOpen,
 };
 
 function NavIcon({ name, className }: { name: string; className?: string }) {
@@ -187,7 +158,7 @@ function MegaMenuOverviewCard({
 export function NavbarClient({ navigation, siteSettings }: NavbarClientProps) {
   const [mounted, setMounted] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [mobileActiveCategory, setMobileActiveCategory] = useState<"product" | "pricing" | "company" | null>(null);
+  const [mobileActiveCategory, setMobileActiveCategory] = useState<"product" | "pricing" | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLoginDialogOpen, setIsLoginDialogOpen] = useState(false);
 
@@ -196,7 +167,7 @@ export function NavbarClient({ navigation, siteSettings }: NavbarClientProps) {
   }, []);
 
   // Controlled active menu state for desktop megamenu
-  const [activeMenu, setActiveMenu] = useState<"product" | "pricing" | "company" | null>(null);
+  const [activeMenu, setActiveMenu] = useState<"product" | "pricing" | null>(null);
   const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
@@ -236,7 +207,7 @@ export function NavbarClient({ navigation, siteSettings }: NavbarClientProps) {
     };
   }, [isMobileMenuOpen]);
 
-  const handleMouseEnterMenu = (menuId: "product" | "pricing" | "company") => {
+  const handleMouseEnterMenu = (menuId: "product" | "pricing") => {
     if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
     setActiveMenu(menuId);
   };
@@ -384,26 +355,6 @@ export function NavbarClient({ navigation, siteSettings }: NavbarClientProps) {
                   );
                 }
 
-                if (link.href === "/company") {
-                  return (
-                    <div
-                      key={link.href}
-                      onMouseEnter={() => handleMouseEnterMenu("company")}
-                      className="relative py-2 cursor-pointer"
-                    >
-                      <Link
-                        href="/about"
-                        onClick={closeMenu}
-                        className={`flex items-center gap-1 text-[13px] font-semibold tracking-[0.01em] transition-colors duration-150 font-display ${
-                          activeMenu === "company" ? "text-foreground" : "text-muted-foreground hover:text-foreground"
-                        }`}
-                      >
-                        {link.label}
-                      </Link>
-                    </div>
-                  );
-                }
-
                 return (
                   <Link
                     key={link.href}
@@ -460,43 +411,16 @@ export function NavbarClient({ navigation, siteSettings }: NavbarClientProps) {
             {activeMenu === "product" && (
               <div className="max-w-[1240px] mx-auto px-6 sm:px-8 pt-4 pb-8 flex flex-col gap-6">
                 <div className="grid grid-cols-12 gap-8 items-start">
-                  {/* Left: Platform Overview & Architecture Tree */}
+                  {/* Left: Platform Overview */}
                   <div className="col-span-3 pr-6 border-r border-border/70 flex flex-col gap-5 text-left">
                     <MegaMenuOverviewCard
-                      href="/features"
+                      href="/features/smart-dashboard"
                       title="Platform overview"
                       subtitle="See how KeilHQ works."
                       lightImage="/mockups/dashboard/dashboard-snapshot-light.png"
                       darkImage="/mockups/dashboard/dashboard-snapshot-dark.png"
                       onNavigate={closeMenu}
                     />
-
-                    <div className="flex flex-col gap-2.5">
-                      <span className="text-[10px] font-mono font-semibold uppercase tracking-wider text-muted-foreground/70">
-                        Built for enterprise AI.
-                      </span>
-
-                      <div className="flex flex-col gap-2 text-[12px] font-medium text-muted-foreground font-display">
-                        {[
-                          { icon: "Sparkle", title: "Keil Context Engine", sub: "Connectors & actions", href: "/features/integrations" },
-                          { icon: "Brain", title: "Supervisor Intelligence", sub: "Auto routing & memory", href: "/features/smart-dashboard" },
-                          { icon: "Shield", title: "Keil Protect", sub: "Multi-space RBAC", href: "/features/workspace" },
-                        ].map((item) => (
-                          <div key={item.title} className="flex flex-col gap-0.5">
-                            <div className="flex items-center gap-1.5 text-foreground/90 font-semibold">
-                              <NavIcon name={item.icon} className="size-3 text-muted-foreground shrink-0" />
-                              <span>{item.title}</span>
-                            </div>
-                            <div className="pl-4 text-[11px] text-muted-foreground flex items-center gap-1">
-                              <span className="text-muted-foreground/40 font-mono">└─</span>
-                              <Link href={item.href} onClick={closeMenu} className="hover:text-foreground transition-colors">
-                                {item.sub}
-                              </Link>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
                   </div>
 
                   {/* Right: 3 Category Columns */}
@@ -533,26 +457,6 @@ export function NavbarClient({ navigation, siteSettings }: NavbarClientProps) {
                     ))}
                   </div>
                 </div>
-
-                {/* Bottom Footer Announcement Strip */}
-                <div className="pt-4 border-t border-border/60 flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <span className="text-[10px] font-mono font-medium px-2 py-0.5 rounded bg-muted/60 border border-border text-foreground">
-                      Coming soon
-                    </span>
-                    <span className="text-[12px] text-muted-foreground font-sans">
-                      <strong className="text-foreground font-medium">Keil Transform:</strong> See where AI can make the biggest impact across your team
-                    </span>
-                  </div>
-                  <Link
-                    href="/demo"
-                    onClick={closeMenu}
-                    className="text-[12px] font-semibold text-foreground hover:text-muted-foreground flex items-center gap-1 group/demolink transition-colors font-display"
-                  >
-                    Book a walkthrough
-                    <ArrowRight className="size-3 transition-transform group-hover/demolink:translate-x-0.5" />
-                  </Link>
-                </div>
               </div>
             )}
 
@@ -560,8 +464,8 @@ export function NavbarClient({ navigation, siteSettings }: NavbarClientProps) {
             {activeMenu === "pricing" && (
               <div className="max-w-[1240px] mx-auto px-6 sm:px-8 pt-4 pb-8 flex flex-col gap-6">
                 <div className="grid grid-cols-12 gap-8 items-start">
-                  {/* Left: Pricing Overview & Guarantee */}
-                  <div className="col-span-3 pr-6 border-r border-border/70 flex flex-col gap-5 text-left">
+                  {/* Left: Pricing Overview */}
+                  <div className="col-span-5 pr-6 border-r border-border/70 flex flex-col gap-5 text-left">
                     <MegaMenuOverviewCard
                       href="/pricing"
                       title="Transparent pricing"
@@ -570,96 +474,40 @@ export function NavbarClient({ navigation, siteSettings }: NavbarClientProps) {
                       darkImage="/mockups/finance/finance-overview-dark.png"
                       onNavigate={closeMenu}
                     />
-
-                    <div className="flex flex-col gap-2.5">
-                      <span className="text-[10px] font-mono font-semibold uppercase tracking-wider text-muted-foreground/70">
-                        The KeilHQ Guarantee.
-                      </span>
-
-                      <div className="flex flex-col gap-2 text-[12px] font-medium text-muted-foreground font-display">
-                        {[
-                          { icon: "Zap", title: "30-Day Full Trial", sub: "Zero commitment & instant setup" },
-                          { icon: "Receipt", title: "No Hidden Fees", sub: "Predictable self-serve billing" },
-                          { icon: "ShieldCheck", title: "Enterprise Security", sub: "Data isolation & custom SLAs" },
-                        ].map((item) => (
-                          <div key={item.title} className="flex flex-col gap-0.5">
-                            <div className="flex items-center gap-1.5 text-foreground/90 font-semibold">
-                              <NavIcon name={item.icon} className="size-3 text-muted-foreground shrink-0" />
-                              <span>{item.title}</span>
-                            </div>
-                            <div className="pl-4 text-[11px] text-muted-foreground">{item.sub}</div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
                   </div>
 
-                  {/* Right: 3 Tier Columns */}
-                  <div className="col-span-9 grid grid-cols-3 gap-8 text-left">
-                    {[
-                      {
-                        id: "personal",
-                        iconName: "Sparkles",
-                        title: "Personal & Solo",
-                        subtitle: "For founders & power users",
-                        items: [
-                          { title: "Free Trial (₹0)", desc: "30 days of full AI access with zero credit card commitment.", href: "/pricing", icon: "Tag" },
-                          { title: "Pro Monthly (₹500/mo*)", desc: "For individual leaders who want continuous Supervisor AI context.", href: "/pricing", icon: "Tag" },
-                          { title: "Pro Annual (Save 20%)", desc: "Billed yearly with priority model compute and infinite memory.", href: "/pricing", icon: "Tag" },
-                        ],
-                      },
-                      {
-                        id: "team",
-                        iconName: "Users",
-                        title: "Team Collaboration",
-                        subtitle: "For growing agile startups",
-                        items: [
-                          { title: "Teams 5 Seats (₹1,500/mo*)", desc: "Shared organizational memory, team chat & sprint tracking.", href: "/pricing", icon: "Users" },
-                          { title: "Business Tier (₹3,000/mo*)", desc: "Multi-space permissions, Relational CRM & financial ledgers.", href: "/pricing", icon: "Users" },
-                          { title: "Additional Seats (Flex)", desc: "Scale smoothly per user as your product team expands.", href: "/pricing", icon: "Users" },
-                        ],
-                      },
-                      {
-                        id: "enterprise",
-                        iconName: "ShieldCheck",
-                        title: "Enterprise & Scale",
-                        subtitle: "Governance, SSO & custom SLAs",
-                        items: [
-                          { title: "Enterprise Custom", desc: "Dedicated instance, custom LLM routing and SSO/SAML integration.", href: "/pricing", icon: "Shield" },
-                          { title: "White-Glove Migration", desc: "Direct concierge migration from Notion, Slack, Jira and Linear.", href: "/demo", icon: "Shield" },
-                          { title: "Compare All Plans", desc: "Detailed matrix of features, limits, and team permissions.", href: "/pricing", icon: "Shield" },
-                        ],
-                      },
-                    ].map((col) => (
-                      <div key={col.id} className="flex flex-col">
-                        <div className="flex items-start gap-2.5 pb-3 mb-2 border-b border-border/70">
-                          <div className="p-1.5 rounded-md bg-muted/60 text-foreground shrink-0 mt-0.5 border border-border/50">
-                            <NavIcon name={col.iconName} className="size-4" />
-                          </div>
-                          <div className="flex flex-col">
-                            <span className="text-[13px] font-semibold text-foreground font-display leading-tight">
-                              {col.title}
-                            </span>
-                            <span className="text-[11px] text-muted-foreground font-sans mt-0.5 leading-snug">
-                              {col.subtitle}
-                            </span>
-                          </div>
-                        </div>
-
-                        <div className="flex flex-col gap-1 mt-1">
-                          {col.items.map((item) => (
-                            <MegaMenuItem
-                              key={item.title}
-                              title={item.title}
-                              desc={item.desc}
-                              href={item.href}
-                              iconName={item.icon}
-                              onNavigate={closeMenu}
-                            />
-                          ))}
-                        </div>
+                  {/* Right: Guarantee */}
+                  <div className="col-span-7 flex flex-col text-left">
+                    <div className="flex items-start gap-2.5 pb-3 mb-2 border-b border-border/70">
+                      <div className="p-1.5 rounded-md bg-muted/60 text-foreground shrink-0 mt-0.5 border border-border/50">
+                        <NavIcon name="ShieldCheck" className="size-4" />
                       </div>
-                    ))}
+                      <div className="flex flex-col">
+                        <span className="text-[13px] font-semibold text-foreground font-display leading-tight">
+                          The KeilHQ Guarantee
+                        </span>
+                        <span className="text-[11px] text-muted-foreground font-sans mt-0.5 leading-snug">
+                          Simple terms, no surprises.
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="flex flex-col gap-1 mt-1">
+                      {[
+                        { title: "30-Day Full Trial", desc: "Zero commitment & instant setup.", icon: "Zap" },
+                        { title: "No Hidden Fees", desc: "Predictable self-serve billing.", icon: "Receipt" },
+                        { title: "Enterprise Security", desc: "Data isolation & custom SLAs.", icon: "ShieldCheck" },
+                      ].map((item) => (
+                        <MegaMenuItem
+                          key={item.title}
+                          title={item.title}
+                          desc={item.desc}
+                          href="/pricing"
+                          iconName={item.icon}
+                          onNavigate={closeMenu}
+                        />
+                      ))}
+                    </div>
                   </div>
                 </div>
 
@@ -676,143 +524,15 @@ export function NavbarClient({ navigation, siteSettings }: NavbarClientProps) {
                   <Link
                     href="/pricing"
                     onClick={closeMenu}
-                    className="text-[12px] font-semibold text-foreground hover:text-muted-foreground flex items-center gap-1 group/demolink transition-colors font-display"
+                    className="text-[12px] font-semibold text-foreground hover:text-muted-foreground flex items-center gap-1 group/menulink transition-colors font-display"
                   >
                     View complete plan matrix
-                    <ArrowRight className="size-3 transition-transform group-hover/demolink:translate-x-0.5" />
+                    <ArrowRight className="size-3 transition-transform group-hover/menulink:translate-x-0.5" />
                   </Link>
                 </div>
               </div>
             )}
 
-            {/* 3. COMPANY MEGAMENU PANEL */}
-            {activeMenu === "company" && (
-              <div className="max-w-[1240px] mx-auto px-6 sm:px-8 pt-4 pb-8 flex flex-col gap-6">
-                <div className="grid grid-cols-12 gap-8 items-start">
-                  {/* Left: Mission Overview */}
-                  <div className="col-span-3 pr-6 border-r border-border/70 flex flex-col gap-5 text-left">
-                    <MegaMenuOverviewCard
-                      href="/about"
-                      title="Built by creators"
-                      subtitle="The future of autonomous work."
-                      lightImage="/mockups/organisations/organisation-light.png"
-                      darkImage="/mockups/organisations/organisation-dark.png"
-                      onNavigate={closeMenu}
-                    />
-
-                    <div className="flex flex-col gap-2.5">
-                      <span className="text-[10px] font-mono font-semibold uppercase tracking-wider text-muted-foreground/70">
-                        Core Principles.
-                      </span>
-
-                      <div className="flex flex-col gap-2 text-[12px] font-medium text-muted-foreground font-display">
-                        {[
-                          { icon: "Brain", title: "Quiet Engineering", sub: "Zero notification spam, maximum clarity" },
-                          { icon: "Lock", title: "Data Sovereignty", sub: "Your data is never used for training" },
-                          { icon: "Sparkle", title: "Deep Integration", sub: "Seamlessly bridges existing dev tools" },
-                        ].map((item) => (
-                          <div key={item.title} className="flex flex-col gap-0.5">
-                            <div className="flex items-center gap-1.5 text-foreground/90 font-semibold">
-                              <NavIcon name={item.icon} className="size-3 text-muted-foreground shrink-0" />
-                              <span>{item.title}</span>
-                            </div>
-                            <div className="pl-4 text-[11px] text-muted-foreground">{item.sub}</div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Right: 3 Company Columns */}
-                  <div className="col-span-9 grid grid-cols-3 gap-8 text-left">
-                    {[
-                      {
-                        id: "team",
-                        iconName: "Building2",
-                        title: "Company & Team",
-                        subtitle: "Our vision and origins",
-                        items: [
-                          { title: "About Us", desc: "Our philosophy, product engineering, and mission.", href: "/about", icon: "Building2" },
-                          { title: "Interactive Demo", desc: "Book a personalized 1-on-1 walkthrough with our engineers.", href: "/demo", icon: "Building2" },
-                          { title: "Brand Assets", desc: "Logos, brand guide, typography, and media kit.", href: "/brand", icon: "Building2" },
-                        ],
-                      },
-                      {
-                        id: "news",
-                        iconName: "Newspaper",
-                        title: "News & Releases",
-                        subtitle: "Engineering logs & updates",
-                        items: [
-                          { title: "Product Changelog", desc: "Weekly shipped features, improvements and speed fixes.", href: "/now", icon: "Newspaper" },
-                          { title: "Engineering Blog", desc: "Technical architectural breakdowns and AI design patterns.", href: "/now", icon: "Newspaper" },
-                          { title: "Frequently Asked Questions", desc: "Clear answers to common questions about workflows and setup.", href: "/faq", icon: "Newspaper" },
-                        ],
-                      },
-                      {
-                        id: "trust",
-                        iconName: "ShieldCheck",
-                        title: "Trust & Support",
-                        subtitle: "Security, legal & help",
-                        items: [
-                          { title: "Privacy & Security", desc: "Data protection policies, encryption, and zero-training commitments.", href: "/privacy", icon: "Shield" },
-                          { title: "Terms of Service", desc: "Standard service agreements and fair customer rights.", href: "/terms", icon: "Shield" },
-                          { title: "Help & Support", desc: "Direct engineering support channel and troubleshooting.", href: "/support", icon: "Shield" },
-                        ],
-                      },
-                    ].map((col) => (
-                      <div key={col.id} className="flex flex-col">
-                        <div className="flex items-start gap-2.5 pb-3 mb-2 border-b border-border/70">
-                          <div className="p-1.5 rounded-md bg-muted/60 text-foreground shrink-0 mt-0.5 border border-border/50">
-                            <NavIcon name={col.iconName} className="size-4" />
-                          </div>
-                          <div className="flex flex-col">
-                            <span className="text-[13px] font-semibold text-foreground font-display leading-tight">
-                              {col.title}
-                            </span>
-                            <span className="text-[11px] text-muted-foreground font-sans mt-0.5 leading-snug">
-                              {col.subtitle}
-                            </span>
-                          </div>
-                        </div>
-
-                        <div className="flex flex-col gap-1 mt-1">
-                          {col.items.map((item) => (
-                            <MegaMenuItem
-                              key={item.title}
-                              title={item.title}
-                              desc={item.desc}
-                              href={item.href}
-                              iconName={item.icon}
-                              onNavigate={closeMenu}
-                            />
-                          ))}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Bottom Footer Announcement */}
-                <div className="pt-4 border-t border-border/60 flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <span className="text-[10px] font-mono font-medium px-2 py-0.5 rounded bg-muted/60 border border-border text-foreground">
-                      We&apos;re Building
-                    </span>
-                    <span className="text-[12px] text-muted-foreground font-sans">
-                      <strong className="text-foreground font-medium">Join our mission:</strong> Shape the next generation of self-driving product operations
-                    </span>
-                  </div>
-                  <Link
-                    href="/about"
-                    onClick={closeMenu}
-                    className="text-[12px] font-semibold text-foreground hover:text-muted-foreground flex items-center gap-1 group/demolink transition-colors font-display"
-                  >
-                    Read our founding story
-                    <ArrowRight className="size-3 transition-transform group-hover/demolink:translate-x-0.5" />
-                  </Link>
-                </div>
-              </div>
-            )}
           </div>
         )}
       </header>
@@ -922,18 +642,9 @@ export function NavbarClient({ navigation, siteSettings }: NavbarClientProps) {
                   <span className="text-[11px] text-foreground font-mono">▶</span>
                 </button>
 
-                {/* Company Trigger */}
-                <button
-                  onClick={() => setMobileActiveCategory("company")}
-                  className="w-full flex items-center justify-between py-4 text-left font-display text-[15px] font-medium text-foreground hover:text-muted-foreground active:opacity-70 transition-all cursor-pointer bg-transparent border-none"
-                >
-                  <span>Company</span>
-                  <span className="text-[11px] text-foreground font-mono">▶</span>
-                </button>
-
                 {/* Other direct links from navigation */}
                 {links
-                  .filter((l) => l.href !== "/features" && l.href !== "/pricing" && l.href !== "/company")
+                  .filter((l) => l.href !== "/features" && l.href !== "/pricing")
                   .map((link) => (
                     <Link
                       key={link.href}
@@ -965,9 +676,9 @@ export function NavbarClient({ navigation, siteSettings }: NavbarClientProps) {
               {/* Bottom Quick Help Info */}
               <div className="py-6 border-t border-border/40 text-center">
                 <p className="text-xs text-muted-foreground font-sans">
-                  Need enterprise deployment?{" "}
-                  <Link href="/demo" onClick={closeMenu} className="text-foreground underline font-medium">
-                    Talk to engineering
+                  Questions about KeilHQ?{" "}
+                  <Link href="/support" onClick={closeMenu} className="text-foreground underline font-medium">
+                    Contact support
                   </Link>
                 </p>
               </div>
@@ -984,7 +695,6 @@ export function NavbarClient({ navigation, siteSettings }: NavbarClientProps) {
                 <span className="text-[11px] font-mono uppercase tracking-[0.25em] font-semibold text-muted-foreground">
                   {mobileActiveCategory === "product" && "P R O D U C T"}
                   {mobileActiveCategory === "pricing" && "P R I C I N G"}
-                  {mobileActiveCategory === "company" && "C O M P A N Y"}
                 </span>
               </button>
 
@@ -998,137 +708,13 @@ export function NavbarClient({ navigation, siteSettings }: NavbarClientProps) {
                   <>
                     {/* Platform Overview Banner Card */}
                     <MegaMenuOverviewCard
-                      href="/features"
+                      href="/features/smart-dashboard"
                       title="Platform overview"
                       subtitle="See how KeilHQ works."
                       lightImage="/mockups/dashboard/dashboard-snapshot-light.png"
                       darkImage="/mockups/dashboard/dashboard-snapshot-dark.png"
                       onNavigate={closeMenu}
                     />
-
-                    {/* Glean-Style Architecture Tree */}
-                    <div className="flex flex-col gap-3">
-                      <div className="pb-1.5 border-b border-border/60">
-                        <span className="text-xs font-medium text-muted-foreground">
-                          Built for enterprise AI.
-                        </span>
-                      </div>
-
-                      <div className="flex flex-col gap-4 text-left">
-                        {/* Node 1 */}
-                        <div className="flex flex-col">
-                          <div className="flex items-start gap-2.5">
-                            <Sparkle className="size-4 text-foreground shrink-0 mt-0.5" />
-                            <div>
-                              <div className="text-[13px] font-semibold text-foreground font-display">
-                                Keil Enterprise Context
-                              </div>
-                              <div className="text-[11px] text-muted-foreground">
-                                Ground AI in company context
-                              </div>
-                            </div>
-                          </div>
-                          {/* Tree branch */}
-                          <div className="ml-2 pl-4 border-l border-border/70 py-1.5 mt-1">
-                            <Link
-                              href="/features/integrations"
-                              onClick={closeMenu}
-                              className="group flex flex-col p-1.5 rounded hover:bg-muted/40 transition-colors"
-                            >
-                              <div className="text-xs font-medium text-foreground/90 group-hover:text-foreground">
-                                Connectors & actions
-                              </div>
-                              <div className="text-[10.5px] text-muted-foreground">
-                                Keil offers 250+ enterprise connectors
-                              </div>
-                            </Link>
-                          </div>
-                        </div>
-
-                        {/* Node 2 */}
-                        <div className="flex flex-col">
-                          <div className="flex items-start gap-2.5">
-                            <Brain className="size-4 text-foreground shrink-0 mt-0.5" />
-                            <div>
-                              <div className="text-[13px] font-semibold text-foreground font-display">
-                                Supervisor Intelligence
-                              </div>
-                              <div className="text-[11px] text-muted-foreground">
-                                Get more from every AI request
-                              </div>
-                            </div>
-                          </div>
-                          {/* Tree branches */}
-                          <div className="ml-2 pl-4 border-l border-border/70 py-1.5 mt-1 flex flex-col gap-1.5">
-                            <Link
-                              href="/features/smart-dashboard"
-                              onClick={closeMenu}
-                              className="group flex flex-col p-1.5 rounded hover:bg-muted/40 transition-colors"
-                            >
-                              <div className="text-xs font-medium text-foreground/90 group-hover:text-foreground">
-                                Auto routing & 3D context
-                              </div>
-                              <div className="text-[10.5px] text-muted-foreground">
-                                Route work to the right model & triage blockers
-                              </div>
-                            </Link>
-                            <Link
-                              href="/features/task-management"
-                              onClick={closeMenu}
-                              className="group flex flex-col p-1.5 rounded hover:bg-muted/40 transition-colors"
-                            >
-                              <div className="text-xs font-medium text-foreground/90 group-hover:text-foreground">
-                                Task Management
-                              </div>
-                              <div className="text-[10.5px] text-muted-foreground">
-                                Blocker dependencies & two-way calendar sync
-                              </div>
-                            </Link>
-                            <Link
-                              href="/features/docs-notes"
-                              onClick={closeMenu}
-                              className="group flex flex-col p-1.5 rounded hover:bg-muted/40 transition-colors"
-                            >
-                              <div className="text-xs font-medium text-foreground/90 group-hover:text-foreground">
-                                Motion Docs & Wiki
-                              </div>
-                              <div className="text-[10.5px] text-muted-foreground">
-                                Two-way Notion sync & autonomous synthesis
-                              </div>
-                            </Link>
-                          </div>
-                        </div>
-
-                        {/* Node 3 */}
-                        <div className="flex flex-col">
-                          <div className="flex items-start gap-2.5">
-                            <Shield className="size-4 text-foreground shrink-0 mt-0.5" />
-                            <div>
-                              <div className="text-[13px] font-semibold text-foreground font-display">
-                                Keil Protect & RBAC
-                              </div>
-                              <div className="text-[11px] text-muted-foreground">
-                                Safely scale AI across all team spaces
-                              </div>
-                            </div>
-                          </div>
-                          <div className="ml-2 pl-4 border-l border-border/70 py-1.5 mt-1">
-                            <Link
-                              href="/features/workspace"
-                              onClick={closeMenu}
-                              className="group flex flex-col p-1.5 rounded hover:bg-muted/40 transition-colors"
-                            >
-                              <div className="text-xs font-medium text-foreground/90 group-hover:text-foreground">
-                                Multi-space governance
-                              </div>
-                              <div className="text-[10.5px] text-muted-foreground">
-                                Granular permissions & audit logs
-                              </div>
-                            </Link>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
 
                     {/* Detailed Feature Columns */}
                     <div className="flex flex-col gap-5 pt-2 border-t border-border/50">
@@ -1164,20 +750,6 @@ export function NavbarClient({ navigation, siteSettings }: NavbarClientProps) {
                       ))}
                     </div>
 
-                    {/* Bottom Callout */}
-                    <div className="p-3 rounded-lg border border-border bg-card/60 flex items-center justify-between">
-                      <div className="flex flex-col pr-2">
-                        <span className="text-[11px] font-mono text-muted-foreground uppercase">Coming soon</span>
-                        <span className="text-xs font-semibold text-foreground">Keil Transform & AI Audit</span>
-                      </div>
-                      <Link
-                        href="/demo"
-                        onClick={closeMenu}
-                        className="text-xs font-semibold text-foreground flex items-center gap-1 shrink-0"
-                      >
-                        Book demo <ArrowRight className="size-3" />
-                      </Link>
-                    </div>
                   </>
                 )}
 
@@ -1218,53 +790,6 @@ export function NavbarClient({ navigation, siteSettings }: NavbarClientProps) {
                       </div>
                     </div>
 
-                    {/* Pricing Tiers */}
-                    <div className="flex flex-col gap-4 pt-2 border-t border-border/50">
-                      {[
-                        {
-                          title: "Personal & Solo",
-                          items: [
-                            { title: "Free Trial (₹0)", desc: "30 days of full AI access with zero credit card required." },
-                            { title: "Pro Monthly (₹500/mo*)", desc: "For founders who want continuous Supervisor AI context." },
-                            { title: "Pro Annual (Save 20%)", desc: "Billed yearly with priority model compute & infinite memory." },
-                          ],
-                        },
-                        {
-                          title: "Team Collaboration",
-                          items: [
-                            { title: "Teams 5 Seats (₹1,500/mo*)", desc: "Shared organizational memory, team chat & sprint tracking." },
-                            { title: "Business Tier (₹3,000/mo*)", desc: "Multi-space permissions, Relational CRM & financial ledgers." },
-                          ],
-                        },
-                        {
-                          title: "Enterprise & Scale",
-                          items: [
-                            { title: "Enterprise Custom", desc: "Dedicated instance, custom LLM routing and SSO/SAML integration." },
-                            { title: "White-Glove Migration", desc: "Direct concierge migration from Notion, Slack, Jira and Linear." },
-                          ],
-                        },
-                      ].map((group) => (
-                        <div key={group.title} className="flex flex-col gap-2">
-                          <span className="text-[11px] font-mono uppercase tracking-wider font-semibold text-muted-foreground pb-1 border-b border-border/40">
-                            {group.title}
-                          </span>
-                          <div className="flex flex-col gap-1.5">
-                            {group.items.map((item) => (
-                              <Link
-                                key={item.title}
-                                href="/pricing"
-                                onClick={closeMenu}
-                                className="flex flex-col p-2 rounded hover:bg-muted/40 transition-colors"
-                              >
-                                <span className="text-xs font-semibold text-foreground font-display">{item.title}</span>
-                                <span className="text-[11px] text-muted-foreground leading-tight">{item.desc}</span>
-                              </Link>
-                            ))}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-
                     {/* Bottom Link */}
                     <div className="pt-2 border-t border-border/50 text-center">
                       <Link
@@ -1278,111 +803,6 @@ export function NavbarClient({ navigation, siteSettings }: NavbarClientProps) {
                   </>
                 )}
 
-                {/* 3. COMPANY SUB-DRAWER */}
-                {mobileActiveCategory === "company" && (
-                  <>
-                    {/* Mission Overview Banner Card */}
-                    <MegaMenuOverviewCard
-                      href="/about"
-                      title="Built by creators"
-                      subtitle="The future of autonomous work."
-                      lightImage="/mockups/organisations/organisation-light.png"
-                      darkImage="/mockups/organisations/organisation-dark.png"
-                      onNavigate={closeMenu}
-                    />
-
-                    {/* Core Principles */}
-                    <div className="flex flex-col gap-2.5">
-                      <div className="pb-1.5 border-b border-border/60">
-                        <span className="text-xs font-medium text-muted-foreground">
-                          Core Principles.
-                        </span>
-                      </div>
-                      <div className="flex flex-col gap-2">
-                        {[
-                          { icon: "Brain", title: "Quiet Engineering", sub: "Zero notification spam, maximum clarity" },
-                          { icon: "Lock", title: "Data Sovereignty", sub: "Your data is never used for training" },
-                          { icon: "Sparkle", title: "Deep Integration", sub: "Seamlessly bridges existing dev tools" },
-                        ].map((item) => (
-                          <div key={item.title} className="flex items-start gap-2.5 p-1.5">
-                            <NavIcon name={item.icon} className="size-3.5 text-foreground shrink-0 mt-0.5" />
-                            <div className="flex flex-col">
-                              <span className="text-xs font-semibold text-foreground font-display">{item.title}</span>
-                              <span className="text-[11px] text-muted-foreground">{item.sub}</span>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Company Directory Sections */}
-                    <div className="flex flex-col gap-4 pt-2 border-t border-border/50">
-                      {[
-                        {
-                          category: "Company & Team",
-                          links: [
-                            { title: "About Us", desc: "Our philosophy and engineering mission", href: "/about" },
-                            { title: "Interactive Demo", desc: "Book a personalized 1-on-1 walkthrough", href: "/demo" },
-                            { title: "Brand Assets", desc: "Logos, brand guide, and media kit", href: "/brand" },
-                          ],
-                        },
-                        {
-                          category: "News & Releases",
-                          links: [
-                            { title: "Product Changelog", desc: "Weekly shipped updates & speed fixes", href: "/now" },
-                            { title: "Engineering Blog", desc: "Architectural breakdowns & AI patterns", href: "/now" },
-                            { title: "FAQ", desc: "Answers to common workflow questions", href: "/faq" },
-                          ],
-                        },
-                        {
-                          category: "Trust & Support",
-                          links: [
-                            { title: "Privacy & Security", desc: "Encryption and zero-training policy", href: "/privacy" },
-                            { title: "Terms of Service", desc: "Standard service agreements", href: "/terms" },
-                            { title: "Help & Support", desc: "Direct engineering support channel", href: "/support" },
-                          ],
-                        },
-                      ].map((section) => (
-                        <div key={section.category} className="flex flex-col gap-2">
-                          <span className="text-[11px] font-mono uppercase tracking-wider font-semibold text-muted-foreground pb-1 border-b border-border/40">
-                            {section.category}
-                          </span>
-                          <div className="flex flex-col gap-1">
-                            {section.links.map((link) => (
-                              <Link
-                                key={link.title}
-                                href={link.href}
-                                onClick={closeMenu}
-                                className="flex items-center justify-between p-2 rounded hover:bg-muted/40 transition-colors"
-                              >
-                                <div className="flex flex-col min-w-0 pr-2">
-                                  <span className="text-xs font-semibold text-foreground font-display truncate">
-                                    {link.title}
-                                  </span>
-                                  <span className="text-[11px] text-muted-foreground leading-tight">
-                                    {link.desc}
-                                  </span>
-                                </div>
-                                <ArrowRight className="size-3 text-muted-foreground shrink-0" />
-                              </Link>
-                            ))}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Bottom Callout */}
-                    <div className="pt-2 border-t border-border/50 text-center">
-                      <Link
-                        href="/about"
-                        onClick={closeMenu}
-                        className="text-xs font-semibold text-foreground flex items-center justify-center gap-1 hover:underline"
-                      >
-                        Read our founding story <ArrowRight className="size-3" />
-                      </Link>
-                    </div>
-                  </>
-                )}
               </div>
             </div>
           )}
@@ -1417,100 +837,8 @@ export function NavbarClient({ navigation, siteSettings }: NavbarClientProps) {
                 Get started
               </h3>
               <p className="text-xs text-muted-foreground">
-                Add {siteName} to the apps where you already work.
+                Welcome back — log in to your pilot workspace.
               </p>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-1">
-              <div className="flex flex-col gap-2">
-                <span className="text-[11px] font-medium text-muted-foreground pl-1 font-display">
-                  Microsoft 365
-                </span>
-
-                <a
-                  href="https://workspace.google.com/marketplace/app/o11/998786406602"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between p-2.5 px-3 rounded-sm bg-muted/30 border border-border hover:bg-muted/80 transition-all shadow-sm"
-                >
-                  <span className="text-xs font-semibold text-foreground font-display">Excel</span>
-                  <svg className="size-4 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M14.7 2H9.3C4.1 2 2 4.1 2 9.3v5.4C2 19.9 4.1 22 9.3 22h5.4c5.2 0 7.3-2.1 7.3-7.3V9.3C22 4.1 19.9 2 14.7 2z" fill="#107C41" />
-                    <path d="M10.5 7.5L8 12l2.5 4.5h2L10 12l2.5-4.5h-2z" fill="#FFF" />
-                  </svg>
-                </a>
-
-                <a
-                  href="https://workspace.google.com/marketplace/app/o11/998786406602"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between p-2.5 px-3 rounded-sm bg-muted/30 border border-border hover:bg-muted/80 transition-all shadow-sm"
-                >
-                  <span className="text-xs font-semibold text-foreground font-display">PowerPoint</span>
-                  <svg className="size-4 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M14.7 2H9.3C4.1 2 2 4.1 2 9.3v5.4C2 19.9 4.1 22 9.3 22h5.4c5.2 0 7.3-2.1 7.3-7.3V9.3C22 4.1 19.9 2 14.7 2z" fill="#C43E1C" />
-                    <path d="M9.5 7.5h2.5c1.4 0 2.5 1.1 2.5 2.5s-1.1 2.5-2.5 2.5H9.5v3.5H8v-8.5h1.5zm0 3.5h2.5c.6 0 1-.4 1-1s-.4-1-1-1H9.5v2z" fill="#FFF" />
-                  </svg>
-                </a>
-
-                <a
-                  href="https://workspace.google.com/marketplace/app/o11/998786406602"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between p-2.5 px-3 rounded-sm bg-muted/30 border border-border hover:bg-muted/80 transition-all shadow-sm"
-                >
-                  <span className="text-xs font-semibold text-foreground font-display">Word</span>
-                  <svg className="size-4 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M14.7 2H9.3C4.1 2 2 4.1 2 9.3v5.4C2 19.9 4.1 22 9.3 22h5.4c5.2 0 7.3-2.1 7.3-7.3V9.3C22 4.1 19.9 2 14.7 2z" fill="#185ABD" />
-                    <path d="M7.5 7.5l2 6.5 2-6.5h2.2l-3.2 8.5H8.5l-3.2-8.5h2.2z" fill="#FFF" />
-                  </svg>
-                </a>
-              </div>
-
-              <div className="flex flex-col gap-2">
-                <span className="text-[11px] font-medium text-muted-foreground pl-1 font-display">
-                  Google
-                </span>
-
-                <a
-                  href="https://workspace.google.com/marketplace/app/o11/998786406602"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between p-2.5 px-3 rounded-sm bg-muted/30 border border-border hover:bg-muted/80 transition-all shadow-sm"
-                >
-                  <span className="text-xs font-semibold text-foreground font-display">Google Sheets</span>
-                  <svg className="size-4 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z" fill="#0F9D58" />
-                    <path d="M7 7h4v4H7V7zm6 0h4v4h-4V7zm-6 6h4v4H7v-4zm6 0h4v4h-4v-4z" fill="#FFF" opacity="0.9" />
-                  </svg>
-                </a>
-
-                <a
-                  href="https://workspace.google.com/marketplace/app/o11/998786406602"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between p-2.5 px-3 rounded-sm bg-muted/30 border border-border hover:bg-muted/80 transition-all shadow-sm"
-                >
-                  <span className="text-xs font-semibold text-foreground font-display">Google Slides</span>
-                  <svg className="size-4 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z" fill="#F4B400" />
-                    <path d="M7 8h10v6H7V8zm2 2v2h6v-2H9z" fill="#FFF" opacity="0.9" />
-                  </svg>
-                </a>
-
-                <a
-                  href="https://workspace.google.com/marketplace/app/o11/998786406602"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between p-2.5 px-3 rounded-sm bg-muted/30 border border-border hover:bg-muted/80 transition-all shadow-sm"
-                >
-                  <span className="text-xs font-semibold text-foreground font-display">Google Docs</span>
-                  <svg className="size-4 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z" fill="#4285F4" />
-                    <path d="M7 7h10v2H7V7zm0 4h10v2H7v-2zm0 4h6v2H7v-2z" fill="#FFF" opacity="0.9" />
-                  </svg>
-                </a>
-              </div>
             </div>
 
             <a

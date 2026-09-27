@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "Now",
   description:
     "Changelog, product launches, stories from the team and community, and press — everything happening at KeilHQ, in one place.",
+  alternates: {
+    canonical: "https://keilhq.in/now",
+  },
 };
 
 function parseTabParam(value: string | string[] | undefined): NowTab {

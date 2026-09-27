@@ -15,15 +15,15 @@ export const SITE_SETTINGS = {
   twitterUrl: "https://x.com",
   linkedinUrl: "https://www.linkedin.com/company/keil-hq/",
   githubUrl: "https://github.com",
-  contactEmail: "support@keilhq.in",
+  contactEmail: "hello@keilhq.in",
 } as const;
 
 export const NAVIGATION = {
   links: [
     { label: "Features", href: "/features" },
     { label: "Pricing", href: "/pricing" },
-    { label: "Company", href: "/company" },
     { label: "Now", href: "/now" },
+    { label: "About", href: "/about" },
   ],
   cta: {
     label: "Start Free",
@@ -43,7 +43,6 @@ export const FOOTER = {
         { label: "Meeting Notes", href: "/features/meeting-recorder" },
         { label: "Relational CRM", href: "/features/crm" },
         { label: "Finance & Bookkeeping", href: "/features/finance" },
-        { label: "AI Assistant", href: "/features/ai-command-center" },
       ],
     },
     {
@@ -53,8 +52,7 @@ export const FOOTER = {
         { label: "Now", href: "/now" },
         { label: "Changelog", href: "/now?tab=changelog" },
         { label: "Press", href: "/now?tab=press" },
-        { label: "Support", href: "/support" },
-        { label: "FAQ", href: "/faq" },
+        { label: "Support & FAQ", href: "/support" },
       ],
     },
     {
@@ -75,15 +73,15 @@ export const FOOTER = {
 } as const;
 
 export const HOMEPAGE = {
-  heroTitle: "AI Native Workspace for Modern Teams",
+  heroTitle: "The AI work platform that puts your entire company in one intelligent workspace.",
   heroSubtitle:
     "Unite tasks, documents, client records, meeting intelligence, and financials in one shared context engine. Managed and operated by AI.",
   heroLightImage: "/mockups/home-hero-light.png",
   heroDarkImage: "/mockups/home-hero-dark.png",
   heroCtaLabel: "Start free today",
   heroCtaLink: WAITLIST_URL,
-  heroSecondaryCtaLabel: "Book a demo",
-  heroSecondaryCtaLink: "/demo",
+  heroSecondaryCtaLabel: "",
+  heroSecondaryCtaLink: "",
   announcementEnabled: false,
   announcementText: "",
   announcementLink: "",
@@ -154,7 +152,7 @@ export const HOMEPAGE = {
   finalCtaButtonLabel: "Get started",
   finalCtaButtonLink: WAITLIST_URL,
   finalCtaSecondaryButtonLabel: "Talk to sales",
-  finalCtaSecondaryButtonLink: "mailto:hey@keilhq.in",
+  finalCtaSecondaryButtonLink: "mailto:hello@keilhq.in",
   finalCtaTrustText: "",
 } as const;
 

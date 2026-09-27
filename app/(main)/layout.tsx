@@ -58,6 +58,7 @@ export async function generateMetadata(): Promise<Metadata> {
     creator: "KeilHQ",
     publisher: "KeilHQ",
     icons: {
+      // SVG mark only — no raster images. Light/dark variants follow the theme.
       icon: [
         {
           url: "/keilhq.svg",
@@ -66,14 +67,17 @@ export async function generateMetadata(): Promise<Metadata> {
         {
           url: "/keilhq.svg",
           media: "(prefers-color-scheme: light)",
+          type: "image/svg+xml",
         },
         {
           url: "/keilhq-white.svg",
           media: "(prefers-color-scheme: dark)",
+          type: "image/svg+xml",
         },
       ],
       shortcut: "/keilhq.svg",
-      apple: "/brand/keilhq-rise.png",
+      // Apple touch icon comes from app/apple-icon.tsx (mark on Warm Ink).
+      // Never point icon slots at campaign imagery.
     },
     openGraph: {
       type: "website",

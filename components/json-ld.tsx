@@ -35,12 +35,7 @@ export function JsonLd() {
       "Keil App",
       "Keil Workspace"
     ],
-    "url": "https://keilhq.in",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://keilhq.in/search?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
+    "url": "https://keilhq.in"
   };
 
   const softwareAppSchema = {

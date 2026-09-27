@@ -26,7 +26,6 @@ export async function Footer() {
         { label: "Meeting Notes", href: "/features/meeting-recorder" },
         { label: "Relational CRM", href: "/features/crm" },
         { label: "Finance & Bookkeeping", href: "/features/finance" },
-        { label: "AI Assistant", href: "/features/ai-command-center" },
       ],
     },
     {
@@ -36,8 +35,7 @@ export async function Footer() {
         { label: "Now", href: "/now" },
         { label: "Changelog", href: "/now?tab=changelog" },
         { label: "Press", href: "/now?tab=press" },
-        { label: "Support", href: "/support" },
-        { label: "FAQ", href: "/faq" },
+        { label: "Support & FAQ", href: "/support" },
       ],
     },
     {

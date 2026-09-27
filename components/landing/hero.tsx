@@ -22,12 +22,12 @@ interface HeroProps {
 }
 
 export function Hero({
-  heroTitle = "AI Native Workspace for Modern Teams",
+  heroTitle = "The AI work platform that puts your entire company in one intelligent workspace.",
   heroSubtitle = "Unite tasks, documents, client records, meeting intelligence, and financials in one shared context engine. Managed and operated by AI.",
   heroCtaLabel = "Start free today",
   heroCtaLink = WAITLIST_URL,
-  heroSecondaryCtaLabel = "Book a demo",
-  heroSecondaryCtaLink = "/demo",
+  heroSecondaryCtaLabel = "",
+  heroSecondaryCtaLink = "",
   announcementEnabled = false,
   announcementText = "",
   announcementLink = "",
@@ -55,94 +55,92 @@ export function Hero({
       />
 
       <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 flex flex-col gap-12 text-left">
-        
-        {/* Copy Section */}
-        <div className="max-w-[1100px] flex flex-col gap-6">
+
+        {/* Copy Section — full-bleed headline, subtext left / CTAs right */}
+        <div className="w-full flex flex-col gap-6">
           <h1
-            className={`font-display text-[clamp(2.5rem,5.5vw,4.5rem)] font-medium tracking-[-0.03em] leading-[1.05] text-foreground text-balance transition-all duration-1000 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-            }`}
+            className={`font-display text-[clamp(2.5rem,5.5vw,4.5rem)] font-medium tracking-[-0.03em] leading-[1.05] text-foreground w-full transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+              }`}
           >
             {heroTitle}
           </h1>
 
           <div
-            className={`flex flex-col sm:flex-row sm:items-baseline gap-x-4 gap-y-2 text-[15px] sm:text-base font-normal text-muted-foreground leading-relaxed transition-all duration-1000 delay-200 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-            }`}
+            className={`flex flex-col lg:flex-row lg:items-end gap-6 lg:gap-12 transition-all duration-1000 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+              }`}
           >
-            <p className="max-w-[65ch]">
-              {heroSubtitle}
-            </p>
-            {announcementEnabled && announcementText && (
-              <a
-                href={announcementLink || "#"}
-                className="inline-flex items-center gap-1 text-[13px] sm:text-sm font-medium text-foreground hover:text-muted-foreground transition-colors duration-150 shrink-0 group"
-              >
-                {announcementText}
-                <ArrowRight className="size-3.5 transition-transform duration-150 group-hover:translate-x-0.5" />
-              </a>
-            )}
-          </div>
+            <div className="flex flex-col gap-2 text-[15px] sm:text-base font-normal text-muted-foreground leading-relaxed max-w-[65ch]">
+              <p>
+                {heroSubtitle}
+              </p>
+              {announcementEnabled && announcementText && (
+                <a
+                  href={announcementLink || "#"}
+                  className="inline-flex items-center gap-1 text-[13px] sm:text-sm font-medium text-foreground hover:text-muted-foreground transition-colors duration-150 shrink-0 group w-fit"
+                >
+                  {announcementText}
+                  <ArrowRight className="size-3.5 transition-transform duration-150 group-hover:translate-x-0.5" />
+                </a>
+              )}
+            </div>
 
-          {/* Main CTA Buttons */}
-          <div
-            className={`flex flex-col sm:flex-row items-center gap-3 mt-2 transition-all duration-1000 delay-300 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-            }`}
-          >
-            {heroCtaLabel && heroCtaLink && (
-              <a
-                href={heroCtaLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() =>
-                  trackStartFreeClick({
-                    location: "hero_primary",
-                    label: heroCtaLabel,
-                    href: heroCtaLink,
-                  })
-                }
-                className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-sm btn-accent text-[13px] font-semibold transition-all cursor-pointer shadow-sm w-full sm:w-auto justify-center"
-              >
-                {heroCtaLabel}
-                <ArrowRight
-                  className="size-3.5"
-                  aria-hidden="true"
-                />
-              </a>
-            )}
-            {heroSecondaryCtaLabel && heroSecondaryCtaLink && (
-              <a
-                href={heroSecondaryCtaLink}
-                onClick={() =>
-                  trackCtaClick({
-                    location: "hero_secondary",
-                    label: heroSecondaryCtaLabel,
-                    href: heroSecondaryCtaLink,
-                  })
-                }
-                className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-sm border border-border text-foreground hover:bg-muted/50 text-[13px] font-semibold transition-all cursor-pointer active:scale-[0.97] w-full sm:w-auto justify-center"
-              >
-                {heroSecondaryCtaLabel}
-                <ArrowRight
-                  className="size-3.5 opacity-55"
-                  aria-hidden="true"
-                />
-              </a>
-            )}
+            {/* CTAs — right side, same baseline row as subtext */}
+            <div
+              className={`flex flex-col sm:flex-row lg:justify-end items-stretch sm:items-center gap-3 lg:ml-auto shrink-0 transition-all duration-1000 delay-300 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                }`}
+            >
+              {heroCtaLabel && heroCtaLink && (
+                <a
+                  href={heroCtaLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() =>
+                    trackStartFreeClick({
+                      location: "hero_primary",
+                      label: heroCtaLabel,
+                      href: heroCtaLink,
+                    })
+                  }
+                  className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-sm btn-accent text-[13px] font-semibold transition-all cursor-pointer shadow-sm justify-center whitespace-nowrap"
+                >
+                  {heroCtaLabel}
+                  <ArrowRight
+                    className="size-3.5"
+                    aria-hidden="true"
+                  />
+                </a>
+              )}
+              {heroSecondaryCtaLabel && heroSecondaryCtaLink && (
+                <a
+                  href={heroSecondaryCtaLink}
+                  onClick={() =>
+                    trackCtaClick({
+                      location: "hero_secondary",
+                      label: heroSecondaryCtaLabel,
+                      href: heroSecondaryCtaLink,
+                    })
+                  }
+                  className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-sm border border-border text-foreground hover:bg-muted/50 text-[13px] font-semibold transition-all cursor-pointer active:scale-[0.97] justify-center whitespace-nowrap"
+                >
+                  {heroSecondaryCtaLabel}
+                  <ArrowRight
+                    className="size-3.5 opacity-55"
+                    aria-hidden="true"
+                  />
+                </a>
+              )}
+            </div>
           </div>
         </div>
 
         {/* Mockup Container — No border, no macOS chrome, raw large mockup */}
         <div
-          className={`w-full relative transition-all duration-[1200ms] delay-300 ${
-            isVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-12 scale-[0.98]"
-          }`}
+          className={`w-full relative transition-all duration-[1200ms] delay-300 ${isVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-12 scale-[0.98]"
+            }`}
         >
           {/* Subtle edge glow */}
           <div className="absolute -inset-1 rounded-lg bg-gradient-to-b from-white/10 to-transparent opacity-0 dark:opacity-20 blur-md pointer-events-none" />
-          
+
           <div className="relative w-full rounded-lg overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.3)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.6)]">
             {heroLightImage && heroDarkImage && heroLightImage !== heroDarkImage ? (
               <>
@@ -173,7 +171,7 @@ export function Hero({
                 priority
               />
             )}
-            
+
             {/* Bottom gradient fade to blend the mockup into the background */}
             <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-background/80 via-background/20 to-transparent pointer-events-none" />
           </div>

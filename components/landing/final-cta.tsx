@@ -20,7 +20,7 @@ export function FinalCta({
   finalCtaButtonLabel = "Get started",
   finalCtaButtonLink = WAITLIST_URL,
   finalCtaSecondaryButtonLabel = "Talk to sales",
-  finalCtaSecondaryButtonLink = "mailto:hey@keilhq.in",
+  finalCtaSecondaryButtonLink = "mailto:hello@keilhq.in",
   finalCtaTrustText,
 }: FinalCtaProps) {
   const isExternalPrimary =

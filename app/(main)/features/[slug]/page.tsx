@@ -2,22 +2,9 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Image from "next/image";
-import { getManualFeature, getManualFeatures } from "@/lib/features";
+import { getManualFeature, getManualFeatures, FEATURE_FALLBACK_IMAGES as FALLBACK_IMAGES } from "@/lib/features";
 import { FeatureLayout } from "@/components/landing/feature-layout";
 import { WAITLIST_URL } from "@/lib/waitlist";
-
-/* ── Fallback image map (used until images are set manually) ── */
-const FALLBACK_IMAGES: Record<string, { light: string; dark: string }> = {
-  "smart-dashboard":       { light: "/mockups/dashboard/dashboard-snapshot-light.png",          dark: "/mockups/dashboard/dashboard-snapshot-dark.png" },
-  "task-management":       { light: "/mockups/project-tasks-events/tasks-overviewpage-light.png", dark: "/mockups/project-tasks-events/tasks-overviewpage-dark.png" },
-  "docs-notes":            { light: "/mockups/motion/motion-page-light.png",                     dark: "/mockups/motion/motion-page-dark.png" },
-  "team-chat":             { light: "/mockups/messages/message-light.png",                      dark: "/mockups/messages/message-dark.png" },
-  "meeting-recorder":      { light: "/mockups/meeting/meetings-recorder-light.png",              dark: "/mockups/meeting/meetings-recorder-dark.png" },
-  "integrations":          { light: "/mockups/integrations/integrations-light.png",             dark: "/mockups/integrations/integrations-dark.png" },
-  "workspace":             { light: "/mockups/organisations/organisation-light.png",            dark: "/mockups/organisations/organisation-dark.png" },
-  "crm":                   { light: "/mockups/crm/crm-overview-light.png",                      dark: "/mockups/crm/crm-overview-dark.png" },
-  "finance":               { light: "/mockups/finance/finance-overview-light.png",              dark: "/mockups/finance/finance-overview-dark.png" },
-};
 
 /* ── Fallback hero titles ── */
 const FALLBACK_TITLES: Record<string, string> = {
@@ -71,6 +58,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title,
     description,
+    alternates: {
+      canonical: `https://keilhq.in/features/${slug}`,
+    },
   };
 }
 
@@ -118,7 +108,22 @@ export default async function FeaturePage({ params }: { params: Promise<{ slug: 
   );
 
   return (
-    <FeatureLayout
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://keilhq.in" },
+              { "@type": "ListItem", position: 2, name: "Features", item: "https://keilhq.in/features/smart-dashboard" },
+              { "@type": "ListItem", position: 3, name: SINGLE_WORD_TITLES[slug] || slug, item: `https://keilhq.in/features/${slug}` },
+            ],
+          }),
+        }}
+      />
+      <FeatureLayout
       eyebrowIndex={(feature as any).eyebrowIndex || ""}
       eyebrowText={(feature as any).eyebrowText || ""}
       title={heroTitle}
@@ -135,6 +140,7 @@ export default async function FeaturePage({ params }: { params: Promise<{ slug: 
       checklistItems={checklistItems}
       currentIndex={FEATURE_INDEX[slug] ?? 0}
       sections={(feature as any).sections || undefined}
-    />
+      />
+    </>
   );
 }

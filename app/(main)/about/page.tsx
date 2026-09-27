@@ -6,6 +6,9 @@ import { AboutVideoPlayer } from "@/components/about/about-video-player";
 export const metadata: Metadata = {
   title: "About",
   description: "About KeilHQ. We are building the work management platform for the next era of product development, giving teams and AI agents human clarity.",
+  alternates: {
+    canonical: "https://keilhq.in/about",
+  },
 };
 
 export default async function AboutPage() {
@@ -269,10 +272,10 @@ export default async function AboutPage() {
             We&apos;re looking for engineers, designers, and growth people who care deeply about craft and clarity. We work in highly autonomous cycles, prioritize async alignment, and reward deep focus.
           </p>
           <a
-            href="mailto:jobs@Keilhq.com"
+            href="mailto:hello@keilhq.in"
             className="inline-flex items-center gap-1.5 text-sm font-semibold text-foreground hover:opacity-75 transition-opacity underline underline-offset-4 w-fit"
           >
-            jobs@Keilhq.com →
+            hello@keilhq.in →
           </a>
         </div>
       </section>

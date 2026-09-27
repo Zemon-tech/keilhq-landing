@@ -11,11 +11,14 @@ import { getNowFeed } from "@/lib/now";
 import { HOMEPAGE, LOVED_BY } from "@/lib/site-content";
 
 export const metadata: Metadata = {
-  title: "KeilHQ — AI-Native Operational & Context Layer for Modern Teams",
-  description: "Stop wasting time across 15+ disconnected tools. KeilHQ unifies tasks, docs, customer records, meeting intelligence, and financials into a single shared operational context engine managed by AI.",
+  title: "KeilHQ — AI Work Platform for Modern Teams",
+  description: "KeilHQ unifies tasks, docs, chat, meetings, CRM, and finance in one AI-native workspace for modern teams.",
+  alternates: {
+    canonical: "https://keilhq.in",
+  },
   openGraph: {
-    title: "KeilHQ — AI-Native Operational & Context Layer for Modern Teams",
-    description: "Stop wasting time across 15+ disconnected tools. KeilHQ unifies tasks, docs, customer records, meeting intelligence, and financials into a single shared operational context engine managed by AI.",
+    title: "KeilHQ — AI Work Platform for Modern Teams",
+    description: "KeilHQ unifies tasks, docs, chat, meetings, CRM, and finance in one AI-native workspace for modern teams.",
     url: "https://keilhq.in",
     siteName: "KeilHQ",
     images: [
@@ -31,8 +34,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "KeilHQ — AI-Native Operational & Context Layer for Modern Teams",
-    description: "Stop wasting time across 15+ disconnected tools. KeilHQ unifies tasks, docs, customer records, meeting intelligence, and financials into a single shared operational context engine managed by AI.",
+    title: "KeilHQ — AI Work Platform for Modern Teams",
+    description: "KeilHQ unifies tasks, docs, chat, meetings, CRM, and finance in one AI-native workspace for modern teams.",
     images: ["/brand/keilhq-rise.png"],
   },
 };
