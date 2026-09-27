@@ -15,7 +15,7 @@ import { isAdminAuthorized } from '@/lib/admin-auth';
 
 const SLUG_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
-export function slugifyTitle(title: string): string {
+function slugifyTitle(title: string): string {
   const slug = title
     .toLowerCase()
     .replace(/['’]/g, '')

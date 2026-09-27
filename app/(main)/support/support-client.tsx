@@ -28,6 +28,7 @@ import {
 } from "lucide-react";
 import { FAQ_SECTION } from "@/lib/site-content";
 import { WAITLIST_URL } from "@/lib/waitlist";
+import { trackStartFreeClick, trackCtaClick } from "@/lib/analytics";
 
 const SUPPORT_EMAIL = "hello@keilhq.in";
 const SUPPORT_SUBJECT = "Support%20request";
@@ -288,6 +289,11 @@ export function SupportClient() {
             <Link
               key={r.title}
               href={r.href}
+              onClick={() => {
+                const props = { location: "support_resources", label: r.title, href: r.href };
+                if (r.href === WAITLIST_URL) trackStartFreeClick(props);
+                else trackCtaClick(props);
+              }}
               {...(r.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
               className="group p-6 rounded-lg border border-border/50 bg-secondary/20 hover:border-foreground/20 transition-colors flex flex-col gap-1.5 text-left"
             >
@@ -410,6 +416,9 @@ export function SupportClient() {
           <div className="flex flex-col sm:flex-row items-center gap-3 mt-2 font-display">
             <a
               href={MAILTO_HREF}
+              onClick={() =>
+                trackCtaClick({ location: "support_cta", label: "Email us", href: MAILTO_HREF })
+              }
               className="px-5 py-2.5 rounded-full bg-primary hover:bg-primary/90 text-primary-foreground text-xs font-semibold transition-transform duration-150 active:scale-[0.97] shadow-xs"
             >
               Email us
@@ -418,6 +427,9 @@ export function SupportClient() {
               href={GMAIL_HREF}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() =>
+                trackCtaClick({ location: "support_cta", label: "Open in Gmail", href: GMAIL_HREF })
+              }
               className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-secondary hover:bg-secondary/80 text-foreground border border-border/60 text-xs font-semibold transition-transform duration-150 active:scale-[0.97]"
             >
               Open in Gmail
@@ -427,6 +439,9 @@ export function SupportClient() {
               href={WAITLIST_URL}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() =>
+                trackStartFreeClick({ location: "support_cta", label: "Get started", href: WAITLIST_URL })
+              }
               className="px-5 py-2.5 rounded-full bg-secondary hover:bg-secondary/80 text-foreground border border-border/60 text-xs font-semibold transition-transform duration-150 active:scale-[0.97]"
             >
               Get started
