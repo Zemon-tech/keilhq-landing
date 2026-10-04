@@ -135,9 +135,9 @@ function PressStrip({ items }: { items: NowItem[] }) {
 }
 
 /**
- * The All view: separated sections over one feed — latest covers,
- * Changelog timeline strip, Press strip, then past stories in the same
- * editorial cards. Each list is disjoint; nothing repeats on the page.
+ * The All view: each section is fully independent — no cross-section
+ * deduplication. Latest shows 2 from each kind. Changelog, Press, and
+ * Recent each pull from their own full sorted lists.
  */
 export function AllSections({
   items,
@@ -146,22 +146,25 @@ export function AllSections({
   items: NowItem[];
   onViewAll: (tab: NowTab) => void;
 }) {
-  // Latest covers span every kind — blogs, changelog, press, whatever is
-  // newest. Kind strips below exclude these so no entry repeats on the page.
-  const latest = items.slice(0, 3);
-  const latestKeys = new Set(latest.map((item) => `${item.kind}-${item.slug}`));
-  const changelogItems = items.filter(
-    (item) => item.kind === "changelog" && !latestKeys.has(`${item.kind}-${item.slug}`)
-  );
-  const pressItems = items.filter(
-    (item) => item.kind === "press" && !latestKeys.has(`${item.kind}-${item.slug}`)
-  );
-  const stripKeys = new Set(
-    [...changelogItems, ...pressItems].map((item) => `${item.kind}-${item.slug}`)
-  );
-  const past = items.filter(
-    (item) => !latestKeys.has(`${item.kind}-${item.slug}`) && !stripKeys.has(`${item.kind}-${item.slug}`)
-  );
+  // Latest: newest 2 from each kind, re-sorted newest-first.
+  const latest = [
+    ...items.filter((i) => i.kind === "changelog").slice(0, 2),
+    ...items.filter((i) => i.kind === "blog").slice(0, 2),
+    ...items.filter((i) => i.kind === "press").slice(0, 2),
+  ].sort((a, b) => b.timestamp - a.timestamp);
+
+  // Changelog strip: always the 4 most recent changelogs.
+  const changelogItems = items
+    .filter((i) => i.kind === "changelog")
+    .slice(0, 4);
+
+  // Press: always the 6 most recent press items.
+  const pressItems = items
+    .filter((i) => i.kind === "press")
+    .slice(0, 6);
+
+  // Recent: 12 most recent across all kinds.
+  const recent = items.slice(0, 12);
 
   return (
     <div className="flex flex-col gap-24 lg:gap-32">
@@ -187,7 +190,14 @@ export function AllSections({
         </section>
       )}
 
-      {past.length > 0 && <EditorialGrid items={past} />}
+      {recent.length > 0 && (
+        <section aria-label="Recent">
+          <SectionHeader title="Recent" />
+          <div className="mt-10">
+            <EditorialGrid items={recent} />
+          </div>
+        </section>
+      )}
     </div>
   );
 }

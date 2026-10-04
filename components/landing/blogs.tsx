@@ -3,14 +3,8 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion, useReducedMotion, type Variants } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
 
 interface BlogPost {
   id: number | string;
@@ -27,96 +21,97 @@ interface BlogsProps {
   posts: BlogPost[];
 }
 
+const EASE_OUT = [0.16, 1, 0.3, 1] as const;
+
 export function Blogs({ posts }: BlogsProps) {
-  const displayPosts = posts;
+  const prefersReducedMotion = useReducedMotion();
+  // Show up to three across a full-width row.
+  const displayPosts = posts.slice(0, 3);
+
+  const container: Variants = {
+    hidden: {},
+    show: { transition: { staggerChildren: prefersReducedMotion ? 0 : 0.08 } },
+  };
+  const card: Variants = {
+    hidden: { opacity: 0, y: prefersReducedMotion ? 0 : 14 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE_OUT } },
+  };
 
   return (
     <section className="w-full py-16 lg:py-24 xl:py-28 px-6 sm:px-8 lg:px-12 bg-background select-text">
       <div className="max-w-[1400px] mx-auto w-full">
-        <Carousel
-          opts={{
-            align: "start",
-          }}
-          className="w-full relative"
-        >
-          {/* Header with Title and Controls */}
-          <div className="flex flex-col lg:flex-row lg:items-start justify-between mb-10 sm:mb-12">
-            <div className="w-full lg:w-1/4 shrink-0">
-              <h2 className="font-display text-[clamp(2rem,4vw,2.75rem)] leading-[1.1] font-medium text-foreground tracking-tight">
-                From the blog
-              </h2>
-            </div>
-            
-            <div className="w-full lg:w-3/4 flex justify-end items-center gap-2 mt-6 lg:mt-0">
-              <Link href="/now">
-                <Button 
-                  variant="secondary" 
-                  className="rounded-sm bg-secondary hover:bg-accent text-secondary-foreground font-semibold tracking-[0.01em] px-4 h-9 border-none shadow-none text-[13px] cursor-pointer active:scale-[0.97] transition-transform duration-150"
-                >
-                  View all
-                </Button>
-              </Link>
-              <CarouselPrevious className="static translate-y-0 h-9 w-9 bg-secondary hover:bg-accent rounded-sm border-none text-secondary-foreground shadow-none [&>svg]:size-4 cursor-pointer active:scale-[0.97] transition-transform duration-150" />
-              <CarouselNext className="static translate-y-0 h-9 w-9 bg-secondary hover:bg-accent rounded-sm border-none text-secondary-foreground shadow-none [&>svg]:size-4 cursor-pointer active:scale-[0.97] transition-transform duration-150" />
-            </div>
-          </div>
+        {/* Header */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 sm:mb-12">
+          <h2 className="font-display text-[clamp(2rem,4vw,2.75rem)] leading-[1.1] font-medium text-foreground tracking-tight">
+            From the blog
+          </h2>
+          <Link href="/now" className="shrink-0">
+            <Button
+              variant="secondary"
+              className="rounded-sm bg-secondary hover:bg-accent text-secondary-foreground font-semibold tracking-[0.01em] px-4 h-9 border-none shadow-none text-[13px] cursor-pointer active:scale-[0.97] transition-transform duration-150"
+            >
+              View all
+            </Button>
+          </Link>
+        </div>
 
-          {/* Carousel Layout - 1/4 empty left, 3/4 carousel right */}
-          <div className="flex w-full">
-            <div className="hidden lg:block w-1/4 shrink-0" />
-            <div className="w-full lg:w-3/4">
-              <CarouselContent className="-ml-4 sm:-ml-6">
-                {displayPosts.map((post) => {
-                  const body = (
-                    <>
-                      <div className="overflow-hidden rounded-sm bg-muted aspect-[1.6/1] relative border border-border">
-                        <Image
-                          src={post.image}
-                          alt={post.title}
-                          fill
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                          className="object-cover object-center transition-transform duration-500 group-hover:scale-102"
-                        />
-                      </div>
-                      <div className="flex flex-col gap-1.5 pr-4 text-left">
-                        <span className="text-[11px] font-sans tracking-widest text-muted-foreground uppercase">
-                          {post.tag}
-                        </span>
-                        <h3 className="font-display text-lg font-semibold text-foreground tracking-tight leading-snug group-hover:text-muted-foreground/80 transition-colors duration-150 line-clamp-2">
-                          {post.title}
-                        </h3>
-                        <p className="text-[11px] font-sans tracking-wider text-muted-foreground mt-1">
-                          {post.date}
-                        </p>
-                      </div>
-                    </>
-                  );
-                  const href = post.href || `/now/${post.slug}`;
-                  const linkClassName =
-                    "group cursor-pointer flex flex-col gap-4 select-none";
-                  return (
-                    <CarouselItem key={post.id} className="pl-4 sm:pl-6 md:basis-1/2 lg:basis-1/2">
-                      {post.external ? (
-                        <a
-                          href={href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={linkClassName}
-                        >
-                          {body}
-                        </a>
-                      ) : (
-                        <Link href={href} className={linkClassName}>
-                          {body}
-                        </Link>
-                      )}
-                    </CarouselItem>
-                  );
-                })}
-              </CarouselContent>
-            </div>
-          </div>
-        </Carousel>
+        {/* Full-width 3-up grid */}
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 w-full"
+        >
+          {displayPosts.map((post) => {
+            const href = post.href || `/now/${post.slug}`;
+            const body = (
+              <>
+                <div className="overflow-hidden rounded-sm bg-muted aspect-[1.6/1] relative border border-border">
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover object-center transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
+                  />
+                </div>
+                <div className="flex flex-col gap-1.5 text-left">
+                  <span className="text-[11px] font-sans tracking-widest text-muted-foreground uppercase">
+                    {post.tag}
+                  </span>
+                  <h3 className="font-display text-lg font-semibold text-foreground tracking-tight leading-snug group-hover:text-muted-foreground/80 transition-colors duration-150 line-clamp-2">
+                    {post.title}
+                  </h3>
+                  <p className="text-[11px] font-sans tracking-wider text-muted-foreground mt-1">
+                    {post.date}
+                  </p>
+                </div>
+              </>
+            );
+            const linkClassName =
+              "group cursor-pointer flex flex-col gap-4 select-none";
+
+            return (
+              <motion.div key={post.id} variants={card} className="min-w-0">
+                {post.external ? (
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={linkClassName}
+                  >
+                    {body}
+                  </a>
+                ) : (
+                  <Link href={href} className={linkClassName}>
+                    {body}
+                  </Link>
+                )}
+              </motion.div>
+            );
+          })}
+        </motion.div>
       </div>
     </section>
   );

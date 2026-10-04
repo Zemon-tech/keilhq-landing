@@ -19,17 +19,17 @@ const FALLBACK_TITLES: Record<string, string> = {
   "finance":              "Complete financial control and multi-book accounting",
 };
 
-/* ── Single word title map for clean SEO titles ── */
-const SINGLE_WORD_TITLES: Record<string, string> = {
-  "smart-dashboard":      "Dashboard",
-  "task-management":      "Tasks",
-  "docs-notes":           "Motion",
-  "team-chat":            "Chat",
-  "meeting-recorder":     "Meetings",
-  "integrations":         "Connectors",
-  "workspace":            "RBAC",
-  "crm":                  "CRM",
-  "finance":              "Finance",
+/* ── Descriptive SEO titles (template: "%s | KeilHQ") ── */
+const SEO_TITLES: Record<string, string> = {
+  "smart-dashboard":  "Smart Dashboard — Know What to Work On",
+  "task-management":  "Task Management — Clarity Engine for Teams",
+  "docs-notes":       "Docs & Notes — Block-Based Collaboration",
+  "team-chat":        "Team Chat — Real-Time Workspace Messaging",
+  "meeting-recorder": "Meeting Recorder — AI Transcription & Notes",
+  "integrations":     "Integrations — Every Tool in Sync",
+  "workspace":        "Workspace — Role-Based Access & Permissions",
+  "crm":              "CRM — Relational Deal Intelligence",
+  "finance":          "Finance & Bookkeeping — Full Financial Control",
 };
 
 /* ── Feature index map (for bottom nav in FeatureLayout) ── */
@@ -52,14 +52,31 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const feature = getManualFeature(slug);
-  const title = SINGLE_WORD_TITLES[slug] || (feature as any)?.eyebrowText || "Feature";
-  const description = (feature as any)?.subHeroDesc || (feature as any)?.capabilitiesDesc || "Explore KeilHQ workspace feature.";
+  const title = SEO_TITLES[slug] || (feature as any)?.eyebrowText || "Feature";
+  const description = (feature as any)?.subHeroDesc || (feature as any)?.capabilitiesDesc || "Explore KeilHQ workspace features.";
+  const canonicalUrl = `https://keilhq.in/features/${slug}`;
+  const ogImage = (feature as any)?.lightImage || FALLBACK_IMAGES[slug]?.light || "/brand/keilhq-rise.png";
 
   return {
     title,
     description,
     alternates: {
-      canonical: `https://keilhq.in/features/${slug}`,
+      canonical: canonicalUrl,
+    },
+    openGraph: {
+      title: `${title} | KeilHQ`,
+      description,
+      url: canonicalUrl,
+      siteName: "KeilHQ",
+      images: [{ url: ogImage, width: 1600, height: 1000, alt: title }],
+      locale: "en_US",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${title} | KeilHQ`,
+      description,
+      images: [ogImage],
     },
   };
 }
@@ -117,8 +134,8 @@ export default async function FeaturePage({ params }: { params: Promise<{ slug: 
             "@type": "BreadcrumbList",
             itemListElement: [
               { "@type": "ListItem", position: 1, name: "Home", item: "https://keilhq.in" },
-              { "@type": "ListItem", position: 2, name: "Features", item: "https://keilhq.in/features/smart-dashboard" },
-              { "@type": "ListItem", position: 3, name: SINGLE_WORD_TITLES[slug] || slug, item: `https://keilhq.in/features/${slug}` },
+              { "@type": "ListItem", position: 2, name: "Features", item: "https://keilhq.in/features" },
+              { "@type": "ListItem", position: 3, name: SEO_TITLES[slug]?.split(" —")[0] || slug, item: `https://keilhq.in/features/${slug}` },
             ],
           }),
         }}

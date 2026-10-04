@@ -1,14 +1,49 @@
 import React from "react";
 import type { Metadata } from "next";
 import { ABOUT_PAGE } from "@/lib/site-content";
-import { AboutVideoPlayer } from "@/components/about/about-video-player";
+import { VideoPlayer } from "@/components/video-player";
+
+const PAGE_TITLE = "About KeilHQ — Mission, Team & Vision";
+const PAGE_DESCRIPTION =
+  "We are building the work management platform for the next era of product development — giving teams and AI agents the human clarity to ship great products together.";
 
 export const metadata: Metadata = {
-  title: "About",
-  description: "About KeilHQ. We are building the work management platform for the next era of product development, giving teams and AI agents human clarity.",
+  title: PAGE_TITLE,
+  description: PAGE_DESCRIPTION,
   alternates: {
     canonical: "https://keilhq.in/about",
   },
+  openGraph: {
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
+    url: "https://keilhq.in/about",
+    siteName: "KeilHQ",
+    images: [
+      {
+        url: "/brand/keilhq-rise.png",
+        width: 1600,
+        height: 1000,
+        alt: "KeilHQ — Mission, Team & Vision",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
+    images: ["/brand/keilhq-rise.png"],
+  },
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://keilhq.in" },
+    { "@type": "ListItem", position: 2, name: "About", item: "https://keilhq.in/about" },
+  ],
 };
 
 export default async function AboutPage() {
@@ -97,6 +132,11 @@ export default async function AboutPage() {
   ];
 
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
     <main className="flex-1 flex flex-col items-center select-text">
       {/* Ambient top mesh glow */}
       <div
@@ -122,7 +162,7 @@ export default async function AboutPage() {
         </div>
 
         {/* Large Video Player with custom overlay controls */}
-        <AboutVideoPlayer videoSrc="/launch.mp4" />
+        <VideoPlayer src="/launch.mp4" loop defaultMuted />
       </section>
 
       {/* ── SECTION 2: EDITORIAL ── */}
@@ -281,5 +321,6 @@ export default async function AboutPage() {
       </section>
 
     </main>
+    </>
   );
 }

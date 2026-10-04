@@ -3,11 +3,12 @@
 import React from "react";
 
 export function LovedBy({ data }: { data?: any }) {
-  const title = data?.title || "Proven operational ROI.";
-  const stat1Label = data?.stat1Label || "Time recovered per team member";
-  const stat1Value = data?.stat1Value || "11 hrs / wk";
-  const stat2Label = data?.stat2Label || "Deal to onboarding velocity";
-  const stat2Value = data?.stat2Value || "< 24 hrs";
+  const title = data?.title || "Teams that run on connected work.";
+  const stat1Label = data?.stat1Label || "";
+  const stat1Value = data?.stat1Value || "";
+  const stat2Label = data?.stat2Label || "";
+  const stat2Value = data?.stat2Value || "";
+  const hasStats = Boolean(stat1Value || stat2Value);
 
   const testimonials = data?.testimonials || [
     {
@@ -36,26 +37,36 @@ export function LovedBy({ data }: { data?: any }) {
             <h2 className="font-display text-[clamp(2.5rem,5vw,3.5rem)] font-medium leading-[1.1] tracking-tight text-foreground">
               {title}
             </h2>
-            <div className="flex flex-col gap-6">
-              <div className="flex flex-col gap-1">
-                <span className="text-[12px] font-sans tracking-widest text-muted-foreground uppercase">
-                  {stat1Label}
-                </span>
-                <span className="text-2xl font-semibold text-foreground tracking-tight font-display">
-                  {stat1Value}
-                </span>
+            {hasStats ? (
+              <div className="flex flex-col gap-6">
+                {stat1Value && (
+                  <div className="flex flex-col gap-1">
+                    <span className="text-[12px] font-sans tracking-widest text-muted-foreground uppercase">
+                      {stat1Label}
+                    </span>
+                    <span className="text-2xl font-semibold text-foreground tracking-tight font-display">
+                      {stat1Value}
+                    </span>
+                  </div>
+                )}
+                {stat2Value && (
+                  <div className="flex flex-col gap-1">
+                    <span className="text-[12px] font-sans tracking-widest text-muted-foreground uppercase">
+                      {stat2Label}
+                    </span>
+                    <span className="text-2xl font-semibold text-foreground tracking-tight font-display">
+                      {stat2Value}
+                    </span>
+                  </div>
+                )}
               </div>
-              {data?.stat2Label && (
-                <div className="flex flex-col gap-1">
-                  <span className="text-[12px] font-sans tracking-widest text-muted-foreground uppercase">
-                    {data.stat2Label}
-                  </span>
-                  <span className="text-2xl font-semibold text-foreground tracking-tight font-display">
-                    {data.stat2Value}
-                  </span>
-                </div>
-              )}
-            </div>
+            ) : (
+              <p className="text-[16px] sm:text-[17px] font-normal text-muted-foreground leading-[1.6] max-w-[42ch]">
+                Early teams use KeilHQ to keep docs, projects, customers and
+                meetings in one connected place — so nothing important slips
+                through the gaps between tools.
+              </p>
+            )}
           </div>
 
           {/* ── Right: Side-by-side Testimonial Cards ── */}

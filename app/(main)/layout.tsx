@@ -32,7 +32,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     metadataBase: new URL("https://keilhq.in"),
     title: {
-      default: "KeilHQ",
+      default: "KeilHQ — AI Work Platform for Modern Teams",
       template: "%s | KeilHQ",
     },
     description,
@@ -58,8 +58,14 @@ export async function generateMetadata(): Promise<Metadata> {
     creator: "KeilHQ",
     publisher: "KeilHQ",
     icons: {
-      // SVG mark only — no raster images. Light/dark variants follow the theme.
       icon: [
+        // ICO fallback — served from app/favicon.ico, works in all browsers
+        {
+          url: "/favicon.ico",
+          sizes: "48x48",
+          type: "image/x-icon",
+        },
+        // SVG mark for modern browsers — light/dark variants follow the theme
         {
           url: "/keilhq.svg",
           type: "image/svg+xml",
@@ -75,29 +81,28 @@ export async function generateMetadata(): Promise<Metadata> {
           type: "image/svg+xml",
         },
       ],
-      shortcut: "/keilhq.svg",
+      shortcut: "/favicon.ico",
       // Apple touch icon comes from app/apple-icon.tsx (mark on Warm Ink).
-      // Never point icon slots at campaign imagery.
     },
     openGraph: {
       type: "website",
       locale: "en_US",
       url: "https://keilhq.in",
       siteName: "KeilHQ",
-      title: "KeilHQ — Human Clarity for Teams",
+      title: "KeilHQ — AI Work Platform for Modern Teams",
       description,
       images: [
         {
           url: "/brand/keilhq-rise.png",
           width: 1600,
           height: 1000,
-          alt: "KeilHQ — Human Clarity for Teams",
+          alt: "KeilHQ — AI Work Platform for Modern Teams",
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: "KeilHQ — Human Clarity for Teams",
+      title: "KeilHQ — AI Work Platform for Modern Teams",
       description,
       images: ["/brand/keilhq-rise.png"],
     },

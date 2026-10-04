@@ -37,16 +37,62 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
+  const canonicalUrl = `https://keilhq.in/now/${slug}`;
+  const fallbackImage = "/brand/keilhq-rise.png";
+
   const post = await getBlogPost(slug).catch(() => null);
   if (post) {
-    return { title: (post as any).title || slug, description: (post as any).excerpt || undefined };
+    const title = (post as any).title || slug;
+    const description = (post as any).excerpt || undefined;
+    const coverImage = (post as any).coverImage || fallbackImage;
+    return {
+      title,
+      description,
+      alternates: { canonical: canonicalUrl },
+      openGraph: {
+        title,
+        description,
+        url: canonicalUrl,
+        siteName: "KeilHQ",
+        type: "article",
+        images: [{ url: coverImage, width: 1600, height: 900, alt: title }],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title,
+        description,
+        images: [coverImage],
+      },
+    };
   }
+
   const changelogs = (await getChangelogs()) as any[];
   const entry = changelogs.find((c) => c.slug === slug);
   if (entry) {
-    return { title: entry.title, description: entry.summaryText || undefined };
+    const title = entry.title;
+    const description = entry.summaryText || undefined;
+    return {
+      title,
+      description,
+      alternates: { canonical: canonicalUrl },
+      openGraph: {
+        title,
+        description,
+        url: canonicalUrl,
+        siteName: "KeilHQ",
+        type: "article",
+        images: [{ url: fallbackImage, width: 1600, height: 900, alt: title }],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title,
+        description,
+        images: [fallbackImage],
+      },
+    };
   }
-  return { title: "Now" };
+
+  return { title: "Now", alternates: { canonical: canonicalUrl } };
 }
 
 export default async function NowDetailPage({

@@ -7,11 +7,11 @@ import { WAITLIST_URL } from "./waitlist";
 
 export const SITE_SETTINGS = {
   siteName: "KeilHQ",
-  tagline: "Clarity first. Execution follows.",
+  tagline: "Everything your team needs to work. Together.",
   logo: "/keilhq.svg",
-  defaultSeoTitle: "KeilHQ — The Operating System for Teams That Ship",
+  defaultSeoTitle: "KeilHQ — Your team's work, all in one place",
   defaultSeoDescription:
-    "Replace Slack, Asana, Notion, and your calendar chaos. KeilHQ is the one workspace where your team actually gets work done.",
+    "Docs, projects, CRM, chat, meetings and finance — all connected in one workspace, with AI that works across your team's work.",
   twitterUrl: "https://x.com",
   linkedinUrl: "https://www.linkedin.com/company/keil-hq/",
   githubUrl: "https://github.com",
@@ -73,83 +73,83 @@ export const FOOTER = {
 } as const;
 
 export const HOMEPAGE = {
-  heroTitle: "The AI work platform that puts your entire company in one intelligent workspace.",
+  heroTitle: "Everything your team needs to work. Together.",
   heroSubtitle:
-    "Unite tasks, documents, client records, meeting intelligence, and financials in one shared context engine. Managed and operated by AI.",
+    "Docs, projects, CRM, chat, meetings and more — all connected, with AI that works across your workspace.",
   heroLightImage: "/mockups/home-hero-light.png",
   heroDarkImage: "/mockups/home-hero-dark.png",
-  heroCtaLabel: "Start free today",
+  heroCtaLabel: "Start free",
   heroCtaLink: WAITLIST_URL,
-  heroSecondaryCtaLabel: "",
-  heroSecondaryCtaLink: "",
+  heroSecondaryCtaLabel: "See how it works",
+  heroSecondaryCtaLink: "#connected-work",
   announcementEnabled: false,
   announcementText: "",
   announcementLink: "",
   featureSections: [
     {
       id: "smart-dashboard",
-      badgeText: "Operational Context Engine",
-      title: "Ask anything about your company. Get the verified source.",
+      badgeText: "Ask → Find → Do",
+      title: "Ask anything about your work. Get the verified source.",
       description:
-        "KeilHQ continuously synthesizes your tasks, docs, meeting transcripts, client records, and chat into an active organizational memory. Your AI co-workers answer with exact context — not generic hallucinations.",
+        "KeilHQ connects your tasks, docs, meeting notes, customer records and chat. Ask a question and get an answer grounded in your team's actual work — with a link to exactly where it came from.",
       lightImage: "/mockups/home-dash-light.png",
       darkImage: "/mockups/home-dash-dark.png",
-      alt: "KeilHQ Operational Context Engine & Smart Dashboard",
+      alt: "KeilHQ dashboard answering a question with linked sources",
     },
     {
       id: "meeting-recorder",
-      badgeText: "Meeting Intelligence to Action",
-      title: "Client calls produce approved tasks and CRM updates in 2 minutes",
+      badgeText: "Meet → Decide → Execute",
+      title: "Stop losing what gets decided in meetings.",
       description:
-        "Record meetings with speaker diarization in 23+ Indian and global languages. KeilHQ extracts action items, proposes CRM updates, and stages them for 1-click human approval — no more lost post-call notes.",
+        "Meetings are captured, transcribed and turned into clear action items. KeilHQ drafts the tasks and CRM updates for one-click approval, so decisions become work instead of forgotten notes.",
       lightImage: "/mockups/home-meeting-light.png",
       darkImage: "/mockups/home-meeting-dark.png",
-      alt: "KeilHQ Multilingual Meeting Intelligence",
+      alt: "KeilHQ turning a meeting transcript into tasks and CRM updates",
     },
     {
       id: "crm",
-      badgeText: "Relational CRM & Unified Lifecycle",
-      title: "A client's full history in one screen. Deal-to-onboarding in <24h",
+      badgeText: "Customer → Conversation → Delivery",
+      title: "A customer's whole story, in one place.",
       description:
-        "Move a deal to 'Closed Won' and KeilHQ instantly auto-provisions the onboarding workspace, briefs, and tasks. From initial intake call to year-three renewals, customer context never evaporates.",
+        "Deals, conversations, meetings, projects and tasks for every customer live together. Move a deal forward and the related work follows — so customer context never gets lost between teams.",
       lightImage: "/mockups/home-crm-light.png",
       darkImage: "/mockups/home-crm-dark.png",
-      alt: "KeilHQ Relational CRM & Lifecycle Automation",
+      alt: "KeilHQ relational CRM linking a customer to projects and tasks",
     },
     {
       id: "task-management",
-      badgeText: "Execution & Dependency Scheduling",
-      title: "Strict dependency blocking with automated calendar and PR sync",
+      badgeText: "Idea → Project → Task",
+      title: "Know exactly what to work on right now.",
       description:
-        "Maintain momentum across sales, product, and delivery. Tasks automatically block dependent workflows, sync bi-directionally with Google Calendar, and auto-update when GitHub PRs merge.",
+        "Projects and tasks stay connected to the docs, meetings and customers they came from. Dependencies keep work in order and sync with your calendar, so the next step is always clear.",
       lightImage: "/mockups/home-project-light.png",
       darkImage: "/mockups/home-project-dark.png",
-      alt: "KeilHQ Task Execution and Auto Scheduling",
+      alt: "KeilHQ projects and tasks with dependencies and calendar sync",
     },
     {
       id: "docs-notes",
-      badgeText: "Motion — Smart Knowledge Base",
-      title: "Collaborative docs that actually stay connected to the work",
+      badgeText: "Write → Link → Reuse",
+      title: "Docs that stay connected to the work.",
       description:
-        "TipTap-powered block editor for SOPs, specs, and playbooks. Motion pages connect natively to tasks and CRM records, searchable via RAG semantic search across your entire workspace.",
+        "A clean block editor for specs, SOPs and playbooks. Pages link natively to the tasks and customer records they describe, and stay searchable across your whole workspace.",
       lightImage: "/mockups/home-motion-light.png",
       darkImage: "/mockups/home-motion-dark.png",
-      alt: "KeilHQ Motion Collaborative Docs",
+      alt: "KeilHQ Motion docs linked to tasks and CRM records",
     },
     {
       id: "finance",
-      badgeText: "Connected Operational Finance",
-      title: "Invoicing and ledgers connected directly to delivered work",
+      badgeText: "Work → Invoice → Reconcile",
+      title: "Finance connected to the work you deliver.",
       description:
-        "Manage multi-book accounting ledgers, reconcile bank statements automatically, and convert finished project milestones into verified client invoices. Monthly reconciliation drops from 12 hours to 3.",
+        "Turn delivered project milestones into invoices, keep ledgers in order and reconcile bank statements — all linked to the projects and customers the money relates to.",
       lightImage: "/mockups/home-finance-light.png",
       darkImage: "/mockups/home-finance-dark.png",
-      alt: "KeilHQ Operational Finance & Accounting",
+      alt: "KeilHQ finance connecting invoices to delivered project work",
     },
   ],
-  finalCtaTitle: "AI Native Operating System for Work",
+  finalCtaTitle: "Bring your team's work together.",
   finalCtaDescription: "",
-  finalCtaButtonLabel: "Get started",
+  finalCtaButtonLabel: "Start free",
   finalCtaButtonLink: WAITLIST_URL,
   finalCtaSecondaryButtonLabel: "Talk to sales",
   finalCtaSecondaryButtonLink: "mailto:hello@keilhq.in",
@@ -157,11 +157,11 @@ export const HOMEPAGE = {
 } as const;
 
 export const LOVED_BY = {
-  title: "Proven operational ROI.",
-  stat1Label: "Time recovered per team member",
-  stat1Value: "11 hrs / wk",
-  stat2Label: "Deal to onboarding velocity",
-  stat2Value: "< 24 hrs",
+  title: "Teams that run on connected work.",
+  stat1Label: "",
+  stat1Value: "",
+  stat2Label: "",
+  stat2Value: "",
   testimonials: [
     {
       quote:

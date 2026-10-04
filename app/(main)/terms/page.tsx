@@ -1,8 +1,11 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Terms",
+  title: "Terms of Service",
   description: "Terms and conditions governing your use of the KeilHQ platform, workspaces, and services.",
+  alternates: {
+    canonical: "https://keilhq.in/terms",
+  },
 };
 
 export default function TermsPage() {

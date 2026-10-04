@@ -2,9 +2,10 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { ArrowLeft } from "lucide-react";
 import { getBlogPost, getBlogPosts } from "@/cms/helpers/blog";
 import { DocumentRenderer } from "@keystatic/core/renderer";
-import { VideoPlayer } from "./video-player";
+import { VideoPlayer } from "@/components/video-player";
 
 // Authors Mapping
 const authorDetailsMap: Record<string, { role: string; avatar: string }> = {
@@ -173,6 +174,13 @@ export async function BlogArticle({ slug }: { slug: string }) {
     <main className="flex-1 flex flex-col items-center">
       {/* ── SECTION 1: HEADER ── */}
       <section className="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 pt-32 lg:pt-40 pb-6 flex flex-col gap-4 text-center items-center">
+        <Link
+          href="/now"
+          className="self-start inline-flex items-center gap-1.5 text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors duration-200 mb-2"
+        >
+          <ArrowLeft className="size-3.5" />
+          Back to Now
+        </Link>
         <div className="flex flex-col items-center gap-2 mb-2 text-center select-none">
           <span className="font-mono text-[12px] text-muted-foreground tracking-widest">
             <Link href="/now" className="hover:text-foreground transition-colors">Now</Link>
@@ -287,33 +295,73 @@ export async function BlogArticle({ slug }: { slug: string }) {
           </div>
 
           {/* ── SECTION 5: PAGINATION NEIGHBORS ── */}
-          <div className="max-w-3xl mx-auto w-full border-t border-border pt-10 mt-16 flex justify-between items-center text-sm font-semibold gap-6 select-none">
+          <div className="max-w-3xl mx-auto w-full border-t border-border pt-10 mt-16 grid grid-cols-2 gap-6 select-none">
+            {/* Previous */}
             {prevPost ? (
-              <Link href={`/now/${prevPost.slug}`} className="group flex items-center gap-3 text-left max-w-[45%]">
-                <div className="size-9 rounded-sm bg-card border border-border flex items-center justify-center font-bold text-sm text-foreground shrink-0 uppercase font-display shadow-2xs group-hover:border-muted-foreground/30 transition-colors">
-                  {prevPost.entry.category?.[0] || "B"}
+              <Link
+                href={`/now/${prevPost.slug}`}
+                className="group flex items-center gap-3 text-left min-w-0"
+              >
+                <div className="w-16 aspect-video rounded-sm bg-card border border-border overflow-hidden shrink-0 group-hover:border-muted-foreground/30 transition-colors">
+                  {prevPost.entry.coverImage ? (
+                    <Image
+                      src={prevPost.entry.coverImage as string}
+                      alt={prevPost.entry.title as string}
+                      width={64}
+                      height={36}
+                      className="w-full h-full object-cover object-center"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center font-bold text-xs text-foreground uppercase font-display">
+                      {(prevPost.entry.category as string)?.[0] || "B"}
+                    </div>
+                  )}
                 </div>
-                <div className="flex flex-col overflow-hidden">
-                  <span className="text-muted-foreground font-mono uppercase tracking-widest text-[9px]">Previous</span>
-                  <span className="text-sm font-semibold text-foreground font-display group-hover:text-muted-foreground transition-colors truncate">{prevPost.entry.title}</span>
+                <div className="flex flex-col min-w-0">
+                  <span className="text-muted-foreground font-mono uppercase tracking-widest text-[9px] mb-1">
+                    Previous
+                  </span>
+                  <span className="text-sm font-semibold text-foreground font-display group-hover:text-muted-foreground transition-colors line-clamp-2 leading-snug">
+                    {prevPost.entry.title as string}
+                  </span>
                 </div>
               </Link>
             ) : (
-              <div className="flex-1" />
+              <div />
             )}
 
+            {/* Next */}
             {nextPost ? (
-              <Link href={`/now/${nextPost.slug}`} className="group flex items-center gap-3 text-right justify-end ml-auto max-w-[45%]">
-                <div className="flex flex-col overflow-hidden items-end">
-                  <span className="text-muted-foreground font-mono uppercase tracking-widest text-[9px]">Next</span>
-                  <span className="text-sm font-semibold text-foreground font-display group-hover:text-muted-foreground transition-colors truncate">{nextPost.entry.title}</span>
+              <Link
+                href={`/now/${nextPost.slug}`}
+                className="group flex items-center justify-end gap-3 text-right min-w-0"
+              >
+                <div className="flex flex-col items-end min-w-0">
+                  <span className="text-muted-foreground font-mono uppercase tracking-widest text-[9px] mb-1">
+                    Next
+                  </span>
+                  <span className="text-sm font-semibold text-foreground font-display group-hover:text-muted-foreground transition-colors line-clamp-2 leading-snug">
+                    {nextPost.entry.title as string}
+                  </span>
                 </div>
-                <div className="size-9 rounded-sm bg-card border border-border flex items-center justify-center font-bold text-sm text-foreground shrink-0 uppercase font-display shadow-2xs group-hover:border-muted-foreground/30 transition-colors">
-                  {nextPost.entry.category?.[0] || "B"}
+                <div className="w-16 aspect-video rounded-sm bg-card border border-border overflow-hidden shrink-0 group-hover:border-muted-foreground/30 transition-colors">
+                  {nextPost.entry.coverImage ? (
+                    <Image
+                      src={nextPost.entry.coverImage as string}
+                      alt={nextPost.entry.title as string}
+                      width={64}
+                      height={36}
+                      className="w-full h-full object-cover object-center"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center font-bold text-xs text-foreground uppercase font-display">
+                      {(nextPost.entry.category as string)?.[0] || "B"}
+                    </div>
+                  )}
                 </div>
               </Link>
             ) : (
-              <div className="flex-1" />
+              <div />
             )}
           </div>
 

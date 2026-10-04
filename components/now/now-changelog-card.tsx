@@ -12,11 +12,13 @@ export function NowChangelogCard({ item, isLatest }: { item: NowItem; isLatest?:
       href={item.href ?? "/now"}
       className="group flex h-full flex-col text-left transition-transform duration-150 ease-out active:scale-[0.98]"
     >
-      <NowCover
-        src={item.image}
-        alt={item.title}
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-      />
+      {item.image && (
+        <NowCover
+          src={item.image}
+          alt={item.title}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        />
+      )}
       <div className="flex flex-1 flex-col gap-2.5 pt-6">
         {item.badge && (
           <p className="flex items-center gap-2 font-mono text-[12px] tracking-wide text-muted-foreground">

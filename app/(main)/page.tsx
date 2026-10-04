@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Hero } from "@/components/landing/hero";
-import { ProductPillars } from "@/components/landing/product-pillars";
 import { IntegrationCloud } from "@/components/landing/integration-cloud";
+import { ConnectedWorkSection } from "@/components/landing/connected-work";
+import { CompanyContext } from "@/components/landing/company-context";
 import { Features, StickyScrollSection } from "@/components/landing/features";
 import { LovedBy } from "@/components/landing/loved-by";
 import { Blogs } from "@/components/landing/blogs";
@@ -10,15 +11,19 @@ import { FinalCta } from "@/components/landing/final-cta";
 import { getNowFeed } from "@/lib/now";
 import { HOMEPAGE, LOVED_BY } from "@/lib/site-content";
 
+const PAGE_TITLE = "KeilHQ — Your team's work, all in one place";
+const PAGE_DESCRIPTION =
+  "KeilHQ brings docs, projects, CRM, chat, meetings and finance into one connected workspace, with AI that works across your team's work.";
+
 export const metadata: Metadata = {
-  title: "KeilHQ — AI Work Platform for Modern Teams",
-  description: "KeilHQ unifies tasks, docs, chat, meetings, CRM, and finance in one AI-native workspace for modern teams.",
+  title: PAGE_TITLE,
+  description: PAGE_DESCRIPTION,
   alternates: {
     canonical: "https://keilhq.in",
   },
   openGraph: {
-    title: "KeilHQ — AI Work Platform for Modern Teams",
-    description: "KeilHQ unifies tasks, docs, chat, meetings, CRM, and finance in one AI-native workspace for modern teams.",
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
     url: "https://keilhq.in",
     siteName: "KeilHQ",
     images: [
@@ -26,7 +31,7 @@ export const metadata: Metadata = {
         url: "/brand/keilhq-rise.png",
         width: 1600,
         height: 1000,
-        alt: "KeilHQ — AI-Native Operational & Context Layer",
+        alt: "KeilHQ — your team's work, all in one place",
       },
     ],
     locale: "en_US",
@@ -34,8 +39,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "KeilHQ — AI Work Platform for Modern Teams",
-    description: "KeilHQ unifies tasks, docs, chat, meetings, CRM, and finance in one AI-native workspace for modern teams.",
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
     images: ["/brand/keilhq-rise.png"],
   },
 };
@@ -96,10 +101,12 @@ export default async function Home() {
     ),
   }));
 
-  // Homepage carousel mirrors the Now page's All first section: the
-  // latest entries of every kind (blogs, changelog, press).
-  const displayBlogPosts = nowFeed.slice(0, 3).map((item: any) => {
-    return {
+  // Homepage blog section: latest blogs and press only — changelogs have
+  // their own dedicated section on the Now page and shouldn't appear here.
+  const displayBlogPosts = nowFeed
+    .filter((item: any) => item.kind === "blog" || item.kind === "press")
+    .slice(0, 3)
+    .map((item: any) => ({
       id: `${item.kind}-${item.slug}`,
       slug: item.slug,
       tag: item.channel || 'Now',
@@ -108,8 +115,7 @@ export default async function Home() {
       image: item.image || "/mockups/blog1.png",
       href: item.href || "/now",
       external: !!item.external,
-    };
-  });
+    }));
 
   return (
     <main className="flex-1 flex flex-col">
@@ -127,8 +133,9 @@ export default async function Home() {
         heroDarkImage={homepageData?.heroDarkImage || "/mockups/home-hero-dark.png"}
       />
       <IntegrationCloud />
-      <ProductPillars />
+      <ConnectedWorkSection />
       <Features data={featuresData} />
+      <CompanyContext />
       {displayBlogPosts.length > 0 && <Blogs posts={displayBlogPosts} />}
       <LovedBy data={lovedByData} />
       <FinalCta

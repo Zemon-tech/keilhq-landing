@@ -60,7 +60,45 @@ A: Security is our top priority. All data is encrypted in transit and at rest us
 
 ## Latest Posts & Updates
 
+- AI Can't Help Your Team If It Doesn't Know Your Work: https://keilhq.in/now/ai-cant-help-if-it-doesnt-know-your-work
 - Context Is the Real Infrastructure of Work: https://keilhq.in/now/context-is-the-real-infrastructure-of-work
+- CRM Isn't Just for Sales Teams Anymore: https://keilhq.in/now/crm-isnt-just-for-sales-teams-anymore
+- The Hidden Cost of Scattered Work in Fast-Growing Teams: https://keilhq.in/now/the-hidden-cost-of-scattered-work
+- What Is a Unified Workspace?: https://keilhq.in/now/what-is-a-unified-workspace
+- Why Your Team Loses Hours Every Week Switching Between Tools: https://keilhq.in/now/why-your-team-loses-hours-every-week-switching-between-tools
+- Your Meeting Notes Are Useless. Here's How to Fix That.: https://keilhq.in/now/your-meeting-notes-are-useless
+
+## Changelog
+
+- Pre-release — AI, Motion and Chat: https://keilhq.in/now/prerelease-jul-2-12
+- Pre-release — Motion, Messages, AI and Tasks: https://keilhq.in/now/prerelease-jul-20-28
+- Pre-release — Chat, AI, Tasks and Auth: https://keilhq.in/now/prerelease-jul-8-16
+- Pre-release — Google Calendar, Notion and Tasks: https://keilhq.in/now/prerelease-jun-12-20
+- Pre-release — Billing, AI, Motion and Tasks: https://keilhq.in/now/prerelease-jun-17-26
+- Pre-release — Motion, Shortcuts and Calendar: https://keilhq.in/now/prerelease-jun-8
+- Pre-release — Tasks, Dashboard and Backend: https://keilhq.in/now/prerelease-mar-17-22
+- Pre-release — Foundation: https://keilhq.in/now/prerelease-mar-2-5
+- Pre-release — Motion and Branding: https://keilhq.in/now/prerelease-may-23
+- v0.2.0 — Admin, AI, Support and Teams: https://keilhq.in/now/v0-2-0-admin-ai-support-teams
+- v0.2.1 — GitHub OAuth, Finance, CRM and RBAC: https://keilhq.in/now/v0-2-1-github-oauth-finance-rbac
+- v0.2.10 — CRM Cross-Workspace and Attachments: https://keilhq.in/now/v0-2-10-crm-cross-workspace
+- v0.2.12 — Deployment Stabilization: https://keilhq.in/now/v0-2-12-deployment
+- v0.2.13 — Motion, CRM and Finance: https://keilhq.in/now/v0-2-13-motion-crm-finance
+- v0.2.14 — Workspace, Tasks and CRM: https://keilhq.in/now/v0-2-14-workspace-tasks-crm
+- v0.2.15 — AI Model Registry and CRM: https://keilhq.in/now/v0-2-15-ai-model-registry-crm
+- v0.2.16 — CRM Fixes: https://keilhq.in/now/v0-2-16-crm-fixes
+- v0.2.17 — Auth, Motion, AI and Routing: https://keilhq.in/now/v0-2-17-auth-motion-ai-routing
+- v0.2.18 — Finance and Motion: https://keilhq.in/now/v0-2-18-finance-motion
+- v0.2.19 — CRM RBAC, Chat and Tasks: https://keilhq.in/now/v0-2-19-crm-rbac-chat-tasks
+- v0.2.2 — Email, Finance and Support: https://keilhq.in/now/v0-2-2-email-finance-support
+- v0.2.20 — Tally Forms, OCR and Security: https://keilhq.in/now/v0-2-20-tally-forms-ocr-security
+- v0.2.3 — CRM, Avatars, Billing and AI: https://keilhq.in/now/v0-2-3-crm-avatars-billing-ai
+- v0.2.4 — File Intelligence, AI and Meetings: https://keilhq.in/now/v0-2-4-file-intelligence-ai-meetings
+- v0.2.5 — Motion, AI, Tasks and Events: https://keilhq.in/now/v0-2-5-motion-ai-tasks-events
+- v0.2.6 — AI, Finance, CRM and Motion: https://keilhq.in/now/v0-2-6-ai-finance-crm-motion
+- v0.2.7 — Tasks, Motion and CRM: https://keilhq.in/now/v0-2-7-tasks-motion-crm
+- v0.2.8 — Auth and CRM Fixes: https://keilhq.in/now/v0-2-8-auth-crm-fixes
+- v0.2.9 — CRM, Finance and Notifications: https://keilhq.in/now/v0-2-9-crm-finance-notifications
 
 ## Canonical Pages & Links
 

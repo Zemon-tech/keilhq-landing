@@ -4,6 +4,9 @@ export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
     "Learn how KeilHQ collects, uses, and protects your workspace, personal data, and Google integrations with enterprise-grade security.",
+  alternates: {
+    canonical: "https://keilhq.in/privacy",
+  },
 };
 
 export default function PrivacyPage() {

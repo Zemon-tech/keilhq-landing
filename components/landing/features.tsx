@@ -1,9 +1,16 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { motion, AnimatePresence, useReducedMotion, type Variants } from "framer-motion";
+import {
+  motion,
+  AnimatePresence,
+  useReducedMotion,
+  useScroll,
+  useMotionValueEvent,
+  type Variants,
+} from "framer-motion";
 import { featureHrefById } from "@/lib/feature-nav";
 
 export interface StickyScrollSection {
@@ -18,108 +25,77 @@ interface FeaturesProps {
   data: StickyScrollSection[];
 }
 
+// Expo-out: starts fast, coasts to a stop. The curve that stops motion from
+// looking linear / "AI-generated". Shared across text + visual for cohesion.
+const EASE_OUT = [0.16, 1, 0.3, 1] as const;
+const EASE_OUT_SOFT = [0.23, 1, 0.32, 1] as const;
+
 export function Features({ data }: FeaturesProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const prefersReducedMotion = useReducedMotion();
-  const lastIndexRef = useRef(0);
-  const lastChangeRef = useRef(0);
 
-  // Scroll-linked index with passive listener + rAF throttle + a short
-  // cooldown so hovering a section boundary doesn't flicker the panel.
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container || data.length === 0) return;
+  // Scroll-linked progress across the pinned track. Motion's useScroll uses
+  // the browser's ScrollTimeline where available — hardware-accelerated and
+  // smooth under load, so no manual scroll listener / rAF throttle needed.
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"],
+  });
 
-    let ticking = false;
-
-    const handleScroll = () => {
-      if (ticking) return;
-      ticking = true;
-
-      requestAnimationFrame(() => {
-        const rect = container.getBoundingClientRect();
-        const scrollable = rect.height - window.innerHeight;
-
-        if (scrollable > 0) {
-          const scrolled = -rect.top;
-          const progress = Math.min(1, Math.max(0, scrolled / scrollable));
-
-          // Calculate step index smoothly across the scroll span
-          const nextIndex = Math.min(
-            data.length - 1,
-            Math.max(0, Math.floor(progress * data.length * 0.999))
-          );
-
-          if (nextIndex !== lastIndexRef.current && Date.now() - lastChangeRef.current > 140) {
-            lastIndexRef.current = nextIndex;
-            lastChangeRef.current = Date.now();
-            setActiveIndex(nextIndex);
-          }
-        }
-        ticking = false;
-      });
-    };
-
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleScroll);
-    };
-  }, [data.length]);
+  // Derive the active step from progress with hysteresis: a step only changes
+  // once progress crosses the *center* of the next band, not its edge. This
+  // kills the flicker/snap at section boundaries the old cooldown hack caused.
+  useMotionValueEvent(scrollYProgress, "change", (p) => {
+    const n = data.length;
+    if (n === 0) return;
+    const raw = p * n;
+    const next = Math.min(n - 1, Math.max(0, Math.round(raw - 0.5)));
+    setActiveIndex((prev) => (next !== prev ? next : prev));
+  });
 
   const item = data[activeIndex] || data[0];
 
-  // One calm motion language: opacity + a small rise, expo ease-out.
-  // No directional whiplash, no blur, no scale — cheap on the GPU and
-  // quiet under Lenis smooth scrolling. Exits run faster than enters so
-  // mode="wait" swaps never flash blank.
+  // One calm motion language. Enter: fade + small rise + de-blur (blur masks
+  // the crossfade so two states read as one). Exit: faster, no blur, so swaps
+  // never stall. Reduced motion keeps opacity only.
   const textVariants: Variants = {
     initial: {
       opacity: 0,
-      y: prefersReducedMotion ? 0 : 10,
+      y: prefersReducedMotion ? 0 : 12,
+      filter: prefersReducedMotion ? "blur(0px)" : "blur(6px)",
     },
     animate: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.45,
-        ease: [0.16, 1, 0.3, 1] as const,
-      },
+      filter: "blur(0px)",
+      transition: { duration: 0.55, ease: EASE_OUT },
     },
     exit: {
       opacity: 0,
-      y: prefersReducedMotion ? 0 : -6,
-      transition: {
-        duration: 0.18,
-        ease: [0.23, 1, 0.32, 1] as const,
-      },
+      y: prefersReducedMotion ? 0 : -8,
+      filter: prefersReducedMotion ? "blur(0px)" : "blur(4px)",
+      transition: { duration: 0.28, ease: EASE_OUT_SOFT },
     },
   };
 
   const visualVariants: Variants = {
     initial: {
       opacity: 0,
-      y: prefersReducedMotion ? 0 : 12,
+      scale: prefersReducedMotion ? 1 : 1.015,
+      filter: prefersReducedMotion ? "blur(0px)" : "blur(8px)",
     },
     animate: {
       opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: [0.16, 1, 0.3, 1] as const,
-      },
+      scale: 1,
+      filter: "blur(0px)",
+      transition: { duration: 0.7, ease: EASE_OUT },
     },
     exit: {
       opacity: 0,
-      y: prefersReducedMotion ? 0 : -8,
-      transition: {
-        duration: 0.25,
-        ease: [0.23, 1, 0.32, 1] as const,
-      },
+      scale: prefersReducedMotion ? 1 : 0.994,
+      filter: prefersReducedMotion ? "blur(0px)" : "blur(6px)",
+      transition: { duration: 0.4, ease: EASE_OUT_SOFT },
     },
   };
 
@@ -134,35 +110,52 @@ export function Features({ data }: FeaturesProps) {
       <div className="sticky top-0 w-full pt-24 sm:pt-28 lg:pt-32 pb-12 overflow-hidden">
         <div className="w-full max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 flex flex-col gap-10 lg:gap-12">
 
-          {/* Two-column Header Layout with Smooth Choreographed Crossfade */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 w-full text-left items-start min-h-[100px]">
+          {/* Progress rail — quiet indication of where you are in the sequence */}
+          <div className="flex items-center gap-2" aria-hidden="true">
+            {data.map((s, i) => (
+              <span
+                key={s.id}
+                className="relative h-[2px] flex-1 overflow-hidden rounded-full bg-border"
+              >
+                <motion.span
+                  className="absolute inset-y-0 left-0 bg-foreground/70"
+                  initial={false}
+                  animate={{ width: i <= activeIndex ? "100%" : "0%" }}
+                  transition={{ duration: 0.5, ease: EASE_OUT }}
+                />
+              </span>
+            ))}
+          </div>
+
+          {/* Two-column Header Layout with simultaneous crossfade (no mode="wait"
+              gap). Both columns are absolutely stacked so enter + exit overlap. */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 w-full text-left items-start min-h-[112px]">
             {/* Left Column: Headline */}
-            <div className="col-span-12 lg:col-span-6 flex flex-col">
-              <AnimatePresence mode="wait">
-                <motion.div
+            <div className="relative col-span-12 lg:col-span-6">
+              <AnimatePresence initial={false}>
+                <motion.h2
                   key={`title-${item.id}`}
                   variants={textVariants}
                   initial="initial"
                   animate="animate"
                   exit="exit"
+                  className="lg:absolute lg:inset-0 font-display text-[clamp(1.75rem,3vw,2.5rem)] font-medium tracking-tight leading-[1.15] text-foreground text-balance will-change-[transform,opacity,filter]"
                 >
-                  <h2 className="font-display text-[clamp(1.75rem,3vw,2.5rem)] font-medium tracking-tight leading-[1.15] text-foreground text-balance">
-                    {item.title}
-                  </h2>
-                </motion.div>
+                  {item.title}
+                </motion.h2>
               </AnimatePresence>
             </div>
 
-            {/* Right Column: Description & Call-to-action Link */}
-            <div className="col-span-12 lg:col-span-6 flex flex-col gap-4 lg:pt-[5px]">
-              <AnimatePresence mode="wait">
+            {/* Right Column: Description & CTA */}
+            <div className="relative col-span-12 lg:col-span-6 lg:pt-[5px]">
+              <AnimatePresence initial={false}>
                 <motion.div
                   key={`desc-${item.id}`}
                   variants={textVariants}
                   initial="initial"
                   animate="animate"
                   exit="exit"
-                  className="flex flex-col gap-3"
+                  className="lg:absolute lg:inset-0 flex flex-col gap-3 will-change-[transform,opacity,filter]"
                 >
                   <p className="text-[17px] lg:text-[18px] font-normal text-muted-foreground leading-[1.55] max-w-[48ch]">
                     {item.description}
@@ -181,13 +174,9 @@ export function Features({ data }: FeaturesProps) {
             </div>
           </div>
 
-          {/* High-End Double-Bezel Mockup Container with Layered Crossfade */}
+          {/* Double-Bezel Mockup Container with layered crossfade */}
           <div className="w-full relative bg-muted/20 dark:bg-card/40 p-1.5 sm:p-2">
             <div className="w-full relative rounded-lg overflow-hidden bg-background">
-
-              {/* Stacked Screen Crossfade Container */}
-              {/* Visuals are absolutely stacked, so enter + exit crossfade
-                  together with no blank flash (no mode="wait" here). */}
               <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] md:aspect-[16/10] overflow-hidden">
                 <AnimatePresence initial={false}>
                   <motion.div
@@ -196,7 +185,7 @@ export function Features({ data }: FeaturesProps) {
                     initial="initial"
                     animate="animate"
                     exit="exit"
-                    className="absolute inset-0 w-full h-full flex items-start justify-center will-change-transform"
+                    className="absolute inset-0 w-full h-full flex items-start justify-center will-change-[transform,opacity,filter]"
                   >
                     <div className="w-full h-full [&>img]:w-full [&>img]:h-full [&>img]:object-cover [&>img]:object-top">
                       {item.visualComponent}
@@ -204,7 +193,6 @@ export function Features({ data }: FeaturesProps) {
                   </motion.div>
                 </AnimatePresence>
               </div>
-
             </div>
           </div>
 

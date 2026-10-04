@@ -35,22 +35,23 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/brand/keilhq-enterprise.png",
   ]);
 
-  const staticRoutes: { route: string; images?: string[] }[] = [
-    { route: "", images: homeImages },
-    { route: "/pricing" },
-    { route: "/about" },
-    { route: "/now" },
-    { route: "/support" },
-    { route: "/privacy" },
-    { route: "/terms" },
-    { route: "/brand", images: brandImages },
+  const staticRoutes: { route: string; priority: number; freq: "always" | "hourly" | "daily" | "weekly" | "monthly" | "yearly" | "never"; images?: string[] }[] = [
+    { route: "",            priority: 1.0, freq: "daily",   images: homeImages },
+    { route: "/pricing",    priority: 0.9, freq: "weekly" },
+    { route: "/features",   priority: 0.9, freq: "weekly" },   // features index — key landing page
+    { route: "/about",      priority: 0.8, freq: "monthly" },
+    { route: "/now",        priority: 0.8, freq: "daily" },
+    { route: "/support",    priority: 0.8, freq: "weekly" },
+    { route: "/brand",      priority: 0.6, freq: "monthly",  images: brandImages },
+    { route: "/privacy",    priority: 0.4, freq: "yearly" },
+    { route: "/terms",      priority: 0.4, freq: "yearly" },
   ];
 
-  const staticEntries: MetadataRoute.Sitemap = staticRoutes.map(({ route, images }) => ({
+  const staticEntries: MetadataRoute.Sitemap = staticRoutes.map(({ route, priority, freq, images }) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
-    changeFrequency: route === "" || route === "/now" ? "daily" : "weekly",
-    priority: route === "" ? 1.0 : route === "/pricing" ? 0.9 : 0.8,
+    changeFrequency: freq,
+    priority,
     ...(images?.length ? { images } : {}),
   }));
 
@@ -62,8 +63,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     return {
       url: `${baseUrl}/features/${slug}`,
       lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.8,
+      changeFrequency: "weekly" as const,
+      priority: 0.85,   // core product pages — higher than generic static pages
       images: localImages([
         feature?.lightImage || fallback?.light,
         feature?.darkImage || fallback?.dark,

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 import { getChangelogs } from "@/cms/helpers/changelog";
 import changelogData from "@/cms/__generated__/changelog.json";
 import { DocumentRenderer } from "@keystatic/core/renderer";
@@ -28,9 +29,10 @@ export async function ChangelogArticle({ slug }: { slug: string }) {
       <article className="w-full max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 pt-32 md:pt-40 pb-24">
         <Link
           href="/now"
-          className="text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors duration-200"
+          className="inline-flex items-center gap-1.5 text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors duration-200"
         >
-          ← Back to Now
+          <ArrowLeft className="size-3.5" />
+          Back to Now
         </Link>
         <div className="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-10">
           <div className="lg:col-span-3">

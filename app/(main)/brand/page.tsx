@@ -5,12 +5,37 @@ import { BrandColorPalette } from "@/components/brand/brand-color-palette";
 import { BrandTypographySpecimen } from "@/components/brand/brand-typography-specimen";
 import { BrandAssetDownload } from "@/components/brand/brand-asset-download";
 
+const PAGE_TITLE = "Brand — Visual Identity & Assets";
+const PAGE_DESCRIPTION =
+  "Explore KeilHQ's brand identity, material color system, typography architecture, and official logo assets for press and partnerships.";
+
 export const metadata: Metadata = {
-  title: "Brand",
-  description:
-    "Explore KeilHQ's brand identity, physical vision, material color system, typography architecture, and official brand logo assets.",
+  title: PAGE_TITLE,
+  description: PAGE_DESCRIPTION,
   alternates: {
     canonical: "https://keilhq.in/brand",
+  },
+  openGraph: {
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
+    url: "https://keilhq.in/brand",
+    siteName: "KeilHQ",
+    images: [
+      {
+        url: "/brand/keilhq-billboard.png",
+        width: 1600,
+        height: 1000,
+        alt: "KeilHQ Brand Identity",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
+    images: ["/brand/keilhq-billboard.png"],
   },
 };
 

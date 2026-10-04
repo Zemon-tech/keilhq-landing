@@ -12,12 +12,14 @@ export function NowCover({
   objectPosition = "object-top",
   children,
 }: {
-  src: string;
+  src?: string | null;
   alt: string;
   sizes: string;
   objectPosition?: string;
   children?: React.ReactNode;
 }) {
+  if (!src) return null;
+
   return (
     <div className="relative aspect-[16/10] w-full overflow-hidden rounded-md border border-border bg-card transition-[border-color] duration-200 ease-out group-hover:border-foreground/25">
       <Image
