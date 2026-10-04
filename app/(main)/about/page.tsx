@@ -1,4 +1,3 @@
-import React from "react";
 import type { Metadata } from "next";
 import { ABOUT_PAGE } from "@/lib/site-content";
 import { VideoPlayer } from "@/components/video-player";
@@ -37,15 +36,46 @@ export const metadata: Metadata = {
   },
 };
 
+const BASE_URL = "https://keilhq.in";
+
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://keilhq.in" },
-    { "@type": "ListItem", position: 2, name: "About", item: "https://keilhq.in/about" },
+    { "@type": "ListItem", position: 1, name: "Home", item: BASE_URL },
+    { "@type": "ListItem", position: 2, name: "About", item: `${BASE_URL}/about` },
   ],
 };
 
+/* ── AboutPage WebPage schema — establishes this URL as an AboutPage entity ── */
+const aboutPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "@id": `${BASE_URL}/about`,
+  name: "About KeilHQ — Mission, Team & Vision",
+  description:
+    "We are building the work management platform for the next era of product development — giving teams and AI agents the human clarity to ship great products together.",
+  url: `${BASE_URL}/about`,
+  isPartOf: { "@id": `${BASE_URL}/#website` },
+  about: { "@id": `${BASE_URL}/#organization` },
+  breadcrumb: { "@id": `${BASE_URL}/about#breadcrumb` },
+};
+
+/* ── Utility: generate Person + Person-in-org schemas for team members ────── */
+function buildPersonSchemas(
+  members: Array<{ name: string; role: string; avatar?: string }>,
+  memberOf: string
+) {
+  return members.map((m) => ({
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: m.name,
+    jobTitle: m.role,
+    ...(m.avatar ? { image: m.avatar } : {}),
+    worksFor: { "@id": memberOf },
+    url: `${BASE_URL}/about`,
+  }));
+}
 export default async function AboutPage() {
   const data = ABOUT_PAGE;
 
@@ -131,12 +161,29 @@ export default async function AboutPage() {
     }
   ];
 
+  /* ── Structured data: build Person schemas from actual team data ── */
+  const personSchemas = buildPersonSchemas(
+    [...coreTeam, ...advisors].filter((m: any) => m.name && m.role),
+    `${BASE_URL}/#organization`
+  );
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutPageSchema) }}
+      />
+      {personSchemas.map((schema, i) => (
+        <script
+          key={i}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
     <main className="flex-1 flex flex-col items-center select-text">
       {/* Ambient top mesh glow */}
       <div

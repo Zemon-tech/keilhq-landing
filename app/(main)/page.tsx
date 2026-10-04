@@ -117,8 +117,40 @@ export default async function Home() {
       external: !!item.external,
     }));
 
+  /* ── WebPage + Speakable JSON-LD ─────────────────────────────────────────
+     Speakable tells Google which CSS selectors hold key spoken content —
+     used by Google Assistant, voice search, and AI Overview answers.
+     Docs: https://developers.google.com/search/docs/appearance/structured-data/speakable */
+  const webPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://keilhq.in",
+    name: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
+    url: "https://keilhq.in",
+    isPartOf: { "@id": "https://keilhq.in/#website" },
+    about: { "@id": "https://keilhq.in/#software" },
+    primaryImageOfPage: {
+      "@type": "ImageObject",
+      url: "https://keilhq.in/brand/keilhq-rise.png",
+      width: 1600,
+      height: 1000,
+    },
+    speakable: {
+      "@type": "SpeakableSpecification",
+      // Target the hero heading and hero subtitle — the most important
+      // content for voice and AI Overview answer extraction
+      cssSelector: ["h1", "[data-speakable='hero']"],
+    },
+    inLanguage: "en-US",
+  };
+
   return (
     <main className="flex-1 flex flex-col">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
+      />
       <Hero
         heroTitle={homepageData?.heroTitle || undefined}
         heroSubtitle={homepageData?.heroSubtitle || undefined}

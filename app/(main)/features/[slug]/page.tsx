@@ -140,6 +140,64 @@ export default async function FeaturePage({ params }: { params: Promise<{ slug: 
           }),
         }}
       />
+      {/* WebPage schema — establishes this feature page as a distinct entity
+          linked to the main SoftwareApplication, improving feature-keyword
+          associations for both Google and AI answer engines */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "@id": `https://keilhq.in/features/${slug}`,
+            name: SEO_TITLES[slug] ? `${SEO_TITLES[slug]} | KeilHQ` : `KeilHQ Features`,
+            description: (feature as any)?.subHeroDesc || (feature as any)?.capabilitiesDesc || "Explore KeilHQ workspace features.",
+            url: `https://keilhq.in/features/${slug}`,
+            isPartOf: { "@id": "https://keilhq.in/#website" },
+            about: { "@id": "https://keilhq.in/#software" },
+            inLanguage: "en-US",
+            primaryImageOfPage: {
+              "@type": "ImageObject",
+              url: (() => {
+                const img = (feature as any)?.lightImage || FALLBACK_IMAGES[slug]?.light;
+                return img ? `https://keilhq.in${img}` : "https://keilhq.in/brand/keilhq-rise.png";
+              })(),
+            },
+          }),
+        }}
+      />
+      {/* CollectionPage ItemList — signals the full features collection to Google
+          from every feature page, enabling sitelinks and collection rich results */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "@id": "https://keilhq.in/features",
+            name: "KeilHQ Features",
+            description: "All KeilHQ workspace features: task management, docs, chat, meetings, CRM, finance, integrations, and AI.",
+            url: "https://keilhq.in/features",
+            isPartOf: { "@id": "https://keilhq.in/#website" },
+            publisher: { "@id": "https://keilhq.in/#organization" },
+            mainEntity: {
+              "@type": "ItemList",
+              name: "KeilHQ Feature Pages",
+              itemListElement: [
+                { "@type": "ListItem", position: 1, name: "Smart Dashboard", url: "https://keilhq.in/features/smart-dashboard" },
+                { "@type": "ListItem", position: 2, name: "Task Management — Clarity Engine", url: "https://keilhq.in/features/task-management" },
+                { "@type": "ListItem", position: 3, name: "Docs & Notes — Motion Editor", url: "https://keilhq.in/features/docs-notes" },
+                { "@type": "ListItem", position: 4, name: "Team Chat", url: "https://keilhq.in/features/team-chat" },
+                { "@type": "ListItem", position: 5, name: "Meeting Recorder — AI Transcription", url: "https://keilhq.in/features/meeting-recorder" },
+                { "@type": "ListItem", position: 6, name: "Integrations", url: "https://keilhq.in/features/integrations" },
+                { "@type": "ListItem", position: 7, name: "Workspace & Permissions", url: "https://keilhq.in/features/workspace" },
+                { "@type": "ListItem", position: 8, name: "CRM — Relational Deal Intelligence", url: "https://keilhq.in/features/crm" },
+                { "@type": "ListItem", position: 9, name: "Finance & Bookkeeping", url: "https://keilhq.in/features/finance" },
+              ],
+            },
+          }),
+        }}
+      />
       <FeatureLayout
       eyebrowIndex={(feature as any).eyebrowIndex || ""}
       eyebrowText={(feature as any).eyebrowText || ""}
