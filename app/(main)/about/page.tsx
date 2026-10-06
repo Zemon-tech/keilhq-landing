@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { ABOUT_PAGE } from "@/lib/site-content";
-import { VideoPlayer } from "@/components/video-player";
+
 
 const PAGE_TITLE = "About KeilHQ — Mission, Team & Vision";
 const PAGE_DESCRIPTION =
@@ -107,19 +108,9 @@ export default async function AboutPage() {
       avatar: "https://zemonhouseofbuilders.in/harshit.png",
     },
     {
-      name: "Disha Jain",
-      role: "Software Engineer",
-      avatar: "/disha.jpg",
-    },
-    {
       name: "Shivansh Tiwari",
       role: "Software Engineer",
-      avatar: "https://media.licdn.com/dms/image/v2/D4D03AQG0YphMsFFcow/profile-displayphoto-crop_800_800/B4DZpZkAW.GgAM-/0/1762439205060?e=1787788800&v=beta&t=-H7hV38GxGpQ_eLnsKAAvmzi_T8pC9bKf0_s-tJqfn8",
-    },
-    {
-      name: "Krishna Sharma",
-      role: "AI Engineer",
-      avatar: "https://media.licdn.com/dms/image/v2/D5603AQGX3R4U3aVmiQ/profile-displayphoto-crop_800_800/B56ZuCJfloKgAI-/0/1767415086879?e=1787788800&v=beta&t=ya5dEQqFHg8EE8wlhlfYv_FsgeG70QX0LuCwuL2CrtI",
+      avatar: "/shivansh.png",
     },
   ];
 
@@ -208,8 +199,25 @@ export default async function AboutPage() {
           </p>
         </div>
 
-        {/* Large Video Player with custom overlay controls */}
-        <VideoPlayer src="/launch.mp4" loop defaultMuted />
+        {/* Theme-aware product snapshot — replaces the previous launch video */}
+        <div className="relative w-full rounded-lg overflow-hidden border border-border shadow-[0_20px_50px_rgba(0,0,0,0.3)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.6)]">
+          <Image
+            src="/mockups/dashboard/dashboard-snapshot-light.png"
+            alt="KeilHQ dashboard"
+            width={1600}
+            height={1000}
+            className="w-full h-auto object-cover object-top dark:hidden"
+            priority
+          />
+          <Image
+            src="/mockups/dashboard/dashboard-snapshot-dark.png"
+            alt="KeilHQ dashboard"
+            width={1600}
+            height={1000}
+            className="w-full h-auto object-cover object-top hidden dark:block"
+            priority
+          />
+        </div>
       </section>
 
       {/* ── SECTION 2: EDITORIAL ── */}
@@ -319,7 +327,7 @@ export default async function AboutPage() {
                     <img
                       src={firm.logo}
                       alt={firm.firmName}
-                      className="h-16 w-auto object-contain dark:brightness-110"
+                      className="h-24 w-auto object-contain dark:brightness-110"
                     />
                   ) : (
                     <span className="font-display text-xl font-bold tracking-tight text-foreground select-none">

@@ -235,18 +235,10 @@ export const ABOUT_PAGE = {
     { name: "Shivang Kandoi", role: "Co Founder and CEO", avatar: "https://zemonhouseofbuilders.in/shivang.png" },
     { name: "Satyajit Jena", role: "Co Founder and CTO", avatar: "https://zemonhouseofbuilders.in/satyajit.png" },
     { name: "Harshit Kundra", role: "COO", avatar: "https://zemonhouseofbuilders.in/harshit.png" },
-    { name: "Disha Jain", role: "Software Engineer", avatar: "/disha.jpg" },
     {
       name: "Shivansh Tiwari",
       role: "Software Engineer",
-      avatar:
-        "https://media.licdn.com/dms/image/v2/D4D03AQG0YphMsFFcow/profile-displayphoto-crop_800_800/B4DZpZkAW.GgAM-/0/1762439205060?e=1787788800&v=beta&t=-H7hV38GxGpQ_eLnsKAAvmzi_T8pC9bKf0_s-tJqfn8",
-    },
-    {
-      name: "Krishna Sharma",
-      role: "AI Engineer",
-      avatar:
-        "https://media.licdn.com/dms/image/v2/D5603AQGX3R4U3aVmiQ/profile-displayphoto-crop_800_800/B56ZuCJfloKgAI-/0/1767415086879?e=1787788800&v=beta&t=ya5dEQqFHg8EE8wlhlfYv_FsgeG70QX0LuCwuL2CrtI",
+      avatar: "/shivansh.png",
     },
   ],
   investorsTitle: "Backed by",

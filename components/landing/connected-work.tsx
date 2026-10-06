@@ -482,9 +482,9 @@ export function ConnectedWorkSection() {
   const contextOpacity = (i: number) =>
     active === null ? 0.85 : i === active ? 1 : Math.abs(i - active) === 1 ? 0.6 : 0.3;
 
-  const nodeDelay = (i: number) => (reduce ? 0 : i * 0.5 + 0.15);
-  const lineDelay = (i: number) => (reduce ? 0 : i * 0.5 + 0.3);
-  const lineDuration = reduce ? 0 : 0.4;
+  const nodeDelay = (_i: number) => 0;
+  const lineDelay = (_i: number) => (reduce ? 0 : 0.1);
+  const lineDuration = reduce ? 0 : 0.5;
 
   return (
     <section
