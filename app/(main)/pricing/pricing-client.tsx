@@ -782,47 +782,6 @@ export function PricingClient() {
         </div>
       </section>
 
-      {/* ── 6. HONEST BOUNDARIES: WHO IS KEILHQ FOR? ── */}
-      <section className="w-full py-24 border-border/40 px-6 sm:px-8 lg:px-12">
-        <div className="max-w-[1200px] mx-auto text-left">
-
-          <div className="flex flex-col gap-2 mb-12">
-            <span className="text-xs uppercase tracking-widest text-muted-foreground font-semibold font-display">
-              Honest Boundaries
-            </span>
-            <h2 className="font-display text-[clamp(2rem,3.5vw,2.75rem)] font-medium leading-tight text-foreground tracking-tight">
-              Where KeilHQ is not the right fit
-            </h2>
-            <p className="text-[15px] text-muted-foreground font-sans">
-              To remain 100% credible with prospects, here is who we do not build for.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 font-sans">
-            <div className="p-6 flex flex-col gap-3">
-              <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider font-display">10,000+ Enterprise ERP Needs</span>
-              <p className="text-[13px] text-muted-foreground leading-relaxed">
-                If a Fortune 500 company requires SAP-level payroll compliance, custom multi-tier SAML SCIM across 50 legacy divisions, legacy suites like Zoho One or Microsoft 365 are designed for that.
-              </p>
-            </div>
-
-            <div className="p-6 flex flex-col gap-3">
-              <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider font-display">Pure Git-Centric Dev Tracking</span>
-              <p className="text-[13px] text-muted-foreground leading-relaxed">
-                If an engineering team strictly wants an issue tracker connected only to GitHub PRs without docs, chat, CRM, or meeting AI, specialized tools like Linear or Jira are pure-play dev tools.
-              </p>
-            </div>
-
-            <div className="p-6 flex flex-col gap-3 bg-secondary/30">
-              <span className="text-xs font-semibold text-[var(--color-copper)] uppercase tracking-wider font-display">KeilHQ Sweet Spot (Ideal Fit)</span>
-              <p className="text-[13px] text-foreground leading-relaxed">
-                Fast-moving agencies, dev studios, consulting teams, startups, and SMBs with <strong className="text-foreground">5 to 250 members</strong> who want high velocity, zero overhead, and one unified workspace.
-              </p>
-            </div>
-          </div>
-
-        </div>
-      </section>
 
       {/* ── 7. COMMON QUESTIONS (FAQ) — Seamless without top separator ── */}
       <section className="w-full py-24 px-6 sm:px-8 lg:px-12">
