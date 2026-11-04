@@ -270,8 +270,8 @@ export function CompanyContext() {
                   animate={{ opacity: inView ? 1 : 0, scale: inView ? 1 : 0.88 }}
                   transition={{ duration: 0.55, delay: 0.5, ease: EASE_BREATHE }}
                 >
-                  <Image src="/images/cms/globals/logo-white.svg" alt="KeilHQ" width={34} height={34} className="dark:hidden" />
-                  <Image src="/images/cms/globals/logo.svg"       alt="KeilHQ" width={34} height={34} className="hidden dark:block" />
+                  <Image src="/keilhq-white.svg" alt="KeilHQ" width={34} height={34} className="dark:hidden" />
+                  <Image src="/keilhq.svg"       alt="KeilHQ" width={34} height={34} className="hidden dark:block" />
                   <span className="text-[11px] font-semibold text-background">Context</span>
                 </motion.div>
 

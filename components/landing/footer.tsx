@@ -1,70 +1,62 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ToggleTheme } from "@/components/ui/toggle-theme";
-import { FOOTER, SITE_SETTINGS } from "@/lib/site-content";
 
-export async function Footer() {
-  const footerData = FOOTER;
-  const siteSettings = SITE_SETTINGS;
+const SITE_NAME = "KeilHQ";
+const LOGO = "/keilhq.svg";
+const LOGO_WHITE = "/keilhq-white.svg";
 
-  const siteName = siteSettings?.siteName || "KeilHQ";
-  const logo = siteSettings?.logo || "/keilhq.svg";
+const TWITTER_URL = "https://x.com/keilhq";
+const INSTAGRAM_URL = "https://www.instagram.com/keilhq.in";
+const LINKEDIN_URL = "https://www.linkedin.com/company/keil-hq/";
+const YOUTUBE_URL = "https://www.youtube.com/@keilhqglobal";
 
-  const twitterUrl = footerData?.twitterUrl || "https://x.com";
-  const instagramUrl = footerData?.instagramUrl || "https://instagram.com";
-  const linkedinUrl = footerData?.linkedinUrl || "https://www.linkedin.com/company/keil-hq/";
-  const youtubeUrl = footerData?.youtubeUrl || "https://www.youtube.com/@keilhqglobal";
+const FOOTER_COLUMNS = [
+  {
+    title: "Features",
+    links: [
+      { label: "Dashboard", href: "/features/smart-dashboard" },
+      { label: "Task Management", href: "/features/task-management" },
+      { label: "Docs & Notes", href: "/features/docs-notes" },
+      { label: "Team Chat", href: "/features/team-chat" },
+      { label: "Meeting Notes", href: "/features/meeting-recorder" },
+      { label: "Relational CRM", href: "/features/crm" },
+      { label: "Finance & Bookkeeping", href: "/features/finance" },
+    ],
+  },
+  {
+    title: "Product",
+    links: [
+      { label: "Pricing", href: "/pricing" },
+      { label: "Now", href: "/now" },
+      { label: "Changelog", href: "/now?tab=changelog" },
+      { label: "Press", href: "/now?tab=press" },
+      { label: "Support & FAQ", href: "/support" },
+    ],
+  },
+  {
+    title: "Company",
+    links: [
+      { label: "About us", href: "/about" },
+      { label: "Brand", href: "/brand" },
+      { label: "Privacy Policy", href: "/privacy" },
+      { label: "Terms of Service", href: "/terms" },
+    ],
+  },
+  {
+    title: "Connect",
+    links: [
+      { label: "Twitter", href: TWITTER_URL },
+      { label: "Instagram", href: INSTAGRAM_URL },
+      { label: "LinkedIn", href: LINKEDIN_URL },
+      { label: "YouTube", href: YOUTUBE_URL },
+    ],
+  },
+];
 
-  const baseColumns = footerData?.columns || [
-    {
-      title: "Features",
-      links: [
-        { label: "Dashboard", href: "/features/smart-dashboard" },
-        { label: "Task Management", href: "/features/task-management" },
-        { label: "Docs & Notes", href: "/features/docs-notes" },
-        { label: "Team Chat", href: "/features/team-chat" },
-        { label: "Meeting Notes", href: "/features/meeting-recorder" },
-        { label: "Relational CRM", href: "/features/crm" },
-        { label: "Finance & Bookkeeping", href: "/features/finance" },
-      ],
-    },
-    {
-      title: "Product",
-      links: [
-        { label: "Pricing", href: "/pricing" },
-        { label: "Now", href: "/now" },
-        { label: "Changelog", href: "/now?tab=changelog" },
-        { label: "Press", href: "/now?tab=press" },
-        { label: "Support & FAQ", href: "/support" },
-      ],
-    },
-    {
-      title: "Company",
-      links: [
-        { label: "About us", href: "/about" },
-        { label: "Brand", href: "/brand" },
-        { label: "Privacy Policy", href: "/privacy" },
-        { label: "Terms of Service", href: "/terms" },
-      ],
-    },
-  ];
-
-  const columns = [
-    ...baseColumns,
-    {
-      title: "Connect",
-      links: [
-        { label: "Twitter", href: twitterUrl },
-        { label: "Instagram", href: instagramUrl },
-        { label: "LinkedIn", href: linkedinUrl },
-        { label: "YouTube", href: youtubeUrl },
-      ],
-    },
-  ];
-  const rawCopyright = footerData?.copyright || "KeilHQ. All rights reserved. © {year}";
-  const copyrightText = rawCopyright
-    .replace("{year}", new Date().getFullYear().toString())
-    .replace("${year}", new Date().getFullYear().toString());
+export function Footer() {
+  const currentYear = new Date().getFullYear();
+  const copyrightText = `KeilHQ. All rights reserved. © ${currentYear}`;
 
   return (
     <footer className="w-full min-h-[100dvh] bg-background relative z-[60] flex flex-col justify-between pt-20 sm:pt-28 overflow-hidden select-text">
@@ -74,16 +66,16 @@ export async function Footer() {
         {/* Brand and Social Links */}
         <div className="md:w-1/4 shrink-0 flex flex-col gap-6">
           <Link href="/" className="flex items-center gap-2">
-            <img src={logo} alt={siteName} width={22} height={22} className="dark:hidden" />
-            <img
-              src={logo.replace('.svg', '-white.svg')}
-              alt={siteName}
+            <Image src={LOGO} alt={SITE_NAME} width={22} height={22} className="dark:hidden" />
+            <Image
+              src={LOGO_WHITE}
+              alt={SITE_NAME}
               width={22}
               height={22}
               className="hidden dark:block"
             />
             <span className="font-display text-lg font-semibold tracking-tight text-foreground">
-              {siteName}
+              {SITE_NAME}
             </span>
           </Link>
 
@@ -95,21 +87,26 @@ export async function Footer() {
 
         {/* Links Grid */}
         <div className="w-full md:w-3/4 grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-8">
-          {columns.map((column: any) => (
+          {FOOTER_COLUMNS.map((column) => (
             <div key={column.title} className="flex flex-col gap-4 text-left">
               <span className="text-[11px] font-sans tracking-widest text-muted-foreground uppercase">
                 {column.title}
               </span>
               <nav className="flex flex-col gap-2.5">
-                {(column.links || []).map((link: any) => (
-                  <Link
-                    key={link.label}
-                    href={link.href}
-                    className="text-[13px] text-muted-foreground hover:text-foreground transition-colors font-medium tracking-wide"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
+                {column.links.map((link) => {
+                  const isExternal = link.href.startsWith("http");
+                  return (
+                    <Link
+                      key={link.label}
+                      href={link.href}
+                      target={isExternal ? "_blank" : undefined}
+                      rel={isExternal ? "noopener noreferrer" : undefined}
+                      className="text-[13px] text-muted-foreground hover:text-foreground transition-colors font-medium tracking-wide"
+                    >
+                      {link.label}
+                    </Link>
+                  );
+                })}
               </nav>
             </div>
           ))}
@@ -121,7 +118,7 @@ export async function Footer() {
         <span
           className="font-display text-[clamp(5rem,18vw,15rem)] font-bold tracking-tight leading-none text-border dark:text-[#F7F4EE]/[0.08] select-none pointer-events-none transition-colors duration-300"
         >
-          {siteName}
+          {SITE_NAME}
         </span>
       </div>
 

@@ -2,7 +2,28 @@
 
 import React from "react";
 
-export function LovedBy({ data }: { data?: any }) {
+const TESTIMONIALS = [
+  {
+    quote:
+      "A client mentioned something from an intake call six months earlier. We didn't have to scramble or remember it — KeilHQ's meeting intelligence and CRM surfaced the exact note. That wins renewals.",
+    authorName: "Sagar Sahu",
+    authorRole: "Program Manager, AIC GGSIPU",
+    authorAvatar:
+      "https://7f0c3c9283690942f12072675bea02f1.cdn.bubble.io/cdn-cgi/image/w=384,h=373,f=auto,dpr=2,fit=contain/f1780921371029x651737872941958000/51397r73ev%20%281%29.png",
+    isHighlighted: false,
+  },
+  {
+    quote:
+      "The meeting intelligence and shared context layer alone justified the switch. We replaced 5 disconnected SaaS subscriptions and context actually flows between sales, delivery, and leadership.",
+    authorName: "Sahil",
+    authorRole: "CEO & Founder, Qeno AI",
+    authorAvatar:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRcidjK4k8HMKHeSUCaK9WSLowqwCDTiYoOtrJGljoLQ8A2VWmGRZr8q23&s=10",
+    isHighlighted: true,
+  },
+];
+
+export function LovedBy({ data }: { data?: any } = {}) {
   const title = data?.title || "Teams that run on connected work.";
   const stat1Label = data?.stat1Label || "";
   const stat1Value = data?.stat1Value || "";
@@ -10,22 +31,7 @@ export function LovedBy({ data }: { data?: any }) {
   const stat2Value = data?.stat2Value || "";
   const hasStats = Boolean(stat1Value || stat2Value);
 
-  const testimonials = data?.testimonials || [
-    {
-      quote: "A client mentioned something from an intake call six months earlier. We didn't have to scramble or remember it — KeilHQ's meeting intelligence and CRM surfaced the exact note. That wins renewals.",
-      authorName: "Sagar Sahu",
-      authorRole: "Program Manager, AIC GGSIPU",
-      authorAvatar: "https://7f0c3c9283690942f12072675bea02f1.cdn.bubble.io/cdn-cgi/image/w=384,h=373,f=auto,dpr=2,fit=contain/f1780921371029x651737872941958000/51397r73ev%20%281%29.png",
-      isHighlighted: false,
-    },
-    {
-      quote: "The meeting intelligence and shared context layer alone justified the switch. We replaced 5 disconnected SaaS subscriptions and context actually flows between sales, delivery, and leadership.",
-      authorName: "Sahil",
-      authorRole: "CEO & Founder, Qeno AI",
-      authorAvatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRcidjK4k8HMKHeSUCaK9WSLowqwCDTiYoOtrJGljoLQ8A2VWmGRZr8q23&s=10",
-      isHighlighted: true,
-    },
-  ];
+  const testimonials = data?.testimonials || TESTIMONIALS;
 
   return (
     <section className="w-full bg-background flex items-center justify-center py-20 lg:py-28 xl:py-32 select-text">

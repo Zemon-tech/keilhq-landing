@@ -3,13 +3,12 @@ import Image from "next/image";
 import { Hero } from "@/components/landing/hero";
 import { IntegrationCloud } from "@/components/landing/integration-cloud";
 import { ConnectedWorkSection } from "@/components/landing/connected-work";
-import { CompanyContext } from "@/components/landing/company-context";
 import { Features, StickyScrollSection } from "@/components/landing/features";
 import { LovedBy } from "@/components/landing/loved-by";
 import { Blogs } from "@/components/landing/blogs";
 import { FinalCta } from "@/components/landing/final-cta";
 import { getNowFeed } from "@/lib/now";
-import { HOMEPAGE, LOVED_BY } from "@/lib/site-content";
+import { HOMEPAGE } from "@/lib/site-content";
 
 const PAGE_TITLE = "KeilHQ — Your team's work, all in one place";
 const PAGE_DESCRIPTION =
@@ -83,7 +82,6 @@ const MockupImage = ({ lightSrc, darkSrc, alt }: { lightSrc: string; darkSrc: st
 export default async function Home() {
   const nowFeed = await getNowFeed();
   const homepageData = HOMEPAGE;
-  const lovedByData = LOVED_BY;
 
   // Construct features scroll sections dynamically
   const featureSections = homepageData?.featureSections || [];
@@ -167,9 +165,8 @@ export default async function Home() {
       <IntegrationCloud />
       <ConnectedWorkSection />
       <Features data={featuresData} />
-      <CompanyContext />
       {displayBlogPosts.length > 0 && <Blogs posts={displayBlogPosts} />}
-      <LovedBy data={lovedByData} />
+      <LovedBy />
       <FinalCta
         finalCtaTitle={homepageData?.finalCtaTitle || undefined}
         finalCtaDescription={homepageData?.finalCtaDescription || undefined}

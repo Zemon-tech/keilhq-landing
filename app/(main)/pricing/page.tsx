@@ -44,12 +44,51 @@ const breadcrumbSchema = {
   ],
 };
 
+const softwarePricingSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "@id": "https://keilhq.in/#software",
+  name: "KeilHQ",
+  applicationCategory: "BusinessApplication",
+  operatingSystem: "Web (Desktop-First)",
+  description: PAGE_DESCRIPTION,
+  offers: [
+    {
+      "@type": "Offer",
+      name: "Free Trial",
+      price: "0",
+      priceCurrency: "USD",
+      description: "30-day Pro trial with all features and AI assistant access.",
+    },
+    {
+      "@type": "Offer",
+      name: "Pro Plan",
+      price: "10.00",
+      priceCurrency: "USD",
+      billingDuration: "P1M",
+      description: "For individuals & fast-moving teams. Unlimited tasks, collaborative docs, AI assistant.",
+    },
+    {
+      "@type": "Offer",
+      name: "Teams Plan",
+      price: "25.00",
+      priceCurrency: "USD",
+      billingDuration: "P1M",
+      description: "For scaling organizations. Multi-agent workspaces, meeting recording with AI transcription, CRM, and priority support.",
+    },
+  ],
+};
+
 export default function PricingPage() {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwarePricingSchema) }}
       />
       <PricingClient />
     </>

@@ -106,6 +106,20 @@ export function Features({ data }: FeaturesProps) {
       className="relative w-full bg-background select-text"
       style={{ height: `${Math.max(1, data.length) * 100}vh` }}
     >
+      {/* Crawler-accessible semantic navigation for search engines and web scrapers */}
+      <nav aria-label="KeilHQ Features" className="sr-only">
+        <h2>Features</h2>
+        <ul>
+          {data.map((s) => (
+            <li key={s.id}>
+              <Link href={featureHrefById[s.id] ?? `/features/${s.id}`}>
+                {s.title} — {s.description}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
       {/* Pinned panel: sits below the fixed navbar with breathing room */}
       <div className="sticky top-0 w-full pt-24 sm:pt-28 lg:pt-32 pb-12 overflow-hidden">
         <div className="w-full max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 flex flex-col gap-10 lg:gap-12">

@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import { ABOUT_PAGE } from "@/lib/site-content";
 
 
 const PAGE_TITLE = "About KeilHQ — Mission, Team & Vision";
@@ -67,54 +65,69 @@ function buildPersonSchemas(
   members: Array<{ name: string; role: string; avatar?: string }>,
   memberOf: string
 ) {
-  return members.map((m) => ({
-    "@context": "https://schema.org",
-    "@type": "Person",
-    name: m.name,
-    jobTitle: m.role,
-    ...(m.avatar ? { image: m.avatar } : {}),
-    worksFor: { "@id": memberOf },
-    url: `${BASE_URL}/about`,
-  }));
+  return members.map((m) => {
+    const imageUrl = m.avatar
+      ? m.avatar.startsWith("http")
+        ? m.avatar
+        : `${BASE_URL}${m.avatar}`
+      : undefined;
+    return {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      name: m.name,
+      jobTitle: m.role,
+      ...(imageUrl ? { image: imageUrl } : {}),
+      worksFor: { "@id": memberOf },
+      url: `${BASE_URL}/about`,
+    };
+  });
 }
-export default async function AboutPage() {
-  const data = ABOUT_PAGE;
-
-  const heroTitle = data?.heroTitle || "Building tools for the next era of product development";
-  const heroSubtitle = data?.heroSubtitle || "AI is fundamentally changing how products get built. We are shaping what comes next.";
-  const editorialTitle = data?.editorialTitle || "A new species of product tool";
-  const editorialLead = data?.editorialLead || "Software development is at an inflection point. Artificial intelligence is fundamentally reshaping how products are built.";
-  const editorialParagraphs = data?.editorialParagraphs || [
+export default function AboutPage() {
+  const heroTitle = "Building tools for the next era of product development";
+  const heroSubtitle = "AI is fundamentally changing how products get built. We are shaping what comes next.";
+  const editorialTitle = "A new species of product tool";
+  const editorialLead = "Software development is at an inflection point. Artificial intelligence is fundamentally reshaping how products are built.";
+  const editorialParagraphs = [
     "AI increases what teams can create, but it also raises the bar for clarity and coordination. At KeilHQ, we are building the tools for this new era of product development. A purpose-built system where teams and agents operate together in a shared, structured environment.",
-    "Founded in 2025, KeilHQ has become the tool of choice for thousands of fast-growing teams to plan, build, and ship their products.",
-    "Our team is distributed across North America and India, and we're continuing to grow internationally. What unites us is relentless focus, fast execution, and a deep care for software craftsmanship."
+    "Founded in 2025, KeilHQ has become the tool of choice for fast-growing teams to plan, build, and ship their products.",
+    "Our team is purely based in Delhi, India. What unites us is relentless focus, fast execution, and a deep care for software craftsmanship."
   ];
 
-  const teamTitle = data?.teamTitle || "Meet the team";
-  const coreTeam = data?.teamMembers || [
+  const teamTitle = "Meet the team";
+  const coreTeam = [
     {
       name: "Shivang Kandoi",
       role: "Co Founder and CEO",
-      avatar: "https://zemonhouseofbuilders.in/shivang.png",
+      avatar: "/team/shivang.jpg",
     },
     {
       name: "Satyajit Jena",
       role: "Co Founder and CTO",
-      avatar: "https://zemonhouseofbuilders.in/satyajit.png",
+      avatar: "/team/satyajit.jpg",
     },
     {
       name: "Harshit Kundra",
       role: "COO",
-      avatar: "https://zemonhouseofbuilders.in/harshit.png",
+      avatar: "/team/harshit.jpg",
     },
     {
       name: "Shivansh Tiwari",
       role: "Software Engineer",
-      avatar: "/shivansh.png",
+      avatar: "/team/shivansh.png",
+    },
+    {
+      name: "Adhyyan",
+      role: "Software Engineer",
+      avatar: "/team/adhyyan.jpg",
+    },
+    {
+      name: "Shashi Ranjan",
+      role: "Software Engineer",
+      avatar: "/team/shashi.png",
     },
   ];
 
-  const advisors = data?.mentors || [
+  const advisors = [
     {
       name: "Hemant Srivastav",
       role: "CEO, AIC GGSIPU",
@@ -137,7 +150,7 @@ export default async function AboutPage() {
     }
   ];
 
-  const investors = data?.investors || [
+  const investors = [
     {
       firmName: "AIC GGSIPU",
       logo: "https://7f0c3c9283690942f12072675bea02f1.cdn.bubble.io/cdn-cgi/image/w=96,h=92,f=auto,dpr=2,fit=contain/f1707545874849x730155311730143000/WhatsApp_Image_2024-02-10_at_11.17.23_AM-removebg-preview.png",
@@ -199,23 +212,15 @@ export default async function AboutPage() {
           </p>
         </div>
 
-        {/* Theme-aware product snapshot — replaces the previous launch video */}
-        <div className="relative w-full rounded-lg overflow-hidden border border-border shadow-[0_20px_50px_rgba(0,0,0,0.3)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.6)]">
-          <Image
-            src="/mockups/dashboard/dashboard-snapshot-light.png"
-            alt="KeilHQ dashboard"
-            width={1600}
-            height={1000}
-            className="w-full h-auto object-cover object-top dark:hidden"
-            priority
-          />
-          <Image
-            src="/mockups/dashboard/dashboard-snapshot-dark.png"
-            alt="KeilHQ dashboard"
-            width={1600}
-            height={1000}
-            className="w-full h-auto object-cover object-top hidden dark:block"
-            priority
+        {/* Launch product video preview */}
+        <div className="relative w-full rounded-lg overflow-hidden border border-border shadow-[0_20px_50px_rgba(0,0,0,0.3)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.6)] aspect-[16/10] bg-card">
+          <video
+            src="/launch.webm"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover object-top"
           />
         </div>
       </section>
@@ -248,7 +253,7 @@ export default async function AboutPage() {
               Guidance & Advisory
             </span>
             <h2 className="font-display text-[clamp(1.75rem,3vw,2.5rem)] font-semibold tracking-tight text-foreground">
-              {data?.mentorsTitle || "Advisors"}
+              Advisors
             </h2>
           </div>
 
@@ -310,7 +315,7 @@ export default async function AboutPage() {
       <section className="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 py-20 lg:py-28 flex flex-col lg:flex-row gap-16 text-left border-border">
         <div className="w-full lg:w-1/3 shrink-0">
           <h2 className="font-display text-[clamp(2rem,4vw,2.75rem)] font-semibold tracking-tight leading-[1.08] text-foreground">
-            {data?.investorsTitle || "Backed by"}
+            Backed by
           </h2>
         </div>
 

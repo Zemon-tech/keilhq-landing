@@ -324,13 +324,15 @@ export function NavbarClient({ navigation, siteSettings }: NavbarClientProps) {
                       onMouseEnter={() => handleMouseEnterMenu("product")}
                       className="relative py-2 cursor-pointer"
                     >
-                      <span
+                      <Link
+                        href="/features/smart-dashboard"
+                        onClick={closeMenu}
                         className={`flex items-center gap-1 text-[13px] font-semibold tracking-[0.01em] transition-colors duration-150 font-display ${
                           activeMenu === "product" ? "text-foreground" : "text-muted-foreground hover:text-foreground"
                         }`}
                       >
                         Product
-                      </span>
+                      </Link>
                     </div>
                   );
                 }
