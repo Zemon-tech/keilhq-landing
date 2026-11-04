@@ -15,16 +15,14 @@ export type BrandKey =
   | "linear"
   | "slack"
   | "jira"
-  | "hubspot"
   | "github"
-  | "google"
-  | "microsoft";
+  | "google";
 
 interface BrandMeta {
   /** Human-readable name used for the accessible label. */
   label: string;
-  /** Path to a logo asset in /public, or null when no asset exists. */
-  src: string | null;
+  /** Path to a logo asset in /public. */
+  src: string;
   /** Does KeilHQ actually integrate with this product today? */
   integrated: boolean;
 }
@@ -37,8 +35,6 @@ const BRANDS: Record<BrandKey, BrandMeta> = {
   linear: { label: "Linear", src: "/integrations/linear.jpeg", integrated: false },
   slack: { label: "Slack", src: "/integrations/slack.png", integrated: false },
   jira: { label: "Jira", src: "/integrations/atlassianjira.png", integrated: false },
-  hubspot: { label: "HubSpot", src: null, integrated: false },
-  microsoft: { label: "Microsoft", src: null, integrated: false },
 };
 
 export function brandMeta(brand: BrandKey): BrandMeta {
@@ -73,38 +69,28 @@ export function BrandLogo({
   className = "",
 }: BrandLogoProps) {
   const meta = BRANDS[brand];
-  const [errored, setErrored] = React.useState(false);
   const px = SIZE_PX[size];
   const accessibleName = alt ?? meta.label;
 
-  const mark =
-    meta.src && !errored ? (
-      // eslint-disable-next-line @next/next/no-img-element
-      <img
-        src={meta.src}
-        alt={showLabel ? "" : accessibleName}
-        width={px}
-        height={px}
-        loading="lazy"
-        onError={() => setErrored(true)}
-        style={{ width: px, height: px }}
-        className={[
-          "object-contain shrink-0",
-          monochrome
-            ? "grayscale opacity-70 dark:opacity-55 transition-opacity duration-200 group-hover:opacity-100"
-            : "",
-        ].join(" ")}
-      />
-    ) : (
-      // Text fallback — keeps the brand recognizable with no asset / on error.
-      <span
-        aria-hidden={showLabel ? "true" : undefined}
-        style={{ width: px, height: px }}
-        className="inline-flex items-center justify-center shrink-0 rounded-sm border border-border bg-card text-[9px] font-display font-semibold uppercase tracking-tight text-muted-foreground"
-      >
-        {meta.label.slice(0, 2)}
-      </span>
-    );
+  // No client state: the markup is identical on server and client, so there is
+  // nothing to mismatch during hydration.
+  const mark = (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src={meta.src}
+      alt={showLabel ? "" : accessibleName}
+      width={px}
+      height={px}
+      loading="lazy"
+      style={{ width: px, height: px }}
+      className={[
+        "object-contain shrink-0",
+        monochrome
+          ? "grayscale opacity-70 dark:opacity-55 transition-opacity duration-200 group-hover:opacity-100"
+          : "",
+      ].join(" ")}
+    />
+  );
 
   if (!showLabel) return <span className={`group inline-flex ${className}`}>{mark}</span>;
 

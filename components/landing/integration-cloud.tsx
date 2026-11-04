@@ -10,11 +10,9 @@ const FAMILIAR_BRANDS: BrandKey[] = [
   "notion",
   "linear",
   "slack",
-  "hubspot",
   "jira",
   "google",
   "github",
-  "microsoft",
 ];
 
 // Which of the above KeilHQ actually connects to today — drives the honest
@@ -26,7 +24,7 @@ const CONNECTED = FAMILIAR_BRANDS.filter((b) => brandMeta(b).integrated).map(
 function BrandCell({ brand }: { brand: BrandKey }) {
   return (
     <div className="flex items-center justify-center size-11 rounded-sm bg-card border border-border p-2 shrink-0 shadow-sm hover:border-muted-foreground/30 transition-colors">
-      <BrandLogo brand={brand} size="md" monochrome />
+      <BrandLogo brand={brand} size="md" monochrome={false} />
     </div>
   );
 }
