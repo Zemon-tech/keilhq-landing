@@ -124,23 +124,6 @@ export function Features({ data }: FeaturesProps) {
       <div className="sticky top-0 w-full pt-24 sm:pt-28 lg:pt-32 pb-12 overflow-hidden">
         <div className="w-full max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 flex flex-col gap-10 lg:gap-12">
 
-          {/* Progress rail — quiet indication of where you are in the sequence */}
-          <div className="flex items-center gap-2" aria-hidden="true">
-            {data.map((s, i) => (
-              <span
-                key={s.id}
-                className="relative h-[2px] flex-1 overflow-hidden rounded-full bg-border"
-              >
-                <motion.span
-                  className="absolute inset-y-0 left-0 bg-foreground/70"
-                  initial={false}
-                  animate={{ width: i <= activeIndex ? "100%" : "0%" }}
-                  transition={{ duration: 0.5, ease: EASE_OUT }}
-                />
-              </span>
-            ))}
-          </div>
-
           {/* Two-column Header Layout with simultaneous crossfade (no mode="wait"
               gap). Both columns are absolutely stacked so enter + exit overlap. */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 w-full text-left items-start min-h-[112px]">

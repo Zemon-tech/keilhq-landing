@@ -83,14 +83,13 @@ async function main() {
 
   console.log('[cms:generate] Done → cms/__generated__/');
 
-  // ── llms.txt (AI surfaces) ──
-  // Regenerated on every build so crawlers and answer engines always see
-  // fresh features, FAQs, posts, changelog entries, and press items.
+  // ── Dynamic llms.txt route verification ──
+  // Note: /llms.txt is served dynamically via app/llms.txt/route.ts so that
+  // any newly added posts, changelog, or press items are instantly reflected
+  // without needing static file regeneration (which conflicts with Next.js routes).
   const { generateLlmsText } = await import('../lib/llms');
-  const llmsContent = await generateLlmsText();
-  await fs.writeFile(path.join(repoPath, 'public', 'llms.txt'), llmsContent);
-  await fs.writeFile(path.join(repoPath, 'public', 'llms-full.txt'), llmsContent);
-  console.log(`  ✓ llms.txt and llms-full.txt generated successfully`);
+  await generateLlmsText();
+  console.log(`  ✓ llms.txt generator verified successfully`);
 }
 
 main().catch((err) => {

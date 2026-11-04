@@ -163,9 +163,9 @@ export default async function Home() {
         heroLightImage={homepageData?.heroLightImage || "/mockups/home-hero-light.png"}
         heroDarkImage={homepageData?.heroDarkImage || "/mockups/home-hero-dark.png"}
       />
-      <IntegrationCloud />
       <ConnectedWorkSection />
       <Features data={featuresData} />
+      <IntegrationCloud />
       {displayBlogPosts.length > 0 && <Blogs posts={displayBlogPosts} />}
       <LovedBy />
       <FinalCta
