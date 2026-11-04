@@ -113,6 +113,7 @@ export async function generateLlmsText(): Promise<string> {
     `  - Satyajit Jena — Co-Founder & CTO`,
     `  - Harshit Kundra — COO`,
     `  - Shivansh Tiwari — MTS`,
+    `  - Saanvi Singhal — Member of Technical Staff`,
     `  - Adhyyan Singh — Growth`,
     `  - Shashi Ranjan — Growth`,
     `- **Advisors & Mentors**:`,

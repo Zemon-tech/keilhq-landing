@@ -116,6 +116,11 @@ export default function AboutPage() {
       avatar: "/team/shivansh.png",
     },
     {
+      name: "Saanvi Singhal",
+      role: "Member of Technical Staff",
+      avatar: "/team/saanvi.png",
+    },
+    {
       name: "Adhyyan Singh",
       role: "Growth",
       avatar: "/team/adhyyan.jpg",
