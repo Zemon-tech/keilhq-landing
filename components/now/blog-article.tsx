@@ -5,7 +5,6 @@ import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { getBlogPost, getBlogPosts } from "@/cms/helpers/blog";
 import { DocumentRenderer } from "@keystatic/core/renderer";
-import { VideoPlayer } from "@/components/video-player";
 
 // Authors Mapping
 const authorDetailsMap: Record<string, { role: string; avatar: string }> = {
@@ -196,7 +195,13 @@ export async function BlogArticle({ slug }: { slug: string }) {
       <section className="w-full max-w-[1200px] mx-auto px-6 sm:px-8 lg:px-12 py-6">
         <div className="w-full relative rounded-lg overflow-hidden border border-border bg-card shadow-sm aspect-[16/9] z-10">
           {slug === "the-plan-behind-the-315" ? (
-            <VideoPlayer src="/launch.webm" poster="/mockups/blog1.png" />
+            <video
+              src="/launch.webm"
+              poster="/mockups/blog1.png"
+              controls
+              playsInline
+              className="w-full h-full object-cover"
+            />
           ) : (
             <Image
               src={post.image}

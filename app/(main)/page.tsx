@@ -144,41 +144,38 @@ export default async function Home() {
   };
 
   return (
-    <>
+    <main className="flex-1 flex flex-col">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
-        suppressHydrationWarning
       />
-      <main className="flex-1 flex flex-col">
-        <Hero
-          heroTitle={homepageData?.heroTitle || undefined}
-          heroSubtitle={homepageData?.heroSubtitle || undefined}
-          heroCtaLabel={homepageData?.heroCtaLabel || undefined}
-          heroCtaLink={homepageData?.heroCtaLink || undefined}
-          heroSecondaryCtaLabel={homepageData?.heroSecondaryCtaLabel || undefined}
-          heroSecondaryCtaLink={homepageData?.heroSecondaryCtaLink || undefined}
-          announcementEnabled={homepageData?.announcementEnabled || undefined}
-          announcementText={homepageData?.announcementText || undefined}
-          announcementLink={homepageData?.announcementLink || undefined}
-          heroLightImage={homepageData?.heroLightImage || "/mockups/home-hero-light.png"}
-          heroDarkImage={homepageData?.heroDarkImage || "/mockups/home-hero-dark.png"}
-        />
-        <IntegrationCloud />
-        <ConnectedWorkSection />
-        <Features data={featuresData} />
-        {displayBlogPosts.length > 0 && <Blogs posts={displayBlogPosts} />}
-        <LovedBy />
-        <FinalCta
-          finalCtaTitle={homepageData?.finalCtaTitle || undefined}
-          finalCtaDescription={homepageData?.finalCtaDescription || undefined}
-          finalCtaButtonLabel={homepageData?.finalCtaButtonLabel || undefined}
-          finalCtaButtonLink={homepageData?.finalCtaButtonLink || undefined}
-          finalCtaSecondaryButtonLabel={homepageData?.finalCtaSecondaryButtonLabel || undefined}
-          finalCtaSecondaryButtonLink={homepageData?.finalCtaSecondaryButtonLink || undefined}
-          finalCtaTrustText={homepageData?.finalCtaTrustText || undefined}
-        />
-      </main>
-    </>
+      <Hero
+        heroTitle={homepageData?.heroTitle || undefined}
+        heroSubtitle={homepageData?.heroSubtitle || undefined}
+        heroCtaLabel={homepageData?.heroCtaLabel || undefined}
+        heroCtaLink={homepageData?.heroCtaLink || undefined}
+        heroSecondaryCtaLabel={homepageData?.heroSecondaryCtaLabel || undefined}
+        heroSecondaryCtaLink={homepageData?.heroSecondaryCtaLink || undefined}
+        announcementEnabled={homepageData?.announcementEnabled || undefined}
+        announcementText={homepageData?.announcementText || undefined}
+        announcementLink={homepageData?.announcementLink || undefined}
+        heroLightImage={homepageData?.heroLightImage || "/mockups/home-hero-light.png"}
+        heroDarkImage={homepageData?.heroDarkImage || "/mockups/home-hero-dark.png"}
+      />
+      <IntegrationCloud />
+      <ConnectedWorkSection />
+      <Features data={featuresData} />
+      {displayBlogPosts.length > 0 && <Blogs posts={displayBlogPosts} />}
+      <LovedBy />
+      <FinalCta
+        finalCtaTitle={homepageData?.finalCtaTitle || undefined}
+        finalCtaDescription={homepageData?.finalCtaDescription || undefined}
+        finalCtaButtonLabel={homepageData?.finalCtaButtonLabel || undefined}
+        finalCtaButtonLink={homepageData?.finalCtaButtonLink || undefined}
+        finalCtaSecondaryButtonLabel={homepageData?.finalCtaSecondaryButtonLabel || undefined}
+        finalCtaSecondaryButtonLink={homepageData?.finalCtaSecondaryButtonLink || undefined}
+        finalCtaTrustText={homepageData?.finalCtaTrustText || undefined}
+      />
+    </main>
   );
 }

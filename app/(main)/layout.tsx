@@ -142,7 +142,7 @@ export default function RootLayout({
       <head>
         <JsonLd />
       </head>
-      <body className="min-h-full flex flex-col" suppressHydrationWarning>
+      <body className="min-h-full flex flex-col">
         <PostHogProvider>
           <ThemeProvider
             attribute="class"

@@ -15,17 +15,16 @@ export type BrandKey =
   | "linear"
   | "slack"
   | "jira"
+  | "hubspot"
   | "github"
   | "google"
-  | "gmail"
-  | "gmeet"
-  | "gdocs";
+  | "microsoft";
 
 interface BrandMeta {
   /** Human-readable name used for the accessible label. */
   label: string;
   /** Path to a logo asset in /public, or null when no asset exists. */
-  src: string;
+  src: string | null;
   /** Does KeilHQ actually integrate with this product today? */
   integrated: boolean;
 }
@@ -34,19 +33,16 @@ interface BrandMeta {
 const BRANDS: Record<BrandKey, BrandMeta> = {
   notion: { label: "Notion", src: "/integrations/notion.png", integrated: true },
   github: { label: "GitHub", src: "/integrations/github.png", integrated: true },
-  google: { label: "Google Drive", src: "/integrations/gdrive.png", integrated: true },
+  google: { label: "Google Workspace", src: "/integrations/gdrive.png", integrated: true },
   linear: { label: "Linear", src: "/integrations/linear.jpeg", integrated: false },
   slack: { label: "Slack", src: "/integrations/slack.png", integrated: false },
   jira: { label: "Jira", src: "/integrations/atlassianjira.png", integrated: false },
-  gmail: { label: "Gmail", src: "/integrations/gmail.png", integrated: true },
-  gmeet: { label: "Google Meet", src: "/integrations/gmeet.png", integrated: true },
-  gdocs: { label: "Google Docs", src: "/integrations/gdocs.png", integrated: true },
+  hubspot: { label: "HubSpot", src: null, integrated: false },
+  microsoft: { label: "Microsoft", src: null, integrated: false },
 };
 
-const subscribeNoop = () => () => {};
-
 export function brandMeta(brand: BrandKey): BrandMeta {
-  return BRANDS[brand] ?? { label: String(brand), src: "", integrated: false };
+  return BRANDS[brand];
 }
 
 const SIZE_PX: Record<NonNullable<BrandLogoProps["size"]>, number> = {
@@ -76,22 +72,13 @@ export function BrandLogo({
   alt,
   className = "",
 }: BrandLogoProps) {
-  const meta = brandMeta(brand);
+  const meta = BRANDS[brand];
   const [errored, setErrored] = React.useState(false);
-  // An <img> can fire `error` before React hydrates (e.g. a cold dev compile).
-  // Honoring that during hydration would render the text fallback where the
-  // server sent an <img> and cause a hydration mismatch, so only swap to the
-  // fallback once hydration has finished.
-  const hydrated = React.useSyncExternalStore(
-    subscribeNoop,
-    () => true,
-    () => false
-  );
   const px = SIZE_PX[size];
   const accessibleName = alt ?? meta.label;
 
   const mark =
-    meta.src && !(errored && hydrated) ? (
+    meta.src && !errored ? (
       // eslint-disable-next-line @next/next/no-img-element
       <img
         src={meta.src}
@@ -101,11 +88,12 @@ export function BrandLogo({
         loading="lazy"
         onError={() => setErrored(true)}
         style={{ width: px, height: px }}
-        className={`object-contain shrink-0 ${
+        className={[
+          "object-contain shrink-0",
           monochrome
             ? "grayscale opacity-70 dark:opacity-55 transition-opacity duration-200 group-hover:opacity-100"
-            : ""
-        }`.trim()}
+            : "",
+        ].join(" ")}
       />
     ) : (
       // Text fallback — keeps the brand recognizable with no asset / on error.
