@@ -147,6 +147,7 @@ export default async function Home() {
     <main className="flex-1 flex flex-col">
       <script
         type="application/ld+json"
+        suppressHydrationWarning
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
       />
       <Hero
