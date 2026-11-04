@@ -177,7 +177,6 @@ export function VideoPlayer({
           onClick={togglePlay}
         >
           <source src={src} type={src.endsWith(".webm") ? "video/webm" : "video/mp4"} />
-          {src.endsWith(".webm") && <source src="/launch.mp4" type="video/mp4" />}
           Your browser does not support the video tag.
         </video>
 

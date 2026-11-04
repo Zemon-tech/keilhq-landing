@@ -196,7 +196,7 @@ export async function BlogArticle({ slug }: { slug: string }) {
       <section className="w-full max-w-[1200px] mx-auto px-6 sm:px-8 lg:px-12 py-6">
         <div className="w-full relative rounded-lg overflow-hidden border border-border bg-card shadow-sm aspect-[16/9] z-10">
           {slug === "the-plan-behind-the-315" ? (
-            <VideoPlayer src="/launch.mp4" poster="/mockups/blog1.png" />
+            <VideoPlayer src="/launch.webm" poster="/mockups/blog1.png" />
           ) : (
             <Image
               src={post.image}
