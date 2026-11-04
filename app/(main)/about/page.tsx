@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import VideoPlayer from "@/components/video-player";
 
 
 const PAGE_TITLE = "About KeilHQ — Mission, Team & Vision";
@@ -112,7 +113,7 @@ export default function AboutPage() {
     },
     {
       name: "Shivansh Tiwari",
-      role: "Member of technical staff",
+      role: "MTS",
       avatar: "/team/shivansh.png",
     },
     {
@@ -212,17 +213,14 @@ export default function AboutPage() {
             </p>
           </div>
 
-          {/* Launch product video preview */}
-          <div className="relative w-full rounded-lg overflow-hidden border border-border shadow-[0_20px_50px_rgba(0,0,0,0.3)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.6)] aspect-[16/10] bg-card">
-            <video
-              src="/launch.webm"
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-full object-cover object-top"
-            />
-          </div>
+        {/* Launch product video player — native 1920x1080 16:9 dimensions with proper controls */}
+        <VideoPlayer
+          src="/launch.webm"
+          autoPlay
+          defaultMuted
+          loop
+          className="relative w-full rounded-lg overflow-hidden border border-border shadow-[0_20px_50px_rgba(0,0,0,0.3)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.6)]"
+        />
         </section>
 
         {/* ── SECTION 2: EDITORIAL ── */}

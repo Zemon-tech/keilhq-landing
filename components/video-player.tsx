@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, useCallback } from "react";
 import { Play, Pause, Volume2, VolumeX, Maximize, Minimize } from "lucide-react";
 
 interface VideoPlayerProps {
@@ -9,6 +9,7 @@ interface VideoPlayerProps {
   loop?: boolean;
   defaultMuted?: boolean;
   className?: string;
+  autoPlay?: boolean;
 }
 
 export function VideoPlayer({
@@ -16,32 +17,40 @@ export function VideoPlayer({
   poster,
   loop = false,
   defaultMuted = false,
+  autoPlay = false,
   className,
 }: VideoPlayerProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const hideControlsTimerRef = useRef<NodeJS.Timeout | null>(null);
+
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(defaultMuted);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [progress, setProgress] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [controlsVisible, setControlsVisible] = useState(true);
+  const [playbackRate, setPlaybackRate] = useState(1);
 
-  const togglePlay = () => {
+  const togglePlay = useCallback(() => {
     if (!videoRef.current) return;
     if (videoRef.current.paused) {
-      videoRef.current.play().catch((err) => console.error(err));
+      videoRef.current.play().catch((err) => console.error("Playback error:", err));
       setIsPlaying(true);
     } else {
       videoRef.current.pause();
       setIsPlaying(false);
+      setControlsVisible(true);
     }
-  };
+  }, []);
 
-  const toggleMute = () => {
+  const toggleMute = useCallback(() => {
     if (!videoRef.current) return;
-    videoRef.current.muted = !videoRef.current.muted;
-    setIsMuted(videoRef.current.muted);
-  };
+    const nextMuted = !videoRef.current.muted;
+    videoRef.current.muted = nextMuted;
+    setIsMuted(nextMuted);
+  }, []);
 
   const handleTimeUpdate = () => {
     if (!videoRef.current) return;
@@ -68,110 +77,212 @@ export function VideoPlayer({
   };
 
   const toggleFullscreen = () => {
-    if (!videoRef.current) return;
+    if (!containerRef.current) return;
     if (!document.fullscreenElement) {
-      videoRef.current.requestFullscreen().catch((err) => console.error(err));
+      containerRef.current.requestFullscreen().catch((err) => console.error(err));
     } else {
-      document.exitFullscreen();
+      document.exitFullscreen().catch((err) => console.error(err));
     }
   };
+
+  const cyclePlaybackRate = () => {
+    if (!videoRef.current) return;
+    const rates = [1, 1.25, 1.5, 2];
+    const nextIndex = (rates.indexOf(playbackRate) + 1) % rates.length;
+    const nextRate = rates[nextIndex];
+    videoRef.current.playbackRate = nextRate;
+    setPlaybackRate(nextRate);
+  };
+
+  const handleMouseMove = () => {
+    setControlsVisible(true);
+    if (hideControlsTimerRef.current) {
+      clearTimeout(hideControlsTimerRef.current);
+    }
+    if (isPlaying) {
+      hideControlsTimerRef.current = setTimeout(() => {
+        setControlsVisible(false);
+      }, 2500);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (isPlaying) {
+      setControlsVisible(false);
+    }
+  };
+
+  useEffect(() => {
+    if (autoPlay && videoRef.current) {
+      videoRef.current.muted = defaultMuted;
+      videoRef.current.play().then(() => {
+        setIsPlaying(true);
+        hideControlsTimerRef.current = setTimeout(() => {
+          setControlsVisible(false);
+        }, 2500);
+      }).catch(() => {
+        // Autoplay policy fallback
+      });
+    }
+  }, [autoPlay, defaultMuted]);
 
   useEffect(() => {
     const handleFullscreenChange = () => {
       setIsFullscreen(!!document.fullscreenElement);
     };
     document.addEventListener("fullscreenchange", handleFullscreenChange);
-    return () => document.removeEventListener("fullscreenchange", handleFullscreenChange);
+    return () => {
+      document.removeEventListener("fullscreenchange", handleFullscreenChange);
+      if (hideControlsTimerRef.current) clearTimeout(hideControlsTimerRef.current);
+    };
   }, []);
 
   const formatTime = (t: number) => {
-    if (isNaN(t)) return "0:00";
+    if (isNaN(t) || t < 0) return "0:00";
     const m = Math.floor(t / 60);
     const s = Math.floor(t % 60);
     return `${m}:${s < 10 ? "0" : ""}${s}`;
   };
 
-  const remainingTime = duration - currentTime;
-
   return (
     <div
+      ref={containerRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
       className={
         className ??
-        "w-full relative rounded-lg overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.25)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.55)] mt-4"
+        "relative w-full rounded-lg overflow-hidden border border-border bg-[#090A0B] shadow-[0_20px_50px_rgba(0,0,0,0.35)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.65)] select-none group"
       }
     >
-      <div className="relative w-full aspect-[16/9] bg-[#0c0d0e]">
+      {/* 16:9 Aspect Ratio Container matching original 1920x1080 dimensions */}
+      <div className="relative w-full aspect-[16/9] flex items-center justify-center bg-black">
         <video
           ref={videoRef}
-          src={src}
           poster={poster}
           loop={loop}
           muted={isMuted}
           playsInline
-          className="w-full h-full object-cover cursor-pointer"
+          autoPlay={autoPlay}
+          width={1920}
+          height={1080}
+          className="w-full h-full object-contain cursor-pointer"
           onTimeUpdate={handleTimeUpdate}
           onLoadedMetadata={handleLoadedMetadata}
+          onPlay={() => setIsPlaying(true)}
+          onPause={() => setIsPlaying(false)}
+          onEnded={() => {
+            setIsPlaying(false);
+            setControlsVisible(true);
+          }}
           onClick={togglePlay}
+        >
+          <source src={src} type={src.endsWith(".webm") ? "video/webm" : "video/mp4"} />
+          {src.endsWith(".webm") && <source src="/launch.mp4" type="video/mp4" />}
+          Your browser does not support the video tag.
+        </video>
+
+        {/* Big Center Play Button Overlay when paused */}
+        {!isPlaying && (
+          <button
+            onClick={togglePlay}
+            className="absolute inset-0 m-auto size-16 sm:size-20 rounded-full bg-black/60 hover:bg-black/80 backdrop-blur-md border border-white/20 text-white flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 shadow-2xl cursor-pointer z-20 group/btn"
+            aria-label="Play video"
+          >
+            <Play className="size-7 sm:size-8 fill-white text-white translate-x-0.5 group-hover/btn:scale-110 transition-transform" />
+          </button>
+        )}
+
+        {/* Ambient top and bottom gradient overlays for control readability */}
+        <div
+          className={`absolute inset-0 pointer-events-none transition-opacity duration-300 ${
+            controlsVisible ? "opacity-100" : "opacity-0"
+          } bg-gradient-to-t from-black/80 via-transparent to-black/20`}
         />
 
-        {/* Gradient overlays for control readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30 pointer-events-none" />
-
-        {/* Controls bar */}
-        <div className="absolute bottom-0 left-0 right-0 px-6 py-4 flex items-center justify-between gap-4 z-20 text-white select-none">
-          {/* Left: play, mute, current time */}
-          <div className="flex items-center gap-4">
-            <button
-              onClick={togglePlay}
-              className="hover:scale-105 active:scale-95 transition-all p-1 cursor-pointer"
-              title={isPlaying ? "Pause" : "Play"}
-            >
-              {isPlaying ? (
-                <Pause className="size-4 fill-current" />
-              ) : (
-                <Play className="size-4 fill-current" />
-              )}
-            </button>
-            <button
-              onClick={toggleMute}
-              className="hover:scale-105 active:scale-95 transition-all p-1 cursor-pointer"
-              title={isMuted ? "Unmute" : "Mute"}
-            >
-              {isMuted ? <VolumeX className="size-4" /> : <Volume2 className="size-4" />}
-            </button>
-            <span className="text-xs font-sans opacity-80">{formatTime(currentTime)}</span>
-          </div>
-
-          {/* Center: click-based progress bar */}
+        {/* Controls Bar */}
+        <div
+          className={`absolute bottom-0 left-0 right-0 px-4 sm:px-6 py-3 sm:py-4 flex flex-col gap-2 z-30 text-white transition-opacity duration-300 ${
+            controlsVisible ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          }`}
+        >
+          {/* Progress / Seek Bar */}
           <div
             onClick={handleProgressClick}
-            className="flex-1 h-3 flex items-center cursor-pointer relative group/progress"
+            className="w-full h-3 flex items-center cursor-pointer relative group/progress"
           >
-            <div className="w-full h-1 bg-white/20 rounded-full group-hover/progress:h-1.5 transition-all overflow-hidden relative">
-              <div className="h-full bg-white rounded-full" style={{ width: `${progress}%` }} />
+            <div className="w-full h-1 bg-white/25 rounded-full group-hover/progress:h-1.5 transition-all overflow-hidden relative">
+              <div
+                className="h-full bg-white rounded-full transition-all duration-75"
+                style={{ width: `${progress}%` }}
+              />
             </div>
+            {/* Scrubber Knob */}
             <div
-              className="absolute size-3 bg-white rounded-full scale-0 group-hover/progress:scale-100 shadow-md transition-transform pointer-events-none -translate-x-1/2"
+              className="absolute size-3.5 bg-white rounded-full shadow-md scale-0 group-hover/progress:scale-100 transition-transform pointer-events-none -translate-x-1/2"
               style={{ left: `${progress}%` }}
             />
           </div>
 
-          {/* Right: remaining time, speed badge, fullscreen */}
-          <div className="flex items-center gap-4">
-            <span className="text-xs font-sans opacity-80">-{formatTime(remainingTime)}</span>
-            <span className="text-xs font-sans opacity-80 px-1 border border-white/20 rounded-sm select-none">
-              1x
-            </span>
-            <button
-              onClick={toggleFullscreen}
-              className="hover:scale-105 active:scale-95 transition-all p-1 cursor-pointer"
-              title="Fullscreen"
-            >
-              {isFullscreen ? <Minimize className="size-4" /> : <Maximize className="size-4" />}
-            </button>
+          {/* Controls Row */}
+          <div className="flex items-center justify-between gap-3 text-xs font-sans text-neutral-200">
+            {/* Left controls: Play/Pause, Mute/Unmute, Time */}
+            <div className="flex items-center gap-3 sm:gap-4">
+              <button
+                onClick={togglePlay}
+                className="p-1 hover:text-white transition-colors cursor-pointer active:scale-95"
+                aria-label={isPlaying ? "Pause" : "Play"}
+              >
+                {isPlaying ? (
+                  <Pause className="size-4 sm:size-5 fill-current" />
+                ) : (
+                  <Play className="size-4 sm:size-5 fill-current" />
+                )}
+              </button>
+
+              <button
+                onClick={toggleMute}
+                className="p-1 hover:text-white transition-colors cursor-pointer active:scale-95"
+                aria-label={isMuted ? "Unmute" : "Mute"}
+              >
+                {isMuted ? (
+                  <VolumeX className="size-4 sm:size-5" />
+                ) : (
+                  <Volume2 className="size-4 sm:size-5" />
+                )}
+              </button>
+
+              <span className="font-mono text-[11px] sm:text-[12px] opacity-90 select-none">
+                {formatTime(currentTime)} / {formatTime(duration)}
+              </span>
+            </div>
+
+            {/* Right controls: Playback rate, Fullscreen */}
+            <div className="flex items-center gap-2 sm:gap-3">
+              <button
+                onClick={cyclePlaybackRate}
+                className="px-1.5 py-0.5 rounded text-[11px] font-mono border border-white/25 hover:border-white/50 hover:text-white transition-colors cursor-pointer active:scale-95"
+                title="Change playback speed"
+              >
+                {playbackRate}x
+              </button>
+
+              <button
+                onClick={toggleFullscreen}
+                className="p-1 hover:text-white transition-colors cursor-pointer active:scale-95"
+                aria-label={isFullscreen ? "Exit Fullscreen" : "Fullscreen"}
+              >
+                {isFullscreen ? (
+                  <Minimize className="size-4 sm:size-5" />
+                ) : (
+                  <Maximize className="size-4 sm:size-5" />
+                )}
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
   );
 }
+
+export default VideoPlayer;

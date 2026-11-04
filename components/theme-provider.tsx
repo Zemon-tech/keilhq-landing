@@ -3,6 +3,23 @@
 import * as React from "react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 
+// next-themes renders an inline <script> (set theme before paint, no flicker).
+// React 19 warns about any <script> in a component. The script still runs
+// correctly during SSR, so the dev-only warning is a false positive.
+// See https://github.com/shadcn-ui/ui/issues/10104
+if (typeof window !== "undefined" && process.env.NODE_ENV === "development") {
+  const originalError = console.error;
+  console.error = (...args: unknown[]) => {
+    if (
+      typeof args[0] === "string" &&
+      args[0].includes("Encountered a script tag")
+    ) {
+      return;
+    }
+    originalError.apply(console, args);
+  };
+}
+
 export function ThemeProvider({
   children,
   ...props

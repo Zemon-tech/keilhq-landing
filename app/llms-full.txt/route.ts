@@ -1,2 +1,3 @@
-export { GET, dynamic } from "../llms.txt/route";
+export const dynamic = "force-dynamic";
+export { GET } from "../llms.txt/route";
 
