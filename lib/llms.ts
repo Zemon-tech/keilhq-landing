@@ -95,10 +95,10 @@ export async function generateLlmsText(): Promise<string> {
   sections.push(
     `## Pricing Plans`,
     ``,
-    `- **Free Trial**: $0 for 30 days. Full access to Pro features, multi-agent AI assistant, unlimited tasks, and collaborative docs. No credit card required.`,
-    `- **Pro Plan**: $10 per seat/month. Complete AI workspace, unlimited tasks, collaborative docs, Google Calendar sync, and standard AI queries.`,
-    `- **Teams Plan**: $25 per seat/month. Multi-agent workspaces, native meeting recording with AI transcription, relational CRM, advanced permissions, and priority support.`,
-    `- **Enterprise Plan**: Custom pricing. Dedicated deployment, custom LLM routing, SLA guarantees, audit logs, and SOC 2 compliance.`,
+    `- **Free Trial**: ₹0 for 1 month (30 days). Full access to all workspace features, multi-agent AI assistant, unlimited tasks, and collaborative docs. No credit card required.`,
+    `- **Personal Plan**: ₹1,800/month regular pricing (₹1,620/month billed annually). First month introductory pricing at ₹500 applicable after the 1-month free trial. Unlimited personal workspace, 100 AI queries/day, live meeting recording bot, relational CRM pipelines, zero AI model training.`,
+    `- **Teams Plan**: ₹5,000/month for 5 seats (₹4,500/month billed annually). First month introductory pricing at ₹1,500 (5 seats) applicable after the 1-month free trial. Extra seats available at ₹1,000/seat/month (up to 20 seats). Includes multi-agent workspaces, native meeting recording with AI transcription, relational CRM, SAML SSO, audit logs, and priority support.`,
+    `- **Enterprise Plan**: Custom volume pricing for teams with 20+ members. Dedicated deployment, custom LLM routing, custom SLAs, audit logs, and on-prem database options. Contact hello@keilhq.in.`,
     ``
   );
 

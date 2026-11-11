@@ -161,7 +161,7 @@ const comparisonSections: ComparisonSection[] = [
       },
       {
         name: "Total estimated monthly stack cost per user",
-        keil: "₹500 intro → ₹2,000/mo (Pro) · ₹1,500 intro → ₹5,000/mo (5 seats) · ₹800/extra seat",
+        keil: "1-mo free trial · ₹500 1st mo → ₹1,800/mo (Personal) · ₹1,500 1st mo → ₹5,000/mo (Teams of 5) · ₹1,000/extra seat up to 20 seats · Custom for 20+",
         alternatives: "$60 – $120+ / user / mo when combining Slack ($8.75) + ClickUp ($12) + Notion ($10) + Fireflies ($10) + CRM ($15+).",
       },
     ],
@@ -183,10 +183,10 @@ const competitorGotchas: CompetitorGotcha[] = [
   {
     platform: "KeilHQ",
     badge: "Transparent Core",
-    price: "₹500 intro / mo · Pro: ₹2,000/mo · Teams (5): ₹5,000/mo",
+    price: "1-mo free trial · Personal: ₹500 1st mo → ₹1,800/mo · Teams (5): ₹1,500 1st mo → ₹5,000/mo",
     logo: "/keilhq.svg",
-    gotcha: "Zero seat penalty mandates. AI, team chat, rich docs, meeting recorder bot, CRM, and finance are built into the single platform core. Add extra seats to Teams at ₹800 / seat / mo.",
-    verdict: "₹500/mo (Solo intro) · ₹800/extra seat (Teams)",
+    gotcha: "Zero seat penalty mandates. 1-month free trial on all plans. First month at ₹500 (Personal) and ₹1,500 (Teams of 5), followed by regular ₹1,800/mo (Personal) and ₹5,000/mo (Teams of 5). Add extra seats to Teams at ₹1,000 / seat / mo up to 20 seats, followed by custom pricing for 20+.",
+    verdict: "₹500 1st mo → ₹1,800/mo (Personal) · ₹1,000/extra seat up to 20 (Teams)",
     isKeil: true,
   },
   {
@@ -240,11 +240,19 @@ const competitorGotchas: CompetitorGotcha[] = [
 const faqs = [
   {
     q: "Does the free trial require a credit card?",
-    a: "No. The 1-month Pro trial is completely free — no credit card needed. You only enter payment details if you choose to continue after 30 days.",
+    a: "No. The 1-month free trial is completely free — no credit card needed. You only enter payment details if you choose to continue after your 30-day trial.",
+  },
+  {
+    q: "How does the 1-month free trial and introductory pricing work?",
+    a: "Every workspace starts with a 1-month free trial with full access. After your free trial, your first month is available at special introductory pricing: ₹500 for Personal and ₹1,500 for Teams (includes 5 seats). From the second month onward, regular pricing applies: ₹1,800/mo for Personal and ₹5,000/mo for Teams of 5 people.",
+  },
+  {
+    q: "How does seat pricing work for Teams and growing companies?",
+    a: "The Teams plan includes 5 seats for ₹5,000/mo (or ₹4,500/mo on annual). You can add extra seats for ₹1,000/seat/mo up to 20 members. For teams larger than 20 people, we offer custom Enterprise pricing with volume discounts, dedicated deployments, and tailored SLAs.",
   },
   {
     q: "Can I switch between monthly and annual billing at any time?",
-    a: "Yes. You can switch cycles at any point — billing adjustments are prorated automatically. Pro is ₹2,000/mo on monthly or ₹1,800/mo on annual. Teams (5 seats) is ₹5,000/mo monthly or ₹4,500/mo annual. Additional seats on Teams are ₹800/seat/mo regardless of cycle.",
+    a: "Yes. You can switch cycles at any point — billing adjustments are prorated automatically. Personal is ₹1,800/mo on monthly or ₹1,620/mo on annual. Teams (5 seats) is ₹5,000/mo monthly or ₹4,500/mo annual. Additional seats on Teams are ₹1,000/seat/mo (or ₹900/seat/mo annual) up to 20 seats.",
   },
   {
     q: "What happens to my data if I don't upgrade after the trial?",
@@ -252,7 +260,7 @@ const faqs = [
   },
   {
     q: "Is my customer and workspace data used to train AI models?",
-    a: "On all paid plans (Pro, Teams, Enterprise), customer data is strictly isolated and never used to train public or foundation models.",
+    a: "On all paid plans (Personal, Teams, Enterprise), customer data is strictly isolated and never used to train public or foundation models.",
   },
   {
     q: "How does KeilHQ replace 5+ separate subscriptions?",
@@ -290,20 +298,20 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 
 /* ─── Plan pricing data ──────────────────────────────────────────────────── */
 const plans = {
-  pro: {
-    monthly: { intro: "₹500", real: "₹2,000", sub: "/ mo" },
-    annual: { intro: "₹500", real: "₹1,800", sub: "/ mo" },
+  personal: {
+    monthly: { intro: "₹500", regular: "₹1,800", sub: "/ mo" },
+    annual: { intro: "₹500", regular: "₹1,620", sub: "/ mo" },
   },
   teams: {
-    monthly: { intro: "₹1,500", real: "₹5,000", sub: "/ mo for 5 seats" },
-    annual: { intro: "₹1,500", real: "₹4,500", sub: "/ mo for 5 seats" },
+    monthly: { intro: "₹1,500", regular: "₹5,000", sub: "/ mo for 5 seats", extraSeat: "₹1,000" },
+    annual: { intro: "₹1,500", regular: "₹4,500", sub: "/ mo for 5 seats", extraSeat: "₹900" },
   },
 } as const;
 
 export function PricingClient() {
   const [billingCycle, setBillingCycle] = useState<"annual" | "monthly">("annual");
   const isAnnual = billingCycle === "annual";
-  const pro = plans.pro[billingCycle];
+  const personal = plans.personal[billingCycle];
   const teams = plans.teams[billingCycle];
 
   return (
@@ -374,16 +382,16 @@ export function PricingClient() {
                 <div>
                   <h3 className="font-display text-lg font-semibold text-foreground">Free Trial</h3>
                   <p className="text-[13px] text-muted-foreground mt-1.5 leading-relaxed font-sans">
-                    For individuals exploring unified AI clarity.
+                    For individuals &amp; teams exploring unified AI clarity.
                   </p>
                 </div>
 
                 <div className="flex flex-col gap-0.5 font-display">
                   <div className="flex items-baseline gap-1">
                     <span className="text-3xl font-semibold text-foreground">₹0</span>
-                    <span className="text-xs text-muted-foreground font-sans">/ 30 days</span>
+                    <span className="text-xs text-muted-foreground font-sans">/ 1 month</span>
                   </div>
-                  <span className="text-[11px] text-muted-foreground font-sans">No credit card required</span>
+                  <span className="text-[11px] text-muted-foreground font-sans">30 days free · No credit card required</span>
                 </div>
 
                 <Link
@@ -405,6 +413,7 @@ export function PricingClient() {
 
                 <div className="flex flex-col gap-3 pt-4 border-t border-border/40 text-[13px] text-muted-foreground font-sans">
                   <span className="text-[11px] uppercase tracking-wider text-foreground font-semibold font-display">Includes:</span>
+                  <div className="flex items-center gap-2.5"><Check className="size-3.5 text-foreground shrink-0 stroke-[2.5]" /> <span>1-month full access to workspace</span></div>
                   <div className="flex items-center gap-2.5"><Check className="size-3.5 text-foreground shrink-0 stroke-[2.5]" /> <span>Up to 5 workspace members</span></div>
                   <div className="flex items-center gap-2.5"><Check className="size-3.5 text-foreground shrink-0 stroke-[2.5]" /> <span>Unlimited tasks &amp; docs</span></div>
                   <div className="flex items-center gap-2.5"><Check className="size-3.5 text-foreground shrink-0 stroke-[2.5]" /> <span>25 AI agent prompts / day</span></div>
@@ -414,12 +423,12 @@ export function PricingClient() {
               </div>
             </div>
 
-            {/* Plan 2: Pro (Personal) */}
+            {/* Plan 2: Personal */}
             <div className="bg-background p-8 flex flex-col justify-between gap-8 relative">
               <div className="flex flex-col gap-6">
                 <div>
                   <div className="flex items-center justify-between">
-                    <h3 className="font-display text-lg font-semibold text-foreground">Pro (Personal)</h3>
+                    <h3 className="font-display text-lg font-semibold text-foreground">Personal</h3>
                     <span className="text-[10px] px-2 py-0.5 rounded-full bg-[var(--color-copper)]/15 text-[var(--color-copper)] font-semibold uppercase tracking-wider font-display">
                       Popular
                     </span>
@@ -429,16 +438,21 @@ export function PricingClient() {
                   </p>
                 </div>
 
-                <div className="flex flex-col gap-1 font-display">
-                  {/* Intro price — hero number */}
+                <div className="flex flex-col gap-1.5 font-display">
+                  {/* Regular price — hero number */}
                   <div className="flex items-baseline gap-1.5">
-                    <span className="text-3xl font-semibold text-foreground">{pro.intro}</span>
-                    <span className="text-xs text-muted-foreground font-sans">{pro.sub}</span>
+                    <span className="text-3xl font-semibold text-foreground">{personal.regular}</span>
+                    <span className="text-xs text-muted-foreground font-sans">{personal.sub}</span>
                   </div>
-                  {/* Real price — shown as "then" beneath */}
-                  <span className="text-[11px] text-muted-foreground font-sans">
-                    for first 3 months, then {pro.real}{pro.sub === "/ mo" ? "/mo" : "/mo"}
-                  </span>
+                  {/* 1 month free trial + intro offer */}
+                  <div className="flex flex-col gap-0.5 text-[11px] font-sans">
+                    <span className="text-[var(--color-copper)] font-medium">
+                      {personal.intro} for your first month
+                    </span>
+                    <span className="text-muted-foreground">
+                      Applicable after 1-month free trial
+                    </span>
+                  </div>
                 </div>
 
                 <Link
@@ -447,19 +461,21 @@ export function PricingClient() {
                   rel="noopener noreferrer"
                   onClick={() =>
                     trackStartFreeClick({
-                      location: "pricing_card_pro",
-                      label: "Get Pro",
-                      plan: "Pro",
+                      location: "pricing_card_personal",
+                      label: "Get Personal",
+                      plan: "Personal",
                       href: WAITLIST_URL,
                     })
                   }
                   className="w-full py-2.5 px-4 rounded-md bg-primary hover:bg-primary/90 text-primary-foreground text-xs font-semibold text-center transition-transform duration-150 active:scale-[0.97] font-display shadow-xs"
                 >
-                  Get Pro
+                  Get Personal
                 </Link>
 
                 <div className="flex flex-col gap-3 pt-4 border-t border-border/40 text-[13px] text-muted-foreground font-sans">
                   <span className="text-[11px] uppercase tracking-wider text-foreground font-semibold font-display">Everything in Trial, plus:</span>
+                  <div className="flex items-center gap-2.5"><Check className="size-3.5 text-foreground shrink-0 stroke-[2.5]" /> <span>1-month free trial included</span></div>
+                  <div className="flex items-center gap-2.5"><Check className="size-3.5 text-foreground shrink-0 stroke-[2.5]" /> <span>₹500 first month intro pricing</span></div>
                   <div className="flex items-center gap-2.5"><Check className="size-3.5 text-foreground shrink-0 stroke-[2.5]" /> <span>Unlimited personal workspace &amp; storage</span></div>
                   <div className="flex items-center gap-2.5"><Check className="size-3.5 text-foreground shrink-0 stroke-[2.5]" /> <span>100 AI prompts / day</span></div>
                   <div className="flex items-center gap-2.5"><Check className="size-3.5 text-foreground shrink-0 stroke-[2.5]" /> <span>Unlimited live meeting bot</span></div>
@@ -469,26 +485,31 @@ export function PricingClient() {
               </div>
             </div>
 
-            {/* Plan 3: Teams (5 People) */}
+            {/* Plan 3: Teams (5 to 20 People) */}
             <div className="bg-background p-8 flex flex-col justify-between gap-8">
               <div className="flex flex-col gap-6">
                 <div>
                   <h3 className="font-display text-lg font-semibold text-foreground">Teams</h3>
                   <p className="text-[13px] text-muted-foreground mt-1.5 leading-relaxed font-sans">
-                    For growing squads of 5 members needing shared context.
+                    For growing squads needing shared context and speed.
                   </p>
                 </div>
 
-                <div className="flex flex-col gap-1 font-display">
-                  {/* Intro price — hero number */}
+                <div className="flex flex-col gap-1.5 font-display">
+                  {/* Regular price — hero number */}
                   <div className="flex items-baseline gap-1.5">
-                    <span className="text-3xl font-semibold text-foreground">{teams.intro}</span>
+                    <span className="text-3xl font-semibold text-foreground">{teams.regular}</span>
                     <span className="text-xs text-muted-foreground font-sans">{teams.sub}</span>
                   </div>
-                  {/* Real price — shown as "then" beneath */}
-                  <span className="text-[11px] text-muted-foreground font-sans">
-                    for first 3 months, then {teams.real}/mo
-                  </span>
+                  {/* 1 month free trial + intro offer */}
+                  <div className="flex flex-col gap-0.5 text-[11px] font-sans">
+                    <span className="text-[var(--color-copper)] font-medium">
+                      {teams.intro} for your first month (5 seats)
+                    </span>
+                    <span className="text-muted-foreground">
+                      Applicable after 1-month free trial
+                    </span>
+                  </div>
                 </div>
 
                 <Link
@@ -509,9 +530,11 @@ export function PricingClient() {
                 </Link>
 
                 <div className="flex flex-col gap-3 pt-4 border-t border-border/40 text-[13px] text-muted-foreground font-sans">
-                  <span className="text-[11px] uppercase tracking-wider text-foreground font-semibold font-display">Everything in Pro, plus:</span>
+                  <span className="text-[11px] uppercase tracking-wider text-foreground font-semibold font-display">Everything in Personal, plus:</span>
                   <div className="flex items-center gap-2.5"><Check className="size-3.5 text-foreground shrink-0 stroke-[2.5]" /> <span>Includes 5 workspace members</span></div>
-                  <div className="flex items-center gap-2.5"><Check className="size-3.5 text-foreground shrink-0 stroke-[2.5]" /> <span>₹800 / extra seat / mo (scalable)</span></div>
+                  <div className="flex items-center gap-2.5"><Check className="size-3.5 text-foreground shrink-0 stroke-[2.5]" /> <span>₹1,500 first month intro pricing</span></div>
+                  <div className="flex items-center gap-2.5"><Check className="size-3.5 text-foreground shrink-0 stroke-[2.5]" /> <span>₹1,000 / extra seat / mo (up to 20 people)</span></div>
+                  <div className="flex items-center gap-2.5"><Check className="size-3.5 text-foreground shrink-0 stroke-[2.5]" /> <span>Custom pricing for teams of 20+</span></div>
                   <div className="flex items-center gap-2.5"><Check className="size-3.5 text-foreground shrink-0 stroke-[2.5]" /> <span>Single Sign-On (SAML / SSO)</span></div>
                   <div className="flex items-center gap-2.5"><Check className="size-3.5 text-foreground shrink-0 stroke-[2.5]" /> <span>Detailed audit &amp; activity logs</span></div>
                   <div className="flex items-center gap-2.5"><Check className="size-3.5 text-foreground shrink-0 stroke-[2.5]" /> <span>Advanced admin permissions</span></div>
@@ -526,7 +549,7 @@ export function PricingClient() {
                 <div>
                   <h3 className="font-display text-lg font-semibold text-foreground">Enterprise</h3>
                   <p className="text-[13px] text-muted-foreground mt-1.5 leading-relaxed font-sans">
-                    For organizations with compliance &amp; on-prem needs.
+                    For organizations with 20+ people or compliance &amp; on-prem needs.
                   </p>
                 </div>
 
@@ -534,7 +557,7 @@ export function PricingClient() {
                   <div className="flex items-baseline gap-1">
                     <span className="text-3xl font-semibold text-foreground">Custom</span>
                   </div>
-                  <span className="text-[11px] text-muted-foreground font-sans">Custom annual contracts</span>
+                  <span className="text-[11px] text-muted-foreground font-sans">For 20+ seats or custom annual contracts</span>
                 </div>
 
                 <a
@@ -546,6 +569,7 @@ export function PricingClient() {
 
                 <div className="flex flex-col gap-3 pt-4 border-t border-border/40 text-[13px] text-muted-foreground font-sans">
                   <span className="text-[11px] uppercase tracking-wider text-foreground font-semibold font-display">Everything in Teams, plus:</span>
+                  <div className="flex items-center gap-2.5"><Check className="size-3.5 text-foreground shrink-0 stroke-[2.5]" /> <span>Tailored volume pricing for 20+ members</span></div>
                   <div className="flex items-center gap-2.5"><Check className="size-3.5 text-foreground shrink-0 stroke-[2.5]" /> <span>Self-hosted / On-prem database</span></div>
                   <div className="flex items-center gap-2.5"><Check className="size-3.5 text-foreground shrink-0 stroke-[2.5]" /> <span>Custom SLAs &amp; legal contracts</span></div>
                   <div className="flex items-center gap-2.5"><Check className="size-3.5 text-foreground shrink-0 stroke-[2.5]" /> <span>Unlimited custom AI models</span></div>

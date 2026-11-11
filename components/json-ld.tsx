@@ -187,10 +187,13 @@ export function JsonLd() {
     keywords:
       "task management, AI workspace, team collaboration, meeting transcription, project management, CRM, docs, chat, calendar sync, multi-agent AI",
     offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "USD",
-      description: "Free to start, paid plans for growing teams.",
+      "@type": "AggregateOffer",
+      lowPrice: "0",
+      highPrice: "5000",
+      priceCurrency: "INR",
+      offerCount: 4,
+      description:
+        "1-month free trial, introductory pricing from ₹500 (Personal) and ₹1,500 (Teams of 5), regular pricing from ₹1,800/mo (Personal) and ₹5,000/mo (Teams of 5) + ₹1,000/seat up to 20 seats, followed by custom Enterprise.",
     },
     publisher: { "@id": `${BASE_URL}/#organization` },
     screenshot: [
@@ -216,18 +219,22 @@ export function JsonLd() {
     <>
       <script
         type="application/ld+json"
+        suppressHydrationWarning
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
       />
       <script
         type="application/ld+json"
+        suppressHydrationWarning
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
       />
       <script
         type="application/ld+json"
+        suppressHydrationWarning
         dangerouslySetInnerHTML={{ __html: JSON.stringify(siteNavigationSchema) }}
       />
       <script
         type="application/ld+json"
+        suppressHydrationWarning
         dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppSchema) }}
       />
     </>
